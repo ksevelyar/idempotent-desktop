@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --bg-fill --image-bg 'black' '/storage/Dropbox/pics/wallpapers/wallhaven-3590.jpg' 

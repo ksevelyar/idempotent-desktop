@@ -1,0 +1,24 @@
+#
+# Lists lost Git commits.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# function git-commit-lost {
+
+if ! is-true "$(command git rev-parse --is-inside-work-tree 2> /dev/null)"; then
+  print "$0: not a repository work tree: $PWD" >&2
+  return 1
+fi
+
+command git fsck 2> /dev/null \
+  | grep "^dangling commit" \
+  | awk '{print $3}' \
+  | command git log \
+      --date-order \
+      --no-walk \
+      --stdin \
+      --pretty=format:${_git_log_oneline_format}
+
+# }

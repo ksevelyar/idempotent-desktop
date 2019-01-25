@@ -1,0 +1,8 @@
+Documentation:
+  Enabled: false
+
+AllCops:
+  DisplayStyleGuide: true
+
+Metrics/LineLength:
+  Max: 100

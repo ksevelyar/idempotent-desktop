@@ -1,0 +1,26 @@
+#
+# Asks for confirmation before clearing the Git stash.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# function git-stash-clear-interactive {
+
+if ! is-true "$(command git rev-parse --is-inside-work-tree 2> /dev/null)"; then
+  print "$0: not a repository work tree: $PWD" >&2
+  return 1
+fi
+
+local stashed
+
+if [[ -f "$(git-dir)/refs/stash" ]]; then
+  stashed="$(command git stash list 2> /dev/null | wc -l | awk '{print $1}')"
+  if (( $stashed > 0 )); then
+    if read -q "?Clear $stashed stashed state(s) [y/N]? "; then
+      command git stash clear
+    fi
+  fi
+fi
+
+# }

@@ -1,0 +1,6 @@
+--skip-test
+--skip-turbolinks
+--skip-coffee
+--skip-sprockets
+--webpack
+--database=postgresql

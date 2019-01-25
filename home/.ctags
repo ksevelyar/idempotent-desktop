@@ -1,0 +1,10 @@
+--recurse=yes
+--tag-relative=yes
+--exclude=.git
+--exclude=log
+--exclude=tmp
+--exclude=doc
+--exclude=deps
+--exclude=node_modules
+--exclude=public/assets
+--languages=ruby,javascript

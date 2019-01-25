@@ -1,0 +1,91 @@
+[global_config]
+  always_split_with_profile = True
+  borderless = True
+  close_button_on_tab = False
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  focus = mouse
+  inactive_color_offset = 1.0
+  suppress_multiple_term_dialog = True
+  title_font = Iosevka 16
+  title_hide_sizetext = True
+  title_inactive_bg_color = "#0d0936"
+  title_transmit_bg_color = "#5c3566"
+  title_transmit_fg_color = "#c6aac3"
+  title_use_system_font = False
+[keybindings]
+  copy = <Primary>c
+  paste = <Primary>v
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+  [[dev]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = c85b93ee-cf79-4cbb-89a7-b4efa1e52b0d
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 512:550
+      size = 1534, 473
+      type = Window
+    [[[terminal1]]]
+      order = 0
+      parent = child0
+      profile = default
+      type = Terminal
+      uuid = c85b93ee-cf79-4cbb-89a7-b4efa1e52b0d
+  [[sys]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      title = ~
+      type = Window
+    [[[child1]]]
+      active_page = 1
+      labels = None, None
+      last_active_term = e7d8c9f2-8088-4858-8f50-d3d68b67119e, a1ba111b-2b63-4854-a2f1-c73c08c2bcf0
+      order = 0
+      parent = child0
+      type = Notebook
+    [[[terminal2]]]
+      command = ruby -v && zsh
+      directory = ""
+      order = 0
+      parent = child1
+      profile = default
+      type = Terminal
+      uuid = e7d8c9f2-8088-4858-8f50-d3d68b67119e
+    [[[terminal3]]]
+      order = 1
+      parent = child1
+      profile = default
+      type = Terminal
+      uuid = a1ba111b-2b63-4854-a2f1-c73c08c2bcf0
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#0d0d0d"
+    background_darkness = 0.2
+    background_type = transparent
+    copy_on_selection = True
+    cursor_blink = False
+    cursor_color = "#aaaaaa"
+    cursor_shape = underline
+    font = Iosevka 16
+    foreground_color = "#c6aac3"
+    palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    scroll_on_keystroke = False
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False

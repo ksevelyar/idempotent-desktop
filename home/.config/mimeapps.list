@@ -1,0 +1,31 @@
+[Default Applications]
+video/x-msvideo=smplayer.desktop;
+video/mp4=smplayer.desktop;
+application/x-fictionbook+xml=FBReader.desktop;
+video/webm=smplayer.desktop;
+inode/directory=spacefm-folder-handler.desktop;
+video/x-matroska=smplayer.desktop;
+x-scheme-handler/tg=telegramdesktop.desktop
+video/quicktime=smplayer.desktop;
+x-scheme-handler/mailto=google-chrome.desktop
+image/jpeg=mirage.desktop;
+image/png=mirage.desktop;
+application/pdf=evince.desktop;
+application/zip=zip-usercreated-0.desktop;
+application/x-zip-compressed-fb2=org.gnome.FileRoller.desktop;
+video/mpeg=smplayer.desktop;
+
+[Added Associations]
+video/x-msvideo=smplayer.desktop;
+video/mp4=smplayer.desktop;
+application/x-fictionbook+xml=FBReader.desktop;
+video/webm=smplayer.desktop;
+inode/directory=org.gnome.FileRoller.desktop;spacefm-folder-handler.desktop;
+video/x-matroska=smplayer.desktop;
+video/quicktime=smplayer.desktop;
+image/jpeg=mirage.desktop;
+image/png=mirage.desktop;
+application/pdf=evince.desktop;
+application/zip=zip-usercreated-0.desktop;
+application/x-zip-compressed-fb2=org.gnome.FileRoller.desktop;
+video/mpeg=smplayer.desktop;

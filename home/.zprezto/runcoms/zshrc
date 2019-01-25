@@ -1,0 +1,105 @@
+# Bindings
+stty intr \^k # use ctrl-k instead of ctrl-c
+
+# PATHS
+export PATH="/home/ksevelyar/.npm-global/bin:$PATH"
+export PATH="/home/ksevelyar/.local/bin:${PATH}"
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+
+# Customize to your needs...
+export EDITOR="nvim"
+export BROWSER="google-chrome-stable"
+
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=30000
+SAVEHIST=30000
+
+install_yay() {
+  git clone https://aur.archlinux.org/yay.git
+  cd yay
+  makepkg -si
+}
+
+sync_bg() {
+  local last_wallpaper=$(ls -dt1 /storage/Dropbox/pics/wallpapers/* | head -n 1)
+  feh --bg-fill --image-bg 'black' $last_wallpaper
+}
+
+iruby() {
+  curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
+  local latest_stable_ruby=$(rbenv install -l | grep -v - | tail -1 | tr -d '[[:space:]]')
+
+  rbenv install $latest_stable_ruby
+  rbenv global $latest_stable_ruby
+  gem install rails bundler pry awesome_print neovim solargraph rubocop brakeman rails_best_practices slim_lint haml_lint
+}
+
+ijs() {
+  npm i -g stylelint-selector-bem-pattern stylelint-config-recommended-scss stylelint-scss stylelint eslint stylelint-config-standard eslint-config-airbnb-base tern eslint-plugin-vue eslint-plugin-import
+}
+ipy() {
+  pip install vim-vint
+}
+
+itools() {
+  yay -S --noconfirm ranger nvim ripgrep git diff-so-fancy gitg zsh autojump tmux vtop nerd-fonts-complete
+}
+
+bump_dotfiles() {
+  cp ~/.xmonad/xmonad.hs /code/dotfiles/xmonad/
+
+  cp ~/.zshrc /code/dotfiles/prezto/
+  cp ~/.zpreztorc /code/dotfiles/prezto/
+  cp ~/.zprezto/modules/prompt/functions/prompt_neosapien_setup /code/dotfiles/prezto/modules/prompt/functions/
+
+  cp ~/.config/nvim/init.vim /code/dotfiles/nvim/.config/nvim/init.vim
+}
+
+# AlIASES
+alias gb='git symbolic-ref --short -q HEAD'
+alias yay_local='yay -Qs'
+alias yi='yay -S --noconfirm'
+alias yr='yay -Rd --noconfirm'
+
+alias off='sleep 1; xset dpms force off'
+alias switch_pacman_mirrors='sudo reflector --country Russia --country Germany --age 12 --sort rate --save /etc/pacman.d/mirrorlist'
+
+alias deploy='bundle exec cap production deploy'
+
+alias npmg='npm install -g'
+alias pgrep='pgrep --full'
+alias k='killall'
+alias g=git
+
+v() {
+  [ -z $1 ] && nvim && exit 1
+  [ -w $1 ] && nvim $1 || sudo nvim $1
+}
+git_open_changed_files() {
+  nvim -p `git diff --name-only`
+}
+git_full_clean() {
+  git clean -f -d
+}
+
+# APPS
+[[ -s /etc/profile.d/autojump.sh ]] && . /etc/profile.d/autojump.sh
+
+# FZF
+# <CTRL+T> list files+folders in current directory (e.g., git commit <CTRL+T>, select a few files using <TAB>, finally <Return>)
+# <CTRL+R> search history of shell commands
+# <ALT+C> fuzzy change directory
+# source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+  exec startx
+fi
+
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+fpath=($HOME/.homesick/repos/homeshick/completions $fpath)

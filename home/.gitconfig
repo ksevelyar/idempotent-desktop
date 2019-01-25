@@ -1,0 +1,13 @@
+[user]
+	name = Sergey Zubkov
+	email = ksevelyar@gmail.com
+[core]
+	excludesfile = /home/ksevelyar/.gitignore
+	filemode = false
+	pager = "diff-so-fancy | less --tabs=2 -RFX"
+[push]
+	default = current
+[color]
+	ui = true
+[branch "master"]
+	remote = origin
