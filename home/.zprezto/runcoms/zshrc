@@ -1,5 +1,5 @@
 # Bindings
-stty intr \^k # use ctrl-k instead of ctrl-c
+stty intr \^s # use ctrl-s instead of ctrl-c
 
 # PATHS
 export PATH="/home/ksevelyar/.npm-global/bin:$PATH"
@@ -67,7 +67,7 @@ alias yi='yay -S --noconfirm'
 alias yr='yay -Rd --noconfirm'
 
 alias off='sleep 1; xset dpms force off'
-alias switch_pacman_mirrors='sudo reflector --country Russia --country Germany --age 12 --sort rate --save /etc/pacman.d/mirrorlist'
+alias optimize_pacman_mirrors='sudo reflector --country Russia --country Germany --age 12 --sort rate --save /etc/pacman.d/mirrorlist'
 
 alias deploy='bundle exec cap production deploy'
 

@@ -1,4 +1,5 @@
 --recurse=yes
+--sort=yes
 --tag-relative=yes
 --exclude=.git
 --exclude=log
