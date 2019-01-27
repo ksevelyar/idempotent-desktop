@@ -1,0 +1,14 @@
+{
+  "extends": "stylelint-config-recommended-scss",
+  "plugins": [
+    "stylelint-selector-bem-pattern", "stylelint-scss"
+  ],
+  "rules": {
+    "plugin/selector-bem-pattern": {
+      "componentName": "[A-Z]+",
+      "componentSelectors": {
+        "initial": "^\\.{componentName}(?:-[a-z]+)?$"
+      }
+    }
+  }
+}
