@@ -29,7 +29,7 @@ let g:ale_sign_warning = '◉'
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'ruby': ['rubocop'],
-\   'javascript': ['prettier', 'eslint'],
+\   'javascript': ['eslint'],
 \   'json': ['prettier'],
 \}
 set completeopt=menu,menuone,preview,noselect,noinsert " fix ale + solargraph
@@ -128,6 +128,8 @@ let g:airline_skip_empty_sections = 1
 Plug 'vim-airline/vim-airline'
 
 Plug 'tpope/vim-fugitive'
+Plug 'posva/vim-vue'
+Plug 'digitaltoad/vim-pug'
 
 """ Navigation
 Plug 'ctrlpvim/ctrlp.vim'
@@ -387,6 +389,7 @@ imap <F11> <Esc>:ALEFix<CR>
 map <F12> :qa<cr>
 imap <F12> <Esc>:qa<CR>
 
+command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
 
 "" vim:fdm=expr:fdl=1
 "" vim:fde=getline(v\:lnum)=~'^""'?'>'.(matchend(getline(v\:lnum),'""*')-2)\:'='

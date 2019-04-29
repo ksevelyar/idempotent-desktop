@@ -1,5 +1,5 @@
 # Bindings
-stty intr \^s # use ctrl-s instead of ctrl-c
+stty intr \^k # use ctrl-s instead of ctrl-c
 
 # PATHS
 export PATH="/home/ksevelyar/.npm-global/bin:$PATH"
@@ -36,18 +36,21 @@ iruby() {
 
   rbenv install $latest_stable_ruby
   rbenv global $latest_stable_ruby
-  gem install rails bundler pry awesome_print neovim solargraph rubocop brakeman rails_best_practices slim_lint haml_lint
+  gem install rails bundler pry pry-doc awesome_print neovim solargraph rubocop brakeman rails_best_practices slim_lint haml_lint
 }
 
 ijs() {
   npm i -g stylelint-selector-bem-pattern stylelint-config-recommended-scss stylelint-scss stylelint eslint stylelint-config-standard eslint-config-airbnb-base tern eslint-plugin-vue eslint-plugin-import
+  npm i -g prettier eslint-plugin-prettier
 }
 ipy() {
   pip install vim-vint
 }
 
 itools() {
-  yay -S --noconfirm ranger nvim ripgrep git diff-so-fancy gitg zsh autojump tmux vtop nerd-fonts-complete
+  pacman -S --noconfirm reflector
+  sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+  yay -S --noconfirm ranger neovim ripgrep git diff-so-fancy gitg zsh autojump tmux vtop nerd-fonts-complete fzf fzf-extras mlocate ctags terminator ncdu
 }
 
 bump_dotfiles() {
@@ -75,6 +78,8 @@ alias npmg='npm install -g'
 alias pgrep='pgrep --full'
 alias k='killall'
 alias g=git
+alias rc='bin/rails console'
+
 
 v() {
   [ -z $1 ] && nvim && exit 1
@@ -103,3 +108,6 @@ fi
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+
+# Source user specific settings
+[ -f .zshrc_user ] && source .zshrc_user
