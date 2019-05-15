@@ -30,7 +30,9 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'ruby': ['rubocop'],
 \   'javascript': ['eslint'],
+\   'vue': ['eslint', 'stylelint'],
 \   'json': ['prettier'],
+\   'sass': ['stylelint'],
 \}
 set completeopt=menu,menuone,preview,noselect,noinsert " fix ale + solargraph
 Plug 'w0rp/ale' " gem install neovim solargraph
@@ -67,6 +69,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/yajs.vim'
 Plug 'elzr/vim-json'
+let g:vim_json_syntax_conceal = 0
 
 Plug 'mutewinter/nginx.vim'
 
@@ -231,7 +234,6 @@ set backupcopy=yes "Overwrite the original backup file
 
 "Meaningful backup name, ex: filename@2015-04-05.14
 au BufWritePre * let &bex = 'gh' . '@' . strftime("%F.%H") . '.bac'
-
 
 set undofile
 set undolevels=500
