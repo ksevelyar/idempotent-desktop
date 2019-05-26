@@ -46,7 +46,7 @@ let g:yankring_clipboard_monitor=0
 
 Plug 'easymotion/vim-easymotion'
 
-Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'dracula/vim', { 'as': 'dracula' }
 
 let g:colorizer_auto_filetype='css,sass,vim'
 let g:colorizer_disable_bufleave = 1
@@ -61,6 +61,7 @@ Plug 'slim-template/vim-slim'
 Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
 Plug 'junegunn/fzf.vim'
+Plug 'dag/vim-fish'
 
 Plug 'tpope/vim-endwise'
 Plug 'valloric/MatchTagAlways'
@@ -94,7 +95,7 @@ let g:far#file_mask_favorites = ['%', '**/*.*', '**/*.rb', '**/*.slim', '**/*.js
 Plug 'jsfaint/gen_tags.vim'
 Plug 'mbbill/undotree'
 
-let g:gen_tags#ctags_opts = '-R --sort=yes --languages=ruby,javascript --exclude=.git --exclude=log --exclude=public . $(bundle list --paths)'
+" let g:gen_tags#ctags_opts = '-R --sort=yes --languages=ruby,javascript --exclude=.git --exclude=log --exclude=public . $(bundle list --paths)'
 let g:gen_tags#ctags_auto_gen = 1
 
 " -------------------------
@@ -157,7 +158,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'ryanoasis/vim-devicons' " yay aur/nerd-fonts-complete
 
 """ Themes
 Plug 'whatyouhide/vim-gotham'
@@ -165,6 +165,8 @@ Plug '/code/joker'
 Plug 'cocopon/iceberg.vim'
 Plug 'whatyouhide/vim-gotham'
 " Plug 'liuchengxu/space-vim-dark'
+
+Plug 'ryanoasis/vim-devicons' " yay aur/nerd-fonts-complete
 
 call plug#end()
 
@@ -345,8 +347,6 @@ nmap <Leader>ct :ColorToggle<cr>
 
 " copy / paste
 vmap <C-C> "+y
-map  <C-V> <esc>"+p
-imap <C-V> <esc>"+pi
 
 nnoremap ; :
 nnoremap <leader>; q:i

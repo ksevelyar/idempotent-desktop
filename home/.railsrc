@@ -2,6 +2,6 @@
 --skip-turbolinks
 --skip-coffee
 --skip-sprockets
---webpack=vue
+--api
 --database=postgresql
 --skip-javascript
