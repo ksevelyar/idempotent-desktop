@@ -1,14 +1,14 @@
 # Run from zsh to import history
-# cp ~/.local/share/fish/fish_history{,.bak}
+# mv ~/.local/share/fish/fish_history{,.bak}
 # fc -lni 1 | ruby -rtime -r yaml -e 'puts STDIN.inject([]) { |a, l| a << { "cmd" => l[16..-1].strip, "when" => Time.parse(l[0..15]).to_i } }.to_yaml(options = {:line_width => -1})' > ~/.local/share/fish/fish_history
 
 source ~/.asdf/asdf.fish
 source "$HOME/.homesick/repos/homeshick/homeshick.fish"
 
 if not functions -q fisher
-    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
-    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-    fish -c fisher
+  set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+  curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+  fish -c fisher
 end
 
 if test -z "$DISPLAY"; and test "$XDG_VTNR" -eq 1
@@ -64,7 +64,7 @@ end
 
 function tools
   yay -Sy --noconfirm ranger neovim ripgrep git diff-so-fancy gitg fish tmux vtop \
-  wget curl \
+  wget curl openssh \
   nerd-fonts-complete fzf fzf-extras mlocate ctags terminator ncdu \
   pigz pbzip2
 end
