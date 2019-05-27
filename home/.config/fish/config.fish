@@ -1,8 +1,14 @@
 # Run from zsh to import history
 # mv ~/.local/share/fish/fish_history{,.bak}
 # fc -lni 1 | ruby -rtime -r yaml -e 'puts STDIN.inject([]) { |a, l| a << { "cmd" => l[16..-1].strip, "when" => Time.parse(l[0..15]).to_i } }.to_yaml(options = {:line_width => -1})' > ~/.local/share/fish/fish_history
-
+if not test -d ~/.asdf
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+  cd ~/.asdf
+  git checkout (git describe --abbrev=0 --tags)
+  mkdir -p ~/.config/fish/completions; and cp ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+end
 source ~/.asdf/asdf.fish
+
 source "$HOME/.homesick/repos/homeshick/homeshick.fish"
 
 if not functions -q fisher
@@ -10,6 +16,8 @@ if not functions -q fisher
   curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
   fish -c fisher
 end
+
+
 
 if test -z "$DISPLAY"; and test "$XDG_VTNR" -eq 1
   exec startx
@@ -30,9 +38,15 @@ alias rc='bin/rails console'
 alias db='bin/rails dbconsole'
 alias rr="bin/rails runner"
 
-function yayf
+function yi
   sync_mirrors
   yay -Syyu --noconfirm $argv
+end
+alias yr='yay -R --noconfirm'
+
+function sync_bg
+  set -l last_wallpaper (ls -dt1 /storage/Dropbox/pics/wallpapers/* | head -n 1)
+  feh --bg-fill --image-bg 'black' $last_wallpaper
 end
 
 function asdf_all
@@ -62,6 +76,17 @@ function asdf_ruby
   gem install rails bundler pry pry-doc awesome_print neovim solargraph rubocop brakeman rails_best_practices slim_lint haml_lint
 end
 
+function asdf_python
+  asdf plugin-add python
+
+  set -l latest_version (asdf list-all python | grep -v - | tail -1)
+  asdf install python $latest_version
+  asdf global python $latest_version
+
+  pip install --upgrade pip
+  pip install --user neovim
+end
+
 function sync_mirrors
   pacman -S --noconfirm reflector
   sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
@@ -70,10 +95,14 @@ end
 function tools
   yay -Sy --noconfirm ranger neovim ripgrep git diff-so-fancy gitg fish tmux vtop \
   wget curl openssh \
-  rukbi nerd-fonts-complete fzf fzf-extras mlocate ctags terminator ncdu \
+  rukbi nerd-fonts-complete fzf fzf-extras mlocate ctags global terminator ncdu \
   pigz pbzip2 \
-  xxkb xbindkeys xmonad xmonad-contrib xorg-xinit xorg feh rofi-greenclip redshift dzen2 \
+  xxkb xbindkeys xmonad xmonad-contrib xorg-xinit xorg feh rofi rofi-greenclip redshift dzen2 \
   xcursor-human lxappearance-gtk3 vibrancy-colors paper-icon-theme-git paper-gtk-theme-git numix-icon-theme-git \
   numix-gtk-theme numix-circle-icon-theme-git luv-icon-theme-git korla-icon-theme kiconthemes \
-  adwaita-icon-theme arc-gtk-theme arc-icon-theme archdroid-icon-theme elementary-icon-theme
+  adwaita-icon-theme arc-gtk-theme arc-icon-theme archdroid-icon-theme elementary-icon-theme \
+  reflector \
+  ttf-roboto ttf-fira-code ttf-dejavu terminess-powerline-font-git \
+  kodi smplayer \
+  keepassxc
 end
