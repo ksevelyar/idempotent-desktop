@@ -161,7 +161,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 """ Themes
 Plug 'whatyouhide/vim-gotham'
-Plug '/code/joker'
+Plug 'ksevelyar/joker.vim'
 Plug 'cocopon/iceberg.vim'
 Plug 'whatyouhide/vim-gotham'
 " Plug 'liuchengxu/space-vim-dark'

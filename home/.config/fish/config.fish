@@ -52,6 +52,7 @@ end
 function asdf_all
   asdf_js
   asdf_ruby
+  asdf_python
 end
 
 function asdf_js
@@ -93,7 +94,9 @@ function sync_mirrors
 end
 
 function tools
-  yay -Sy --noconfirm ranger neovim ripgrep git diff-so-fancy gitg fish tmux vtop \
+  sync_mirrors
+
+  yay -Sy --noconfirm ranger spacefm neovim ripgrep git diff-so-fancy gitg fish tmux vtop \
   wget curl openssh \
   rukbi nerd-fonts-complete fzf fzf-extras mlocate ctags global terminator ncdu \
   pigz pbzip2 \
@@ -103,6 +106,6 @@ function tools
   adwaita-icon-theme arc-gtk-theme arc-icon-theme archdroid-icon-theme elementary-icon-theme \
   reflector \
   ttf-roboto ttf-fira-code ttf-dejavu terminess-powerline-font-git \
-  kodi smplayer \
+  kodi smplayer gpmdp-remote gpmdp \
   keepassxc
 end
