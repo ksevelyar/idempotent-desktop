@@ -30,6 +30,11 @@ alias rc='bin/rails console'
 alias db='bin/rails dbconsole'
 alias rr="bin/rails runner"
 
+function yayf
+  sync_mirrors
+  yay -Syyu --noconfirm $argv
+end
+
 function asdf_all
   asdf_js
   asdf_ruby
@@ -65,6 +70,10 @@ end
 function tools
   yay -Sy --noconfirm ranger neovim ripgrep git diff-so-fancy gitg fish tmux vtop \
   wget curl openssh \
-  nerd-fonts-complete fzf fzf-extras mlocate ctags terminator ncdu \
-  pigz pbzip2
+  rukbi nerd-fonts-complete fzf fzf-extras mlocate ctags terminator ncdu \
+  pigz pbzip2 \
+  xxkb xbindkeys xmonad xmonad-contrib xorg-xinit xorg feh rofi-greenclip redshift dzen2 \
+  xcursor-human lxappearance-gtk3 vibrancy-colors paper-icon-theme-git paper-gtk-theme-git numix-icon-theme-git \
+  numix-gtk-theme numix-circle-icon-theme-git luv-icon-theme-git korla-icon-theme kiconthemes \
+  adwaita-icon-theme arc-gtk-theme arc-icon-theme archdroid-icon-theme elementary-icon-theme
 end
