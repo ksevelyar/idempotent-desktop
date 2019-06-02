@@ -228,10 +228,10 @@ scratchpads = [
     (customFloating $ W.RationalRect 0.20 0.05 0.6 0.44),
 
 
-  NS "peak-1" "roxterm --role peak-1 -e nvim -c 'startinsert' ~/notes/peak-1"
+  NS "peak-1" "terminator --role peak-1 -e 'nvim -c startinsert ~/notes/peak-1'"
     (role =? "peak-1")
     (customFloating $ W.RationalRect 0.10 0.05 0.4 0.44),
-  NS "peak-2" "roxterm --role peak-2 -e nvim -c 'startinsert' ~/notes/peak-2"
+  NS "peak-2" "terminator --role peak-2 -e 'nvim -c startinsert ~/notes/peak-2'"
     (role =? "peak-2")
     (customFloating $ W.RationalRect 0.50 0.05 0.4 0.44),
 
@@ -258,7 +258,7 @@ scratchpads = [
     (className =? "XnViewMP")
     (customFloating $ W.RationalRect 0.01 0.01 0.98 0.98),
 
-  NS "ranger" "cd /storage/films && roxterm --role ranger -e ranger"
+  NS "ranger" "cd /storage/films && terminator --role ranger -e ranger"
     (role =? "ranger")
     nonFloating
   ]
@@ -328,8 +328,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm, xK_s), namedScratchpadAction scratchpads  "spacefm")
   , ((modm, xK_g), namedScratchpadAction scratchpads  "gpmdp")
 
-  , ((0,    xK_Print), spawn "maim -s /storage/screenshots/region-$(date +%H_%M-%m_%d_%Y).png")
-  , ((modm, xK_Print), spawn "maim /storage/screenshots/full-$(date +%H_%M-%m_%d_%Y).png")
+  , ((0,    xK_Print), spawn "maim -s /storage/screenshots/region-$(date +%H_%M_%S-%m_%d_%Y).png")
+  , ((modm, xK_Print), spawn "maim /storage/screenshots/full-$(date +%H_%M_%S-%m_%d_%Y).png")
 
   -- XF86AudioLowerVolume
   , ((0, 0x1008ff11), spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%")
