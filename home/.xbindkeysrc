@@ -38,11 +38,11 @@
 #keystate_scrolllock= enable
 
 # Examples of commands:
-"xset -r 110 && pacmd set-source-mute @DEFAULT_SOURCE@ 1"
-  Home + Release
-
-"pacmd set-source-mute @DEFAULT_SOURCE@ 0"
-  Home
+# "xset -r 110 && pacmd set-source-mute @DEFAULT_SOURCE@ 1"
+#   Home + Release
+#
+# "pacmd set-source-mute @DEFAULT_SOURCE@ 0"
+#   Home
 
 # Increase volume
 "pactl set-sink-volume @DEFAULT_SINK@ +1000"

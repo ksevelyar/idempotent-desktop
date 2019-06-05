@@ -98,6 +98,15 @@ Plug 'mbbill/undotree'
 " let g:gen_tags#ctags_opts = '-R --sort=yes --languages=ruby,javascript --exclude=.git --exclude=log --exclude=public . $(bundle list --paths)'
 let g:gen_tags#ctags_auto_gen = 1
 
+" Interpolation
+Plug 'hwartig/vim-seeing-is-believing'
+augroup seeingIsBelievingSettings
+  autocmd!
+
+  autocmd FileType ruby nmap <buffer> <F2> <Plug>(seeing-is-believing-mark-and-run)
+  autocmd FileType ruby xmap <buffer> <F2> <Plug>(seeing-is-believing-mark-and-run)
+augroup END
+
 " -------------------------
 " UI
 " -------------------------
@@ -347,6 +356,7 @@ nmap <Leader>ct :ColorToggle<cr>
 
 " copy / paste
 vmap <C-C> "+y
+imap <C-V> <esc>"+pi
 
 nnoremap ; :
 nnoremap <leader>; q:i
@@ -356,14 +366,15 @@ map j gj
 map k gk
 
 " F1-F12
-map  <F1> :CtrlPBookmarkDir<cr>
-imap <F1> <Esc>:CtrlPBookmarkDir<cr>
-map <leader>ba :CtrlPBookmarkDirAdd<cr>
+" map  <F1> :CtrlPBookmarkDir<cr>
+" imap <F1> <Esc>:CtrlPBookmarkDir<cr>
+" map <leader>ba :CtrlPBookmarkDirAdd<cr>
+"
+" map  <silent><F2> :YRShow<cr>
+" imap <silent><F2> <Esc>:YRShow<cr>
 
-map  <silent><F2> :YRShow<cr>
-imap <silent><F2> <Esc>:YRShow<cr>
-
-nmap  <silent><F4> :update<cr>
+nmap <Leader>c :%s/[^^]#.*/<cr>
+nmap <silent><F4> :w<cr>
 vmap <silent><F4> <Esc><F4>gv
 imap <silent><F4> <Esc><F4>
 

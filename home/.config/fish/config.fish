@@ -55,6 +55,15 @@ function asdf_all
   asdf_python
 end
 
+function asdf_haskell
+  asdf plugin-add haskell
+  set -l latest_version (asdf list-all haskell | grep -v - | tail -1)
+  asdf install haskell $latest_version
+  asdf global haskell $latest_version
+
+  stack install stack-run
+end
+
 function asdf_js
   asdf plugin-add nodejs
   bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
@@ -74,7 +83,8 @@ function asdf_ruby
   asdf install ruby $latest_version
   asdf global ruby $latest_version
 
-  gem install rails bundler pry pry-doc awesome_print neovim solargraph rubocop brakeman rails_best_practices slim_lint haml_lint
+  gem install rails bundler pry pry-doc awesome_print neovim solargraph rubocop brakeman \
+  rails_best_practices slim_lint haml_lint seeing_is_believing
 end
 
 function asdf_python
