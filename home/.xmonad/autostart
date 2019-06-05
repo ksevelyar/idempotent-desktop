@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+pkill xmobar
+( xmobar -t '' -p 'Static { xpos = 0 , ypos = 0, width = 2560, height = 20 }' ) &
+( xmobar -t '' -p 'Static { xpos = 0 , ypos = 1060, width = 2560, height = 20 }' ) &
+
+# (sleep 1 && xdotool key super+shift+space && xdotool key super+shift+space) &
+
+# sleep 3 && wmctrl -r 'Google Chrome' -t 0
