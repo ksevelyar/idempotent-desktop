@@ -7,7 +7,6 @@ if not test -d ~/.asdf
   git checkout (git describe --abbrev=0 --tags)
   mkdir -p ~/.config/fish/completions; and cp ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 end
-source ~/.asdf/asdf.fish
 
 source "$HOME/.homesick/repos/homeshick/homeshick.fish"
 
@@ -16,8 +15,6 @@ if not functions -q fisher
   curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
   fish -c fisher
 end
-
-
 
 if test -z "$DISPLAY"; and test "$XDG_VTNR" -eq 1
   exec startx
@@ -106,8 +103,8 @@ end
 function tools
   sync_mirrors
 
-  yay -Sy --noconfirm ranger spacefm neovim ripgrep git diff-so-fancy gitg fish tmux vtop \
-  wget curl openssh \
+  yay -Syyu --noconfirm ranger spacefm neovim ripgrep git diff-so-fancy gitg fish tmux vtop \
+  wget curl openssh util-linux \
   rukbi nerd-fonts-complete fzf fzf-extras mlocate ctags global terminator ncdu \
   pigz pbzip2 \
   xxkb xbindkeys xmonad xmonad-contrib xorg-xinit xorg feh rofi rofi-greenclip redshift dzen2 \
@@ -117,5 +114,7 @@ function tools
   reflector \
   ttf-roboto ttf-fira-code ttf-dejavu terminess-powerline-font-git \
   kodi smplayer gpmdp-remote gpmdp \
-  keepassxc
+  keepassxc pavucontrol pulseaudio
 end
+
+source ~/.asdf/asdf.fish

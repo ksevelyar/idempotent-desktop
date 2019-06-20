@@ -3,8 +3,12 @@
     "browser": true,
     "es6": true
   },
-  "extends": ["eslint:recommended", "airbnb-base"],
+  "extends": ["eslint:recommended"],
   "parserOptions": {
-    "ecmaVersion": 9
+    "ecmaVersion": 9,
+    "sourceType": "module"
+  },
+  "rules": {
+    "semi": [1, "never"]
   }
 }

@@ -5,3 +5,4 @@
 --api
 --database=postgresql
 --skip-javascript
+--skip-yarn
