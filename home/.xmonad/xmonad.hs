@@ -275,7 +275,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm,                 xK_c     ), spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
   , ((modm,   xK_l     ), spawn "xscreensaver-command --lock")
   , ((modm,   xK_w     ), spawn "rofi -show window -modi window, window -sidebar-mode -lines 6 -width 800")
-  , ((modm,                 xK_b     ), spawn "firefox")
+  , ((modm,                 xK_b     ), spawn "firefox -p default")
+  , ((modm,                 xK_y     ), spawn "firefox -p tor")
   , ((modm,                 xK_v     ), spawn "terminator -e 'nvim'")
   , ((modm,                 xK_q     ), kill) -- close focused window
   , ((modm,                 xK_space ), sendMessage NextLayout)  -- Rotate through the available layout algorithms

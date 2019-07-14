@@ -21,10 +21,12 @@ if test -z "$DISPLAY"; and test "$XDG_VTNR" -eq 1
 end
 
 git_aliases
+user_config
 set -u DEFAULT_USER (whoami)
 
 alias g='git'
 alias j='z'
+alias u="aunpack"
 
 alias off='sleep 1; xset dpms force off'
 alias pgrep='pgrep --full'
@@ -34,12 +36,14 @@ alias rs='bin/rails server webrick'
 alias rc='bin/rails console'
 alias db='bin/rails dbconsole'
 alias rr="bin/rails runner"
+alias d="docker"
 
 function yi
   sync_mirrors
   yay -Syyu --noconfirm $argv
 end
 alias yr='yay -R --noconfirm'
+alias yy='yay -S --noconfirm'
 
 function sync_bg
   set -l last_wallpaper (ls -dt1 /storage/Dropbox/pics/wallpapers/* | head -n 1)
@@ -113,8 +117,24 @@ function tools
   adwaita-icon-theme arc-gtk-theme arc-icon-theme archdroid-icon-theme elementary-icon-theme \
   reflector \
   ttf-roboto ttf-fira-code ttf-dejavu terminess-powerline-font-git \
-  kodi smplayer gpmdp-remote gpmdp \
+  kodi smplayer gpmdp-remote gpmdp atool \
   keepassxc pavucontrol pulseaudio
+end
+
+function iminicube
+  sudo pacman -Sy --noconfirm libvirt qemu-headless ebtables dnsmasq docker-machine
+  yay -Sy --noconfirm docker-machine-driver-kvm2 minikube-bin kubectl-bin
+
+  sudo usermod -a -G libvirt (whoami)
+
+  sudo systemctl enable libvirtd.service --now
+  sudo systemctl enable virtlogd.service --now
+
+  sudo virt-host-validate
+  minikube config set vm-driver kvm2
+
+  minikube start --vm-driver kvm2
+  minikube dashboard
 end
 
 source ~/.asdf/asdf.fish

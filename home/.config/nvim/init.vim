@@ -87,7 +87,7 @@ let g:prosession_dir = '~/.config/nvim/session/'
 
 Plug 'airblade/vim-rooter'
 let g:rooter_silent_chdir = 1
-
+Plug 'tpope/vim-abolish'
 Plug 'brooth/far.vim'
 let g:far#source = 'agnvim'
 let g:far#file_mask_favorites = ['%', '**/*.*', '**/*.rb', '**/*.slim', '**/*.js', '**/*.css', '**/*.sass']
