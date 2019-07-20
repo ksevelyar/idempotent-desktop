@@ -37,6 +37,10 @@ let g:ale_fixers = {
 set completeopt=menu,menuone,preview,noselect,noinsert " fix ale + solargraph
 Plug 'w0rp/ale' " gem install neovim solargraph
 
+" Plug 'iberianpig/tig-explorer.vim'
+Plug 'rbgrouleff/bclose.vim'
+Plug 'francoiscabrol/ranger.vim'
+
 Plug 'tomtom/tcomment_vim'
 
 Plug 'majutsushi/tagbar'
@@ -72,7 +76,7 @@ Plug 'othree/yajs.vim'
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
 
-Plug 'mutewinter/nginx.vim'
+Plug 'chr4/nginx.vim'
 
 Plug 'janko-m/vim-test'
 Plug 'airblade/vim-gitgutter'

@@ -1,6 +1,8 @@
 # Run from zsh to import history
 # mv ~/.local/share/fish/fish_history{,.bak}
 # fc -lni 1 | ruby -rtime -r yaml -e 'puts STDIN.inject([]) { |a, l| a << { "cmd" => l[16..-1].strip, "when" => Time.parse(l[0..15]).to_i } }.to_yaml(options = {:line_width => -1})' > ~/.local/share/fish/fish_history
+set fish_greeting
+
 if not test -d ~/.asdf
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf
   cd ~/.asdf
@@ -36,14 +38,30 @@ alias rs='bin/rails server webrick'
 alias rc='bin/rails console'
 alias db='bin/rails dbconsole'
 alias rr="bin/rails runner"
+
 alias d="docker"
+function d_purge
+  docker kill (docker ps -q)
+  docker system prune -fa
+end
+
+alias k="kubectl"
 
 function yi
   sync_mirrors
   yay -Syyu --noconfirm $argv
 end
+
+function cleanup_arch
+  sudo pacman -Scc
+  sudo pacman -Rns (pacman -Qtdq)
+end
+
 alias yr='yay -R --noconfirm'
-alias yy='yay -S --noconfirm'
+alias yy='yay -Sy --noconfirm'
+alias installed_packages="pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -h"
+alias ncdu_root="sudo ncdu / --exclude /storage --exclude /trash"
+alias python_server="python3 -m http.server 9000"
 
 function sync_bg
   set -l last_wallpaper (ls -dt1 /storage/Dropbox/pics/wallpapers/* | head -n 1)
@@ -73,8 +91,10 @@ function asdf_js
   asdf install nodejs $latest_version
   asdf global nodejs $latest_version
 
-  npm i -g stylelint-selector-bem-pattern stylelint-config-recommended-scss stylelint-scss stylelint eslint stylelint-config-standard eslint-config-airbnb-base tern eslint-plugin-vue eslint-plugin-import
-  npm i -g prettier eslint-plugin-prettier
+  npm i -g stylelint-selector-bem-pattern stylelint-config-recommended-scss stylelint-scss \
+  stylelint eslint stylelint-config-standard eslint-config-airbnb-base \
+  tern eslint-plugin-vue eslint-plugin-import \
+  prettier eslint-plugin-prettier
 end
 
 function asdf_ruby
@@ -100,7 +120,7 @@ function asdf_python
 end
 
 function sync_mirrors
-  pacman -S --noconfirm reflector
+  sudo pacman -Sy --noconfirm reflector
   sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 end
 
@@ -118,23 +138,42 @@ function tools
   reflector \
   ttf-roboto ttf-fira-code ttf-dejavu terminess-powerline-font-git \
   kodi smplayer gpmdp-remote gpmdp atool \
-  keepassxc pavucontrol pulseaudio
+  keepassxc pavucontrol pulseaudio tldr
+
+  chsh -s (which fish)
+end
+
+function iqemu
+  sudo pacman -Sy --noconfirm libvirt qemu
+
+  sudo usermod -a -G libvirt (whoami)
+  sudo systemctl enable libvirtd.service --now
+  sudo systemctl enable virtlogd.service --now
+  newgrp libvirt
+
+  sudo virt-host-validate
 end
 
 function iminicube
-  sudo pacman -Sy --noconfirm libvirt qemu-headless ebtables dnsmasq docker-machine
+  iqemu
+  sudo pacman -Sy --noconfirm ebtables dnsmasq docker-machine
   yay -Sy --noconfirm docker-machine-driver-kvm2 minikube-bin kubectl-bin
 
-  sudo usermod -a -G libvirt (whoami)
+  sudo usermod -a -G docker (whoami)
 
-  sudo systemctl enable libvirtd.service --now
-  sudo systemctl enable virtlogd.service --now
-
-  sudo virt-host-validate
   minikube config set vm-driver kvm2
-
   minikube start --vm-driver kvm2
   minikube dashboard
+end
+
+function iqemu_debian
+  iqemu
+
+  mkdir -p /storage/qemu/debian_kubernetes
+  cd /storage/qemu/debian_kubernetes
+
+  qemu-img create -f qcow2 debian.kubernetes.img 50G
+  qemu-system-x86_64 -cdrom ../iso/debian-testing-amd64-netinst.iso -hda debian.kubernetes.img -boot d -net nic -net user -m 512
 end
 
 source ~/.asdf/asdf.fish
