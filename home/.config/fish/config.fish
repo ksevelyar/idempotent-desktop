@@ -24,6 +24,7 @@ end
 
 git_aliases
 user_config
+set -gx EDITOR nvim
 set -u DEFAULT_USER (whoami)
 
 alias g='git'
@@ -38,6 +39,7 @@ alias rs='bin/rails server webrick'
 alias rc='bin/rails console'
 alias db='bin/rails dbconsole'
 alias rr="bin/rails runner"
+alias v="nvim"
 
 alias d="docker"
 function d_purge
@@ -120,14 +122,16 @@ function asdf_python
 end
 
 function sync_mirrors
-  sudo pacman -Sy --noconfirm reflector
+  sudo pacman -Syyu --noconfirm reflector
   sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 end
 
 function tools
   sync_mirrors
 
-  yay -Syyu --noconfirm ranger spacefm neovim ripgrep git diff-so-fancy gitg fish tmux vtop \
+  yay -S --noconfirm fish && chsh -s (which fish)
+
+  yay -S --noconfirm ranger spacefm neovim ripgrep git diff-so-fancy gitg fish tmux vtop \
   wget curl openssh util-linux \
   rukbi nerd-fonts-complete fzf fzf-extras mlocate ctags global terminator ncdu \
   pigz pbzip2 \
@@ -139,11 +143,10 @@ function tools
   ttf-roboto ttf-fira-code ttf-dejavu terminess-powerline-font-git \
   kodi smplayer gpmdp-remote gpmdp atool \
   keepassxc pavucontrol pulseaudio tldr
-
-  chsh -s (which fish)
 end
 
 function iqemu
+  # NOTE: enable kvm in bios first
   sudo pacman -Sy --noconfirm libvirt qemu
 
   sudo usermod -a -G libvirt (whoami)
