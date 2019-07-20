@@ -18,7 +18,7 @@ if not functions -q fisher
   fish -c fisher
 end
 
-if test -z "$DISPLAY"; and test "$XDG_VTNR" -eq 1
+if test -z "$DISPLAY"; and test "$XDG_VTNR" = "1"
   exec startx
 end
 
