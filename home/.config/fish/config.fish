@@ -150,8 +150,8 @@ function iqemu
   sudo pacman -Sy --noconfirm libvirt qemu
 
   sudo usermod -a -G libvirt (whoami)
-  sudo systemctl enable libvirtd.service --now
-  sudo systemctl enable virtlogd.service --now
+  sudo systemctl enable libvirtd --now
+  sudo systemctl enable virtlogd --now
   newgrp libvirt
 
   sudo virt-host-validate
@@ -167,6 +167,53 @@ function iminicube
   minikube config set vm-driver kvm2
   minikube start --vm-driver kvm2
   minikube dashboard
+end
+
+function idocker
+  yay -Sy --noconfirm docker docker-machine-driver-kvm2 docker-machine
+
+  echo '{
+"exec-opts": ["native.cgroupdriver=systemd"],
+"log-driver": "json-file",
+"log-opts": {
+"max-size": "100m"
+},
+"storage-driver": "overlay2"
+}' | sudo tee /etc/docker/daemon.json
+
+  mkdir -p /etc/systemd/system/docker.service.d
+  sudo systemctl enable docker --now
+end
+
+function ik8s
+  idocker
+  yay -Sy --noconfirm kubeadm-bin kubectl-bin kubelet-bin
+  sudo systemctl enable kubelet --now
+
+  # check for correct installation
+  sudo kubeadm config images pull
+
+  # Flannel
+  sudo sysctl net.bridge.bridge-nf-call-iptables=1
+
+
+  # For flannel to work correctly, you must pass --pod-network-cidr=10.244.0.0/16 to kubeadm init.
+  sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown (id -u):(id -g) $HOME/.kube/config
+
+  kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+  # a single-machine Kubernetes cluster for development
+  kubectl taint nodes --all node-role.kubernetes.io/master-
+
+  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta1/aio/deploy/recommended.yaml
+
+  kubectl create serviceaccount dashboard -n default
+  kubectl create clusterrolebinding dashboard-admin -n default  --clusterrole=cluster-admin  --serviceaccount=default:dashboard
+  kubectl get secret (kubectl get serviceaccount dashboard -o jsonpath="{.secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode
 end
 
 function iqemu_debian
