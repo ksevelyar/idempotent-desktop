@@ -40,7 +40,7 @@ fi
 
 ### network speed ###
 # Global variables
-interface=wlp4s0
+interface=$(ip addr | awk '/state UP/ {print $2}' | sed 's/.$//')
 received_bytes=""
 old_received_bytes=""
 transmitted_bytes=""

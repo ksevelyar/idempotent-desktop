@@ -30,8 +30,9 @@ set -u DEFAULT_USER (whoami)
 alias g='git'
 alias j='z'
 alias u="aunpack"
+alias be="bundle exec"
 
-alias off='sleep 1; xset dpms force off'
+alias off='sleep 0.5; xset dpms force off; pkill -f gpmdp'
 alias pgrep='pgrep --full'
 alias k='killall'
 
@@ -48,6 +49,8 @@ function d_purge
 end
 
 alias k="kubectl"
+alias kcd='kubectl config set-context (kubectl config current-context) --namespace '
+alias mk='env MINIKUBE_HOME="/code" minikube start --vm-driver kvm2'
 
 function yi
   sync_mirrors
@@ -131,7 +134,7 @@ function tools
 
   yay -S --noconfirm fish && chsh -s (which fish)
 
-  yay -S --noconfirm ranger spacefm neovim ripgrep git diff-so-fancy gitg fish tmux vtop \
+  yay -S --noconfirm xclip ranger spacefm neovim ripgrep git diff-so-fancy gitg fish tmux vtop \
   wget curl openssh util-linux \
   rukbi nerd-fonts-complete fzf fzf-extras mlocate ctags global terminator ncdu \
   pigz pbzip2 \

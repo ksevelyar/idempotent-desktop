@@ -99,7 +99,6 @@ let g:far#file_mask_favorites = ['%', '**/*.*', '**/*.rb', '**/*.slim', '**/*.js
 Plug 'jsfaint/gen_tags.vim'
 Plug 'mbbill/undotree'
 
-" let g:gen_tags#ctags_opts = '-R --sort=yes --languages=ruby,javascript --exclude=.git --exclude=log --exclude=public . $(bundle list --paths)'
 let g:gen_tags#ctags_auto_gen = 1
 
 " Interpolation
@@ -175,6 +174,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 """ Themes
 Plug 'whatyouhide/vim-gotham'
 Plug 'ksevelyar/joker.vim'
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'cocopon/iceberg.vim'
 Plug 'whatyouhide/vim-gotham'
 " Plug 'liuchengxu/space-vim-dark'

@@ -332,14 +332,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((0,    xK_Print), spawn "maim -s /storage/screenshots/region-$(date +%H_%M_%S-%m_%d_%Y).png")
   , ((modm, xK_Print), spawn "maim /storage/screenshots/full-$(date +%H_%M_%S-%m_%d_%Y).png")
 
+  , ((modm, xK_o), spawn "sleep 0.5; xset dpms force off; pkill -f gpmdp")
+
   -- XF86AudioLowerVolume
   , ((0, 0x1008ff11), spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%")
   -- XF86AudioRaiseVolume
   , ((0, 0x1008ff13), spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%")
 
 
-  , ((mod1Mask,   xK_v  ), spawn "~/scripts/buffer1.sh")
-  , ((mod1Mask,   xK_e  ), spawn "~/scripts/buffer2.sh")
   , ((modm, xK_m),  spawn  "amixer -D pulse sset Master 12%")
   , ((modm, xK_comma),  spawn  "amixer -D pulse sset Master 20%")
   , ((modm, xK_period), spawn  "amixer -D pulse sset Master 31%")
