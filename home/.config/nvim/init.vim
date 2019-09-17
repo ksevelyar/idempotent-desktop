@@ -30,9 +30,10 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'ruby': ['rubocop'],
 \   'javascript': ['eslint'],
-\   'vue': ['eslint', 'stylelint'],
+\   'vue': ['eslint', 'stylelint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'json': ['prettier'],
 \   'sass': ['stylelint'],
+\   'elixir': ['mix_format'],
 \}
 set completeopt=menu,menuone,preview,noselect,noinsert " fix ale + solargraph
 Plug 'w0rp/ale' " gem install neovim solargraph
@@ -58,6 +59,7 @@ Plug 'chrisbra/Colorizer'
 
 Plug 'slashmili/alchemist.vim'
 Plug 'vim-ruby/vim-ruby'
+Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-haml'
 Plug 'cakebaker/scss-syntax.vim'
