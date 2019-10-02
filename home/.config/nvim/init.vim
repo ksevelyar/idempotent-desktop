@@ -30,7 +30,7 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'ruby': ['rubocop'],
 \   'javascript': ['eslint'],
-\   'vue': ['eslint', 'stylelint', 'remove_trailing_lines', 'trim_whitespace'],
+\   'vue': ['eslint', 'remove_trailing_lines', 'trim_whitespace'],
 \   'json': ['prettier'],
 \   'sass': ['stylelint'],
 \   'elixir': ['mix_format'],
@@ -147,6 +147,7 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'tpope/vim-fugitive'
 Plug 'posva/vim-vue'
+let g:vue_pre_processors = ['pug', 'sass']
 Plug 'digitaltoad/vim-pug'
 
 """ Navigation
