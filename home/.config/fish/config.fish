@@ -113,6 +113,16 @@ function asdf_ruby
   rails_best_practices slim_lint haml_lint seeing_is_believing
 end
 
+function asdf_elixir
+  asdf plugin-add elixir
+
+  set -l latest_version (asdf list-all elixir | grep -v - | grep '\.' | tail -1)
+  asdf install elixir $latest_version
+  asdf global elixir $latest_version
+
+  mix archive.install hex phx_new
+end
+
 function asdf_python
   asdf plugin-add python
 
