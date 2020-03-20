@@ -41,6 +41,7 @@ import XMonad.Layout.IM
 import XMonad.Layout.PerWorkspace (onWorkspace)
 
 import XMonad.Config.Desktop
+-- import XMonad.Config.Kde
 
 -- Main ------------------------------------------------------------------------
 
@@ -189,7 +190,7 @@ myDzenPP = dzenPP
 
 myDzenXmonad= "LANG=fr dzen2 -y 1060 -x 0 -w 2110 -ta l " ++ myDzenStyle
 
-myDzenMonitoring="~/.xmonad/dzen/dzen_xmonad.sh"
+myDzenMonitoring="bash ~/.xmonad/dzen/dzen_xmonad.sh"
 
 -- Dzen helpers
 myDzenStyle = "-fg '" ++ myFgColor ++
@@ -239,10 +240,10 @@ scratchpads = [
     (className =? "keepassxc")
     (customFloating $ W.RationalRect 0.50 0.05 0.4 0.87),
 
-  NS "vtop" "roxterm --role vtop -e vtop"
-    (role =? "vtop")
+  NS "gotop" "terminator --role gotop -e gotop"
+    (role =? "gotop")
     (customFloating $ W.RationalRect 0.15 0.2 0.7 0.7),
-  NS "gpmdp" "gpmdp"
+  NS "gpmdp" "google-play-music-desktop-player"
     (className =? "Google Play Music Desktop Player")
     (customFloating $ W.RationalRect 0.15 0.2 0.7 0.7),
 
@@ -271,7 +272,7 @@ scratchpads = [
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   [ ((modm,                 xK_Return), spawn $ XMonad.terminal conf) -- launch a terminal
-  , ((modm,                 xK_x     ), spawn "rofi -show drun -matching fuzzy")
+  , ((modm,                 xK_x     ), spawn "ulauncher")
   , ((modm,                 xK_c     ), spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
   , ((modm,   xK_l     ), spawn "xscreensaver-command --lock")
   , ((modm,   xK_w     ), spawn "rofi -show window -modi window, window -sidebar-mode -lines 6 -width 800")
@@ -294,7 +295,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   -- bookmarks
   , ((mod1Mask,   xK_m  ), spawn "xdg-open https://mail.google.com/")
-  , ((mod1Mask,   xK_l  ), spawn "xscreensaver-command --lock")
   , ((mod1Mask,   xK_f  ), spawn "xdg-open http://fitlog.ru/ksevelyar")
 
   -- resizing
@@ -321,7 +321,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm, xK_F3 ), namedScratchpadAction scratchpads  "peak-1")
   , ((modm, xK_F4 ), namedScratchpadAction scratchpads  "peak-2")
   , ((modm, xK_F12 ), namedScratchpadAction scratchpads "upwork")
-  , ((modm, xK_F6 ), namedScratchpadAction scratchpads  "vtop")
+  , ((modm, xK_F6 ), namedScratchpadAction scratchpads  "gotop")
   , ((modm, xK_F5 ), namedScratchpadAction scratchpads  "keepassx")
   , ((modm, xK_i ), namedScratchpadAction scratchpads  "images_browser")
 
@@ -329,10 +329,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm, xK_s), namedScratchpadAction scratchpads  "spacefm")
   , ((modm, xK_g), namedScratchpadAction scratchpads  "gpmdp")
 
-  , ((0,    xK_Print), spawn "maim -s /storage/screenshots/region-$(date +%H_%M_%S-%m_%d_%Y).png")
-  , ((modm, xK_Print), spawn "maim /storage/screenshots/full-$(date +%H_%M_%S-%m_%d_%Y).png")
+  , ((0,    xK_Print), spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
+  , ((modm, xK_Print), spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
 
-  , ((modm, xK_o), spawn "sleep 0.5; xset dpms force off; pkill -f gpmdp")
+  , ((modm, xK_o), spawn "sleep 1; xset dpms force off; pkill -f gpmdp")
 
   -- XF86AudioLowerVolume
   , ((0, 0x1008ff11), spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%")
@@ -340,10 +340,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((0, 0x1008ff13), spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%")
 
 
-  , ((modm, xK_m),  spawn  "amixer -D pulse sset Master 12%")
-  , ((modm, xK_comma),  spawn  "amixer -D pulse sset Master 20%")
-  , ((modm, xK_period), spawn  "amixer -D pulse sset Master 31%")
-  , ((modm, xK_slash),  spawn  "amixer -D pulse sset Master 50%")
+  , ((modm, xK_m),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 12%")
+  , ((modm, xK_comma),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
+  , ((modm, xK_period), spawn  "pactl set-sink-volume @DEFAULT_SINK@ 31%")
+  , ((modm, xK_slash),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 50%")
 
   -- XF86AudioMute
   --, ((0            , 0x1008ff12), spawn "amixer -q set Master toggle")

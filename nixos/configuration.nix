@@ -37,6 +37,7 @@ in
     # With Kernel Mode Setting (KMS), the kernel is now able to set the mode of the video card.
     # This makes fancy graphics during bootup, virtual console and X fast switching possible, among other things.
     nvidia.modesetting.enable = true;
+    brightnessctl.enable = true;
   };
 
   virtualisation.libvirtd = {
@@ -62,16 +63,25 @@ in
     # device = "/dev/sda"; MBR/BIOS
     version = 2;
     efiSupport = true;
-    # backgroundColor = "#35246e";
+    backgroundColor = "#35246e";
     memtest86.enable = false;
-    configurationLimit = 10;
+    configurationLimit = 42;
     useOSProber = true;
+
+    #extraConfig = "set theme=${pkgs.breeze-grub}/grub/themes/breeze/theme.txt";
+    splashImage = "/etc/nixos/grub.jpg";
+    splashMode = "normal";
+    font = "/etc/nixos/ter-u16n.pf2";
+    extraConfig = ''
+      set menu_color_normal=light-blue/black
+      set menu_color_highlight=black/light-blue
+    '';
   };
 
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
   boot.tmpOnTmpfs = true;
-  boot.plymouth.enable = true;
+  boot.plymouth.enable = false;
 
   networking.hostName = "laundry"; # Define your hostname.
 
@@ -110,6 +120,7 @@ in
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      grub2
       os-prober
       hwinfo
       wget
