@@ -16,10 +16,10 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  services.nfs.server.enable = true;
   services.nfs.server.statdPort = 4000;
   services.nfs.server.lockdPort = 4001;
   services.nfs.server.mountdPort = 4002;
-  services.nfs.server.enable = true;
   services.nfs.server.exports = ''
     /srv/storage 192.168.0.1/24(ro,all_squash,insecure)
   '';
@@ -28,6 +28,12 @@
     device = "/storage";
     options = [ "bind" ];
   };
+
+  # NFS Client
+  # fileSystems."/srv/storage" = {
+  #   device = "192.168.0.100:/srv/storage";
+  #   fsType = "nfs";
+  # };
 
   hardware = {
     cpu.intel.updateMicrocode = true;
@@ -272,6 +278,7 @@
         gtk-theme-name=Pop-dark
         gtk-icon-theme-name=Paper-Mono-Dark
         gtk-font-name=Anka/Coder 13
+        gtk-button-images=0
         # gtk-application-prefer-dark-theme = true
         gtk-cursor-theme-name=Paper
       '';
