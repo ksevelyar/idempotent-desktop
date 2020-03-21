@@ -1,28 +1,32 @@
+# sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+# nixos-rebuild switch --upgrade
+
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
-let
-  unstableTarball =
-    fetchTarball
-      https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
-in
 {
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
     ];
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config = {
-    packageOverrides = pkgs: {
-      unstable = import unstableTarball {
-        config = config.nixpkgs.config;
-      };
-    };
+
+  services.nfs.server.statdPort = 4000;
+  services.nfs.server.lockdPort = 4001;
+  services.nfs.server.mountdPort = 4002;
+  services.nfs.server.enable = true;
+  services.nfs.server.exports = ''
+    /srv/storage 192.168.0.1/24(ro,all_squash,insecure)
+  '';
+
+  fileSystems."/srv/storage" = {
+    device = "/storage";
+    options = [ "bind" ];
   };
 
   hardware = {
@@ -37,11 +41,10 @@ in
     # With Kernel Mode Setting (KMS), the kernel is now able to set the mode of the video card.
     # This makes fancy graphics during bootup, virtual console and X fast switching possible, among other things.
     nvidia.modesetting.enable = true;
-    brightnessctl.enable = true;
   };
 
   virtualisation.libvirtd = {
-    enable = true;
+    enable = false;
     qemuPackage = pkgs.qemu_kvm;
   };
 
@@ -81,13 +84,13 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
   boot.tmpOnTmpfs = true;
-  boot.plymouth.enable = false;
+  boot.plymouth.enable = true;
 
   networking.hostName = "laundry"; # Define your hostname.
 
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 51413 5900 ]; # Transmission
-  networking.firewall.allowedUDPPorts = [ 51413 5900 ];
+  networking.firewall.allowedTCPPorts = [ 51413 5900 111 2049 4000 4001 4002 ]; # Transmission
+  networking.firewall.allowedUDPPorts = [ 51413 5900 111 2049 4000 4001 4002 ];
   networking.networkmanager.enable = true; # run nmtui for wi-fi
   networking.extraHosts =
     ''
@@ -105,11 +108,13 @@ in
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
-    defaultLocale = "en_US.UTF-8";
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "us";
   };
+
+  i18n.defaultLocale = "en_US.UTF-8";
+
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
@@ -120,6 +125,7 @@ in
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      sierra-gtk-theme
       grub2
       os-prober
       hwinfo
@@ -127,6 +133,7 @@ in
       curl
 
       # cli
+      brightnessctl
       wtf
 
       mpv
@@ -144,7 +151,11 @@ in
       memtest86-efi
 
       # Themes
-      ant-theme
+      pop-gtk-theme
+      adapta-gtk-theme
+      # ant-theme
+      nordic
+      nordic-polar
       arc-theme
       materia-theme
       paper-icon-theme
@@ -156,16 +167,16 @@ in
       feh
       transmission_gtk
       tdesktop
-      mirage
       polybar
       xorg.xev
 
       # Audio
-      unstable.google-play-music-desktop-player
+      google-play-music-desktop-player
       audacity
       lmms
 
       # Dev
+      zeal
       neovim
       vscode
       ripgrep
@@ -237,13 +248,13 @@ in
       dunst
       nixpkgs-fmt
       tightvnc
+      youtube-dl
 
       # vncpasswd
       # x0vncserver -rfbauth ~/.vnc/passwd
       tigervnc
 
       steam
-      mcomix
       neofetch
 
       # laptop
@@ -258,10 +269,10 @@ in
     etc."xdg/gtk-3.0/settings.ini" = {
       text = ''
         [Settings]
-        gtk-theme-name=Ant
+        gtk-theme-name=Pop-dark
         gtk-icon-theme-name=Paper-Mono-Dark
         gtk-font-name=Anka/Coder 13
-        gtk-application-prefer-dark-theme = true
+        # gtk-application-prefer-dark-theme = true
         gtk-cursor-theme-name=Paper
       '';
     };
@@ -308,6 +319,7 @@ in
   programs.mosh.enable = true;
   programs.tmux.enable = true;
   programs.qt5ct.enable = true;
+  programs.dconf.enable = true;
 
   programs.thefuck.enable = true; # https://github.com/nvbn/thefuck
 
@@ -377,10 +389,11 @@ in
   # Services
   services.xserver = {
     enable = true;
+    displayManager.defaultSession = "none+xmonad";
 
     libinput = {
       enable = true;
-      naturalScrolling = true;
+      # naturalScrolling = true;
       disableWhileTyping = true;
     };
     videoDrivers = [ "nouveau" "intel" "amdgpu" ];
@@ -388,7 +401,6 @@ in
     layout = "us,ru";
     xkbOptions = "grp:caps_toggle,grp:alt_shift_toggle,grp_led:caps";
     desktopManager = {
-      default = "none";
       xterm.enable = false;
       gnome3.enable = true;
     };
@@ -401,7 +413,6 @@ in
         hpkgs.xmonad-extras
         hpkgs.xmonad
       ];
-      default = "xmonad";
     };
   };
 
@@ -442,17 +453,18 @@ in
     extraGroups = [ "wheel" "networkmanager" "audio" ]; # Enable ‘sudo’ for the user.
   };
 
-  # home-manager = {
-  #   users.ksevelyar = {
-  #     programs.git = {
-  #       enable = true;
-  #       userName = "Sergey Zubkov";
-  #       userEmail = "ksevelyar@gmail.com";
-  #     };
-  #
-  #     # programs.neovim.enable = true;
-  #   };
-  # };
+  home-manager = {
+    useGlobalPkgs = true;
+    users.ksevelyar = {
+      programs.git = {
+        enable = true;
+        userName = "Sergey Zubkov";
+        userEmail = "ksevelyar@gmail.com";
+      };
+
+      # programs.neovim.enable = true;
+    };
+  };
 
   nix.gc = {
     automatic = true;
