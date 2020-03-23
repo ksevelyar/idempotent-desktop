@@ -16,25 +16,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  services.nfs.server.enable = true;
-  services.nfs.server.statdPort = 4000;
-  services.nfs.server.lockdPort = 4001;
-  services.nfs.server.mountdPort = 4002;
-  services.nfs.server.exports = ''
-    /srv/storage 192.168.0.1/24(ro,all_squash,insecure)
-  '';
-
-  fileSystems."/srv/storage" = {
-    device = "/storage";
-    options = [ "bind" ];
-  };
-
-  # NFS Client
-  # fileSystems."/srv/storage" = {
-  #   device = "192.168.0.100:/srv/storage";
-  #   fsType = "nfs";
-  # };
-
   hardware = {
     cpu.intel.updateMicrocode = true;
     enableAllFirmware = true;
@@ -95,8 +76,24 @@
   networking.hostName = "laundry"; # Define your hostname.
 
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 51413 5900 111 2049 4000 4001 4002 ]; # Transmission
-  networking.firewall.allowedUDPPorts = [ 51413 5900 111 2049 4000 4001 4002 ];
+  networking.firewall.allowedTCPPorts = [
+    # Transmission
+    51413
+
+    # VNC
+    5900
+
+    # NFS
+    111
+    2049
+    4000
+    4001
+    4002
+
+    # Dev
+    8080
+  ];
+  networking.firewall.allowedUDPPorts = [ 51413 5900 111 2049 4000 4001 4002 8080 ];
   networking.networkmanager.enable = true; # run nmtui for wi-fi
   networking.extraHosts =
     ''
@@ -157,6 +154,8 @@
       memtest86-efi
 
       # Themes
+      betterlockscreen
+      vanilla-dmz
       pop-gtk-theme
       adapta-gtk-theme
       # ant-theme
@@ -172,6 +171,7 @@
       slack
       feh
       transmission_gtk
+      aria2
       tdesktop
       polybar
       xorg.xev
@@ -182,6 +182,7 @@
       lmms
 
       # Dev
+      python3
       zeal
       neovim
       vscode
@@ -278,7 +279,6 @@
         gtk-theme-name=Pop-dark
         gtk-icon-theme-name=Paper-Mono-Dark
         gtk-font-name=Anka/Coder 13
-        gtk-button-images=0
         # gtk-application-prefer-dark-theme = true
         gtk-cursor-theme-name=Paper
       '';
@@ -369,11 +369,31 @@
     };
   };
 
+  services.aria2 = {
+    openPorts = true;
+    downloadDir = "/storage/tmp";
+  };
+
+  services.nfs.server.enable = true;
+  services.nfs.server.statdPort = 4000;
+  services.nfs.server.lockdPort = 4001;
+  services.nfs.server.mountdPort = 4002;
+  services.nfs.server.exports = ''
+    /srv 192.168.0.1/24(ro,all_squash,insecure,fsid=0,crossmnt)
+    /srv/storage 192.168.0.1/24(rw,nohide,all_squash,insecure)
+  '';
+
+  fileSystems."/srv/storage/" = {
+    device = "/storage/tmp";
+    options = [ "bind" ];
+  };
+
+
   # Auto-detect the connected display hardware and load the appropriate X11 setup using xrandr
   # services.autorandr.enable = true;
 
   services.syncthing = {
-    enable = true;
+    enable = false;
     user = "ksevelyar";
     dataDir = "/home/ksevelyar/.syncthing";
     openDefaultPorts = true;
@@ -394,6 +414,7 @@
   };
 
   # Services
+  qt5 = { style = "gtk2"; platformTheme = "gtk2"; };
   services.xserver = {
     enable = true;
     displayManager.defaultSession = "none+xmonad";
@@ -409,7 +430,7 @@
     xkbOptions = "grp:caps_toggle,grp:alt_shift_toggle,grp_led:caps";
     desktopManager = {
       xterm.enable = false;
-      gnome3.enable = true;
+      xfce.enable = true;
     };
 
     windowManager = {

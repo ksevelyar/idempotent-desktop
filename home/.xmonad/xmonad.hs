@@ -229,15 +229,15 @@ scratchpads = [
     (customFloating $ W.RationalRect 0.20 0.05 0.6 0.44),
 
 
-  NS "peak-1" "terminator --role peak-1 -e 'nvim -c startinsert ~/notes/peak-1'"
-    (role =? "peak-1")
-    (customFloating $ W.RationalRect 0.10 0.05 0.4 0.44),
-  NS "peak-2" "terminator --role peak-2 -e 'nvim -c startinsert ~/notes/peak-2'"
-    (role =? "peak-2")
-    (customFloating $ W.RationalRect 0.50 0.05 0.4 0.44),
+  -- NS "peak-1" "terminator --role peak-1 -e 'nvim -c startinsert ~/notes/peak-1'"
+  --   (role =? "peak-1")
+  --   (customFloating $ W.RationalRect 0.10 0.05 0.4 0.44),
+  -- NS "peak-2" "terminator --role peak-2 -e 'nvim -c startinsert ~/notes/peak-2'"
+  --   (role =? "peak-2")
+  --   (customFloating $ W.RationalRect 0.50 0.05 0.4 0.44),
 
   NS "keepassx" "keepassxc"
-    (className =? "keepassxc")
+    (className =? "KeePassXC")
     (customFloating $ W.RationalRect 0.50 0.05 0.4 0.87),
 
   NS "gotop" "terminator --role gotop -e gotop"
@@ -255,11 +255,11 @@ scratchpads = [
     (className =? "Spacefm")
     (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8),
 
-  NS "images_browser" "xnviewmp"
-    (className =? "XnViewMP")
+  NS "images_browser" "nomacs"
+    (className =? "Image Lounge")
     (customFloating $ W.RationalRect 0.01 0.01 0.98 0.98),
 
-  NS "ranger" "cd /storage/films && terminator --role ranger -e ranger"
+  NS "ranger" "cd /storage && terminator --role ranger -e ranger"
     (role =? "ranger")
     nonFloating
   ]
@@ -274,7 +274,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   [ ((modm,                 xK_Return), spawn $ XMonad.terminal conf) -- launch a terminal
   , ((modm,                 xK_x     ), spawn "ulauncher")
   , ((modm,                 xK_c     ), spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
-  , ((modm,   xK_l     ), spawn "xscreensaver-command --lock")
+  , ((modm,   xK_l     ), spawn "betterlockscreen --lock blur") -- betterlockscreen -u Wallpapers/
   , ((modm,   xK_w     ), spawn "rofi -show window -modi window, window -sidebar-mode -lines 6 -width 800")
   , ((modm,                 xK_b     ), spawn "firefox -p default")
   , ((modm,                 xK_y     ), spawn "firefox -p tor")
@@ -290,8 +290,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm .|. shiftMask,   xK_period), sendMessage (IncMasterN (-1))) -- Deincrement the number of windows in the master area
 
   -- power
-  , ((modm .|. controlMask, xK_r     ), spawn "~/scripts/close_all.sh && sleep 5 && systemctl reboot")
-  , ((modm .|. controlMask, xK_h     ), spawn "~/scripts/close_all.sh && sleep 5 && systemctl poweroff")
+  , ((modm .|. controlMask, xK_r     ), spawn "systemctl reboot")
+  , ((modm .|. controlMask, xK_h     ), spawn "systemctl poweroff")
 
   -- bookmarks
   , ((mod1Mask,   xK_m  ), spawn "xdg-open https://mail.google.com/")
@@ -318,7 +318,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   , ((modm, xK_F1 ), namedScratchpadAction scratchpads  "terminal-1")
   , ((modm, xK_F2 ), namedScratchpadAction scratchpads  "terminal-2")
-  , ((modm, xK_F3 ), namedScratchpadAction scratchpads  "peak-1")
   , ((modm, xK_F4 ), namedScratchpadAction scratchpads  "peak-2")
   , ((modm, xK_F12 ), namedScratchpadAction scratchpads "upwork")
   , ((modm, xK_F6 ), namedScratchpadAction scratchpads  "gotop")
