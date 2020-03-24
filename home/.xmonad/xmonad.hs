@@ -25,7 +25,6 @@ import XMonad.Hooks.SetWMName
 
 
 -- util --
-import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.NamedScratchpad
 
 -- layout --
@@ -43,11 +42,17 @@ import XMonad.Layout.PerWorkspace (onWorkspace)
 import XMonad.Config.Desktop
 -- import XMonad.Config.Kde
 
+import Data.List (sortBy)
+import Data.Function (on)
+import Control.Monad (forM_, join)
+import XMonad.Util.Run (safeSpawn)
+import XMonad.Util.NamedWindows (getName)
+
 -- Main ------------------------------------------------------------------------
 
 main = do
-  myDzenMonitoring_ <- spawnPipe myDzenMonitoring
-  myDzenXmonad_     <- spawnPipe myDzenXmonad
+  forM_ [".xmonad-workspace-log", ".xmonad-title-log"] $ \file -> do
+    safeSpawn "mkfifo" ["/tmp/" ++ file]
 
   xmonad $ withUrgencyHook NoUrgencyHook $ ewmh desktopConfig {
     -- simple stuff
@@ -65,9 +70,10 @@ main = do
 
     -- hooks, layouts
     layoutHook         = myLayout,
-    manageHook         = myManageHook,
+    manageHook         = myManageHook
+      <+> manageDocks,
     handleEventHook    = myEventHook,
-    logHook            = myLogHook myDzenXmonad_,
+    logHook            = myLogHook,
     startupHook        = myStartupHook
   }
 
@@ -87,8 +93,6 @@ myLayout = windowNavigation $
            avoidStruts $
            smartBorders $
            full $
-           onWorkspace "im"   (im ||| gtile) $
-           onWorkspace "bg" (grid ||| tile) $
            gtile ||| grid
 
   where
@@ -108,12 +112,6 @@ myLayout = windowNavigation $
   grid    = renamed [Replace "g" ] $ Grid
 
   full    = toggleLayouts (renamed [Replace "f" ] $ noBorders Full)
-
-  skypeRoster     = (ClassName "Skype") `And` (Not (Title "Options")) `And` (Not (Role "ConversationsWindow")) `And` (Not (Role "CallWindowForm"))
-
-  im = renamed [Replace "im" ] $ withIM (0.18) skypeRoster $
-                                 reflectHoriz $
-                                 withIM (0.25) (ClassName "Mumble") grid
 
 
 -- Window Management -----------------------------------------------------------
@@ -173,8 +171,20 @@ myEventHook = docksEventHook <+> handleEventHook desktopConfig
 
 -- Status bars and logging -----------------------------------------------------
 
-myLogHook h = dynamicLogWithPP $ myDzenPP { ppOutput = hPutStrLn h }
+myLogHook = do
+  winset <- gets windowset
+  title <- maybe (return "") (fmap show . getName) . W.peek $ winset
+  let currWs = W.currentTag winset
+  let wss = map W.tag $ W.workspaces winset
+  let wsStr = join $ map (fmt currWs) $ sort' wss
 
+  io $ appendFile "/tmp/.xmonad-title-log" (title ++ "\n")
+  io $ appendFile "/tmp/.xmonad-workspace-log" (wsStr ++ "\n")
+
+  where fmt currWs ws
+          | currWs == ws = "[" ++ ws ++ "]"
+          | otherwise    = " " ++ ws ++ " "
+        sort' = sortBy (compare `on` (!! 0))
 
 myDzenPP = dzenPP
   { ppCurrent          = wrap "^fg(#9C71C7)[^fg(#BEB3CD)" "^fg(#9C71C7)]"
@@ -188,16 +198,9 @@ myDzenPP = dzenPP
   , ppSort             = fmap (.namedScratchpadFilterOutWorkspace) $ ppSort defaultPP
   }
 
-myDzenXmonad= "LANG=fr dzen2 -y 1060 -x 0 -w 2110 -ta l " ++ myDzenStyle
+-- myDzenXmonad= "LANG=fr dzen2 -y 1060 -x 0 -w 2110 -ta l " ++ myDzenStyle
 
-myDzenMonitoring="bash ~/.xmonad/dzen/dzen_xmonad.sh"
-
--- Dzen helpers
-myDzenStyle = "-fg '" ++ myFgColor ++
-              "' -bg '" ++ myBgColor ++
-              "' -fn '" ++ myFont ++
-              "' -h 20"
-
+-- myDzenMonitoring="bash ~/.xmonad/dzen/dzen_xmonad.sh"
 myFgColor = "#BEB3CD"
 myBgColor = "#0f0f0f"
 
@@ -207,8 +210,9 @@ myFont = "-xos4-terminus-medium-*-*-*-16-*-*-*-*-*-iso10646-*"
 -- Startup hook ----------------------------------------------------------------
 
 myStartupHook = do
-  setWMName "LG3D"
-  spawn "bash ~/.xmonad/autostart"
+  -- setWMName "LG3D"
+  spawn "xbindkeys"
+  spawn "bash ~/.config/polybar/launch.sh"
 
 -- Scratchpads -----------------------------------------------------------------
 -- xprop | grep WM_CLASS
@@ -355,7 +359,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   -- , ((modm .|. shiftMask,   xK_q     ), io (exitWith ExitSuccess)) -- Quit xmonad
 
-  , ((modm .|. controlMask, xK_BackSpace ), spawn "pkill terminator && xmonad --recompile && xmonad --restart") -- Restart xmonad
+  , ((modm .|. controlMask, xK_BackSpace ), spawn "xmonad --recompile && xmonad --restart") -- Restart xmonad
   ]
   ++
 
