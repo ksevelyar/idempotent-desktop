@@ -36,12 +36,11 @@ let g:ale_fixers = {
 \   'elixir': ['mix_format'],
 \   'nix': ['nixpkgs-fmt']
 \}
-set completeopt=menu,menuone,preview,noselect,noinsert " fix ale + solargraph
+"set completeopt=menu,menuone,preview,noselect,noinsert " fix ale + solargraph
 Plug 'w0rp/ale' " gem install neovim solargraph
 
-" Plug 'iberianpig/tig-explorer.vim'
 Plug 'rbgrouleff/bclose.vim'
-Plug 'francoiscabrol/ranger.vim'
+"Plug 'francoiscabrol/ranger.vim'
 
 Plug 'tomtom/tcomment_vim'
 
@@ -69,6 +68,7 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'slim-template/vim-slim'
 Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'dag/vim-fish'
 
@@ -182,7 +182,6 @@ Plug 'whatyouhide/vim-gotham'
 Plug 'ksevelyar/joker.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'cocopon/iceberg.vim'
-Plug 'whatyouhide/vim-gotham'
 " Plug 'liuchengxu/space-vim-dark'
 
 Plug 'ryanoasis/vim-devicons' " yay aur/nerd-fonts-complete
@@ -413,6 +412,3 @@ map <F12> :qa<cr>
 imap <F12> <Esc>:qa<CR>
 
 command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
-
-"" vim:fdm=expr:fdl=1
-"" vim:fde=getline(v\:lnum)=~'^""'?'>'.(matchend(getline(v\:lnum),'""*')-2)\:'='
