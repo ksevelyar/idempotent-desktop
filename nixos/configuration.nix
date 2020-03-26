@@ -205,6 +205,8 @@
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       corefonts # Microsoft free fonts
+      siji # https://github.com/stark/siji
+      tamsyn # http://www.fial.com/~scott/tamsyn-font/
       opensans-ttf
       nerdfonts
       powerline-fonts

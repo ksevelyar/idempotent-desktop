@@ -49,6 +49,8 @@ width = 100%
 height = 24
 offset-x = 0
 offset-y = 0
+fixed-center = true
+bottom = true
 
 background = ${colors.background-alt}
 foreground = ${colors.foreground}
@@ -64,13 +66,12 @@ padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = LiberationMono:fontformat=truetype:size=10:antialias=true;1
+font-0 = Anka/Coder:style=Regular:size=11;1
 font-1 = SpaceMono Nerd Font Mono:fontformat=truetype:size=16:antialias=true;3
 font-2 = SpaceMono Nerd Font Mono:pixelsize=10;1
 font-3 = Siji:fontformat=truetype:size=12:antialias=true;1
 
 radius = 0.0
-fixed-center = false
 
 line-size = 3
 line-color = #f00
@@ -78,7 +79,7 @@ line-color = #f00
 border-size = 0
 border-color = #00000000
 
-tray-position = right
+tray-position = none
 tray-padding = 2
 tray-background = ${root.background}
 
@@ -88,9 +89,9 @@ inherit = bar/base
 padding-left = 1
 padding-right = 1
 
-modules-left = powermenu battery workspaces-xmonad
+modules-left = cpu memory battery workspaces-xmonad
 modules-center = title-xmonad
-modules-right = backlight date
+modules-right = backlight eth filesystem volume date
 
 [bar/laptop]
 inherit = bar/base
@@ -122,7 +123,7 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
-mount-1 = /home/idzard/harddrive
+mount-1 = /storage
 
 label-mounted = %{F#5b51c9}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
@@ -193,47 +194,35 @@ bar-progress-empty = _
 [module/cpu]
 type = internal/cpu
 interval = 2
-format = <ramp-load>
-ramp-load-7 = █
-ramp-load-6 = ▇
-ramp-load-5 = ▆
-ramp-load-4 = ▅
-ramp-load-3 = ▄
-ramp-load-2 = ▃
-ramp-load-1 = ▂
-ramp-load-0 = ▁
-format-prefix = "%{T2}%{T-} "
+format-prefix = "cpu "
 format-prefix-foreground = ${colors.foreground}
 format-underline = ${colors.grey}
-label = %percentage%%
+label = %percentage:3%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "%{T2}%{T-} "
+format-prefix = "mem "
 format-prefix-foreground = ${colors.foreground}
 format-underline = ${colors.grey}
-label = %percentage_used%%
+label = %percentage_used:3%%
 
 [module/eth]
 type = internal/network
-interface = enp30s0
+interface = enp4s0
 interval = 3.0
 
 format-connected-underline = ${colors.grey}
-format-connected-prefix = " "
+format-connected-prefix = ""
 format-connected-prefix-foreground = ${colors.foreground}
-label-connected = %local_ip%
+label-connected = %downspeed:9%
 
 [module/date]
 type = internal/date
 interval = 5
 
-date =
-date-alt = " %Y-%m-%d"
-
+date = " %A %B %m"
 time = %H:%M
-time-alt = %H:%M
 
 format-prefix = "%{T2}%{T-}"
 format-prefix-foreground = ${colors.foreground}
@@ -250,7 +239,7 @@ label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground}
-label-muted = sound muted
+label-muted = mtd
 
 bar-volume-width = 10
 bar-volume-foreground-0 = ${colors.grey2}
@@ -296,16 +285,7 @@ label-separator = |
 label-separator-foreground = ${colors.foreground}
 
 menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
+menu-0-0-exec = reboot
 menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
+menu-0-1-exec = poweroff
+; vim: set ft=dosini:
