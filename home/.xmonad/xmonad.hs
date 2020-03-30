@@ -21,9 +21,6 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.InsertPosition
 import XMonad.Hooks.EwmhDesktops
 
-import XMonad.Hooks.SetWMName
-
-
 -- util --
 import XMonad.Util.NamedScratchpad
 
@@ -52,14 +49,14 @@ import XMonad.Util.NamedWindows (getName)
 
 main = do
   forM_ [".xmonad-workspace-log", ".xmonad-title-log"] $ \file -> do
-    safeSpawn "mkfifo" ["/tmp/" ++ file]
+  safeSpawn "mkfifo" ["/tmp/" ++ file]
 
   xmonad $ withUrgencyHook NoUrgencyHook $ ewmh desktopConfig {
     -- simple stuff
-    terminal           = myTerminal,
-    focusFollowsMouse  = myFocusFollowsMouse,
-    borderWidth        = myBorderWidth,
-    modMask            = myModMask,
+    terminal           = "terminator",
+    focusFollowsMouse  = True,
+    borderWidth        = 1,
+    modMask            = mod4Mask,
     workspaces         = myWorkspaces,
     normalBorderColor  = myNormalBorderColor,
     focusedBorderColor = myFocusedBorderColor,
@@ -73,22 +70,34 @@ main = do
     manageHook         = myManageHook
       <+> manageDocks,
     handleEventHook    = myEventHook,
-    logHook            = myLogHook,
+    logHook            = polibarPP,
     startupHook        = myStartupHook
   }
-
-myTerminal          = "terminator"
-myFocusFollowsMouse = True
-myBorderWidth       = 1
-myModMask           = mod4Mask
 
 myNormalBorderColor  = "#111111"
 myFocusedBorderColor = "#353b3e"
 
 myWorkspaces= ["www","ed","sh","bg","im","fs","media","gfx","h"]
 
--- Layouts ---------------------------------------------------------------------
+-- Status bars and logging -----------------------------------------------------
 
+wsOutput wsStr = do
+  io $ appendFile "/tmp/.xmonad-workspace-log" (wsStr ++ "\n")
+
+polibarPP = dynamicLogWithPP $ def {
+  ppCurrent = wrap ("%{F#9C71C7}[%{F-}%{F#BEB3CD}") "%{F-}%{F#9C71C7}]%{F-}"
+  , ppHidden  = wrap ("%{F" ++ "#BEB3CD" ++ "} ") " %{F-}"
+  , ppHiddenNoWindows  = wrap ("%{F" ++ "#6B5A68" ++ "} ") " %{F-}"
+  , ppUrgent = wrap ("%{F#8c414f}[%{F-}%{F#BEB3CD}") "%{F-}%{F#8c414f}]%{F-}"
+  , ppSep              = "  "
+  , ppLayout = wrap ("%{F#6B5A68}[%{F-}%{F#9c71C7}") "%{F-}%{F#6B5A68}]%{F-}"
+  , ppTitle            = (\str -> "")
+  , ppSort             = fmap (.namedScratchpadFilterOutWorkspace) $ ppSort defaultPP
+  , ppOutput = wsOutput
+  }
+
+
+-- Layouts ---------------------------------------------------------------------
 myLayout = windowNavigation $
            avoidStruts $
            smartBorders $
@@ -149,7 +158,7 @@ myManageHook = (composeAll . concat $
 
   -- classnames
   myFloats      = ["MPlayer", "Vlc", "Lxappearance", "XFontSel"]
-  myFullFloats  = ["feh", "Mirage", "Zathura", "Mcomix", "smplayer"]
+  myFullFloats  = ["feh", "mpv", "Zathura", "Mcomix", "smplayer"]
   myIm          = ["Pidgin", "Mumble", "Skype"]
   myGfxs        = ["Inkscape", "Gimp"]
 
@@ -169,34 +178,6 @@ myManageHook = (composeAll . concat $
 
 myEventHook = docksEventHook <+> handleEventHook desktopConfig
 
--- Status bars and logging -----------------------------------------------------
-
-myLogHook = do
-  winset <- gets windowset
-  title <- maybe (return "") (fmap show . getName) . W.peek $ winset
-  let currWs = W.currentTag winset
-  let wss = map W.tag $ W.workspaces winset
-  let wsStr = join $ map (fmt currWs) $ sort' wss
-
-  io $ appendFile "/tmp/.xmonad-title-log" (title ++ "\n")
-  io $ appendFile "/tmp/.xmonad-workspace-log" (wsStr ++ "\n")
-
-  where fmt currWs ws
-          | currWs == ws = "[" ++ ws ++ "]"
-          | otherwise    = " " ++ ws ++ " "
-        sort' = sortBy (compare `on` (!! 0))
-
-myDzenPP = dzenPP
-  { ppCurrent          = wrap "^fg(#9C71C7)[^fg(#BEB3CD)" "^fg(#9C71C7)]"
-  , ppHidden           = wrap " ^fg(#BEB3CD)" " "
-  , ppHiddenNoWindows  = wrap " ^fg(#6B5A68)" " "
-  , ppUrgent           = wrap "^fg(#8c414f)[^fg(#BEB3CD)" "^fg(#8c414f)]"
-
-  , ppSep              = "  "
-  , ppLayout           = wrap "^fg(#6B5A68)[^fg(#9C71C7)" "^fg(#6B5A68)]"
-  , ppTitle            = (" " ++) . dzenColor "#BEB3CD" "" . dzenEscape
-  , ppSort             = fmap (.namedScratchpadFilterOutWorkspace) $ ppSort defaultPP
-  }
 
 -- myDzenXmonad= "LANG=fr dzen2 -y 1060 -x 0 -w 2110 -ta l " ++ myDzenStyle
 
@@ -210,7 +191,6 @@ myFont = "-xos4-terminus-medium-*-*-*-16-*-*-*-*-*-iso10646-*"
 -- Startup hook ----------------------------------------------------------------
 
 myStartupHook = do
-  -- setWMName "LG3D"
   spawn "xbindkeys"
   spawn "bash ~/.config/polybar/launch.sh"
 
@@ -276,7 +256,7 @@ scratchpads = [
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   [ ((modm,                 xK_Return), spawn $ XMonad.terminal conf) -- launch a terminal
-  , ((modm,                 xK_x     ), spawn "ulauncher")
+  , ((modm,                 xK_x     ), spawn "rofi -show drun")
   , ((modm,                 xK_c     ), spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
   , ((modm,   xK_l     ), spawn "betterlockscreen --lock blur") -- betterlockscreen -u Wallpapers/
   , ((modm,   xK_w     ), spawn "rofi -show window -modi window, window -sidebar-mode -lines 6 -width 800")

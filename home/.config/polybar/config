@@ -5,17 +5,27 @@ margin-bottom = 0
 [settings]
 screenchange-reload = true
 
+[module/title]
+type = internal/xwindow
+
 [module/workspaces-xmonad]
+; format-prefix = "%{F#df} %{F-} "
 type = custom/script
 exec = tail -F /tmp/.xmonad-workspace-log
 exec-if = [ -p /tmp/.xmonad-workspace-log ]
 tail = true
 
-[module/title-xmonad]
+[module/weather]
 type = custom/script
-exec = tail -F /tmp/.xmonad-title-log
-exec-if = [ -p /tmp/.xmonad-title-log ]
-tail = true
+exec = curl -s 'wttr.in/Moscow?format=1'
+interval = 300
+
+
+[module/gpmdp]
+type = custom/script
+exec = cat ~/.config/Google\ Play\ Music\ Desktop\ Player/json_store/playback.json | jq -r '.song.artist, .song.title' | sed ':a;N;$!ba;s/\n/ \- /'
+interval = 2
+format-foreground = #6B5A68
 
 [colors]
 background = #d0303030
@@ -50,7 +60,6 @@ height = 24
 offset-x = 0
 offset-y = 0
 fixed-center = true
-bottom = true
 
 background = ${colors.background-alt}
 foreground = ${colors.foreground}
@@ -61,14 +70,13 @@ underline-size = 0
 border-bottom-size = 0
 border-bottom-color = #ffffff
 
-padding-left = 0
-padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Anka/Coder:style=Regular:size=11;1
-font-1 = SpaceMono Nerd Font Mono:fontformat=truetype:size=16:antialias=true;3
-font-2 = SpaceMono Nerd Font Mono:pixelsize=10;1
+font-0 = Terminess Powerline:style=Regular:size=14:antialias=false;1
+; font-0 = Anka/Coder:style=Regular:size=11;1
+font-1 = SpaceMono Nerd Font Mono:fontformat=truetype:size=14;3
+font-2 = SpaceMono Nerd Font Mono:fontformat=truetype:size=20;5
 font-3 = Siji:fontformat=truetype:size=12:antialias=true;1
 
 radius = 0.0
@@ -82,25 +90,25 @@ border-color = #00000000
 tray-position = none
 tray-padding = 2
 tray-background = ${root.background}
-
-[bar/desktop]
-inherit = bar/base
-
 padding-left = 1
 padding-right = 1
 
-modules-left = cpu memory battery workspaces-xmonad
-modules-center = title-xmonad
-modules-right = backlight eth filesystem volume date
 
-[bar/laptop]
+[bar/desktop-bottom]
 inherit = bar/base
-monitor = ${env:MONITOR:eDP1}
-monitor-fallback = ${env:MONITOR:HDMI1}
+bottom = true
 
-modules-left = workspaces-xmonad title-xmonad
-modules-center = mpd volume
-modules-right = redshift updates battery backlight date powermenu
+modules-left = workspaces-xmonad
+modules-center = title
+modules-right = weather date
+
+[bar/desktop-top]
+inherit = bar/base
+bottom = false
+
+modules-left = volume gpmdp backlight
+modules-center = filesystem
+modules-right = eth cpu memory battery
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -125,53 +133,19 @@ interval = 25
 mount-0 = /
 mount-1 = /storage
 
-label-mounted = %{F#5b51c9}%mountpoint%%{F-}: %percentage_used%%
+label-mounted = %{F#9c71C7}%mountpoint%%{F-} %free%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground}
 
-[module/updates]
-type = custom/script
-exec = $HOME/dotfiles/scripts/updates.sh
-
-format-prefix = "%{T2}%{T-} "
-format-prefix-foreground = ${colors.blue_arch}
-format-underline = ${colors.grey}
-
-interval = 120
-
-[module/redshift]
-type = custom/script
-interval = 5
-
-exec = ~/.config/polybar/redshift.sh
-
 [module/battery]
 type = internal/battery
-battery = BAT1
-adapter = ADP1
+# ls -l /sys/class/power_supply
+battery = BAT0
+adapter = AC
 full-at = 98
-time-format = %H:%M
 
-format-charging = <animation-charging>
-format-discharging = <ramp-capacity> <label-discharging>
-label-discharging = %time%
-format-full-prefix = "f "
-format-full-prefix-foreground = ${colors.foreground}
-
-ramp-capacity-0 = ""
-ramp-capacity-1 = ""
-ramp-capacity-2 = ""
-ramp-capacity-3 = ""
-ramp-capacity-4 = ""
-ramp-capacity-foreground = ${colors.foreground}
-
-animation-charging-0 = ""
-animation-charging-1 = ""
-animation-charging-2 = ""
-animation-charging-3 = ""
-animation-charging-4 = ""
-animation-charging-foreground = ${colors.foreground}
-animation-charging-framerate = 750
+format-charging = %{F#9c71C7}%{F-} <label-charging>
+format-discharging = %{F#9c71C7}%{F-} <label-discharging>
 
 [module/mpd]
 type = internal/mpd
@@ -194,7 +168,7 @@ bar-progress-empty = _
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "cpu "
+format-prefix = "  %{F#9c71C7}柳%{F-}"
 format-prefix-foreground = ${colors.foreground}
 format-underline = ${colors.grey}
 label = %percentage:3%%
@@ -202,7 +176,7 @@ label = %percentage:3%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "mem "
+format-prefix = "%{F#9c71C7}%{F-}"
 format-prefix-foreground = ${colors.foreground}
 format-underline = ${colors.grey}
 label = %percentage_used:3%%
@@ -212,51 +186,30 @@ type = internal/network
 interface = enp4s0
 interval = 3.0
 
-format-connected-underline = ${colors.grey}
-format-connected-prefix = ""
-format-connected-prefix-foreground = ${colors.foreground}
-label-connected = %downspeed:9%
+label-connected = %{F#9c71C7}%{F-}%downspeed:8%   %{F#9c71C7}%{F-}%upspeed:8%
 
 [module/date]
 type = internal/date
 interval = 5
 
-date = " %A %B %m"
+date = " %A %B %d"
 time = %H:%M
 
-format-prefix = "%{T2}%{T-}"
+format-prefix = "%{F#9c71C7}%{F-}"
 format-prefix-foreground = ${colors.foreground}
 format-underline = ${colors.grey}
 
-label = %date% %time%
+label = %{F#6B5A68}%date%%{F-} %time%
 
 [module/volume]
-type = internal/volume
+type = internal/pulseaudio
+interval = 2
 
-format-volume = <label-volume>
-label-volume =  %percentage%%
+label-volume = "%{F#9c71C7}墳 %{F-}%percentage%%"
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground}
-label-muted = mtd
-
-bar-volume-width = 10
-bar-volume-foreground-0 = ${colors.grey2}
-bar-volume-foreground-1 = ${colors.grey2}
-bar-volume-foreground-2 = ${colors.grey2}
-bar-volume-foreground-3 = ${colors.grey2}
-bar-volume-foreground-4 = ${colors.grey2}
-bar-volume-foreground-5 = ${colors.grey1}
-bar-volume-foreground-6 = ${colors.grey}
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 0
-bar-volume-fill = 
-bar-volume-fill-font = 1
-bar-volume-empty = 
-bar-volume-empty-font = 1
-bar-volume-empty-foreground = ${colors.foreground}
+format-muted-prefix = "%{F#9c71C7}婢%{F-} "
+format-muted-foreground = #6B5A68
 
 [module/backlight]
 type = internal/xbacklight
