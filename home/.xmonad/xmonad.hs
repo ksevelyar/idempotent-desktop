@@ -256,7 +256,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   [ ((modm,                 xK_Return), spawn $ XMonad.terminal conf) -- launch a terminal
   , ((modm,                 xK_x     ), spawn "rofi -modi drun -show")
-  , ((modm,                 xK_w     ), spawn "rofi -modi window -show")
+  , ((modm,                 xK_p     ), spawn "rofi -modi window -show")
   , ((modm,                 xK_c     ), spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
   , ((modm,   xK_l     ), spawn "betterlockscreen --lock blur") -- betterlockscreen -u Wallpapers/
   , ((modm,   xK_l     ), spawn "dm-tool lock") -- betterlockscreen -u Wallpapers/
@@ -316,29 +316,17 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((0,    xK_Print), spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
   , ((modm, xK_Print), spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
 
-  , ((modm, xK_o), spawn "sleep 1; xset dpms force off; pkill -f gpmdp")
+  , ((modm, xK_o), spawn "sleep 1; xset dpms force off; pkill -f google-play")
 
-  -- XF86AudioLowerVolume
-  , ((0, 0x1008ff11), spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%")
-  -- XF86AudioRaiseVolume
-  , ((0, 0x1008ff13), spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%")
+  , ((modm, xK_Home), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+  , ((modm, xK_Page_Up), spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%")
+  , ((modm, xK_Page_Down), spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%")
 
 
   , ((modm, xK_m),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 12%")
   , ((modm, xK_comma),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
   , ((modm, xK_period), spawn  "pactl set-sink-volume @DEFAULT_SINK@ 31%")
   , ((modm, xK_slash),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 50%")
-
-  -- XF86AudioMute
-  --, ((0            , 0x1008ff12), spawn "amixer -q set Master toggle")
-  -- XF86AudioNext
-  --, ((0            , 0x1008ff17), spawn "mocp -f")
-  -- XF86AudioPrev
-  --, ((0            , 0x1008ff16), spawn "mocp -r")
-  -- XF86AudioPlay
-  --, ((0            , 0x1008ff14), spawn "mocp -G")
-
-  -- , ((modm .|. shiftMask,   xK_q     ), io (exitWith ExitSuccess)) -- Quit xmonad
 
   , ((modm .|. controlMask, xK_BackSpace ), spawn "xmonad --recompile && xmonad --restart") -- Restart xmonad
   ]
