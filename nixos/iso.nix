@@ -5,12 +5,11 @@
 { config, pkgs, ... }:
 {
   imports = [
-    # <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
-    <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix>
+    <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix>
     <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
     ./packages.nix
   ];
-  isoImage.isoName = "zubos-0.iso";
+  isoImage.isoName = "nix-1.iso";
 
   # configure proprietary drivers
   nixpkgs.config.allowUnfree = true;
@@ -42,13 +41,6 @@
   location.longitude = 37.61;
 
   services.blueman.enable = true;
-  services.tlp.enable = true;
-  services.tlp.extraConfig = ''
-    START_CHARGE_THRESH_BAT0=85
-    STOP_CHARGE_THRESH_BAT0=95
-    CPU_SCALING_GOVERNOR_ON_BAT=powersave
-    ENERGY_PERF_POLICY_ON_BAT=powersave
-  '';
 
   services.tor = {
     enable = true;
@@ -142,5 +134,5 @@
 
   users.defaultUserShell = pkgs.fish;
 
-  nix.binaryCaches = [ "https://aseipp-nix-cache.global.ssl.fastly.net" ];
+  nix.binaryCaches = [ "https://cache.nixos.org" "https://aseipp-nix-cache.global.ssl.fastly.net" ];
 }

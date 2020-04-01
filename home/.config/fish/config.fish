@@ -10,7 +10,7 @@ git_aliases
 user_config
 set -u DEFAULT_USER (whoami)
 
-alias edit='sudoedit /etc/nixos/configuration.nix'
+alias edit='sudo nvim /etc/nixos/configuration.nix'
 alias build='sudo nixos-rebuild switch --upgrade'
 
 alias g='git'
@@ -30,8 +30,3 @@ alias mk='env MINIKUBE_HOME="/code" minikube start --vm-driver kvm2'
 
 alias ncdu_root="sudo ncdu / --exclude /storage --exclude /trash"
 alias python_server="python3 -m http.server 9000"
-
-function sync_bg
-  set -l last_wallpaper (ls -dt1 /storage/Dropbox/pics/wallpapers/* | head -n 1)
-  feh --bg-fill --image-bg 'black' $last_wallpaper
-end

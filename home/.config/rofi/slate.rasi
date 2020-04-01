@@ -1,0 +1,58 @@
+configuration {
+  display-drun: "異";
+  display-run: "";
+  display-window: "";
+  display-ssh: "~#";
+  show-icons: false;
+  sidebar-mode: false;
+}
+
+* {
+  background-color: #0f0b13;
+  border-color: #1d1525;
+  text-color: #6B5A68;
+  spacing: 0;
+}
+
+window {
+width: 33%;
+orientation: vertical;
+}
+
+
+inputbar {
+  border: 0 0 1px 0;
+  children: [prompt,entry];
+}
+
+prompt {
+  padding: 16px;
+  border: 0 1px 0 0;
+}
+
+textbox {
+  background-color: #2e343f;
+  border: 0 0 1px 0;
+  border-color: #2b1f37;
+  padding: 8px 16px;
+}
+
+entry {
+  padding: 16px;
+}
+
+listview {
+  cycle: false;
+  margin: 0 0 -1px 0;
+  scrollbar: false;
+}
+
+element {
+  border: 0 0 1px 0;
+  padding: 10px;
+}
+
+element selected {
+  background-color: #000;
+  color: #9c71C7;
+}

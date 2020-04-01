@@ -1,149 +1,173 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
+let
+  stable = import <stable> {
+    config = config.nixpkgs.config;
+  };
+in
 {
-  environment.systemPackages = with pkgs; [
-    sierra-gtk-theme
-    grub2
-    os-prober
-    hwinfo
-    wget
-    curl
+  environment.systemPackages = with pkgs;
+    let
+      polybar = pkgs.polybar.override {
+        pulseSupport = true;
+      };
+    in
+      [
+        sierra-gtk-theme
+        grub2
+        os-prober
+        hwinfo
+        wget
+        curl
 
-    # cli
-    brightnessctl
-    wtf
+        # cli
+        calcurse
+        brightnessctl
+        wtf
+        python3
 
-    mpv
-    smplayer
-    vlc
-    kodi
-    xbindkeys
-    fzf
-    gopass
-    keepassxc
-    firefoxWrapper
-    google-chrome
-    zathura
-    memtest86-efi
+        mpv
+        smplayer
+        vlc
+        kodi
+        moc
 
-    # Themes
-    betterlockscreen
-    vanilla-dmz
-    pop-gtk-theme
-    adapta-gtk-theme
-    # ant-theme
-    nordic
-    nordic-polar
-    arc-theme
-    materia-theme
-    paper-icon-theme
-    lxappearance-gtk3
-    lxqt.lxqt-themes
-    adwaita-qt
-    skype
-    slack
-    feh
-    transmission_gtk
-    aria2
-    tdesktop
-    polybar
-    xorg.xev
+        xbindkeys
+        fzf
+        gopass
+        keepassxc
+        firefoxWrapper
+        google-chrome
+        zathura
+        evince
+        memtest86-efi
 
-    # Audio
-    google-play-music-desktop-player
-    audacity
-    lmms
+        # Themes
+        cura
+        conky
+        betterlockscreen
+        vanilla-dmz
+        pop-gtk-theme
+        adapta-gtk-theme
+        ant-theme
+        ant-bloody-theme
+        ant-dracula-theme
+        nordic
+        nordic-polar
+        arc-theme
+        materia-theme
+        paper-icon-theme
+        lxappearance-gtk3
+        lxqt.lxqt-themes
+        adwaita-qt
+        skype
+        slack
+        feh
+        transmission_gtk
+        aria2
+        tdesktop
+        polybar
 
-    # Dev
-    python3
-    zeal
-    neovim
-    neovim-qt
-    gnvim
-    vscode
-    ripgrep
-    tldr
-    nodejs
-    elixir
-    go
-    terminator
-    cool-retro-term
-    kitty
-    asciinema
-    alacritty
-    universal-ctags
-    global
-    gcc
-    git
-    gitg
-    gitAndTools.diff-so-fancy
-    lazygit
-    imagemagick
-    gimp
+        # Audio
+        google-play-music-desktop-player
+        audacity
+        lmms
 
-    # Freelance
-    libreoffice
-    masterpdfeditor
+        # Dev
+        zeal
+        neovim
+        neovim-qt
+        gnvim
+        vscode
+        ripgrep
+        tldr
+        nodejs
+        elixir
+        go
+        terminator
+        cool-retro-term
+        kitty
+        asciinema
+        alacritty
+        universal-ctags
+        global
+        gcc
+        git
+        gitg
+        gitAndTools.diff-so-fancy
+        lazygit
+        imagemagick
+        gimp
 
-    # Sys
-    file
-    memtest86plus
-    system-config-printer
+        # Freelance
+        libreoffice
+        masterpdfeditor
 
-    ## fs
-    mc
-    spaceFM
-    xfce.thunar
-    exa
-    fd
-    ranger
-    libcaca
-    nomacs
-    ncdu
-    tree
-    rsync
-    sshfs
-    ntfs3g
-    exfat
-    sshfsFuse
-    rclone
-    rclone-browser
+        # Sys
+        font-manager
+        file
+        memtest86plus
+        system-config-printer
+        jq
 
-    lshw
-    bat
-    inetutils
-    maim
-    simplescreenrecorder
-    smartmontools
-    bind
-    unzip
-    xclip
-    gotop
-    iotop
-    powertop
-    rofi
-    redshift
-    bash
-    tor-browser-bundle-bin
-    pavucontrol
-    libnotify
-    dunst
-    nixpkgs-fmt
-    tightvnc
-    youtube-dl
+        ## fs
+        mc
+        spaceFM
+        xfce.thunar
+        exa
+        fd
+        ranger
+        libcaca
+        nomacs
+        ncdu
+        tree
+        rsync
+        sshfs
+        ntfs3g
+        exfat
+        sshfsFuse
+        rclone
+        rclone-browser
 
-    # vncpasswd
-    # x0vncserver -rfbauth ~/.vnc/passwd
-    tigervnc
+        lshw
+        bat
+        inetutils
+        maim
+        simplescreenrecorder
+        smartmontools
+        bind
+        unzip
+        atool
+        xclip
+        gotop
+        htop
+        iotop
+        powertop
+        rofi
+        redshift
+        bash
+        tor-browser-bundle-bin
+        pavucontrol
+        libnotify
+        dunst
+        nixpkgs-fmt
+        tightvnc
+        youtube-dl
 
-    steam
-    neofetch
+        # vncpasswd
+        # x0vncserver -rfbauth ~/.vnc/passwd
+        tigervnc
 
-    # laptop
-    arandr
-    acpi
-    ulauncher
-    openssh
+        # games
+        gzdoom
+        steam
+        neofetch
 
-    winusb
-  ];
+        # laptop
+        arandr
+        acpi
+        stable.ulauncher
+        openssh
+
+        winusb
+      ];
 }

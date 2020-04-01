@@ -191,7 +191,6 @@ myFont = "-xos4-terminus-medium-*-*-*-16-*-*-*-*-*-iso10646-*"
 -- Startup hook ----------------------------------------------------------------
 
 myStartupHook = do
-  spawn "xbindkeys"
   spawn "bash ~/.config/polybar/launch.sh"
 
 -- Scratchpads -----------------------------------------------------------------
@@ -256,9 +255,11 @@ scratchpads = [
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   [ ((modm,                 xK_Return), spawn $ XMonad.terminal conf) -- launch a terminal
-  , ((modm,                 xK_x     ), spawn "rofi -show drun")
+  , ((modm,                 xK_x     ), spawn "rofi -modi drun -show")
+  , ((modm,                 xK_w     ), spawn "rofi -modi window -show")
   , ((modm,                 xK_c     ), spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
   , ((modm,   xK_l     ), spawn "betterlockscreen --lock blur") -- betterlockscreen -u Wallpapers/
+  , ((modm,   xK_l     ), spawn "dm-tool lock") -- betterlockscreen -u Wallpapers/
   , ((modm,   xK_w     ), spawn "rofi -show window -modi window, window -sidebar-mode -lines 6 -width 800")
   , ((modm,                 xK_b     ), spawn "firefox -p default")
   , ((modm,                 xK_y     ), spawn "firefox -p tor")
