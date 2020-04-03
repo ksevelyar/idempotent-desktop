@@ -53,8 +53,6 @@ let g:coc_global_extensions = [
 \ 'coc-vimlsp', 'coc-tsserver', 'coc-sh'
 \ ]
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-set cmdheight=2
-set updatetime=300
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -498,7 +496,7 @@ cmap w!! w !sudo tee % >/dev/null<Up>
 nmap <leader>fp :let @+=expand("%:p")<CR>
 
 nmap <Leader>ct :ColorToggle<cr>
-nmap <Leader>nf :NERDTreeFind<cr>
+nmap <Leader>f :NERDTreeFind<cr>
 
 " copy / paste
 vmap <C-C> "+y
