@@ -20,6 +20,7 @@ autocmd VimEnter *
 """ Plugins
 call plug#begin()
 
+Plug 'ruanyl/vim-gh-line'
 Plug 'w0rp/ale'
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 0
@@ -45,7 +46,12 @@ let g:ale_linters = {
 \   'json': [], 'vue': [],
 \ }
 
-let g:coc_global_extensions = ['coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-elixir', 'coc-go', 'coc-git', 'coc-vimlsp', 'coc-tsserver', 'coc-sh' ]
+" \ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-prettier',
+let g:coc_global_extensions = [
+\ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css',
+\ 'coc-elixir', 'coc-go', 'coc-git',
+\ 'coc-vimlsp', 'coc-tsserver', 'coc-sh'
+\ ]
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 set cmdheight=2
 set updatetime=300
@@ -68,12 +74,12 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
-if has('patch8.1.1068')
-  " Use `complete_info` if your (Neo)Vim version supports it.
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+" if has('patch8.1.1068')
+"   " Use `complete_info` if your (Neo)Vim version supports it.
+"   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+" else
+"   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" endif
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -204,7 +210,7 @@ Plug 'dag/vim-fish'
 
 Plug 'tpope/vim-endwise'
 Plug 'valloric/MatchTagAlways'
-Plug 'Raimondi/delimitMate'
+" Plug 'Raimondi/delimitMate'
 
 Plug 'pangloss/vim-javascript'
 Plug 'othree/yajs.vim'
@@ -310,6 +316,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 """ Themes
 Plug 'whatyouhide/vim-gotham'
 Plug 'ksevelyar/joker.vim'
+Plug 'chriskempson/base16-vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'cocopon/iceberg.vim'
 " Plug 'liuchengxu/space-vim-dark'
