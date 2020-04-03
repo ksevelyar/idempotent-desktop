@@ -6,9 +6,9 @@
       defaultSession = "none+xmonad";
       sessionCommands = ''
         sh ~/.fehbg &
-        sh ~/.config/polybar/launch.sh &
         xsetroot -cursor_name left_ptr
-        xbindkeys &
+
+        xset s off
         xset -dpms
       '';
     };
@@ -17,48 +17,20 @@
       enable = true;
       background = "/etc/nixos/grub.jpg";
 
-
       greeters.gtk = {
         enable = true;
         cursorTheme = {
           name = "Vanilla-DMZ";
           package = pkgs.vanilla-dmz;
-          # user = "ksevelyar";
-          # extraConfig = ''
-          #   [greeter]
-          #   show-password-label = false
-          #   [greeter-theme]
-          #   background-image = ""
-          # '';
         };
       };
     };
 
-    libinput = {
-      enable = true;
-      accelProfile = "flat"; # flat profile for touchpads
-      # naturalScrolling = true;
-      # disableWhileTyping = true;
-    };
-    # videoDrivers = [ "nouveau" "intel" "amdgpu" ];
-    # videoDrivers = [ "intel" ];
-    # synaptics.enable = false; # disable synaptics
-
-    # flat profile for mice
-    config = ''
-      Section "InputClass"
-        Identifier     "My mouse"
-        Driver         "libinput"
-        MatchIsPointer "on"
-        Option "AccelProfile" "flat"
-      EndSection
-    '';
     layout = "us,ru";
     xkbOptions = "grp:caps_toggle,grp:alt_shift_toggle,grp_led:caps";
     desktopManager = {
       xterm.enable = false;
     };
-
 
     windowManager = {
       xmonad.enable = true;
@@ -77,16 +49,10 @@
     #   drivers = [ pkgs.gutenprint pkgs.hplip ];
   };
 
-  services.udev.extraRules = ''
-    SUBSYSTEM=="power_supply"
-    ATTR{status}=="Discharging"
-    ATTR{capacity}=="[0-10]"
-    RUN+="${pkgs.libnotify}/bin/notify-send 'Low Battery' 'HRU'"
-  '';
 
-  # services.picom.enable = false;
-  # services.picom.fade = false;
-  # services.picom.shadow = false;
+  services.picom.enable = false;
+  services.picom.fade = false;
+  services.picom.shadow = false;
 
   services.avahi = {
     enable = true;
@@ -134,13 +100,6 @@
   };
 
   services.blueman.enable = true;
-  services.tlp.enable = true;
-  services.tlp.extraConfig = ''
-    START_CHARGE_THRESH_BAT0=85
-    STOP_CHARGE_THRESH_BAT0=95
-    CPU_SCALING_GOVERNOR_ON_BAT=powersave
-    ENERGY_PERF_POLICY_ON_BAT=powersave
-  '';
 
   services.tor = {
     enable = true;

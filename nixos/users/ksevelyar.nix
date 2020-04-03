@@ -5,8 +5,6 @@
       (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
     ];
 
-  networking.hostName = "laundry";
-  powerManagement.enable = false;
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
@@ -18,11 +16,11 @@
     etc."xdg/gtk-3.0/settings.ini" = {
       text = ''
         [Settings]
-        gtk-theme-name=Pop-dark
+        gtk-theme-name=Ant-Dracula
         gtk-icon-theme-name=Paper-Mono-Dark
         gtk-font-name=Anka/Coder 13
         # gtk-application-prefer-dark-theme = true
-        gtk-cursor-theme-name=Paper
+        gtk-cursor-theme-name=Vanilla-DMZ
       '';
     };
 
@@ -40,7 +38,7 @@
       '';
     };
 
-    etc."xdg/nvim/sysinit.vim".text = builtins.readFile ./init.vim;
+    # root.".config/nvim/init.vim".text = builtins.readFile ./init.vim;
 
     variables = {
       EDITOR = "nvim";
@@ -64,7 +62,7 @@
         userEmail = "ksevelyar@gmail.com";
       };
 
-      home.file.".icons/default".text = ''
+      home.file.".icons/default/index.theme".text = ''
         [Icon Theme]
         Name=Default
         Comment=Default Cursor Theme
@@ -75,6 +73,16 @@
         #!/bin/sh
         /run/current-system/sw/bin/feh --randomize --bg-fill --no-fehbg ~/Wallpapers/
       '';
+
+      home.file.".ssh/config".text = ''
+        Host *
+          ForwardAgent yes
+
+        Host 192.168.0.*
+          StrictHostKeyChecking no
+          UserKnownHostsFile=/dev/null
+      '';
+
 
     };
 

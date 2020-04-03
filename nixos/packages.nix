@@ -12,6 +12,7 @@ in
       };
     in
       [
+        (python3.withPackages (ps: with ps; [ "kalliope" ]))
         sierra-gtk-theme
         grub2
         os-prober
@@ -136,6 +137,7 @@ in
         smartmontools
         bind
         unzip
+        unrar
         atool
         xclip
         gotop

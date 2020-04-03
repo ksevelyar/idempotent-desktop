@@ -6,12 +6,12 @@
 
   boot.loader.grub = {
     enable = true;
+    efiSupport = true;
     device = "nodev";
     # device = "/dev/sda"; # MBR/BIOS
     version = 2;
-    efiSupport = true;
     backgroundColor = "#35246e";
-    memtest86.enable = false;
+    memtest86.enable = true;
     configurationLimit = 42;
     useOSProber = true;
 
@@ -25,6 +25,6 @@
     '';
   };
 
-  boot.tmpOnTmpfs = true;
-  boot.plymouth.enable = true;
+  boot.tmpOnTmpfs = false;
+  boot.plymouth.enable = false;
 }

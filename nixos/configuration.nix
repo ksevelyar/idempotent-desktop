@@ -7,31 +7,25 @@
   imports =
     [
       # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./debug.nix
       ./boot.nix
       ./packages.nix
       ./services.nix
-      ./debug.nix
-      ./ksevelyar-desktop.nix
+      # ./laptop.nix
+      ./users/ksevelyar.nix
+      ./hosts/laundry.nix
     ];
-
 
   nixpkgs.config.allowUnfree = true;
 
   hardware = {
-    cpu.intel.updateMicrocode = true;
     enableAllFirmware = true;
     pulseaudio.enable = true;
     pulseaudio.package = pkgs.pulseaudioFull;
     opengl.driSupport32Bit = true; # Required for Steam
     pulseaudio.support32Bit = true; # Required for Steam
     bluetooth.enable = true;
-
-    # With Kernel Mode Setting (KMS), the kernel is now able to set the mode of the video card.
-    # This makes fancy graphics during bootup, virtual console and X fast switching possible, among other things.
-    nvidia.modesetting.enable = true;
   };
-
 
   # Enable sound.
   sound.enable = true;
@@ -84,8 +78,6 @@
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.enp4s0.useDHCP = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -123,11 +115,6 @@
     };
 
     binaryCaches = [ "https://cache.nixos.org" "https://aseipp-nix-cache.global.ssl.fastly.net" ];
-
-    # extraOptions = ''
-    #   binary-caches-parallel-connections = 3
-    #   connect-timeout = 10
-    # '';
   };
 
   # This value determines the NixOS release with which your system is to be
