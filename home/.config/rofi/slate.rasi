@@ -2,7 +2,7 @@ configuration {
   display-drun: "異";
   display-run: "";
   display-window: "";
-  display-ssh: "~#";
+  display-ssh: "殺";
   show-icons: false;
   sidebar-mode: false;
 }

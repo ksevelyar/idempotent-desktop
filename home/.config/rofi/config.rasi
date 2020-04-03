@@ -27,7 +27,7 @@ bw: 0;
 /*	ignored-prefixes: "";*/
 /*	sort: false;*/
 /*	sorting-method: ;*/
-/*	case-sensitive: false;*/
+case-sensitive: false;
 /*	cycle: true;*/
 /*	sidebar-mode: false;*/
 /*	eh: 1;*/
@@ -35,7 +35,7 @@ bw: 0;
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
 /*	combi-modi: "window,run";*/
-/*	matching: "normal";*/
+matching: "fuzzy";
 /*	tokenize: true;*/
 /*	m: "-5";*/
 /*	line-margin: 2;*/
