@@ -40,13 +40,12 @@ let g:ale_fixers = {
 "set completeopt=menu,menuone,preview,noselect,noinsert " fix ale + solargraph
 
 let g:ale_linters = {
-\   'c': [], 'cpp': [], 'rust': [], 'go': [], 'python': [], 'sh': [],
+\   'c': [], 'cpp': [], 'elixir': [], 'go': [], 'sh': [],
 \   'html': [], 'css': [], 'javascript': [], 'typescript': [],
 \   'json': [], 'vue': [],
-\   'tex': [], 'latex': []
 \ }
 
-let g:coc_global_extensions = ['coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-elixir', 'coc-go', 'coc-git', 'coc-vimlsp', 'coc-tsserver' ]
+let g:coc_global_extensions = ['coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-elixir', 'coc-go', 'coc-git', 'coc-vimlsp', 'coc-tsserver', 'coc-sh' ]
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 set cmdheight=2
 set updatetime=300
