@@ -316,12 +316,10 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 """ Themes
 Plug 'whatyouhide/vim-gotham'
 Plug 'ksevelyar/joker.vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
-Plug 'drewtempelmeyer/palenight.vim'
 Plug 'cocopon/iceberg.vim'
-" Plug 'liuchengxu/space-vim-dark'
-
-Plug 'ryanoasis/vim-devicons' " yay aur/nerd-fonts-complete
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
