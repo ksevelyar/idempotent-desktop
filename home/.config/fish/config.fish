@@ -12,6 +12,7 @@ set -u DEFAULT_USER (whoami)
 
 alias edit='sudo nvim /etc/nixos/configuration.nix'
 alias build='sudo nixos-rebuild switch --upgrade'
+alias t='tmux new-session -A -s main'
 
 alias g='git'
 alias j='z'
