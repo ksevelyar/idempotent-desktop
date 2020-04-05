@@ -5,6 +5,28 @@ let
   };
 in
 {
+  programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
+  programs.browserpass.enable = true;
+
+  programs.fish.enable = true;
+  programs.mosh.enable = true;
+
+  programs.tmux = {
+    enable = true;
+    extraConfig = ''
+      run-shell ${pkgs.tmuxPlugins.resurrect}/share/tmux-plugins/resurrect/resurrect.tmux
+      run-shell ${pkgs.tmuxPlugins.continuum}/share/tmux-plugins/continuum/continuum.tmux
+      run-shell ${pkgs.tmuxPlugins.sensible}/share/tmux-plugins/sensible/sensible.tmux
+      run-shell ${pkgs.tmuxPlugins.open}/share/tmux-plugins/open/open.tmux
+      run-shell ${pkgs.tmuxPlugins.yank}/share/tmux-plugins/yank/yank.tmux
+    '';
+  };
+
+  programs.qt5ct.enable = true;
+
+  programs.thefuck.enable = true; # https://github.com/nvbn/thefuck
+
+
   environment.systemPackages = with pkgs;
     let
       polybar = pkgs.polybar.override {
@@ -109,6 +131,11 @@ in
         memtest86plus
         system-config-printer
         jq
+        tmuxPlugins.sensible
+        tmuxPlugins.continuum
+        tmuxPlugins.resurrect
+        tmuxPlugins.open
+        tmuxPlugins.yank
 
         ## fs
         mc

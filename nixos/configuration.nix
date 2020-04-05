@@ -94,17 +94,6 @@
   # started in user sessions.
   # programs.mtr.enable = true;
 
-  programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-  programs.browserpass.enable = true;
-
-  programs.fish.enable = true;
-  programs.mosh.enable = true;
-  programs.tmux.enable = true;
-  programs.qt5ct.enable = true;
-
-  programs.thefuck.enable = true; # https://github.com/nvbn/thefuck
-
-
   users.defaultUserShell = pkgs.fish;
 
   nix = {
