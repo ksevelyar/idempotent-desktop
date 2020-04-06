@@ -1,6 +1,7 @@
 -- Import ----------------------------------------------------------------------
 
 import XMonad
+import Graphics.X11.ExtraTypes.XF86
 
 import Data.Monoid
 
@@ -259,7 +260,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm,                 xK_p     ), spawn "rofi -modi window -show")
   , ((modm,                 xK_c     ), spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
   , ((modm,   xK_l     ), spawn "betterlockscreen --lock blur") -- betterlockscreen -u Wallpapers/
-  , ((modm,   xK_l     ), spawn "dm-tool lock") -- betterlockscreen -u Wallpapers/
+  -- , ((modm,   xK_l     ), spawn "dm-tool lock")
   , ((modm,   xK_w     ), spawn "rofi -show window -modi window, window -sidebar-mode -lines 6 -width 800")
   , ((modm,                 xK_b     ), spawn "firefox -p default")
   , ((modm,                 xK_y     ), spawn "firefox -p tor")
@@ -321,7 +322,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm, xK_Home), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
   , ((modm, xK_Page_Up), spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%")
   , ((modm, xK_Page_Down), spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%")
-
+  , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%")
+  , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%")
+  , ((0, xF86XK_MonBrightnessUp), spawn "brightnessctl set +10%")
+  , ((0, xF86XK_MonBrightnessDown), spawn "brightnessctl set -10%")
 
   , ((modm, xK_m),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 12%")
   , ((modm, xK_comma),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
