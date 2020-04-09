@@ -8,11 +8,12 @@
   focus = mouse
   inactive_color_offset = 1.0
   suppress_multiple_term_dialog = True
-  title_font = Iosevka 16
+  title_font = TerminessTTF Nerd Font Medium 16
   title_hide_sizetext = True
   title_inactive_bg_color = "#0d0936"
   title_transmit_bg_color = "#5c3566"
   title_transmit_fg_color = "#c6aac3"
+  title_use_system_font = False
 [keybindings]
   copy = <Primary>c
   paste = <Primary>v
@@ -47,18 +48,18 @@
 [profiles]
   [[default]]
     allow_bold = False
-    background_color = "#5c3566"
-    background_darkness = 0.2
+    background_color = "#1b161f"
+    background_darkness = 0.95
     background_type = transparent
     copy_on_selection = True
     cursor_blink = False
     cursor_color = "#7e6b7b"
     cursor_color_fg = False
     cursor_shape = underline
-    font = Terminus (TTF) Medium 15
+    font = TerminessTTF Nerd Font Mono Medium 14
     foreground_color = "#babdb6"
     icon_bell = False
-    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
+    palette = "#2d2d2d:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#d3d0c8:#747369:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#f2f0ec"
     scroll_on_keystroke = False
     scrollback_infinite = True
     scrollbar_position = hidden
@@ -70,10 +71,10 @@
     cursor_blink = False
     cursor_color = "#aaaaaa"
     cursor_shape = underline
-    font = Iosevka Term 16
+    font = Terminess Powerline 16
     foreground_color = "#839496"
     icon_bell = False
-    palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    palette = "#2d2d2d:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#d3d0c8:#747369:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#f2f0ec"
     scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False

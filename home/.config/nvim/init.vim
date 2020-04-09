@@ -310,6 +310,7 @@ endif
 
 " Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" let g:NERDTreeChDirMode=2
 
 """ Themes
 Plug 'whatyouhide/vim-gotham'
@@ -476,8 +477,8 @@ nnoremap <C-H> <C-W><C-H> " navigate left
 
 map gcp <Leader>_p " Comment the current inner paragraph
 
-nmap <leader>s <C-w>v<CR>
-nmap <leader>hs <C-w>s<CR>
+nmap <leader>v <C-w>v<CR>
+nmap <leader>h <C-w>s<CR>
 
 " FIXME: fix keys
 " nnoremap <Leader>e :AleError<cr>

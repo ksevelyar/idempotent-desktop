@@ -17,15 +17,16 @@ tail = true
 
 [module/weather]
 type = custom/script
-exec = curl -s 'wttr.in/Moscow?format=1'
+exec = curl -s "wttr.in/Moscow?q&format=[%C]+%t" | sed -e 's/\[/%{F#6B5A68}/' | sed -e 's/\]/%{F-}/' | sed -e 's/Clear//'
 interval = 300
 
 
 [module/gpmdp]
 type = custom/script
-exec = cat ~/.config/Google\ Play\ Music\ Desktop\ Player/json_store/playback.json | jq -r '.song.artist, .song.title' | sed ':a;N;$!ba;s/\n/ \- /'
+exec = ~/.config/polybar/gpmdp.sh
 interval = 2
 format-foreground = #6B5A68
+click-left = pkill -f google-play-music-desktop-player
 
 [colors]
 background = #d0303030
@@ -134,7 +135,7 @@ mount-0 = /
 mount-1 = /storage
 
 label-mounted = %{F#9c71C7}%mountpoint%%{F-} %free%
-label-unmounted = %mountpoint% not mounted
+label-unmounted = %mountpoint% ?
 label-unmounted-foreground = ${colors.foreground}
 
 [module/battery]
@@ -146,24 +147,6 @@ full-at = 98
 
 format-charging = %{F#9c71C7}%{F-} <label-charging>
 format-discharging = %{F#9c71C7}%{F-} <label-discharging>
-
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 40
-label-song-ellipsis = true
-
-bar-progress-width = 10
-bar-progress-indicator = 
-bar-progress-fill = _
-bar-progress-empty = _
 
 [module/cpu]
 type = internal/cpu
@@ -184,9 +167,27 @@ label = %percentage_used:3%%
 [module/eth]
 type = internal/network
 interface = enp4s0
-interval = 3.0
+interval = 1.0
+; click-left = notify-send
 
-label-connected = %{F#9c71C7}%{F-}%downspeed:8%   %{F#9c71C7}%{F-}%upspeed:8%
+label-connected = %{A1:sh ~/.config/polybar/local_and_public_ips.sh:} %{F#9c71C7}%{F-}%downspeed:7:8%   %{F#9c71C7}%{F-}%upspeed:8%%{A}
+
+[module/wifi]
+type = internal/network
+interface = wlan1
+interval = 1.0
+; click-left = notify-send $(ip route | grep default | awk '{print $3}')
+
+label-connected = %essid% %{F#9c71C7}%{F-}%downspeed:8%   %{F#9c71C7}%{F-}%upspeed:8%
+format-connected = <ramp-signal> <label-connected>
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
+
+click-left = notify-send 'hru'
 
 [module/date]
 type = internal/date
@@ -213,32 +214,5 @@ format-muted-foreground = #6B5A68
 
 [module/backlight]
 type = internal/xbacklight
-enable-scroll = false
-format-underline = ${colors.grey}
-format = <ramp>
-ramp-0 = 🌕
-ramp-1 = 🌔
-ramp-2 = 🌓
-ramp-3 = 🌒
-ramp-4 = 🌑
 
-[module/powermenu]
-type = custom/menu
-
-format-underline = ${colors.grey}
-expand-right = true
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close = 
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground}
-
-menu-0-0 = reboot
-menu-0-0-exec = reboot
-menu-0-1 = power off
-menu-0-1-exec = poweroff
 ; vim: set ft=dosini:

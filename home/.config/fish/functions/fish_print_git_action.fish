@@ -44,10 +44,10 @@ function fish_print_git_action --argument-names git_dir
 
     if test -f "$git_dir/CHERRY_PICK_HEAD"
         if test -d "$git_dir/sequencer"
-            cherry_pick_sequence_formatted='cherry-pick-sequence'
+            set cherry_pick_sequence_formatted 'cherry-pick-sequence'
             echo -n 'cherry-pick-sequence'
         else
-            cherry_pick_formatted='cherry-pick'
+            set cherry_pick_formatted 'cherry-pick'
             echo -n 'cherry-pick'
         end
         return 0
