@@ -5,6 +5,7 @@
     displayManager = {
       defaultSession = "none+xmonad";
       sessionCommands = ''
+        picom &
         sh ~/.fehbg &
         xsetroot -cursor_name left_ptr
 
@@ -50,7 +51,7 @@
   };
 
 
-  services.picom.enable = false;
+  services.picom.enable = true;
   services.picom.fade = false;
   services.picom.shadow = false;
 

@@ -1,1 +1,0 @@
-../../../../../../../../../../.zprezto/modules/syntax-highlighting/external/docs/highlighters/pattern.md

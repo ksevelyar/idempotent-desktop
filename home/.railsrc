@@ -1,9 +1,0 @@
---skip-test
---skip-turbolinks
---skip-coffee
---skip-sprockets
---api
---database=postgresql
---skip-javascript
---skip-yarn
---skip-action-cable
