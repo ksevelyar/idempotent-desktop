@@ -7,47 +7,32 @@
   imports =
     [
       # Include the results of the hardware scan.
-      ./debug.nix
-      ./boot.nix
-      ./packages.nix
-      ./services.nix
-      # ./laptop.nix
+      ./modules/debug.nix
+      ./modules/boot.nix
+      ./modules/packages.nix
+      ./modules/services.nix
+      # ./modules/laptop.nix
+      ./modules/fonts.nix
       ./users/ksevelyar.nix
       ./hosts/laundry.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [ (import ./overlays) ];
 
   hardware = {
     enableAllFirmware = true;
+    bluetooth.enable = true;
     pulseaudio.enable = true;
     pulseaudio.package = pkgs.pulseaudioFull;
-    opengl.driSupport32Bit = true; # Required for Steam
     pulseaudio.support32Bit = true; # Required for Steam
-    bluetooth.enable = true;
+    opengl.driSupport32Bit = true; # Required for Steam
   };
-
-  # Enable sound.
   sound.enable = true;
 
   virtualisation.libvirtd = {
     enable = false;
     qemuPackage = pkgs.qemu_kvm;
-  };
-
-  # Enable the X11 windowing system.
-  fonts = {
-    enableFontDir = true;
-    enableGhostscriptFonts = true;
-    fonts = with pkgs; [
-      corefonts # Microsoft free fonts
-      siji # https://github.com/stark/siji
-      tamsyn # http://www.fial.com/~scott/tamsyn-font/
-      opensans-ttf
-      nerdfonts
-      powerline-fonts
-      ankacoder
-    ];
   };
 
   networking.firewall.enable = true;
@@ -82,13 +67,6 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "us";
-  };
-  i18n.defaultLocale = "en_US.UTF-8";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

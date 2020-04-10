@@ -1,0 +1,44 @@
+# sudo nix-channel --add https://nixos.org/channels/nixos-19.09 stable
+# sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+# sudo nix-channel --update
+
+{ config, pkgs, lib, ... }:
+{
+
+  # Enable the X11 windowing system.
+  fonts = {
+    enableFontDir = true;
+    enableGhostscriptFonts = true;
+    fonts = with pkgs; [
+      hunspell
+      hunspellDicts.en_US-large
+
+      font-manager
+
+      # Noto fonts provide basic glyph coverage
+      noto-fonts
+      noto-fonts-emoji
+      noto-fonts-extra
+      noto-fonts-cjk
+
+      # unfree Microsoft fonts
+      corefonts # Andale Mono, Arial, Comic Sans, Courier New, Georgia, Impact, Times New Roman, Trebuchet, Verdana, Webdings
+      vistafonts # Calibri, Cambria, Candara, Consolas, Constantia, Corbel
+      vistafonts-chs # Microsoft YaHei
+
+      # Dev fonts
+      siji # https://github.com/stark/siji
+      tamsyn # http://www.fial.com/~scott/tamsyn-font/
+      opensans-ttf
+      nerdfonts
+      powerline-fonts
+      ankacoder
+    ];
+  };
+
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "us";
+  };
+  i18n.defaultLocale = "en_US.UTF-8";
+}

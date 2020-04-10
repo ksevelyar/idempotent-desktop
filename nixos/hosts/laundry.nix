@@ -39,7 +39,9 @@
 
   hardware = {
     cpu.intel.updateMicrocode = true;
-    # nvidia.modesetting.enable = true;
+    nvidia.modesetting.enable = true;
   };
-
+  boot.tmpOnTmpfs = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  boot.plymouth.enable = true;
 }
