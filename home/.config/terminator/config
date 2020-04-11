@@ -3,7 +3,7 @@
   borderless = True
   close_button_on_tab = False
   dbus = False
-  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  enabled_plugins = ,
   extra_styling = False
   focus = mouse
   inactive_color_offset = 1.0
@@ -50,13 +50,12 @@
     allow_bold = False
     background_color = "#1b161f"
     background_darkness = 0.95
-    background_type = transparent
     copy_on_selection = True
     cursor_blink = False
     cursor_color = "#7e6b7b"
     cursor_color_fg = False
     cursor_shape = underline
-    font = TerminessTTF Nerd Font Mono Medium 14
+    font = ProFont for Powerline 16
     foreground_color = "#babdb6"
     icon_bell = False
     palette = "#2d2d2d:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#d3d0c8:#747369:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#f2f0ec"

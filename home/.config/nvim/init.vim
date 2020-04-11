@@ -174,7 +174,9 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 Plug 'rbgrouleff/bclose.vim'
-"Plug 'francoiscabrol/ranger.vim'
+Plug 'ap/vim-css-color'
+Plug 'tpope/vim-surround'
+Plug 'alvan/vim-closetag'
 
 Plug 'tomtom/tcomment_vim'
 

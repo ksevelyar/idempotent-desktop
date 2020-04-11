@@ -7,6 +7,7 @@ screenchange-reload = true
 
 [module/title]
 type = internal/xwindow
+label-maxlen = 500
 
 [module/workspaces-xmonad]
 ; format-prefix = "%{F#df} %{F-} "
@@ -26,7 +27,8 @@ type = custom/script
 exec = ~/.config/polybar/gpmdp.sh
 interval = 2
 format-foreground = #6B5A68
-click-left = pkill -f google-play-music-desktop-player
+click-right = pkill -f google-play-music-desktop-player
+click-left = bash ~/.config/polybar/gpmdp-next.sh
 
 [colors]
 background = #d0303030
@@ -74,7 +76,7 @@ border-bottom-color = #ffffff
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Terminess Powerline:style=Regular:size=14:antialias=false;1
+font-0 = ProFont for Powerline:style=Regular:size=11:fontformat=truetype:antialias=true;1
 ; font-0 = Anka/Coder:style=Regular:size=11;1
 font-1 = SpaceMono Nerd Font Mono:fontformat=truetype:size=14;3
 font-2 = SpaceMono Nerd Font Mono:fontformat=truetype:size=20;5
@@ -170,7 +172,7 @@ interface = enp4s0
 interval = 1.0
 ; click-left = notify-send
 
-label-connected = %{A1:sh ~/.config/polybar/local_and_public_ips.sh:} %{F#9c71C7}%{F-}%downspeed:7:8%   %{F#9c71C7}%{F-}%upspeed:8%%{A}
+label-connected = %{A1:sh ~/.config/polybar/local_and_public_ips.sh:} %{F#9c71C7}%{F-}%downspeed:8%   %{F#9c71C7}%{F-}%upspeed:8%%{A}
 
 [module/wifi]
 type = internal/network
