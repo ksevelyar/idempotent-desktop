@@ -1,11 +1,13 @@
 # sudo nix-channel --add https://nixos.org/channels/nixos-19.09 stable
 # sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 # sudo nix-channel --update
+# bu
 
 { config, pkgs, lib, ... }:
 {
   imports =
     [
+      ./modules/aliases.nix
       ./modules/debug.nix
       ./modules/boot.nix
       ./modules/packages.nix
@@ -16,26 +18,8 @@
       ./hosts/laundry.nix
     ];
 
-  nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [ (import ./overlays) ];
-
-  environment.shellAliases = {
-    l = "ls -laXF --group-directories-first";
-    x = "sudo systemctl start display-manager.service";
-    j = "z"; # autojump alias for z
-    u = "aunpack";
-    e = "sudo nvim /etc/nixos/configuration.nix";
-    b = "sudo nixos-rebuild switch --keep-going";
-    bu = "sudo nixos-rebuild switch --upgrade --keep-going";
-    t = "tmux new-session -A -s main";
-    off = "sleep 0.5; xset dpms force off; pkill -f gpmdp";
-    pgrep = "pgrep --full";
-    pkill = "pkill --full";
-    v = "nvim";
-    g = "git";
-    python_server = "python3 -m http.server 9000";
-  };
-
+  nixpkgs.config.allowUnfree = true;
 
   hardware = {
     enableAllFirmware = true;
@@ -76,18 +60,6 @@
     ''
       127.0.0.1 l.lcl
     '';
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
 
   users.defaultUserShell = pkgs.fish;
 

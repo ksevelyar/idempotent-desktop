@@ -228,6 +228,7 @@ in
         masterpdfeditor
 
         # Sys
+        mkpasswd
         parallel
         file
         memtest86plus
