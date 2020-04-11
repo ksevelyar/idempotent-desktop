@@ -38,7 +38,6 @@ import XMonad.Layout.IM
 import XMonad.Layout.PerWorkspace (onWorkspace)
 
 import XMonad.Config.Desktop
--- import XMonad.Config.Kde
 
 import Data.List (sortBy)
 import Data.Function (on)
@@ -49,8 +48,7 @@ import XMonad.Util.NamedWindows (getName)
 -- Main ------------------------------------------------------------------------
 
 main = do
-  forM_ [".xmonad-workspace-log", ".xmonad-title-log"] $ \file -> do
-  safeSpawn "mkfifo" ["/tmp/" ++ file]
+  spawn "rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log"
 
   xmonad $ withUrgencyHook NoUrgencyHook $ ewmh desktopConfig {
     -- simple stuff
@@ -166,7 +164,7 @@ myManageHook = (composeAll . concat $
   -- roles
   myServ        = ["rails_dobroserver", "rails_fitlog"]
   myGen         = ["roxterm_startup"]
-  myFs          = ["ranger_startup"]
+  myFs          = ["nnn_startup"]
 
   -- resources
   myIgnores = ["desktop", "desktop_window"]
@@ -179,16 +177,6 @@ myManageHook = (composeAll . concat $
 
 myEventHook = docksEventHook <+> handleEventHook desktopConfig
 
-
--- myDzenXmonad= "LANG=fr dzen2 -y 1060 -x 0 -w 2110 -ta l " ++ myDzenStyle
-
--- myDzenMonitoring="bash ~/.xmonad/dzen/dzen_xmonad.sh"
-myFgColor = "#BEB3CD"
-myBgColor = "#0f0f0f"
-
-myFont = "-xos4-terminus-medium-*-*-*-16-*-*-*-*-*-iso10646-*"
-
-
 -- Startup hook ----------------------------------------------------------------
 
 myStartupHook = do
@@ -198,7 +186,7 @@ myStartupHook = do
 -- xprop | grep WM_CLASS
 
 scratchpads = [
-                     -- RationalRect left top width height
+  -- RationalRect left top width height
   -- NS "terminal-1" "roxterm --role terminal-1 --session=dev"
   --   (role =? "terminal-1")
   --   (customFloating $ W.RationalRect 0.20 0.49 0.6 0.44),
@@ -207,18 +195,14 @@ scratchpads = [
   --   (customFloating $ W.RationalRect 0.20 0.05 0.6 0.44),
   NS "terminal-1" "terminator -bm --role terminal-1 --layout=dev"
     (role =? "terminal-1")
-    (customFloating $ W.RationalRect 0.20 0.51 0.6 0.44),
+    (customFloating $ W.RationalRect 0.20 0.51 0.5 0.44),
   NS "terminal-2" "terminator -bm --role terminal-2 --layout=sys"
     (role =? "terminal-2")
-    (customFloating $ W.RationalRect 0.20 0.05 0.6 0.44),
+    (customFloating $ W.RationalRect 0.20 0.05 0.5 0.44),
 
-
-  -- NS "peak-1" "terminator --role peak-1 -e 'nvim -c startinsert ~/notes/peak-1'"
-  --   (role =? "peak-1")
-  --   (customFloating $ W.RationalRect 0.10 0.05 0.4 0.44),
-  -- NS "peak-2" "terminator --role peak-2 -e 'nvim -c startinsert ~/notes/peak-2'"
-  --   (role =? "peak-2")
-  --   (customFloating $ W.RationalRect 0.50 0.05 0.4 0.44),
+  NS "notes" "terminator --role notes -e 'nvim ~/notes'"
+    (role =? "notes")
+    (customFloating $ W.RationalRect 0.50 0.05 0.4 0.44),
 
   NS "keepassx" "keepassxc"
     (className =? "KeePassXC")
@@ -243,8 +227,8 @@ scratchpads = [
     (className =? "Image Lounge")
     (customFloating $ W.RationalRect 0.01 0.01 0.98 0.98),
 
-  NS "ranger" "cd /storage && terminator --role ranger -e ranger"
-    (role =? "ranger")
+  NS "nnn" "cd /storage && terminator --role nnn -e nnn"
+    (role =? "nnn")
     nonFloating
   ]
   where
@@ -261,7 +245,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm,                 xK_c     ), spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
   , ((modm,   xK_l     ), spawn "betterlockscreen --lock blur") -- betterlockscreen -u Wallpapers/
   -- , ((modm,   xK_l     ), spawn "dm-tool lock")
-  , ((modm,   xK_w     ), spawn "rofi -show window -modi window, window -sidebar-mode -lines 6 -width 800")
+  -- , ((modm,   xK_w     ), spawn "rofi -show window -modi window, window -sidebar-mode -lines 6 -width 800")
   , ((modm,                 xK_b     ), spawn "firefox -p default")
   , ((modm,                 xK_y     ), spawn "firefox -p tor")
   , ((modm,                 xK_v     ), spawn "terminator -e 'nvim'")
@@ -281,7 +265,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   -- bookmarks
   , ((mod1Mask,   xK_m  ), spawn "xdg-open https://mail.google.com/")
-  , ((mod1Mask,   xK_f  ), spawn "xdg-open http://fitlog.ru/ksevelyar")
 
   -- resizing
   , ((modm .|. shiftMask,   xK_Left  ), sendMessage Shrink)
@@ -304,13 +287,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   , ((modm, xK_F1 ), namedScratchpadAction scratchpads  "terminal-1")
   , ((modm, xK_F2 ), namedScratchpadAction scratchpads  "terminal-2")
-  , ((modm, xK_F4 ), namedScratchpadAction scratchpads  "peak-2")
+  , ((modm, xK_F4 ), namedScratchpadAction scratchpads  "notes")
   , ((modm, xK_F12 ), namedScratchpadAction scratchpads "upwork")
   , ((modm, xK_F6 ), namedScratchpadAction scratchpads  "gotop")
   , ((modm, xK_F5 ), namedScratchpadAction scratchpads  "keepassx")
   , ((modm, xK_i ), namedScratchpadAction scratchpads  "images_browser")
 
-  , ((modm, xK_F3), namedScratchpadAction scratchpads "ranger")
+  , ((modm, xK_F3), namedScratchpadAction scratchpads "nnn")
   , ((modm, xK_s), namedScratchpadAction scratchpads  "spacefm")
   , ((modm, xK_g), namedScratchpadAction scratchpads  "gpmdp")
 
@@ -327,10 +310,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((0, xF86XK_MonBrightnessUp), spawn "brightnessctl set +10%")
   , ((0, xF86XK_MonBrightnessDown), spawn "brightnessctl set -10%")
 
-  , ((modm, xK_m),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 12%")
-  , ((modm, xK_comma),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
-  , ((modm, xK_period), spawn  "pactl set-sink-volume @DEFAULT_SINK@ 31%")
-  , ((modm, xK_slash),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 50%")
+  , ((modm, xK_m),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
+  , ((modm, xK_comma),  spawn  "sh ~/.config/polybar/gpmdp-rewind.sh")
+  , ((modm, xK_period), spawn  "sh ~/.config/polybar/gpmdp-next.sh")
+  , ((modm, xK_slash),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 40%")
 
   , ((modm .|. controlMask, xK_BackSpace ), spawn "xmonad --recompile && xmonad --restart") -- Restart xmonad
   ]

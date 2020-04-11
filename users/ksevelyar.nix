@@ -56,6 +56,8 @@
   home-manager = {
     useGlobalPkgs = true;
     users.ksevelyar = {
+      home.file.".xmonad/hmonad.hs".source = /etc/nixos/home/.xmonad/xmonad.hs;
+
       programs.git = {
         enable = true;
         userName = "Sergey Zubkov";
