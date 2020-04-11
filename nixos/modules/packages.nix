@@ -128,6 +128,11 @@ in
         # overlays
         upwork
 
+        hunspell
+        hunspellDicts.en_US-large
+
+        font-manager
+
         websocat
         sierra-gtk-theme
         grub2
@@ -145,13 +150,7 @@ in
         wtf
         asciiquarium
 
-        mpv
-        smplayer
-        vlc
-        kodi
-        moc
 
-        xbindkeys
         fzf
         gopass
         keepassxc
@@ -177,7 +176,6 @@ in
         materia-theme
         paper-icon-theme
         lxappearance-gtk3
-        lxqt.lxqt-themes
         adwaita-qt
         skype
         slack
@@ -187,7 +185,12 @@ in
         tdesktop
         polybar
 
-        # Audio
+        # media
+        mpv
+        cava
+        vlc
+        kodi
+        moc
         google-play-music-desktop-player
         audacity
         lmms

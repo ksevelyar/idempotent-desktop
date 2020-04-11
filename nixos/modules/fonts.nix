@@ -7,15 +7,12 @@
 
   # Enable the X11 windowing system.
   fonts = {
+    fontconfig.allowBitmaps = true;
     enableFontDir = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
-      hunspell
-      hunspellDicts.en_US-large
-
-      font-manager
-
       # Noto fonts provide basic glyph coverage
+      dejavu_fonts
       noto-fonts
       noto-fonts-emoji
       noto-fonts-extra
@@ -31,6 +28,7 @@
       tamsyn # http://www.fial.com/~scott/tamsyn-font/
       opensans-ttf
       nerdfonts
+      # terminus-nerdfont
       powerline-fonts
       ankacoder
     ];
