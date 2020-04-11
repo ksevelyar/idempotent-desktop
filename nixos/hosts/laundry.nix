@@ -42,6 +42,6 @@
     nvidia.modesetting.enable = true;
   };
   boot.tmpOnTmpfs = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
   boot.plymouth.enable = true;
 }

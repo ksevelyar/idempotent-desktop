@@ -6,7 +6,6 @@
 {
   imports =
     [
-      # Include the results of the hardware scan.
       ./modules/debug.nix
       ./modules/boot.nix
       ./modules/packages.nix
@@ -19,6 +18,24 @@
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [ (import ./overlays) ];
+
+  environment.shellAliases = {
+    l = "ls -laXF --group-directories-first";
+    x = "sudo systemctl start display-manager.service";
+    j = "z"; # autojump alias for z
+    u = "aunpack";
+    e = "sudo nvim /etc/nixos/configuration.nix";
+    b = "sudo nixos-rebuild switch --keep-going";
+    bu = "sudo nixos-rebuild switch --upgrade --keep-going";
+    t = "tmux new-session -A -s main";
+    off = "sleep 0.5; xset dpms force off; pkill -f gpmdp";
+    pgrep = "pgrep --full";
+    pkill = "pkill --full";
+    v = "nvim";
+    g = "git";
+    python_server = "python3 -m http.server 9000";
+  };
+
 
   hardware = {
     enableAllFirmware = true;
@@ -57,7 +74,7 @@
   networking.networkmanager.enable = true; # run nmtui for wi-fi
   networking.extraHosts =
     ''
-      127.0.0.1 li.lcl
+      127.0.0.1 l.lcl
     '';
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.

@@ -9,7 +9,7 @@
     <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
     ./packages.nix
   ];
-  isoImage.isoName = "nix-1.iso";
+  isoImage.isoName = "nix-2.iso";
 
   # configure proprietary drivers
   nixpkgs.config.allowUnfree = true;
@@ -23,7 +23,7 @@
 
   services.xserver = {
     enable = true;
-    autorun = true;
+    autorun = false;
     layout = "us,ru";
     xkbOptions = "grp:caps_toggle,grp:alt_shift_toggle,grp_led:caps";
     desktopManager = {
