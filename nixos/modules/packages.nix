@@ -123,9 +123,6 @@ in
       };
     in
       [
-        # (python3.withPackages (ps: with ps; [ "kalliope" "gpmdp-cli" ]))
-        # (python35.withPackages (ps: with ps; [ "asyncio" "websockets" ]))
-        # overlays
         upwork
 
         hunspell
@@ -167,6 +164,7 @@ in
         vanilla-dmz
         pop-gtk-theme
         adapta-gtk-theme
+        mate.mate-icon-theme-faenza
         ant-theme
         ant-bloody-theme
         ant-dracula-theme
@@ -196,6 +194,7 @@ in
         lmms
 
         # Dev
+        (python3.withPackages (ps: with ps; [ httpserver ]))
         zeal
         neovim
         neovim-qt
@@ -218,8 +217,10 @@ in
         gitg
         gitAndTools.diff-so-fancy
         lazygit
+
         imagemagick
         gimp
+        inkscape
         blender
         openscad
 
@@ -228,6 +229,8 @@ in
         masterpdfeditor
 
         # Sys
+        lm_sensors
+        gparted
         mkpasswd
         parallel
         file
@@ -283,6 +286,7 @@ in
         nixpkgs-fmt
         tightvnc
         youtube-dl
+        neofetch
 
         # vncpasswd
         # x0vncserver -rfbauth ~/.vnc/passwd
@@ -291,7 +295,7 @@ in
         # games
         gzdoom
         stable.steam
-        neofetch
+        playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
 
         # laptop
         arandr

@@ -31,7 +31,7 @@
 
   swapDevices = [];
 
-  nix.maxJobs = lib.mkDefault 6;
+  nix.maxJobs = lib.mkDefault 4;
 
   networking.useDHCP = false;
   networking.interfaces.enp4s0.useDHCP = true;
