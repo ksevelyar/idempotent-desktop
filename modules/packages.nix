@@ -229,6 +229,7 @@ in
         masterpdfeditor
 
         # Sys
+        glxinfo
         lm_sensors
         gparted
         mkpasswd
