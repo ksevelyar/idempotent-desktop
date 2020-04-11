@@ -1,5 +1,4 @@
 { config, lib, pkgs, ... }:
-
 {
   imports =
     [
@@ -10,6 +9,10 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [];
+  boot.tmpOnTmpfs = true;
+  boot.plymouth.enable = true;
+
+  swapDevices = [];
 
   fileSystems."/" =
     {
@@ -29,7 +32,15 @@
       fsType = "ext4";
     };
 
-  swapDevices = [];
+  fileSystems."/srv/storage/" = {
+    device = "/storage/tmp";
+    options = [ "bind" ];
+  };
+
+  fileSystems."/srv/vvv/" = {
+    device = "/storage/vvv";
+    options = [ "bind" ];
+  };
 
   nix.maxJobs = lib.mkDefault 4;
 
@@ -41,7 +52,23 @@
     cpu.intel.updateMicrocode = true;
     nvidia.modesetting.enable = true;
   };
-  boot.tmpOnTmpfs = true;
+
   services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
-  boot.plymouth.enable = true;
+  services.nfs.server.enable = true;
+  services.nfs.server.exports = ''
+    /srv         192.168.0.1/24(ro,all_squash,insecure,fsid=0,crossmnt)
+    /srv/storage 192.168.0.1/24(rw,nohide,all_squash,insecure)
+    /srv/vvv     192.168.0.1/24(rw,nohide,all_squash,insecure)
+  '';
+
+  services.aria2 = {
+    downloadDir = "/storage/tmp";
+  };
+
+  services.syncthing = {
+    enable = false;
+    user = "ksevelyar";
+    dataDir = "/home/ksevelyar/.syncthing";
+    openDefaultPorts = true;
+  };
 }

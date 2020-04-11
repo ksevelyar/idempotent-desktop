@@ -29,8 +29,8 @@
   };
   sound.enable = true;
 
-  # boot.kernelModules = [ "wl" ];
-  # boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+  boot.kernelModules = [ "wl" ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
   # Enable SSH in the boot process.
   systemd.services.sshd.wantedBy = lib.mkForce [ "multi-user.target" ];

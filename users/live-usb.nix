@@ -55,6 +55,8 @@
   home-manager = {
     useGlobalPkgs = true;
     users.nixos = {
+      home.file.".xmonad/hmonad.hs".source = /etc/nixos/home/.xmonad/xmonad.hs;
+
       home.file.".icons/default/index.theme".text = ''
         [Icon Theme]
         Name=Default
