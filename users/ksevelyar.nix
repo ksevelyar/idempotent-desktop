@@ -5,7 +5,6 @@
       (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
     ];
 
-
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
   location.latitude = 55.75;
@@ -54,7 +53,6 @@
   home-manager = {
     useGlobalPkgs = true;
 
-
     users.ksevelyar = {
       programs.git = {
         enable = true;
@@ -77,6 +75,10 @@
 
       home.file.".config/rofi/joker.rasi".source = /etc/nixos/home/.config/rofi/joker.rasi;
       home.file.".config/rofi/config.rasi".source = /etc/nixos/home/.config/rofi/config.rasi;
+
+      home.file.".config/roxterm.sourceforge.net/Colours/base16".source = /etc/nixos/home/.config/roxterm.sourceforge.net/Colours/base16;
+      home.file.".config/roxterm.sourceforge.net/Profiles/Default".source = /etc/nixos/home/.config/roxterm.sourceforge.net/Profiles/Default;
+      home.file.".config/roxterm.sourceforge.net/Global".source = /etc/nixos/home/.config/roxterm.sourceforge.net/Global;
 
       home.file.".config/terminator/config".source = /etc/nixos/home/.config/terminator/config;
 

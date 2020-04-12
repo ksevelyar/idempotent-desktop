@@ -1,5 +1,12 @@
+# Build
 # nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix
-# sudo dd bs=4M if=/nix/store/9d72l40560pnizgkjqcx4xg0g3g10s87-nixos-20.09pre220429.9b0d2f3fd15-x86_64-linux.iso/iso/nixos-20.09pre220429.9b0d2f3fd15-x86_64-linux.iso of=/dev/sdc status=progress oflag=sync
+
+# Verify
+# sudo mkdir -p /mnt/iso
+# sudo mount -o loop /storage/tmp/nix.iso /mnt/iso
+
+# Write
+# sudo dd bs=4M if=/storage/tmp/nix.iso of=/dev/sdc status=progress oflag=sync
 
 { config, pkgs, lib, ... }:
 {
@@ -7,9 +14,10 @@
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix>
     <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
     ./modules/aliases.nix
-    ./modules/services.nix
-    ./modules/packages.nix
-    ./modules/fonts.nix
+    # ./modules/services.nix
+    ./modules/x.nix
+    # ./modules/packages.nix
+    # ./modules/fonts.nix
     ./users/live-usb.nix
   ];
 
@@ -42,10 +50,8 @@
   };
 
   users.users.nixos = {
-    # jkl
-    initialHashedPassword = lib.mkForce "$6$krVCM45j$6lYj1WKEX8q7hMZGG6ctAG6kQDDND/ngpGOwENT1TIOD25F0yep/VvIuL.v9XyRntLJ61Pr8r7djynGy5lh3x0";
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "audio" ];
   };
 
   nix.binaryCaches = [ "https://cache.nixos.org" "https://aseipp-nix-cache.global.ssl.fastly.net" ];

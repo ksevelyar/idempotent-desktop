@@ -1,0 +1,4 @@
+[roxterm options]
+warn_close=0
+only_warn_running=1
+prefer_dark_theme=1

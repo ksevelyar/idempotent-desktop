@@ -12,6 +12,7 @@
       ./modules/boot.nix
       ./modules/packages.nix
       ./modules/services.nix
+      ./modules/x.nix
       # ./modules/laptop.nix
       ./modules/fonts.nix
       ./users/ksevelyar.nix

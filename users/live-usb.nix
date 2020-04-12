@@ -37,8 +37,6 @@
       '';
     };
 
-    # root.".config/nvim/init.vim".text = builtins.readFile ./init.vim;
-
     variables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
@@ -54,7 +52,6 @@
 
   home-manager = {
     useGlobalPkgs = true;
-
 
     users.nixos = {
       xsession.windowManager.xmonad.enable = true;

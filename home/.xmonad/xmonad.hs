@@ -52,7 +52,7 @@ main = do
 
   xmonad $ withUrgencyHook NoUrgencyHook $ ewmh desktopConfig {
     -- simple stuff
-    terminal           = "terminator",
+    terminal           = "roxterm",
     focusFollowsMouse  = True,
     borderWidth        = 1,
     modMask            = mod4Mask,
@@ -193,22 +193,22 @@ scratchpads = [
   -- NS "terminal-2" "roxterm --role terminal-2 --session=sys"
   --   (role =? "terminal-2")
   --   (customFloating $ W.RationalRect 0.20 0.05 0.6 0.44),
-  NS "terminal-1" "terminator -bm --role terminal-1 --layout=dev"
+  NS "terminal-1" "roxterm --role terminal-1"
     (role =? "terminal-1")
-    (customFloating $ W.RationalRect 0.20 0.51 0.5 0.44),
-  NS "terminal-2" "terminator -bm --role terminal-2 --layout=sys"
+    (customFloating $ W.RationalRect 0.20 0.51 0.5 0.4),
+  NS "terminal-2" "roxterm --role terminal-2 -e 'tmux new-session -A -s main'"
     (role =? "terminal-2")
-    (customFloating $ W.RationalRect 0.20 0.05 0.5 0.44),
+    (customFloating $ W.RationalRect 0.20 0.05 0.5 0.4),
 
-  NS "notes" "terminator --role notes -e 'nvim ~/notes'"
+  NS "notes" "roxterm --role notes -e 'nvim ~/notes'"
     (role =? "notes")
-    (customFloating $ W.RationalRect 0.50 0.05 0.4 0.44),
+    (customFloating $ W.RationalRect 0.50 0.05 0.4 0.4),
 
   NS "keepassx" "keepassxc"
     (className =? "KeePassXC")
     (customFloating $ W.RationalRect 0.50 0.05 0.4 0.87),
 
-  NS "gotop" "terminator --role gotop -e gotop"
+  NS "gotop" "roxterm --role gotop -e gotop"
     (role =? "gotop")
     (customFloating $ W.RationalRect 0.15 0.2 0.7 0.7),
   NS "gpmdp" "google-play-music-desktop-player"
@@ -227,7 +227,7 @@ scratchpads = [
     (className =? "Image Lounge")
     (customFloating $ W.RationalRect 0.01 0.01 0.98 0.98),
 
-  NS "nnn" "cd /storage && terminator --role nnn -e nnn"
+  NS "nnn" "cd /storage && roxterm --role nnn -e nnn"
     (role =? "nnn")
     nonFloating
   ]
@@ -248,7 +248,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   -- , ((modm,   xK_w     ), spawn "rofi -show window -modi window, window -sidebar-mode -lines 6 -width 800")
   , ((modm,                 xK_b     ), spawn "firefox -p default")
   , ((modm,                 xK_y     ), spawn "firefox -p tor")
-  , ((modm,                 xK_v     ), spawn "terminator -e 'nvim'")
+  , ((modm,                 xK_v     ), spawn "roxterm -e nvim")
   , ((modm,                 xK_q     ), kill) -- close focused window
   , ((modm,                 xK_space ), sendMessage NextLayout)  -- Rotate through the available layout algorithms
   , ((modm .|. shiftMask,   xK_space ), sendMessage ToggleStruts )

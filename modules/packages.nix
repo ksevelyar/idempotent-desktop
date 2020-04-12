@@ -229,7 +229,6 @@ in
         # sys
         glxinfo
         lm_sensors
-        gparted
         mkpasswd
         parallel
         file
@@ -275,6 +274,10 @@ in
         nomacs
         ncdu
         tree
+
+        gparted
+        dosfstools
+        mtools
         sshfs
         ntfs3g
         exfat
