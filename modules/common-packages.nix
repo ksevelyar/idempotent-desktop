@@ -5,9 +5,6 @@ let
   };
 in
 {
-  programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-  programs.browserpass.enable = true;
-
   programs.fish.enable = true;
   programs.mosh.enable = true;
 
@@ -113,9 +110,6 @@ in
 
   programs.qt5ct.enable = true;
 
-  programs.thefuck.enable = true; # https://github.com/nvbn/thefuck
-
-
   environment.systemPackages = with pkgs;
     let
       polybar = pkgs.polybar.override {
@@ -123,8 +117,6 @@ in
       };
     in
       [
-        upwork
-
         # text
         hunspell
         hunspellDicts.en_US-large
@@ -140,87 +132,60 @@ in
 
         # cli
         websocat
-        calcurse
         brightnessctl
-        wtf
-        asciiquarium
-        fzf
-        gopass
         keepassxc
         youtube-dl
 
         # gui
+        browsh
         firefoxWrapper
-        google-chrome
         tor-browser-bundle-bin
         zathura
         evince
 
         # themes
         lxappearance-gtk3
-        cura
-        conky
         betterlockscreen
         vanilla-dmz
-        pop-gtk-theme
-        adapta-gtk-theme
-        ant-theme
-        ant-bloody-theme
         ant-dracula-theme
-        nordic
-        nordic-polar
-        arc-theme
-        materia-theme
         paper-icon-theme
-        adwaita-qt
-        skype
-        slack
+
+        # im
+        tdesktop
+
         feh
         transmission_gtk
         aria2
-        tdesktop
         polybar
 
         # media
         mpv
         cava
-        vlc
-        kodi
         moc
         google-play-music-desktop-player
-        audacity
-        lmms
 
         # dev
         (python3.withPackages (ps: with ps; [ httpserver ]))
-        zeal
+        go
+        roxterm
+        kitty
+
+        fzf
         neovim
-        neovim-qt
-        gnvim
-        vscode
+
         ripgrep
         tldr
+
         nodejs
         elixir
-        go
-        terminator
-        cool-retro-term
-        kitty
-        asciinema
-        alacritty
+
         universal-ctags
         global
         gcc
         git
         gitg
         gitAndTools.diff-so-fancy
-        lazygit
 
-        imagemagick
-        gimp
-        inkscape
-        blender
-        openscad
 
         # Freelance
         libreoffice
@@ -230,7 +195,6 @@ in
         glxinfo
         lm_sensors
         mkpasswd
-        parallel
         file
         memtest86plus
         system-config-printer
@@ -262,16 +226,27 @@ in
         libnotify
         dunst
         nixpkgs-fmt
-        tightvnc
         neofetch
-        winusb
 
-        ## fs
+        # images
+        imv
+        nomacs
+
+        imagemagick
+        gimp
+        inkscape
+        blender
+        openscad
+
+        # games
+        dwarf-fortress
+        rogue
+
+        # fs
         spaceFM
         fd
         nnn
         appimage-run
-        nomacs
         ncdu
         tree
 
@@ -289,11 +264,6 @@ in
         # vncpasswd
         # x0vncserver -rfbauth ~/.vnc/passwd
         tigervnc
-
-        # games
-        gzdoom
-        stable.steam
-        playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
 
         # laptop
         arandr

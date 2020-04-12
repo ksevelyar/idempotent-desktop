@@ -46,14 +46,25 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nixos = {
+    initialHashedPassword = "";
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
   };
 
   home-manager = {
     useGlobalPkgs = true;
+    useUserPackages = true;
 
     users.nixos = {
+      xsession.enable = true;
+      # xsession.initExtra.text = ''
+      #   sh ~/.fehbg &
+      #   xsetroot -cursor_name left_ptr
+      #
+      #   xset s off
+      #   xset -dpms
+      # '';
+
       xsession.windowManager.xmonad.enable = true;
       xsession.windowManager.xmonad.enableContribAndExtras = true;
       xsession.windowManager.xmonad.config = /etc/nixos/home/.xmonad/xmonad.hs;
@@ -70,7 +81,14 @@
       home.file.".config/rofi/joker.rasi".source = /etc/nixos/home/.config/rofi/joker.rasi;
       home.file.".config/rofi/config.rasi".source = /etc/nixos/home/.config/rofi/config.rasi;
 
+      home.file.".config/roxterm.sourceforge.net/Colours/joker".source = /etc/nixos/home/.config/roxterm.sourceforge.net/Colours/joker;
+      home.file.".config/roxterm.sourceforge.net/Profiles/Default".source = /etc/nixos/home/.config/roxterm.sourceforge.net/Profiles/Default;
+      home.file.".config/roxterm.sourceforge.net/Global".source = /etc/nixos/home/.config/roxterm.sourceforge.net/Global;
+
       home.file.".config/terminator/config".source = /etc/nixos/home/.config/terminator/config;
+
+      home.file.".config/nvim/init.vim".source = /etc/nixos/home/.config/nvim/init.vim;
+      home.file.".config/nvim/coc-settings.json".source = /etc/nixos/home/.config/nvim/coc-settings.json;
 
       home.file.".icons/default/index.theme".text = ''
         [Icon Theme]
@@ -92,7 +110,6 @@
           StrictHostKeyChecking no
           UserKnownHostsFile=/dev/null
       '';
-
     };
   };
 }

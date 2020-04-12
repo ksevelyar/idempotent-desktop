@@ -1,6 +1,6 @@
 [roxterm profile]
 font=Anka/Coder 14
-colour_scheme=base16
+colour_scheme=joker
 always_show_tabs=0
 hide_menubar=1
 saturation=0.97

@@ -10,12 +10,15 @@
       ./modules/aliases.nix
       ./modules/debug.nix
       ./modules/boot.nix
-      ./modules/packages.nix
+
+      ./modules/common-packages.nix
+      ./modules/extra-packages.nix
       ./modules/services.nix
       ./modules/x.nix
-      # ./modules/laptop.nix
       ./modules/fonts.nix
+
       ./users/ksevelyar.nix
+      # ./modules/laptop.nix
       ./hosts/laundry.nix
     ];
 
@@ -65,11 +68,11 @@
   users.defaultUserShell = pkgs.fish;
 
   nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
+    # gc = {
+    #   automatic = true;
+    #   dates = "weekly";
+    #   options = "--delete-older-than 30d";
+    # };
 
     binaryCaches = [ "https://cache.nixos.org" "https://aseipp-nix-cache.global.ssl.fastly.net" ];
   };

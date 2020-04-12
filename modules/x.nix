@@ -7,7 +7,7 @@
   services.xserver = {
     enable = true;
     displayManager = {
-      # defaultSession = "none+xmonad";
+      defaultSession = "none+xmonad";
       sessionCommands = ''
         sh ~/.fehbg &
         xsetroot -cursor_name left_ptr
@@ -36,14 +36,14 @@
       xterm.enable = false;
     };
 
-    # windowManager = {
-    #   xmonad.enable = true;
-    #   xmonad.enableContribAndExtras = true;
-    #   xmonad.extraPackages = hpkgs: [
-    #     hpkgs.xmonad-contrib
-    #     hpkgs.xmonad-extras
-    #     hpkgs.xmonad
-    #   ];
-    # };
+    windowManager = {
+      xmonad.enable = true;
+      xmonad.enableContribAndExtras = true;
+      xmonad.extraPackages = hpkgs: [
+        hpkgs.xmonad-contrib
+        hpkgs.xmonad-extras
+        hpkgs.xmonad
+      ];
+    };
   };
 }

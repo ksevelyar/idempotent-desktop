@@ -76,11 +76,14 @@
       home.file.".config/rofi/joker.rasi".source = /etc/nixos/home/.config/rofi/joker.rasi;
       home.file.".config/rofi/config.rasi".source = /etc/nixos/home/.config/rofi/config.rasi;
 
-      home.file.".config/roxterm.sourceforge.net/Colours/base16".source = /etc/nixos/home/.config/roxterm.sourceforge.net/Colours/base16;
+      home.file.".config/roxterm.sourceforge.net/Colours/joker".source = /etc/nixos/home/.config/roxterm.sourceforge.net/Colours/joker;
       home.file.".config/roxterm.sourceforge.net/Profiles/Default".source = /etc/nixos/home/.config/roxterm.sourceforge.net/Profiles/Default;
       home.file.".config/roxterm.sourceforge.net/Global".source = /etc/nixos/home/.config/roxterm.sourceforge.net/Global;
 
       home.file.".config/terminator/config".source = /etc/nixos/home/.config/terminator/config;
+
+      home.file.".config/nvim/init.vim".source = /etc/nixos/home/.config/nvim/init.vim;
+      home.file.".config/nvim/coc-settings.json".source = /etc/nixos/home/.config/nvim/coc-settings.json;
 
       home.file.".icons/default/index.theme".text = ''
         [Icon Theme]
@@ -102,10 +105,6 @@
           StrictHostKeyChecking no
           UserKnownHostsFile=/dev/null
       '';
-
     };
-
   };
-
-
 }

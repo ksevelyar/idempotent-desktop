@@ -1,7 +1,6 @@
 {
   environment.shellAliases = {
-    l = "ls -laXF --group-directories-first";
-    x = "sudo systemctl start display-manager.service";
+    l = "ls -lahXF --group-directories-first";
     j = "z"; # autojump alias for z
     u = "aunpack";
     e = "sudo nvim /etc/nixos/configuration.nix";

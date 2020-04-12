@@ -30,7 +30,8 @@
   };
 
   console = {
-    font = "Lat2-Terminus32";
+    # font = "Lat2-Terminus32";
+    font = "Lat2-Terminus20";
     keyMap = "us";
   };
   i18n.defaultLocale = "en_US.UTF-8";
