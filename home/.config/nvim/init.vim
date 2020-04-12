@@ -543,8 +543,10 @@ imap <F9> <Esc>:UndotreeToggle<CR>
 " Enable/Disable paste mode, where data won't be autoindented
 set pastetoggle=<F10>
 
-map  <F11> :ALEFix<CR>
-imap <F11> <Esc>:ALEFix<CR>
+set spelllang=en_us
+map  <F11> :set spell!<CR>
+imap <F11> <Esc>:set spell!<CR>
+" Toggle spelling
 
 map <F12> :qa<cr>
 imap <F12> <Esc>:qa<CR>

@@ -125,46 +125,45 @@ in
       [
         upwork
 
+        # text
         hunspell
         hunspellDicts.en_US-large
-
         font-manager
 
-        websocat
-        sierra-gtk-theme
+        # boot
+        memtest86-efi
         grub2
         os-prober
         hwinfo
         wget
         curl
 
-        hunspell
-        hunspellDicts.en_US-large
-
         # cli
+        websocat
         calcurse
         brightnessctl
         wtf
         asciiquarium
-
-
         fzf
         gopass
         keepassxc
+        youtube-dl
+
+        # gui
         firefoxWrapper
         google-chrome
+        tor-browser-bundle-bin
         zathura
         evince
-        memtest86-efi
 
-        # Themes
+        # themes
+        lxappearance-gtk3
         cura
         conky
         betterlockscreen
         vanilla-dmz
         pop-gtk-theme
         adapta-gtk-theme
-        mate.mate-icon-theme-faenza
         ant-theme
         ant-bloody-theme
         ant-dracula-theme
@@ -173,7 +172,6 @@ in
         arc-theme
         materia-theme
         paper-icon-theme
-        lxappearance-gtk3
         adwaita-qt
         skype
         slack
@@ -193,7 +191,7 @@ in
         audacity
         lmms
 
-        # Dev
+        # dev
         (python3.withPackages (ps: with ps; [ httpserver ]))
         zeal
         neovim
@@ -228,7 +226,7 @@ in
         libreoffice
         masterpdfeditor
 
-        # Sys
+        # sys
         glxinfo
         lm_sensors
         gparted
@@ -243,24 +241,6 @@ in
         tmuxPlugins.resurrect
         tmuxPlugins.open
         tmuxPlugins.yank
-
-        ## fs
-        spaceFM
-        fd
-        nnn
-        vifm
-        appimage-run
-        nomacs
-        ncdu
-        tree
-        sshfs
-        ntfs3g
-        exfat
-        sshfsFuse
-        rsync
-        rclone
-        rclone-browser
-
         lshw
         bat
         inetutils
@@ -278,16 +258,30 @@ in
         iotop
         powertop
         rofi
-        redshift
         bash
-        tor-browser-bundle-bin
         pavucontrol
         libnotify
         dunst
         nixpkgs-fmt
         tightvnc
-        youtube-dl
         neofetch
+        winusb
+
+        ## fs
+        spaceFM
+        fd
+        nnn
+        appimage-run
+        nomacs
+        ncdu
+        tree
+        sshfs
+        ntfs3g
+        exfat
+        sshfsFuse
+        rsync
+        rclone
+        rclone-browser
 
         # vncpasswd
         # x0vncserver -rfbauth ~/.vnc/passwd
@@ -302,7 +296,5 @@ in
         arandr
         acpi
         openssh
-
-        winusb
       ];
 }

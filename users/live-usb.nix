@@ -54,8 +54,26 @@
 
   home-manager = {
     useGlobalPkgs = true;
+
+
     users.nixos = {
-      home.file.".xmonad/hmonad.hs".source = /etc/nixos/home/.xmonad/xmonad.hs;
+      xsession.windowManager.xmonad.enable = true;
+      xsession.windowManager.xmonad.enableContribAndExtras = true;
+      xsession.windowManager.xmonad.config = /etc/nixos/home/.xmonad/xmonad.hs;
+
+      home.file."Wallpapers/1.png".source = /etc/nixos/home/wallpapers/1.png;
+
+      home.file.".config/polybar/launch.sh".source = /etc/nixos/home/.config/polybar/launch.sh;
+      home.file.".config/polybar/config".source = /etc/nixos/home/.config/polybar/config;
+      home.file.".config/polybar/gpmdp-next.sh".source = /etc/nixos/home/.config/polybar/gpmdp-next.sh;
+      home.file.".config/polybar/gpmdp-rewind.sh".source = /etc/nixos/home/.config/polybar/gpmdp-rewind.sh;
+      home.file.".config/polybar/gpmdp.sh".source = /etc/nixos/home/.config/polybar/gpmdp.sh;
+      home.file.".config/polybar/local_and_public_ips.sh".source = /etc/nixos/home/.config/polybar/local_and_public_ips.sh;
+
+      home.file.".config/rofi/joker.rasi".source = /etc/nixos/home/.config/rofi/joker.rasi;
+      home.file.".config/rofi/config.rasi".source = /etc/nixos/home/.config/rofi/config.rasi;
+
+      home.file.".config/terminator/config".source = /etc/nixos/home/.config/terminator/config;
 
       home.file.".icons/default/index.theme".text = ''
         [Icon Theme]

@@ -1,18 +1,16 @@
-# nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/iso.nix
+# nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix
 # dd bs=4M if=result of=/dev/sdd status=progress oflag=sync
 
 
 { config, pkgs, lib, ... }:
 {
-  isoImage.isoName = "nixos.iso";
-
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix>
     <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
     ./modules/aliases.nix
     ./modules/services.nix
-    ./modules/packages.nix
-    ./modules/fonts.nix
+    # ./modules/packages.nix
+    # ./modules/fonts.nix
     ./users/live-usb.nix
   ];
 
@@ -34,6 +32,7 @@
 
   # Enable SSH in the boot process.
   systemd.services.sshd.wantedBy = lib.mkForce [ "multi-user.target" ];
+  services.openssh.permitRootLogin = lib.mkForce "yes";
 
   networking.networkmanager.enable = true;
 
@@ -55,6 +54,9 @@
 
   services.mingetty.helpLine = ''
     The "nixos" and "root" accounts have "jkl" passwords.
+
+    Type `x' to
+    start the graphical user interface.
 
     .     .       .  .   . .   .   . .    +  .
       .     .  :     .    .. :. .___---------___.
@@ -81,8 +83,5 @@
          .         +   .  .  ...:: ..|  --.:|
     .      . . .   .  .  . ... :..:.."(  ..)"
      .   .       .      :  .   .: ::/  .  .::\
-
-    Type `x' to
-    start the graphical user interface.
   '';
 }

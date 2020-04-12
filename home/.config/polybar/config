@@ -77,6 +77,7 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = ProFont for Powerline:style=Regular:size=11:fontformat=truetype:antialias=true;1
+; font-0 = TerminessTTF Nerd Font:style=Regular:size=12:fontformat=truetype:antialias=true;1
 ; font-0 = Anka/Coder:style=Regular:size=11;1
 font-1 = SpaceMono Nerd Font Mono:fontformat=truetype:size=14;3
 font-2 = SpaceMono Nerd Font Mono:fontformat=truetype:size=20;5

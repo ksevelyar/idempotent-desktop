@@ -1,10 +1,14 @@
 configuration {
+font: "Anka/coder 12";
+bw: 0;
+case-sensitive: false;
+matching: "fuzzy";
+theme: "joker";
+
 /*	modi: "window,run,ssh";*/
 /*	width: 50;*/
 /*	lines: 15;*/
 /*	columns: 1;*/
-font: "Anka/coder 12";
-bw: 0;
 /*	location: 0;*/
 /*	padding: 5;*/
 /*	yoffset: 0;*/
@@ -27,7 +31,6 @@ bw: 0;
 /*	ignored-prefixes: "";*/
 /*	sort: false;*/
 /*	sorting-method: ;*/
-case-sensitive: false;
 /*	cycle: true;*/
 /*	sidebar-mode: false;*/
 /*	eh: 1;*/
@@ -35,7 +38,6 @@ case-sensitive: false;
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
 /*	combi-modi: "window,run";*/
-matching: "fuzzy";
 /*	tokenize: true;*/
 /*	m: "-5";*/
 /*	line-margin: 2;*/
@@ -53,7 +55,6 @@ matching: "fuzzy";
 /*	window-format: "{w}    {c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-theme: "slate";
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/
