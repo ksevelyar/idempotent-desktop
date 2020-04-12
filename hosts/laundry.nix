@@ -53,7 +53,8 @@
     nvidia.modesetting.enable = true;
   };
 
-  services.xserver.videoDrivers = [ "modesetting" "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
+
   services.nfs.server.enable = true;
   services.nfs.server.exports = ''
     /srv         192.168.0.1/24(ro,all_squash,insecure,fsid=0,crossmnt)

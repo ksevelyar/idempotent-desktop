@@ -11,7 +11,8 @@
     fonts = with pkgs;
       [
         # Noto fonts provide basic glyph coverage
-        (nerdfonts.override { withFont = "Terminus"; })
+        # (nerdfonts.override { withFont = "Terminus"; })
+        nerdfonts
         dejavu_fonts
 
         # unfree Microsoft fonts
