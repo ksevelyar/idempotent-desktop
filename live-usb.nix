@@ -1,6 +1,5 @@
 # nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix
-# dd bs=4M if=result of=/dev/sdd status=progress oflag=sync
-
+# sudo dd bs=4M if=/nix/store/9d72l40560pnizgkjqcx4xg0g3g10s87-nixos-20.09pre220429.9b0d2f3fd15-x86_64-linux.iso/iso/nixos-20.09pre220429.9b0d2f3fd15-x86_64-linux.iso of=/dev/sdc status=progress oflag=sync
 
 { config, pkgs, lib, ... }:
 {
@@ -9,14 +8,13 @@
     <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
     ./modules/aliases.nix
     ./modules/services.nix
-    # ./modules/packages.nix
-    # ./modules/fonts.nix
+    ./modules/packages.nix
+    ./modules/fonts.nix
     ./users/live-usb.nix
   ];
 
   nixpkgs.overlays = [ (import ./overlays) ];
 
-  # configure proprietary drivers
   nixpkgs.config.allowUnfree = true;
   hardware = {
     enableAllFirmware = true;
