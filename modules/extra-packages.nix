@@ -68,7 +68,7 @@ in
       # arduino
       arduino
       arduino-core
-      fritzing
+      stable.fritzing
       ino
 
       # Freelance
