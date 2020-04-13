@@ -65,6 +65,12 @@ in
       kitty
       asciinema
 
+      # arduino
+      arduino
+      arduino-core
+      fritzing
+      ino
+
       # Freelance
 
       # sys
