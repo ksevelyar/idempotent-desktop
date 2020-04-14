@@ -1,4 +1,4 @@
-# clean
+# neofetch
 
 ![screen](https://i.imgur.com/HU6YF0L.png)
 
@@ -25,6 +25,14 @@
 # doom 2
 
 ![screen](https://i.imgur.com/xXcIXu0.png)
+
+# cava + gpmdp
+
+![screen](https://i.imgur.com/Yvq668e.png)
+
+# glava + gpmdp
+
+![screen](https://i.imgur.com/E1Z5XFo.png)
 
 # live usb
 
