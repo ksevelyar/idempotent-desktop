@@ -142,13 +142,16 @@ in
         tor-browser-bundle-bin
         zathura
         evince
+        betterlockscreen
 
         # themes
         lxappearance-gtk3
-        betterlockscreen
+
         vanilla-dmz
         ant-dracula-theme
+
         paper-icon-theme
+        arc-icon-theme
 
         # im
         tdesktop
@@ -160,6 +163,7 @@ in
 
         # media
         mpv
+        celluloid
         cava
         moc
         google-play-music-desktop-player
