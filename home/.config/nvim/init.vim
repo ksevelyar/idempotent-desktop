@@ -351,6 +351,8 @@ silent! colorscheme joker
 
 
 """ General
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
 syntax on
 filetype plugin on " to use filetype plugin
 filetype indent on " to use filetype indent

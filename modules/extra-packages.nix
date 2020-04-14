@@ -25,6 +25,7 @@ in
       # gui
       cura
       google-chrome
+      vivaldi
 
       # themes
       conky

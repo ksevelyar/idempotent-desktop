@@ -7,6 +7,7 @@ in
 {
   programs.fish.enable = true;
   programs.mosh.enable = true;
+  programs.slock.enable = true;
 
   programs.tmux = {
     enable = true;
@@ -152,6 +153,7 @@ in
 
         paper-icon-theme
         arc-icon-theme
+        zafiro-icons
 
         # im
         tdesktop
