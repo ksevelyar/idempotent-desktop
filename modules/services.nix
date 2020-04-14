@@ -10,11 +10,6 @@
     #   drivers = [ pkgs.gutenprint pkgs.hplip ];
   };
 
-  services.picom.enable = true;
-  services.picom.fade = false;
-  services.picom.shadow = false;
-  systemd.services.picom.wantedBy = pkgs.lib.mkForce [];
-
   services.avahi = {
     enable = true;
     nssmdns = true;

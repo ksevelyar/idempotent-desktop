@@ -1,5 +1,13 @@
 { config, pkgs, lib, ... }:
 {
+  services.picom = {
+    enable = true;
+    fade = false;
+    shadow = false;
+    backend = "glx";
+    vSync = true;
+  };
+
   environment.shellAliases = {
     x = "sudo systemctl start display-manager.service";
   };
