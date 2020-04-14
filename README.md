@@ -2,11 +2,15 @@
 
 ![screen](https://i.imgur.com/9NBJCr0.png)
 
-# neovim + tmux
+# neovim + tmux (via xmonad scratchpad)
 
 ![screen](https://i.imgur.com/z95oCew.png)
 
-# google-chrome, gotop, google-play-music-desktop-player
+# spacefm
+
+![screen](https://i.imgur.com/h2nnCWM.png)
+
+# google-chrome, gotop, gpmdp
 
 ![screen](https://i.imgur.com/wiIFOdI.png)
 
