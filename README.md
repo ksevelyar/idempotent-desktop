@@ -1,6 +1,6 @@
 # clean
 
-![screen](https://i.imgur.com/9NBJCr0.png)
+![screen](https://i.imgur.com/HU6YF0L.png)
 
 # neovim + tmux (via xmonad scratchpad)
 
