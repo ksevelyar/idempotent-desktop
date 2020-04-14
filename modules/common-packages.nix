@@ -163,7 +163,6 @@ in
 
         # media
         mpv
-        celluloid
         cava
         moc
         google-play-music-desktop-player
