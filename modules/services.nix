@@ -52,15 +52,17 @@
 
   services.journald.extraConfig = "SystemMaxUse=500M";
 
-  services.fail2ban.enable = true;
-  services.fail2ban.jails.DEFAULT = ''
-    ignoreip = 127.0.0.1/8
-    bantime = 600
-    findtime = 600
-    maxretry = 3
-    backend = auto
-    enabled = true
-  '';
+  services.fail2ban = {
+    enable = true;
+    ignoreIP = [ "127.0.0.1/8" ];
+    jails.DEFAULT = ''
+      bantime = 600
+      findtime = 600
+      maxretry = 3
+      backend = auto
+      enabled = true
+    '';
+  };
 
   services.nixosManual.showManual = true;
 }

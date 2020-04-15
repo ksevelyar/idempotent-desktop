@@ -1,19 +1,19 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
-
-  # Enable the X11 windowing system.
   fonts = {
-    fontconfig.allowBitmaps = true;
     enableFontDir = true;
     enableGhostscriptFonts = true;
-
+    fontconfig = {
+      enable = true;
+      allowBitmaps = true;
+      useEmbeddedBitmaps = true;
+      # hinting.enable = false;
+    };
 
     fonts = with pkgs;
       [
-        # Noto fonts provide basic glyph coverage
-        # (nerdfonts.override { withFont = "Terminus"; })
-        nerdfonts
         dejavu_fonts
+        opensans-ttf
 
         # unfree Microsoft fonts
         corefonts # Andale Mono, Arial, Comic Sans, Courier New, Georgia, Impact, Times New Roman, Trebuchet, Verdana, Webdings
@@ -21,18 +21,21 @@
         vistafonts-chs # Microsoft YaHei
 
         # Dev fonts
+        # (nerdfonts.override { withFont = "Terminus"; })
+        nerdfonts
         siji # https://github.com/stark/siji
         tamsyn # http://www.fial.com/~scott/tamsyn-font/
-        opensans-ttf
         powerline-fonts
         ankacoder
       ];
   };
 
+  environment.systemPackages = with pkgs;
+    [
+      font-manager
+    ];
+
   console = {
-    # font = "Lat2-Terminus32";
-    font = "Lat2-Terminus20";
-    keyMap = "us";
+    font = lib.mkDefault "Lat2-Terminus20";
   };
-  i18n.defaultLocale = "en_US.UTF-8";
 }

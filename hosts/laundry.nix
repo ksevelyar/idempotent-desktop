@@ -5,6 +5,16 @@
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
     ];
 
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware = {
+    cpu.intel.updateMicrocode = true;
+    nvidia.modesetting.enable = true;
+  };
+
+  networking.useDHCP = false;
+  networking.interfaces.enp4s0.useDHCP = true;
+  networking.hostName = "laundry";
+
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [];
   boot.kernelModules = [ "kvm-intel" ];
@@ -42,19 +52,6 @@
     options = [ "bind" ];
   };
 
-  nix.maxJobs = lib.mkDefault 4;
-
-  networking.useDHCP = false;
-  networking.interfaces.enp4s0.useDHCP = true;
-  networking.hostName = "laundry";
-
-  hardware = {
-    cpu.intel.updateMicrocode = true;
-    nvidia.modesetting.enable = true;
-  };
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-
   services.nfs.server.enable = true;
   services.nfs.server.exports = ''
     /srv         192.168.0.1/24(ro,all_squash,insecure,fsid=0,crossmnt)
@@ -71,11 +68,5 @@
     user = "ksevelyar";
     dataDir = "/home/ksevelyar/.syncthing";
     openDefaultPorts = true;
-  };
-
-  services.xserver = {
-    libinput = {
-      enable = true;
-    };
   };
 }

@@ -15,12 +15,17 @@
       ./modules/extra-packages.nix
       ./modules/services.nix
       ./modules/x.nix
+
       ./modules/fonts.nix
+      # ./modules/fonts-high-dpi.nix
 
       ./users/ksevelyar.nix
       # ./modules/laptop.nix
       ./hosts/laundry.nix
     ];
+
+  users.defaultUserShell = pkgs.fish;
+  i18n.defaultLocale = "en_US.UTF-8";
 
   nixpkgs.overlays = [ (import ./overlays) ];
   nixpkgs.config.allowUnfree = true;
@@ -65,16 +70,14 @@
       127.0.0.1 l.lcl
     '';
 
-  users.defaultUserShell = pkgs.fish;
-
+  # --fallback to build from source if binary package fetching fails
   nix = {
-    # gc = {
-    #   automatic = true;
-    #   dates = "weekly";
-    #   options = "--delete-older-than 30d";
-    # };
-
+    maxJobs = lib.mkDefault 3;
     binaryCaches = [ "https://cache.nixos.org" "https://aseipp-nix-cache.global.ssl.fastly.net" ];
+    extraOptions = ''
+      connect-timeout = 5 
+      http-connections = 10
+    '';
   };
 
   # This value determines the NixOS release with which your system is to be

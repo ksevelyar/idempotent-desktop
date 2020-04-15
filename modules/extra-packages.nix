@@ -49,7 +49,6 @@ in
       lmms
       vlc
       kodi
-
       cmus # Small, fast and powerful console music player for Linux and *BSD
       # fluidsynth # Real-time software synthesizer based on the SoundFont 2 specifications
       # mikmod # Tracker music player for the terminal

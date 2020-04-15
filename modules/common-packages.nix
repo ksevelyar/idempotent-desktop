@@ -118,10 +118,9 @@ in
       };
     in
       [
-        # text
+        # text    
         hunspell
         hunspellDicts.en_US-large
-        font-manager
 
         # boot
         memtest86-efi

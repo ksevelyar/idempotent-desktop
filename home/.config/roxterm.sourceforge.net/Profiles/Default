@@ -9,3 +9,5 @@ cursor_blink_mode=2
 cursor_shape=2
 scroll_on_keystroke=1
 bold_is_bright=1
+maximise=1
+scrollbar_pos=0
