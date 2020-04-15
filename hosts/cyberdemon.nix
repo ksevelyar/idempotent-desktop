@@ -42,4 +42,5 @@
     # nvidia.modesetting.enable = true;
   };
 
+  servers.xserver.videoDrivers = [ "intel" ];
 }
