@@ -18,10 +18,10 @@
 
       ./modules/fonts.nix
       # ./modules/fonts-high-dpi.nix
+      # ./modules/laptop.nix
 
-      ./users/manya.nix
-      ./modules/laptop.nix
-      ./hosts/cyberdemon.nix
+      ./users/ksevelyar.nix
+      ./hosts/laundry.nix
     ];
 
   users.defaultUserShell = pkgs.fish;
