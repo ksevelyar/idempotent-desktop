@@ -7,6 +7,7 @@
       enable = true;
       allowBitmaps = true;
       useEmbeddedBitmaps = true;
+      cache32Bit = true;
       # hinting.enable = false;
     };
 

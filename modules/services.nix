@@ -24,6 +24,14 @@
     openPorts = true;
   };
 
+
+  #  services.mingetty.greetingLine = ''<<< Welcome to NixOS ${config.system.nixos.label} (\m) - \l >>>'';
+  # services.kmscon = {
+  #   enable = true;
+  #   hwRender = true;
+  #   extraConfig = "font-size=14";
+  # };
+
   # Auto-detect the connected display hardware and load the appropriate X11 setup using xrandr
   # services.autorandr.enable = true;
 
@@ -45,8 +53,11 @@
     temperature.day = 6500;
   };
 
-  services.openssh.permitRootLogin = "no";
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    permitRootLogin = "no";
+    passwordAuthentication = false;
+  };
   # Allow sshd to be started manually through sudo systemctl start sshd
   systemd.services.sshd.wantedBy = pkgs.lib.mkForce [];
 
@@ -54,14 +65,6 @@
 
   services.fail2ban = {
     enable = true;
-    ignoreIP = [ "127.0.0.1/8" ];
-    jails.DEFAULT = ''
-      bantime = 600
-      findtime = 600
-      maxretry = 3
-      backend = auto
-      enabled = true
-    '';
   };
 
   services.nixosManual.showManual = true;
