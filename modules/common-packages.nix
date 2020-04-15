@@ -161,6 +161,7 @@ in
         transmission_gtk
         aria2
         polybar
+        xorg.xev
 
         # media
         mpv
