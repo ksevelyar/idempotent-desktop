@@ -298,6 +298,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm, xK_g), namedScratchpadAction scratchpads  "gpmdp")
 
   , ((0,    xK_Print), spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
+  , ((modm,    xK_Delete), spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
   , ((modm, xK_Print), spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
 
   , ((modm, xK_o), spawn "sleep 1; xset dpms force off; pkill -f google-play")
