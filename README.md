@@ -44,7 +44,7 @@ sudo dd bs=4M if=result/nix.iso of=/dev/sdx status=progress oflag=sync
 # install
 
 ```
-sudo cp -ra /etx/nixos/{,.bak}
+sudo cp -ra /etx/nixos{,.bak}
 sudo mkdir -p /storage/tmp
 sudo git clone git@github.com:ksevelyar/dotfiles.git /etc/nixos
 
