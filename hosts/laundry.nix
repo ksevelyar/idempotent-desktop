@@ -72,4 +72,10 @@
     dataDir = "/home/ksevelyar/.syncthing";
     openDefaultPorts = true;
   };
+
+  services.xserver = {
+    libinput = {
+      enable = true;
+    };
+  };
 }

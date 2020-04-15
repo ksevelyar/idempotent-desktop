@@ -66,6 +66,8 @@
 
       home.file."Wallpapers/1.png".source = /etc/nixos/home/wallpapers/1.png;
 
+      home.file.".config/dunst/dunstrc".source = /etc/nixos/home/.config/dunst/dunstrc;
+
       home.file.".config/polybar/launch.sh".source = /etc/nixos/home/.config/polybar/launch.sh;
       home.file.".config/polybar/config".source = /etc/nixos/home/.config/polybar/config;
       home.file.".config/polybar/gpmdp-next.sh".source = /etc/nixos/home/.config/polybar/gpmdp-next.sh;

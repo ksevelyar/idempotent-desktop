@@ -56,20 +56,13 @@
     useUserPackages = true;
 
     users.nixos = {
-      xsession.enable = true;
-      # xsession.initExtra.text = ''
-      #   sh ~/.fehbg &
-      #   xsetroot -cursor_name left_ptr
-      #
-      #   xset s off
-      #   xset -dpms
-      # '';
-
       xsession.windowManager.xmonad.enable = true;
       xsession.windowManager.xmonad.enableContribAndExtras = true;
       xsession.windowManager.xmonad.config = /etc/nixos/home/.xmonad/xmonad.hs;
 
       home.file."Wallpapers/1.png".source = /etc/nixos/home/wallpapers/1.png;
+
+      home.file.".config/dunst/dunstrc".source = /etc/nixos/home/.config/dunst/dunstrc;
 
       home.file.".config/polybar/launch.sh".source = /etc/nixos/home/.config/polybar/launch.sh;
       home.file.".config/polybar/config".source = /etc/nixos/home/.config/polybar/config;

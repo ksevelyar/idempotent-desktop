@@ -1,13 +1,11 @@
 #!/usr/bin/env sh
 DATA=$(cat ~/.config/Google\ Play\ Music\ Desktop\ Player/json_store/playback.json)
 
-PLAYING=$(echo $DATA | jq -r '.playing')
+ARTIST=$(echo $DATA | jq -r '.song.artist')
+TITLE=$(echo $DATA | jq -r '.song.title')
 
-if [ $PLAYING == 'false' ]; then
+if [ "$TITLE" == "null" ]; then
   echo ""
 else
-  ARTIST=$(echo $DATA | jq -r '.song.artist')
-  TITLE=$(echo $DATA | jq -r '.song.title')
-
-  echo "$ARTIST - $TITLE"
+  echo "%{A1:sh /etc/nixos/home/.config/polybar/gpmdp-next.sh:}$ARTIST - $TITLE%{A}"
 fi

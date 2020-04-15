@@ -18,10 +18,12 @@
   ];
 
   # isoImage.splashImage = /etc/nixos/assets/grub.png;
+  isoImage.volumeID = "nixos.iso";
   nixpkgs.overlays = [ (import ./overlays) ];
 
   services.xserver = {
     enable = true;
+    autorun = false;
     displayManager = {
       defaultSession = "none+xmonad";
     };
@@ -41,6 +43,7 @@
   };
   sound.enable = true;
 
+  boot.loader.timeout = lib.mkForce null;
   boot.kernelModules = [ "wl" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 

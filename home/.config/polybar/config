@@ -28,7 +28,6 @@ exec = ~/.config/polybar/gpmdp.sh
 interval = 2
 format-foreground = #6B5A68
 click-right = pkill -f google-play-music-desktop-player
-click-left = bash ~/.config/polybar/gpmdp-next.sh
 
 [colors]
 background = #d0303030
@@ -110,7 +109,7 @@ modules-right = weather date
 inherit = bar/base
 bottom = false
 
-modules-left = volume gpmdp backlight
+modules-left = volume gpmdp
 modules-center = filesystem
 modules-right = eth cpu memory battery
 
@@ -177,12 +176,12 @@ label-connected = %{A1:sh ~/.config/polybar/local_and_public_ips.sh:} %{F#9c71C7
 
 [module/wifi]
 type = internal/network
-interface = wlan1
+interface = wlp3s0
 interval = 1.0
 ; click-left = notify-send $(ip route | grep default | awk '{print $3}')
 
-label-connected = %essid% %{F#9c71C7}%{F-}%downspeed:8%   %{F#9c71C7}%{F-}%upspeed:8%
-format-connected = <ramp-signal> <label-connected>
+label-connected = %essid% %{A1:sh ~/.config/polybar/local_and_public_ips.sh:} %{F#9c71C7}%{F-}%downspeed:8%   %{F#9c71C7}%{F-}%upspeed:8%%{A}
+format-connected = <label-connected>
 ramp-signal-0 = 😱
 ramp-signal-1 = 😠
 ramp-signal-2 = 😒

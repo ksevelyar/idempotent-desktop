@@ -3,6 +3,8 @@
   # boot.kernelParams = [ "quiet" ];
   # boot.consoleLogLevel = 3;
 
+  boot.cleanTmpDir = true;
+
   boot.loader.grub = {
     enable = true;
     efiSupport = true;

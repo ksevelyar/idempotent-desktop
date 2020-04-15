@@ -65,6 +65,8 @@ in
       cool-retro-term
       kitty
       asciinema
+      rustc
+      cargo
 
       # arduino
       arduino
@@ -82,6 +84,6 @@ in
       gzdoom
       stable.steam
       lutris
-      playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
+      stable.playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
     ];
 }
