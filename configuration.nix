@@ -19,9 +19,9 @@
       ./modules/fonts.nix
       # ./modules/fonts-high-dpi.nix
 
-      ./users/ksevelyar.nix
-      # ./modules/laptop.nix
-      ./hosts/laundry.nix
+      ./users/manya.nix
+      ./modules/laptop.nix
+      ./hosts/cyberdemon.nix
     ];
 
   users.defaultUserShell = pkgs.fish;
