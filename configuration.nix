@@ -24,6 +24,11 @@
       ./hosts/laundry.nix
     ];
 
+  # nix.nixPath = [
+  #   "nixpkgs=/nix/nixpkgs"
+  #   "nixos-config=/etc/nixos/hosts/laundry.nix"
+  # ];
+
   users.defaultUserShell = pkgs.fish;
   i18n.defaultLocale = "en_US.UTF-8";
 
