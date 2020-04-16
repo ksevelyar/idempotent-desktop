@@ -315,6 +315,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " let g:NERDTreeChDirMode=2
 
 """ Themes
+Plug 'dracula/vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'ksevelyar/joker.vim'
 Plug 'arcticicestudio/nord-vim'

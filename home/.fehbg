@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill --image-bg 'black' '/storage/Dropbox/pics/wallpapers/wallhaven-3590.jpg' 
+feh --randomize --bg-fill --no-fehbg ~/Wallpapers
