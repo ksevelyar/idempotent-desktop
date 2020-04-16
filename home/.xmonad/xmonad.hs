@@ -194,7 +194,7 @@ scratchpads = [
     (resource =? "terminal-2")
     (customFloating $ W.RationalRect 0.20 0.05 0.5 0.4),
 
-  NS "notes" "alacritty --class notes -e 'nvim ~/notes'"
+  NS "notes" "alacritty --class notes -e nvim ~/notes"
     (resource =? "notes")
     (customFloating $ W.RationalRect 0.50 0.05 0.4 0.4),
 
