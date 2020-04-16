@@ -197,6 +197,7 @@ in
         masterpdfeditor
 
         # sys
+        gksu
         glxinfo
         lm_sensors
         mkpasswd
