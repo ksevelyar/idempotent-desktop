@@ -210,6 +210,9 @@ in
         tmuxPlugins.open
         tmuxPlugins.yank
         lshw
+        pciutils # lspci
+        usbutils # lsusb
+        psmisc # pstree, killall
         bat
         inetutils
         maim

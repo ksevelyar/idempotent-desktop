@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   services.nfs.server.statdPort = 4000;
   services.nfs.server.lockdPort = 4001;
@@ -25,7 +25,7 @@
   };
 
 
-  services.mingetty.greetingLine = ''[\l] ${config.system.nixos.label}'';
+  services.mingetty.greetingLine = ''\l'';
   # services.kmscon = {
   #   enable = true;
   #   hwRender = true;
