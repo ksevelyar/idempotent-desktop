@@ -52,7 +52,7 @@ main = do
 
   xmonad $ withUrgencyHook NoUrgencyHook $ ewmh desktopConfig {
     -- simple stuff
-    terminal           = "roxterm",
+    terminal           = "alacritty",
     focusFollowsMouse  = True,
     borderWidth        = 1,
     modMask            = mod4Mask,
@@ -187,29 +187,23 @@ myStartupHook = do
 
 scratchpads = [
   -- RationalRect left top width height
-  -- NS "terminal-1" "roxterm --role terminal-1 --session=dev"
-  --   (role =? "terminal-1")
-  --   (customFloating $ W.RationalRect 0.20 0.49 0.6 0.44),
-  -- NS "terminal-2" "roxterm --role terminal-2 --session=sys"
-  --   (role =? "terminal-2")
-  --   (customFloating $ W.RationalRect 0.20 0.05 0.6 0.44),
-  NS "terminal-1" "roxterm --role terminal-1"
-    (role =? "terminal-1")
+  NS "terminal-1" "alacritty --class terminal-1"
+    (resource =? "terminal-1")
     (customFloating $ W.RationalRect 0.20 0.51 0.5 0.4),
-  NS "terminal-2" "roxterm --role terminal-2 -e 'tmux new-session -A -s main'"
-    (role =? "terminal-2")
+  NS "terminal-2" "alacritty --class terminal-2 -e tmux new-session -A -s main"
+    (resource =? "terminal-2")
     (customFloating $ W.RationalRect 0.20 0.05 0.5 0.4),
 
-  NS "notes" "roxterm --role notes -e 'nvim ~/notes'"
-    (role =? "notes")
+  NS "notes" "alacritty --class notes -e 'nvim ~/notes'"
+    (resource =? "notes")
     (customFloating $ W.RationalRect 0.50 0.05 0.4 0.4),
 
   NS "keepassx" "keepassxc"
     (className =? "KeePassXC")
     (customFloating $ W.RationalRect 0.50 0.05 0.4 0.87),
 
-  NS "gotop" "roxterm --role gotop -e gotop"
-    (role =? "gotop")
+  NS "gotop" "alacritty --class gotop -e gotop"
+    (resource =? "gotop")
     (customFloating $ W.RationalRect 0.15 0.2 0.7 0.7),
   NS "gpmdp" "google-play-music-desktop-player"
     (className =? "Google Play Music Desktop Player")
@@ -227,8 +221,8 @@ scratchpads = [
     (className =? "Image Lounge")
     (customFloating $ W.RationalRect 0.01 0.01 0.98 0.98),
 
-  NS "nnn" "cd /storage && roxterm --role nnn -e nnn"
-    (role =? "nnn")
+  NS "nnn" "cd /storage && alacritty --class nnn -e nnn"
+    (resource =? "nnn")
     nonFloating
   ]
   where
@@ -248,7 +242,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   -- , ((modm,   xK_w     ), spawn "rofi -show window -modi window, window -sidebar-mode -lines 6 -width 800")
   , ((modm,                 xK_b     ), spawn "firefox -p default")
   , ((modm,                 xK_y     ), spawn "firefox -p tor")
-  , ((modm,                 xK_v     ), spawn "roxterm -e nvim")
+  , ((modm,                 xK_v     ), spawn "alacritty -e nvim")
   , ((modm,                 xK_q     ), kill) -- close focused window
   , ((modm,                 xK_space ), sendMessage NextLayout)  -- Rotate through the available layout algorithms
   , ((modm .|. shiftMask,   xK_space ), sendMessage ToggleStruts )

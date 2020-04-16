@@ -7,7 +7,6 @@ if not functions -q fisher
 end
 
 git_aliases
-user_config
 set -u DEFAULT_USER (whoami)
 
 alias k="kubectl"

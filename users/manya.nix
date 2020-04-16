@@ -62,6 +62,14 @@
         userEmail = "porosenie@gmail.com";
       };
 
+      home.file.".config/alacritty/alacritty.yml".source = /etc/nixos/home/.config/alacritty/alacritty.yml;
+      home.file.".config/fish/config.fish".source = /etc/nixos/home/.config/fish/config.fish;
+      home.file.".config/fish/fishfile".source = /etc/nixos/home/.config/fish/fishfile;
+      home.file.".config/fish/functions/git_aliases.fish".source =
+        /etc/nixos/home/.config/fish/functions/git_aliases.fish;
+      home.file.".config/fish/functions/fish_prompt.fish".source =
+        /etc/nixos/home/.config/fish/functions/fish_prompt.fish;
+
       xsession.windowManager.xmonad.enable = true;
       xsession.windowManager.xmonad.enableContribAndExtras = true;
       xsession.windowManager.xmonad.config = /etc/nixos/home/.xmonad/xmonad.hs;
