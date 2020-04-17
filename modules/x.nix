@@ -30,6 +30,7 @@
         polybar
         xorg.xev
         xorg.xfontsel
+        xorg.xfd
 
         # media
         mpv
@@ -103,11 +104,14 @@
       sessionCommands = ''
         sh ~/.fehbg &
         xsetroot -cursor_name left_ptr
-
-        xset s off
-        xset -dpms
       '';
     };
+    serverFlagsSection = ''
+      Option "BlankTime" "0"
+      Option "StandbyTime" "0"
+      Option "SuspendTime" "0"
+      Option "OffTime" "180"
+    '';
 
     displayManager.lightdm = {
       enable = true;

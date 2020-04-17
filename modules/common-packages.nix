@@ -10,6 +10,7 @@ in
 
   programs.tmux = {
     enable = true;
+    clock24 = true;
     extraConfig = ''
       set-window-option -g automatic-rename on
       set-option -g set-titles on
@@ -125,40 +126,25 @@ in
       curl
 
       # cli
+      xlsfonts
       websocat
       brightnessctl
-      keepassxc
       youtube-dl
 
       # gui
       browsh
 
-      # themes
-      lxappearance-gtk3
-
-      vanilla-dmz
-      ant-dracula-theme
-
-      paper-icon-theme
-      arc-icon-theme
-      zafiro-icons
-
       # im
-      tdesktop
-
       aria2
 
       # media
       mpv
       cava
       moc
-      google-play-music-desktop-player
 
       # dev
       (python3.withPackages (ps: with ps; [ httpserver ]))
       go
-      roxterm
-      kitty
 
       fzf
       neovim
@@ -173,22 +159,14 @@ in
       global
       gcc
       git
-      gitg
       gitAndTools.diff-so-fancy
 
-
-      # Freelance
-      libreoffice
-      masterpdfeditor
-
       # sys
-      gksu
       glxinfo
       lm_sensors
       mkpasswd
       file
       memtest86plus
-      system-config-printer
       jq
       tmuxPlugins.sensible
       tmuxPlugins.continuum
@@ -202,35 +180,22 @@ in
       bat
       inetutils
       maim
-      simplescreenrecorder
       smartmontools
       bind
       unzip
       unrar
       p7zip
       atool
-      xclip
       gotop
       htop
       iotop
       powertop
-      rofi
       bash
-      pavucontrol
-      libnotify
-      dunst
       nixpkgs-fmt
       neofetch
 
       # images
-      imv
-      nomacs
-
       imagemagick
-      gimp
-      inkscape
-      blender
-      openscad
 
       # games
       dwarf-fortress
@@ -244,7 +209,6 @@ in
       ncdu
       tree
 
-      gparted
       dosfstools
       mtools
       sshfs
@@ -254,10 +218,6 @@ in
       rsync
       rclone
       rclone-browser
-
-      # vncpasswd
-      # x0vncserver -rfbauth ~/.vnc/passwd
-      tigervnc
 
       # laptop
       arandr

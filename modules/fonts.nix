@@ -16,6 +16,9 @@
         dejavu_fonts
         opensans-ttf
 
+        clearlyU
+        cm_unicode
+
         # unfree Microsoft fonts
         corefonts # Andale Mono, Arial, Comic Sans, Courier New, Georgia, Impact, Times New Roman, Trebuchet, Verdana, Webdings
         vistafonts # Calibri, Cambria, Candara, Consolas, Constantia, Corbel

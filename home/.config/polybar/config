@@ -57,6 +57,8 @@ secondary = blue
 alert = red
 
 [bar/base]
+font-0 = Terminess Powerline:style=Regular:size=14:antialias=false;0
+font-1 = Siji:size=14:antialias=false;1
 width = 100%
 height = 24
 offset-x = 0
@@ -75,12 +77,6 @@ border-bottom-color = #ffffff
 module-margin-left = 1
 module-margin-right = 1
 
-; font-0 = Tamsyn:style=Regular:size=14:antialias=false;1
-font-0 = Terminess Powerline:style=Regular:size=13:antialias=false;1
-; font-0 = Anka/Coder:style=Regular:size=11;1
-font-1 = SpaceMono Nerd Font Mono:fontformat=truetype:size=14;3
-font-2 = SpaceMono Nerd Font Mono:fontformat=truetype:size=20;5
-font-3 = Siji:fontformat=truetype:size=12:antialias=true;1
 
 radius = 0.0
 
@@ -136,6 +132,7 @@ interval = 25
 mount-0 = /
 mount-1 = /storage
 
+format-prefix = " "
 label-mounted = %{F#9c71C7}%mountpoint%%{F-} %free%
 label-unmounted = %mountpoint% ?
 label-unmounted-foreground = ${colors.foreground}
@@ -147,13 +144,13 @@ battery = BAT0
 adapter = AC
 full-at = 98
 
-format-charging = %{F#9c71C7}%{F-} <label-charging>
-format-discharging = %{F#9c71C7}%{F-} <label-discharging>
+format-charging = %{F#9c71C7}%{F-} <label-charging>
+format-discharging = %{F#9c71C7}%{F-} <label-discharging>
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "  %{F#9c71C7}柳%{F-}"
+format-prefix = "  %{F#9c71C7}%{F-}"
 format-prefix-foreground = ${colors.foreground}
 format-underline = ${colors.grey}
 label = %percentage:3%%
@@ -161,7 +158,7 @@ label = %percentage:3%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "%{F#9c71C7}%{F-}"
+format-prefix = "%{F#9c71C7}%{F-}"
 format-prefix-foreground = ${colors.foreground}
 format-underline = ${colors.grey}
 label = %percentage_used:3%%
@@ -172,7 +169,7 @@ interface = enp4s0
 interval = 1.0
 ; click-left = notify-send
 
-label-connected = %{A1:sh ~/.config/polybar/local_and_public_ips.sh:} %{F#9c71C7}%{F-}%downspeed:8%   %{F#9c71C7}%{F-}%upspeed:8%%{A}
+label-connected = %{A1:sh ~/.config/polybar/local_and_public_ips.sh:} %{F#9c71C7}%{F-}%downspeed:8%   %{F#9c71C7}%{F-}%upspeed:8%%{A}
 
 [module/wifi]
 type = internal/network
@@ -180,7 +177,7 @@ interface = wlp3s0
 interval = 1.0
 ; click-left = notify-send $(ip route | grep default | awk '{print $3}')
 
-label-connected = %essid% %{A1:sh ~/.config/polybar/local_and_public_ips.sh:} %{F#9c71C7}%{F-}%downspeed:8%   %{F#9c71C7}%{F-}%upspeed:8%%{A}
+label-connected = %essid% %{A1:sh ~/.config/polybar/local_and_public_ips.sh:} %{F#9c71C7}%{F-}%downspeed:8%   %{F#9c71C7}%{F-}%upspeed:8%%{A}
 format-connected = <label-connected>
 ramp-signal-0 = 😱
 ramp-signal-1 = 😠
@@ -189,8 +186,6 @@ ramp-signal-3 = 😊
 ramp-signal-4 = 😃
 ramp-signal-5 = 😈
 
-click-left = notify-send 'hru'
-
 [module/date]
 type = internal/date
 interval = 5
@@ -198,20 +193,20 @@ interval = 5
 date = " %A %B %d"
 time = %H:%M
 
-format-prefix = "%{F#9c71C7}%{F-}"
+format-prefix = "%{F#9c71C7}%{F-}"
 format-prefix-foreground = ${colors.foreground}
 format-underline = ${colors.grey}
 
-label = %{F#6B5A68}%date%%{F-} %time%
+label = %{F#6B5A68}%date%%{F-}  %time%
 
 [module/volume]
 type = internal/pulseaudio
 interval = 2
 
-label-volume = "%{F#9c71C7}墳 %{F-}%percentage%%"
+label-volume = "%{F#9c71C7} %{F-}%percentage%%"
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = "%{F#9c71C7}婢%{F-} "
+format-muted-prefix = "%{F#9c71C7}%{F-} "
 format-muted-foreground = #6B5A68
 
 [module/backlight]
