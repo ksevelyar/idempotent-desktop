@@ -24,22 +24,26 @@
 
   swapDevices = [];
 
+  services.fstrim.enable = true;
   fileSystems."/" =
     {
       device = "/dev/disk/by-uuid/044a758f-4252-4e42-b68c-a87d2345dc4c";
       fsType = "ext4";
+      options = [ "noatime" "nodiratime" ];
     };
 
   fileSystems."/boot" =
     {
       device = "/dev/disk/by-uuid/3A05-EA05";
       fsType = "vfat";
+      options = [ "noatime" "nodiratime" ];
     };
 
   fileSystems."/storage" =
     {
       device = "/dev/disk/by-uuid/bd7a95b1-0a44-4477-8616-177b95561ad1";
       fsType = "ext4";
+      options = [ "noatime" "nodiratime" ];
     };
 
   fileSystems."/srv/storage/" = {

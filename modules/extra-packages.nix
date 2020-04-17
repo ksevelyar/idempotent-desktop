@@ -73,13 +73,13 @@ in
       stable.fritzing
       ino
 
-      # Freelance
-
       # sys
       tightvnc
       winusb
 
       # games
+      stepmania
+      anbox
       gzdoom
       stable.steam
       lutris

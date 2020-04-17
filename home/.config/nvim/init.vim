@@ -49,7 +49,7 @@ let g:ale_linters = {
 " \ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-prettier',
 let g:coc_global_extensions = [
 \ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css',
-\ 'coc-elixir', 'coc-go', 'coc-git',
+\ 'coc-elixir', 'coc-go',
 \ 'coc-vimlsp', 'coc-tsserver', 'coc-sh'
 \ ]
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -220,8 +220,10 @@ let g:vim_json_syntax_conceal = 0
 Plug 'chr4/nginx.vim'
 
 Plug 'janko-m/vim-test'
-Plug 'airblade/vim-gitgutter'
+let g:gitgutter_override_sign_column_highlight = 0
 let g:gitgutter_grep = 'rg'
+
+" Plug 'airblade/vim-gitgutter'
 
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1

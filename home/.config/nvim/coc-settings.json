@@ -3,5 +3,10 @@
   "suggest.maxCompleteItemCount": 20,
   "diagnostic.errorSign": "◉",
   "diagnostic.warningSign": "◉",
-  "diagnostic.infoSign": "◉"
+  "diagnostic.infoSign": "◉",
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete"
 }

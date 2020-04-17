@@ -7,7 +7,6 @@ in
 {
   programs.fish.enable = true;
   programs.mosh.enable = true;
-  programs.slock.enable = true;
 
   programs.tmux = {
     enable = true;
@@ -112,171 +111,157 @@ in
   programs.qt5ct.enable = true;
 
   environment.systemPackages = with pkgs;
-    let
-      polybar = pkgs.polybar.override {
-        pulseSupport = true;
-      };
-    in
-      [
-        # text    
-        hunspell
-        hunspellDicts.en_US-large
+    [
+      # text    
+      hunspell
+      hunspellDicts.en_US-large
 
-        # boot
-        memtest86-efi
-        grub2
-        os-prober
-        hwinfo
-        wget
-        curl
+      # boot
+      memtest86-efi
+      grub2
+      os-prober
+      hwinfo
+      wget
+      curl
 
-        # cli
-        websocat
-        brightnessctl
-        keepassxc
-        youtube-dl
+      # cli
+      websocat
+      brightnessctl
+      keepassxc
+      youtube-dl
 
-        # gui
-        browsh
-        firefoxWrapper
-        tor-browser-bundle-bin
-        zathura
-        evince
-        betterlockscreen
+      # gui
+      browsh
 
-        # themes
-        lxappearance-gtk3
+      # themes
+      lxappearance-gtk3
 
-        vanilla-dmz
-        ant-dracula-theme
+      vanilla-dmz
+      ant-dracula-theme
 
-        paper-icon-theme
-        arc-icon-theme
-        zafiro-icons
+      paper-icon-theme
+      arc-icon-theme
+      zafiro-icons
 
-        # im
-        tdesktop
+      # im
+      tdesktop
 
-        feh
-        transmission_gtk
-        aria2
-        polybar
-        xorg.xev
+      aria2
 
-        # media
-        mpv
-        cava
-        moc
-        google-play-music-desktop-player
+      # media
+      mpv
+      cava
+      moc
+      google-play-music-desktop-player
 
-        # dev
-        (python3.withPackages (ps: with ps; [ httpserver ]))
-        go
-        roxterm
-        kitty
+      # dev
+      (python3.withPackages (ps: with ps; [ httpserver ]))
+      go
+      roxterm
+      kitty
 
-        fzf
-        neovim
+      fzf
+      neovim
 
-        ripgrep
-        tldr
+      ripgrep
+      tldr
 
-        nodejs
-        elixir
+      nodejs
+      elixir
 
-        universal-ctags
-        global
-        gcc
-        git
-        gitg
-        gitAndTools.diff-so-fancy
+      universal-ctags
+      global
+      gcc
+      git
+      gitg
+      gitAndTools.diff-so-fancy
 
 
-        # Freelance
-        libreoffice
-        masterpdfeditor
+      # Freelance
+      libreoffice
+      masterpdfeditor
 
-        # sys
-        gksu
-        glxinfo
-        lm_sensors
-        mkpasswd
-        file
-        memtest86plus
-        system-config-printer
-        jq
-        tmuxPlugins.sensible
-        tmuxPlugins.continuum
-        tmuxPlugins.resurrect
-        tmuxPlugins.open
-        tmuxPlugins.yank
-        lshw
-        pciutils # lspci
-        usbutils # lsusb
-        psmisc # pstree, killall
-        bat
-        inetutils
-        maim
-        simplescreenrecorder
-        smartmontools
-        bind
-        unzip
-        unrar
-        p7zip
-        atool
-        xclip
-        gotop
-        htop
-        iotop
-        powertop
-        rofi
-        bash
-        pavucontrol
-        libnotify
-        dunst
-        nixpkgs-fmt
-        neofetch
+      # sys
+      gksu
+      glxinfo
+      lm_sensors
+      mkpasswd
+      file
+      memtest86plus
+      system-config-printer
+      jq
+      tmuxPlugins.sensible
+      tmuxPlugins.continuum
+      tmuxPlugins.resurrect
+      tmuxPlugins.open
+      tmuxPlugins.yank
+      lshw
+      pciutils # lspci
+      usbutils # lsusb
+      psmisc # pstree, killall
+      bat
+      inetutils
+      maim
+      simplescreenrecorder
+      smartmontools
+      bind
+      unzip
+      unrar
+      p7zip
+      atool
+      xclip
+      gotop
+      htop
+      iotop
+      powertop
+      rofi
+      bash
+      pavucontrol
+      libnotify
+      dunst
+      nixpkgs-fmt
+      neofetch
 
-        # images
-        imv
-        nomacs
+      # images
+      imv
+      nomacs
 
-        imagemagick
-        gimp
-        inkscape
-        blender
-        openscad
+      imagemagick
+      gimp
+      inkscape
+      blender
+      openscad
 
-        # games
-        dwarf-fortress
-        rogue
+      # games
+      dwarf-fortress
+      rogue
 
-        # fs
-        spaceFM
-        fd
-        nnn
-        appimage-run
-        ncdu
-        tree
+      # fs
+      spaceFM
+      fd
+      nnn
+      appimage-run
+      ncdu
+      tree
 
-        gparted
-        dosfstools
-        mtools
-        sshfs
-        ntfs3g
-        exfat
-        sshfsFuse
-        rsync
-        rclone
-        rclone-browser
+      gparted
+      dosfstools
+      mtools
+      sshfs
+      ntfs3g
+      exfat
+      sshfsFuse
+      rsync
+      rclone
+      rclone-browser
 
-        # vncpasswd
-        # x0vncserver -rfbauth ~/.vnc/passwd
-        tigervnc
+      # vncpasswd
+      # x0vncserver -rfbauth ~/.vnc/passwd
+      tigervnc
 
-        # laptop
-        arandr
-        acpi
-        openssh
-      ];
+      # laptop
+      arandr
+      acpi
+      openssh
+    ];
 }
