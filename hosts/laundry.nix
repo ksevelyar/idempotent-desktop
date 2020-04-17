@@ -24,7 +24,7 @@
 
   swapDevices = [];
 
-  services.fstrim.enable = true;
+  services.fstrim.enable = true; #ssd
   fileSystems."/" =
     {
       device = "/dev/disk/by-uuid/044a758f-4252-4e42-b68c-a87d2345dc4c";
@@ -36,7 +36,7 @@
     {
       device = "/dev/disk/by-uuid/3A05-EA05";
       fsType = "vfat";
-      options = [ "noatime" "nodiratime" ];
+      options = [ "noatime" "nodiratime" ]; # ssd
     };
 
   fileSystems."/storage" =
