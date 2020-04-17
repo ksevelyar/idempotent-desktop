@@ -189,14 +189,14 @@ scratchpads = [
   -- RationalRect left top width height
   NS "terminal-1" "alacritty --class terminal-1"
     (resource =? "terminal-1")
-    (customFloating $ W.RationalRect 0.20 0.51 0.5 0.4),
+    (customFloating $ W.RationalRect 0.25 0.51 0.5 0.4),
   NS "terminal-2" "alacritty --class terminal-2 -e tmux new-session -A -s main"
     (resource =? "terminal-2")
-    (customFloating $ W.RationalRect 0.20 0.05 0.5 0.4),
+    (customFloating $ W.RationalRect 0.25 0.05 0.5 0.4),
 
   NS "notes" "alacritty --class notes -e nvim ~/notes"
     (resource =? "notes")
-    (customFloating $ W.RationalRect 0.50 0.05 0.4 0.4),
+    (customFloating $ W.RationalRect 0.25 0.05 0.5 0.7),
 
   NS "keepassx" "keepassxc"
     (className =? "KeePassXC")

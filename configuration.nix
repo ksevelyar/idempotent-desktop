@@ -13,6 +13,7 @@
 
       ./modules/common-packages.nix
       ./modules/extra-packages.nix
+      ./modules/dev-packages.nix
       ./modules/services.nix
       ./modules/x.nix
 

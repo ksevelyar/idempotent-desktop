@@ -1,9 +1,10 @@
 # nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix
-# sudo dd bs=4M if=/storage/tmp/nix.iso of=/dev/sdc status=progress oflag=sync
+# sudo dd bs=4M if=result/iso/nixos.iso of=/dev/sdc status=progress oflag=sync
 
 { config, pkgs, lib, ... }:
 {
   imports = [
+    # <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix>
     <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
     ./modules/aliases.nix
@@ -18,18 +19,13 @@
   ];
 
   # isoImage.splashImage = /etc/nixos/assets/grub.png;
-  isoImage.volumeID = "nixos.iso";
+  # isoImage.volumeID = "nixos.iso";
   nixpkgs.overlays = [ (import ./overlays) ];
 
   services.xserver = {
-    enable = true;
     autorun = false;
-    displayManager = {
-      defaultSession = "none+xmonad";
-    };
-
     displayManager.lightdm = {
-      autoLogin = { enable = false; user = "nixos"; };
+      autoLogin = { enable = true; user = "mrpoppybutthole"; };
     };
   };
 
@@ -38,8 +34,6 @@
     enableAllFirmware = true;
     bluetooth.enable = true;
     pulseaudio.enable = true;
-    pulseaudio.support32Bit = true; # Required for Steam
-    opengl.driSupport32Bit = true; # Required for Steam
   };
   sound.enable = true;
 
@@ -52,6 +46,7 @@
   services.openssh.permitRootLogin = lib.mkForce "yes";
 
   networking.networkmanager.enable = true;
+  networking.wireless.enable = lib.mkForce false;
 
   users.defaultUserShell = pkgs.fish;
 
@@ -62,16 +57,10 @@
 
   nix.binaryCaches = [ "https://cache.nixos.org" "https://aseipp-nix-cache.global.ssl.fastly.net" ];
 
-  # isoImage.contents =
-  #   [
-  #     {
-  #       source = /c.7z;
-  #       target = "/c.7z";
-  #     }
-  #   ];
-
+  services.mingetty.autologinUser = lib.mkForce "mrpoppybutthole";
+  services.mingetty.greetingLine = ''\l'';
   services.mingetty.helpLine = ''
-    The "nixos" and "root" accounts have "jkl" passwords.
+    The "root" account has "jkl" password.
 
     Type `x' to
     start the graphical user interface.

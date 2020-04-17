@@ -13,6 +13,8 @@
         zathura
         evince
         betterlockscreen
+        spaceFM
+        appimage-run
 
         # themes
         lxappearance-gtk3

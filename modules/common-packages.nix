@@ -142,9 +142,6 @@ in
       cava
       moc
 
-      # dev
-      (python3.withPackages (ps: with ps; [ httpserver ]))
-      go
 
       fzf
       neovim
@@ -152,12 +149,8 @@ in
       ripgrep
       tldr
 
-      nodejs
-      elixir
-
       universal-ctags
       global
-      gcc
       git
       gitAndTools.diff-so-fancy
 
@@ -179,7 +172,6 @@ in
       psmisc # pstree, killall
       bat
       inetutils
-      maim
       smartmontools
       bind
       unzip
@@ -194,18 +186,14 @@ in
       nixpkgs-fmt
       neofetch
 
-      # images
-      imagemagick
-
       # games
       dwarf-fortress
       rogue
 
       # fs
-      spaceFM
+      parted
       fd
       nnn
-      appimage-run
       ncdu
       tree
 
