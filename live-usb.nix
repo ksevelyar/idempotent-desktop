@@ -13,7 +13,6 @@
     ./modules/fonts.nix
 
     ./modules/common-packages.nix
-    ./modules/extra-packages.nix
 
     ./users/live-usb.nix
   ];

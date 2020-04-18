@@ -13,11 +13,20 @@ in
 
   environment.systemPackages = with pkgs;
     [
+      # text
+      dwarf-fortress
+      nethack
+      rogue
+
+      # gui
       xonotic
       wesnoth
       stepmania
+
+      # emulators & platforms
       anbox
       gzdoom
+      quakespasm
       stable.steam
       lutris
       stable.playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
