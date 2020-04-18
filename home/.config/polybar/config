@@ -5,29 +5,6 @@ margin-bottom = 0
 [settings]
 screenchange-reload = true
 
-[module/title]
-type = internal/xwindow
-label-maxlen = 500
-
-[module/workspaces-xmonad]
-; format-prefix = "%{F#df} %{F-} "
-type = custom/script
-exec = tail -F /tmp/.xmonad-workspace-log
-exec-if = [ -p /tmp/.xmonad-workspace-log ]
-tail = true
-
-[module/weather]
-type = custom/script
-exec = curl -s "wttr.in/Moscow?format=[%C]+%t" | sed -e 's/\[/%{F#6B5A68}/' | sed -e 's/\]/%{F-}/' | sed -e 's/Clear//'
-interval = 300
-
-
-[module/gpmdp]
-type = custom/script
-exec = ~/.config/polybar/gpmdp.sh
-interval = 2
-format-foreground = #6B5A68
-click-right = pkill -f google-play-music-desktop-player
 
 [colors]
 background = #d0303030
@@ -109,21 +86,29 @@ modules-left = volume gpmdp
 modules-center = filesystem
 modules-right = eth cpu memory battery
 
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
+[module/title]
+type = internal/xwindow
+label-maxlen = 500
 
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-format-prefix-underline = ${colors.grey}
+[module/workspaces-xmonad]
+; format-prefix = "%{F#df} %{F-} "
+type = custom/script
+exec = tail -F /tmp/.xmonad-workspace-log
+exec-if = [ -p /tmp/.xmonad-workspace-log ]
+tail = true
 
-label-layout = %layout%
-label-layout-underline = ${colors.secondary}
+[module/weather]
+type = custom/script
+exec = curl -s "wttr.in/Moscow?format=[%C]+%t" | sed -e 's/\[/%{F#6B5A68}/' | sed -e 's/\]/%{F-}/' | sed -e 's/Clear//'
+interval = 300
 
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.grey}
+[module/gpmdp]
+type = custom/script
+exec-if = pgrep google-play-music-desktop-player
+exec = ~/.config/polybar/gpmdp.sh
+interval = 2
+format-foreground = #6B5A68
+click-right = pkill -f google-play-music-desktop-player
 
 [module/filesystem]
 type = internal/fs
@@ -132,7 +117,7 @@ interval = 25
 mount-0 = /
 mount-1 = /storage
 
-format-prefix = " "
+; format-prefix = " "
 label-mounted = %{F#9c71C7}%mountpoint%%{F-} %free%
 label-unmounted = %mountpoint% ?
 label-unmounted-foreground = ${colors.foreground}
@@ -208,8 +193,5 @@ label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = "%{F#9c71C7}%{F-} "
 format-muted-foreground = #6B5A68
-
-[module/backlight]
-type = internal/xbacklight
 
 ; vim: set ft=dosini:

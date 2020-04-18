@@ -185,6 +185,7 @@ in
 
       # games
       dwarf-fortress
+      nethack
       rogue
 
       # fs
@@ -204,8 +205,6 @@ in
       rclone
       rclone-browser
 
-      # laptop
-      arandr
       acpi
     ];
 }

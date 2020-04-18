@@ -87,5 +87,6 @@
 
 
   environment.etc."profile.local".text = ''
+    sudo ln -s /tmp /storage
   '';
 }
