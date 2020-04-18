@@ -145,6 +145,7 @@ in
       neovim
 
       ripgrep
+      # navi
       tldr
 
       universal-ctags

@@ -10,9 +10,11 @@ in
 
   environment.systemPackages = with pkgs;
     [
+      # work
       upwork
 
       # text
+      libreoffice
 
       # boot
 
@@ -23,9 +25,14 @@ in
       gopass
 
       # gui
+      appimage-run
       cura
       google-chrome
       vivaldi
+      gimp
+      inkscape
+      blender
+      openscad
 
       # themes
       conky
@@ -38,10 +45,13 @@ in
       arc-theme
       materia-theme
       adwaita-qt
+      arc-icon-theme
+      zafiro-icons
 
       # im
       skype
       slack
+      tdesktop
 
       # media
       glava
@@ -56,13 +66,14 @@ in
       # pianobar # A console front-end for Pandora.com
       # schismtracker # Music tracker application, free reimplementation of Impulse Tracker
       # vorbis-tools # Extra tools for Ogg-Vorbis audio codec
+      google-play-music-desktop-player
 
       # dev
       # lazygit
       zeal
-      alacritty
       cool-retro-term
       kitty
+      roxterm
       asciinema
       rustc
       cargo
@@ -77,5 +88,7 @@ in
       tightvnc
       winusb
 
+      # Freelance
+      masterpdfeditor
     ];
 }

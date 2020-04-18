@@ -22,6 +22,8 @@ in
       xonotic
       wesnoth
       stepmania
+      opendune
+      yquake2
 
       # emulators & platforms
       anbox

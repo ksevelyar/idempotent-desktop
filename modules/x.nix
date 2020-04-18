@@ -8,24 +8,19 @@
       };
     in
       [
+        alacritty
         firefoxWrapper
         tor-browser-bundle-bin
         zathura
         evince
         betterlockscreen
         spaceFM
-        appimage-run
 
         # themes
         lxappearance-gtk3
         vanilla-dmz
         ant-dracula-theme
         paper-icon-theme
-        arc-icon-theme
-        zafiro-icons
-
-        # im
-        tdesktop
 
         glxinfo
         feh
@@ -36,24 +31,10 @@
         xorg.xfontsel
         xorg.xfd
 
-        # media
-        mpv
-        cava
-        moc
-        google-play-music-desktop-player
-
         # dev
-        (python3.withPackages (ps: with ps; [ httpserver ]))
-        roxterm
-        kitty
-
-        gitg
-
-        # Freelance
-        libreoffice
-        masterpdfeditor
 
         # sys
+        keepassx-community
         gksu
         system-config-printer
         maim
@@ -65,23 +46,13 @@
         libnotify
         dunst
 
-        # images
+        # media
+        mpv
         imv
         nomacs
 
-        imagemagick
-        gimp
-        inkscape
-        blender
-        openscad
-
-        # games
-        dwarf-fortress
-        rogue
-
         # fs
         spaceFM
-        appimage-run
 
         gparted
         # vncpasswd
@@ -93,7 +64,7 @@
       ];
 
   programs.qt5ct.enable = true;
-  programs.slock.enable = true;
+  # programs.slock.enable = true;
 
   services.picom = {
     enable = true;
@@ -105,6 +76,7 @@
 
   environment.shellAliases = {
     x = "sudo systemctl start display-manager.service";
+    xr = "sudo systemctl restart display-manager.service";
   };
 
   services.xserver = {
