@@ -1,5 +1,5 @@
 configuration {
-font: "Terminess Powerline 14";
+font: "TerminessTTF Nerd Font Mono 12";
 bw: 0;
 case-sensitive: false;
 matching: "fuzzy";

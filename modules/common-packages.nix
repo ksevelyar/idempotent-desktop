@@ -109,7 +109,6 @@ in
     '';
   };
 
-  programs.qt5ct.enable = true;
 
   environment.systemPackages = with pkgs;
     [
@@ -126,7 +125,6 @@ in
       curl
 
       # cli
-      xlsfonts
       websocat
       brightnessctl
       youtube-dl
@@ -155,7 +153,6 @@ in
       gitAndTools.diff-so-fancy
 
       # sys
-      glxinfo
       lm_sensors
       mkpasswd
       file
@@ -210,6 +207,5 @@ in
       # laptop
       arandr
       acpi
-      openssh
     ];
 }

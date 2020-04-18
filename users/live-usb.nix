@@ -83,6 +83,13 @@
     # Allow the graphical user to login without password
     initialHashedPassword = "";
   };
+
+  systemd.services."home-manager-ugly-hack" = {
+    script = "mkdir -p /nix/var/nix/profiles/per-user/mrpoppybutthole";
+    path = [ pkgs.coreutils ];
+    before = [ "home-manager-mrpoppybutthole.service" ];
+    wantedBy = [ "multi-user.target" ];
+  };
   home-manager = {
     useGlobalPkgs = true;
 

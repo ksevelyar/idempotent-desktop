@@ -27,9 +27,11 @@
         # im
         tdesktop
 
+        glxinfo
         feh
         transmission_gtk
         polybar
+        xlsfonts
         xorg.xev
         xorg.xfontsel
         xorg.xfd
@@ -58,6 +60,7 @@
         simplescreenrecorder
         xclip
         rofi
+        ulauncher
         pavucontrol
         libnotify
         dunst
@@ -84,9 +87,14 @@
         # vncpasswd
         # x0vncserver -rfbauth ~/.vnc/passwd
         tigervnc
+
+        # laptop
+        arandr
       ];
 
+  programs.qt5ct.enable = true;
   programs.slock.enable = true;
+
   services.picom = {
     enable = true;
     fade = false;

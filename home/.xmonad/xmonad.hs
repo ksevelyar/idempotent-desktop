@@ -235,6 +235,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   [ ((modm,                 xK_Return), spawn $ XMonad.terminal conf) -- launch a terminal
   , ((modm,                 xK_x     ), spawn "rofi -modi drun -show")
+  , ((modm,                 xK_u     ), spawn "ulauncher")
   , ((modm,                 xK_p     ), spawn "rofi -modi window -show")
   , ((modm,                 xK_c     ), spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
   , ((modm,   xK_l     ), spawn "betterlockscreen --lock blur") -- betterlockscreen -u Wallpapers/
