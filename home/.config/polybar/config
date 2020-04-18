@@ -104,7 +104,7 @@ interval = 300
 
 [module/gpmdp]
 type = custom/script
-exec-if = pgrep google-play-music-desktop-player
+exec-if = pgrep -f google-play-music-desktop-player
 exec = ~/.config/polybar/gpmdp.sh
 interval = 2
 format-foreground = #6B5A68

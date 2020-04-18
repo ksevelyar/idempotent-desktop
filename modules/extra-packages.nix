@@ -77,12 +77,5 @@ in
       tightvnc
       winusb
 
-      # games
-      stepmania
-      anbox
-      gzdoom
-      stable.steam
-      lutris
-      stable.playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
     ];
 }

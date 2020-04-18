@@ -14,6 +14,7 @@
       ./modules/common-packages.nix
       ./modules/extra-packages.nix
       ./modules/dev-packages.nix
+      ./modules/games.nix
       ./modules/services.nix
       ./modules/x.nix
 
@@ -41,8 +42,6 @@
     bluetooth.enable = true;
     pulseaudio.enable = true;
     pulseaudio.package = pkgs.pulseaudioFull;
-    pulseaudio.support32Bit = true; # Required for Steam
-    opengl.driSupport32Bit = true; # Required for Steam
   };
   sound.enable = true;
 
