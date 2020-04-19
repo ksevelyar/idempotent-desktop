@@ -119,7 +119,7 @@ mount-1 = /storage
 
 ; format-prefix = " "
 label-mounted = %{F#9c71C7}%mountpoint%%{F-} %free%
-label-unmounted = %mountpoint% ?
+label-unmounted =
 label-unmounted-foreground = ${colors.foreground}
 
 [module/battery]

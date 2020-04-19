@@ -176,10 +176,6 @@
           echo -e "Done.\n"
         end
 
-        if [ ! -e /storage ]
-          sudo ln -s /tmp /storage
-        end
-
         if status --is-login
           sh /etc/scripts/system-info.sh 
         end
