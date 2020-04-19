@@ -1,5 +1,6 @@
 {
   environment.shellAliases = {
+    i = "sh /etc/scripts/system-info.sh";
     l = "ls -lahXF --group-directories-first";
     j = "z"; # autojump alias for z
     u = "aunpack";

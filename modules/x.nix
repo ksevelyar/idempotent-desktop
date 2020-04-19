@@ -35,7 +35,6 @@
 
         # sys
         keepassx-community
-        gksu
         system-config-printer
         maim
         simplescreenrecorder

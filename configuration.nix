@@ -8,6 +8,7 @@
   imports =
     [
       ./modules/aliases.nix
+      ./modules/scripts.nix
       ./modules/debug.nix
       ./modules/boot.nix
 

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   imports =
     [
@@ -77,6 +77,18 @@
     };
   };
 
+  users.defaultUserShell = pkgs.fish;
+  users.users.root = {
+    # jkl
+    initialHashedPassword = lib.mkForce "$6$krVCM45j$6lYj1WKEX8q7hMZGG6ctAG6kQDDND/ngpGOwENT1TIOD25F0yep/VvIuL.v9XyRntLJ61Pr8r7djynGy5lh3x0";
+  };
+  # Enable SSH in the boot process and allow root to login.
+  systemd.services.sshd.wantedBy = lib.mkForce [ "multi-user.target" ];
+  services.openssh = {
+    enable = true;
+    permitRootLogin = lib.mkForce "yes";
+    passwordAuthentication = lib.mkForce true;
+  };
   users.users.mrpoppybutthole = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "video" ];
@@ -90,6 +102,10 @@
     before = [ "home-manager-mrpoppybutthole.service" ];
     wantedBy = [ "multi-user.target" ];
   };
+
+  services.mingetty.autologinUser = lib.mkForce "mrpoppybutthole";
+  services.mingetty.greetingLine = lib.mkForce ''\l'';
+
   home-manager = {
     useGlobalPkgs = true;
 
@@ -127,7 +143,28 @@
       home.file.".config/nvim/coc-settings.json".source = /etc/nixos/home/.config/nvim/coc-settings.json;
 
       home.file.".config/alacritty/alacritty.yml".source = /etc/nixos/home/.config/alacritty/alacritty.yml;
-      home.file.".config/fish/config.fish".source = /etc/nixos/home/.config/fish/config.fish;
+      home.file.".config/fish/config.fish".text = ''
+        set fish_greeting
+        git_aliases
+
+        if not functions -q fisher
+          set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+          curl -s https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+        end
+
+        if [ ! -e ~/.config/nvim/autoload/plug.vim ]
+          curl -sfLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+          nvim +PlugInstall +qall > /dev/null
+        end
+
+        if [ ! -e /storage ]
+          sudo ln -s /tmp /storage
+        end
+
+        if status --is-login
+          sleep 1 && sh /etc/scripts/system-info.sh 
+        end
+      '';
       home.file.".config/fish/fishfile".source = /etc/nixos/home/.config/fish/fishfile;
       home.file.".config/fish/functions/git_aliases.fish".source =
         /etc/nixos/home/.config/fish/functions/git_aliases.fish;
