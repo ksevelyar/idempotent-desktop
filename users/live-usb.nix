@@ -106,6 +106,21 @@
   services.mingetty.autologinUser = lib.mkForce "mrpoppybutthole";
   services.mingetty.greetingLine = lib.mkForce ''\l'';
 
+  environment.shellAliases = {
+    wire-dotfiles = "sh /etc/scripts/wire-dotfiles.sh";
+  };
+  # NOTE: /mnt and /mnt/boot should be mounted before this command
+  environment.etc."/scripts/wire-dotfiles.sh".text = ''
+    # create blank hardware-configuration.nix & configuration.nix
+    sudo nixos-generate-config --root /tmp
+
+    # downloand repo 
+    sudo git clone https://github.com/ksevelyar/dotfiles.git /mnt/etc/nixos
+
+    # make config work on live-usb
+    sudo ln -s /mnt/etc/nixos /etc/nixos
+  '';
+
   home-manager = {
     useGlobalPkgs = true;
 
@@ -149,12 +164,16 @@
 
         if not functions -q fisher
           set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
-          curl -s https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+          curl -s https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish 
+
+          fish -c fisher > /dev/null 2>&1
         end
 
         if [ ! -e ~/.config/nvim/autoload/plug.vim ]
-          curl -sfLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+          echo 'Installing plug-vim...'
+          curl -sfLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
           nvim +PlugInstall +qall > /dev/null
+          echo -e "Done.\n"
         end
 
         if [ ! -e /storage ]
@@ -162,7 +181,7 @@
         end
 
         if status --is-login
-          sleep 1 && sh /etc/scripts/system-info.sh 
+          sh /etc/scripts/system-info.sh 
         end
       '';
       home.file.".config/fish/fishfile".source = /etc/nixos/home/.config/fish/fishfile;
