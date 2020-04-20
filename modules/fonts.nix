@@ -25,8 +25,7 @@
         vistafonts-chs # Microsoft YaHei
 
         # Dev fonts
-        # (nerdfonts.override { withFont = "Terminus"; })
-        nerdfonts
+        (nerdfonts.override { fonts = [ "Terminus" ]; })
         siji # https://github.com/stark/siji
         tamsyn # http://www.fial.com/~scott/tamsyn-font/
         powerline-fonts
