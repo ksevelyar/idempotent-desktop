@@ -31,6 +31,6 @@ in
       quakespasm
       stable.steam
       lutris
-      stable.playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
+      playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
     ];
 }

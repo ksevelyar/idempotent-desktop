@@ -26,7 +26,7 @@ in
 
       # gui
       appimage-run
-      cura
+      stable.cura
       google-chrome
       vivaldi
       gimp
@@ -36,15 +36,15 @@ in
 
       # themes
       conky
-      pop-gtk-theme
-      adapta-gtk-theme
+      # pop-gtk-theme
+      # adapta-gtk-theme
       ant-theme
       ant-bloody-theme
-      nordic
-      nordic-polar
-      arc-theme
-      materia-theme
-      adwaita-qt
+      # nordic
+      # nordic-polar
+      # stable.arc-theme
+      # materia-theme
+      # adwaita-qt
       arc-icon-theme
       zafiro-icons
 

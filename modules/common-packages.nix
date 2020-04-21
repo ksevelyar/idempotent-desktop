@@ -140,20 +140,20 @@ in
       cava
       moc
 
-
-      fzf
+      # vim
       neovim
-
+      (python3.withPackages (ps: with ps; [ httpserver ])) # neovim dep
+      fzf
       ripgrep
       # navi
-      tldr
-
       universal-ctags
       global
-      git
-      gitAndTools.diff-so-fancy
 
       # sys
+      tldr
+      git
+      gitAndTools.diff-so-fancy
+      bash
       lm_sensors
       mkpasswd
       file
@@ -170,6 +170,8 @@ in
       psmisc # pstree, killall
       bat
       inetutils
+
+      # monitoring
       smartmontools
       bind
       unzip
@@ -180,7 +182,6 @@ in
       htop
       iotop
       powertop
-      bash
       nixpkgs-fmt
       neofetch
 
