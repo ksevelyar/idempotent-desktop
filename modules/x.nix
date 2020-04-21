@@ -27,6 +27,7 @@
         transmission_gtk
         polybar
         xlsfonts
+        xxkb
         xorg.xev
         xorg.xfontsel
         xorg.xfd
@@ -84,6 +85,7 @@
       defaultSession = "none+xmonad";
       sessionCommands = ''
         sh ~/.fehbg &
+        xxkb &
         xsetroot -cursor_name left_ptr
       '';
     };
