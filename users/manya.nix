@@ -62,6 +62,8 @@
         userEmail = "porosenie@gmail.com";
       };
 
+      home.file.".xxkbrc".source = /etc/nixos/home/.xxkbrc;
+
       home.file.".config/alacritty/alacritty.yml".source = /etc/nixos/home/.config/alacritty/alacritty.yml;
       home.file.".config/fish/config.fish".source = /etc/nixos/home/.config/fish/config.fish;
       home.file.".config/fish/fishfile".source = /etc/nixos/home/.config/fish/fishfile;

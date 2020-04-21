@@ -99,6 +99,8 @@
 
       home.file."Wallpapers/1.png".source = /etc/nixos/home/wallpapers/1.png;
 
+      home.file.".xxkbrc".source = /etc/nixos/home/.xxkbrc;
+
       home.file.".config/dunst/dunstrc".source = /etc/nixos/home/.config/dunst/dunstrc;
 
       home.file.".config/polybar/launch.sh".source = /etc/nixos/home/.config/polybar/launch.sh;

@@ -124,6 +124,7 @@ in
       curl
 
       # cli
+      fasd
       websocat
       brightnessctl
       youtube-dl
