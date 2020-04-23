@@ -142,7 +142,7 @@ in
 
       # vim
       neovim
-      (python3.withPackages (ps: with ps; [ httpserver ])) # neovim dep
+      (python3.withPackages (ps: with ps; [ httpserver pykeepass ])) # neovim dep
       fzf
       ripgrep
       # navi
@@ -170,6 +170,15 @@ in
       psmisc # pstree, killall
       bat
       inetutils
+
+      # sec
+      passExtensions.pass-audit
+      passExtensions.pass-genphrase
+      passExtensions.pass-import
+      passExtensions.pass-otp
+      passExtensions.pass-tomb
+      passExtensions.pass-update
+      (pass.withExtensions (ext: with ext; [ pass-audit pass-otp pass-import pass-genphrase pass-update pass-tomb ]))
 
       # monitoring
       smartmontools
