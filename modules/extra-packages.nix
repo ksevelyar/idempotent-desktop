@@ -19,6 +19,7 @@ in
       # boot
 
       # cli
+      stable.khal
       calcurse
       wtf
       asciiquarium
