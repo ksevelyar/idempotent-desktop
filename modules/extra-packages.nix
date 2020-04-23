@@ -22,7 +22,6 @@ in
       calcurse
       wtf
       asciiquarium
-      gopass
 
       # gui
       appimage-run
