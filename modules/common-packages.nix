@@ -124,6 +124,7 @@ in
       curl
 
       # cli
+      translate-shell
       fasd
       websocat
       brightnessctl
