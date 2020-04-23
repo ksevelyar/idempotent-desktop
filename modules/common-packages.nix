@@ -125,7 +125,6 @@ in
 
       # cli
       translate-shell
-      fasd
       websocat
       brightnessctl
       youtube-dl
@@ -203,6 +202,8 @@ in
 
       # fs
       parted
+      fasd
+      mc
       fd
       nnn
       ncdu
