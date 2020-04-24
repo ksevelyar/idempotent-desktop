@@ -1,4 +1,5 @@
 set fish_greeting
+set -x PATH $PATH ~/scripts
 
 if not functions -q fisher
   echo 'Installing fisher...'
