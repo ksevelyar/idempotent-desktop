@@ -28,6 +28,7 @@ in
       go
       nodejs
       elixir
+      inotify-tools
       gcc
     ];
 }
