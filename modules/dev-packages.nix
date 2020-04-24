@@ -5,16 +5,21 @@ let
   };
 in
 {
+  services.pgmanage.enable = false;
   services.postgresql = {
     enable = true;
     authentication = "local all all trust";
   };
 
+  # pg admin dep
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.0.2u"
+  ];
+
   environment.systemPackages = with pkgs;
     [
       # sql
-      pgmanage
-      stable.pgadmin
+      pgadmin
 
       # images
       gitg
