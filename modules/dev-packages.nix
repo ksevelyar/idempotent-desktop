@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
-
+let
+  stable = import <stable> {
+    config = config.nixpkgs.config;
+  };
+in
 {
   services.postgresql = {
     enable = true;
@@ -8,6 +12,10 @@
 
   environment.systemPackages = with pkgs;
     [
+      # sql
+      pgmanage
+      stable.pgadmin
+
       # images
       gitg
       imagemagick
