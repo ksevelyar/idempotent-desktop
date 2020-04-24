@@ -1,4 +1,9 @@
 { config, pkgs, lib, ... }:
+# let
+#   compiledLayout = pkgs.runCommand "keyboard-layout" {} ''
+#     ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${../assets/rukbi_en} $out
+#   '';
+# in
 {
 
   environment.systemPackages = with pkgs;
@@ -31,6 +36,8 @@
         xorg.xev
         xorg.xfontsel
         xorg.xfd
+        xorg.xkbcomp
+        xcape
 
         # dev
 
@@ -64,7 +71,7 @@
       ];
 
   programs.qt5ct.enable = true;
-  # programs.slock.enable = true;
+  programs.slock.enable = true;
 
   services.picom = {
     enable = true;
@@ -79,21 +86,25 @@
     xr = "sudo systemctl restart display-manager.service";
   };
 
+  console.useXkbConfig = true;
+
+  # ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY
   services.xserver = {
     enable = true;
     displayManager = {
       defaultSession = "none+xmonad";
       sessionCommands = ''
+        xcape -e 'Super_R=Super_R|X'
         sh ~/.fehbg &
         xxkb &
         xsetroot -cursor_name left_ptr
       '';
     };
     serverFlagsSection = ''
-      Option "BlankTime" "0"
+      Option "BlankTime" "180"
       Option "StandbyTime" "0"
       Option "SuspendTime" "0"
-      Option "OffTime" "180"
+      Option "OffTime" "0"
     '';
 
     displayManager.lightdm = {

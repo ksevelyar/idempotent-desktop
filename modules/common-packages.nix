@@ -170,6 +170,7 @@ in
       psmisc # pstree, killall
       bat
       inetutils
+      ngrok
 
       # sec
       passExtensions.pass-audit

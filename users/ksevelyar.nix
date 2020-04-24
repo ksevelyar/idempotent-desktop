@@ -91,6 +91,8 @@
         enable = true;
         userName = "Sergey Zubkov";
         userEmail = "ksevelyar@gmail.com";
+        aliases.lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+        iniContent."url \"git@github.com:\"".insteadOf = "https://github.com/";
       };
 
       xsession.windowManager.xmonad.enable = true;
