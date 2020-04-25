@@ -6,8 +6,9 @@
     u = "aunpack";
     e = "sudo nvim /etc/nixos/configuration.nix";
     b = "sudo nixos-rebuild switch --keep-going";
-    br = "sudo nixos-rebuild switch --keep-going && xmonad --restart";
-    bu = "sudo nixos-rebuild switch --upgrade --keep-going && sudo nix-collect-garbage --delete-older-than 30d";
+    br = "b && xmonad --restart";
+    bu = "b --upgrade";
+    collect-garbage = "sudo nix-collect-garbage --delete-older-than 30d";
     t = "tmux new-session -A -s main";
     off = "sleep 0.5; xset dpms force off; pkill -f gpmdp";
     pgrep = "pgrep --full";
