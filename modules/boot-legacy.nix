@@ -8,12 +8,12 @@
 
   boot.loader = {
     efi = {
-      canTouchEfiVariables = true;
+      canTouchEfiVariables = false;
     };
     grub = {
       enable = true;
-      efiSupport = true;
-      device = "nodev";
+      efiSupport = false;
+      device = "/dev/sda"; # MBR/BIOS
 
       version = 2;
       backgroundColor = "#35246e";
