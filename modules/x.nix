@@ -40,6 +40,10 @@
         xcape
 
         # dev
+        notepadqq
+
+        # sec
+        lxqt.lxqt-policykit
 
         # sys
         keepassx-community
@@ -94,10 +98,12 @@
     displayManager = {
       defaultSession = "none+xmonad";
       sessionCommands = ''
-        xcape -e 'Super_R=Super_R|X'
         sh ~/.fehbg &
-        xxkb &
         xsetroot -cursor_name left_ptr
+        
+        lxqt-policykit-agent &
+        xxkb &
+        xcape -e 'Super_R=Super_R|X'
       '';
     };
     serverFlagsSection = ''
