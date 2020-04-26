@@ -13,6 +13,10 @@ in
 
   environment.systemPackages = with pkgs;
     [
+      # gamepads
+      # jstest /dev/input/js0
+      linuxConsoleTools
+
       # text
       dwarf-fortress
       nethack
