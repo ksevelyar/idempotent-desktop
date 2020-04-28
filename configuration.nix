@@ -62,14 +62,14 @@
     # NFS
     111
     2049
-    4000
-    4001
-    4002
+    20000
+    20001
+    20002
 
     # Dev
     8080
   ];
-  networking.firewall.allowedUDPPorts = [ 51413 5900 111 2049 4000 4001 4002 8080 ];
+  networking.firewall.allowedUDPPorts = [ 51413 5900 111 2049 20000 20001 20002 8080 ];
   networking.networkmanager.enable = true; # run nmtui for wi-fi
   networking.extraHosts =
     ''

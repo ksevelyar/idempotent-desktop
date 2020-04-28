@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
-  services.nfs.server.statdPort = 4000;
-  services.nfs.server.lockdPort = 4001;
-  services.nfs.server.mountdPort = 4002;
+  services.nfs.server.statdPort = 20000;
+  services.nfs.server.lockdPort = 20001;
+  services.nfs.server.mountdPort = 20002;
 
   # Enable CUPS to print documents.
   services.printing = {
