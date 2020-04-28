@@ -150,6 +150,7 @@ in
       global
 
       # sys
+      lsof
       nox
       tldr
       git
