@@ -150,6 +150,7 @@ in
       global
 
       # sys
+      nox
       tldr
       git
       gitAndTools.diff-so-fancy

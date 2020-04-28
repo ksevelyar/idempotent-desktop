@@ -26,6 +26,7 @@
 
         # Dev fonts
         (nerdfonts.override { fonts = [ "Terminus" ]; })
+        cozette
         siji # https://github.com/stark/siji
         tamsyn # http://www.fial.com/~scott/tamsyn-font/
         powerline-fonts

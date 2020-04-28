@@ -7,6 +7,7 @@ in
 {
   services.pgmanage.enable = false;
   services.postgresql = {
+    package = pkgs.postgresql_11;
     enable = true;
     authentication = "local all all trust";
   };
@@ -18,6 +19,15 @@ in
 
   environment.systemPackages = with pkgs;
     [
+      # vm
+      packer
+      docker_compose
+      docker-machine
+      vagrant
+      kubernetes
+      ansible
+      qemu
+
       # sql
       pgadmin
 
