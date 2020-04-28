@@ -114,6 +114,7 @@ in
       # text    
       hunspell
       hunspellDicts.en_US-large
+      calibre # epub
 
       # boot
       memtest86-efi

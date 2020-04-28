@@ -1,5 +1,7 @@
 set fish_greeting
+
 set -x PATH $PATH ~/scripts
+set -x ERL_AFLAGS "-kernel shell_history enabled"
 
 if not functions -q fisher
   echo 'Installing fisher...'
@@ -41,4 +43,5 @@ function build-and-write-live-usb
 end
 
 git_aliases
+
 set -u DEFAULT_USER (whoami)
