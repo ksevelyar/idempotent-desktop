@@ -9,7 +9,10 @@ in
   services.postgresql = {
     package = pkgs.postgresql_11;
     enable = true;
-    authentication = "local all all trust";
+    authentication = ''
+      local all all trust
+      host all all localhost trust
+    '';
   };
 
   # pg admin dep
