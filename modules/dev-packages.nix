@@ -22,6 +22,9 @@ in
 
   environment.systemPackages = with pkgs;
     [
+      # docs
+      zeal
+
       # api
       curlie
 
@@ -36,15 +39,19 @@ in
 
       # sql
       pgadmin
+      dbeaver
 
       # images
-      gitg
       imagemagick
 
+      # tools
+      inotify-tools
+      gitg
+
+      # langs
       go
       nodejs
       elixir
-      inotify-tools
       gcc
 
       # arduino

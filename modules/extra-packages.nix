@@ -5,11 +5,15 @@ let
   };
 in
 {
+  services.flatpak.enable = true;
+  xdg.portal.enable = true; # flatpak dep
+  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; # flatpak dep
 
   environment.systemPackages = with pkgs;
     [
       # work
       upwork
+      planner
 
       # text
       libreoffice
@@ -47,6 +51,7 @@ in
       zafiro-icons
 
       # im
+      qtox
       skype
       slack
       tdesktop
@@ -56,7 +61,7 @@ in
       audacity
       lmms
       vlc
-      kodi
+      stable.kodi
       cmus # Small, fast and powerful console music player for Linux and *BSD
       # fluidsynth # Real-time software synthesizer based on the SoundFont 2 specifications
       # mikmod # Tracker music player for the terminal
@@ -65,10 +70,15 @@ in
       # schismtracker # Music tracker application, free reimplementation of Impulse Tracker
       # vorbis-tools # Extra tools for Ogg-Vorbis audio codec
       google-play-music-desktop-player
+      shortwave # online radio
+      fondo # wallpapers
+
+      shotcut # video editor
+      openshot-qt
+      krita
 
       # dev
       # lazygit
-      zeal
       cool-retro-term
       kitty
       roxterm

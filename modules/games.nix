@@ -17,10 +17,6 @@ in
       # jstest /dev/input/js0
       linuxConsoleTools
 
-      # text
-      dwarf-fortress
-      nethack
-      rogue
 
       # gui
       xonotic
@@ -33,10 +29,18 @@ in
       # retroarchBare
       wineWowPackages.stable
       anbox
+      steam
+      stable.lutris
+      playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
+
+      # text games
+      dwarf-fortress
+      nethack
+      rogue
+
+      # gui games
+      openra
       gzdoom
       quakespasm
-      stable.steam
-      lutris
-      playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
     ];
 }
