@@ -18,6 +18,12 @@ if [ ! -e ~/.config/nvim/autoload/plug.vim ]
   echo -e "Done.\n"
 end
 
+function zeal-docs-fix
+  pushd "$HOME/.local/share/Zeal/Zeal/docsets" >/dev/null || return
+  find . -iname 'react-main*.js' -exec rm '{}' \;
+  popd >/dev/null || exit
+end
+
 # build-and-write-live-usb-min /dev/sdc
 function build-and-write-live-usb-min
   sudo lsblk -f
