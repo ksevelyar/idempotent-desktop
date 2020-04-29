@@ -35,6 +35,6 @@
     SUBSYSTEM=="power_supply"
     ATTR{status}=="Discharging"
     ATTR{capacity}=="[0-90]"
-    RUN+="${pkgs.libnotify}/bin/notify-send 'batttery' 'debug'"
+    RUN+="${pkgs.libnotify}/bin/notify-send 'battery' 'debug'"
   '';
 }

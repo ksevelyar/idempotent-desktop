@@ -40,6 +40,7 @@
 
   services.mingetty.helpLine = lib.mkForce ''
     The "root" account has "jkl" password.
+    Type `i' to print system information.
 
     .     .       .  .   . .   .   . .    +  .
       .     .  :     .    .. :. .___---------___.

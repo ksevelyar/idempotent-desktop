@@ -23,7 +23,7 @@
   isoImage.isoName = lib.mkForce "nixos.iso";
 
   # Whitelist wheel users to do anything
-  # This is useful for things like pkexec
+  # This is useful for things like pkexec or gparted
   #
   # WARNING: this is dangerous for systems
   # outside the installation-cd and shouldn't

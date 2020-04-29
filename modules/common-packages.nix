@@ -201,7 +201,7 @@ in
       htop
       iotop
       powertop
-      nixpkgs-fmt
+      stable.nixpkgs-fmt
       neofetch
 
       # games
