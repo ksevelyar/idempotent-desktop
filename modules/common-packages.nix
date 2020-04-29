@@ -7,6 +7,7 @@ in
 {
   programs.fish.enable = true;
   programs.mosh.enable = true;
+  programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 
   programs.tmux = {
     enable = true;
@@ -176,6 +177,10 @@ in
       ngrok
 
       # sec
+
+      # pass
+      # We can add existing passwords to the store with insert:
+      # pass insert Business/cheese-whiz-factory
       passExtensions.pass-audit
       passExtensions.pass-genphrase
       passExtensions.pass-import

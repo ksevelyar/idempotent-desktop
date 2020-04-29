@@ -74,6 +74,7 @@
         arandr
       ];
 
+  programs.browserpass.enable = true;
   programs.qt5ct.enable = true;
   programs.slock.enable = true;
 

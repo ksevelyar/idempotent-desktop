@@ -22,6 +22,9 @@ in
 
   environment.systemPackages = with pkgs;
     [
+      # api
+      curlie
+
       # vm
       packer
       docker_compose
@@ -43,5 +46,11 @@ in
       elixir
       inotify-tools
       gcc
+
+      # arduino
+      arduino
+      arduino-core
+      stable.fritzing
+      ino
     ];
 }

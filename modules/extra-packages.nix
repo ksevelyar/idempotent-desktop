@@ -5,8 +5,6 @@ let
   };
 in
 {
-  programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-  programs.browserpass.enable = true;
 
   environment.systemPackages = with pkgs;
     [
@@ -77,12 +75,6 @@ in
       asciinema
       rustc
       cargo
-
-      # arduino
-      arduino
-      arduino-core
-      stable.fritzing
-      ino
 
       # sys
       tightvnc

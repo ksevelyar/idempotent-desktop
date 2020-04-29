@@ -30,6 +30,8 @@ in
       yquake2
 
       # emulators & platforms
+      # retroarchBare
+      wineWowPackages.stable
       anbox
       gzdoom
       quakespasm
