@@ -145,6 +145,7 @@ in
       # vim
       neovim
       (python3.withPackages (ps: with ps; [ httpserver pykeepass ])) # neovim dep
+      nodejs_latest
       fzf
       ripgrep
       # navi
@@ -177,6 +178,7 @@ in
       ngrok
 
       # sec
+      tomb
 
       # pass
       # We can add existing passwords to the store with insert:

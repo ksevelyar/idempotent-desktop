@@ -1,9 +1,12 @@
 { config, pkgs, lib, ... }:
-# let
-#   compiledLayout = pkgs.runCommand "keyboard-layout" {} ''
-#     ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${../assets/rukbi_en} $out
-#   '';
-# in
+let
+  stable = import <stable> {
+    config = config.nixpkgs.config;
+  };
+  compiledLayout = pkgs.runCommand "keyboard-layout" {} ''
+    ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${../assets/layout.xkb} $out
+  '';
+in
 {
 
   environment.systemPackages = with pkgs;
@@ -52,7 +55,7 @@
         simplescreenrecorder
         xclip
         rofi
-        ulauncher
+        stable.ulauncher
         pavucontrol
         libnotify
         dunst
@@ -93,12 +96,12 @@
 
   console.useXkbConfig = true;
 
-  # ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY
   services.xserver = {
     enable = true;
     displayManager = {
       defaultSession = "none+xmonad";
       sessionCommands = ''
+        ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY
         sh ~/.fehbg &
         xsetroot -cursor_name left_ptr
         

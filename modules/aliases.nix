@@ -10,12 +10,13 @@
     br = "b && xmonad --restart";
     bu = "b --upgrade";
     collect-garbage = "sudo nix-collect-garbage --delete-older-than 30d";
-    t = "tmux new-session -A -s main";
+    tm = "tmux new-session -A -s main";
     off = "sleep 0.5; xset dpms force off; pkill -f gpmdp";
     pgrep = "pgrep --full";
     pkill = "pkill --full";
     v = "nvim";
     g = "git";
+    t = "task";
     py_files_server = "python3 -m http.server 9000";
   };
 }

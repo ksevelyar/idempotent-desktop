@@ -48,7 +48,7 @@ let g:ale_linters = {
 
 " \ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-prettier',
 let g:coc_global_extensions = [
-\ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css',
+\ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-eslint',
 \ 'coc-elixir', 'coc-go',
 \ 'coc-vimlsp', 'coc-tsserver', 'coc-sh'
 \ ]

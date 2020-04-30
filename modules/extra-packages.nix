@@ -22,13 +22,14 @@ in
 
       # cli
       stable.khal
+      taskwarrior
       calcurse
       wtf
       asciiquarium
 
       # gui
       appimage-run
-      stable.cura
+      cura
       google-chrome
       vivaldi
       gimp

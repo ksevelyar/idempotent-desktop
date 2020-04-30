@@ -102,6 +102,7 @@
       home.file."Wallpapers/1.png".source = /etc/nixos/home/wallpapers/1.png;
 
       home.file.".xxkbrc".source = /etc/nixos/home/.xxkbrc;
+      home.file.".config/eslint/eslintrc.json".source = /etc/nixos/home/.config/eslint/eslintrc.json;
 
       home.file.".config/dunst/dunstrc".source = /etc/nixos/home/.config/dunst/dunstrc;
 
