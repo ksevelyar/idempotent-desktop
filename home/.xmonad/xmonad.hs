@@ -10,7 +10,6 @@ import System.IO
 
 import qualified XMonad.StackSet as W -- keyboard bindings
 import qualified Data.Map        as M -- mouse bindings
-import qualified GHC.IO.Encoding as GIO
 
 import Control.Monad (liftM2)
 
@@ -69,9 +68,6 @@ setFullscreenSupported = withDisplay $ \dpy -> do
 -- Main ------------------------------------------------------------------------
 
 main = do
-  GIO.setFileSystemEncoding GIO.char8
-  spawn "rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log"
-
   xmonad $ ewmh desktopConfig {
     -- simple stuff
     terminal           = "alacritty",
@@ -98,7 +94,7 @@ main = do
 myNormalBorderColor  = "#111111"
 myFocusedBorderColor = "#353b3e"
 
-myWorkspaces= ["www","ed","sh","bg","im","fs","media","gfx","h","0","-"]
+myWorkspaces= ["www","ed","sh","bg","im","fs","media","gfx","h","*","**"]
 
 -- Status bars and logging -----------------------------------------------------
 
@@ -111,7 +107,7 @@ polibarPP = dynamicLogWithPP $ def {
   , ppHiddenNoWindows  = wrap ("%{F" ++ "#6B5A68" ++ "} ") " %{F-}"
   , ppUrgent = wrap ("%{F#8c414f}[%{F-}%{F#BEB3CD}") "%{F-}%{F#8c414f}]%{F-}"
   , ppSep              = "  "
-  , ppLayout = wrap ("%{F#6B5A68}%{F-} %{F#9c71C7}") "%{F-}"
+  , ppLayout = wrap ("%{F#9c71C7}") "%{F-}"
   , ppTitle            = (\str -> "")
   , ppSort             = fmap (.namedScratchpadFilterOutWorkspace) $ ppSort defaultPP
   , ppOutput = wsOutput

@@ -104,6 +104,7 @@ in
         ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY
         sh ~/.fehbg &
         xsetroot -cursor_name left_ptr
+        (rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log) &
         
         lxqt-policykit-agent &
         xxkb &
