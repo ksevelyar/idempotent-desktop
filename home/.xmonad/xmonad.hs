@@ -10,8 +10,10 @@ import System.IO
 
 import qualified XMonad.StackSet as W -- keyboard bindings
 import qualified Data.Map        as M -- mouse bindings
+import qualified GHC.IO.Encoding as GIO
 
 import Control.Monad (liftM2)
+
 
 -- hooks --
 import XMonad.Hooks.DynamicLog
@@ -45,12 +47,32 @@ import Control.Monad (forM_, join)
 import XMonad.Util.Run (safeSpawn)
 import XMonad.Util.NamedWindows (getName)
 
+-- hack to let firefox fullscreen
+setFullscreenSupported :: X ()
+setFullscreenSupported = withDisplay $ \dpy -> do
+    r <- asks theRoot
+    a <- getAtom "_NET_SUPPORTED"
+    c <- getAtom "ATOM"
+    supp <- mapM getAtom ["_NET_WM_STATE_HIDDEN"
+                         ,"_NET_WM_STATE_FULLSCREEN" -- XXX Copy-pasted to add this line
+                         ,"_NET_NUMBER_OF_DESKTOPS"
+                         ,"_NET_CLIENT_LIST"
+                         ,"_NET_CLIENT_LIST_STACKING"
+                         ,"_NET_CURRENT_DESKTOP"
+                         ,"_NET_DESKTOP_NAMES"
+                         ,"_NET_ACTIVE_WINDOW"
+                         ,"_NET_WM_DESKTOP"
+                         ,"_NET_WM_STRUT"
+                         ]
+    io $ changeProperty32 dpy r a c propModeReplace (fmap fromIntegral supp)
+
 -- Main ------------------------------------------------------------------------
 
 main = do
+  GIO.setFileSystemEncoding GIO.char8
   spawn "rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log"
 
-  xmonad $ withUrgencyHook NoUrgencyHook $ ewmh desktopConfig {
+  xmonad $ ewmh desktopConfig {
     -- simple stuff
     terminal           = "alacritty",
     focusFollowsMouse  = True,
@@ -76,7 +98,7 @@ main = do
 myNormalBorderColor  = "#111111"
 myFocusedBorderColor = "#353b3e"
 
-myWorkspaces= ["www","ed","sh","bg","im","fs","media","gfx","h"]
+myWorkspaces= ["www","ed","sh","bg","im","fs","media","gfx","h","0","-"]
 
 -- Status bars and logging -----------------------------------------------------
 
@@ -89,7 +111,7 @@ polibarPP = dynamicLogWithPP $ def {
   , ppHiddenNoWindows  = wrap ("%{F" ++ "#6B5A68" ++ "} ") " %{F-}"
   , ppUrgent = wrap ("%{F#8c414f}[%{F-}%{F#BEB3CD}") "%{F-}%{F#8c414f}]%{F-}"
   , ppSep              = "  "
-  , ppLayout = wrap ("%{F#6B5A68}[%{F-}%{F#9c71C7}") "%{F-}%{F#6B5A68}]%{F-}"
+  , ppLayout = wrap ("%{F#6B5A68}%{F-} %{F#9c71C7}") "%{F-}"
   , ppTitle            = (\str -> "")
   , ppSort             = fmap (.namedScratchpadFilterOutWorkspace) $ ppSort defaultPP
   , ppOutput = wsOutput
@@ -175,11 +197,12 @@ myManageHook = (composeAll . concat $
 
 -- Event handling --------------------------------------------------------------
 
-myEventHook = docksEventHook <+> handleEventHook desktopConfig
+myEventHook = docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEventHook
 
 -- Startup hook ----------------------------------------------------------------
 
 myStartupHook = do
+  setFullscreenSupported
   spawn "bash ~/.config/polybar/launch.sh"
 
 -- Scratchpads -----------------------------------------------------------------
@@ -267,15 +290,15 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm .|. shiftMask,   xK_Down  ), sendMessage MirrorShrink)
   , ((modm .|. shiftMask,   xK_Up    ), sendMessage MirrorExpand)
 
-  -- navigation
-  , ((modm,                 xK_Right ), sendMessage $ Go R)
-  , ((modm,                 xK_Left  ), sendMessage $ Go L)
-  , ((modm,                 xK_Up    ), sendMessage $ Go U)
-  , ((modm,                 xK_Down  ), sendMessage $ Go D)
-  , ((modm .|. controlMask, xK_Right ), sendMessage $ Swap R)
-  , ((modm .|. controlMask, xK_Left  ), sendMessage $ Swap L)
-  , ((modm .|. controlMask, xK_Up    ), sendMessage $ Swap U)
-  , ((modm .|. controlMask, xK_Down  ), sendMessage $ Swap D)
+  -- navigation vim style
+  , ((modm,                 xK_l ), sendMessage $ Go R)
+  , ((modm,                 xK_h ), sendMessage $ Go L)
+  , ((modm,                 xK_k ), sendMessage $ Go U)
+  , ((modm,                 xK_j ), sendMessage $ Go D)
+  , ((modm .|. controlMask, xK_l ), sendMessage $ Swap R)
+  , ((modm .|. controlMask, xK_h ), sendMessage $ Swap L)
+  , ((modm .|. controlMask, xK_k ), sendMessage $ Swap U)
+  , ((modm .|. controlMask, xK_j ), sendMessage $ Swap D)
 
   -- custom
   , ((modm, xK_f), sendMessage ToggleLayout)
@@ -292,11 +315,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm, xK_s), namedScratchpadAction scratchpads  "spacefm")
   , ((modm, xK_g), namedScratchpadAction scratchpads  "gpmdp")
 
-  , ((0,    xK_Print), spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
-  , ((modm,    xK_Delete), spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
-  , ((modm, xK_Print), spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
+  , ((0,    xK_Print),  spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
+  , ((modm, xK_Delete), spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
 
-  , ((modm, xK_o), spawn "sleep 1; xset dpms force off; pkill -f google-play")
+  , ((modm, xK_Print),                  spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
+  , ((modm .|. controlMask, xK_Delete), spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
 
   , ((modm, xK_Home), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
   , ((modm, xK_Page_Up), spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%")
@@ -319,7 +342,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   -- mod-shift-[1..9], Move client to workspace N
   --
   [((m .|. modm, k), windows $ f i)
-      | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+      | (i, k) <- zip (XMonad.workspaces conf) ([xK_1 .. xK_9] ++ [xK_0, xK_minus])
       , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
   ++
 
