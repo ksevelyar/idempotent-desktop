@@ -77,11 +77,11 @@ main = do
     -- simple stuff
     terminal           = "alacritty",
     focusFollowsMouse  = True,
-    borderWidth        = 1,
+    borderWidth        = 10,
     modMask            = mod4Mask,
     workspaces         = myWorkspaces,
-    normalBorderColor  = myNormalBorderColor,
-    focusedBorderColor = myFocusedBorderColor,
+    normalBorderColor  = "#111111",
+    focusedBorderColor = "#9c71C7",
 
     -- key bindings
     keys               = myKeys,
@@ -96,10 +96,7 @@ main = do
     startupHook        = myStartupHook
   }
 
-myNormalBorderColor  = "#111111"
-myFocusedBorderColor = "#353b3e"
-
-myWorkspaces= ["www","ed","sh","bg","im","fs","media","gfx","h","*","**"]
+myWorkspaces = ["www","ed","sh","bg","im","fs","media","gfx","h","*","**"]
 
 -- Status bars and logging -----------------------------------------------------
 
@@ -120,8 +117,8 @@ polibarPP = dynamicLogWithPP $ def {
 
 
 -- Layouts ---------------------------------------------------------------------
--- myLayout = windowNavigation $
-myLayout = avoidStruts $
+myLayout = windowNavigation $
+           avoidStruts $
            smartBorders $
            full $
            mcol
@@ -217,12 +214,15 @@ myStartupHook = do
 
 scratchpads = [
   -- RationalRect left top width height
+  NS "tmux" "alacritty --class tmux -e tmux new-session -A -s main"
+    (resource =? "tmux")
+    nonFloating,
   NS "terminal-1" "alacritty --class terminal-1"
     (resource =? "terminal-1")
-    (customFloating $ W.RationalRect 0.25 0.51 0.5 0.4),
-  NS "terminal-2" "alacritty --class terminal-2 -e tmux new-session -A -s main"
+    (customFloating $ W.RationalRect 0.25 0.61 0.5 0.3),
+  NS "terminal-2" "alacritty --class terminal-2"
     (resource =? "terminal-2")
-    (customFloating $ W.RationalRect 0.25 0.05 0.5 0.4),
+    (customFloating $ W.RationalRect 0.25 0.20 0.5 0.3),
 
   NS "notes" "alacritty --class notes -e nvim ~/notes"
     (resource =? "notes")
@@ -274,6 +274,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm,                 xK_b     ), raiseMaybe (spawn "firefox -p default --class firefox-default") (className =? "firefox-default"))
   , ((modm,                 xK_y     ), raiseMaybe (spawn "firefox -p tor --class firefox-tor") (className =? "firefox-tor"))
   , ((modm,                 xK_v     ), raiseMaybe (runInTerm "--class nvim" "nvim") (resource =? "nvim"))
+  , ((modm,                 xK_j     ), raiseMaybe (runInTerm "--class tmux" "tmux") (resource =? "tmux"))
   , ((modm,                 xK_q     ), kill) -- close focused window
   , ((modm,                 xK_space ), sendMessage NextLayout)  -- Rotate through the available layout algorithms
   , ((modm .|. shiftMask,   xK_space ), sendMessage ToggleStruts )
@@ -321,15 +322,17 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   , ((modm, xK_F1 ), namedScratchpadAction scratchpads  "terminal-1")
   , ((modm, xK_F2 ), namedScratchpadAction scratchpads  "terminal-2")
-  , ((modm, xK_F4 ), namedScratchpadAction scratchpads  "notes")
-  , ((modm, xK_F12 ), namedScratchpadAction scratchpads "upwork")
-  , ((modm, xK_F6 ), namedScratchpadAction scratchpads  "gotop")
-  , ((modm, xK_F5 ), namedScratchpadAction scratchpads  "keepassx")
-  , ((modm, xK_i ), namedScratchpadAction scratchpads  "images_browser")
-
   , ((modm, xK_F3), namedScratchpadAction scratchpads "nnn")
+  , ((modm, xK_F4 ), namedScratchpadAction scratchpads  "notes")
+  , ((modm, xK_F5 ), namedScratchpadAction scratchpads  "keepassx")
+  , ((modm, xK_F6 ), namedScratchpadAction scratchpads  "gotop")
+  , ((modm, xK_F12 ), namedScratchpadAction scratchpads "upwork")
+  , ((modm, xK_i ), namedScratchpadAction scratchpads  "images_browser")
+  , ((modm, xK_j ), namedScratchpadAction scratchpads  "tmux")
+
   , ((modm, xK_s), namedScratchpadAction scratchpads  "spacefm")
   , ((modm, xK_g), namedScratchpadAction scratchpads  "gpmdp")
+  , ((modm, xK_j), namedScratchpadAction scratchpads  "tmux")
 
   , ((0,    xK_Print),  spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
   , ((modm, xK_Delete), spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
