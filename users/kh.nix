@@ -102,6 +102,8 @@
       home.file."Wallpapers/1.png".source = ../home/wallpapers/1.png;
 
       home.file.".xxkbrc".source = ../home/.xxkbrc;
+      home.file.".eslintrc.json".source = ../home/.eslintrc.json;
+      home.file.".npmrc".source = ../home/.npmrc;
 
       home.file.".config/dunst/dunstrc".source = ../home/.config/dunst/dunstrc;
 
