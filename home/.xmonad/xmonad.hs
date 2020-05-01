@@ -1,50 +1,55 @@
 -- Import ----------------------------------------------------------------------
 
-import XMonad
-import Graphics.X11.ExtraTypes.XF86
+import           Graphics.X11.ExtraTypes.XF86
+import           XMonad
 
-import Data.Monoid
+import           Data.Monoid
 
-import System.Exit
-import System.IO
+import           System.Exit
+import           System.IO
 
-import qualified XMonad.StackSet as W -- keyboard bindings
-import qualified Data.Map        as M -- mouse bindings
+import qualified Data.Map                       as M
+import qualified XMonad.Layout.HintedTile       as HT
+import           XMonad.Layout.LayoutHints
+import qualified XMonad.StackSet                as W
 
-import Control.Monad (liftM2)
+import           Control.Monad                  (liftM2)
 
 
 -- hooks --
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.UrgencyHook
+import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.ManageDocks
+import           XMonad.Hooks.UrgencyHook
 
-import XMonad.Hooks.ManageHelpers
-import XMonad.Hooks.InsertPosition
-import XMonad.Hooks.EwmhDesktops
+import           XMonad.Hooks.EwmhDesktops
+import           XMonad.Hooks.InsertPosition
+import           XMonad.Hooks.ManageHelpers
 
 -- util --
-import XMonad.Util.NamedScratchpad
+import           XMonad.Actions.WindowGo
+import           XMonad.Util.NamedScratchpad
 
 -- layout --
-import XMonad.Layout.ToggleLayouts
-import XMonad.Layout.WindowNavigation
-import XMonad.Layout.ResizableTile
+import           XMonad.Layout.MultiColumns
+import           XMonad.Layout.ResizableTile
+import           XMonad.Layout.ThreeColumns
+import           XMonad.Layout.ToggleLayouts
+import           XMonad.Layout.WindowNavigation
 
-import XMonad.Layout.NoBorders
-import XMonad.Layout.Renamed
-import XMonad.Layout.Reflect
-import XMonad.Layout.Grid
-import XMonad.Layout.IM
-import XMonad.Layout.PerWorkspace (onWorkspace)
+import           XMonad.Layout.Grid
+import           XMonad.Layout.IM
+import           XMonad.Layout.NoBorders
+import           XMonad.Layout.PerWorkspace     (onWorkspace)
+import           XMonad.Layout.Reflect
+import           XMonad.Layout.Renamed
 
-import XMonad.Config.Desktop
+import           XMonad.Config.Desktop
 
-import Data.List (sortBy)
-import Data.Function (on)
-import Control.Monad (forM_, join)
-import XMonad.Util.Run (safeSpawn)
-import XMonad.Util.NamedWindows (getName)
+import           Control.Monad                  (forM_, join)
+import           Data.Function                  (on)
+import           Data.List                      (sortBy)
+import           XMonad.Util.NamedWindows       (getName)
+import           XMonad.Util.Run                (runInTerm, safeSpawn)
 
 -- hack to let firefox fullscreen
 setFullscreenSupported :: X ()
@@ -68,7 +73,7 @@ setFullscreenSupported = withDisplay $ \dpy -> do
 -- Main ------------------------------------------------------------------------
 
 main = do
-  xmonad $ ewmh desktopConfig {
+  xmonad $ withUrgencyHook NoUrgencyHook $ ewmh desktopConfig {
     -- simple stuff
     terminal           = "alacritty",
     focusFollowsMouse  = True,
@@ -105,7 +110,7 @@ polibarPP = dynamicLogWithPP $ def {
   ppCurrent = wrap ("%{F#9C71C7}[%{F-}%{F#BEB3CD}") "%{F-}%{F#9C71C7}]%{F-}"
   , ppHidden  = wrap ("%{F" ++ "#BEB3CD" ++ "} ") " %{F-}"
   , ppHiddenNoWindows  = wrap ("%{F" ++ "#6B5A68" ++ "} ") " %{F-}"
-  , ppUrgent = wrap ("%{F#8c414f}[%{F-}%{F#BEB3CD}") "%{F-}%{F#8c414f}]%{F-}"
+  , ppUrgent = wrap ("%{F#8c414f}<%{F-}%{F#BEB3CD}") "%{F-}%{F#8c414f}>%{F-}"
   , ppSep              = "  "
   , ppLayout = wrap ("%{F#9c71C7}") "%{F-}"
   , ppTitle            = (\str -> "")
@@ -115,17 +120,23 @@ polibarPP = dynamicLogWithPP $ def {
 
 
 -- Layouts ---------------------------------------------------------------------
-myLayout = windowNavigation $
-           avoidStruts $
+-- myLayout = windowNavigation $
+myLayout = avoidStruts $
            smartBorders $
            full $
-           gtile ||| grid
+           mcol
+           ||| tcol
+           ||| gtile
+           ||| grid
 
   where
   rt    = ResizableTall 1 (2/100) (1/3) []
 
   grt   = ResizableTall 1 (2/100) goldenratio []
   goldenratio  = 2/(1+(toRational(sqrt(5)::Double)))
+
+  tcol = layoutHintsToCenter(ThreeCol 1 (3/100) (1/2))
+  mcol = layoutHintsWithPlacement (0.5, 0.5) (multiCol [1] 1 0.01 (-0.5))
 
 
   tile    = renamed [Replace "t" ] $ rt
@@ -193,7 +204,7 @@ myManageHook = (composeAll . concat $
 
 -- Event handling --------------------------------------------------------------
 
-myEventHook = docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEventHook
+myEventHook = hintsEventHook <+> docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEventHook
 
 -- Startup hook ----------------------------------------------------------------
 
@@ -255,14 +266,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   [ ((modm,                 xK_Return), spawn $ XMonad.terminal conf) -- launch a terminal
   , ((modm,                 xK_x     ), spawn "rofi -modi drun -show")
   , ((modm,                 xK_u     ), spawn "ulauncher")
+  , ((modm,                 xK_h     ), focusUrgent)
   , ((modm,                 xK_p     ), spawn "rofi -modi window -show")
   , ((modm,                 xK_c     ), spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
-  , ((modm,   xK_l     ), spawn "betterlockscreen --lock blur") -- betterlockscreen -u Wallpapers/
+  , ((modm,                 xK_l     ), spawn "betterlockscreen --lock blur") -- betterlockscreen -u Wallpapers/
   -- , ((modm,   xK_l     ), spawn "dm-tool lock")
-  -- , ((modm,   xK_w     ), spawn "rofi -show window -modi window, window -sidebar-mode -lines 6 -width 800")
-  , ((modm,                 xK_b     ), spawn "firefox -p default")
-  , ((modm,                 xK_y     ), spawn "firefox -p tor")
-  , ((modm,                 xK_v     ), spawn "alacritty -e nvim")
+  , ((modm,                 xK_b     ), raiseMaybe (spawn "firefox -p default --class firefox-default") (className =? "firefox-default"))
+  , ((modm,                 xK_y     ), raiseMaybe (spawn "firefox -p tor --class firefox-tor") (className =? "firefox-tor"))
+  , ((modm,                 xK_v     ), raiseMaybe (runInTerm "--class nvim" "nvim") (resource =? "nvim"))
   , ((modm,                 xK_q     ), kill) -- close focused window
   , ((modm,                 xK_space ), sendMessage NextLayout)  -- Rotate through the available layout algorithms
   , ((modm .|. shiftMask,   xK_space ), sendMessage ToggleStruts )
@@ -286,15 +297,24 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm .|. shiftMask,   xK_Down  ), sendMessage MirrorShrink)
   , ((modm .|. shiftMask,   xK_Up    ), sendMessage MirrorExpand)
 
-  -- navigation vim style
-  , ((modm,                 xK_l ), sendMessage $ Go R)
-  , ((modm,                 xK_h ), sendMessage $ Go L)
-  , ((modm,                 xK_k ), sendMessage $ Go U)
-  , ((modm,                 xK_j ), sendMessage $ Go D)
-  , ((modm .|. controlMask, xK_l ), sendMessage $ Swap R)
-  , ((modm .|. controlMask, xK_h ), sendMessage $ Swap L)
-  , ((modm .|. controlMask, xK_k ), sendMessage $ Swap U)
-  , ((modm .|. controlMask, xK_j ), sendMessage $ Swap D)
+  -- navigation
+  , ((modm,                 xK_Right ), sendMessage $ Go R)
+  , ((modm,                 xK_Left  ), sendMessage $ Go L)
+  , ((modm,                 xK_Up    ), sendMessage $ Go U)
+  , ((modm,                 xK_Down  ), sendMessage $ Go D)
+  , ((modm .|. controlMask, xK_Right ), sendMessage $ Swap R)
+  , ((modm .|. controlMask, xK_Left  ), sendMessage $ Swap L)
+  , ((modm .|. controlMask, xK_Up    ), sendMessage $ Swap U)
+  , ((modm .|. controlMask, xK_Down  ), sendMessage $ Swap D)
+
+  -- , ((modm,                 xK_l ), sendMessage $ Go R)
+  -- , ((modm,                 xK_h ), sendMessage $ Go L)
+  -- , ((modm,                 xK_k ), sendMessage $ Go U)
+  -- , ((modm,                 xK_j ), sendMessage $ Go D)
+  -- , ((modm .|. controlMask, xK_l ), sendMessage $ Swap R)
+  -- , ((modm .|. controlMask, xK_h ), sendMessage $ Swap L)
+  -- , ((modm .|. controlMask, xK_k ), sendMessage $ Swap U)
+  -- , ((modm .|. controlMask, xK_j ), sendMessage $ Swap D)
 
   -- custom
   , ((modm, xK_f), sendMessage ToggleLayout)
@@ -326,8 +346,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((0, xF86XK_MonBrightnessDown), spawn "brightnessctl set -10%")
 
   , ((modm, xK_m),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
-  , ((modm, xK_comma),  spawn  "sh ~/.config/polybar/gpmdp-rewind.sh")
-  , ((modm, xK_period), spawn  "sh ~/.config/polybar/gpmdp-next.sh")
+  , ((modm .|. shiftMask, xK_comma),  spawn  "sh ~/.config/polybar/gpmdp-rewind.sh")
+  , ((modm .|. shiftMask, xK_period), spawn  "sh ~/.config/polybar/gpmdp-next.sh")
   , ((modm, xK_slash),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 40%")
 
   , ((modm .|. controlMask, xK_BackSpace ), spawn "xmonad --recompile && xmonad --restart") -- Restart xmonad

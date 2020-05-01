@@ -78,11 +78,11 @@
 
   # --fallback to build from source if binary package fetching fails
   nix = {
+    useSandbox = true;
     maxJobs = lib.mkDefault 2;
-    binaryCaches = [ "https://aseipp-nix-cache.global.ssl.fastly.net" ];
+    # binaryCaches = [ "https://aseipp-nix-cache.global.ssl.fastly.net" ];
     extraOptions = ''
-      cores = 2
-      connect-timeout = 5 
+      connect-timeout = 10 
       http-connections = 10
     '';
   };

@@ -37,8 +37,8 @@
 # live usb
 
 ```
-nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix
-sudo dd bs=4M if=result/nix.iso of=/dev/sdx status=progress oflag=sync
+nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix -o live-usb
+sudo dd bs=4M if=live-usb/iso/nixos.iso of=/dev/sdc status=progress && sync
 ```
 
 # install
@@ -48,7 +48,7 @@ sudo cp -ra /etx/nixos{,.bak}
 sudo mkdir -p /storage/tmp
 sudo git clone git@github.com:ksevelyar/dotfiles.git /etc/nixos
 
-sudo nixos-generate-config --root /etc/nixos/defaults/
+sudo nixos-generate-config --root /tmp
 
 sudo nix-channel --add https://nixos.org/channels/nixos-19.09 stable
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos

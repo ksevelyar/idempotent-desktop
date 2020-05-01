@@ -16,6 +16,10 @@ in
       };
     in
       [
+        # xmonad defaults
+        xdotool
+        seturgent
+        stylish-haskell
         alacritty
         firefoxWrapper
         tor-browser-bundle-bin
@@ -79,7 +83,6 @@ in
 
   programs.browserpass.enable = true;
   programs.qt5ct.enable = true;
-  programs.slock.enable = true;
 
   services.picom = {
     enable = true;
@@ -112,7 +115,7 @@ in
       '';
     };
     serverFlagsSection = ''
-      Option "BlankTime" "180"
+      Option "BlankTime" "120"
       Option "StandbyTime" "0"
       Option "SuspendTime" "0"
       Option "OffTime" "0"
@@ -120,7 +123,7 @@ in
 
     displayManager.lightdm = {
       enable = true;
-      background = "/etc/nixos/assets/displayManager.png";
+      background = "../assets/displayManager.png";
 
       greeters.gtk = {
         enable = true;

@@ -45,6 +45,7 @@ in
       imagemagick
 
       # tools
+      # direnv
       inotify-tools
       gitg
 

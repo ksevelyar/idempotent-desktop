@@ -13,6 +13,7 @@
     tm = "tmux new-session -A -s main";
     off = "sleep 0.5; xset dpms force off; pkill -f gpmdp";
     pgrep = "pgrep --full";
+    p = "gopass";
     pkill = "pkill --full";
     v = "nvim";
     g = "git";

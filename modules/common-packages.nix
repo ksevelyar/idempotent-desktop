@@ -144,6 +144,7 @@ in
 
       # vim
       neovim
+      watchman
       (python3.withPackages (ps: with ps; [ httpserver pykeepass ])) # neovim dep
       nodejs_latest
       fzf

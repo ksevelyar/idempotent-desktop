@@ -22,9 +22,9 @@
       useOSProber = true;
 
       # extraConfig = "set theme=($drive1)//grub/themes/fallout-grub-theme/theme.txt";
-      splashImage = "/etc/nixos/assets/grub.png";
+      splashImage = ../assets/grub.png;
       splashMode = "normal";
-      font = "/etc/nixos/assets/ter-u16n.pf2";
+      font = ../assets/ter-u16n.pf2;
       extraConfig = ''
         set menu_color_normal=light-blue/black
         set menu_color_highlight=black/light-blue

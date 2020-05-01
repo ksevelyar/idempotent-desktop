@@ -17,10 +17,10 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [];
   boot.extraModulePackages = [];
   boot.tmpOnTmpfs = true;
-  boot.plymouth.enable = true;
+  boot.plymouth.enable = false;
 
   swapDevices = [];
 

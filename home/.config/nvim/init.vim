@@ -24,21 +24,17 @@ Plug 'ruanyl/vim-gh-line'
 Plug 'w0rp/ale'
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 0
-let g:ale_completion_max_suggestions = 15
 let g:ale_lint_on_enter = 0
 let g:ale_sign_error = '◉'
 let g:ale_sign_warning = '◉'
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'ruby': ['rubocop'],
-\   'javascript': ['eslint'],
-\   'vue': ['eslint', 'remove_trailing_lines', 'trim_whitespace'],
-\   'json': ['prettier'],
 \   'sass': ['stylelint'],
 \   'elixir': ['mix_format'],
-\   'nix': ['nixpkgs-fmt']
+\   'nix': ['nixpkgs-fmt'],
+\   'haskell': ['stylish-haskell']
 \}
-"set completeopt=menu,menuone,preview,noselect,noinsert " fix ale + solargraph
 
 let g:ale_linters = {
 \   'c': [], 'cpp': [], 'elixir': [], 'go': [], 'sh': [],
@@ -49,7 +45,7 @@ let g:ale_linters = {
 " \ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-prettier',
 let g:coc_global_extensions = [
 \ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-eslint',
-\ 'coc-elixir', 'coc-go',
+\ 'coc-elixir', 'coc-go', 'coc-prettier',
 \ 'coc-vimlsp', 'coc-tsserver', 'coc-sh'
 \ ]
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -187,21 +183,24 @@ let g:yankring_clipboard_monitor=0
 
 Plug 'easymotion/vim-easymotion'
 
-Plug 'LnL7/vim-nix'
 
 " Plug 'dracula/vim', { 'as': 'dracula' }
 
-let g:colorizer_auto_filetype='css,sass,vim'
-let g:colorizer_disable_bufleave = 1
-Plug 'chrisbra/Colorizer'
+" let g:colorizer_auto_filetype='css,sass,vim'
+" let g:colorizer_disable_bufleave = 1
+" Plug 'chrisbra/Colorizer'
+
+
+" Plug 'vim-ruby/vim-ruby'
+" Plug 'tpope/vim-rails'
+" Plug 'tpope/vim-haml'
+" Plug 'slim-template/vim-slim'
 
 Plug 'slashmili/alchemist.vim'
-Plug 'vim-ruby/vim-ruby'
+Plug 'LnL7/vim-nix'
 Plug 'elixir-editors/vim-elixir'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-haml'
+Plug 'neovimhaskell/haskell-vim'
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'slim-template/vim-slim'
 Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -329,20 +328,18 @@ call plug#end()
 
 """ autocmd
 
-set autoread
-if exists("g:gui_oni")
-else
-  " Autoread hack for terminal
-  au FocusGained * :checktime
-
-  let NERDTreeShowHidden=1
-  let NERDTreeWinSize=39
-  let NERDTreeDirArrows=1
-  let NERDTreeMinimalUI=1
-
-  map  <silent> <F3> :NERDTreeToggle<cr>
-  imap <silent> <F3> <Esc> :NERDTreeToggle<cr>
-endif
+" set autoread
+" if exists("g:gui_oni")
+" else
+"   " Autoread hack for terminal
+"   au FocusGained * :checktime
+"
+"   let NERDTreeShowHidden=1
+"   let NERDTreeWinSize=39
+"   let NERDTreeDirArrows=1
+"   let NERDTreeMinimalUI=1
+"
+" endif
 
 """ GUI
 
@@ -487,9 +484,8 @@ map gcp <Leader>_p " Comment the current inner paragraph
 nmap <leader>v <C-w>v<CR>
 nmap <leader>h <C-w>s<CR>
 
-" FIXME: fix keys
-" nnoremap <Leader>e :AleError<cr>
-" nnoremap <Leader>w :AleWarning<cr>
+map  <silent> <F3> :NERDTreeToggle<cr>
+imap <silent> <F3> <Esc> :NERDTreeToggle<cr>
 
 nmap <leader>t <C-w>v<C-w>l:terminal<CR>
 nmap <leader>ht <C-w>s<C-w>j:terminal<CR>
@@ -503,7 +499,7 @@ cmap w!! w !sudo tee % >/dev/null<Up>
 " copy curent buffer filepath
 nmap <leader>fp :let @+=expand("%:p")<CR>
 
-nmap <Leader>ct :ColorToggle<cr>
+"nmap <Leader>ct :ColorToggle<cr>
 nmap <Leader>f :NERDTreeFind<cr>
 
 " copy / paste
