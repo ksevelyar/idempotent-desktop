@@ -9,8 +9,8 @@ import           System.Exit
 import           System.IO
 
 import qualified Data.Map                       as M
-import qualified XMonad.Layout.HintedTile       as HT
-import           XMonad.Layout.LayoutHints
+-- import qualified XMonad.Layout.HintedTile       as HT
+-- import           XMonad.Layout.LayoutHints
 import qualified XMonad.StackSet                as W
 
 import           Control.Monad                  (liftM2)
@@ -52,8 +52,8 @@ import           XMonad.Util.NamedWindows       (getName)
 import           XMonad.Util.Run                (runInTerm, safeSpawn)
 
 -- hack to let firefox fullscreen
-setFullscreenSupported :: X ()
-setFullscreenSupported = withDisplay $ \dpy -> do
+setFullscreenSupport :: X ()
+setFullscreenSupport = withDisplay $ \dpy -> do
     r <- asks theRoot
     a <- getAtom "_NET_SUPPORTED"
     c <- getAtom "ATOM"
@@ -77,7 +77,7 @@ main = do
     -- simple stuff
     terminal           = "alacritty",
     focusFollowsMouse  = True,
-    borderWidth        = 10,
+    borderWidth        = 8,
     modMask            = mod4Mask,
     workspaces         = myWorkspaces,
     normalBorderColor  = "#111111",
@@ -127,26 +127,15 @@ myLayout = windowNavigation $
            ||| grid
 
   where
-  rt    = ResizableTall 1 (2/100) (1/3) []
+  full = toggleLayouts (renamed [Replace "f" ] $ noBorders Full)
 
-  grt   = ResizableTall 1 (2/100) goldenratio []
+  mcol = renamed [Replace "mc"] $ multiCol [1] 1 0.01 (-0.5)
+  tcol = renamed [Replace "tc"] $ ThreeCol 1 (3/100) (1/2)
+
+  gtile = renamed [Replace "gt"] $ ResizableTall 1 (2/100) goldenratio []
   goldenratio  = 2/(1+(toRational(sqrt(5)::Double)))
 
-  tcol = layoutHintsToCenter(ThreeCol 1 (3/100) (1/2))
-  mcol = layoutHintsWithPlacement (0.5, 0.5) (multiCol [1] 1 0.01 (-0.5))
-
-
-  tile    = renamed [Replace "t" ] $ rt
-  mtile   = renamed [Replace "mt"] $ Mirror rt
-
-  gtile   = renamed [Replace "gt"] $ grt
-
-
-  --grid    = renamed [Replace "g" ] $ spacing 2 $ smartBorders Grid
-  grid    = renamed [Replace "g" ] $ Grid
-
-  full    = toggleLayouts (renamed [Replace "f" ] $ noBorders Full)
-
+  grid = renamed [Replace "g" ] $ Grid
 
 -- Window Management -----------------------------------------------------------
 
@@ -201,12 +190,13 @@ myManageHook = (composeAll . concat $
 
 -- Event handling --------------------------------------------------------------
 
-myEventHook = hintsEventHook <+> docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEventHook
+-- myEventHook = hintsEventHook <+> docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEventHook
+myEventHook = docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEventHook
 
 -- Startup hook ----------------------------------------------------------------
 
 myStartupHook = do
-  setFullscreenSupported
+  setFullscreenSupport
   spawn "bash ~/.config/polybar/launch.sh"
 
 -- Scratchpads -----------------------------------------------------------------
@@ -219,10 +209,10 @@ scratchpads = [
     nonFloating,
   NS "terminal-1" "alacritty --class terminal-1"
     (resource =? "terminal-1")
-    (customFloating $ W.RationalRect 0.25 0.61 0.5 0.3),
+    (customFloating $ W.RationalRect 0.25 0.52 0.5 0.4),
   NS "terminal-2" "alacritty --class terminal-2"
     (resource =? "terminal-2")
-    (customFloating $ W.RationalRect 0.25 0.20 0.5 0.3),
+    (customFloating $ W.RationalRect 0.25 0.10 0.5 0.4),
 
   NS "notes" "alacritty --class notes -e nvim ~/notes"
     (resource =? "notes")
