@@ -105,7 +105,7 @@ in
       defaultSession = "none+xmonad";
       sessionCommands = ''
         ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY
-        sh ~/.fehbg &
+        sh ~/.fehbg
         xsetroot -cursor_name left_ptr
         (rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log) &
 

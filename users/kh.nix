@@ -105,6 +105,9 @@
 
       home.file.".config/dunst/dunstrc".source = ../home/.config/dunst/dunstrc;
 
+      home.file.".config/conky/conky-taskwarrior.conf".source = ../home/.config/conky/conky-taskwarrior.conf;
+      home.file.".config/conky/conky-lyrics.conf".source = ../home/.config/conky/conky-lyrics.conf;
+
       home.file.".config/polybar/launch.sh".source = ../home/.config/polybar/launch.sh;
       home.file.".config/polybar/config".source = ../home/.config/polybar/config;
       home.file.".config/polybar/gpmdp-next.sh".source =
