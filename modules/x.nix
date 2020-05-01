@@ -108,6 +108,9 @@ in
         sh ~/.fehbg &
         xsetroot -cursor_name left_ptr
         (rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log) &
+
+        conky -c ~/.config/conky/conky-taskwarrior.conf -d
+        conky -c ~/.config/conky/conky-lyrics.conf -d
         
         lxqt-policykit-agent &
         xxkb &
@@ -123,7 +126,7 @@ in
 
     displayManager.lightdm = {
       enable = true;
-      background = "../assets/displayManager.png";
+      background = "/etc/nixos/assets/displayManager.png";
 
       greeters.gtk = {
         enable = true;
