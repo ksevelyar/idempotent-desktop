@@ -56,7 +56,7 @@
   services.openssh = {
     enable = true;
     permitRootLogin = "no";
-    passwordAuthentication = false;
+    passwordAuthentication = true;
   };
   # Allow sshd to be started manually through sudo systemctl start sshd
   systemd.services.sshd.wantedBy = pkgs.lib.mkForce [];

@@ -112,35 +112,10 @@ in
 
   environment.systemPackages = with pkgs;
     [
-      # text    
-      hunspell
-      hunspellDicts.en_US-large
-      calibre # epub
-
       # boot
       memtest86-efi
       grub2
       os-prober
-      hwinfo
-      wget
-      curl
-
-      # cli
-      translate-shell
-      websocat
-      brightnessctl
-      youtube-dl
-
-      # gui
-      browsh
-
-      # im
-      aria2
-
-      # media
-      mpv
-      cava
-      moc
 
       # vim
       neovim
@@ -162,7 +137,6 @@ in
 
       # sys
       lsof
-      nox
       tldr
       git
       gitAndTools.diff-so-fancy
@@ -187,7 +161,6 @@ in
 
       # sec
       tomb
-
       # pass
       # We can add existing passwords to the store with insert:
       # pass insert Business/cheese-whiz-factory
@@ -201,13 +174,20 @@ in
       ripasso-cursive
       gopass
 
-      # monitoring
+      # cli
+      wget
+      curl
+      aria2
+      translate-shell
+      websocat
+      brightnessctl
+      youtube-dl
+      browsh
+
+      # monitoring 
+      hwinfo
       smartmontools
-      bind
-      unzip
-      unrar
-      p7zip
-      atool
+      acpi
       gotop
       htop
       iotop
@@ -215,12 +195,12 @@ in
       stable.nixpkgs-fmt
       neofetch
 
-      # games
-      dwarf-fortress
-      nethack
-      rogue
-
       # fs
+      bind
+      unzip
+      unrar
+      p7zip
+      atool
       parted
       fasd
       mc
@@ -228,7 +208,6 @@ in
       nnn
       ncdu
       tree
-
       dosfstools
       mtools
       sshfs
@@ -238,7 +217,5 @@ in
       rsync
       rclone
       rclone-browser
-
-      acpi
     ];
 }

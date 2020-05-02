@@ -377,6 +377,6 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm, button3), (\w -> focus w >> mouseResizeWindow w
                                      >> windows W.shiftMaster))
 
-  , ((0, 8), (\_ -> prevWS)) -- Switch to previous workspace
-  , ((0, 9), (\_ -> nextWS)) -- Switch to next workspace
+  , ((modm, 8), (\_ -> prevWS)) -- Switch to previous workspace
+  , ((modm, 9), (\_ -> nextWS)) -- Switch to next workspace
   ]

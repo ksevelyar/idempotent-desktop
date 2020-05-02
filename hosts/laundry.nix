@@ -3,6 +3,25 @@
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+      ../modules/aliases.nix
+      ../modules/scripts.nix
+      ../modules/boot.nix
+      ../modules/common-packages.nix
+      ../modules/extra-packages.nix
+      ../modules/dev-packages.nix
+      ../modules/games.nix
+      ../modules/services.nix
+      ../modules/x.nix
+      ../modules/bluetooth.nix
+      ../modules/sound.nix
+      ../modules/absolute-proprietary.nix
+      ../modules/firewall-desktop.nix
+      ../modules/fonts.nix
+      ../modules/nebula.nix
+      ../modules/ssd.nix
+      # ./modules/fonts-high-dpi.nix
+      # ./modules/laptop.nix
+      ../users/ksevelyar.nix
     ];
 
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -11,20 +30,18 @@
     nvidia.modesetting.enable = true;
   };
 
+  networking.hostName = "laundry";
   networking.useDHCP = false;
   networking.interfaces.enp4s0.useDHCP = true;
-  networking.hostName = "laundry";
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [];
-  boot.kernelModules = [];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [];
-  boot.tmpOnTmpfs = true;
   boot.plymouth.enable = false;
 
   swapDevices = [];
 
-  services.fstrim.enable = true; #ssd
   fileSystems."/" =
     {
       device = "/dev/disk/by-uuid/044a758f-4252-4e42-b68c-a87d2345dc4c";

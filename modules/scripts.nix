@@ -31,5 +31,4 @@
     echo -n $COLOR | xclip -i -selection CLIPBOARD
     notify-send "Color under mouse cursor: " $COLOR
   '';
-
 }

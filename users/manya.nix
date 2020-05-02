@@ -2,50 +2,8 @@
 {
   imports =
     [
-      (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
+      ./shared.nix
     ];
-
-
-  # Set your time zone.
-  time.timeZone = "Europe/Moscow";
-  location.latitude = 55.75;
-  location.longitude = 37.61;
-
-  qt5 = { style = "gtk2"; platformTheme = "gtk2"; };
-  environment = {
-    etc."xdg/gtk-3.0/settings.ini" = {
-      text = ''
-        [Settings]
-        gtk-theme-name=Ant-Dracula
-        gtk-icon-theme-name=Paper-Mono-Dark
-        gtk-font-name=Anka/Coder 13
-        # gtk-application-prefer-dark-theme = true
-        gtk-cursor-theme-name=Vanilla-DMZ
-      '';
-    };
-
-    etc."xdg/mimeapps.list" = {
-      text = ''
-        [Default Applications]
-        inode/directory=spacefm.desktop
-
-        x-scheme-handler/http=firefox.desktop
-        x-scheme-handler/https=firefox.desktop
-        x-scheme-handler/ftp=firefox.desktop
-        x-scheme-handler/chrome=firefox.desktop
-        text/html=firefox.desktop
-        x-scheme-handler/unknown=firefox.desktop
-      '';
-    };
-
-    # root.".config/nvim/init.vim".text = builtins.readFile ./init.vim;
-
-    variables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-      BROWSER = "firefox";
-    };
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.manya = {
@@ -53,11 +11,16 @@
     extraGroups = [ "wheel" "networkmanager" "audio" ]; # Enable ‘sudo’ for the user.
   };
 
+  systemd.services."home-manager-ugly-hack" = {
+    script = "mkdir -p /nix/var/nix/profiles/per-user/manya";
+    path = [ pkgs.coreutils ];
+    before = [ "home-manager-manya.service" ];
+    wantedBy = [ "multi-user.target" ];
+  };
+
   home-manager = {
-    useGlobalPkgs = true;
     users.manya = {
       programs.git = {
-        enable = true;
         userName = "Maria Elizarova";
         userEmail = "porosenie@gmail.com";
       };
