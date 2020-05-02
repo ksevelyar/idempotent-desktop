@@ -4,6 +4,8 @@
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
       ../modules/aliases.nix
+      # FIXME: find replacement for memtest
+      ../modules/absolute-proprietary.nix
       ../modules/scripts.nix
       ../modules/boot-legacy.nix
 
