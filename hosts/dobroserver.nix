@@ -3,25 +3,25 @@
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-      ./modules/aliases.nix
-      ./modules/scripts.nix
-      ./modules/boot-legacy.nix
+      ../modules/aliases.nix
+      ../modules/scripts.nix
+      ../modules/boot-legacy.nix
 
-      ./modules/common-packages.nix
-      ./modules/ssd.nix
-      ./modules/router.nix
-      ./modules/nebula.nix
+      ../modules/common-packages.nix
+      ../modules/ssd.nix
+      ../modules/router.nix
+      ../modules/nebula.nix
       # ./modules/extra-packages.nix
       # ./modules/dev-packages.nix
       # ./modules/games.nix
-      # ./modules/services.nix
+      ../modules/services-headless.nix
       # ./modules/x.nix
 
       # ./modules/fonts.nix
       # ./modules/fonts-high-dpi.nix
       # ./modules/laptop.nix
 
-      ./users/ksevelyar-headless.nix
+      ../users/ksevelyar-headless.nix
     ];
 
   hardware = {
@@ -63,16 +63,4 @@
       fsType = "ext4";
       options = [ "noatime" "nodiratime" ];
     };
-
-  services.openssh = {
-    enable = true;
-    permitRootLogin = "yes";
-    passwordAuthentication = true;
-  };
-
-  services.journald.extraConfig = "SystemMaxUse=500M";
-  services.fail2ban = {
-    enable = true;
-  };
-  services.nixosManual.showManual = false;
 }

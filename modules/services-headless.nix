@@ -14,16 +14,7 @@
     };
   };
 
-  services.aria2 = {
-    openPorts = true;
-  };
-
   services.mingetty.greetingLine = ''\l'';
-
-  services.tor = {
-    enable = true;
-    client.enable = true;
-  };
 
   services.openssh = {
     enable = true;
