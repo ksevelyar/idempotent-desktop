@@ -145,7 +145,14 @@ in
       # vim
       neovim
       watchman
-      (python3.withPackages (ps: with ps; [ httpserver pykeepass ])) # neovim dep
+      (
+        python3.withPackages (
+          ps: with ps; [
+            httpserver
+            pywal
+          ]
+        )
+      )
       nodejs_latest
       fzf
       ripgrep
@@ -191,6 +198,7 @@ in
       passExtensions.pass-tomb
       passExtensions.pass-update
       (pass.withExtensions (ext: with ext; [ pass-audit pass-otp pass-import pass-genphrase pass-update pass-tomb ]))
+      ripasso-cursive
       gopass
 
       # monitoring

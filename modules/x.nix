@@ -21,6 +21,7 @@ in
         seturgent
         stylish-haskell
         alacritty
+        rxvt-unicode
         firefoxWrapper
         tor-browser-bundle-bin
         zathura
@@ -109,9 +110,6 @@ in
         xsetroot -cursor_name left_ptr
         (rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log) &
 
-        conky -c ~/.config/conky/conky-taskwarrior.conf -d
-        conky -c ~/.config/conky/conky-lyrics.conf -d
-        
         lxqt-policykit-agent &
         xxkb &
         xcape -e 'Super_R=Super_R|X'

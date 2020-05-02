@@ -6,30 +6,25 @@ import           XMonad
 import           Data.Monoid
 
 import           System.Exit
-import           System.IO
+import qualified System.IO
 
 import qualified Data.Map                       as M
 -- import qualified XMonad.Layout.HintedTile       as HT
 -- import           XMonad.Layout.LayoutHints
 import qualified XMonad.StackSet                as W
 
-import           Control.Monad                  (liftM2)
 
-
--- hooks --
 import           XMonad.Hooks.DynamicLog
-import           XMonad.Hooks.ManageDocks
-import           XMonad.Hooks.UrgencyHook
-
 import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.InsertPosition
+import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
+import           XMonad.Hooks.UrgencyHook
 
--- util --
+import           XMonad.Actions.CycleWS
 import           XMonad.Actions.WindowGo
 import           XMonad.Util.NamedScratchpad
 
--- layout --
 import           XMonad.Layout.MultiColumns
 import           XMonad.Layout.ResizableTile
 import           XMonad.Layout.ThreeColumns
@@ -45,7 +40,7 @@ import           XMonad.Layout.Renamed
 
 import           XMonad.Config.Desktop
 
-import           Control.Monad                  (forM_, join)
+import           Control.Monad                  (forM_, join, liftM2)
 import           Data.Function                  (on)
 import           Data.List                      (sortBy)
 import           XMonad.Util.NamedWindows       (getName)
@@ -101,6 +96,9 @@ myWorkspaces = ["www","ed","sh","bg","im","fs","media","gfx","h","*","**"]
 -- Status bars and logging -----------------------------------------------------
 
 wsOutput wsStr = do
+  -- h <- System.IO.openFile "/tmp/.xmonad-workspace-log" System.IO.WriteMode
+  -- System.IO.hPutStrLn h wsStr
+  -- System.IO.hClose h
   io $ appendFile "/tmp/.xmonad-workspace-log" (wsStr ++ "\n")
 
 polibarPP = dynamicLogWithPP $ def {
@@ -197,7 +195,8 @@ myEventHook = docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEve
 
 myStartupHook = do
   setFullscreenSupport
-  spawn "bash ~/.config/polybar/launch.sh"
+  spawn "sh ~/.config/polybar/launch.sh"
+  spawn "sh ~/.config/conky/launch.sh"
 
 -- Scratchpads -----------------------------------------------------------------
 -- xprop | grep WM_CLASS
@@ -279,6 +278,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm .|. controlMask, xK_r     ), spawn "systemctl reboot")
   , ((modm .|. controlMask, xK_h     ), spawn "systemctl poweroff")
 
+  , ((modm, xK_k     ), spawn "sh /etc/scripts/pick-color.sh")
+
   -- bookmarks
   , ((mod1Mask,   xK_m  ), spawn "xdg-open https://mail.google.com/")
 
@@ -318,7 +319,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm, xK_F6 ), namedScratchpadAction scratchpads  "gotop")
   , ((modm, xK_F12 ), namedScratchpadAction scratchpads "upwork")
   , ((modm, xK_i ), namedScratchpadAction scratchpads  "images_browser")
-  , ((modm, xK_j ), namedScratchpadAction scratchpads  "tmux")
 
   , ((modm, xK_s), namedScratchpadAction scratchpads  "spacefm")
   , ((modm, xK_g), namedScratchpadAction scratchpads  "gpmdp")
@@ -377,5 +377,6 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm, button3), (\w -> focus w >> mouseResizeWindow w
                                      >> windows W.shiftMaster))
 
-  -- you may also bind events to the mouse scroll wheel (button4 and button5)
+  , ((0, 8), (\_ -> prevWS)) -- Switch to previous workspace
+  , ((0, 9), (\_ -> nextWS)) -- Switch to next workspace
   ]

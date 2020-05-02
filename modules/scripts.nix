@@ -12,4 +12,24 @@
 
     lsblk -f
   '';
+
+  environment.etc."/scripts/refresh-channels.sh".text = ''
+    sudo nix-channel --add https://nixos.org/channels/nixos-20.03 stable 
+    sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos 
+    sudo nix-channel --update 
+    sudo nix-channel --list
+  '';
+
+  # https://stackoverflow.com/a/22102938
+  environment.etc."/scripts/pick-color.sh".text = ''
+    # Get hex rgb color under mouse cursor, put it into clipboard and create a
+    # notification.
+
+    eval $(xdotool getmouselocation --shell)
+    IMAGE=`import -window root -depth 8 -crop 1x1+$X+$Y txt:-`
+    COLOR=`echo $IMAGE | grep -om1 '#\w\+'`
+    echo -n $COLOR | xclip -i -selection CLIPBOARD
+    notify-send "Color under mouse cursor: " $COLOR
+  '';
+
 }
