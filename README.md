@@ -34,6 +34,10 @@
 
 ![screen](https://i.imgur.com/E1Z5XFo.png)
 
+# conky + gpmdp + taskwarrior
+
+![screen](https://i.imgur.com/fWKORz4.png)
+
 # live usb
 
 ```
