@@ -26,9 +26,9 @@
       ../users/ksevelyar-headless.nix
     ];
 
-  environment.etc."/nebula/dobroserver.crt".source = /storage/nebula/dobroserver.crt;
-  environment.etc."/nebula/dobroserver.key".source = /storage/nebula/dobroserver.crt;
-  environment.etc."/nebula/lighthouse.yml".source = /storage/nebula/dobroserver.yml;
+  environment.etc."/nebula/lighthouse.crt".source = /storage/nebula/dobroserver.crt;
+  environment.etc."/nebula/lighthouse.key".source = /storage/nebula/dobroserver.key;
+  environment.etc."/nebula/lighthouse.yml".source = /storage/nebula/lighthouse.yml;
   environment.etc."/nebula/ca.crt".source = /storage/nebula/ca.crt;
 
   hardware = {
