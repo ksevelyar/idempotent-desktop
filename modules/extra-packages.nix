@@ -12,8 +12,8 @@ in
   environment.systemPackages = with pkgs;
     [
       # work
+      syncthing
       upwork
-      planner
 
       # text
       libreoffice

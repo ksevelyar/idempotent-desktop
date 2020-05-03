@@ -24,7 +24,11 @@
         userName = "Sergey Zubkov";
         userEmail = "ksevelyar@gmail.com";
         enable = true;
-        aliases.lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+        aliases = {
+          lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+          pp = "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)";
+          recent-branches = "branch --sort=-committerdate";
+        };
       };
 
       home.file.".eslintrc.json".source = ../home/.eslintrc.json;

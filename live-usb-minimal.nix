@@ -5,16 +5,24 @@
 {
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
-    <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
+    ./modules/absolute-proprietary.nix
     ./modules/aliases.nix
     ./modules/scripts.nix
-    # ./modules/services.nix
+    ./modules/services-headless.nix
+    ./modules/debug.nix
+
     # ./modules/x.nix
     # ./modules/fonts.nix
+    # ./modules/fonts-high-dpi.nix
+    ./modules/bluetooth.nix
+    # ./modules/sound.nix
 
     ./modules/common-packages.nix
     # ./modules/extra-packages.nix
+    # ./modules/dev-packages.nix
+    # ./modules/games.nix
 
+    # ./modules/laptop.nix
     ./users/live-usb.nix
   ];
 
@@ -22,21 +30,13 @@
   isoImage.volumeID = lib.mkForce "nixos-mini";
   isoImage.isoName = lib.mkForce "nixos.iso";
 
-  nixpkgs.config.allowUnfree = true;
-  hardware = {
-    enableAllFirmware = true;
-    bluetooth.enable = true;
-    pulseaudio.enable = false;
-  };
-  sound.enable = false;
-
   boot.kernelModules = [ "wl" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
   networking.networkmanager.enable = true;
   networking.wireless.enable = lib.mkForce false;
 
-  nix.binaryCaches = [ "https://aseipp-nix-cache.global.ssl.fastly.net" ];
+  # nix.binaryCaches = [ "https://aseipp-nix-cache.global.ssl.fastly.net" ];
 
   services.mingetty.helpLine = lib.mkForce ''
     The "root" account has "jkl" password.

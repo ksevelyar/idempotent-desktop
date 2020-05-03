@@ -5,18 +5,26 @@
 {
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-base.nix>
+    ./modules/absolute-proprietary.nix
     ./modules/aliases.nix
     ./modules/scripts.nix
     ./modules/services.nix
+    ./modules/debug.nix
+
     ./modules/x.nix
     ./modules/fonts.nix
+    # ./modules/fonts-high-dpi.nix
+    ./modules/bluetooth.nix
+    ./modules/sound.nix
 
     ./modules/common-packages.nix
-    # ./modules/extra-packages.nix
+    ./modules/extra-packages.nix
+    ./modules/dev-packages.nix
+    ./modules/games.nix
 
+    ./modules/laptop.nix
     ./users/live-usb.nix
   ];
-  nixpkgs.overlays = [ (import ./overlays) ];
 
   # isoImage.splashImage = /etc/nixos/assets/grub.png;
   isoImage.volumeID = lib.mkForce "nixos-maxi";
@@ -42,14 +50,6 @@
       autoLogin = { enable = true; user = "mrpoppybutthole"; };
     };
   };
-
-  nixpkgs.config.allowUnfree = true;
-  hardware = {
-    enableAllFirmware = true;
-    bluetooth.enable = true;
-    pulseaudio.enable = true;
-  };
-  sound.enable = true;
 
   boot.kernelModules = [ "wl" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];

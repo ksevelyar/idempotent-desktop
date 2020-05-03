@@ -12,7 +12,6 @@
       # sshfs root@192.168.0.10:/ ~/dobroserver
       # ssh-copy-id root@192.168.0.10
       # ./modules/debug.nix
-      ./users/ksevelyar.nix
       ./hosts/laundry.nix
     ];
 

@@ -2,80 +2,8 @@
 {
   imports =
     [
-      (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
+      ./shared.nix
     ];
-
-  # Set your time zone.
-  time.timeZone = "Europe/Moscow";
-  location.latitude = 55.75;
-  location.longitude = 37.61;
-
-  qt5 = { style = "gtk2"; platformTheme = "gtk2"; };
-  environment = {
-    etc."xdg/gtk-3.0/settings.ini" = {
-      text = ''
-        [Settings]
-        gtk-theme-name=Ant-Dracula
-        gtk-icon-theme-name=Paper-Mono-Dark
-        gtk-font-name=Anka/Coder 13
-        # gtk-application-prefer-dark-theme = true
-        gtk-cursor-theme-name=Vanilla-DMZ
-      '';
-    };
-
-    etc."xdg/mimeapps.list" = {
-      text = ''
-        [Default Applications]
-        inode/directory=spacefm.desktop
-        x-scheme-handler/http=firefox.desktop
-        x-scheme-handler/https=firefox.desktop
-        x-scheme-handler/ftp=firefox.desktop
-        x-scheme-handler/chrome=firefox.desktop
-        text/html=firefox.desktop
-        application/x-extension-htm=firefox.desktop
-        application/x-extension-html=firefox.desktop
-        application/x-extension-shtml=firefox.desktop
-        application/xhtml+xml=firefox.desktop
-        application/x-extension-xhtml=firefox.desktop
-        application/x-extension-xht=firefox.desktop
-        x-scheme-handler/magnet=userapp-transmission-gtk-DXP9G0.desktop
-        x-scheme-handler/about=firefox.desktop
-        x-scheme-handler/unknown=firefox.desktop
-        video/x-matroska=mpv.desktop;
-        video/mpeg=mpv.desktop;
-        image/gif=nomacs.desktop;
-        image/png=nomacs.desktop;
-        image/jpeg=nomacs.desktop;
-        application/pdf=org.gnome.Evince.desktop;
-
-        [Added Associations]
-        x-scheme-handler/http=firefox.desktop;
-        x-scheme-handler/https=firefox.desktop;
-        x-scheme-handler/ftp=firefox.desktop;
-        x-scheme-handler/chrome=firefox.desktop;
-        text/html=firefox.desktop;
-        application/x-extension-htm=firefox.desktop;
-        application/x-extension-html=firefox.desktop;
-        application/x-extension-shtml=firefox.desktop;
-        application/xhtml+xml=firefox.desktop;
-        application/x-extension-xhtml=firefox.desktop;
-        application/x-extension-xht=firefox.desktop;
-        x-scheme-handler/magnet=userapp-transmission-gtk-DXP9G0.desktop;
-        application/pdf=org.gnome.Evince.desktop;
-        image/jpeg=nomacs.desktop;
-        image/png=nomacs.desktop;
-        video/x-matroska=mpv.desktop;
-        video/mpeg=mpv.desktop;
-        image/gif=nomacs.desktop;      
-      '';
-    };
-
-    variables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-      BROWSER = "firefox";
-    };
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kh = {
@@ -84,15 +12,12 @@
   };
 
   home-manager = {
-    useGlobalPkgs = true;
-
     users.kh = {
       programs.git = {
         enable = true;
         userName = "Tatiana Kh";
         userEmail = "ts.khol@gmail.com";
         aliases.lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
-        iniContent."url \"git@github.com:\"".insteadOf = "https://github.com/";
       };
 
       xsession.windowManager.xmonad.enable = true;

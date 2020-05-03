@@ -4,6 +4,29 @@
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+      ../modules/absolute-proprietary.nix
+      ../modules/aliases.nix
+      ../modules/scripts.nix
+      ../modules/boot.nix
+      ../modules/services.nix
+
+      ../modules/common-packages.nix
+      ../modules/extra-packages.nix
+      ../modules/dev-packages.nix
+      ../modules/games.nix
+
+      ../modules/x.nix
+      ../modules/bluetooth.nix
+      ../modules/sound.nix
+      ../modules/firewall-desktop.nix
+      ../modules/fonts.nix
+      ../modules/nebula.nix
+      ../modules/ssd.nix
+
+      ../modules/vm/hypervisor.nix
+
+      ../modules/laptop.nix
+      ../users/kh.nix
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
