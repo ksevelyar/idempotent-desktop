@@ -42,6 +42,10 @@
 
 ![screen](https://i.imgur.com/V99iRiB.png)
 
+# kvm + virt-manager + live usb
+
+![screen](https://i.imgur.com/1n0SWwG.png)
+
 # live usb
 
 ```
