@@ -8,9 +8,6 @@ let
   '';
 in
 {
-  # upwork
-  nixpkgs.overlays = [ (import ../overlays) ];
-
   environment.systemPackages = with pkgs;
     let
       polybar = pkgs.polybar.override {
@@ -24,6 +21,7 @@ in
         moc
 
         # xmonad defaults
+        conky
         xdotool
         seturgent
         stylish-haskell
@@ -62,7 +60,9 @@ in
         notepadqq
 
         # sec
+        qtox
         lxqt.lxqt-policykit
+        tdesktop
 
         # sys
         keepassx-community
@@ -116,7 +116,7 @@ in
     displayManager = {
       defaultSession = "none+xmonad";
       sessionCommands = ''
-        ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY
+        # ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY
         sh ~/.fehbg
         xsetroot -cursor_name left_ptr
         (rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log) &

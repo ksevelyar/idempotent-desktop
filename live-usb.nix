@@ -18,9 +18,9 @@
     ./modules/sound.nix
 
     ./modules/common-packages.nix
-    ./modules/extra-packages.nix
-    ./modules/dev-packages.nix
-    ./modules/games.nix
+    # ./modules/extra-packages.nix
+    # ./modules/dev-packages.nix
+    # ./modules/games.nix
 
     ./modules/laptop.nix
     ./users/live-usb.nix

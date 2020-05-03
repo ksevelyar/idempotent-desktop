@@ -9,11 +9,16 @@ in
   xdg.portal.enable = true; # flatpak dep
   # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; # flatpak dep
 
+  # upwork
+  nixpkgs.overlays = [ (import ../overlays) ];
+
   environment.systemPackages = with pkgs;
     [
       # work
       syncthing
       upwork
+      # memtest86-efi
+      # os-prober
 
       # text
       libreoffice
@@ -21,8 +26,8 @@ in
       # boot
 
       # cli
+      browsh
       stable.khal
-      taskwarrior
       calcurse
       wtf
       asciiquarium
@@ -38,7 +43,6 @@ in
       openscad
 
       # themes
-      conky
       # pop-gtk-theme
       # adapta-gtk-theme
       ant-theme
@@ -52,10 +56,8 @@ in
       zafiro-icons
 
       # im
-      qtox
       skype
       slack
-      tdesktop
 
       # media
       glava
@@ -80,6 +82,8 @@ in
 
       # dev
       # lazygit
+      rclone
+      rclone-browser
       cool-retro-term
       kitty
       roxterm

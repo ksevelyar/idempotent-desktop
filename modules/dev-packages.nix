@@ -7,7 +7,7 @@ in
 {
   services.pgmanage.enable = false;
   services.postgresql = {
-    package = pkgs.postgresql_11;
+    package = pkgs.postgresql_12;
     enable = true;
     authentication = ''
       local all all trust
@@ -28,15 +28,6 @@ in
       # api
       curlie
 
-      # vm
-      packer
-      docker_compose
-      docker-machine
-      vagrant
-      kubernetes
-      ansible
-      qemu
-
       # sql
       pgadmin
       dbeaver
@@ -45,13 +36,13 @@ in
       imagemagick
 
       # tools
-      # direnv
+      ngrok
+      direnv
       inotify-tools
       gitg
 
       # langs
       go
-      nodejs
       elixir
       gcc
 

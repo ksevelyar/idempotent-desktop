@@ -113,9 +113,7 @@ in
   environment.systemPackages = with pkgs;
     [
       # boot
-      memtest86-efi
       grub2
-      os-prober
 
       # vim
       neovim
@@ -157,7 +155,6 @@ in
       psmisc # pstree, killall
       bat
       inetutils
-      ngrok
 
       # sec
       tomb
@@ -175,6 +172,8 @@ in
       gopass
 
       # cli
+      taskwarrior
+      nmap
       wget
       curl
       aria2
@@ -182,7 +181,6 @@ in
       websocat
       brightnessctl
       youtube-dl
-      browsh
 
       # monitoring 
       hwinfo
@@ -216,7 +214,5 @@ in
       exfat
       sshfsFuse
       rsync
-      rclone
-      rclone-browser
     ];
 }
