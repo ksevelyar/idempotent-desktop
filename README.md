@@ -38,6 +38,10 @@
 
 ![screen](https://i.imgur.com/fWKORz4.png)
 
+# nebula + iftop
+
+![screen](https://i.imgur.com/V99iRiB.png)
+
 # live usb
 
 ```
