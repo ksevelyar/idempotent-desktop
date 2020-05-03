@@ -191,6 +191,7 @@ in
       gotop
       htop
       iotop
+      iftop
       powertop
       stable.nixpkgs-fmt
       neofetch

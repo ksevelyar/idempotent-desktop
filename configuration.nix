@@ -8,7 +8,9 @@
 {
   imports =
     [
-      # passwordless sudo, sshd allows root
+      # passwordless sudo, sshd on start (and allows root)
+      # sshfs root@192.168.0.10:/ ~/dobroserver
+      # ssh-copy-id root@192.168.0.10
       # ./modules/debug.nix
       ./users/ksevelyar.nix
       ./hosts/laundry.nix

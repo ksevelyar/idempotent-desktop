@@ -32,11 +32,10 @@
 
   networking.hostName = "dobroserver";
   networking.networkmanager.enable = lib.mkForce false;
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
   networking.firewall.allowedTCPPorts = [
     # Transmission
     51413
-
     # VNC
     5900
 

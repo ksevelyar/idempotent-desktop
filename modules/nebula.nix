@@ -9,4 +9,6 @@ in
     [
       nebula
     ];
+
+  networking.firewall.allowedUDPPorts = [ 4242 ];
 }
