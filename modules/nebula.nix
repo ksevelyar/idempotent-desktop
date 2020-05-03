@@ -11,4 +11,9 @@ in
     ];
 
   networking.firewall.allowedUDPPorts = [ 4242 ];
+
+  environment.shellAliases = {
+    nebula-lighthouse = "tmux new-session -A -s nebula sudo nebula -config /etc/nebula/lighthouse.yml";
+    nebula-node = "tmux new-session -A -s nebula sudo nebula -config /etc/nebula/node.yml";
+  };
 }

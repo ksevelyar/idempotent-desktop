@@ -24,6 +24,11 @@
       ../users/ksevelyar.nix
     ];
 
+  environment.etc."/nebula/node.crt".source = /storage/nebula/laundry.crt;
+  environment.etc."/nebula/node.key".source = /storage/nebula/laundry.key;
+  environment.etc."/nebula/node.yml".source = /storage/nebula/node.yml;
+  environment.etc."/nebula/skynet-ca.crt".source = /storage/nebula/skynet-ca.crt;
+
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware = {
     cpu.intel.updateMicrocode = true;
