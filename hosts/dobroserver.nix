@@ -26,10 +26,10 @@
       ../users/ksevelyar-headless.nix
     ];
 
-  environment.etc."/nebula/lighthouse.crt".source = /storage/nebula/lighthouse.crt;
-  environment.etc."/nebula/lighthouse.key".source = /storage/nebula/lighthouse.crt;
+  environment.etc."/nebula/lighthouse.crt".source = /storage/nebula/dobroserver.crt;
+  environment.etc."/nebula/lighthouse.key".source = /storage/nebula/dobroserver.crt;
   environment.etc."/nebula/lighthouse.yml".source = /storage/nebula/lighthouse.yml;
-  environment.etc."/nebula/skynet-ca.crt".source = /storage/nebula/skynet-ca.crt;
+  environment.etc."/nebula/ca.crt".source = /storage/nebula/skynet-ca.crt;
 
   hardware = {
     cpu.intel.updateMicrocode = true;
