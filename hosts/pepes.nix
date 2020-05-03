@@ -29,6 +29,11 @@
       ../users/kh.nix
     ];
 
+  environment.etc."/nebula/node.crt".source = /storage/nebula/pepes.crt;
+  environment.etc."/nebula/node.key".source = /storage/nebula/pepes.key;
+  environment.etc."/nebula/node.yml".source = /storage/nebula/node.yml;
+  environment.etc."/nebula/ca.crt".source = /storage/nebula/ca.crt;
+
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [];
   boot.kernelModules = [ "kvm-intel" ];
