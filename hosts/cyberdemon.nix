@@ -4,7 +4,35 @@
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+      ../modules/absolute-proprietary.nix
+      ../modules/aliases.nix
+      ../modules/scripts.nix
+      ../modules/boot.nix
+      ../modules/services.nix
+
+      ../modules/common-packages.nix
+      ../modules/extra-packages.nix
+      ../modules/dev-packages.nix
+      ../modules/games.nix
+
+      ../modules/x.nix
+      ../modules/bluetooth.nix
+      ../modules/sound.nix
+      ../modules/firewall-desktop.nix
+      ../modules/fonts.nix
+      ../modules/nebula.nix
+      ../modules/ssd.nix
+
+      ../modules/vm/hypervisor.nix
+
+      ../modules/laptop.nix
+      ../users/manya.nix
     ];
+
+  environment.etc."/nebula/node.crt".source = /storage/nebula/cyberdemon.crt;
+  environment.etc."/nebula/node.key".source = /storage/nebula/cyberdemon.key;
+  environment.etc."/nebula/node.yml".source = /storage/nebula/node.yml;
+  environment.etc."/nebula/ca.crt".source = /storage/nebula/ca.crt;
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [];
