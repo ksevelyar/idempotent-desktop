@@ -1,4 +1,5 @@
 {
+  networking.firewall.enable = lib.mkForce true;
   networking.firewall.allowedTCPPorts = [
     # Transmission
     51413

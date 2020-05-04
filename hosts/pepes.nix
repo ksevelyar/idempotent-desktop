@@ -20,7 +20,6 @@
       ../modules/sound.nix
       ../modules/firewall-desktop.nix
       ../modules/fonts.nix
-      # ../modules/nebula.nix
       ../modules/wireguard.nix
       ../modules/ssd.nix
 
@@ -29,11 +28,6 @@
       ../modules/laptop.nix
       ../users/kh.nix
     ];
-
-  # environment.etc."/nebula/node.crt".source = /storage/nebula/pepes.crt;
-  # environment.etc."/nebula/node.key".source = /storage/nebula/pepes.key;
-  # environment.etc."/nebula/node.yml".source = /storage/nebula/node.yml;
-  # environment.etc."/nebula/ca.crt".source = /storage/nebula/ca.crt;
 
   networking.wireguard.interfaces = {
     skynet = {
@@ -81,7 +75,6 @@
   networking.interfaces.wlp3s0.useDHCP = true;
 
   networking.hostName = "pepes";
-  networking.firewall.enable = lib.mkForce true;
 
   hardware = {
     cpu.intel.updateMicrocode = true;
