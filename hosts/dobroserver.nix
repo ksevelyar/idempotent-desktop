@@ -44,12 +44,12 @@
         {
           # laundry
           publicKey = "Ql36tqX82moc8k5Yx4McF2zxF4QG3jeoXoj8AxSUNRU=";
-          allowedIPs = [ "92.168.42.2/32" ];
+          allowedIPs = [ "92.168.42.2" ];
         }
         {
           # pepes
           publicKey = "dKznTEMMN4xKXuP8UDo92G14pzwrJNGTISeSXoMcTxQ=";
-          allowedIPs = [ "92.168.42.3/32" ];
+          allowedIPs = [ "92.168.42.3" ];
         }
         # {
         #   # cyberdemon
