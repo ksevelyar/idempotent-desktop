@@ -1,9 +1,28 @@
 {
   networking.useDHCP = false;
 
+  networking.firewall.enable = lib.mkForce true;
+  networking.firewall.allowedTCPPorts = [
+    # Transmission
+    51413
+    # VNC
+    5900
+
+    # NFS
+    111
+    2049
+    20000
+    20001
+    20002
+
+    # Dev
+    8080
+  ];
+  networking.firewall.allowedUDPPorts = [ 51413 5900 111 2049 20000 20001 20002 8080 51820 ];
+
   networking.nat.enable = true;
   networking.nat.externalInterface = "enp3s0";
-  networking.nat.internalInterfaces = [ "enp5s0" "skynet" ];
+  networking.nat.internalInterfaces = [ "enp5s0" ];
 
   networking.interfaces.enp3s0.useDHCP = true;
   networking.interfaces.enp5s0.ipv4.addresses = [
@@ -25,5 +44,34 @@
         range 192.168.0.100 192.168.0.200;
       }
     '';
+  };
+
+  networking.wireguard.interfaces = {
+    skynet = {
+      ips = [ "192.168.42.1" ];
+      listenPort = 51820;
+
+      privateKeyFile = "/home/ksevelyar/wireguard-keys/private";
+
+      peers = [
+        # laundry
+        {
+          publicKey = "Ql36tqX82moc8k5Yx4McF2zxF4QG3jeoXoj8AxSUNRU=";
+          allowedIPs = [ "192.168.42.2" ];
+        }
+
+        # pepes
+        {
+          publicKey = "dKznTEMMN4xKXuP8UDo92G14pzwrJNGTISeSXoMcTxQ=";
+          allowedIPs = [ "192.168.42.3" ];
+        }
+
+        # # cyberdemon
+        # {
+        #   publicKey = "hru";
+        #   allowedIPs = [ "192.168.42.4" ];
+        # }
+      ];
+    };
   };
 }

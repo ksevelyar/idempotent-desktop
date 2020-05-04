@@ -35,28 +35,15 @@
   # environment.etc."/nebula/ca.crt".source = /storage/nebula/ca.crt;
 
   networking.wireguard.interfaces = {
-    # "wg0" is the network interface name. You can name the interface arbitrarily.
     skynet = {
-      # Determines the IP address and subnet of the client's end of the tunnel interface.
       ips = [ "192.168.42.2" ];
-      listenPort = 51820;
-
-      # Note: The private key can also be included inline via the privateKey option,
-      # but this makes the private key world-readable; thus, using privateKeyFile is
-      # recommended.
       privateKeyFile = "/home/ksevelyar/wireguard-keys/private";
 
       peers = [
-        # For a client configuration, one peer entry for the server will suffice.
         {
-          # Public key of the server (not a file path).
           publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
 
-          # Forward all the traffic via VPN.
           allowedIPs = [ "192.168.42.0/24" ];
-          # allowedIPs = [ "192.168.42.1" "192.168.42.3" ];
-          # Or forward only particular subnets
-          #allowedIPs = [ "10.100.0.1" "91.108.12.0/22" ];
 
           # Set this to the server IP and port.
           endpoint = "77.37.166.17:51820";
@@ -75,7 +62,7 @@
   };
 
   networking.hostName = "laundry";
-  networking.firewall.enable = lib.mkForce false;
+  networking.firewall.enable = lib.mkForce true;
   networking.useDHCP = false;
   networking.interfaces.enp4s0.useDHCP = true;
 
