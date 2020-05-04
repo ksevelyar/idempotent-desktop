@@ -3,7 +3,7 @@
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-      ../modules/absolute-proprietary.nix
+      ../modules/absolutely-proprietary.nix
       ../modules/aliases.nix
       ../modules/scripts.nix
       ../modules/boot.nix

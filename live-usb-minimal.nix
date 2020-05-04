@@ -5,7 +5,7 @@
 {
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
-    ./modules/absolute-proprietary.nix
+    ./modules/absolutely-proprietary.nix
     ./modules/aliases.nix
     ./modules/scripts.nix
     ./modules/services-headless.nix
