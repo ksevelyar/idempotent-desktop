@@ -3,7 +3,7 @@
 
   networking.nat.enable = true;
   networking.nat.externalInterface = "enp3s0";
-  networking.nat.internalInterfaces = [ "enp5s0" ];
+  networking.nat.internalInterfaces = [ "enp5s0" "skynet" ];
 
   networking.interfaces.enp3s0.useDHCP = true;
   networking.interfaces.enp5s0.ipv4.addresses = [
