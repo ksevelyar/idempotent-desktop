@@ -116,7 +116,20 @@ in
       grub2
 
       # vim
-      neovim
+      (
+        neovim.override {
+          vimAlias = true;
+          viAlias = true;
+          configure = {
+            # packages.myPlugins = with pkgs.vimPlugins; {
+            #   start = [ vim-lastplace vim-nix ];
+            #   opt = [];
+            # };
+            customRC = builtins.readFile ../home/.config/nvim/init.vim;
+          };
+        }
+      )
+
       watchman
       (
         python3.withPackages (
