@@ -49,7 +49,7 @@
         # For a client configuration, one peer entry for the server will suffice.
         {
           # Public key of the server (not a file path).
-          publicKey = "Ql36tqX82moc8k5Yx4McF2zxF4QG3jeoXoj8AxSUNRU=";
+          publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
 
           # Forward all the traffic via VPN.
           allowedIPs = [ "0.0.0.0/0" ];

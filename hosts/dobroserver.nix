@@ -53,7 +53,7 @@
         }
         {
           # cyberdemon
-          publicKey = "{john doe's public key}";
+          publicKey = "hru";
           allowedIPs = [ "10.10.10.4/24" ];
         }
       ];
