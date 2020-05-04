@@ -26,7 +26,6 @@
       ../users/ksevelyar-headless.nix
     ];
 
-  networking.firewall.allowedUDPPorts = [ 51820 ];
   networking.wireguard.interfaces = {
     # "wg0" is the network interface name. You can name the interface arbitrarily.
     skynet = {
@@ -89,7 +88,7 @@
     # Dev
     8080
   ];
-  networking.firewall.allowedUDPPorts = [ 51413 5900 111 2049 20000 20001 20002 8080 ];
+  networking.firewall.allowedUDPPorts = [ 51413 5900 111 2049 20000 20001 20002 8080 51820 ];
 
 
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "xhci_pci" "usb_storage" "usbhid" "sd_mod" ];
