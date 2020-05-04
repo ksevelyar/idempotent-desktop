@@ -54,8 +54,8 @@
           publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
 
           # Forward all the traffic via VPN.
-          allowedIPs = [ "0.0.0.0/0" ];
-          # allowedIPs = [ "192.168.42.1" "192.168.42.2" ];
+          # allowedIPs = [ "0.0.0.0/0" ];
+          allowedIPs = [ "192.168.42.0/24" "77.37.166.17" ];
           # Or forward only particular subnets
           #allowedIPs = [ "10.100.0.1" "91.108.12.0/22" ];
 
