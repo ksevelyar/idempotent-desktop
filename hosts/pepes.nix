@@ -40,6 +40,7 @@
     skynet = {
       # Determines the IP address and subnet of the client's end of the tunnel interface.
       ips = [ "192.168.42.3/32" ];
+      listenPort = 51820;
 
       # Note: The private key can also be included inline via the privateKey option,
       # but this makes the private key world-readable; thus, using privateKeyFile is
