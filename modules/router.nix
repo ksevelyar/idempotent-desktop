@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   networking.useDHCP = false;
 
