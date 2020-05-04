@@ -38,7 +38,7 @@
     # "wg0" is the network interface name. You can name the interface arbitrarily.
     skynet = {
       # Determines the IP address and subnet of the client's end of the tunnel interface.
-      ips = [ "10.100.0.3/24" ];
+      ips = [ "192.168.42.3/24" ];
 
       # Note: The private key can also be included inline via the privateKey option,
       # but this makes the private key world-readable; thus, using privateKeyFile is
@@ -57,7 +57,7 @@
           #allowedIPs = [ "10.100.0.1" "91.108.12.0/22" ];
 
           # Set this to the server IP and port.
-          endpoint = "{77.37.166.17:51820";
+          endpoint = "{77.37.166.17:51820}";
 
           # Send keepalives every 25 seconds. Important to keep NAT tables alive.
           persistentKeepalive = 25;
