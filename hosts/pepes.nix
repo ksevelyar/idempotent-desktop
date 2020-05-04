@@ -20,7 +20,8 @@
       ../modules/sound.nix
       ../modules/firewall-desktop.nix
       ../modules/fonts.nix
-      ../modules/nebula.nix
+      # ../modules/nebula.nix
+      ../modules/wireguard.nix
       ../modules/ssd.nix
 
       ../modules/vm/hypervisor.nix
