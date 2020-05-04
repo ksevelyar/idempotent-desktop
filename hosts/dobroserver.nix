@@ -12,7 +12,7 @@
       ../modules/common-packages.nix
       ../modules/ssd.nix
       ../modules/router.nix
-      ../modules/nebula.nix
+      # ../modules/nebula.nix
       # ./modules/extra-packages.nix
       # ./modules/dev-packages.nix
       # ./modules/games.nix
@@ -26,10 +26,45 @@
       ../users/ksevelyar-headless.nix
     ];
 
-  environment.etc."/nebula/lighthouse.crt".source = /storage/nebula/dobroserver.crt;
-  environment.etc."/nebula/lighthouse.key".source = /storage/nebula/dobroserver.key;
-  environment.etc."/nebula/lighthouse.yml".source = /storage/nebula/lighthouse.yml;
-  environment.etc."/nebula/ca.crt".source = /storage/nebula/ca.crt;
+  networking.firewall.allowedUDPPorts = [ 51820 ];
+  networking.wireguard.interfaces = {
+    # "wg0" is the network interface name. You can name the interface arbitrarily.
+    skynet = {
+      # Determines the IP address and subnet of the server's end of the tunnel interface.
+      ips = [ "10.10.10.1/24" ];
+
+      # The port that Wireguard listens to. Must be accessible by the client.
+      listenPort = 51820;
+
+      # Note: The private key can also be included inline via the privateKey option,
+      # but this makes the private key world-readable; thus, using privateKeyFile is
+      # recommended.
+      privateKeyFile = "/home/ksevelyar/wireguard-keys/private";
+
+      peers = [
+        {
+          # laundry
+          publicKey = "{client public key}";
+          allowedIPs = [ "10.10.10.2/24" ];
+        }
+        {
+          # pepes
+          publicKey = "{john doe's public key}";
+          allowedIPs = [ "10.10.10.3/24" ];
+        }
+        {
+          # cyberdemon
+          publicKey = "{john doe's public key}";
+          allowedIPs = [ "10.10.10.4/24" ];
+        }
+      ];
+    };
+  };
+
+  # environment.etc."/nebula/lighthouse.crt".source = /storage/nebula/dobroserver.crt;
+  # environment.etc."/nebula/lighthouse.key".source = /storage/nebula/dobroserver.key;
+  # environment.etc."/nebula/lighthouse.yml".source = /storage/nebula/lighthouse.yml;
+  # environment.etc."/nebula/ca.crt".source = /storage/nebula/ca.crt;
 
   hardware = {
     cpu.intel.updateMicrocode = true;
