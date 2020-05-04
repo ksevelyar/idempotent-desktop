@@ -44,12 +44,12 @@
       peers = [
         {
           # laundry
-          publicKey = "{client public key}";
+          publicKey = "Ql36tqX82moc8k5Yx4McF2zxF4QG3jeoXoj8AxSUNRU=";
           allowedIPs = [ "10.10.10.2/24" ];
         }
         {
           # pepes
-          publicKey = "{john doe's public key}";
+          publicKey = "h5oSP9S1wjjPS8bw9/dxh80p+HO0Ia9lkLyAPSvNJXo=";
           allowedIPs = [ "10.10.10.3/24" ];
         }
         {
