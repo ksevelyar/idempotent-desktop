@@ -52,12 +52,12 @@
           publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
 
           # Forward all the traffic via VPN.
-          allowedIPs = [ "0.0.0.0/0" ];
+          allowedIPs = [ "192.168.42.0/24" ];
           # Or forward only particular subnets
           #allowedIPs = [ "10.100.0.1" "91.108.12.0/22" ];
 
           # Set this to the server IP and port.
-          endpoint = "{77.37.166.17:51820}";
+          endpoint = "77.37.166.17:51820";
 
           # Send keepalives every 25 seconds. Important to keep NAT tables alive.
           persistentKeepalive = 25;
