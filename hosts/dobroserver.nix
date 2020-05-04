@@ -48,7 +48,7 @@
         }
         {
           # pepes
-          publicKey = "h5oSP9S1wjjPS8bw9/dxh80p+HO0Ia9lkLyAPSvNJXo=";
+          publicKey = "dKznTEMMN4xKXuP8UDo92G14pzwrJNGTISeSXoMcTxQ=";
           allowedIPs = [ "192.168.42.3/32" ];
         }
         # {
