@@ -30,7 +30,7 @@
     # "wg0" is the network interface name. You can name the interface arbitrarily.
     skynet = {
       # Determines the IP address and subnet of the server's end of the tunnel interface.
-      ips = [ "10.10.10.1/24" ];
+      ips = [ "192.168.42.1/24" ];
 
       # The port that Wireguard listens to. Must be accessible by the client.
       listenPort = 51820;
@@ -44,17 +44,17 @@
         {
           # laundry
           publicKey = "Ql36tqX82moc8k5Yx4McF2zxF4QG3jeoXoj8AxSUNRU=";
-          allowedIPs = [ "10.10.10.2/24" ];
+          allowedIPs = [ "192.168.42.2/24" ];
         }
         {
           # pepes
           publicKey = "h5oSP9S1wjjPS8bw9/dxh80p+HO0Ia9lkLyAPSvNJXo=";
-          allowedIPs = [ "10.10.10.3/24" ];
+          allowedIPs = [ "192.168.42.3/24" ];
         }
         {
           # cyberdemon
           publicKey = "hru";
-          allowedIPs = [ "10.10.10.4/24" ];
+          allowedIPs = [ "192.168.42.4/24" ];
         }
       ];
     };
