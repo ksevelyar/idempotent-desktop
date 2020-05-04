@@ -71,7 +71,7 @@
 
   networking.hostName = "dobroserver";
   networking.networkmanager.enable = lib.mkForce false;
-  networking.firewall.enable = true;
+  networking.firewall.enable = lib.mkForce false;
   networking.firewall.allowedTCPPorts = [
     # Transmission
     51413

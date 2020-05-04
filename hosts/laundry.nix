@@ -74,6 +74,7 @@
   };
 
   networking.hostName = "laundry";
+  networking.firewall.enable = lib.mkForce false;
   networking.useDHCP = false;
   networking.interfaces.enp4s0.useDHCP = true;
 

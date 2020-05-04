@@ -94,13 +94,14 @@
   networking.interfaces.wlp3s0.useDHCP = true;
 
   networking.hostName = "pepes";
+  networking.firewall.enable = lib.mkForce false;
 
   hardware = {
     cpu.intel.updateMicrocode = true;
   };
   services.xserver.videoDrivers = [ "intel" ];
 
-  console.font = lib.mkForce "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
+  # console.font = lib.mkForce "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
   # services.xserver.dpi = 180;
   # environment.variables = {
   #   GDK_SCALE = "2";
