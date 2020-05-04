@@ -38,7 +38,7 @@
     # "wg0" is the network interface name. You can name the interface arbitrarily.
     skynet = {
       # Determines the IP address and subnet of the client's end of the tunnel interface.
-      ips = [ "192.168.42.2/24" ];
+      ips = [ "192.168.42.2/32" ];
 
       # Note: The private key can also be included inline via the privateKey option,
       # but this makes the private key world-readable; thus, using privateKeyFile is
