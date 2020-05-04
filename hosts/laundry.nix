@@ -38,7 +38,7 @@
     # "wg0" is the network interface name. You can name the interface arbitrarily.
     skynet = {
       # Determines the IP address and subnet of the client's end of the tunnel interface.
-      ips = [ "192.168.42.2/32" ];
+      ips = [ "192.168.42.2" ];
       listenPort = 51820;
 
       # Note: The private key can also be included inline via the privateKey option,
@@ -53,7 +53,8 @@
           publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
 
           # Forward all the traffic via VPN.
-          allowedIPs = [ "192.168.42.1" "192.168.42.3" ];
+          allowedIPs = [ "0.0.0.0/0" ];
+          # allowedIPs = [ "192.168.42.1" "192.168.42.3" ];
           # Or forward only particular subnets
           #allowedIPs = [ "10.100.0.1" "91.108.12.0/22" ];
 
