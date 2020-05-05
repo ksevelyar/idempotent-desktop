@@ -3,13 +3,13 @@
   networking.firewall.enable = lib.mkForce true;
   networking.firewall.allowedTCPPorts = [
     # Transmission
-    51413
+    41414
 
     # VNC
     5900
 
     # NFS
-    111
+    111 # portmapper
     2049
     20000
     20001
@@ -17,7 +17,22 @@
 
     # Dev
     8080
+    4040
   ];
 
-  networking.firewall.allowedUDPPorts = [ 51413 5900 111 2049 20000 20001 20002 8080 4242 ];
+  networking.firewall.allowedUDPPorts = [
+    # Transmission
+    41414
+
+    # NFS
+    111 # portmapper
+    2049
+    20000
+    20001
+    20002
+
+    # wireguard
+    51820
+  ];
+
 }

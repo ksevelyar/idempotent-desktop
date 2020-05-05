@@ -147,6 +147,7 @@ in
       global
 
       # sys
+      sipcalc
       lsof
       tldr
       git

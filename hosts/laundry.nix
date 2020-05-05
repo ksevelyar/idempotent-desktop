@@ -19,7 +19,6 @@
       ../modules/sound.nix
       ../modules/firewall-desktop.nix
       ../modules/fonts.nix
-      # ../modules/nebula.nix
       ../modules/wireguard.nix
       ../modules/ssd.nix
 
@@ -29,14 +28,9 @@
       ../users/ksevelyar.nix
     ];
 
-  # environment.etc."/nebula/node.crt".source = /storage/nebula/laundry.crt;
-  # environment.etc."/nebula/node.key".source = /storage/nebula/laundry.key;
-  # environment.etc."/nebula/node.yml".source = /storage/nebula/node.yml;
-  # environment.etc."/nebula/ca.crt".source = /storage/nebula/ca.crt;
-
   networking.wireguard.interfaces = {
     skynet = {
-      ips = [ "192.168.42.2" ];
+      ips = [ "192.168.42.47" ];
       privateKeyFile = "/home/ksevelyar/wireguard-keys/private";
 
       peers = [
@@ -62,7 +56,6 @@
   };
 
   networking.hostName = "laundry";
-  networking.firewall.enable = lib.mkForce true;
   networking.useDHCP = false;
   networking.interfaces.enp4s0.useDHCP = true;
 
@@ -74,38 +67,31 @@
 
   swapDevices = [];
 
+  # sudo e2label /dev/disk/by-uuid/044a758f-4252-4e42-b68c-a87d2345dc4c nixos
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/044a758f-4252-4e42-b68c-a87d2345dc4c";
+      device = "/dev/disk/by-label/nixos";
       fsType = "ext4";
       options = [ "noatime" "nodiratime" ];
     };
 
+  # sudo fatlabel /dev/disk/by-uuid/3A05-EA05
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/3A05-EA05";
+      device = "/dev/disk/by-label/boot";
       fsType = "vfat";
       options = [ "noatime" "nodiratime" ]; # ssd
     };
 
+  # sudo e2label /dev/disk/by-uuid/bd7a95b1-0a44-4477-8616-177b95561ad1 storage
   fileSystems."/storage" =
     {
-      device = "/dev/disk/by-uuid/bd7a95b1-0a44-4477-8616-177b95561ad1";
+      device = "/dev/disk/by-label/storage";
       fsType = "ext4";
       options = [ "noatime" "nodiratime" ];
     };
 
-  fileSystems."/srv/storage/" = {
-    device = "/storage/tmp";
-    options = [ "bind" ];
-  };
-
-  fileSystems."/srv/vvv/" = {
-    device = "/storage/vvv";
-    options = [ "bind" ];
-  };
-
-  services.nfs.server.enable = true;
+  services.nfs.server.enable = false;
   services.nfs.server.exports = ''
     /srv         192.168.0.1/24(ro,all_squash,insecure,fsid=0,crossmnt)
     /srv/storage 192.168.0.1/24(rw,nohide,all_squash,insecure)
@@ -117,7 +103,7 @@
   };
 
   services.syncthing = {
-    enable = true;
+    enable = false;
     user = "ksevelyar";
     dataDir = "/storage/syncthing";
     openDefaultPorts = true;

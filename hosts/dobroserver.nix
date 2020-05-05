@@ -12,7 +12,6 @@
       ../modules/common-packages.nix
       ../modules/ssd.nix
       ../modules/router.nix
-      # ../modules/nebula.nix
       # ./modules/extra-packages.nix
       # ./modules/dev-packages.nix
       # ./modules/games.nix
@@ -25,11 +24,6 @@
 
       ../users/ksevelyar-headless.nix
     ];
-
-  # environment.etc."/nebula/lighthouse.crt".source = /storage/nebula/dobroserver.crt;
-  # environment.etc."/nebula/lighthouse.key".source = /storage/nebula/dobroserver.key;
-  # environment.etc."/nebula/lighthouse.yml".source = /storage/nebula/lighthouse.yml;
-  # environment.etc."/nebula/ca.crt".source = /storage/nebula/ca.crt;
 
   hardware = {
     cpu.intel.updateMicrocode = true;
@@ -45,10 +39,20 @@
   boot.extraModulePackages = [];
 
   swapDevices = [];
+
+  # sudo e2label /dev/disk/by-uuid/44b4a02e-1993-4470-b345-b2ca5e3e5b42 nixos
+  # sudo e2label /dev/sdb1 storage
+
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/44b4a02e-1993-4470-b345-b2ca5e3e5b42";
+      device = "/dev/disk/by-label/nixos";
       fsType = "ext4";
-      options = [ "noatime" "nodiratime" ];
+      options = [ "noatime" "nodiratime" ]; # ssd
+    };
+
+  fileSystems."/storage" =
+    {
+      device = "/dev/disk/by-label/storage";
+      fsType = "ext4";
     };
 }

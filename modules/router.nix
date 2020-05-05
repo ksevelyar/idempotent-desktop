@@ -5,21 +5,22 @@
   networking.firewall.enable = lib.mkForce true;
   networking.firewall.allowedTCPPorts = [
     # Transmission
-    51413
-    # VNC
-    5900
+    41414
+  ];
+  networking.firewall.allowedUDPPorts = [
+    # Transmission
+    41414
 
     # NFS
-    111
+    111 # portmapper
     2049
     20000
     20001
     20002
 
-    # Dev
-    8080
+    # wireguard
+    51820
   ];
-  networking.firewall.allowedUDPPorts = [ 51413 5900 111 2049 20000 20001 20002 8080 51820 ];
 
   networking.nat.enable = true;
   networking.nat.externalInterface = "enp3s0";
@@ -40,7 +41,7 @@
     no-resolv
 
     server=208.67.220.220
-    server=8.8.4.4
+    server=1.1.1.1
     
     listen-address=::1,127.0.0.1,192.168.0.1
     bind-interfaces
@@ -66,6 +67,14 @@
         range 192.168.0.100 192.168.0.200;
       }
     '';
+
+    machines = [
+      # HK-47
+      { ethernetAddress = "a8:5e:45:57:51:d0"; ipAddress = "192.168.0.47"; }
+    ];
+
+    forwardPorts = [ { sourcePort = 41414; destination = "192.168.0.47:41414"; proto = "tcp"; } ];
+    forwardPorts = [ { sourcePort = 41414; destination = "192.168.0.47:41414"; proto = "udp"; } ];
   };
 
   networking.wireguard.interfaces = {
@@ -76,10 +85,10 @@
       privateKeyFile = "/home/ksevelyar/wireguard-keys/private";
 
       peers = [
-        # laundry
+        # HK-47
         {
           publicKey = "Ql36tqX82moc8k5Yx4McF2zxF4QG3jeoXoj8AxSUNRU=";
-          allowedIPs = [ "192.168.42.2" ];
+          allowedIPs = [ "192.168.42.47" ];
         }
 
         # pepes
