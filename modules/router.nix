@@ -79,8 +79,7 @@
     '';
 
     machines = [
-      # HK-47
-      { ethernetAddress = "a8:5e:45:57:51:d0"; ipAddress = "192.168.0.47"; }
+      { hostName = "hk47"; ethernetAddress = "a8:5e:45:57:51:d0"; ipAddress = "192.168.0.47"; }
     ];
   };
 
