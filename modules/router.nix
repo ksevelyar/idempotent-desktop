@@ -33,13 +33,31 @@
     }
   ];
 
+  services.dnsmasq.enable = true;
+  services.dnsmasq.extraConfig = ''
+    domain-needed
+    bogus-priv
+    no-resolv
+    server=8.8.8.8
+    server=8.8.4.4
+    interface=enp3s0
+    listen-address=192.168.0.1
+    cache-size=10000
+    log-queries
+    log-facility=/tmp/ad-block.log
+    local-ttl=300
+    host-record=dobroserver,127.0.0.1,::1
+    conf-file=/etc/nixos/assets/hosts-blocklists/domains.txt
+    addn-hosts=/etc/nixos/assets/hosts-blocklists/hostnames.txt
+  '';
+
   services.dhcpd4 = {
     enable = true;
     interfaces = [ "enp5s0" ];
     extraConfig = ''
       option subnet-mask 255.255.255.0;
       option broadcast-address 192.168.0.255;
-      option domain-name-servers 8.8.8.8, 4.4.4.4;
+      option domain-name-servers 192.168.0.1;
       option routers 192.168.0.1;
       subnet 192.168.0.0 netmask 255.255.255.0 {
         range 192.168.0.100 192.168.0.200;

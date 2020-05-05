@@ -203,7 +203,6 @@ in
       htop
       iotop
       iftop
-      powertop
       stable.nixpkgs-fmt
       neofetch
 

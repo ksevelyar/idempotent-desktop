@@ -1,0 +1,3 @@
+[submodule "assets/hosts-blocklists"]
+	path = assets/hosts-blocklists
+	url = https://github.com/notracking/hosts-blocklists.git

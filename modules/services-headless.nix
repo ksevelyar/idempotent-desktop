@@ -14,6 +14,11 @@
     };
   };
 
+  services.locate = {
+    enable = true;
+    locate = pkgs.mlocate;
+  };
+
   services.mingetty.greetingLine = ''\l'';
 
   services.openssh = {

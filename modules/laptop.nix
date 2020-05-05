@@ -1,6 +1,9 @@
 { config, pkgs, lib, ... }:
 {
-  powerManagement.enable = true;
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
+  };
   services.tlp.enable = true;
   services.tlp.extraConfig = ''
     START_CHARGE_THRESH_BAT0=85

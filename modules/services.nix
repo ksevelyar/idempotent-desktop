@@ -10,6 +10,11 @@
     #   drivers = [ pkgs.gutenprint pkgs.hplip ];
   };
 
+  services.locate = {
+    enable = true;
+    locate = pkgs.mlocate;
+  };
+
   services.avahi = {
     enable = true;
     nssmdns = true;
