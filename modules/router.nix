@@ -38,15 +38,18 @@
     domain-needed
     bogus-priv
     no-resolv
-    server=8.8.8.8
+
+    server=208.67.220.220
     server=8.8.4.4
-    interface=enp3s0
-    listen-address=192.168.0.1
+    
+    listen-address=::1,127.0.0.1,192.168.0.1
+    bind-interfaces
+    
     cache-size=10000
     log-queries
     log-facility=/tmp/ad-block.log
     local-ttl=300
-    host-record=dobroserver,127.0.0.1,::1
+
     conf-file=/etc/nixos/assets/hosts-blocklists/domains.txt
     addn-hosts=/etc/nixos/assets/hosts-blocklists/hostnames.txt
   '';
