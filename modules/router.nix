@@ -76,8 +76,10 @@
       { ethernetAddress = "a8:5e:45:57:51:d0"; ipAddress = "192.168.0.47"; }
     ];
 
-    forwardPorts = [ { sourcePort = 41414; destination = "192.168.0.47:41414"; proto = "tcp"; } ];
-    forwardPorts = [ { sourcePort = 41414; destination = "192.168.0.47:41414"; proto = "udp"; } ];
+    forwardPorts = [
+      { sourcePort = 41414; destination = "192.168.0.47:41414"; proto = "tcp"; }
+      { sourcePort = 41414; destination = "192.168.0.47:41414"; proto = "udp"; }
+    ];
   };
 
   networking.wireguard.interfaces = {
