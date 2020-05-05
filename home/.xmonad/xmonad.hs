@@ -87,7 +87,7 @@ main = do
     manageHook         = myManageHook
       <+> manageDocks,
     handleEventHook    = myEventHook,
-    logHook            = polibarPP,
+    logHook            = polybarPP,
     startupHook        = myStartupHook
   }
 
@@ -101,7 +101,7 @@ wsOutput wsStr = do
   -- System.IO.hClose h
   io $ appendFile "/tmp/.xmonad-workspace-log" (wsStr ++ "\n")
 
-polibarPP = dynamicLogWithPP $ def {
+polybarPP = dynamicLogWithPP $ def {
   ppCurrent = wrap ("%{F#9C71C7}[%{F-}%{F#BEB3CD}") "%{F-}%{F#9C71C7}]%{F-}"
   , ppHidden  = wrap ("%{F" ++ "#BEB3CD" ++ "} ") " %{F-}"
   , ppHiddenNoWindows  = wrap ("%{F" ++ "#6B5A68" ++ "} ") " %{F-}"
@@ -253,6 +253,7 @@ scratchpads = [
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   [ ((modm,                 xK_Return), spawn $ XMonad.terminal conf) -- launch a terminal
+  , ((modm,                 xK_o     ), spawn "off")
   , ((modm,                 xK_x     ), spawn "rofi -modi drun -show")
   , ((modm,                 xK_u     ), spawn "ulauncher")
   , ((modm,                 xK_h     ), focusUrgent)

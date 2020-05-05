@@ -7,7 +7,11 @@ in
 {
   programs.fish.enable = true;
   programs.mosh.enable = true;
-  programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryFlavor = "gtk2";
+  };
 
   programs.tmux = {
     enable = true;
@@ -171,6 +175,7 @@ in
       inetutils
 
       # sec
+      pinentry
       tomb
       # pass
       # We can add existing passwords to the store with insert:

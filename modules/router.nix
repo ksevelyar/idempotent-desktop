@@ -24,7 +24,6 @@
       # Transmission
       41414
 
-
       # wireguard
       51820
 
@@ -44,6 +43,8 @@
     ];
   };
 
+  # mkdir -p ~/wireguard-keys && cd ~/wireguard-keys && umask 077
+  # wg genkey | tee privatekey | wg pubkey > publickey
   networking.wireguard.interfaces = {
     skynet = {
       ips = [ "192.168.42.1" ];
@@ -64,11 +65,17 @@
           allowedIPs = [ "192.168.42.3" ];
         }
 
-        # # cyberdemon
+        # cyberdemon
         # {
         #   publicKey = "hru";
         #   allowedIPs = [ "192.168.42.4" ];
         # }
+
+        # prism
+        {
+          publicKey = "FLCkV96NM5ortoqDNiF4eswK1vnLSa04gTnDMmLuaAg=";
+          allowedIPs = [ "192.168.42.5" ];
+        }
       ];
     };
   };

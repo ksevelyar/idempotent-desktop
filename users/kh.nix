@@ -8,7 +8,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kh = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "audio" "libvirtd" ]; # Enable ‘sudo’ for the user.
   };
 
   home-manager = {
