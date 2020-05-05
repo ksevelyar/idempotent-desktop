@@ -25,9 +25,16 @@
     53
   ];
 
-  networking.nat.enable = true;
-  networking.nat.externalInterface = "enp3s0";
-  networking.nat.internalInterfaces = [ "enp5s0" ];
+  networking.nat = {
+    enable = true;
+    externalInterface = "enp3s0";
+    internalInterfaces = [ "enp5s0" ];
+
+    forwardPorts = [
+      { sourcePort = 41414; destination = "192.168.0.47:41414"; proto = "tcp"; }
+      { sourcePort = 41414; destination = "192.168.0.47:41414"; proto = "udp"; }
+    ];
+  };
 
   networking.interfaces.enp3s0.useDHCP = true;
   networking.interfaces.enp5s0.ipv4.addresses = [
@@ -74,11 +81,6 @@
     machines = [
       # HK-47
       { ethernetAddress = "a8:5e:45:57:51:d0"; ipAddress = "192.168.0.47"; }
-    ];
-
-    forwardPorts = [
-      { sourcePort = 41414; destination = "192.168.0.47:41414"; proto = "tcp"; }
-      { sourcePort = 41414; destination = "192.168.0.47:41414"; proto = "udp"; }
     ];
   };
 
