@@ -2,28 +2,36 @@
 {
   networking.useDHCP = false;
 
-  networking.firewall.enable = lib.mkForce true;
-  networking.firewall.allowedTCPPorts = [
-    # Transmission
-    41414
-  ];
-  networking.firewall.allowedUDPPorts = [
-    # Transmission
-    41414
+  networking.interfaces = {
+    enp3s0.useDHCP = true;
+    enp5s0.ipv4.addresses = [ { address = "192.168.0.1"; prefixLength = 24; } ];
+  };
 
-    # NFS
-    111 # portmapper
-    2049
-    20000
-    20001
-    20002
+  networking.firewall = {
+    enable = lib.mkForce true;
+    allowedTCPPorts = [
+      # Transmission
+      41414
 
-    # wireguard
-    51820
+      # NFS
+      111 # portmapper
+      2049
+      20000
+      20001
+      20002
+    ];
+    allowedUDPPorts = [
+      # Transmission
+      41414
 
-    # dnsmasq
-    53
-  ];
+
+      # wireguard
+      51820
+
+      # dnsmasq
+      53
+    ];
+  };
 
   networking.nat = {
     enable = true;
@@ -36,14 +44,36 @@
     ];
   };
 
-  networking.interfaces.enp3s0.useDHCP = true;
-  networking.interfaces.enp5s0.ipv4.addresses = [
-    {
-      address = "192.168.0.1";
-      prefixLength = 24;
-    }
-  ];
+  networking.wireguard.interfaces = {
+    skynet = {
+      ips = [ "192.168.42.1" ];
+      listenPort = 51820;
 
+      privateKeyFile = "/home/ksevelyar/wireguard-keys/private";
+
+      peers = [
+        # HK-47
+        {
+          publicKey = "Ql36tqX82moc8k5Yx4McF2zxF4QG3jeoXoj8AxSUNRU=";
+          allowedIPs = [ "192.168.42.47" ];
+        }
+
+        # pepes
+        {
+          publicKey = "dKznTEMMN4xKXuP8UDo92G14pzwrJNGTISeSXoMcTxQ=";
+          allowedIPs = [ "192.168.42.3" ];
+        }
+
+        # # cyberdemon
+        # {
+        #   publicKey = "hru";
+        #   allowedIPs = [ "192.168.42.4" ];
+        # }
+      ];
+    };
+  };
+
+  # https://github.com/notracking/hosts-blocklists
   services.dnsmasq.enable = true;
   services.dnsmasq.extraConfig = ''
     domain-needed
@@ -81,34 +111,5 @@
     machines = [
       { hostName = "hk47"; ethernetAddress = "a8:5e:45:57:51:d0"; ipAddress = "192.168.0.47"; }
     ];
-  };
-
-  networking.wireguard.interfaces = {
-    skynet = {
-      ips = [ "192.168.42.1" ];
-      listenPort = 51820;
-
-      privateKeyFile = "/home/ksevelyar/wireguard-keys/private";
-
-      peers = [
-        # HK-47
-        {
-          publicKey = "Ql36tqX82moc8k5Yx4McF2zxF4QG3jeoXoj8AxSUNRU=";
-          allowedIPs = [ "192.168.42.47" ];
-        }
-
-        # pepes
-        {
-          publicKey = "dKznTEMMN4xKXuP8UDo92G14pzwrJNGTISeSXoMcTxQ=";
-          allowedIPs = [ "192.168.42.3" ];
-        }
-
-        # # cyberdemon
-        # {
-        #   publicKey = "hru";
-        #   allowedIPs = [ "192.168.42.4" ];
-        # }
-      ];
-    };
   };
 }
