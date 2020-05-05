@@ -20,6 +20,9 @@
 
     # wireguard
     51820
+
+    # dnsmasq
+    53
   ];
 
   networking.nat.enable = true;
