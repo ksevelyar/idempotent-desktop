@@ -7,7 +7,8 @@
       ../modules/absolutely-proprietary.nix
       ../modules/aliases.nix
       ../modules/scripts.nix
-      ../modules/boot.nix
+      ../modules/boot/efi.nix
+      ../modules/boot/multiboot.nix
       ../modules/services.nix
 
       ../modules/common-packages.nix

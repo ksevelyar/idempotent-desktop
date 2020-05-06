@@ -6,7 +6,8 @@
       ../modules/absolutely-proprietary.nix
       ../modules/aliases.nix
       ../modules/scripts.nix
-      ../modules/boot-legacy.nix
+      ../modules/boot/bios.nix
+      ../modules/boot/multiboot.nix
       ../modules/services.nix
 
       ../modules/common-packages.nix
@@ -48,16 +49,15 @@
       ];
     };
   };
+  networking.useDHCP = false;
+  networking.interfaces.enp4s0.useDHCP = true;
+  networking.interfaces.wlp2s0.useDHCP = true;
+  networking.hostName = "prism"; # Define your hostname.
 
   services.xserver.videoDrivers = [ "ati-drivers" ];
   hardware = {
     cpu.intel.updateMicrocode = true;
   };
-
-  networking.useDHCP = false;
-  networking.interfaces.enp4s0.useDHCP = true;
-  networking.interfaces.wlp2s0.useDHCP = true;
-  networking.hostName = "prism"; # Define your hostname.
 
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [];

@@ -346,6 +346,7 @@ call plug#end()
 set termguicolors
 
 " hi EndOfBuffer guifg=bg
+" :Colors to change theme
 silent! colorscheme joker
 " set background=dark
 

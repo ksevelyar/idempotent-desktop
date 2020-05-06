@@ -153,6 +153,7 @@ in
       # sys
       sipcalc
       lsof
+      cheat
       tldr
       git
       gitAndTools.diff-so-fancy

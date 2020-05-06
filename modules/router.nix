@@ -44,7 +44,7 @@
   };
 
   # mkdir -p ~/wireguard-keys && cd ~/wireguard-keys && umask 077
-  # wg genkey | tee privatekey | wg pubkey > publickey
+  # wg genkey | tee private | wg pubkey > public
   networking.wireguard.interfaces = {
     skynet = {
       ips = [ "192.168.42.1" ];

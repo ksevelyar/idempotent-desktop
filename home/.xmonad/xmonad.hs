@@ -253,7 +253,7 @@ scratchpads = [
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
   [ ((modm,                 xK_Return), spawn $ XMonad.terminal conf) -- launch a terminal
-  , ((modm,                 xK_o     ), spawn "off")
+  , ((modm,                 xK_o     ), spawn "sleep 0.5; xset dpms force off; pkill -f gpmdp")
   , ((modm,                 xK_x     ), spawn "rofi -modi drun -show")
   , ((modm,                 xK_u     ), spawn "ulauncher")
   , ((modm,                 xK_h     ), focusUrgent)

@@ -2,7 +2,6 @@
 # sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 # sudo nix-channel --update
 # sudo nixos-rebuild switch --upgrade --keep-going
-# bu
 
 { config, pkgs, lib, ... }:
 {
@@ -15,8 +14,8 @@
       ./hosts/laundry.nix
     ];
 
-  boot.tmpOnTmpfs = true;
-  networking.firewall.enable = true;
+  boot.tmpOnTmpfs = lib.mkDefault true;
+  networking.firewall.enable = lib.mkForce true;
   networking.networkmanager.enable = lib.mkDefault true; # run nmtui for wi-fi
 
   nix = {
