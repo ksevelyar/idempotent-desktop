@@ -16,6 +16,7 @@ in
     in
       [
         # media
+        libva-utils
         mpv
         cava
         moc

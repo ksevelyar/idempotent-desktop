@@ -29,9 +29,10 @@
       ../modules/boot/multiboot.nix
       ../modules/services.nix
 
+      ../modules/dev/nvim.nix
+      ../modules/dev/packages.nix
       ../modules/common-packages.nix
       ../modules/extra-packages.nix
-      ../modules/dev-packages.nix
       ../modules/games.nix
 
       ../modules/x.nix

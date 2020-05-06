@@ -25,9 +25,14 @@
       ../modules/absolutely-proprietary.nix
       ../modules/aliases.nix
       ../modules/scripts.nix
+
       ../modules/boot/bios.nix
       ../modules/boot/multiboot.nix
+
       ../modules/services.nix
+
+      ../modules/dev/nvim.nix
+      ../modules/dev/packages.nix
 
       ../modules/common-packages.nix
       ../modules/extra-packages.nix

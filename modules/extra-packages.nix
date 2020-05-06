@@ -36,6 +36,7 @@ in
       appimage-run
       cura
       google-chrome
+      chromium
       vivaldi
       gimp
       inkscape

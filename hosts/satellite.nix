@@ -27,6 +27,9 @@
       ../modules/scripts.nix
       ../modules/boot/bios.nix
 
+      ../modules/dev/nvim.nix
+      ../modules/dev/packages.nix
+
       ../modules/common-packages.nix
       ../modules/ssd.nix
       ../modules/router.nix
