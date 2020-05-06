@@ -16,9 +16,10 @@
     p = "gopass";
     pkill = "pkill --full";
     v = "nvim";
+    vanilla-vim = "nvim -U none";
     g = "git";
     t = "task";
-    py_files_server = "python3 -m http.server 9000";
+    py-files-server = "python3 -m http.server 9000";
     refresh-channels = "sh /etc/scripts/refresh-channels.sh";
   };
 }

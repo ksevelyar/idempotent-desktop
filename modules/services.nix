@@ -1,8 +1,5 @@
 { pkgs, ... }:
 {
-  services.nfs.server.statdPort = 20000;
-  services.nfs.server.lockdPort = 20001;
-  services.nfs.server.mountdPort = 20002;
 
   # Enable CUPS to print documents.
   services.printing = {
@@ -37,8 +34,6 @@
   #   extraConfig = "font-size=14";
   # };
 
-  # Auto-detect the connected display hardware and load the appropriate X11 setup using xrandr
-  # services.autorandr.enable = true;
 
   services.blueman.enable = true;
 

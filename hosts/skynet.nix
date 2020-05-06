@@ -36,6 +36,7 @@
       # ../modules/dev/packages.nix
       # ./modules/games.nix
       ../modules/services-headless.nix
+      ../modules/services/nfs.nix
       # ./modules/x.nix
 
       # ./modules/fonts.nix

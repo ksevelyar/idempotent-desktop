@@ -33,6 +33,9 @@
     # '';
   };
 
+  # Auto-detect the connected display hardware and load the appropriate X11 setup using xrandr
+  # services.autorandr.enable = true;
+
   # TODO: debug
   services.udev.extraRules = ''
     SUBSYSTEM=="power_supply"

@@ -1,9 +1,5 @@
 { pkgs, ... }:
 {
-  services.nfs.server.statdPort = 20000;
-  services.nfs.server.lockdPort = 20001;
-  services.nfs.server.mountdPort = 20002;
-
   services.avahi = {
     enable = true;
     nssmdns = true;
@@ -29,7 +25,7 @@
     passwordAuthentication = false;
   };
 
-  services.journald.extraConfig = "SystemMaxUse=500M";
+  services.journald.extraConfig = "SystemMaxUse=1000M";
 
   services.fail2ban = {
     enable = true;
