@@ -14,6 +14,7 @@
       ./hosts/laundry.nix
     ];
 
+  boot.cleanTmpDir = lib.mkDefault true;
   boot.tmpOnTmpfs = lib.mkDefault true;
   networking.firewall.enable = lib.mkForce true;
   networking.networkmanager.enable = lib.mkDefault true; # run nmtui for wi-fi

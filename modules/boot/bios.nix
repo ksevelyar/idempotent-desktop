@@ -5,7 +5,6 @@
   # boot.consoleLogLevel = 3;
 
   boot.loader = {
-    cleanTmpDir = lib.mkDefault true;
     efi = {
       canTouchEfiVariables = false;
     };
