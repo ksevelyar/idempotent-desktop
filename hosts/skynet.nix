@@ -51,7 +51,6 @@
 
   networking.hostName = "skynet";
   networking.firewall.enable = lib.mkForce true;
-  networking.networkmanager.enable = lib.mkDefault true; # run nmtui for wi-fi
   networking.networkmanager.enable = lib.mkForce false;
 
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "xhci_pci" "usb_storage" "usbhid" "sd_mod" ];
