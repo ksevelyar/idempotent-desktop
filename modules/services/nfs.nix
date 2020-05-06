@@ -1,8 +1,9 @@
 # sudo mkdir -p /export
 # sipcalc 192.168.0.1/24
 {
-  fileSystems."/export/tmp" = { device = "/storage/tmp"; options = [ "bind" ]; };
+  fileSystems."/export/learn" = { device = "/storage/learn"; options = [ "bind" ]; };
   fileSystems."/export/work" = { device = "/storage/work"; options = [ "bind" ]; };
+  fileSystems."/export/chill" = { device = "/storage/chill"; options = [ "bind" ]; };
   fileSystems."/export/vvv" = { device = "/storage/vvv"; options = [ "bind" ]; };
 
   services.nfs.server = {
@@ -11,10 +12,11 @@
     lockdPort = 20001;
     mountdPort = 20002;
     exports = ''
-      /export      192.168.42.0/24,192.168.0.0/24(ro,all_squash,insecure,fsid=0,crossmnt)
-      /export/tmp  192.168.42.0/24,192.168.0.0/24(rw,nohide,all_squash,insecure)
-      /export/work 192.168.42.0/24,192.168.0.0/24(rw,nohide,all_squash,insecure)
-      /export/vvv  192.168.0.0/24(rw,nohide,all_squash,insecure)
+      /export       192.168.42.0/24,192.168.0.0/24(ro,all_squash,insecure,fsid=0,crossmnt)
+      /export/learn 192.168.42.0/24,192.168.0.0/24(rw,nohide,all_squash,insecure)
+      /export/work  192.168.42.0/24,192.168.0.0/24(rw,nohide,all_squash,insecure)
+      /export/chill 192.168.42.0/24,192.168.0.0/24(rw,nohide,all_squash,insecure)
+      /export/vvv   192.168.0.0/24(rw,nohide,all_squash,insecure)
     '';
   };
 
