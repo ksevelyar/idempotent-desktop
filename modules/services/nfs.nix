@@ -12,10 +12,12 @@
     lockdPort = 20001;
     mountdPort = 20002;
     exports = ''
-      /export       192.168.42.0/24(rw,nohide,all_squash,insecure) 192.168.0.0/24(rw,nohide,all_squash,insecure)
+      /export       192.168.42.0/24(rw,fsid=0,no_subtree_check)    192.168.0.0/24(rw,fsid=0,no_subtree_check)
+
       /export/learn 192.168.42.0/24(rw,nohide,all_squash,insecure) 192.168.0.0/24(rw,nohide,all_squash,insecure)
       /export/work  192.168.42.0/24(rw,nohide,all_squash,insecure) 192.168.0.0/24(rw,nohide,all_squash,insecure)
       /export/chill 192.168.42.0/24(rw,nohide,all_squash,insecure) 192.168.0.0/24(rw,nohide,all_squash,insecure)
+
       /export/vvv   192.168.0.0/24(rw,nohide,all_squash,insecure)
     '';
   };

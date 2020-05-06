@@ -64,10 +64,22 @@
       home.file.".ssh/config".text = ''
         Host *
           ForwardAgent yes
-
+        
+        Host 192.168.42.*
+          Port 9922
+        
         Host 192.168.0.*
+          Port 9922
           StrictHostKeyChecking no
           UserKnownHostsFile=/dev/null
+
+        Host skynet
+          HostName 192.168.0.1
+          Port 9922
+
+        Host skynet-wg
+          HostName 192.168.42.1
+          Port 9922
       '';
     };
   };

@@ -36,7 +36,7 @@
       # ../modules/dev/packages.nix
       # ./modules/games.nix
       ../modules/services-headless.nix
-      ../modules/services/nfs.nix
+      # ../modules/services/nfs.nix
       # ./modules/x.nix
 
       # ./modules/fonts.nix
@@ -71,9 +71,9 @@
       options = [ "noatime" "nodiratime" ]; # ssd
     };
 
-  fileSystems."/storage" =
-    {
-      device = "/dev/disk/by-label/storage";
-      fsType = "ext4";
-    };
+  # fileSystems."/storage" =
+  #   {
+  #     device = "/dev/disk/by-label/storage";
+  #     fsType = "ext4";
+  #   };
 }
