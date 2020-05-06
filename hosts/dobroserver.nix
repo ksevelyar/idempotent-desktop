@@ -1,5 +1,24 @@
 { config, lib, pkgs, ... }:
 {
+  boot.cleanTmpDir = lib.mkDefault true;
+  boot.tmpOnTmpfs = lib.mkDefault true;
+
+  nix = {
+    useSandbox = true;
+    maxJobs = lib.mkDefault 2;
+    extraOptions = ''
+      connect-timeout = 10 
+      http-connections = 4
+    '';
+  };
+
+  # This value determines the NixOS release with which your system is to be
+  # compatible, in order to avoid breaking some software such as database
+  # servers. You should change this only after NixOS release notes say you
+  # should.
+  system.stateVersion = "20.03"; # Did you read the comment?
+
+
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
@@ -7,7 +26,7 @@
       # FIXME: find replacement for memtest
       ../modules/absolutely-proprietary.nix
       ../modules/scripts.nix
-      ../modules/boot-legacy.nix
+      ../modules/boot/bios.nix
 
       ../modules/common-packages.nix
       ../modules/ssd.nix
@@ -29,6 +48,8 @@
     cpu.intel.updateMicrocode = true;
   };
 
+  networking.firewall.enable = lib.mkForce true;
+  networking.networkmanager.enable = lib.mkDefault true; # run nmtui for wi-fi
   networking.hostName = "dobroserver";
   networking.networkmanager.enable = lib.mkForce false;
 

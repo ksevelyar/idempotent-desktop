@@ -1,5 +1,23 @@
 { config, lib, pkgs, ... }:
 {
+  boot.cleanTmpDir = lib.mkDefault true;
+  boot.tmpOnTmpfs = lib.mkDefault true;
+
+  nix = {
+    useSandbox = true;
+    maxJobs = lib.mkDefault 2;
+    extraOptions = ''
+      connect-timeout = 10 
+      http-connections = 4
+    '';
+  };
+
+  # This value determines the NixOS release with which your system is to be
+  # compatible, in order to avoid breaking some software such as database
+  # servers. You should change this only after NixOS release notes say you
+  # should.
+  system.stateVersion = "20.03"; # Did you read the comment?
+
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
@@ -28,6 +46,17 @@
       ../users/ksevelyar.nix
     ];
 
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [];
+  boot.plymouth.enable = false;
+
+  networking.firewall.enable = lib.mkForce true;
+  networking.networkmanager.enable = lib.mkDefault true; # run nmtui for wi-fi
+  networking.hostName = "hk47";
+  networking.useDHCP = false;
+  networking.interfaces.enp4s0.useDHCP = true;
   networking.wireguard.interfaces = {
     skynet = {
       ips = [ "192.168.42.47" ];
@@ -36,12 +65,9 @@
       peers = [
         {
           publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
-
           allowedIPs = [ "192.168.42.0/24" ];
-
           # Set this to the server IP and port.
           endpoint = "77.37.166.17:51820";
-
           # Send keepalives every 25 seconds. Important to keep NAT tables alive.
           persistentKeepalive = 25;
         }
@@ -55,15 +81,6 @@
     nvidia.modesetting.enable = true;
   };
 
-  networking.hostName = "laundry";
-  networking.useDHCP = false;
-  networking.interfaces.enp4s0.useDHCP = true;
-
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [];
-  boot.plymouth.enable = false;
 
   swapDevices = [];
 
@@ -97,15 +114,4 @@
     /srv/storage 192.168.0.1/24(rw,nohide,all_squash,insecure)
     /srv/vvv     192.168.0.1/24(rw,nohide,all_squash,insecure)
   '';
-
-  services.aria2 = {
-    downloadDir = "/storage/tmp";
-  };
-
-  services.syncthing = {
-    enable = false;
-    user = "ksevelyar";
-    dataDir = "/storage/syncthing";
-    openDefaultPorts = true;
-  };
 }
