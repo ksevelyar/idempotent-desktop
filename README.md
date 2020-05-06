@@ -56,15 +56,17 @@ sudo dd bs=4M if=live-usb/iso/nixos.iso of=/dev/sdc status=progress && sync
 # install
 
 ```
-sudo cp -ra /etx/nixos{,.bak}
-sudo mkdir -p /storage/tmp
-sudo git clone git@github.com:ksevelyar/dotfiles.git /etc/nixos
-
 sudo nixos-generate-config --root /tmp
+sudo cp -ra /etx/nixos{,.bak}
+sudo git clone git@github.com:ksevelyar/dotfiles.git /etc/nixos
 
 sudo nix-channel --add https://nixos.org/channels/nixos-19.09 stable
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 sudo nix-channel --update
 
+sudo ln -s /etc/nixos/hosts/hk47.nix /etc/nixos/configuration.nix
+
 sudo nixos-rebuild switch --keep-going
+
+sudo mkdir -p /storage/screenshots
 ```
