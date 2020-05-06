@@ -114,9 +114,9 @@
     fsType = "nfs";
   };
 
-  services.nfs.server.exports = ''
-    /srv         192.168.0.1/24(ro,all_squash,insecure,fsid=0,crossmnt)
-    /srv/storage 192.168.0.1/24(rw,nohide,all_squash,insecure)
-    /srv/vvv     192.168.0.1/24(rw,nohide,all_squash,insecure)
-  '';
+  # services.nfs.server.exports = ''
+  #   /srv         192.168.0.1/24(ro,all_squash,insecure,fsid=0,crossmnt)
+  #   /srv/storage 192.168.0.1/24(rw,nohide,all_squash,insecure)
+  #   /srv/vvv     192.168.0.1/24(rw,nohide,all_squash,insecure)
+  # '';
 }

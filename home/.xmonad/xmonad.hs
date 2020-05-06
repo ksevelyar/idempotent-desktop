@@ -232,6 +232,10 @@ scratchpads = [
     (wm_name =? "Time Tracker")
     (customFloating $ W.RationalRect 0.5 0.05 0.4 0.44),
 
+  NS "blueman-manager" "blueman-manager"
+    (wm_name =? ".blueman-manager-wrapped")
+    (customFloating $ W.RationalRect 0.5 0.05 0.4 0.44),
+
   NS "spacefm" "spacefm"
     (className =? "Spacefm")
     (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8),
@@ -318,6 +322,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm, xK_F4 ), namedScratchpadAction scratchpads  "notes")
   , ((modm, xK_F5 ), namedScratchpadAction scratchpads  "keepassx")
   , ((modm, xK_F6 ), namedScratchpadAction scratchpads  "gotop")
+  , ((modm, xK_F7 ), namedScratchpadAction scratchpads  "blueman-manager")
   , ((modm, xK_F12 ), namedScratchpadAction scratchpads "upwork")
   , ((modm, xK_i ), namedScratchpadAction scratchpads  "images_browser")
 
