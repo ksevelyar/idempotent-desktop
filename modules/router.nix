@@ -19,6 +19,12 @@
       20000
       20001
       20002
+
+      # http
+      80
+
+      # https
+      443
     ];
     allowedUDPPorts = [
       # Transmission
