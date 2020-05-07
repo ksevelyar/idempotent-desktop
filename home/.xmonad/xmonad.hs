@@ -233,7 +233,7 @@ scratchpads = [
     (customFloating $ W.RationalRect 0.5 0.05 0.4 0.44),
 
   NS "blueman-manager" "blueman-manager"
-    (wm_name =? ".blueman-manager-wrapped")
+    (resource =? ".blueman-manager-wrapped")
     (customFloating $ W.RationalRect 0.5 0.05 0.4 0.44),
 
   NS "spacefm" "spacefm"
