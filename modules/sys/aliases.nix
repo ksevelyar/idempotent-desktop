@@ -7,7 +7,7 @@
     u = "aunpack";
     e = "sudo nvim /etc/nixos/configuration.nix";
     b = "sudo nixos-rebuild switch --keep-going";
-    br = "b && xmonad --restart";
+    br = "b && systemctl restart display-manager.service";
     bu = "b --upgrade";
     collect-garbage = "sudo nix-collect-garbage --delete-older-than 30d";
     tm = "tmux new-session -A -s main";
