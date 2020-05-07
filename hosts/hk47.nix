@@ -109,10 +109,10 @@
       options = [ "noatime" "nodiratime" ];
     };
 
-  # fileSystems."/mnt/skynet" = {
-  #   device = "192.168.0.1:/export";
-  #   fsType = "nfs";
-  # };
+  fileSystems."/mnt/skynet" = {
+    device = "192.168.0.1:/export";
+    fsType = "nfs";
+  };
 
   # services.nfs.server.exports = ''
   #   /srv         192.168.0.1/24(ro,all_squash,insecure,fsid=0,crossmnt)
