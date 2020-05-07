@@ -96,8 +96,6 @@
 
   swapDevices = [];
 
-  nix.maxJobs = lib.mkDefault 6;
-
   hardware = {
     cpu.intel.updateMicrocode = true;
   };
