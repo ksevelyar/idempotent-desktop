@@ -1,17 +1,5 @@
 { config, lib, pkgs, ... }:
 {
-  boot.cleanTmpDir = lib.mkDefault true;
-  boot.tmpOnTmpfs = lib.mkDefault true;
-
-  nix = {
-    useSandbox = true;
-    maxJobs = lib.mkDefault 2;
-    extraOptions = ''
-      connect-timeout = 10 
-      http-connections = 4
-    '';
-  };
-
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
@@ -22,27 +10,26 @@
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-      ../modules/aliases.nix
-      # FIXME: find replacement for memtest
-      ../modules/absolutely-proprietary.nix
-      ../modules/scripts.nix
-      ../modules/boot/bios.nix
+      ../modules/sys/aliases.nix
+      ../modules/sys/scripts.nix
+      # ../modules/sys/debug.nix
 
-      ../modules/dev/nvim.nix
-      ../modules/common-packages.nix
-      ../modules/ssd.nix
-      ../modules/router.nix
-      # ./modules/extra-packages.nix
-      # ../modules/dev/packages.nix
-      # ./modules/games.nix
-      ../modules/services-headless.nix
+      ../modules/boot/bios.nix
+      # ../modules/boot/multiboot.nix
+
+      ../modules/services/common.nix
       ../modules/services/nginx.nix
       # ../modules/services/nfs.nix
-      # ./modules/x.nix
 
-      # ./modules/fonts.nix
-      # ./modules/fonts-high-dpi.nix
-      # ./modules/laptop.nix
+      ../modules/packages/absolutely-proprietary.nix
+      ../modules/packages/common.nix
+      ../modules/packages/nvim.nix
+      ../modules/packages/tmux.nix
+
+      ../modules/hardware/ssd.nix
+
+      ../modules/net/router.nix
+      ../modules/net/wireguard.nix
 
       ../users/ksevelyar-headless.nix
     ];
@@ -55,6 +42,8 @@
   networking.firewall.enable = lib.mkForce true;
   networking.networkmanager.enable = lib.mkForce false;
 
+  boot.cleanTmpDir = true;
+  boot.tmpOnTmpfs = true;
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "xhci_pci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [];
   boot.kernelModules = [ "kvm-intel" ];
