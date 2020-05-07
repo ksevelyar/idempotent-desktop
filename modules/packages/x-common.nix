@@ -85,6 +85,7 @@ in
       # vncpasswd
       # x0vncserver -rfbauth ~/.vnc/passwd
       tigervnc
+      x2goclient
 
       # laptop
       arandr

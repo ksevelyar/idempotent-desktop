@@ -58,8 +58,8 @@ in
       zafiro-icons
 
       # im
-      skype
-      slack
+      # skype
+      # slack
 
       # media
       glava
@@ -90,8 +90,6 @@ in
       kitty
       roxterm
       asciinema
-      rustc
-      cargo
 
       # sys
       tightvnc
