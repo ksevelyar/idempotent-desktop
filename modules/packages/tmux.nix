@@ -1,18 +1,5 @@
 { config, pkgs, ... }:
-let
-  stable = import <stable> {
-    config = config.nixpkgs.config;
-  };
-in
 {
-  programs.fish.enable = true;
-  programs.mosh.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryFlavor = "gtk2";
-  };
-
   programs.tmux = {
     enable = true;
     clock24 = true;
@@ -116,99 +103,10 @@ in
 
   environment.systemPackages = with pkgs;
     [
-      watchman
-      (
-        python3.withPackages (
-          ps: with ps; [
-            httpserver
-            pywal
-          ]
-        )
-      )
-
-      # navi
-      # sys
-      sipcalc
-      lsof
-      cheat
-      tldr
-      git
-      gitAndTools.diff-so-fancy
-      bash
-      lm_sensors
-      mkpasswd
-      file
-      memtest86plus
-      jq
       tmuxPlugins.sensible
       tmuxPlugins.continuum
       tmuxPlugins.resurrect
       tmuxPlugins.open
       tmuxPlugins.yank
-      lshw
-      pciutils # lspci
-      usbutils # lsusb
-      psmisc # pstree, killall
-      bat
-      inetutils
-
-      # sec
-      pinentry
-      tomb
-      # pass
-      # We can add existing passwords to the store with insert:
-      # pass insert Business/cheese-whiz-factory
-      passExtensions.pass-audit
-      passExtensions.pass-genphrase
-      passExtensions.pass-import
-      passExtensions.pass-otp
-      passExtensions.pass-tomb
-      passExtensions.pass-update
-      (pass.withExtensions (ext: with ext; [ pass-audit pass-otp pass-import pass-genphrase pass-update pass-tomb ]))
-      ripasso-cursive
-      gopass
-
-      # cli
-      taskwarrior
-      nmap
-      wget
-      curl
-      aria2
-      translate-shell
-      websocat
-      brightnessctl
-      youtube-dl
-
-      # monitoring 
-      hwinfo
-      smartmontools
-      acpi
-      gotop
-      htop
-      iotop
-      iftop
-      stable.nixpkgs-fmt
-      neofetch
-
-      # fs
-      bind
-      unzip
-      unrar
-      p7zip
-      atool
-      parted
-      fasd
-      mc
-      fd
-      nnn
-      ncdu
-      tree
-      dosfstools
-      mtools
-      sshfs
-      ntfs3g
-      exfat
-      sshfsFuse
-      rsync
     ];
 }

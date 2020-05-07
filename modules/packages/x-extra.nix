@@ -10,7 +10,7 @@ in
   # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; # flatpak dep
 
   # upwork
-  nixpkgs.overlays = [ (import ../overlays) ];
+  nixpkgs.overlays = [ (import ../../overlays) ];
 
   environment.systemPackages = with pkgs;
     [
@@ -33,6 +33,7 @@ in
       asciiquarium
 
       # gui
+      stable.ulauncher
       appimage-run
       cura
       google-chrome

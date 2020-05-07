@@ -36,6 +36,7 @@ in
       imagemagick
 
       # tools
+      stable.nixpkgs-fmt
       ngrok
       direnv
       inotify-tools

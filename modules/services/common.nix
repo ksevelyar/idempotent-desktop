@@ -1,15 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
-  services.avahi = {
-    enable = true;
-    nssmdns = true;
-    publish = {
-      enable = true;
-      addresses = true;
-      domain = true;
-    };
-  };
-
   services.locate = {
     enable = true;
     locate = pkgs.mlocate;
@@ -25,7 +15,7 @@
     passwordAuthentication = false;
   };
 
-  services.journald.extraConfig = "SystemMaxUse=1000M";
+  services.journald.extraConfig = lib.mkDefault "SystemMaxUse=1000M";
 
   services.fail2ban = {
     enable = true;

@@ -4,97 +4,91 @@ let
     config = config.nixpkgs.config;
   };
   compiledLayout = pkgs.runCommand "keyboard-layout" {} ''
-    ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${../assets/layout.xkb} $out
+    ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${../../assets/layout.xkb} $out
   '';
 in
 {
   environment.systemPackages = with pkgs;
-    let
-      polybar = pkgs.polybar.override {
-        pulseSupport = true;
-      };
-    in
-      [
-        # media
-        libva-utils
-        mpv
-        cava
-        moc
+    [
+      # media
+      libva-utils
+      mpv
+      cava
+      moc
 
-        # xmonad defaults
-        conky
-        xdotool
-        seturgent
-        stylish-haskell
-        alacritty
-        rxvt-unicode
-        firefoxWrapper
-        tor-browser-bundle-bin
-        zathura
-        evince
-        # text    
-        hunspell
-        hunspellDicts.en_US-large
-        calibre # epub
-        betterlockscreen
-        spaceFM
+      # xmonad defaults
+      conky
+      xdotool
+      seturgent
+      stylish-haskell
+      alacritty
+      rxvt-unicode
+      firefoxWrapper
+      tor-browser-bundle-bin
+      zathura
+      evince
+      blueman
+      # text    
+      hunspell
+      hunspellDicts.en_US-large
+      calibre # epub
+      betterlockscreen
+      spaceFM
 
-        # themes
-        lxappearance-gtk3
-        vanilla-dmz
-        ant-dracula-theme
-        paper-icon-theme
+      # themes
+      lxappearance-gtk3
+      vanilla-dmz
+      ant-dracula-theme
+      paper-icon-theme
 
-        glxinfo
-        feh
-        transmission_gtk
-        polybar
-        xlsfonts
-        xxkb
-        xorg.xev
-        xorg.xfontsel
-        xorg.xfd
-        xorg.xkbcomp
-        xcape
+      glxinfo
+      feh
+      transmission_gtk
+      xlsfonts
+      xxkb
+      xorg.xev
+      xorg.xfontsel
+      xorg.xfd
+      xorg.xkbcomp
 
-        # dev
-        notepadqq
+      # dev
+      notepadqq
 
-        # sec
-        qtox
-        lxqt.lxqt-policykit
-        tdesktop
+      # sec
+      qtox
+      lxqt.lxqt-policykit
+      tdesktop
 
-        # sys
-        keepassx-community
-        system-config-printer
-        maim
-        simplescreenrecorder
-        xclip
-        rofi
-        stable.ulauncher
-        pavucontrol
-        libnotify
-        dunst
+      # sys
+      keepassx-community
+      maim
+      simplescreenrecorder
+      xclip
+      rofi
+      stable.ulauncher
+      pavucontrol
+      libnotify
+      dunst
 
-        # media
-        mpv
-        imv
-        nomacs
+      # media
+      mpv
+      imv
+      nomacs
 
-        # fs
-        spaceFM
+      # fs
+      spaceFM
 
-        gparted
-        # vncpasswd
-        # x0vncserver -rfbauth ~/.vnc/passwd
-        tigervnc
+      gparted
+      # vncpasswd
+      # x0vncserver -rfbauth ~/.vnc/passwd
+      tigervnc
 
-        # laptop
-        arandr
-      ];
+      # laptop
+      arandr
+    ];
 
   programs.browserpass.enable = true;
+  programs.dconf.enable = true;
   programs.qt5ct.enable = true;
 
   services.picom = {
@@ -114,19 +108,7 @@ in
 
   services.xserver = {
     enable = true;
-    displayManager = {
-      defaultSession = "none+xmonad";
-      sessionCommands = ''
-        # ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY
-        sh ~/.fehbg
-        xsetroot -cursor_name left_ptr
-        (rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log) &
 
-        lxqt-policykit-agent &
-        xxkb &
-        xcape -e 'Super_R=Super_R|X'
-      '';
-    };
     serverFlagsSection = ''
       Option "BlankTime" "120"
       Option "StandbyTime" "0"
@@ -151,16 +133,6 @@ in
     xkbOptions = "grp:caps_toggle,grp:alt_shift_toggle,grp_led:caps";
     desktopManager = {
       xterm.enable = false;
-    };
-
-    windowManager = {
-      xmonad.enable = true;
-      xmonad.enableContribAndExtras = true;
-      xmonad.extraPackages = hpkgs: [
-        hpkgs.xmonad-contrib
-        hpkgs.xmonad-extras
-        hpkgs.xmonad
-      ];
     };
   };
 

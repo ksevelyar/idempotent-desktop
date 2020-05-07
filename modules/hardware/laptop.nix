@@ -43,4 +43,10 @@
     ATTR{capacity}=="[0-90]"
     RUN+="${pkgs.libnotify}/bin/notify-send 'battery' 'debug'"
   '';
+
+  environment.systemPackages = with pkgs;
+    [
+      system-config-printer
+    ];
+
 }

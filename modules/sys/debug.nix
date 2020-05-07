@@ -1,5 +1,7 @@
 { lib, ... }:
 {
+  boot.plymouth.enable = lib.mkForce false;
+
   security.sudo = {
     enable = true;
     # Allow passwordless sudo 
