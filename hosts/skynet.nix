@@ -30,6 +30,7 @@
 
       ../modules/net/router.nix
       ../modules/net/wireguard.nix
+      ../modules/net/nfs.nix
 
       ../users/ksevelyar-headless.nix
     ];
