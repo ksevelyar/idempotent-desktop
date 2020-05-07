@@ -9,13 +9,12 @@
   #   hwRender = true;
   #   extraConfig = "font-size=14";
   # };
-
-  services.blueman.enable = true;
-
   services.tor = {
     enable = true;
     client.enable = true;
   };
+
+  services.ratbagd.enable = true;
 
   services.udisks2.enable = true;
   # services.devmon.enable = true;
@@ -27,6 +26,9 @@
     temperature.day = 6500;
   };
 
+  services.fail2ban = {
+    enable = true;
+  };
   services.openssh = {
     ports = [ 9922 ];
     enable = true;
@@ -38,9 +40,6 @@
 
   services.journald.extraConfig = "SystemMaxUse=700M";
 
-  services.fail2ban = {
-    enable = true;
-  };
 
   services.nixosManual.showManual = false;
 }

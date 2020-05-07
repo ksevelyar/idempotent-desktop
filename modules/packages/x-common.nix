@@ -16,6 +16,9 @@ in
       cava
       moc
 
+      # mouse
+      piper
+
       # xmonad defaults
       conky
       xdotool

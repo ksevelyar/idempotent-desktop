@@ -17,6 +17,7 @@
       # ../modules/boot/multiboot.nix
 
       ../modules/services/common.nix
+      ../modules/services/x.nix
 
       ../modules/x/xmonad.nix
       ../modules/x/fonts.nix
