@@ -19,9 +19,9 @@
 * nmtui + blueman-manger 
 * ssd friendly with fstrim service and `noatime` mount option
 
-## neofetch
+## conky + gpmdp + taskwarrior
 
-![screen](https://i.imgur.com/HU6YF0L.png)
+![screen](https://i.imgur.com/fWKORz4.png)
 
 ## neovim + tmux (via xmonad scratchpad)
 
@@ -50,18 +50,6 @@
 ## cava + gpmdp
 
 ![screen](https://i.imgur.com/Yvq668e.png)
-
-## glava + gpmdp
-
-![screen](https://i.imgur.com/E1Z5XFo.png)
-
-## conky + gpmdp + taskwarrior
-
-![screen](https://i.imgur.com/fWKORz4.png)
-
-## nebula + iftop
-
-![screen](https://i.imgur.com/V99iRiB.png)
 
 ## kvm + virt-manager + live usb
 
