@@ -1,10 +1,11 @@
 # λ Idempotent Freelancer Desktop 
 
 * NixOS, Xmonad, Polybar, Alacritty, Rofi, Conky, Picom
-* SpaceFM, nnn
-* Neovim (LSP via coc.nvim): Elixir, JS 
+* Neovim (LSP via coc.nvim): Elixir, JS
 * https://github.com/ksevelyar/joker.vim (heavily inspired by vim-gotham)
 * FZF, Ripgrep, Fish, Tmux, Zeal
+* SpaceFM, nnn, nomacs
+* Firefox with Vimium
 * ardiono, fritzing
 * Cura, OpenSCAD, Gimp
 * Proprietary suite: Upwork, Slack, Skype, Google-Chrome, Google-Play-Music-Desktop-Player, Telegram, Memtest, Broadcom Wi-fi drivers
@@ -16,7 +17,7 @@
 * Pair programming with x11vnc & sshd
 * steam, lutris, playonlinux
 * nmtui + blueman-manger 
-* ssd friendly with fstrim service and `noatime`
+* ssd friendly with fstrim service and `noatime` mount option
 
 ## neofetch
 
