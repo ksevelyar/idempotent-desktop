@@ -44,11 +44,7 @@
   '';
 
   home-manager = {
-    useGlobalPkgs = true;
-
     users.mrpoppybutthole = {
-      xsession.windowManager.xmonad.enable = true;
-      xsession.windowManager.xmonad.enableContribAndExtras = true;
       xsession.windowManager.xmonad.config = ../home/.xmonad/xmonad.hs;
 
       home.file."Wallpapers/1.png".source = ../home/wallpapers/1.png;
@@ -129,10 +125,6 @@
       home.file.".ssh/config".text = ''
         Host *
           ForwardAgent yes
-
-        Host 192.168.0.*
-          StrictHostKeyChecking no
-          UserKnownHostsFile=/dev/null
       '';
     };
   };

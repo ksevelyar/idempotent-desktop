@@ -63,7 +63,7 @@ in
 
       # media
       glava
-      audacity
+      audacious
       lmms
       vlc
       stable.kodi

@@ -24,6 +24,7 @@ in
   environment.systemPackages = with pkgs;
     [
       # sys
+      kakoune
       watchman
       (
         python3.withPackages (

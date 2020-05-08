@@ -29,7 +29,7 @@ function build-live-usb-min
   nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb-minimal.nix -o live-usb-min
   ls -lah live-usb-min/iso/nixos.iso
 
-  sudo lsblk -f
+  lsblk -f
   echo 'sudo dd bs=4M if=live-usb-min/iso/nixos.iso of=/dev/sdX status=progress && sync'
 end
 
@@ -38,7 +38,7 @@ function build-live-usb
   nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix -o live-usb
   ls -lah live-usb/iso/nixos.iso
 
-  sudo lsblk -f
+  lsblk -f
   echo 'sudo dd bs=4M if=live-usb/iso/nixos.iso of=/dev/sdX status=progress && sync'
 end
 

@@ -5,24 +5,35 @@
 {
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
-    ./modules/absolutely-proprietary.nix
-    ./modules/aliases.nix
-    ./modules/scripts.nix
-    ./modules/services-headless.nix
-    ./modules/debug.nix
 
-    # ./modules/x.nix
-    # ./modules/fonts.nix
-    # ./modules/fonts-high-dpi.nix
-    ./modules/bluetooth.nix
-    # ./modules/sound.nix
+    ./modules/sys/aliases.nix
+    ./modules/sys/scripts.nix
+    ./modules/sys/debug.nix
 
-    ./modules/common-packages.nix
-    # ./modules/extra-packages.nix
-    # ./modules/dev-packages.nix
-    # ./modules/games.nix
+    ./modules/services/common.nix
+    # ./modules/services/x.nix
 
-    # ./modules/laptop.nix
+    # ./modules/x/openbox.nix
+    # ./modules/x/fonts.nix
+    # ./modules/packages/x-common.nix
+    # ./modules/packages/x-extra.nix
+
+    ./modules/packages/absolutely-proprietary.nix
+    ./modules/packages/common.nix
+    # ../modules/packages/dev.nix
+    # ../modules/packages/games.nix
+    # ./modules/packages/nvim.nix
+    # ./modules/packages/tmux.nix
+
+    # ./modules/hardware/bluetooth.nix
+    # ./modules/hardware/sound.nix
+    # ./modules/hardware/laptop.nix
+
+    ./modules/net/firewall-desktop.nix
+    # ../modules/net/wireguard.nix
+
+    # ../modules/vm/hypervisor.nix
+
     ./users/live-usb.nix
   ];
 

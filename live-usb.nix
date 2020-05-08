@@ -5,24 +5,35 @@
 {
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-base.nix>
-    ./modules/absolutely-proprietary.nix
-    ./modules/aliases.nix
-    ./modules/scripts.nix
-    ./modules/services.nix
-    ./modules/debug.nix
 
-    ./modules/x.nix
-    ./modules/fonts.nix
-    # ./modules/fonts-high-dpi.nix
-    ./modules/bluetooth.nix
-    ./modules/sound.nix
+    ./modules/sys/aliases.nix
+    ./modules/sys/scripts.nix
+    ./modules/sys/debug.nix
 
-    ./modules/common-packages.nix
-    # ./modules/extra-packages.nix
-    # ./modules/dev-packages.nix
-    # ./modules/games.nix
+    ./modules/services/common.nix
+    ./modules/services/x.nix
 
-    ./modules/laptop.nix
+    ./modules/x/xmonad.nix
+    ./modules/x/fonts.nix
+    ./modules/packages/x-common.nix
+    # ./modules/packages/x-extra.nix
+
+    ./modules/packages/absolutely-proprietary.nix
+    ./modules/packages/common.nix
+    # ../modules/packages/dev.nix
+    # ../modules/packages/games.nix
+    ./modules/packages/nvim.nix
+    ./modules/packages/tmux.nix
+
+    ./modules/hardware/bluetooth.nix
+    ./modules/hardware/sound.nix
+    ./modules/hardware/laptop.nix
+
+    ./modules/net/firewall-desktop.nix
+    # ../modules/net/wireguard.nix
+
+    # ../modules/vm/hypervisor.nix
+
     ./users/live-usb.nix
   ];
 
@@ -50,14 +61,19 @@
       autoLogin = { enable = true; user = "mrpoppybutthole"; };
     };
   };
+  home-manager = {
+    users.mrpoppybutthole = {
+      xsession.windowManager.xmonad.enable = true;
+      xsession.windowManager.xmonad.enableContribAndExtras = true;
+    };
+  };
+
 
   boot.kernelModules = [ "wl" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
   networking.networkmanager.enable = true;
-  networking.wireless.enable = lib.mkForce false;
-
-  nix.binaryCaches = [ "https://aseipp-nix-cache.global.ssl.fastly.net" ];
+  networking.wireless.enable = false;
 
   services.mingetty.helpLine = lib.mkForce ''
     The "root" account has "jkl" password.
