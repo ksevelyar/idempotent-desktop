@@ -33,7 +33,7 @@ in
       asciiquarium
 
       # gui
-      stable.ulauncher
+      ulauncher
       appimage-run
       cura
       google-chrome

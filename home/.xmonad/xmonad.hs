@@ -3,16 +3,17 @@
 import           Graphics.X11.ExtraTypes.XF86
 import           XMonad
 
-import           Data.Monoid
 
 import           System.Exit
 import qualified System.IO
 
 import qualified Data.Map                       as M
 -- import qualified XMonad.Layout.HintedTile       as HT
--- import           XMonad.Layout.LayoutHints
 import qualified XMonad.StackSet                as W
 
+import           XMonad.Prompt
+import           XMonad.Prompt.ConfirmPrompt
+import           XMonad.Prompt.Shell
 
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.EwmhDesktops
@@ -23,28 +24,40 @@ import           XMonad.Hooks.UrgencyHook
 
 import           XMonad.Actions.CycleWS
 import           XMonad.Actions.WindowGo
-import           XMonad.Util.NamedScratchpad
 
-import           XMonad.Layout.MultiColumns
-import           XMonad.Layout.ResizableTile
-import           XMonad.Layout.ThreeColumns
-import           XMonad.Layout.ToggleLayouts
-import           XMonad.Layout.WindowNavigation
+import           XMonad.Util.EZConfig
+import           XMonad.Util.NamedScratchpad
+import           XMonad.Util.NamedWindows       (getName)
+import           XMonad.Util.Run                (runInTerm, safeSpawn)
 
 import           XMonad.Layout.Grid
 import           XMonad.Layout.IM
+import           XMonad.Layout.LayoutHints
+import           XMonad.Layout.MultiColumns
 import           XMonad.Layout.NoBorders
 import           XMonad.Layout.PerWorkspace     (onWorkspace)
 import           XMonad.Layout.Reflect
 import           XMonad.Layout.Renamed
+import           XMonad.Layout.ResizableTile
+import           XMonad.Layout.ThreeColumns
+import           XMonad.Layout.ToggleLayouts
+import           XMonad.Layout.WindowNavigation
 
 import           XMonad.Config.Desktop
 
 import           Control.Monad                  (forM_, join, liftM2)
 import           Data.Function                  (on)
 import           Data.List                      (sortBy)
-import           XMonad.Util.NamedWindows       (getName)
-import           XMonad.Util.Run                (runInTerm, safeSpawn)
+import           Data.Monoid
+
+--
+myXPConfig = def
+  { position          = Top
+  , alwaysHighlight   = True
+  , promptBorderWidth = 0
+  , font              = "xft:Terminess Powerline:size=14"
+  }
+
 
 -- hack to let firefox fullscreen
 setFullscreenSupport :: X ()
@@ -84,8 +97,7 @@ main = do
 
     -- hooks, layouts
     layoutHook         = myLayout,
-    manageHook         = myManageHook
-      <+> manageDocks,
+    manageHook         = myManageHook,
     handleEventHook    = myEventHook,
     logHook            = polybarPP,
     startupHook        = myStartupHook
@@ -137,24 +149,24 @@ myLayout = windowNavigation $
 
 -- Window Management -----------------------------------------------------------
 
-myManageHook = (composeAll . concat $
+myManageHook = manageDocks <+> (composeAll . concat $
   [
     [resource  =? r --> doIgnore           | r <- myIgnores    ]
   , [className =? c --> viewShift "im"     | c <- myIm         ]
   , [className =? c --> viewShift "gfx"    | c <- myGfxs       ]
+  , [className =? c --> doShift   "www"    | c <- myWeb        ]
   , [role      =? r --> doShift   "serv"   | r <- myServ       ]
-  , [role      =? r --> doShift   "gen"    | r <- myGen        ]
   , [role      =? r --> doShift   "fs"     | r <- myFs         ]
 
 
-  , [name      =? n --> doCenterFloat      | n <- myNames      ]
+  -- , [name      =? n --> doCenterFloat      | n <- myNames      ]
   , [className =? c --> doCenterFloat      | c <- myFloats     ]
   , [className =? c --> doFullFloat        | c <- myFullFloats ]
 
   , [isDialog       --> doFocusCenterFloat                     ]
   , [isFullscreen   --> doFullFloat                            ]
 
-  , [insertPosition Below Newer                                ]
+  -- , [insertPosition Below Newer                                ]
   , [namedScratchpadManageHook scratchpads                     ]
   ])
 
@@ -172,31 +184,32 @@ myManageHook = (composeAll . concat $
   myFloats      = ["MPlayer", "Vlc", "Lxappearance", "XFontSel"]
   myFullFloats  = ["feh", "mpv", "Zathura", "Mcomix", "smplayer"]
   myIm          = ["Pidgin", "Mumble", "Skype"]
-  myGfxs        = ["Inkscape", "Gimp"]
+  myGfxs        = ["Inkscape", "Gimp-2.10"]
+  myWeb         = ["firefox-default"]
 
   -- roles
   myServ        = ["rails_dobroserver", "rails_fitlog"]
-  myGen         = ["roxterm_startup"]
   myFs          = ["nnn_startup"]
 
   -- resources
-  myIgnores = ["desktop", "desktop_window"]
+  myIgnores = ["desktop", "desktop_window", "conky"]
+  -- Move transient windows to their parent:
 
   -- names
-  myNames   = ["Google Chrome Options", "Chromium Options", "Firefox Preferences"]
+  -- myNames   = ["Google Chrome Options", "Chromium Options", "Firefox Preferences"]
 
 
 -- Event handling --------------------------------------------------------------
 
--- myEventHook = hintsEventHook <+> docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEventHook
-myEventHook = docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEventHook
+myEventHook = hintsEventHook <+> docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEventHook
+-- myEventHook = docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEventHook
 
 -- Startup hook ----------------------------------------------------------------
 
 myStartupHook = do
   setFullscreenSupport
-  spawn "sh ~/.config/polybar/launch.sh"
   spawn "sh ~/.config/conky/launch.sh"
+  spawn "sh ~/.config/polybar/launch.sh"
 
 -- Scratchpads -----------------------------------------------------------------
 -- xprop | grep WM_CLASS
@@ -257,123 +270,124 @@ scratchpads = [
   wm_name = stringProperty "WM_NAME"
 
 -- Bindings --------------------------------------------------------------------
+-- M - Win, M1 - Alt, C - Control, S - Shift.
+myKeys = \conf -> mkKeymap conf $
+    [ ("M-<Return>", spawn $ XMonad.terminal conf)
+    -- , ("M-o", spawn "xmessage 'woohoo!'")  -- type mod+x then w to pop up 'woohoo!'
+    -- , ("M-x y", spawn "xmessage 'yay!'")     -- type mod+x then y to pop up 'yay!'
+    , ("M-q", kill) -- close focused window
+    , ("M-o", spawn "sleep 0.5; xset dpms force off; pkill -f gpmdp")
+    , ("M-x", spawn "rofi -modi drun -show")
+    , ("M-u", spawn "ulauncher")
+    , ("M-h", focusUrgent)
+    , ("M-p", spawn "rofi -modi window -show")
+    , ("M-c", spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
+    , ("M-l", spawn "betterlockscreen --lock blur") -- betterlockscreen -u Wallpapers/
+    -- , ("M-l",  spawn "dm-tool lock")
+    , ("M-b", raiseMaybe (spawn "firefox -p default --class firefox-default") (className =? "firefox-default"))
+    , ("M-y", raiseMaybe (spawn "firefox -p tor --class firefox-tor") (className =? "firefox-tor"))
+    , ("M-v", raiseMaybe (runInTerm "--class nvim" "nvim") (resource =? "nvim"))
+    , ("M-j", raiseMaybe (runInTerm "--class tmux" "tmux") (resource =? "tmux"))
+    , ("M-space", sendMessage NextLayout)  -- Rotate through the available layout algorithms
+    , ("M-S-<Space>", sendMessage ToggleStruts )
+    , ("M-n", refresh) -- Resize viewed windows to the correct size
+    , ("M-m", raiseMaybe (spawn "xfce4-mime-settings") (resource =? "xfce4-mime-settings"))
 
-myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
+    , ("M-t", withFocused $ windows . W.sink) -- Push window back into tiling
 
-  [ ((modm,                 xK_Return), spawn $ XMonad.terminal conf) -- launch a terminal
-  , ((modm,                 xK_o     ), spawn "sleep 0.5; xset dpms force off; pkill -f gpmdp")
-  , ((modm,                 xK_x     ), spawn "rofi -modi drun -show")
-  , ((modm,                 xK_u     ), spawn "ulauncher")
-  , ((modm,                 xK_h     ), focusUrgent)
-  , ((modm,                 xK_p     ), spawn "rofi -modi window -show")
-  , ((modm,                 xK_c     ), spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
-  , ((modm,                 xK_l     ), spawn "betterlockscreen --lock blur") -- betterlockscreen -u Wallpapers/
-  -- , ((modm,   xK_l     ), spawn "dm-tool lock")
-  , ((modm,                 xK_b     ), raiseMaybe (spawn "firefox -p default --class firefox-default") (className =? "firefox-default"))
-  , ((modm,                 xK_y     ), raiseMaybe (spawn "firefox -p tor --class firefox-tor") (className =? "firefox-tor"))
-  , ((modm,                 xK_v     ), raiseMaybe (runInTerm "--class nvim" "nvim") (resource =? "nvim"))
-  , ((modm,                 xK_j     ), raiseMaybe (runInTerm "--class tmux" "tmux") (resource =? "tmux"))
-  , ((modm,                 xK_q     ), kill) -- close focused window
-  , ((modm,                 xK_space ), sendMessage NextLayout)  -- Rotate through the available layout algorithms
-  , ((modm .|. shiftMask,   xK_space ), sendMessage ToggleStruts )
-  , ((modm,                 xK_n     ), refresh) -- Resize viewed windows to the correct size
-  , ((modm,                 xK_m     ), raiseMaybe (spawn "xfce4-mime-settings") (resource =? "xfce4-mime-settings"))
+    , ("M-S-,", sendMessage (IncMasterN 1)) -- Increment the number of windows in the master area
+    , ("M-S-.", sendMessage (IncMasterN (-1))) -- Deincrement the number of windows in the master area
+    -- power
+    , ("M-C-r", spawn "systemctl reboot")
+    , ("M-C-h", spawn "systemctl poweroff")
+    --
+    , ("M-k", spawn "sh /etc/scripts/pick-color.sh")
+    --
+    -- -- bookmarks
+    , ("M1-m", spawn "xdg-open https://mail.google.com/")
+    --
+    -- -- resizing
+    , ("M-S-<Left>", sendMessage Shrink)
+    , ("M-S-<Right>", sendMessage Expand)
+    , ("M-S-<Down>", sendMessage MirrorShrink)
+    , ("M-S-<Up>", sendMessage MirrorExpand)
+    --
+    -- -- navigation
+    , ("M-<Right>",   sendMessage $ Go R)
+    , ("M-<Left>",    sendMessage $ Go L)
+    , ("M-<Up>",      sendMessage $ Go U)
+    , ("M-<Down>",    sendMessage $ Go D)
+    , ("M-C-<Right>", sendMessage $ Swap R)
+    , ("M-C-<Left>",  sendMessage $ Swap L)
+    , ("M-C-<Up>",    sendMessage $ Swap U)
+    , ("M-C-<Down>",  sendMessage $ Swap D)
 
-  , ((modm,                 xK_t     ), withFocused $ windows . W.sink) -- Push window back into tiling
+    -- , ("M-l", ), sendMessage $ Go R)
+    -- , ("M-h", ), sendMessage $ Go L)
+    -- , ("M-k", ), sendMessage $ Go U)
+    -- , ("M-j", ), sendMessage $ Go D)
+    -- , (("M-C", xK_l ), sendMessage $ Swap R)
+    -- , (("M-C", xK_h ), sendMessage $ Swap L)
+    -- , (("M-C", xK_k ), sendMessage $ Swap U)
+    -- , (("M-C", xK_j ), sendMessage $ Swap D)
 
-  , ((modm .|. shiftMask,   xK_comma ), sendMessage (IncMasterN 1)) -- Increment the number of windows in the master area
-  , ((modm .|. shiftMask,   xK_period), sendMessage (IncMasterN (-1))) -- Deincrement the number of windows in the master area
+    -- custom
+    , ("M-f", sendMessage ToggleLayout)
+    --
+    , ("<F1>", namedScratchpadAction scratchpads  "terminal-1")
+    , ("<F2>", namedScratchpadAction scratchpads  "terminal-2")
+    , ("<F3>", namedScratchpadAction scratchpads "nnn")
+    , ("M-F4", namedScratchpadAction scratchpads  "notes")
+    , ("M-F5", namedScratchpadAction scratchpads  "keepassx")
+    , ("M-F6", namedScratchpadAction scratchpads  "gotop")
+    , ("M-F7", namedScratchpadAction scratchpads  "blueman-manager")
+    , ("M-F8", namedScratchpadAction scratchpads  "ncdu")
+    , ("M-F12", namedScratchpadAction scratchpads "upwork")
+    , ("M-i", namedScratchpadAction scratchpads  "images_browser")
 
-  -- power
-  , ((modm .|. controlMask, xK_r     ), spawn "systemctl reboot")
-  , ((modm .|. controlMask, xK_h     ), spawn "systemctl poweroff")
+    , ("M-s",namedScratchpadAction scratchpads  "spacefm")
+    , ("M-g",namedScratchpadAction scratchpads  "gpmdp")
+    , ("M-j",namedScratchpadAction scratchpads  "tmux")
 
-  , ((modm, xK_k     ), spawn "sh /etc/scripts/pick-color.sh")
+    , ("<Print>",  spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
+    , ("M-Delete", spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
 
-  -- bookmarks
-  , ((mod1Mask,   xK_m  ), spawn "xdg-open https://mail.google.com/")
+    , ("M-Print",                  spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
+    , ("M-C-<Delete>", spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
 
-  -- resizing
-  , ((modm .|. shiftMask,   xK_Left  ), sendMessage Shrink)
-  , ((modm .|. shiftMask,   xK_Right ), sendMessage Expand)
-  , ((modm .|. shiftMask,   xK_Down  ), sendMessage MirrorShrink)
-  , ((modm .|. shiftMask,   xK_Up    ), sendMessage MirrorExpand)
+    , ("M-<Home>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+    , ("M-<Page_Up>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%")
+    , ("M-<Page_Down>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%")
+    , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%")
+    , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%")
+    , ("<XF86MonBrightnessUp>", spawn "brightnessctl set +10%")
+    , ("<XF86MonBrightnessDown>", spawn "brightnessctl set -10%")
 
-  -- navigation
-  , ((modm,                 xK_Right ), sendMessage $ Go R)
-  , ((modm,                 xK_Left  ), sendMessage $ Go L)
-  , ((modm,                 xK_Up    ), sendMessage $ Go U)
-  , ((modm,                 xK_Down  ), sendMessage $ Go D)
-  , ((modm .|. controlMask, xK_Right ), sendMessage $ Swap R)
-  , ((modm .|. controlMask, xK_Left  ), sendMessage $ Swap L)
-  , ((modm .|. controlMask, xK_Up    ), sendMessage $ Swap U)
-  , ((modm .|. controlMask, xK_Down  ), sendMessage $ Swap D)
+    , ("M-,",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
+    , ("M-S-,",  spawn  "sh ~/.config/polybar/gpmdp-rewind.sh")
+    , ("M-S-.", spawn  "sh ~/.config/polybar/gpmdp-next.sh")
+    , ("M-/",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 40%")
 
-  -- , ((modm,                 xK_l ), sendMessage $ Go R)
-  -- , ((modm,                 xK_h ), sendMessage $ Go L)
-  -- , ((modm,                 xK_k ), sendMessage $ Go U)
-  -- , ((modm,                 xK_j ), sendMessage $ Go D)
-  -- , ((modm .|. controlMask, xK_l ), sendMessage $ Swap R)
-  -- , ((modm .|. controlMask, xK_h ), sendMessage $ Swap L)
-  -- , ((modm .|. controlMask, xK_k ), sendMessage $ Swap U)
-  -- , ((modm .|. controlMask, xK_j ), sendMessage $ Swap D)
+    , ("M-C-<BackSpace>", spawn "xmonad --recompile && xmonad --restart") -- Restart xmonad
+    ]
+    ++
 
-  -- custom
-  , ((modm, xK_f), sendMessage ToggleLayout)
-
-  , ((0, xK_F1 ), namedScratchpadAction scratchpads  "terminal-1")
-  , ((0, xK_F2 ), namedScratchpadAction scratchpads  "terminal-2")
-  , ((0, xK_F3), namedScratchpadAction scratchpads "nnn")
-  , ((modm, xK_F4 ), namedScratchpadAction scratchpads  "notes")
-  , ((modm, xK_F5 ), namedScratchpadAction scratchpads  "keepassx")
-  , ((modm, xK_F6 ), namedScratchpadAction scratchpads  "gotop")
-  , ((modm, xK_F7 ), namedScratchpadAction scratchpads  "blueman-manager")
-  , ((modm, xK_F8 ), namedScratchpadAction scratchpads  "ncdu")
-  , ((modm, xK_F12 ), namedScratchpadAction scratchpads "upwork")
-  , ((modm, xK_i ), namedScratchpadAction scratchpads  "images_browser")
-
-  , ((modm, xK_s), namedScratchpadAction scratchpads  "spacefm")
-  , ((modm, xK_g), namedScratchpadAction scratchpads  "gpmdp")
-  , ((modm, xK_j), namedScratchpadAction scratchpads  "tmux")
-
-  , ((0,    xK_Print),  spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
-  , ((modm, xK_Delete), spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
-
-  , ((modm, xK_Print),                  spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
-  , ((modm .|. controlMask, xK_Delete), spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
-
-  , ((modm, xK_Home), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
-  , ((modm, xK_Page_Up), spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%")
-  , ((modm, xK_Page_Down), spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%")
-  , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%")
-  , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%")
-  , ((0, xF86XK_MonBrightnessUp), spawn "brightnessctl set +10%")
-  , ((0, xF86XK_MonBrightnessDown), spawn "brightnessctl set -10%")
-
-  , ((modm, xK_comma),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
-  , ((modm .|. shiftMask, xK_comma),  spawn  "sh ~/.config/polybar/gpmdp-rewind.sh")
-  , ((modm .|. shiftMask, xK_period), spawn  "sh ~/.config/polybar/gpmdp-next.sh")
-  , ((modm, xK_slash),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 40%")
-
-  , ((modm .|. controlMask, xK_BackSpace ), spawn "xmonad --recompile && xmonad --restart") -- Restart xmonad
-  ]
-  ++
-
-  -- mod-[1..9], Switch to workspace N
-  -- mod-shift-[1..9], Move client to workspace N
-  --
-  [((m .|. modm, k), windows $ f i)
-      | (i, k) <- zip (XMonad.workspaces conf) ([xK_1 .. xK_9] ++ [xK_0, xK_minus])
-      , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-  ++
-
-  --
-  -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
-  -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
-  --
-  [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-      | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
-      , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+    -- mod-[1..9], Switch to workspace N
+    -- mod-shift-[1..9], Move client to workspace N
+    --
+    [ (m ++ i, windows $ f j)
+          | (i, j) <- zip (map show [1..9]) (XMonad.workspaces conf)
+          , (m, f) <- [("M-", W.view), ("M-S-", W.shift)]
+    ]
+    ++
+    --
+    -- --
+    -- -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
+    -- -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
+    -- --
+    [(m ++ "M-" ++ [key], screenWorkspace sc >>= flip whenJust (windows . f))
+        | (key, sc) <- zip "wer" [0..]
+        , (f, m) <- [(W.view, ""), (W.shift, "S-")]]
 
 -- Mouse bindings: default actions bound to mouse events -----------------------
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $

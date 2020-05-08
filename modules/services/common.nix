@@ -24,4 +24,5 @@
   };
 
   services.nixosManual.showManual = false;
+  services.gvfs.enable = lib.mkForce false;
 }

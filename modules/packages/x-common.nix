@@ -68,7 +68,6 @@ in
       simplescreenrecorder
       xclip
       rofi
-      stable.ulauncher
       pavucontrol
       libnotify
       dunst
