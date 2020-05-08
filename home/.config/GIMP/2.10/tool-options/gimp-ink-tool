@@ -1,0 +1,8 @@
+# GIMP gimp-ink-tool options
+
+(foreground (color-rgb 0.91764705882352937 0.29411764705882354 0.54509803921568623))
+(background (color-rgb 1 0.9647059440612793 0.9647059440612793))
+(brush-size 51)
+(brush-hardness 0.5)
+
+# end of gimp-ink-tool options

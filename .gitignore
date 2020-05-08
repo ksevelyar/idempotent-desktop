@@ -25,6 +25,5 @@ home/.config/fontconfig/
 home/.config/nvim/.netrwhist
 home/.config/openbox/
 home/.config/session/
-home/.config/GIMP
 
 configuration.nix

@@ -244,6 +244,10 @@ scratchpads = [
     (className =? "Image Lounge")
     (customFloating $ W.RationalRect 0.01 0.01 0.98 0.98),
 
+  NS "ncdu" "cd /storage && alacritty --class ncdu -e sudo ncdu /"
+    (resource =? "ncdu")
+    nonFloating,
+
   NS "nnn" "cd /storage && alacritty --class nnn -e nnn"
     (resource =? "nnn")
     nonFloating
@@ -323,6 +327,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm, xK_F5 ), namedScratchpadAction scratchpads  "keepassx")
   , ((modm, xK_F6 ), namedScratchpadAction scratchpads  "gotop")
   , ((modm, xK_F7 ), namedScratchpadAction scratchpads  "blueman-manager")
+  , ((modm, xK_F8 ), namedScratchpadAction scratchpads  "ncdu")
   , ((modm, xK_F12 ), namedScratchpadAction scratchpads "upwork")
   , ((modm, xK_i ), namedScratchpadAction scratchpads  "images_browser")
 
