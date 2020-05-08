@@ -1,6 +1,22 @@
 # λ Idempotent Freelancer Desktop 
 
-NixOS, Xmonad, Polybar, Neovim, Fish | Elixir, JS
+* NixOS, Xmonad, Polybar, Alacritty, Rofi, Conky, Picom
+* SpaceFM, nnn
+* Neovim (LSP via coc.nvim): Elixir, JS 
+* https://github.com/ksevelyar/joker.vim (heavily inspired by vim-gotham)
+* FZF, Ripgrep, Fish, Tmux, Zeal
+* ardiono, fritzing
+* Cura, OpenSCAD, Gimp
+* Proprietary suite: Upwork, Slack, Skype, Google-Chrome, Google-Play-Music-Desktop-Player, Telegram, Memtest, Broadcom Wi-fi drivers
+* Adblocking DNS with `dnsmasq` by pi-hole methodology
+* Native virtualization with kvm & virt-manager
+* Tor, Switchy Omega, qTox 
+* Easily hackable live usb (with and without X)
+* Bypassing symmetrical NATs with WireGuard
+* Pair programming with x11vnc & sshd
+* steam, lutris, playonlinux
+* nmtui + blueman-manger 
+* ssd friendly with fstrim service and `noatime`
 
 ## neofetch
 
