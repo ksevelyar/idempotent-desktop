@@ -16,9 +16,9 @@ in
   };
 
   # pg admin dep
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.0.2u"
-  ];
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "openssl-1.0.2u"
+  # ];
 
   environment.systemPackages = with pkgs;
     [
@@ -29,8 +29,9 @@ in
       curlie
 
       # sql
-      pgadmin
+      # pgadmin
       dbeaver
+      sequeler
 
       # images
       imagemagick
@@ -45,7 +46,6 @@ in
       # langs
       go
       elixir
-      gcc
 
       # arduino
       arduino

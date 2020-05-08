@@ -20,6 +20,8 @@
       ../modules/services/x.nix
 
       ../modules/x/xmonad.nix
+      # ../modules/x/xfce-xmonad.nix
+      # ../modules/x/openbox.nix
       ../modules/x/fonts.nix
       ../modules/packages/x-common.nix
       ../modules/packages/x-extra.nix

@@ -277,6 +277,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((modm,                 xK_space ), sendMessage NextLayout)  -- Rotate through the available layout algorithms
   , ((modm .|. shiftMask,   xK_space ), sendMessage ToggleStruts )
   , ((modm,                 xK_n     ), refresh) -- Resize viewed windows to the correct size
+  , ((modm,                 xK_m     ), raiseMaybe (spawn "xfce4-mime-settings") (resource =? "xfce4-mime-settings"))
 
   , ((modm,                 xK_t     ), withFocused $ windows . W.sink) -- Push window back into tiling
 
@@ -320,9 +321,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   -- custom
   , ((modm, xK_f), sendMessage ToggleLayout)
 
-  , ((modm, xK_F1 ), namedScratchpadAction scratchpads  "terminal-1")
-  , ((modm, xK_F2 ), namedScratchpadAction scratchpads  "terminal-2")
-  , ((modm, xK_F3), namedScratchpadAction scratchpads "nnn")
+  , ((0, xK_F1 ), namedScratchpadAction scratchpads  "terminal-1")
+  , ((0, xK_F2 ), namedScratchpadAction scratchpads  "terminal-2")
+  , ((0, xK_F3), namedScratchpadAction scratchpads "nnn")
   , ((modm, xK_F4 ), namedScratchpadAction scratchpads  "notes")
   , ((modm, xK_F5 ), namedScratchpadAction scratchpads  "keepassx")
   , ((modm, xK_F6 ), namedScratchpadAction scratchpads  "gotop")
@@ -349,7 +350,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
   , ((0, xF86XK_MonBrightnessUp), spawn "brightnessctl set +10%")
   , ((0, xF86XK_MonBrightnessDown), spawn "brightnessctl set -10%")
 
-  , ((modm, xK_m),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
+  , ((modm, xK_comma),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
   , ((modm .|. shiftMask, xK_comma),  spawn  "sh ~/.config/polybar/gpmdp-rewind.sh")
   , ((modm .|. shiftMask, xK_period), spawn  "sh ~/.config/polybar/gpmdp-next.sh")
   , ((modm, xK_slash),  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 40%")

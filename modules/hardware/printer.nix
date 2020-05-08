@@ -5,9 +5,5 @@
     enable = true;
     #   drivers = [ pkgs.gutenprint pkgs.hplip ];
   };
-
-  environment.systemPackages = with pkgs;
-    [
-      system-config-printer
-    ];
+  services.system-config-printer.enable = true;
 }

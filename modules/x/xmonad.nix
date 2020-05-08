@@ -19,6 +19,7 @@ in
         rofi
         libnotify
         dunst
+        xfce.xfce4-settings # xfce4-mime-settings
       ];
 
   environment.shellAliases = {
@@ -27,6 +28,7 @@ in
   };
 
   console.useXkbConfig = true;
+  services.xserver.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 
   services.xserver = {
     displayManager = {

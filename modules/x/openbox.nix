@@ -19,6 +19,9 @@ in
         rofi
         libnotify
         dunst
+
+        openbox-menu
+        obconf
       ];
 
   environment.shellAliases = {
@@ -28,9 +31,9 @@ in
 
   console.useXkbConfig = true;
 
+  # services.xserver.desktopManager.lxqt.enable = true;
   services.xserver = {
     displayManager = {
-      defaultSession = "none+openbox";
       sessionCommands = ''
         # ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY
         sh ~/.fehbg

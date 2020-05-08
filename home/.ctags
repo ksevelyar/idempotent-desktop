@@ -8,4 +8,3 @@
 --exclude=deps
 --exclude=node_modules
 --exclude=public/assets
---languages=ruby,javascript
