@@ -1,7 +1,7 @@
 # λ Idempotent Freelancer Desktop 
 
 * NixOS, Xmonad, Polybar, Alacritty, Rofi, Conky, Picom
-* Neovim (LSP via coc.nvim): Elixir, JS
+* Neovim (LSP via coc.nvim): Elixir, JS, HTML, CSS
 * https://github.com/ksevelyar/joker.vim (heavily inspired by vim-gotham)
 * FZF, Ripgrep, Fish, Tmux, Zeal
 * SpaceFM, nnn, nomacs
