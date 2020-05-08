@@ -11,7 +11,7 @@
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
       ../modules/sys/aliases.nix
       ../modules/sys/scripts.nix
-      # ../modules/sys/debug.nix
+      ../modules/sys/debug.nix
 
       ../modules/boot/efi.nix
       # ../modules/boot/multiboot.nix

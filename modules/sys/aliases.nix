@@ -16,6 +16,7 @@
     p = "gopass";
     pkill = "pkill --full";
     v = "nvim";
+    vo = "nvim -o (fzf)";
     vanilla-vim = "nvim -U none";
     g = "git";
     t = "task";

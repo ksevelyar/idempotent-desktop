@@ -103,7 +103,7 @@ main = do
     startupHook        = myStartupHook
   }
 
-myWorkspaces = ["www","ed","sh","bg","im","fs","media","gfx","h","*","**"]
+myWorkspaces = ["www","ed","sh","bg","im","fs","media","gfx","h","*"]
 
 -- Status bars and logging -----------------------------------------------------
 
@@ -148,15 +148,17 @@ myLayout = windowNavigation $
   grid = renamed [Replace "g" ] $ Grid
 
 -- Window Management -----------------------------------------------------------
-
+-- xprop
 myManageHook = manageDocks <+> (composeAll . concat $
   [
     [resource  =? r --> doIgnore           | r <- myIgnores    ]
   , [className =? c --> viewShift "im"     | c <- myIm         ]
   , [className =? c --> viewShift "gfx"    | c <- myGfxs       ]
   , [className =? c --> doShift   "www"    | c <- myWeb        ]
+  , [className =? c --> doShift   "*"      | c <- myMisc       ]
   , [role      =? r --> doShift   "serv"   | r <- myServ       ]
   , [role      =? r --> doShift   "fs"     | r <- myFs         ]
+  , [resource  =? r --> viewShift "ed"     | r <- myEd         ]
 
 
   -- , [name      =? n --> doCenterFloat      | n <- myNames      ]
@@ -183,16 +185,18 @@ myManageHook = manageDocks <+> (composeAll . concat $
   -- classnames
   myFloats      = ["MPlayer", "Vlc", "Lxappearance", "XFontSel"]
   myFullFloats  = ["feh", "mpv", "Zathura", "Mcomix", "smplayer"]
-  myIm          = ["Pidgin", "Mumble", "Skype"]
+  myIm          = ["TelegramDesktop", "Mumble", "Skype"]
+  myEd          = ["nvim"]
   myGfxs        = ["Inkscape", "Gimp-2.10"]
   myWeb         = ["firefox-default"]
+  myMisc        = ["firefox-tor"]
 
   -- roles
   myServ        = ["rails_dobroserver", "rails_fitlog"]
   myFs          = ["nnn_startup"]
 
   -- resources
-  myIgnores = ["desktop", "desktop_window", "conky"]
+  myIgnores = ["desktop", "desktop_window"]
   -- Move transient windows to their parent:
 
   -- names
@@ -208,7 +212,6 @@ myEventHook = hintsEventHook <+> docksEventHook <+> handleEventHook defaultConfi
 
 myStartupHook = do
   setFullscreenSupport
-  spawn "sh ~/.config/conky/launch.sh"
   spawn "sh ~/.config/polybar/launch.sh"
 
 -- Scratchpads -----------------------------------------------------------------
@@ -278,7 +281,10 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-q", kill) -- close focused window
     , ("M-o", spawn "sleep 0.5; xset dpms force off; pkill -f gpmdp")
     , ("M-x", spawn "rofi -modi drun -show")
-    , ("M-u", spawn "ulauncher")
+
+    -- unfloat, push window back into tiling
+    , ("M-u", withFocused $ windows . W.sink)
+
     , ("M-h", focusUrgent)
     , ("M-p", spawn "rofi -modi window -show")
     , ("M-c", spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
@@ -293,7 +299,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-n", refresh) -- Resize viewed windows to the correct size
     , ("M-m", raiseMaybe (spawn "xfce4-mime-settings") (resource =? "xfce4-mime-settings"))
 
-    , ("M-t", withFocused $ windows . W.sink) -- Push window back into tiling
+    , ("M-t", raiseMaybe (spawn "telegram-desktop") (className =? "TelegramDesktop")) --
 
     , ("M-S-,", sendMessage (IncMasterN 1)) -- Increment the number of windows in the master area
     , ("M-S-.", sendMessage (IncMasterN (-1))) -- Deincrement the number of windows in the master area
@@ -304,7 +310,9 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-k", spawn "sh /etc/scripts/pick-color.sh")
     --
     -- -- bookmarks
-    , ("M1-m", spawn "xdg-open https://mail.google.com/")
+    , ("M1-b m", spawn "xdg-open https://mail.google.com/")
+    , ("M1-b r", spawn "xdg-open https://reddit.com/")
+    , ("M1-b g", spawn "xdg-open https://github.com/")
     --
     -- -- resizing
     , ("M-S-<Left>", sendMessage Shrink)
@@ -336,13 +344,13 @@ myKeys = \conf -> mkKeymap conf $
     --
     , ("<F1>", namedScratchpadAction scratchpads  "terminal-1")
     , ("<F2>", namedScratchpadAction scratchpads  "terminal-2")
-    , ("<F3>", namedScratchpadAction scratchpads "nnn")
-    , ("M-F4", namedScratchpadAction scratchpads  "notes")
-    , ("M-F5", namedScratchpadAction scratchpads  "keepassx")
-    , ("M-F6", namedScratchpadAction scratchpads  "gotop")
-    , ("M-F7", namedScratchpadAction scratchpads  "blueman-manager")
-    , ("M-F8", namedScratchpadAction scratchpads  "ncdu")
-    , ("M-F12", namedScratchpadAction scratchpads "upwork")
+    , ("M-<F3>", namedScratchpadAction scratchpads "nnn")
+    , ("M-<F4>", namedScratchpadAction scratchpads  "notes")
+    , ("M-<F5>", namedScratchpadAction scratchpads  "keepassx")
+    , ("M-<F6>", namedScratchpadAction scratchpads  "gotop")
+    , ("M-<F7>", namedScratchpadAction scratchpads  "blueman-manager")
+    , ("M-<F8>", namedScratchpadAction scratchpads  "ncdu")
+    , ("M-<F12>", namedScratchpadAction scratchpads "upwork")
     , ("M-i", namedScratchpadAction scratchpads  "images_browser")
 
     , ("M-s",namedScratchpadAction scratchpads  "spacefm")
@@ -376,7 +384,7 @@ myKeys = \conf -> mkKeymap conf $
     -- mod-shift-[1..9], Move client to workspace N
     --
     [ (m ++ i, windows $ f j)
-          | (i, j) <- zip (map show [1..9]) (XMonad.workspaces conf)
+          | (i, j) <- zip (map show ([1..9]++[0])) (XMonad.workspaces conf)
           , (m, f) <- [("M-", W.view), ("M-S-", W.shift)]
     ]
     ++

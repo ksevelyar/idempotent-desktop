@@ -35,13 +35,14 @@ in
       defaultSession = "none+xmonad";
       sessionCommands = ''
         # ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY
+        (rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log) &
         sh ~/.fehbg
         xsetroot -cursor_name left_ptr
-        (rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log) &
-
+        
         lxqt-policykit-agent &
         xxkb &
         xcape -e 'Super_R=Super_R|X'
+        sh ~/.config/conky/launch.sh
       '';
     };
 
