@@ -33,7 +33,7 @@ in
   services.xserver = {
     displayManager = {
       defaultSession = "none+xmonad";
-      sessionCommands = ''
+      sessionCommands = lib.mkDefault ''
         # ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY
         (rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log) &
         sh ~/.fehbg

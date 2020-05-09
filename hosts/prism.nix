@@ -78,9 +78,23 @@
   };
   g.hostName = "prism"; # Define your hostname.
 
-  services.xserver.videoDrivers = [ "ati-drivers" ];
   hardware = {
     cpu.intel.updateMicrocode = true;
+  };
+
+  services.xserver = {
+    videoDrivers = [ "ati-drivers" ];
+    displayManager = {
+      sessionCommands = ''
+        (rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log) &
+        sh ~/.fehbg
+        xsetroot -cursor_name left_ptr
+        
+        lxqt-policykit-agent &
+        xxkb &
+        xcape -e 'Super_R=Super_R|X'
+      '';
+    };
   };
 
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" "sdhci_pci" ];
