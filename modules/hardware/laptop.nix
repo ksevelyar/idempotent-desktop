@@ -19,7 +19,7 @@
       naturalScrolling = false;
       disableWhileTyping = true;
       clickMethod = "buttonareas";
-      scrollMethod = "edge";
+      scrollMethod = lib.mkDefault "edge";
     };
 
     # config = ''
@@ -37,16 +37,10 @@
   # services.autorandr.enable = true;
 
   # TODO: debug
-  services.udev.extraRules = ''
-    SUBSYSTEM=="power_supply"
-    ATTR{status}=="Discharging"
-    ATTR{capacity}=="[0-90]"
-    RUN+="${pkgs.libnotify}/bin/notify-send 'battery' 'debug'"
-  '';
-
-  environment.systemPackages = with pkgs;
-    [
-      system-config-printer
-    ];
-
+  # services.udev.extraRules = ''
+  #   SUBSYSTEM=="power_supply"
+  #   ATTR{status}=="Discharging"
+  #   ATTR{capacity}=="[0-90]"
+  #   RUN+="${pkgs.libnotify}/bin/notify-send 'battery' 'debug'"
+  # '';
 }

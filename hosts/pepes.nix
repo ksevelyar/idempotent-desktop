@@ -35,7 +35,7 @@
       ../modules/hardware/bluetooth.nix
       ../modules/hardware/sound.nix
       ../modules/hardware/ssd.nix
-      ../modules/hardware/laptop.nix
+      # ../modules/hardware/laptop.nix
 
       ../modules/net/firewall-desktop.nix
       ../modules/net/wireguard.nix
@@ -45,9 +45,30 @@
       ../users/kh.nix
     ];
 
+  services.xserver = {
+    libinput = {
+      enable = true;
+      # accelProfile = "flat"; # flat profile for touchpads
+      naturalScrolling = false;
+      disableWhileTyping = true;
+      clickMethod = "buttonareas";
+      # scrollMethod = "edge";
+    };
+
+    # config = ''
+    #   Section "InputClass"
+    #     Identifier "Mouse"
+    #     Driver "libinput"
+    #     MatchIsPointer "on"
+    #     Option "AccelProfile" "adaptive"
+    #     Option "AccelSpeed" "0.8"
+    #   EndSection
+    # '';
+  };
+
   networking.hostName = "pepes";
   networking.firewall.enable = lib.mkForce true;
-  networking.networkmanager.enable = lib.mkDefault true; # run nmtui for wi-fi
+  networking.networkmanager.enable = true; # run nmtui for wi-fi
   networking.useDHCP = false;
   networking.interfaces.wlp3s0.useDHCP = true;
   networking.wireguard.interfaces = {
