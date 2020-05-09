@@ -22,6 +22,8 @@ in
 
   environment.systemPackages = with pkgs;
     [
+      emacs
+
       # docs
       zeal
 
