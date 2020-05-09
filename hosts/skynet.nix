@@ -13,7 +13,6 @@
       ../modules/sys/aliases.nix
       ../modules/sys/scripts.nix
       ../modules/sys/tty.nix
-      ../modules/sys/headless.nix
       # ../modules/sys/debug.nix
 
       ../modules/boot/bios.nix
