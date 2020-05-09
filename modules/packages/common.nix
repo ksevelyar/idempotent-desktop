@@ -14,6 +14,7 @@ in
     '';
   };
 
+  programs.bandwhich.enable = true;
   programs.fish.enable = true;
   programs.mosh.enable = true;
   programs.gnupg.agent = {
@@ -25,6 +26,7 @@ in
     [
       # sys
       exa
+      bat
       kakoune
       watchman
       (
@@ -35,11 +37,8 @@ in
           ]
         )
       )
-
       # navi
       sipcalc
-      lsof
-      cheat
       tldr
       git
       gitAndTools.diff-so-fancy
@@ -49,11 +48,19 @@ in
       file
       memtest86plus
       jq
+
+      # monitoring 
+      lsof
+      hwinfo
+      smartmontools
+      gotop
+      htop
+      iotop
+      neofetch
       lshw
       pciutils # lspci
       usbutils # lsusb
       psmisc # pstree, killall
-      bat
       inetutils
 
       # sec
@@ -82,14 +89,6 @@ in
       brightnessctl
       youtube-dl
 
-      # monitoring 
-      hwinfo
-      smartmontools
-      gotop
-      htop
-      iotop
-      iftop
-      neofetch
 
       # fs
       bind

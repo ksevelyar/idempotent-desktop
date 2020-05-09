@@ -11,6 +11,10 @@ in
   environment.systemPackages = with pkgs;
     [
       # media
+      gnome3.adwaita-icon-theme
+      sweet
+      pantheon.elementary-icon-theme
+      gtk3.out
       libva-utils
       mpv
       cava
@@ -84,7 +88,8 @@ in
       # vncpasswd
       # x0vncserver -rfbauth ~/.vnc/passwd
       tigervnc
-      x2goclient
+      x11vnc
+      # x2goclient
 
       # laptop
       arandr
@@ -94,64 +99,18 @@ in
   programs.dconf.enable = true;
   programs.qt5ct.enable = true;
 
-  services.picom = {
-    enable = true;
-    fade = false;
-    shadow = false;
-    backend = "glx";
-    vSync = true;
-  };
-
-  environment.shellAliases = {
-    x = "sudo systemctl start display-manager.service";
-    xr = "sudo systemctl restart display-manager.service";
-  };
-
-  console.useXkbConfig = true;
-
-  services.xserver = {
-    enable = true;
-
-    serverFlagsSection = ''
-      Option "BlankTime" "120"
-      Option "StandbyTime" "0"
-      Option "SuspendTime" "0"
-      Option "OffTime" "0"
-    '';
-
-    displayManager.lightdm = {
-      enable = true;
-      background = "/etc/nixos/assets/displayManager.png";
-
-      greeters.gtk = {
-        enable = true;
-        cursorTheme = {
-          name = "Vanilla-DMZ";
-          package = pkgs.vanilla-dmz;
-        };
-      };
-    };
-
-    layout = "us,ru";
-    xkbOptions = "grp:caps_toggle,grp:alt_shift_toggle,grp_led:caps";
-    desktopManager = {
-      xterm.enable = false;
-    };
-  };
-
-
-  qt5 = { style = "gtk2"; platformTheme = "gtk2"; };
+  # qt5 = { style = "gtk2"; platformTheme = "gtk2"; };
   environment = {
-    etc."xdg/gtk-3.0/settings.ini" = {
-      text = ''
-        [Settings]
-        gtk-theme-name=Ant-Dracula
-        gtk-icon-theme-name=Paper-Mono-Dark
-        gtk-font-name=Anka/Coder 13
-        # gtk-application-prefer-dark-theme = true
-        gtk-cursor-theme-name=Vanilla-DMZ
-      '';
-    };
+    # etc."xdg/gtk-3.0/settings.ini" = {
+    #   text = ''
+    #     [Settings]
+    #     gtk-theme-name=Ant-Dracula
+    #     gtk-icon-theme-name=Paper-Mono-Dark
+    #     gtk-font-name=Anka/Coder 13
+    #     # gtk-application-prefer-dark-theme = true
+    #     gtk-cursor-theme-name=Vanilla-DMZ
+    #   '';
+    # };
 
     etc."xdg/mimeapps.list" = {
       text = ''

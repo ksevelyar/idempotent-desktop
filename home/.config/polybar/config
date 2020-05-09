@@ -84,11 +84,11 @@ bottom = false
 
 modules-left = volume gpmdp
 modules-center = filesystem
-modules-right = eth cpu memory battery
+modules-right = vnc ssh eth cpu memory battery
 
 [module/title]
 type = internal/xwindow
-label-maxlen = 500
+label-maxlen = 170
 
 [module/workspaces-xmonad]
 ; format-prefix = "%{F#df} %{F-} "
@@ -96,6 +96,18 @@ type = custom/script
 exec = tail -F /tmp/.xmonad-workspace-log
 exec-if = [ -p /tmp/.xmonad-workspace-log ]
 tail = true
+
+[module/vnc]
+type = custom/script
+exec-if = pgrep x11vnc
+exec = echo "%{F#FF79C6}vnc%{F-} $(lsof -Pni | grep x11vnc | grep -v LISTEN | wc -l)"
+interval = 3
+
+[module/ssh]
+type = custom/script
+exec-if = pgrep sshd
+exec = echo "%{F#FF79C6}ssh%{F-} $(who | grep pts | wc -l)"
+interval = 3
 
 [module/weather]
 type = custom/script

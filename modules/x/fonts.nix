@@ -5,8 +5,6 @@
     enableGhostscriptFonts = true;
     fontconfig = {
       enable = true;
-      allowBitmaps = true;
-      useEmbeddedBitmaps = true;
       cache32Bit = true;
       # hinting.enable = false;
     };
@@ -28,7 +26,7 @@
         (nerdfonts.override { fonts = [ "Terminus" "Hermit" ]; })
         cozette
         siji # https://github.com/stark/siji
-        tamsyn # http://www.fial.com/~scott/tamsyn-font/
+        # tamsyn # http://www.fial.com/~scott/tamsyn-font/
         powerline-fonts
         ankacoder
       ];
@@ -38,8 +36,4 @@
     [
       font-manager
     ];
-
-  console = {
-    font = lib.mkDefault "Lat2-Terminus20";
-  };
 }

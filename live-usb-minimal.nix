@@ -8,7 +8,9 @@
 
     ./modules/sys/aliases.nix
     ./modules/sys/scripts.nix
+    ./modules/sys/tty.nix
     ./modules/sys/debug.nix
+    ./modules/sys/headless.nix
 
     ./modules/services/common.nix
     # ./modules/services/x.nix

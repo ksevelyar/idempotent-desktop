@@ -8,6 +8,7 @@
 
     ./modules/sys/aliases.nix
     ./modules/sys/scripts.nix
+    ./modules/sys/tty.nix
     ./modules/sys/debug.nix
 
     ./modules/services/common.nix

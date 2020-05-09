@@ -32,6 +32,8 @@ in
 
   services.xserver = {
     displayManager = {
+
+      lightdm.greeters.pantheon.enable = true;
       defaultSession = "none+xmonad";
       sessionCommands = lib.mkDefault ''
         # ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY

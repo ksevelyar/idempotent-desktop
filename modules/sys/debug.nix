@@ -12,5 +12,5 @@
     permitRootLogin = lib.mkForce "yes";
     passwordAuthentication = lib.mkForce true;
   };
-  systemd.services.sshd.wantedBy = lib.mkForce [ "multi-user.target" ];
+  systemd.services.sshd.wantedBy = lib.mkForce [];
 }

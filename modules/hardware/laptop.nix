@@ -11,28 +11,6 @@
     CPU_SCALING_GOVERNOR_ON_BAT=powersave
     ENERGY_PERF_POLICY_ON_BAT=powersave
   '';
-
-  services.xserver = {
-    libinput = {
-      enable = true;
-      accelProfile = "flat"; # flat profile for touchpads
-      naturalScrolling = false;
-      disableWhileTyping = true;
-      clickMethod = "buttonareas";
-      scrollMethod = lib.mkDefault "edge";
-    };
-
-    # config = ''
-    #   Section "InputClass"
-    #     Identifier "Mouse"
-    #     Driver "libinput"
-    #     MatchIsPointer "on"
-    #     Option "AccelProfile" "adaptive"
-    #     Option "AccelSpeed" "0.8"
-    #   EndSection
-    # '';
-  };
-
   # Auto-detect the connected display hardware and load the appropriate X11 setup using xrandr
   # services.autorandr.enable = true;
 

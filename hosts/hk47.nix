@@ -9,9 +9,10 @@
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+      ../modules/sys/debug.nix
       ../modules/sys/aliases.nix
       ../modules/sys/scripts.nix
-      ../modules/sys/debug.nix
+      ../modules/sys/tty.nix
 
       ../modules/boot/efi.nix
       # ../modules/boot/multiboot.nix
@@ -48,7 +49,6 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [];
-  boot.plymouth.enable = false;
   boot.cleanTmpDir = true;
   boot.tmpOnTmpfs = true;
 
@@ -83,6 +83,7 @@
   };
 
 
+  # fs
   swapDevices = [];
 
   # sudo e2label /dev/disk/by-uuid/044a758f-4252-4e42-b68c-a87d2345dc4c nixos
