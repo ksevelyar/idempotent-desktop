@@ -7,7 +7,7 @@ theme: "joker";
 
 /*	modi: "window,run,ssh";*/
 /*	width: 50;*/
-/*	lines: 15;*/
+lines: 10;
 /*	columns: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
