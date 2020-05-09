@@ -8,31 +8,31 @@ configuration {
 }
 
 * {
-  background-color: #0f0b13;
-  border-color: #1d1525;
+  background-color: #1B161F;
+  border-color: #000;
   text-color: #6B5A68;
   spacing: 0;
 }
 
 window {
-width: 33%;
-orientation: vertical;
+  width: 30%;
+  orientation: vertical;
 }
 
 
 inputbar {
-  border: 0 0 1px 0;
+  border: 0 0 0px 0;
   children: [prompt,entry];
 }
 
 prompt {
   padding: 16px;
-  border: 0 1px 0 0;
+  border: 0 0px 0 0;
 }
 
 textbox {
   background-color: #2e343f;
-  border: 0 0 1px 0;
+  border: 0 0 0px 0;
   border-color: #2b1f37;
   padding: 8px 16px;
 }
@@ -48,11 +48,12 @@ listview {
 }
 
 element {
-  border: 0 0 1px 0;
-  padding: 10px;
+  border: 0 0 0px 0;
+  padding: 16px;
+  color: #9B71C6;
 }
 
 element selected {
-  background-color: #000;
-  color: #9c71C7;
+  background-color: #9B71C6;
+  color: #000;
 }

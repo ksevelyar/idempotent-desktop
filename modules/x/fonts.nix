@@ -25,7 +25,7 @@
         vistafonts-chs # Microsoft YaHei
 
         # Dev fonts
-        (nerdfonts.override { fonts = [ "Terminus" ]; })
+        (nerdfonts.override { fonts = [ "Terminus" "Hermit" ]; })
         cozette
         siji # https://github.com/stark/siji
         tamsyn # http://www.fial.com/~scott/tamsyn-font/

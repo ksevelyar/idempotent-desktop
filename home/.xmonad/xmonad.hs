@@ -162,7 +162,7 @@ myManageHook = manageDocks <+> (composeAll . concat $
 
 
   -- , [name      =? n --> doCenterFloat      | n <- myNames      ]
-  , [className =? c --> doCenterFloat      | c <- myFloats     ]
+  , [className =? c --> doMyCenterFloat      | c <- myFloats     ]
   , [className =? c --> doFullFloat        | c <- myFullFloats ]
 
   , [isDialog       --> doFocusCenterFloat                     ]
@@ -178,7 +178,8 @@ myManageHook = manageDocks <+> (composeAll . concat $
   role = stringProperty "WM_WINDOW_ROLE"
   name = stringProperty "WM_NAME"
 
-  doFocusCenterFloat = doF W.shiftMaster <+> doF W.swapDown <+> doCenterFloat
+  doFocusCenterFloat = doF W.shiftMaster <+> doF W.swapDown <+> doMyCenterFloat
+  doMyCenterFloat = doRectFloat(W.RationalRect 0.25 0.25 0.5 0.5) --x y w h
 
   doFocusFullFloat   = doFullFloat
 
@@ -286,6 +287,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-u", withFocused $ windows . W.sink)
 
     , ("M-h", focusUrgent)
+    , ("M-z", spawn "rofi -show ssh")
     , ("M-p", spawn "rofi -modi window -show")
     , ("M-c", spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
     , ("M-l", spawn "betterlockscreen --lock blur") -- betterlockscreen -u Wallpapers/
@@ -358,9 +360,9 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-j",namedScratchpadAction scratchpads  "tmux")
 
     , ("<Print>",  spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
-    , ("M-Delete", spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
+    , ("M-<Delete>", spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
 
-    , ("M-Print",                  spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
+    , ("M-<Print>",                  spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
     , ("M-C-<Delete>", spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
 
     , ("M-<Home>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
