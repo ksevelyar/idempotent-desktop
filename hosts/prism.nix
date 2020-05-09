@@ -72,11 +72,11 @@
   networking.useDHCP = false;
   networking.interfaces.enp4s0.useDHCP = true;
   networking.interfaces.wlp2s0.useDHCP = true;
-  networkin  fileSystems."/mnt/skynet" = {
+  fileSystems."/mnt/skynet" = {
     device = "192.168.42.1:/export";
     fsType = "nfs";
   };
-  g.hostName = "prism"; # Define your hostname.
+  networking.hostName = "prism"; # Define your hostname.
 
   hardware = {
     cpu.intel.updateMicrocode = true;
