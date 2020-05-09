@@ -68,8 +68,6 @@
   networking.firewall.enable = lib.mkForce true;
   networking.networkmanager.enable = lib.mkDefault true; # run nmtui for wi-fi
   networking.useDHCP = false;
-  networking.interfaces.wlp3s0.useDHCP = true;
-  networking.useDHCP = false;
   networking.interfaces.enp4s0.useDHCP = true;
   networking.interfaces.wlp2s0.useDHCP = true;
   fileSystems."/mnt/skynet" = {
