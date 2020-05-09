@@ -6,7 +6,6 @@
     localuser = null;
   };
 
-  services.mingetty.greetingLine = ''\l'';
 
   services.openssh = {
     ports = [ 9922 ];

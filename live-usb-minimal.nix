@@ -10,7 +10,6 @@
     ./modules/sys/scripts.nix
     ./modules/sys/tty.nix
     ./modules/sys/debug.nix
-    ./modules/sys/headless.nix
 
     ./modules/services/common.nix
     # ./modules/services/x.nix
@@ -24,8 +23,8 @@
     ./modules/packages/common.nix
     # ../modules/packages/dev.nix
     # ../modules/packages/games.nix
-    # ./modules/packages/nvim.nix
-    # ./modules/packages/tmux.nix
+    ./modules/packages/nvim.nix
+    ./modules/packages/tmux.nix
 
     # ./modules/hardware/bluetooth.nix
     # ./modules/hardware/sound.nix

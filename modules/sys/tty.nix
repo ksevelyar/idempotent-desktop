@@ -1,4 +1,6 @@
 {
+  services.mingetty.greetingLine = ''\l'';
+
   console = {
     earlySetup = true;
     colors = [

@@ -64,18 +64,17 @@ in
       inetutils
 
       # sec
-      tomb
-      # pass
+      # tomb
       # We can add existing passwords to the store with insert:
       # pass insert Business/cheese-whiz-factory
       passExtensions.pass-audit
       passExtensions.pass-genphrase
-      passExtensions.pass-import
+      # passExtensions.pass-import
       passExtensions.pass-otp
-      passExtensions.pass-tomb
+      # passExtensions.pass-tomb
       passExtensions.pass-update
-      (pass.withExtensions (ext: with ext; [ pass-audit pass-otp pass-import pass-genphrase pass-update pass-tomb ]))
-      ripasso-cursive
+      (pass.withExtensions (ext: with ext; [ pass-audit pass-otp pass-genphrase pass-update ]))
+      # ripasso-cursive
       gopass
 
       # cli
