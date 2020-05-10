@@ -19,6 +19,10 @@
 * ssd friendly with fstrim service and `noatime` mount option
 * Proprietary suite: Upwork, Slack, Skype, Google-Chrome, Google-Play-Music-Desktop-Player, Telegram, Memtest, Broadcom Wi-fi drivers
 
+## rofi, sshd, x11vnc
+
+![screen](https://i.imgur.com/TWyVk5C.png)
+
 ## conky + gpmdp + taskwarrior
 
 ![screen](https://i.imgur.com/fWKORz4.png)
