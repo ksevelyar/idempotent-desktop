@@ -295,7 +295,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-y", raiseMaybe (spawn "firefox -p tor --class firefox-tor") (className =? "firefox-tor"))
     , ("M-v", raiseMaybe (runInTerm "--class nvim" "nvim") (resource =? "nvim"))
     , ("M-j", raiseMaybe (runInTerm "--class tmux" "tmux") (resource =? "tmux"))
-    , ("M-space", sendMessage NextLayout)  -- Rotate through the available layout algorithms
+    , ("M-<Space>", sendMessage NextLayout)  -- Rotate through the available layout algorithms
     , ("M-S-<Space>", sendMessage ToggleStruts )
     , ("M-n", refresh) -- Resize viewed windows to the correct size
     , ("M-m", raiseMaybe (spawn "xfce4-mime-settings") (resource =? "xfce4-mime-settings"))
@@ -361,7 +361,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("<Print>",  spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
     , ("M-<Delete>", spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
 
-    , ("M-<Print>",                  spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
+    , ("M-<Print>",    spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
     , ("M-C-<Delete>", spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
 
     , ("M-<Home>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
@@ -377,7 +377,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-S-.", spawn  "sh ~/.config/polybar/gpmdp-next.sh")
     , ("M-/",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 40%")
 
-    , ("M-C-<BackSpace>", spawn "xmonad --recompile && xmonad --restart") -- Restart xmonad
+    , ("M-C-<Backspace>", spawn "xmonad --recompile && xmonad --restart") -- Restart xmonad
     ]
     ++
 

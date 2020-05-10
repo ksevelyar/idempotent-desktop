@@ -77,12 +77,16 @@
       Option "OffTime" "0"
     '';
 
-    displayManager.lightdm = {
+    desktopManager.plasma5.enable = true;
+    displayManager.sddm = {
       enable = true;
+    };
+    displayManager.lightdm = {
+      enable = false;
       background = "/etc/nixos/assets/displayManager.png";
 
       greeters.enso = {
-        enable = true;
+        enable = false;
         blur = true;
 
         theme = {

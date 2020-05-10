@@ -100,6 +100,7 @@ in
       arandr
     ];
 
+  programs.wireshark.enable = true;
   programs.browserpass.enable = true;
   programs.dconf.enable = true;
   programs.qt5ct.enable = true;

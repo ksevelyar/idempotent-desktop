@@ -11,9 +11,6 @@
     echo -e "Video: $VIDEO\n"
 
     lsblk -f
-
-    echo -e "\nVirt:\n"
-    dmesg | grep -i kvm
   '';
 
   environment.etc."/scripts/refresh-channels.sh".text = ''
