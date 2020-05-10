@@ -130,7 +130,7 @@
       xterm.enable = false;
       gnome3.enable = false;
       pantheon.enable = false;
-      lxqt.enable = true;
+      lxqt.enable = false;
     };
   };
 
