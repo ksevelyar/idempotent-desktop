@@ -21,8 +21,8 @@
 
     ./modules/packages/absolutely-proprietary.nix
     ./modules/packages/common.nix
-    # ../modules/packages/dev.nix
-    # ../modules/packages/games.nix
+    # ./modules/packages/dev.nix
+    # ./modules/packages/games.nix
     ./modules/packages/nvim.nix
     ./modules/packages/tmux.nix
 

@@ -43,13 +43,13 @@ in
       git
       gitAndTools.diff-so-fancy
       bash
-      lm_sensors
       mkpasswd
       file
       memtest86plus
       jq
 
       # monitoring 
+      lm_sensors
       lsof
       hwinfo
       smartmontools
@@ -109,5 +109,6 @@ in
       exfat
       sshfsFuse
       rsync
+      rclone
     ];
 }

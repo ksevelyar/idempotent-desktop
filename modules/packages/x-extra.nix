@@ -5,9 +5,8 @@ let
   };
 in
 {
-  services.flatpak.enable = true;
-  xdg.portal.enable = true; # flatpak dep
-  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; # flatpak dep
+  services.flatpak.enable = false;
+  xdg.portal.enable = false; # flatpak dep
 
   # upwork
   nixpkgs.overlays = [ (import ../../overlays) ];
@@ -15,7 +14,7 @@ in
   environment.systemPackages = with pkgs;
     [
       # work
-      syncthing
+      # syncthing
       upwork
       # memtest86-efi
       # os-prober
@@ -27,14 +26,10 @@ in
 
       # cli
       browsh
-      stable.khal
-      calcurse
-      wtf
-      asciiquarium
 
       # gui
-      ulauncher
-      appimage-run
+      # ulauncher
+      # appimage-run
       cura
       google-chrome
       chromium
@@ -47,15 +42,15 @@ in
       # themes
       # pop-gtk-theme
       # adapta-gtk-theme
-      ant-theme
-      ant-bloody-theme
+      # ant-theme
+      # ant-bloody-theme
       # nordic
       # nordic-polar
       # stable.arc-theme
       # materia-theme
       # adwaita-qt
-      arc-icon-theme
-      zafiro-icons
+      # arc-icon-theme
+      # zafiro-icons
 
       # im
       # skype
@@ -71,20 +66,16 @@ in
       # fluidsynth # Real-time software synthesizer based on the SoundFont 2 specifications
       # mikmod # Tracker music player for the terminal
       # mpg123 # Fast console MPEG Audio Player and decoder library
-      # pianobar # A console front-end for Pandora.com
-      # schismtracker # Music tracker application, free reimplementation of Impulse Tracker
+      schismtracker # Music tracker application, free reimplementation of Impulse Tracker
       # vorbis-tools # Extra tools for Ogg-Vorbis audio codec
       google-play-music-desktop-player
-      shortwave # online radio
-      fondo # wallpapers
+      # shortwave # online radio
 
       shotcut # video editor
       openshot-qt
-      krita
 
       # dev
       # lazygit
-      rclone
       rclone-browser
       cool-retro-term
       kitty

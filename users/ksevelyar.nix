@@ -51,12 +51,12 @@
 
       home.file.".config/mpv/mpv.conf".source = ../home/.config/mpv/mpv.conf;
 
-      home.file.".icons/default/index.theme".text = ''
-        [Icon Theme]
-        Name=Default
-        Comment=Default Cursor Theme
-        Inherits=Vanilla-DMZ
-      '';
+      # home.file.".icons/default/index.theme".text = ''
+      #   [Icon Theme]
+      #   Name=Default
+      #   Comment=Default Cursor Theme
+      #   Inherits=Vanilla-DMZ
+      # '';
 
       home.file.".fehbg".text = ''
         #!/bin/sh
