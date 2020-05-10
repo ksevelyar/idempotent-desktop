@@ -8,8 +8,8 @@
     e = "sudo nvim /etc/nixos/configuration.nix";
     b = "sudo nixos-rebuild switch --keep-going";
     br = "b && systemctl restart display-manager.service";
+    # while true; bu && break; end
     bu = "b --upgrade";
-    buf = "while true; bu && break; end";
     collect-garbage = "sudo nix-collect-garbage --delete-older-than 30d";
     tm = "tmux new-session -A -s main";
     off = "sleep 0.5; xset dpms force off; pkill -f gpmdp";

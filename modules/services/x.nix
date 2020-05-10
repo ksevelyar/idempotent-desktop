@@ -75,14 +75,14 @@
 
     desktopManager.plasma5.enable = false;
     displayManager.sddm = {
-      enable = true;
+      enable = false;
     };
     displayManager.lightdm = {
-      enable = false;
+      enable = true;
       background = "/etc/nixos/assets/displayManager.png";
 
       greeters.enso = {
-        enable = false;
+        enable = true;
         blur = true;
 
         theme = {
