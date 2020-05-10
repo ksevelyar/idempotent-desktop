@@ -290,8 +290,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-z", spawn "rofi -show ssh")
     , ("M-p", spawn "rofi -modi window -show")
     , ("M-c", spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
-    , ("M-l", spawn "betterlockscreen --lock blur") -- betterlockscreen -u Wallpapers/
-    -- , ("M-l",  spawn "dm-tool lock")
+    , ("M-l", spawn "dm-tool lock")
     , ("M-b", raiseMaybe (spawn "firefox -p default --class firefox-default") (className =? "firefox-default"))
     , ("M-y", raiseMaybe (spawn "firefox -p tor --class firefox-tor") (className =? "firefox-tor"))
     , ("M-v", raiseMaybe (runInTerm "--class nvim" "nvim") (resource =? "nvim"))
