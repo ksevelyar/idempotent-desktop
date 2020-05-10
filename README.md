@@ -1,4 +1,5 @@
 # λ Idempotent Freelancer Desktop 
+*(work in progress)*
 
 * NixOS, Xmonad, Polybar, Alacritty, Rofi, Conky, Picom
 * Neovim (LSP via coc.nvim): Elixir, JS, HTML, CSS
