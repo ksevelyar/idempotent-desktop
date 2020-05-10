@@ -5,5 +5,5 @@
   };
   sound.enable = true;
 
-  nixpkgs.config.pulseaudio = true;
+  # nixpkgs.config.pulseaudio = true;
 }

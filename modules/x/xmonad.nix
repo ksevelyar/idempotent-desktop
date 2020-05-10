@@ -6,17 +6,22 @@ let
 in
 {
   environment.systemPackages = with pkgs;
-    [
-      polybar
-      xlsfonts
-      xcape
+    let
+      polybar = pkgs.polybar.override {
+        pulseSupport = true;
+      };
+    in
+      [
+        polybar
+        xlsfonts
+        xcape
 
-      lxqt.lxqt-policykit
-      rofi
-      libnotify
-      dunst
-      xfce.xfce4-settings # xfce4-mime-settings
-    ];
+        lxqt.lxqt-policykit
+        rofi
+        libnotify
+        dunst
+        xfce.xfce4-settings # xfce4-mime-settings
+      ];
 
   environment.shellAliases = {
     x = "sudo systemctl start display-manager.service";
