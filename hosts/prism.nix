@@ -12,6 +12,7 @@
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
       ../modules/sys/aliases.nix
       ../modules/sys/scripts.nix
+      ../modules/sys/tty.nix
       # ../modules/sys/debug.nix
 
       ../modules/boot/bios.nix
@@ -83,6 +84,9 @@
   services.xserver = {
     videoDrivers = [ "ati-drivers" ];
     displayManager = {
+      sddm.enable = lib.mkForce true;
+      lightdm.enable = lib.mkForce false;
+
       sessionCommands = ''
         (rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log) &
         sh ~/.fehbg
