@@ -6,9 +6,8 @@
 * FZF, Ripgrep, Fish, Tmux, Zeal
 * SpaceFM, nnn, nomacs
 * Firefox with Vimium
-* ardiono, fritzing
+* arduino, fritzing
 * Cura, OpenSCAD, Gimp
-* Proprietary suite: Upwork, Slack, Skype, Google-Chrome, Google-Play-Music-Desktop-Player, Telegram, Memtest, Broadcom Wi-fi drivers
 * Adblocking DNS with `dnsmasq` by pi-hole methodology
 * Native virtualization with kvm & virt-manager
 * Tor, Switchy Omega, qTox 
@@ -18,6 +17,7 @@
 * steam, lutris, playonlinux
 * nmtui + blueman-manger 
 * ssd friendly with fstrim service and `noatime` mount option
+* Proprietary suite: Upwork, Slack, Skype, Google-Chrome, Google-Play-Music-Desktop-Player, Telegram, Memtest, Broadcom Wi-fi drivers
 
 ## conky + gpmdp + taskwarrior
 
