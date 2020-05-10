@@ -1,4 +1,9 @@
 # λ Idempotent Freelancer Desktop 
+
+## rofi, sshd, x11vnc
+
+![screen](https://i.imgur.com/TWyVk5C.png)
+
 *(work in progress)*
 
 * NixOS, Xmonad, Polybar, Alacritty, Rofi, Conky, Picom
@@ -19,10 +24,6 @@
 * nmtui + blueman-manger 
 * ssd friendly with fstrim service and `noatime` mount option
 * Proprietary suite: Upwork, Slack, Skype, Google-Chrome, Google-Play-Music-Desktop-Player, Telegram, Memtest, Broadcom Wi-fi drivers
-
-## rofi, sshd, x11vnc
-
-![screen](https://i.imgur.com/TWyVk5C.png)
 
 ## conky + gpmdp + taskwarrior
 
