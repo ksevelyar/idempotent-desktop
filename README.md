@@ -4,7 +4,7 @@
 
 ![screen](https://i.imgur.com/TWyVk5C.png)
 
-*(work in progress)*
+🍕 *work in progress* 🍕
 
 * NixOS, Xmonad, Polybar, Alacritty, Rofi, Conky, Picom
 * Neovim (LSP via coc.nvim): Elixir, JS, HTML, CSS
