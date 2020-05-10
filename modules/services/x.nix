@@ -29,15 +29,12 @@
     ports = [ 9922 ];
     enable = true;
     permitRootLogin = "no";
-    passwordAuthentication = lib.mkDefault true;
+    passwordAuthentication = true;
   };
   # Allow sshd to be started manually through sudo systemctl start sshd
   systemd.services.sshd.wantedBy = pkgs.lib.mkForce [];
 
   services.journald.extraConfig = "SystemMaxUse=700M";
-
-
-  services.nixosManual.showManual = false;
 
   services.picom = {
     enable = true;
@@ -46,7 +43,6 @@
     backend = "glx";
     vSync = true;
   };
-
 
   console.useXkbConfig = true;
   services.xserver = {
@@ -77,7 +73,7 @@
       Option "OffTime" "0"
     '';
 
-    desktopManager.plasma5.enable = true;
+    desktopManager.plasma5.enable = false;
     displayManager.sddm = {
       enable = true;
     };
@@ -138,7 +134,7 @@
     };
   };
 
-  qt5 = { style = "gtk2"; platformTheme = "gnome"; };
+  qt5 = { style = "gtk2"; platformTheme = "gtk2"; };
   environment = {
     etc."xdg/gtk-3.0/settings.ini" = {
       text = ''

@@ -14,6 +14,7 @@ in
     '';
   };
 
+  programs.wireshark.enable = true;
   programs.bandwhich.enable = true;
   programs.fish.enable = true;
   programs.mosh.enable = true;

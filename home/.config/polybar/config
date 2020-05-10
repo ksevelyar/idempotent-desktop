@@ -5,7 +5,6 @@ margin-bottom = 0
 [settings]
 screenchange-reload = true
 
-
 [colors]
 background = #d0303030
 background-transparent = #00303030
@@ -13,7 +12,6 @@ background-alt = #0f0f0f
 background-alt-2 = #ff5fafcf
 foreground = #BEB3CD
 foreground-alt = #c1c2c3
-
 red = #fb4934
 green = #b8bb26
 yellow = #fabd2f
@@ -22,16 +20,10 @@ purple = #d3869b
 aqua = #8ec07c
 orange = #fe8019
 white = #dddddd
-
 blue_arch = #83afe1
-
 grey = #5b51c9
 grey1 = #5bb1c9
 grey2 = #5bf1c9
-
-primary = green
-secondary = blue
-alert = red
 
 [bar/base]
 font-0 = Terminess Powerline:style=Regular:size=14:antialias=false;0
@@ -69,6 +61,13 @@ tray-background = ${root.background}
 padding-left = 1
 padding-right = 1
 
+[bar/laptop-bottom]
+inherit = bar/base
+bottom = true
+
+modules-left = workspaces-xmonad
+modules-center = title-short
+modules-right = weather date
 
 [bar/desktop-bottom]
 inherit = bar/base
@@ -86,9 +85,21 @@ modules-left = volume gpmdp
 modules-center = filesystem
 modules-right = vnc ssh eth cpu memory battery
 
+[bar/laptop-top]
+inherit = bar/base
+bottom = false
+
+modules-left = volume gpmdp
+modules-center = filesystem
+modules-right = vnc ssh wlp2s0 cpu memory battery
+
 [module/title]
 type = internal/xwindow
 label-maxlen = 170
+
+[module/title-short]
+type = internal/xwindow
+label-maxlen = 70
 
 [module/workspaces-xmonad]
 ; format-prefix = "%{F#df} %{F-} "
@@ -164,24 +175,21 @@ label = %percentage_used:3%%
 type = internal/network
 interface = enp4s0
 interval = 1.0
-; click-left = notify-send
-
 label-connected = %{A1:sh ~/.config/polybar/local_and_public_ips.sh:} %{F#9c71C7}%{F-}%downspeed:8%   %{F#9c71C7}%{F-}%upspeed:8%%{A}
 
 [module/wifi]
 type = internal/network
 interface = wlp3s0
 interval = 1.0
-; click-left = notify-send $(ip route | grep default | awk '{print $3}')
-
 label-connected = %essid% %{A1:sh ~/.config/polybar/local_and_public_ips.sh:} %{F#9c71C7}%{F-}%downspeed:8%   %{F#9c71C7}%{F-}%upspeed:8%%{A}
 format-connected = <label-connected>
-ramp-signal-0 = 😱
-ramp-signal-1 = 😠
-ramp-signal-2 = 😒
-ramp-signal-3 = 😊
-ramp-signal-4 = 😃
-ramp-signal-5 = 😈
+
+[module/wlp2s0]
+type = internal/network
+interface = wlp2s0
+interval = 1.0
+label-connected = %essid% %{A1:sh ~/.config/polybar/local_and_public_ips.sh:} %{F#9c71C7}%{F-}%downspeed:8%   %{F#9c71C7}%{F-}%upspeed:8%%{A}
+format-connected = <label-connected>
 
 [module/date]
 type = internal/date

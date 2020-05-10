@@ -58,8 +58,8 @@ in
       # flat-remix-icon-theme
 
       glxinfo
-      feh
       transmission_gtk
+      feh
       xlsfonts
       xxkb
       xorg.xev
@@ -100,7 +100,6 @@ in
       arandr
     ];
 
-  programs.wireshark.enable = true;
   programs.browserpass.enable = true;
   programs.dconf.enable = true;
   programs.qt5ct.enable = true;
