@@ -1,3 +1,4 @@
+# sudo udevadm hwdb --update
 { config, pkgs, lib, ... }:
 {
   hardware = {

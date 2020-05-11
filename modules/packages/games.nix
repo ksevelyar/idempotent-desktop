@@ -39,6 +39,5 @@ in
       openra
       gzdoom
       quakespasm
-      urbanterror
     ];
 }

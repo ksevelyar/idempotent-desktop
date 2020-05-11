@@ -83,7 +83,7 @@
 
       greeters.enso = {
         enable = true;
-        blur = true;
+        blur = false;
 
         theme = {
           name = "Ant-Dracula";

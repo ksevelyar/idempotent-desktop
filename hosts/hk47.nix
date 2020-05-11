@@ -120,4 +120,10 @@
   #   /srv/storage 192.168.0.1/24(rw,nohide,all_squash,insecure)
   #   /srv/vvv     192.168.0.1/24(rw,nohide,all_squash,insecure)
   # '';
+
+  hardware.pulseaudio = {
+    extraConfig = ''
+      set-default-sink 0
+    '';
+  };
 }
