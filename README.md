@@ -63,6 +63,8 @@
 
 ## live usb
 
+https://github.com/ksevelyar/dotfiles/blob/master/live-usb.nix
+
 ```
 nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix -o live-usb
 sudo dd bs=4M if=live-usb/iso/nixos.iso of=/dev/sdc status=progress && sync
