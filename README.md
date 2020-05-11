@@ -25,13 +25,13 @@
 * ssd friendly with fstrim service and `noatime` mount option
 * Proprietary suite: Upwork, Slack, Skype, Google-Chrome, Google-Play-Music-Desktop-Player, Telegram, Memtest, Broadcom Wi-fi drivers
 
+## neovim + tmux (via xmonad scratchpad)
+
+![screen](https://i.imgur.com/fhAtYZY.png)
+
 ## conky + gpmdp + taskwarrior
 
 ![screen](https://i.imgur.com/fWKORz4.png)
-
-## neovim + tmux (via xmonad scratchpad)
-
-![screen](https://i.imgur.com/z95oCew.png)
 
 ## spacefm
 
