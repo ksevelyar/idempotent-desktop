@@ -8,11 +8,19 @@ let
   '';
 in
 {
+  # i18n.inputMethod = {
+  #   enabled = "ibus";
+  #   ibus.engines = with pkgs.ibus-engines; [ table table-others anthy mozc hangul uniemoji ];
+  # };
+
+
   environment.systemPackages = with pkgs;
     [
       # media
       # sweet
       # pantheon.elementary-icon-theme
+      # ibus-qt
+      # ibus-with-plugins
       libva-utils
       mpv
       cava
@@ -76,6 +84,7 @@ in
       maim
       simplescreenrecorder
       xclip
+      qalculate-gtk
       rofi
       pavucontrol
       libnotify

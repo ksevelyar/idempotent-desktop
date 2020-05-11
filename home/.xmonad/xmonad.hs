@@ -281,12 +281,12 @@ myKeys = \conf -> mkKeymap conf $
     -- , ("M-x y", spawn "xmessage 'yay!'")     -- type mod+x then y to pop up 'yay!'
     , ("M-q", kill) -- close focused window
     , ("M-o", spawn "sleep 0.5; xset dpms force off; pkill -f gpmdp")
-    , ("M-x", spawn "rofi -modi drun -show")
 
     -- unfloat, push window back into tiling
     , ("M-u", withFocused $ windows . W.sink)
 
     , ("M-h", focusUrgent)
+    , ("M-x", spawn "rofi -modi drun -show")
     , ("M-z", spawn "rofi -show ssh")
     , ("M-p", spawn "rofi -modi window -show")
     , ("M-c", spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
@@ -314,6 +314,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M1-b m", spawn "xdg-open https://mail.google.com/")
     , ("M1-b r", spawn "xdg-open https://reddit.com/")
     , ("M1-b g", spawn "xdg-open https://github.com/")
+    , ("M1-b e", spawn "xdg-open https://emojifinder.com/")
     --
     -- -- resizing
     , ("M-S-<Left>", sendMessage Shrink)
@@ -361,7 +362,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("<Print>",  spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
     , ("M-<Delete>", spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
 
-    , ("M-<Print>",    spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
+    , ("M-<Print>",    spawn "maim --delay=1 --quiet /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
     , ("M-C-<Delete>", spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
 
     , ("M-<Home>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
@@ -377,7 +378,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-S-.", spawn  "sh ~/.config/polybar/gpmdp-next.sh")
     , ("M-/",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 40%")
 
-    , ("M-C-<Backspace>", spawn "xmonad --recompile && xmonad --restart") -- Restart xmonad
+    , ("M-C-<Backspace>", spawn "systemctl --user restart picom; xmonad --recompile && xmonad --restart") -- Restart xmonad
     ]
     ++
 

@@ -29,7 +29,7 @@ in
       dwarf-fortress
       nethack
       rogue
-      
+
       # gui
       xonotic
       wesnoth
@@ -39,5 +39,6 @@ in
       openra
       gzdoom
       quakespasm
+      urbanterror
     ];
 }
