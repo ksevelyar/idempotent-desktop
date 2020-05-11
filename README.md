@@ -10,7 +10,7 @@
 * Neovim (LSP via coc.nvim): Elixir, JS, HTML, CSS
 * https://github.com/ksevelyar/joker.vim (heavily inspired by vim-gotham)
 * FZF, Ripgrep, Fish, Tmux, Zeal
-* SpaceFM, nnn, nomacs
+* SpaceFM, nnn, nomacs, ncdu
 * Firefox with Vimium
 * arduino, fritzing
 * Cura, OpenSCAD, Gimp
@@ -23,6 +23,7 @@
 * steam, lutris, playonlinux
 * nmtui + blueman-manger 
 * ssd friendly with fstrim service and `noatime` mount option
+* browserpass + gopass
 * Proprietary suite: Upwork, Slack, Skype, Google-Chrome, Google-Play-Music-Desktop-Player, Telegram, Memtest, Broadcom Wi-fi drivers
 
 ## neovim + tmux (via xmonad scratchpad)
@@ -84,6 +85,4 @@ sudo nix-channel --update
 sudo ln -s /etc/nixos/hosts/hk47.nix /etc/nixos/configuration.nix
 
 sudo nixos-rebuild switch --keep-going
-
-sudo mkdir -p /storage/screenshots
 ```
