@@ -82,6 +82,7 @@ sudo nix-channel --add https://nixos.org/channels/nixos-20.03 stable
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 
 sudo nix-channel --update
+# retry unless success
 # while true; sudo nix-channel --update && break; end
 
 sudo ln -s /etc/nixos/hosts/hk47.nix /etc/nixos/configuration.nix
