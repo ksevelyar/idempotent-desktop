@@ -24,7 +24,7 @@
 * nmtui + blueman-manger 
 * ssd friendly with fstrim service and `noatime` mount option
 * browserpass + gopass
-* Proprietary suite: Upwork, Slack, Skype, Google-Chrome, Google-Play-Music-Desktop-Player, Telegram, Memtest, Broadcom Wi-fi drivers
+* Proprietary suite: Upwork, Slack, Skype, Google-Chrome, Google-Play-Music-Desktop-Player, Telegram, Memtest, Broadcom Wi-Fi drivers
 
 ## neovim + tmux (via xmonad scratchpad)
 
