@@ -1,12 +1,12 @@
 # λ Idempotent Freelancer Desktop 
 
-## rofi, sshd, x11vnc
-
-![screen](https://i.imgur.com/TWyVk5C.png)
+![screen](https://i.imgur.com/fWKORz4.png)
+![screen](https://i.imgur.com/fhAtYZY.png)
 
 🍕 *work in progress* 🍕
 
 * NixOS, Xmonad, Polybar, Alacritty, Rofi, Conky, Picom
+* Pixel perfect Terminus.otb 
 * Neovim (LSP via coc.nvim): Elixir, JS, HTML, CSS
 * https://github.com/ksevelyar/joker.vim (heavily inspired by vim-gotham)
 * FZF, Ripgrep, Fish, Tmux, Zeal
@@ -26,13 +26,9 @@
 * browserpass + gopass
 * Proprietary suite: Upwork, Slack, Skype, Google-Chrome, Google-Play-Music-Desktop-Player, Telegram, Memtest, Broadcom Wi-Fi drivers
 
-## neovim + tmux (via xmonad scratchpad)
+## rofi with plugins
 
-![screen](https://i.imgur.com/fhAtYZY.png)
-
-## conky + gpmdp + taskwarrior
-
-![screen](https://i.imgur.com/fWKORz4.png)
+![](https://i.imgur.com/u2GS8ax.png)
 
 ## spacefm
 
