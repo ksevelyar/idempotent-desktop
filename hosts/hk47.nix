@@ -13,6 +13,7 @@
       ../modules/sys/aliases.nix
       ../modules/sys/scripts.nix
       ../modules/sys/tty.nix
+      ../modules/sys/gc.nix
 
       ../modules/boot/efi.nix
       # ../modules/boot/multiboot.nix

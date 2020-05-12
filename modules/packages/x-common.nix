@@ -99,8 +99,7 @@ in
       spaceFM
 
       gparted
-      # vncpasswd
-      # x0vncserver -rfbauth ~/.vnc/passwd
+      # x11vnc -repeat -forever -noxrecord -noxdamage -rfbport 5900
       tigervnc
       x11vnc
       # x2goclient

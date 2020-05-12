@@ -313,6 +313,7 @@ endif
 
 " Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+let NERDTreeMinimalUI=1
 " let g:NERDTreeChDirMode=2
 
 """ Themes
@@ -338,7 +339,6 @@ call plug#end()
 "   let NERDTreeShowHidden=1
 "   let NERDTreeWinSize=39
 "   let NERDTreeDirArrows=1
-"   let NERDTreeMinimalUI=1
 "
 " endif
 
