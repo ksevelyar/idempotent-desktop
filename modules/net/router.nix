@@ -72,10 +72,10 @@
         }
 
         # cyberdemon
-        # {
-        #   publicKey = "hru";
-        #   allowedIPs = [ "192.168.42.4" ];
-        # }
+        {
+          publicKey = "3DUHA0EYOaFVjeemwvqYa3wtbLDAc4wPhrPVnXxsdQ0=";
+          allowedIPs = [ "192.168.42.4" ];
+        }
 
         # prism
         {
