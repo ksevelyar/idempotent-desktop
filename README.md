@@ -26,6 +26,10 @@
 * browserpass + gopass
 * Proprietary suite: Upwork, Slack, Skype, Google-Chrome, Google-Play-Music-Desktop-Player, Telegram, Memtest, Broadcom Wi-Fi drivers
 
+## fish, z, direnv, alacritty
+
+![](https://i.imgur.com/J5dE18O.png)
+
 ## rofi with plugins
 
 ![](https://i.imgur.com/u2GS8ax.png)
