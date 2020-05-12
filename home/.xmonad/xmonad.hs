@@ -156,20 +156,19 @@ myManageHook = manageDocks <+> (composeAll . concat $
   , [className =? c --> viewShift "gfx"    | c <- myGfxs       ]
   , [className =? c --> doShift   "www"    | c <- myWeb        ]
   , [className =? c --> doShift   "*"      | c <- myMisc       ]
-  , [role      =? r --> doShift   "serv"   | r <- myServ       ]
   , [role      =? r --> doShift   "fs"     | r <- myFs         ]
   , [resource  =? r --> viewShift "ed"     | r <- myEd         ]
+  -- , [role      =? r --> doShift   "serv"   | r <- myServ       ]
 
 
-  -- , [name      =? n --> doCenterFloat      | n <- myNames      ]
-  , [className =? c --> doMyCenterFloat      | c <- myFloats     ]
-  , [className =? c --> doFullFloat        | c <- myFullFloats ]
+  , [className      =? n --> doSmallFloat   | n <- ["Gcr-prompter"]]
+  -- , [className =? c --> doFullFloat     | c <- myFullFloats ]
+  -- , [className =? c --> doMyCenterFloat      | c <- myFloats   ]
 
   , [isDialog       --> doFocusCenterFloat                     ]
   , [isFullscreen   --> doFullFloat                            ]
-
-  -- , [insertPosition Below Newer                                ]
   , [namedScratchpadManageHook scratchpads                     ]
+  -- , [insertPosition Below Newer                             ]
   ])
 
   where
@@ -180,12 +179,13 @@ myManageHook = manageDocks <+> (composeAll . concat $
 
   doFocusCenterFloat = doF W.shiftMaster <+> doF W.swapDown <+> doMyCenterFloat
   doMyCenterFloat = doRectFloat(W.RationalRect 0.25 0.25 0.5 0.5) --x y w h
+  doSmallFloat = doRectFloat(W.RationalRect 0.4 0.4 0.2 0.3) --x y w h
 
   doFocusFullFloat   = doFullFloat
 
   -- classnames
-  myFloats      = ["MPlayer", "Vlc", "Lxappearance", "XFontSel"]
-  myFullFloats  = ["feh", "mpv", "Zathura", "Mcomix", "smplayer"]
+  -- myFloats      = ["Lxappearance", "XFontSel" ]
+  -- myFullFloats  = ["feh", "mpv", "Zathura", "Mcomix", "smplayer"]
   myIm          = ["TelegramDesktop", "Mumble", "Skype"]
   myEd          = ["nvim"]
   myGfxs        = ["Inkscape", "Gimp-2.10"]
@@ -193,7 +193,7 @@ myManageHook = manageDocks <+> (composeAll . concat $
   myMisc        = ["firefox-tor"]
 
   -- roles
-  myServ        = ["rails_dobroserver", "rails_fitlog"]
+  -- myServ        = ["rails_dobroserver", "rails_fitlog"]
   myFs          = ["nnn_startup"]
 
   -- resources

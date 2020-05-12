@@ -451,7 +451,7 @@ endfunction
 nnoremap <silent> <expr> <CR> Highlighting()
 
 """ Bindings
-:let g:mapleader = ","
+:let g:mapleader = " "
 
 " Switch between the last two files:
 " nmap <Leader><Leader> <C-^>
