@@ -19,7 +19,7 @@
 
 """ Plugins
 call plug#begin()
-
+Plug 'laher/fuzzymenu.vim'
 Plug 'ruanyl/vim-gh-line'
 Plug 'w0rp/ale'
 let g:ale_fix_on_save = 1
@@ -316,6 +316,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " let g:NERDTreeChDirMode=2
 
 """ Themes
+Plug 'rafalbromirski/vim-aurora'
 Plug 'dracula/vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'ksevelyar/joker.vim'

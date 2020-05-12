@@ -85,7 +85,7 @@ in
       simplescreenrecorder
       xclip
       qalculate-gtk
-      rofi
+      (rofi.override { plugins = [ rofi-file-browser rofi-emoji rofi-pass rofi-systemd rofi-calc ]; })
       pavucontrol
       libnotify
       dunst

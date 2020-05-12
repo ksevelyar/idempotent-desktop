@@ -1,8 +1,8 @@
 configuration {
-font: "TerminessTTF Nerd Font Mono 14";
+font: "Terminus 14";
 bw: 0;
 case-sensitive: false;
-matching: "fuzzy";
+matching: "normal";
 theme: "joker";
 
 /*	modi: "window,run,ssh";*/

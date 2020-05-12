@@ -12,7 +12,7 @@
   # available, otherwise `xterm-256color` is used.
   #TERM: alacritty
 
-#window:
+# window:
   # Window dimensions (changes require restart)
   #
   # Specified in number of columns/lines, not pixels.
@@ -33,9 +33,9 @@
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  #padding:
-  #  x: 0
-  #  y: 0
+  # padding:
+   # x: 10
+   # y: 10
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -87,59 +87,20 @@
   # scrollback is enabled (history > 0).
   #multiplier: 3
 
-# Font configuration
 font:
-  # Normal (roman) font face
   normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux/BSD) monospace
-    #   - (Windows) Consolas
-    family: Terminess Powerline
+    family: Terminus
+    style: Regular
 
-    # The `style` can be specified to pick a specific face.
-    #style: Regular
-
-  # Bold font face
   bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
-    family: Terminess Powerline
     style: Regular
 
-    # The `style` can be specified to pick a specific face.
-    #style: Bold
-
-  # Italic font face
   italic:
-    # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    family: Terminess Powerline
     style: Regular
 
-    # The `style` can be specified to pick a specific face.
-    #style: Italic
-
-  # Bold italic font face
   bold_italic:
-    # Font family
-    #
-    # If the bold italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
-    family: Terminess Powerline
     style: Regular
 
-    # The `style` can be specified to pick a specific face.
-    #style: Bold Italic
-
-  # Point size
   size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of

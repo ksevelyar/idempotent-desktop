@@ -16,7 +16,6 @@ in
         xlsfonts
         xcape
 
-        rofi
         libnotify
         dunst
 

@@ -19,7 +19,7 @@
       configurationLimit = 42;
 
       # extraConfig = "set theme=($drive1)//grub/themes/fallout-grub-theme/theme.txt";
-      font = ../../assets/ter-u16n.pf2;
+      font = ../../assets/fonts/ter-u16n.pf2;
       splashImage = ../../assets/grub.png;
       splashMode = "normal";
       extraConfig = ''

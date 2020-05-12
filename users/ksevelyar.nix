@@ -57,6 +57,7 @@
       #   Comment=Default Cursor Theme
       #   Inherits=Vanilla-DMZ
       # '';
+      home.file.".local/share/fonts/ter-u14n.otb".source = ../assets/fonts/ter-u14n.otb;
 
       home.file.".fehbg".text = ''
         #!/bin/sh

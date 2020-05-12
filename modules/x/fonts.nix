@@ -6,16 +6,16 @@
     fontconfig = {
       enable = true;
       cache32Bit = true;
-      # hinting.enable = false;
+      hinting.enable = true;
+      antialias = true;
     };
 
     fonts = with pkgs;
       [
         dejavu_fonts
-        opensans-ttf
 
-        clearlyU
-        cm_unicode
+        # clearlyU
+        # cm_unicode
 
         # unfree Microsoft fonts
         corefonts # Andale Mono, Arial, Comic Sans, Courier New, Georgia, Impact, Times New Roman, Trebuchet, Verdana, Webdings
@@ -23,14 +23,16 @@
         vistafonts-chs # Microsoft YaHei
 
         # Dev fonts
-        (nerdfonts.override { fonts = [ "Terminus" "Hermit" ]; })
+        (nerdfonts.override { fonts = [ "FiraCode" "Hack" "Inconsolata" ]; })
         cozette
         siji # https://github.com/stark/siji
-        # tamsyn # http://www.fial.com/~scott/tamsyn-font/
-        powerline-fonts
+        # powerline-fonts # Terminus
+        # gohufont
+        # terminus
         ankacoder
       ];
   };
+
 
   environment.systemPackages = with pkgs;
     [
