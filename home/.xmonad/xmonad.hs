@@ -315,7 +315,8 @@ myKeys = \conf -> mkKeymap conf $
     , ("M1-b r", spawn "xdg-open https://reddit.com/")
     , ("M1-b g", spawn "xdg-open https://github.com/")
     , ("M1-b e", spawn "xdg-open https://emojifinder.com/")
-    --
+    , ("M-`", spawn "sh ~/.fehbg") -- random wallpaper
+
     -- -- resizing
     , ("M-S-<Left>", sendMessage Shrink)
     , ("M-S-<Right>", sendMessage Expand)

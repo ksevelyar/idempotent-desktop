@@ -78,6 +78,8 @@
         /run/current-system/sw/bin/feh --randomize --bg-fill --no-fehbg ~/Wallpapers/
       '';
 
+      home.file.".ssh/config".source = ../home/.ssh/config;
+
       home.file.".ssh/config".text = ''
         Host *
           ForwardAgent yes
