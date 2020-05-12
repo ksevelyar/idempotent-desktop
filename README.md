@@ -30,9 +30,9 @@
 
 ![](https://i.imgur.com/u2GS8ax.png)
 
-## spacefm
+## spacefm + ncdu
 
-![screen](https://i.imgur.com/h2nnCWM.png)
+![screen](https://i.imgur.com/amqrjk7.png)
 
 ## google-chrome, gotop, gpmdp
 
