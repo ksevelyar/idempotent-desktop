@@ -141,7 +141,7 @@
         [Settings]
         gtk-theme-name=Ant-Dracula
         gtk-icon-theme-name=ePapirus
-        gtk-font-name=Anka/Coder 13
+        gtk-font-name=Terminus 14
         gtk-cursor-theme-name=Vanilla-DMZ
       '';
     };

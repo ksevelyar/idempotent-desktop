@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 {
   fonts = {
+    # enableDefaultFonts = true;
     enableFontDir = true;
     enableGhostscriptFonts = true;
     fontconfig = {
@@ -8,6 +9,11 @@
       cache32Bit = true;
       hinting.enable = true;
       antialias = true;
+      defaultFonts = {
+        monospace = [ "Terminus" ];
+        # sansSerif = [ "Source Sans Pro" ];
+        # serif = [ "Source Serif Pro" ];
+      };
     };
 
     fonts = with pkgs;
