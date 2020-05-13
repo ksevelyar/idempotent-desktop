@@ -140,7 +140,7 @@
       text = ''
         [Settings]
         gtk-theme-name=Ant-Dracula
-        gtk-icon-theme-name=ePapirus
+        gtk-icon-theme-name=Papirus-Dark-Maia
         gtk-font-name=Terminus 14
         gtk-cursor-theme-name=Vanilla-DMZ
       '';

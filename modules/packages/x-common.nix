@@ -50,7 +50,7 @@ in
       lxappearance-gtk3
       vanilla-dmz
       ant-dracula-theme
-      papirus-icon-theme
+      # papirus-icon-theme
       papirus-maia-icon-theme
 
       # paper-icon-theme

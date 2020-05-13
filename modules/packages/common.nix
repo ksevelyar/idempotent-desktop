@@ -94,16 +94,19 @@ in
       youtube-dl
 
       # fs
-      bind
+      unar
       unzip
       unrar
       atool
+
+      bind
       parted
-      z-lua
+
       fd
       nnn
       ncdu
-      tree
+      exa
+      z-lua
       dosfstools
       mtools
       sshfs
