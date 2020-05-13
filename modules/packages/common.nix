@@ -98,7 +98,7 @@ in
       p7zip
       atool
       parted
-      fasd
+      z-lua
       mc
       fd
       nnn
