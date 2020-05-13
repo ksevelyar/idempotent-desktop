@@ -30,7 +30,7 @@ in
   environment.systemPackages = with pkgs;
     [
       # sys
-      libqalculate
+      libqalculate # qalc
       exa
       bat
       kakoune

@@ -11,54 +11,63 @@ configuration {
 }
 
 * {
-  background-color: #1B161F;
+  background-color: transparent;
+  text-color: #C92578;
   border-color: #000;
-  text-color: #6B5A68;
   spacing: 0;
 }
 
+mainbox {
+  background-color: transparent;
+}
+
 window {
+  background-color: transparent;
   width: 30%;
   orientation: vertical;
 }
 
-
 inputbar {
+  background-color: #1B161FF2;
   border: 0 0 0px 0;
   children: [prompt,entry];
 }
 
 prompt {
-  padding: 16px;
+  background-color: transparent;
+  padding: 14px;
   border: 0 0px 0 0;
 }
 
 textbox {
-  background: #2e343f;
+  background-color: #1B161FF2;
+  text-color: #54C6B5;
   border: 0 0 0px 0;
   border-color: #2b1f37;
-  padding: 8px 16px;
+  padding: 14px;
 }
 
 entry {
-  padding: 16px;
+  background-color: transparent;
+  padding: 14px 0;
 }
 
 listview {
+  background-color: transparent;
   cycle: false;
-  margin: 0 0 -1px 0;
   scrollbar: false;
 }
 
 element {
+  background-color: #1B161FF2;
   border: 0 0 0px 0;
-  padding: 16px;
+  padding: 14px;
   color: #9B71C6;
 }
 
 element selected {
   background-color: #9B71C6;
-  color: #000;
+  color: #1B161F;
 }
 
-/* vi:syntax=css */
+/* vim:ft=css

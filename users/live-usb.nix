@@ -48,6 +48,9 @@
       xsession.windowManager.xmonad.config = ../home/.xmonad/xmonad.hs;
 
       home.file."Wallpapers/1.png".source = ../home/wallpapers/1.png;
+      home.file."Wallpapers/5.png".source = ../home/wallpapers/5.png;
+      home.file."Wallpapers/9.png".source = ../home/wallpapers/9.png;
+      home.file."Wallpapers/11.png".source = ../home/wallpapers/11.png;
 
       home.file.".xxkbrc".source = ../home/.xxkbrc;
       home.file.".Xresources".source = ../home/.Xresources;
