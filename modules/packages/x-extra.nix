@@ -33,7 +33,7 @@ in
       cura
       google-chrome
       chromium
-      vivaldi
+      # vivaldi
       gimp
       inkscape
       blender
@@ -78,8 +78,6 @@ in
       # lazygit
       rclone-browser
       cool-retro-term
-      kitty
-      roxterm
       asciinema
 
       # sys

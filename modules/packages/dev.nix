@@ -23,6 +23,7 @@ in
   environment.systemPackages = with pkgs;
     [
       emacs
+      codeql
 
       # docs
       zeal

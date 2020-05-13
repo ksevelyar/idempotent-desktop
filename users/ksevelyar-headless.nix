@@ -40,12 +40,10 @@
 
       home.file.".config/fish/config.fish".source = ../home/.config/fish/config.fish;
       home.file.".config/fish/fishfile".source = ../home/.config/fish/fishfile;
-      home.file.".config/fish/functions/git_aliases.fish".source =
-        ../home/.config/fish/functions/git_aliases.fish;
-      home.file.".config/fish/functions/fish_prompt.fish".source =
-        ../home/.config/fish/functions/fish_prompt.fish;
-      home.file.".config/fish/functions/fish_print_git_action.fish".source =
-        ../home/.config/fish/functions/fish_print_git_action.fish;
+      home.file.".config/fish/functions/git_aliases.fish".source = ../home/.config/fish/functions/git_aliases.fish;
+      home.file.".config/fish/conf.d/z.fish".source = ../home/.config/fish/conf.d/z.fish;
+      home.file.".config/fish/functions/fish_prompt.fish".source = ../home/.config/fish/functions/fish_prompt.fish;
+      home.file.".config/fish/functions/fish_print_git_action.fish".source = ../home/.config/fish/functions/fish_print_git_action.fish;
     };
   };
 }

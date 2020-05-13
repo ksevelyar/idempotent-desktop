@@ -9,9 +9,11 @@
   "git.removedSign.hlGroup": "GitGutterDelete",
   "git.topRemovedSign.hlGroup": "GitGutterDelete",
   "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+  "git.changeRemovedSign.text":"~",
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": [
     "javascript",
-    "vue"
+    "vue",
+    "html"
   ],
 }

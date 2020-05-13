@@ -42,11 +42,10 @@ let g:ale_linters = {
 \   'json': [], 'vue': [],
 \ }
 
-" \ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-prettier',
 let g:coc_global_extensions = [
-\ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-eslint',
-\ 'coc-elixir', 'coc-go', 'coc-prettier',
-\ 'coc-vimlsp', 'coc-tsserver', 'coc-sh'
+\ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-eslint', 'coc-tsserver',
+\ 'coc-elixir', 'coc-go', 'coc-yaml', 'coc-tag',
+\ 'coc-vimlsp', 'coc-sh', 'coc-emoji', 'coc-git'
 \ ]
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Use tab for trigger completion with characters ahead and navigate.
@@ -244,13 +243,13 @@ Plug 'mbbill/undotree'
 let g:gen_tags#ctags_auto_gen = 1
 
 " Interpolation
-Plug 'hwartig/vim-seeing-is-believing'
-augroup seeingIsBelievingSettings
-  autocmd!
-
-  autocmd FileType ruby nmap <buffer> <F2> <Plug>(seeing-is-believing-mark-and-run)
-  autocmd FileType ruby xmap <buffer> <F2> <Plug>(seeing-is-believing-mark-and-run)
-augroup END
+" Plug 'hwartig/vim-seeing-is-believing'
+" augroup seeingIsBelievingSettings
+"   autocmd!
+"
+"   autocmd FileType ruby nmap <buffer> <F2> <Plug>(seeing-is-believing-mark-and-run)
+"   autocmd FileType ruby xmap <buffer> <F2> <Plug>(seeing-is-believing-mark-and-run)
+" augroup END
 
 " -------------------------
 " UI

@@ -5,6 +5,10 @@ let
   };
 in
 {
+  nixpkgs.config.permittedInsecurePackages = [
+    "p7zip-16.02"
+  ];
+
   nix = {
     useSandbox = true;
     maxJobs = lib.mkDefault 2;
@@ -39,7 +43,6 @@ in
           ]
         )
       )
-      # navi
       sipcalc
       tldr
       git
@@ -90,16 +93,13 @@ in
       brightnessctl
       youtube-dl
 
-
       # fs
       bind
       unzip
       unrar
-      p7zip
       atool
       parted
       z-lua
-      mc
       fd
       nnn
       ncdu
@@ -112,5 +112,12 @@ in
       sshfsFuse
       rsync
       rclone
+
+      # im
+      toxic
+      neomutt
+
+      # bells and whistles
+      cmatrix
     ];
 }

@@ -93,7 +93,7 @@ in
       # media
       mpv
       imv
-      nomacs
+      stable.nomacs
 
       # fs
       spaceFM

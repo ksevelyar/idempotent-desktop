@@ -20,6 +20,7 @@
       home.file."Wallpapers/1.png".source = ../home/wallpapers/1.png;
 
       home.file.".xxkbrc".source = ../home/.xxkbrc;
+      home.file.".Xresources".source = ../home/.Xresources;
 
       home.file.".config/dunst/dunstrc".source = ../home/.config/dunst/dunstrc;
 
