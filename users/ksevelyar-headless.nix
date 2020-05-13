@@ -34,6 +34,12 @@
       home.file.".eslintrc.json".source = ../home/.eslintrc.json;
       home.file.".npmrc".source = ../home/.npmrc;
 
+      home.file.".local/share/fonts/ter-u14n.otb".source = ../assets/fonts/ter-u14n.otb;
+      home.file.".local/share/fonts/ter-u14b.otb".source = ../assets/fonts/ter-u14b.otb;
+      home.file.".local/share/fonts/ter-u16n.otb".source = ../assets/fonts/ter-u16n.otb;
+      home.file.".local/share/fonts/ter-u16b.otb".source = ../assets/fonts/ter-u16b.otb;
+      home.file.".local/share/fonts/ter-u18n.otb".source = ../assets/fonts/ter-u18n.otb;
+      home.file.".local/share/fonts/ter-u18b.otb".source = ../assets/fonts/ter-u18b.otb;
 
       # home.file.".config/nvim/init.vim".source = ../home/.config/nvim/init.vim;
       home.file.".config/nvim/coc-settings.json".source = ../home/.config/nvim/coc-settings.json;

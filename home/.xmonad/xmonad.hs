@@ -286,9 +286,10 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-u", withFocused $ windows . W.sink)
 
     , ("M-h", focusUrgent)
-    , ("M-x", spawn "rofi -modi drun -show")
-    , ("M-z", spawn "rofi -show ssh")
+    , ("M-x", spawn "rofi -modi drun -matching fuzzy -sorting-method fzf drun -show")
+    , ("M-z", spawn "rofi -modi emoji -no-show-match -no-sort -matching normal -show")
     , ("M-p", spawn "rofi -modi window -show")
+    , ("M-=", spawn "rofi -modi calc -show")
     , ("M-c", spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
     , ("M-l", spawn "dm-tool lock")
     , ("M-b", raiseMaybe (spawn "firefox -p default --class firefox-default") (className =? "firefox-default"))

@@ -2,12 +2,15 @@ configuration {
 font: "Terminus 14";
 bw: 0;
 case-sensitive: false;
-matching: "normal";
+matching: "fuzzy";
+sort: true;
+sorting-method: "fzf";
+
 theme: "joker";
 
 /*	modi: "window,run,ssh";*/
 /*	width: 50;*/
-lines: 10;
+lines: 7;
 /*	columns: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
@@ -26,11 +29,9 @@ lines: 10;
 /*	icon-theme: ;*/
 /*	drun-match-fields: "name,generic,exec,categories";*/
 /*	drun-show-actions: false;*/
-/*	drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";*/
+drun-display-format: "{name} [<span weight='light' size='small'>({generic})</span>]";
 /*	disable-history: false;*/
 /*	ignored-prefixes: "";*/
-/*	sort: false;*/
-/*	sorting-method: ;*/
 /*	cycle: true;*/
 /*	sidebar-mode: false;*/
 /*	eh: 1;*/

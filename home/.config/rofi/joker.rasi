@@ -1,9 +1,12 @@
 configuration {
-  display-drun: "異";
-  display-run: "";
-  display-window: "";
-  display-ssh: "殺";
+  display-drun: "application:";
+  display-run: "run:";
+  display-calc: "calc:";
+  display-window: "window:";
+  display-ssh: "ssh:";
+  display-emoji: "emoji:";
   show-icons: false;
+  show-match: false;
   sidebar-mode: false;
 }
 
@@ -31,7 +34,7 @@ prompt {
 }
 
 textbox {
-  background-color: #2e343f;
+  background: #2e343f;
   border: 0 0 0px 0;
   border-color: #2b1f37;
   padding: 8px 16px;
@@ -57,3 +60,5 @@ element selected {
   background-color: #9B71C6;
   color: #000;
 }
+
+/* vi:syntax=css */
