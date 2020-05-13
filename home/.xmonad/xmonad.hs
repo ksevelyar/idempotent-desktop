@@ -223,10 +223,10 @@ scratchpads = [
   NS "tmux" "alacritty --class tmux -e tmux new-session -A -s main"
     (resource =? "tmux")
     nonFloating,
-  NS "terminal-1" "alacritty --class terminal-1"
+  NS "terminal-1" "alacritty --class terminal-1 --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
     (resource =? "terminal-1")
     (customFloating $ W.RationalRect 0.25 0.52 0.5 0.4),
-  NS "terminal-2" "alacritty --class terminal-2"
+  NS "terminal-2" "alacritty --class terminal-2 --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
     (resource =? "terminal-2")
     (customFloating $ W.RationalRect 0.25 0.10 0.5 0.4),
 

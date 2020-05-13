@@ -102,7 +102,6 @@ type = internal/xwindow
 label-maxlen = 70
 
 [module/workspaces-xmonad]
-; format-prefix = "%{F#df} %{F-} "
 type = custom/script
 exec = tail -F /tmp/.xmonad-workspace-log
 exec-if = [ -p /tmp/.xmonad-workspace-log ]
@@ -122,7 +121,7 @@ interval = 3
 
 [module/weather]
 type = custom/script
-exec = curl -s "wttr.in/Moscow?format=[%C]+%t" | sed -e 's/\[/%{F#6B5A68}/' | sed -e 's/\]/%{F-}/' | sed -e 's/Clear//'
+exec = ~/.config/polybar/weather.sh
 interval = 300
 
 [module/gpmdp]
