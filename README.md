@@ -30,6 +30,13 @@
 * Tor, Switchy Omega, qTox
 * Bypassing symmetrical NATs with WireGuard
 
+**Polybar scripts**
+* weather via wttr.in
+* local and public ips
+* vpn & ssh indicator
+* google-play-music-desktop-player current song
+* bandwidth
+
 **Games**
 * steam, playonlinux, wine
 
