@@ -36,7 +36,6 @@
 * local and public ips
 * vpn & ssh indicators
 * google-play-music-desktop-player current song
-* bandwidth
 
 **Games**
 * steam, playonlinux, wine
