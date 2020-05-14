@@ -51,7 +51,7 @@ in
       vanilla-dmz
       ant-dracula-theme
       # papirus-icon-theme
-      papirus-maia-icon-theme
+      stable.papirus-maia-icon-theme
 
       # paper-icon-theme
       # deepin.deepin-icon-theme
@@ -85,7 +85,8 @@ in
       simplescreenrecorder
       xclip
       qalculate-gtk
-      (rofi.override { plugins = [ rofi-file-browser rofi-emoji rofi-pass rofi-systemd rofi-calc ]; })
+      (rofi.override { plugins = [ rofi-file-browser rofi-emoji rofi-systemd rofi-calc ]; })
+      rofi-pass
       pavucontrol
       libnotify
       dunst

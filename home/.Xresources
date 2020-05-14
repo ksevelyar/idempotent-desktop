@@ -49,22 +49,23 @@ URxvt.urlLauncher:                google-chrome-stable
 URxvt.underlineURLs:              true
 URxvt.urlButton:                  1
 
-! Dracula Xresources palette
+! Joker palette
 *.foreground: #F8F8F2
 *.background: #1B161F
 *.color0:     #000000
-*.color8:     #4D4D4D
 *.color1:     #FF5555
-*.color9:     #FF6E67
-*.color2:     #50FA7B
-*.color10:    #5AF78E
-*.color3:     #F1FA8C
-*.color11:    #F4F99D
+*.color2:     #54c6b5
+*.color3:     #d5aa2a
 *.color4:     #BD93F9
-*.color12:    #CAA9FA
 *.color5:     #FF79C6
-*.color13:    #FF92D0
 *.color6:     #8BE9FD
+*.color7:     #c8d6f3
+
+*.color8:     #4D4D4D
+*.color9:     #FF6E67
+*.color10:    #5AF78E
+*.color11:    #ffce50
+*.color12:    #CAA9FA
+*.color13:    #FF92D0
 *.color14:    #9AEDFE
-*.color7:     #BFBFBF
 *.color15:    #E6E6E6

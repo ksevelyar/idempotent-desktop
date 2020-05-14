@@ -3,15 +3,11 @@
   environment.systemPackages = with pkgs;
     [
       nodejs_latest
-
-      # <CTRL+T> list files+folders in current directory (e.g., git commit <CTRL+T>, select a few files using <TAB>, finally <Return>)
-      # <CTRL+R> search history of shell commands
-      # <ALT+C> fuzzy change directory
       fzf
-
       ripgrep
       universal-ctags
       global
+
       (
         neovim.override {
           vimAlias = true;

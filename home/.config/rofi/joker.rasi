@@ -1,10 +1,10 @@
 configuration {
-  display-drun: "application:";
-  display-run: "run:";
-  display-calc: "calc:";
-  display-window: "window:";
-  display-ssh: "ssh:";
-  display-emoji: "emoji:";
+  display-drun: "app >";
+  display-run: "run >";
+  display-calc: "calc >";
+  display-window: "window >";
+  display-ssh: "ssh >";
+  display-emoji: "emoji >";
   show-icons: false;
   show-match: false;
   sidebar-mode: false;

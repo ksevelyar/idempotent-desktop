@@ -17,7 +17,6 @@ in
         xcape
 
         lxqt.lxqt-policykit
-        rofi
         libnotify
         dunst
         xfce.xfce4-settings # xfce4-mime-settings

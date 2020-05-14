@@ -1,21 +1,21 @@
-" pacman -S --noconfirm ripgrep
+" https://github.com/ksevelyar/dotfiles/blob/master/modules/packages/nvim.nix
 
 " NOTE: type za to toggle current fold.
 ":help folding".
 
-""" Preinstall
+" Preinstall
 " Install Vim Plug if not installed
 " if empty(glob('~/.config/nvim/autoload/plug.vim'))
-"   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-"     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"   autocmd VimEnter * PlugInstall
+  " silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    " \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  " autocmd VimEnter * PlugInstall
 " endif
 "
-" " Automatically install missing plugins on startup
+" Automatically install missing plugins on startup
 " autocmd VimEnter *
-"   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-"   \|   PlugInstall --sync | q
-"   \| endif
+  " \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  " \|   PlugInstall --sync | q
+  " \| endif
 
 """ Plugins
 call plug#begin()
@@ -44,48 +44,25 @@ let g:ale_linters = {
 
 let g:coc_global_extensions = [
 \ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-eslint', 'coc-tsserver',
-\ 'coc-elixir', 'coc-go', 'coc-yaml', 'coc-tag',
-\ 'coc-vimlsp', 'coc-sh', 'coc-emoji', 'coc-git'
+\ 'coc-elixir', 'coc-go', 'coc-yaml', 'coc-tag', 'coc-markdownlint', 'coc-yank',
+\ 'coc-vimlsp', 'coc-sh', 'coc-emoji', 'coc-git', 'coc-highlight', 'coc-svg'
 \ ]
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" if has('patch8.1.1068')
-"   " Use `complete_info` if your (Neo)Vim version supports it.
-"   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-" else
-"   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" endif
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -105,7 +82,7 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-augroup mygroup
+augroup cocnvim
   autocmd!
   " Setup formatexpr specified filetype(s).
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
@@ -150,35 +127,19 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" Mappings using CoCList:
-" Show all diagnostics.
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 Plug 'rbgrouleff/bclose.vim'
-Plug 'ap/vim-css-color'
+" Plug 'ap/vim-css-color'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 
-Plug 'tomtom/tcomment_vim'
+Plug 'preservim/nerdcommenter'
 
 Plug 'majutsushi/tagbar'
+let g:NERDSpaceDelims = 1
 
-Plug 'vim-scripts/YankRing.vim'
-let g:yankring_clipboard_monitor=0
+" Plug 'vim-scripts/YankRing.vim'
+" let g:yankring_clipboard_monitor=0
 
 Plug 'easymotion/vim-easymotion'
 
@@ -201,7 +162,7 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'godlygeek/tabular'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'dag/vim-fish'
@@ -218,9 +179,8 @@ let g:vim_json_syntax_conceal = 0
 Plug 'chr4/nginx.vim'
 
 Plug 'janko-m/vim-test'
-let g:gitgutter_override_sign_column_highlight = 0
-let g:gitgutter_grep = 'rg'
-
+"let g:gitgutter_override_sign_column_highlight = 0
+"let g:gitgutter_grep = 'rg'
 " Plug 'airblade/vim-gitgutter'
 
 Plug 'plasticboy/vim-markdown'
@@ -230,14 +190,14 @@ Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
 let g:prosession_dir = '~/.config/nvim/session/'
 
-Plug 'airblade/vim-rooter'
-let g:rooter_silent_chdir = 1
+" Plug 'airblade/vim-rooter'
+" let g:rooter_silent_chdir = 1
 Plug 'tpope/vim-abolish'
 Plug 'brooth/far.vim'
 let g:far#source = 'rg'
 let g:far#file_mask_favorites = ['%', '**/*.*', '**/*.rb', '**/*.slim', '**/*.js', '**/*.css', '**/*.sass']
 
-Plug 'jsfaint/gen_tags.vim'
+" Plug 'jsfaint/gen_tags.vim'
 Plug 'mbbill/undotree'
 
 let g:gen_tags#ctags_auto_gen = 1
@@ -290,58 +250,39 @@ let g:vue_pre_processors = ['pug', 'sass']
 Plug 'digitaltoad/vim-pug'
 
 """ Navigation
-Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_working_path_mode = 'c'
-let g:ctrlp_switch_buffer = 'et'
-let g:ctrlp_mruf_max = 999
-
-
-if executable('rg')
-  set grepprg=rg\ --color=never
-
-  " Use rg in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
-  " rg is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
-
 " Plug 'SirVer/ultisnips'
 " let g:UltiSnipsExpandTrigger="<tab>"
 " let g:UltiSnipsJumpForwardTrigger="<c-b>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Plug 'honza/vim-snippets'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
 let NERDTreeMinimalUI=1
+let NERDTreeWinSize=39
+"   let NERDTreeShowHidden=1
+"   let NERDTreeDirArrows=1
 " let g:NERDTreeChDirMode=2
 
 """ Themes
 Plug 'rafalbromirski/vim-aurora'
 Plug 'dracula/vim'
 Plug 'whatyouhide/vim-gotham'
-Plug 'ksevelyar/joker.vim'
+
+"Plug 'ksevelyar/joker.vim'
+Plug '/c/joker.vim'
+
 Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'cocopon/iceberg.vim'
 Plug 'ryanoasis/vim-devicons'
+Plug '907th/vim-auto-save'
+let g:auto_save = 0
+augroup ft_markdown
+  au!
+  au FileType markdown let b:auto_save = 1
+augroup END
 
 call plug#end()
-
-""" autocmd
-
-" set autoread
-" if exists("g:gui_oni")
-" else
-"   " Autoread hack for terminal
-"   au FocusGained * :checktime
-"
-"   let NERDTreeShowHidden=1
-"   let NERDTreeWinSize=39
-"   let NERDTreeDirArrows=1
-"
-" endif
-
-""" GUI
 
 set termguicolors
 
@@ -374,7 +315,8 @@ set history=1000
 set title
 set mouse=a
 
-set shortmess=AI
+" set shortmess=AI
+set shortmess+=c
 
 " --- Backups --- "
 if isdirectory($HOME . '/.config/nvim/undo') == 0
@@ -404,7 +346,6 @@ set nojoinspaces
 set noerrorbells
 set novisualbell
 
-:cabbrev h vert h
 
 """ Format
 
@@ -426,7 +367,7 @@ autocmd BufReadPost *
     \   exe "normal! g`\"" |
     \ endif
 
-set updatetime=100
+set updatetime=200
 
 
 """ Search
@@ -450,6 +391,8 @@ endfunction
 nnoremap <silent> <expr> <CR> Highlighting()
 
 """ Bindings
+" :verbose imap
+
 :let g:mapleader = " "
 
 " Switch between the last two files:
@@ -461,9 +404,6 @@ let g:EasyMotion_smartcase = 1
 
 " JK motions: Line motions
 set so=2 " Set 2 lines to the cursor - when moving vertically using j/k
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-
 "Max out the height of the current split - ctrl + w _
 "Max out the width of the current split - ctrl + w |
 "Normalize all split sizes - ctrl + w =
@@ -471,37 +411,88 @@ map <Leader>k <Plug>(easymotion-k)
 "Swap top/bottom or left/right split - Ctrl+W R
 "Break out current window into a new tabview - Ctrl+W T
 "Close every window in the current tabview but the current one - Ctrl+W o
-
 set splitbelow
 set splitright
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" if has('patch8.1.1068')
+"   " Use `complete_info` if your (Neo)Vim version supports it.
+"   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+" else
+"   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" endif
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Mappings using CoCList:
+" Show all diagnostics.
+nnoremap <silent> <space>a  :AutoSaveToggle<cr>
+" Manage extensions.
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 nnoremap <C-J> <C-W><C-J> " navigate down
 nnoremap <C-K> <C-W><C-K> " navigate up
 nnoremap <C-L> <C-W><C-L> " navigate right
 nnoremap <C-H> <C-W><C-H> " navigate left
 
-map gcp <Leader>_p " Comment the current inner paragraph
+" map <leader>c :NERDCommenterToggle<cr> " Comment the current inner paragraph
 
 nmap <leader>v <C-w>v<CR>
 nmap <leader>h <C-w>s<CR>
 
-map  <silent> <F3> :NERDTreeToggle<cr>
-imap <silent> <F3> <Esc> :NERDTreeToggle<cr>
+nmap <leader>o <C-w>:Files<CR>
+nmap <leader>f :Rg<cr>
+nmap <leader>h <C-w>:History<CR>
+nmap <leader>u :UndotreeToggle<CR>
+nmap <leader>q :qa<cr>
 
-nmap <leader>t <C-w>v<C-w>l:terminal<CR>
-nmap <leader>ht <C-w>s<C-w>j:terminal<CR>
+nmap  <leader>nt :NERDTreeToggle<cr>
+nmap  <leader>nf :NERDTreeFind<cr>
 
-nnoremap <Space>s :Rg<cr>
+map <leader>t :TagbarToggle<cr>
+
+" copy curent buffer filepath
+nmap <silent><leader>p :let @+=expand("%:p")<CR>
+
+nmap <silent><leader>w :w<cr>
 nmap s <Plug>(easymotion-overwin-f2)
 
 "command! SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
 cmap w!! w !sudo tee % >/dev/null<Up>
 
-" copy curent buffer filepath
-nmap <leader>fp :let @+=expand("%:p")<CR>
 
 "nmap <Leader>ct :ColorToggle<cr>
-nmap <Leader>f :NERDTreeFind<cr>
 
 " copy / paste
 vmap <C-C> "+y
@@ -522,35 +513,13 @@ map k gk
 " map  <silent><F2> :YRShow<cr>
 " imap <silent><F2> <Esc>:YRShow<cr>
 
-nmap <Leader>c :%s/[^^]#.*/<cr>
-nmap <silent><F4> :w<cr>
-vmap <silent><F4> <Esc><F4>gv
-imap <silent><F4> <Esc><F4>
-
-map <F5> :TagbarToggle<cr>
-imap <F5> <Esc>:TagbarToggle<cr>
-
-map  <F6> :CtrlP<cr>
-imap <F6> <Esc>:CtrlP<CR>
-
-map  <F7> :CtrlPRoot<cr>
-imap <F7> <Esc>:CtrlPRoot<CR>
-
-map  <F8> :CtrlPMRU<cr>
-imap <F8> <Esc>:CtrlPMRU<CR>
-
-map  <F9> :UndotreeToggle<cr>
-imap <F9> <Esc>:UndotreeToggle<CR>
-
 " Enable/Disable paste mode, where data won't be autoindented
-set pastetoggle=<F10>
+" set pastetoggle=<F10>
 
-set spelllang=en_us
-map  <F11> :set spell!<CR>
-imap <F11> <Esc>:set spell!<CR>
+" set spelllang=en_us
+" map  <F11> :set spell!<CR>
+" imap <F11> <Esc>:set spell!<CR>
 " Toggle spelling
 
-map <F12> :qa<cr>
-imap <F12> <Esc>:qa<CR>
-
 command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
+:cabbrev h vert h

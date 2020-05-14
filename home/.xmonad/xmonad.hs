@@ -288,7 +288,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-h", focusUrgent)
     , ("M-x", spawn "rofi -modi drun -matching fuzzy -sorting-method fzf drun -show")
     , ("M-z", spawn "rofi -modi emoji -no-show-match -no-sort -matching normal -show")
-    , ("M-p", spawn "rofi -modi window -show")
+    , ("M-p", spawn "rofi-pass")
     , ("M-=", spawn "rofi -modi calc -show")
     , ("M-c", spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
     , ("M-l", spawn "dm-tool lock")

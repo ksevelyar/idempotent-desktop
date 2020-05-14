@@ -1,6 +1,6 @@
 {
   "suggest.echodocSupport": true,
-  "suggest.maxCompleteItemCount": 20,
+  "suggest.maxCompleteItemCount": 10,
   "diagnostic.errorSign": "◉",
   "diagnostic.warningSign": "◉",
   "diagnostic.infoSign": "◉",
@@ -15,5 +15,5 @@
     "javascript",
     "vue",
     "html"
-  ],
+  ]
 }
