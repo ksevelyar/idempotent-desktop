@@ -75,13 +75,6 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
 augroup cocnvim
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -90,28 +83,6 @@ augroup cocnvim
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current line.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Introduce function text object
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
-
-" Use <TAB> for selections ranges.
-" NOTE: Requires 'textDocument/selectionRange' support from the language server.
-" coc-tsserver, coc-python are the examples of servers that support it.
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
@@ -134,14 +105,15 @@ Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 
 Plug 'preservim/nerdcommenter'
+let g:NERDCreateDefaultMappings = 0
+let g:NERDSpaceDelims = 1
 
 Plug 'majutsushi/tagbar'
-let g:NERDSpaceDelims = 1
 
 " Plug 'vim-scripts/YankRing.vim'
 " let g:yankring_clipboard_monitor=0
 
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
 
 
 " Plug 'dracula/vim', { 'as': 'dracula' }
@@ -190,8 +162,8 @@ Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
 let g:prosession_dir = '~/.config/nvim/session/'
 
-" Plug 'airblade/vim-rooter'
-" let g:rooter_silent_chdir = 1
+Plug 'airblade/vim-rooter'
+let g:rooter_silent_chdir = 1
 Plug 'tpope/vim-abolish'
 Plug 'brooth/far.vim'
 let g:far#source = 'rg'
@@ -414,6 +386,38 @@ set so=2 " Set 2 lines to the cursor - when moving vertically using j/k
 set splitbelow
 set splitright
 
+" -- :help index --
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current line.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Introduce function text object
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <TAB> for selections ranges.
+" NOTE: Requires 'textDocument/selectionRange' support from the language server.
+" coc-tsserver, coc-python are the examples of servers that support it.
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
+
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -455,7 +459,7 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent> <space>p  :<C-u>CocListRsume<CR>
 
 
 map <Leader>j <Plug>(easymotion-j)
@@ -466,33 +470,37 @@ nnoremap <C-K> <C-W><C-K> " navigate up
 nnoremap <C-L> <C-W><C-L> " navigate right
 nnoremap <C-H> <C-W><C-H> " navigate left
 
-" map <leader>c :NERDCommenterToggle<cr> " Comment the current inner paragraph
+" ctags
+nmap <leader>c <plug>NERDCommenterToggle
+xmap <leader>c <plug>NERDCommenterToggle
 
 nmap <leader>v <C-w>v<CR>
 nmap <leader>h <C-w>s<CR>
 
-nmap <leader>o <C-w>:Files<CR>
-nmap <leader>f :Rg<cr>
-nmap <leader>h <C-w>:History<CR>
+nmap \ <C-w>:Files<CR>
+nmap . :Rg<cr>
+nmap m <C-w>:History<CR>
 nmap <leader>u :UndotreeToggle<CR>
 nmap <leader>x :qa<cr>
-
-nmap  <leader>t :NERDTreeToggle<cr>
-nmap  <C-T> :NERDTreeFind<cr>
-
-map <leader>c :TagbarToggle<cr>
-
+nmap <leader>t :NERDTreeToggle<cr>
+nmap <C-T> :NERDTreeFind<cr>
+nmap <silent><leader>w :w<cr>
+nmap <leader>s :TagbarToggle<cr>
 " copy curent buffer filepath
 nmap <silent><leader>p :let @+=expand("%:p")<CR>
-
-nmap <silent><leader>w :w<cr>
-nmap s <Plug>(easymotion-overwin-f2)
-
 "command! SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
 cmap w!! w !sudo tee % >/dev/null<Up>
 
+" legacy mappings
+nmap  <C-F3> :NERDTreeToggle<cr>
+nmap  <C-F4> :w<cr>
+nmap  <C-F7> <C-w>:Files<CR>
+nmap  <C-F8> :History<cr>
 
-"nmap <Leader>ct :ColorToggle<cr>
+" Enable/Disable paste mode, where data won't be autoindented
+set pastetoggle=<C-F1>
+set spelllang=en_us
+nmap  <C-F2> :set spell!<CR>
 
 " copy / paste
 vmap <C-C> "+y
@@ -504,22 +512,6 @@ nnoremap <leader>; q:i
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
-
-" F1-F12
-" map  <F1> :CtrlPBookmarkDir<cr>
-" imap <F1> <Esc>:CtrlPBookmarkDir<cr>
-" map <leader>ba :CtrlPBookmarkDirAdd<cr>
-"
-" map  <silent><F2> :YRShow<cr>
-" imap <silent><F2> <Esc>:YRShow<cr>
-
-" Enable/Disable paste mode, where data won't be autoindented
-" set pastetoggle=<F10>
-
-" set spelllang=en_us
-" map  <F11> :set spell!<CR>
-" imap <F11> <Esc>:set spell!<CR>
-" Toggle spelling
 
 command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
 :cabbrev h vert h

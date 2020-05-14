@@ -11,13 +11,14 @@
       antialias = true;
       defaultFonts = {
         monospace = [ "Terminus" ];
-        # sansSerif = [ "Source Sans Pro" ];
-        # serif = [ "Source Serif Pro" ];
+        sansSerif = [ "Vegur" ];
+        serif = [ "Vegur" ];
       };
     };
 
     fonts = with pkgs;
       [
+        vegur
         # unfree Microsoft fonts
         corefonts # Andale Mono, Arial, Comic Sans, Courier New, Georgia, Impact, Times New Roman, Trebuchet, Verdana, Webdings
         vistafonts # Calibri, Cambria, Candara, Consolas, Constantia, Corbel

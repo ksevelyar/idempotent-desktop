@@ -261,9 +261,9 @@ scratchpads = [
     (className =? "Image Lounge")
     (customFloating $ W.RationalRect 0.01 0.01 0.98 0.98),
 
-  NS "ncdu" "cd /storage && alacritty --class ncdu -e sudo ncdu /"
-    (resource =? "ncdu")
-    nonFloating,
+  NS "pavucontrol" "pavucontrol"
+    (className =? "Pavucontrol")
+    (customFloating $ W.RationalRect 0.25 0.05 0.5 0.7),
 
   NS "nnn" "cd /storage && alacritty --class nnn -e nnn"
     (resource =? "nnn")
@@ -348,13 +348,13 @@ myKeys = \conf -> mkKeymap conf $
     --
     , ("<F1>", namedScratchpadAction scratchpads  "terminal-1")
     , ("<F2>", namedScratchpadAction scratchpads  "terminal-2")
-    , ("M-<F3>", namedScratchpadAction scratchpads "nnn")
-    , ("M-<F4>", namedScratchpadAction scratchpads  "notes")
-    , ("M-<F5>", namedScratchpadAction scratchpads  "keepassx")
-    , ("M-<F6>", namedScratchpadAction scratchpads  "gotop")
-    , ("M-<F7>", namedScratchpadAction scratchpads  "blueman-manager")
-    , ("M-<F8>", namedScratchpadAction scratchpads  "ncdu")
-    , ("M-<F12>", namedScratchpadAction scratchpads "upwork")
+    , ("<F3>", namedScratchpadAction scratchpads "nnn")
+    , ("<F4>", namedScratchpadAction scratchpads  "notes")
+    , ("<F5>", namedScratchpadAction scratchpads  "keepassx")
+    , ("<F6>", namedScratchpadAction scratchpads  "gotop")
+    , ("<F7>", namedScratchpadAction scratchpads  "blueman-manager")
+    , ("<F8>", namedScratchpadAction scratchpads  "pavucontrol")
+    , ("<F12>", namedScratchpadAction scratchpads "upwork")
     , ("M-i", namedScratchpadAction scratchpads  "images_browser")
 
     , ("M-s",namedScratchpadAction scratchpads  "spacefm")
