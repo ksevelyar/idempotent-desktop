@@ -65,8 +65,9 @@
 
 ## live usb
 
-[live-usb.nix](https://github.com/ksevelyar/dotfiles/blob/master/live-usb.nix)[~2GB]
-[live-usb-minimal.nix](https://github.com/ksevelyar/dotfiles/blob/master/live-usb.nix)[~900MB]
+[live-usb.nix](https://github.com/ksevelyar/dotfiles/blob/master/live-usb.nix) ~2GB
+
+[live-usb-minimal.nix](https://github.com/ksevelyar/dotfiles/blob/master/live-usb.nix) ~900MB
 
 ```sh
 nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix -o live-usb
