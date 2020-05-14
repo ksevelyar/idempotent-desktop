@@ -6,6 +6,7 @@
 🍕 *work in progress* 🍕
 
 **Sys**
+
 * NixOS, Xmonad, Polybar, Alacritty, Conky, Picom
 * rofi with plugins: rofi-pass, [rofi-emoji](#rofi-emoji-with-argb-transparency), rofi-calc
 * mpv, imv, feh
@@ -18,6 +19,7 @@
 * [Easily hackable live usb](#live-usb)
 
 **IDE**
+
 * LSP via coc.nvim for Elixir, JS, HTML, CSS
 * FZF, Ripgrep, Fish, Tmux, Zeal
 * Firefox with Vimium
@@ -26,18 +28,23 @@
 * Cura, OpenSCAD, Gimp
 
 **Sec**
+
+* fail2ban
+* tomb
 * browserpass, gopass, rofi-pass
 * Adblocking DNS with `dnsmasq` by pi-hole methodology
 * Tor, Switchy Omega, qTox
 * Bypassing symmetrical NATs with WireGuard
 
 **Polybar scripts**
+
 * weather via wttr.in
 * local and public ips
 * vpn & ssh indicators
 * google-play-music-desktop-player current song
 
 **Games**
+
 * steam, playonlinux, wine
 
 **Proprietary suite**
@@ -45,7 +52,7 @@
 * Google-Chrome, Google-Play-Music-Desktop-Player
 * Memtest, Broadcom Wi-Fi drivers
 
-## [alacritty scratchpad](https://github.com/ksevelyar/dotfiles/blob/93dad4b540532e4feee2eb5c2a372d7273ac6102/home/.xmonad/xmonad.hs#L226-L228) 
+## [alacritty scratchpad](https://github.com/ksevelyar/dotfiles/blob/93dad4b540532e4feee2eb5c2a372d7273ac6102/home/.xmonad/xmonad.hs#L226-L228)
 
 ![blank](https://i.imgur.com/J5dE18O.png)
 

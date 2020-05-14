@@ -68,7 +68,12 @@ in
       inetutils
 
       # sec
-      # tomb
+      # To create a 100MB tomb called “secret” do:
+      # tomb dig -s 100 secret.tomb
+      # tomb forge secret.tomb.key
+      # tomb lock secret.tomb -k secret.tomb.key
+      tomb
+
       # We can add existing passwords to the store with insert:
       # pass insert Business/cheese-whiz-factory
       passExtensions.pass-audit
