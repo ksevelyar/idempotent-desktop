@@ -3,19 +3,18 @@
 " NOTE: type za to toggle current fold.
 ":help folding".
 
-" Preinstall
 " Install Vim Plug if not installed
-" if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  " silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    " \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  " autocmd VimEnter * PlugInstall
-" endif
-"
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
+
 " Automatically install missing plugins on startup
-" autocmd VimEnter *
-  " \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  " \|   PlugInstall --sync | q
-  " \| endif
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
 
 """ Plugins
 call plug#begin()
@@ -191,6 +190,8 @@ Plug 'tpope/vim-scriptease'
 
 Plug 'vim-airline/vim-airline'
 set laststatus=2
+" lol https://github.com/vim-airline/vim-airline/issues/1729#issuecomment-392053950
+let g:airline#extensions#branch#notexists = '∄'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
@@ -387,6 +388,8 @@ set splitbelow
 set splitright
 
 " -- :help index --
+nmap <Leader><Leader> <Plug>Fzm
+vmap <Leader><Leader> <Plug>FzmVisual
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
