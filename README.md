@@ -30,9 +30,9 @@
 
 ![](https://i.imgur.com/J5dE18O.png)
 
-## rofi with plugins
+## rofi with plugins and argb transparency
 
-![](https://i.imgur.com/u2GS8ax.png)
+![rofi](https://i.imgur.com/oGVe1s2.png)
 
 ## spacefm + ncdu
 
