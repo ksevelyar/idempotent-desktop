@@ -111,13 +111,15 @@ tail = true
 type = custom/script
 exec-if = pgrep x11vnc
 exec = echo "%{F#FF79C6}vnc%{F-} $(lsof -Pni | grep x11vnc | grep -v LISTEN | wc -l)"
-interval = 3
+click-right = pkill x11vnc
+interval = 2
 
 [module/ssh]
 type = custom/script
 exec-if = pgrep sshd
 exec = echo "%{F#FF79C6}ssh%{F-} $(who | grep pts | wc -l)"
-interval = 3
+click-right = sudo systemctl stop sshd
+interval = 2
 
 [module/weather]
 type = custom/script

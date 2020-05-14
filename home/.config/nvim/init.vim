@@ -191,7 +191,7 @@ Plug 'tpope/vim-scriptease'
 Plug 'vim-airline/vim-airline'
 set laststatus=2
 " lol https://github.com/vim-airline/vim-airline/issues/1729#issuecomment-392053950
-let g:airline#extensions#branch#notexists = '∄'
+let g:airline#extensions#branch#notexists = ' ∄'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
@@ -241,8 +241,8 @@ Plug 'rafalbromirski/vim-aurora'
 Plug 'dracula/vim'
 Plug 'whatyouhide/vim-gotham'
 
-"Plug 'ksevelyar/joker.vim'
-Plug '/c/joker.vim'
+Plug 'ksevelyar/joker.vim'
+" Plug '/c/joker.vim'
 
 Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
