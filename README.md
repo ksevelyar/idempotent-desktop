@@ -8,7 +8,7 @@
 **Sys**
 * NixOS, Xmonad, Polybar, Alacritty, Rofi, Conky, Picom
 * mpv, imv, feh
-* Pixel perfect Terminus.otb
+* Pixel perfect font with Terminus.otb
 * fish, z.lua, SpaceFM, nnn, ncdu
 * nmtui + blueman-manger
 * ssd friendly with fstrim service and `noatime` mount option
