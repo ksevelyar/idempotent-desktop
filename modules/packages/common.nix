@@ -11,10 +11,9 @@ in
 
   nix = {
     useSandbox = true;
-    maxJobs = lib.mkDefault 2;
+    maxJobs = lib.mkDefault 4;
     extraOptions = ''
       connect-timeout = 10 
-      http-connections = 4
     '';
   };
 

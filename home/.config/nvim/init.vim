@@ -478,7 +478,7 @@ nmap <leader>v <C-w>v<CR>
 nmap <leader>h <C-w>s<CR>
 
 nmap \ <C-w>:Files<CR>
-nmap . :Rg<cr>
+nmap , :Rg<cr>
 nmap m <C-w>:History<CR>
 nmap <leader>u :UndotreeToggle<CR>
 nmap <leader>x :qa<cr>

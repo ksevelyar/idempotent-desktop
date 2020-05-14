@@ -1,4 +1,4 @@
-# λ Idempotent Freelancer Desktop 
+# λ Idempotent Freelancer Desktop
 
 ![screen](https://i.imgur.com/fWKORz4.png)
 ![screen](https://i.imgur.com/fhAtYZY.png)
@@ -6,29 +6,30 @@
 🍕 *work in progress* 🍕
 
 * NixOS, Xmonad, Polybar, Alacritty, Rofi, Conky, Picom
-* Pixel perfect Terminus.otb 
-* Neovim (LSP via coc.nvim): Elixir, JS, HTML, CSS
-* https://github.com/ksevelyar/joker.vim (heavily inspired by vim-gotham)
+* Pixel perfect Terminus.otb
+* Neovim (FZF, LSP via coc.nvim): Elixir, JS, HTML, CSS
+* [joker.vim](https://github.com/ksevelyar/joker.vim) (heavily inspired by vim-gotham)
 * FZF, Ripgrep, Fish, Tmux, Zeal
-* SpaceFM, nnn, nomacs, ncdu
+* SpaceFM, nnn, ncdu
+* mpv, imv, feh
 * Firefox with Vimium
 * arduino, fritzing
 * Cura, OpenSCAD, Gimp
 * Adblocking DNS with `dnsmasq` by pi-hole methodology
 * Native virtualization with kvm & virt-manager
-* Tor, Switchy Omega, qTox 
+* Tor, Switchy Omega, qTox
 * Easily hackable live usb (with and without X)
 * Bypassing symmetrical NATs with WireGuard
 * Pair programming with x11vnc & sshd
 * steam, lutris, playonlinux
-* nmtui + blueman-manger 
+* nmtui + blueman-manger
 * ssd friendly with fstrim service and `noatime` mount option
 * browserpass + gopass
 * Proprietary suite: Upwork, Slack, Skype, Google-Chrome, Google-Play-Music-Desktop-Player, Telegram, Memtest, Broadcom Wi-Fi drivers
 
 ## fish, z, direnv, alacritty
 
-![](https://i.imgur.com/J5dE18O.png)
+![blank](https://i.imgur.com/J5dE18O.png)
 
 ## rofi with plugins and argb transparency
 
@@ -64,16 +65,17 @@
 
 ## live usb
 
-https://github.com/ksevelyar/dotfiles/blob/master/live-usb.nix
+[live-usb.nix](https://github.com/ksevelyar/dotfiles/blob/master/live-usb.nix)[~2GB]
+[live-usb-minimal.nix](https://github.com/ksevelyar/dotfiles/blob/master/live-usb.nix)[~900MB]
 
-```
+```sh
 nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix -o live-usb
 sudo dd bs=4M if=live-usb/iso/nixos.iso of=/dev/sdc status=progress && sync
 ```
 
 ## install
 
-```
+```sh
 sudo nixos-generate-config --root /tmp
 sudo cp -ra /etx/nixos{,.bak}
 sudo git clone git@github.com:ksevelyar/dotfiles.git /etc/nixos

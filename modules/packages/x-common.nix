@@ -76,6 +76,8 @@ in
       xorg.xkbcomp
 
       # sec
+      tomb
+      pinentry-gtk2
       qtox
       tdesktop
 
@@ -94,7 +96,7 @@ in
       # media
       mpv
       imv
-      stable.nomacs
+      # nomacs
 
       # fs
       spaceFM
