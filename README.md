@@ -7,7 +7,7 @@
 
 **Sys**
 * NixOS, Xmonad, Polybar, Alacritty, Conky, Picom
-* rofi with plugins: rofi-pass, [rofi-emoji](https://github.com/ksevelyar/dotfiles#rofi-emoji-with-argb-transparency), rofi-calc
+* rofi with plugins: rofi-pass, [rofi-emoji](#rofi-emoji-with-argb-transparency), rofi-calc
 * mpv, imv, feh
 * Pixel perfect font with Terminus.otb
 * fish, z.lua, SpaceFM, nnn, ncdu
@@ -15,7 +15,7 @@
 * ssd friendly with fstrim service and `noatime` mount option
 * Pair programming with x11vnc & sshd
 * Native virtualization with kvm & virt-manager
-* [Easily hackable live usb](https://github.com/ksevelyar/dotfiles#live-usb)
+* [Easily hackable live usb](#live-usb)
 
 **IDE**
 * LSP via coc.nvim for Elixir, JS, HTML, CSS
