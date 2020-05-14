@@ -6,7 +6,8 @@
 🍕 *work in progress* 🍕
 
 **Sys**
-* NixOS, Xmonad, Polybar, Alacritty, Rofi, Conky, Picom
+* NixOS, Xmonad, Polybar, Alacritty, Conky, Picom
+* rofi with plugins: rofi-pass, [rofi-emoji](https://github.com/ksevelyar/dotfiles#rofi-emoji-with-argb-transparency), rofi-calc
 * mpv, imv, feh
 * Pixel perfect font with Terminus.otb
 * fish, z.lua, SpaceFM, nnn, ncdu
@@ -33,7 +34,7 @@
 **Polybar scripts**
 * weather via wttr.in
 * local and public ips
-* vpn & ssh indicator
+* vpn & ssh indicators
 * google-play-music-desktop-player current song
 * bandwidth
 
@@ -49,7 +50,7 @@
 
 ![blank](https://i.imgur.com/J5dE18O.png)
 
-## [rofi](https://github.com/ksevelyar/dotfiles/tree/master/home/.config/rofi) with plugins and argb transparency
+## [rofi-emoji](https://github.com/ksevelyar/dotfiles/tree/master/home/.config/rofi) with argb transparency
 
 ![rofi](https://i.imgur.com/oGVe1s2.png)
 
