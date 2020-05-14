@@ -5,33 +5,44 @@
 
 🍕 *work in progress* 🍕
 
+**Sys**
 * NixOS, Xmonad, Polybar, Alacritty, Rofi, Conky, Picom
-* Pixel perfect Terminus.otb
-* Neovim (FZF, LSP via coc.nvim): Elixir, JS, HTML, CSS
-* [joker.vim](https://github.com/ksevelyar/joker.vim) (heavily inspired by vim-gotham)
-* FZF, Ripgrep, Fish, Tmux, Zeal
-* SpaceFM, nnn, ncdu
 * mpv, imv, feh
-* Firefox with Vimium
-* arduino, fritzing
-* Cura, OpenSCAD, Gimp
-* Adblocking DNS with `dnsmasq` by pi-hole methodology
-* Native virtualization with kvm & virt-manager
-* Tor, Switchy Omega, qTox
-* Easily hackable live usb (with and without X)
-* Bypassing symmetrical NATs with WireGuard
-* Pair programming with x11vnc & sshd
-* steam, lutris, playonlinux
+* Pixel perfect Terminus.otb
+* fish, z.lua, SpaceFM, nnn, ncdu
 * nmtui + blueman-manger
 * ssd friendly with fstrim service and `noatime` mount option
-* browserpass + gopass
-* Proprietary suite: Upwork, Slack, Skype, Google-Chrome, Google-Play-Music-Desktop-Player, Telegram, Memtest, Broadcom Wi-Fi drivers
+* Pair programming with x11vnc & sshd
+* Native virtualization with kvm & virt-manager
+* [Easily hackable live usb](https://github.com/ksevelyar/dotfiles#live-usb)
 
-## fish, z, direnv, alacritty
+**IDE**
+* LSP via coc.nvim for Elixir, JS, HTML, CSS
+* FZF, Ripgrep, Fish, Tmux, Zeal
+* Firefox with Vimium
+* [joker.vim](https://github.com/ksevelyar/joker.vim) (heavily inspired by vim-gotham)
+* arduino, fritzing
+* Cura, OpenSCAD, Gimp
+
+**Sec**
+* browserpass, gopass, rofi-pass
+* Adblocking DNS with `dnsmasq` by pi-hole methodology
+* Tor, Switchy Omega, qTox
+* Bypassing symmetrical NATs with WireGuard
+
+**Games**
+* steam, playonlinux, wine
+
+**Proprietary suite**
+* Upwork, Slack, Skype, Telegram Desktop
+* Google-Chrome, Google-Play-Music-Desktop-Player
+* Memtest, Broadcom Wi-Fi drivers
+
+## [alacritty scratchpad](https://github.com/ksevelyar/dotfiles/blob/93dad4b540532e4feee2eb5c2a372d7273ac6102/home/.xmonad/xmonad.hs#L226-L228) 
 
 ![blank](https://i.imgur.com/J5dE18O.png)
 
-## rofi with plugins and argb transparency
+## [rofi](https://github.com/ksevelyar/dotfiles/tree/master/home/.config/rofi) with plugins and argb transparency
 
 ![rofi](https://i.imgur.com/oGVe1s2.png)
 
