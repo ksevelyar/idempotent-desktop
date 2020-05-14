@@ -70,4 +70,4 @@ element selected {
   color: #1B161F;
 }
 
-/* vim:ft=css
+/* vim:syntax=css

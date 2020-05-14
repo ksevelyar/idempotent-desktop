@@ -217,6 +217,7 @@ let g:gen_tags#ctags_auto_gen = 1
 Plug 'luochen1990/rainbow'
 Plug 'tpope/vim-scriptease'
 
+Plug 'vim-airline/vim-airline'
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -242,11 +243,10 @@ let g:airline#extensions#ctrlp#show_adjacent_modes = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_skip_empty_sections = 1
 
-Plug 'vim-airline/vim-airline'
 
 Plug 'tpope/vim-fugitive'
-Plug 'posva/vim-vue'
-let g:vue_pre_processors = ['pug', 'sass']
+" Plug 'posva/vim-vue'
+" let g:vue_pre_processors = ['pug', 'sass']
 Plug 'digitaltoad/vim-pug'
 
 """ Navigation
@@ -315,8 +315,8 @@ set history=1000
 set title
 set mouse=a
 
-" set shortmess=AI
-set shortmess+=c
+set shortmess=AI
+" set shortmess+=c
 
 " --- Backups --- "
 if isdirectory($HOME . '/.config/nvim/undo') == 0
@@ -475,12 +475,12 @@ nmap <leader>o <C-w>:Files<CR>
 nmap <leader>f :Rg<cr>
 nmap <leader>h <C-w>:History<CR>
 nmap <leader>u :UndotreeToggle<CR>
-nmap <leader>q :qa<cr>
+nmap <leader>x :qa<cr>
 
-nmap  <leader>nt :NERDTreeToggle<cr>
-nmap  <leader>nf :NERDTreeFind<cr>
+nmap  <leader>t :NERDTreeToggle<cr>
+nmap  <C-T> :NERDTreeFind<cr>
 
-map <leader>t :TagbarToggle<cr>
+map <leader>c :TagbarToggle<cr>
 
 " copy curent buffer filepath
 nmap <silent><leader>p :let @+=expand("%:p")<CR>

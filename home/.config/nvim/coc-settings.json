@@ -13,7 +13,6 @@
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": [
     "javascript",
-    "vue",
-    "html"
+    "vue"
   ]
 }
