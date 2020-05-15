@@ -150,9 +150,6 @@ let g:vim_json_syntax_conceal = 0
 Plug 'chr4/nginx.vim'
 
 Plug 'janko-m/vim-test'
-"let g:gitgutter_override_sign_column_highlight = 0
-"let g:gitgutter_grep = 'rg'
-" Plug 'airblade/vim-gitgutter'
 
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1

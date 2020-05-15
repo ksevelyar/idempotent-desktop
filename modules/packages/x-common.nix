@@ -114,4 +114,8 @@ in
   programs.browserpass.enable = true;
   programs.dconf.enable = true;
   programs.qt5ct.enable = true;
+
+  environment = {
+    etc."imv_config".source = ../../home/.config/imv/config;
+  };
 }
