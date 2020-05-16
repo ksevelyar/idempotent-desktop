@@ -21,6 +21,7 @@
       ../modules/services/common.nix
       ../modules/services/nginx.nix
       ../modules/services/murmur.nix
+      ../modules/services/xonotic-dedicated.nix
 
       ../modules/packages/absolutely-proprietary.nix
       ../modules/packages/common.nix
