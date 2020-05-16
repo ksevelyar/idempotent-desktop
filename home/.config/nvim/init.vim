@@ -136,6 +136,15 @@ Plug 'godlygeek/tabular'
 " Plug 'ervandew/supertab'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+let g:fzf_commits_log_options = '--graph --color=always
+  \ --format="%C(yellow)%h%C(red)%d%C(reset)
+  \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
+let g:fzf_layout = { 'window': {
+      \ 'width': 0.9,
+      \ 'height': 0.7,
+      \ 'highlight': 'Comment',
+      \ 'rounded': v:false } }
+
 Plug 'dag/vim-fish'
 
 Plug 'tpope/vim-endwise'
@@ -175,7 +184,7 @@ let g:gen_tags#ctags_auto_gen = 1
 " augroup seeingIsBelievingSettings
 "   autocmd!
 "
-"   autocmd FileType ruby nmap <buffer> <F2> <Plug>(seeing-is-believing-mark-and-run)
+"   autocmd FileType ruby nnoremap <buffer> <F2> <Plug>(seeing-is-believing-mark-and-run)
 "   autocmd FileType ruby xmap <buffer> <F2> <Plug>(seeing-is-believing-mark-and-run)
 " augroup END
 
@@ -188,7 +197,7 @@ Plug 'tpope/vim-scriptease'
 Plug 'vim-airline/vim-airline'
 set laststatus=2
 " lol https://github.com/vim-airline/vim-airline/issues/1729#issuecomment-392053950
-let g:airline#extensions#branch#notexists = ' ∄'
+let g:airline#extensions#branch#notexists = '∄'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
@@ -228,9 +237,9 @@ Plug 'digitaltoad/vim-pug'
 " Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
 let NERDTreeMinimalUI=1
-let NERDTreeWinSize=39
-"   let NERDTreeShowHidden=1
-"   let NERDTreeDirArrows=1
+let NERDTreeWinSize=40
+let NERDTreeShowHidden=1
+" let NERDTreeDirArrows=1
 " let g:NERDTreeChDirMode=2
 
 """ Themes
@@ -366,7 +375,7 @@ nnoremap <silent> <expr> <CR> Highlighting()
 :let g:mapleader = " "
 
 " Switch between the last two files:
-" nmap <Leader><Leader> <C-^>
+" nnoremap <Leader><Leader> <C-^>
 " map <Leader> <Plug>(easymotion-prefix)
 let g:EasyMotion_do_mapping = 0
 " Turn on case insensitive feature
@@ -385,25 +394,25 @@ set splitbelow
 set splitright
 
 " -- :help index --
-nmap <Leader><Leader> <Plug>Fzm
-vmap <Leader><Leader> <Plug>FzmVisual
+nnoremap <Leader>? <Plug>Fzm
+vmap <Leader>? <Plug>FzmVisual
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nnoremap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+nnoremap <leader>f  <Plug>(coc-format-selected)
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+nnoremap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current line.
-nmap <leader>ac  <Plug>(coc-codeaction)
+nnoremap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
+nnoremap <leader>qf  <Plug>(coc-fix-current)
 
 " Introduce function text object
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -415,7 +424,7 @@ omap af <Plug>(coc-funcobj-a)
 " Use <TAB> for selections ranges.
 " NOTE: Requires 'textDocument/selectionRange' support from the language server.
 " coc-tsserver, coc-python are the examples of servers that support it.
-nmap <silent> <TAB> <Plug>(coc-range-select)
+nnoremap <silent> <TAB> <Plug>(coc-range-select)
 xmap <silent> <TAB> <Plug>(coc-range-select)
 
 " Use <c-space> to trigger completion.
@@ -431,14 +440,14 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " endif
 
 " Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
+nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -462,45 +471,55 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListRsume<CR>
 
 
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
+" map <Leader>j <Plug>(easymotion-j)
+" map <Leader>k <Plug>(easymotion-k)
 
 nnoremap <C-J> <C-W><C-J> " navigate down
 nnoremap <C-K> <C-W><C-K> " navigate up
 nnoremap <C-L> <C-W><C-L> " navigate right
 nnoremap <C-H> <C-W><C-H> " navigate left
 
-" ctags
-nmap <leader>c <plug>NERDCommenterToggle
+nnoremap <leader>c <plug>NERDCommenterToggle
 xmap <leader>c <plug>NERDCommenterToggle
+nnoremap <silent> <Leader>. :Files <C-r>=expand("%:h")<CR>/<CR>
+nnoremap <silent> <Leader>g :GFiles?
+nnoremap <silent> <Leader>\  :Commits<CR>
+nnoremap <silent> <Leader>b :BCommits<CR>
 
-nmap <leader>v <C-w>v<CR>
-nmap <leader>h <C-w>s<CR>
+" nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>]  :Tags<CR>
+nnoremap <silent> <Leader>b] :BTags<CR>
 
-nmap \ <C-w>:Files<CR>
-nmap , :Rg<cr>
-nmap m <C-w>:History<CR>
-nmap <leader>u :UndotreeToggle<CR>
-nmap <leader>x :qa<cr>
-nmap <leader>t :NERDTreeToggle<cr>
-nmap <C-T> :NERDTreeFind<cr>
-nmap <silent><leader>w :w<cr>
-nmap <leader>s :TagbarToggle<cr>
+nnoremap <leader>v <C-w>v<CR>
+nnoremap <leader>h <C-w>s<CR>
+
+nnoremap <leader><leader> :Files<CR>
+nnoremap , :Rg<cr>
+nnoremap m <C-w>:History<CR>
+
+
+nnoremap <leader>u :UndotreeToggle<CR>
+nnoremap <leader>x :qa<cr>
+nnoremap <leader>t :NERDTreeToggle<cr>
+nnoremap <C-T> :NERDTreeFind<cr>
+nnoremap <silent><leader>w :w<cr>
+" ctags
+nnoremap <leader>s :TagbarToggle<cr>
 " copy curent buffer filepath
-nmap <silent><leader>p :let @+=expand("%:p")<CR>
+nnoremap <silent><leader>p :let @+=expand("%:p")<CR>
 "command! SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
 cmap w!! w !sudo tee % >/dev/null<Up>
 
 " legacy mappings
-nmap  <C-F3> :NERDTreeToggle<cr>
-nmap  <C-F4> :w<cr>
-nmap  <C-F7> <C-w>:Files<CR>
-nmap  <C-F8> :History<cr>
+nnoremap  <C-F3> :NERDTreeToggle<cr>
+nnoremap  <C-F4> :w<cr>
+nnoremap  <C-F7> <C-w>:Files<CR>
+nnoremap  <C-F8> :History<cr>
 
 " Enable/Disable paste mode, where data won't be autoindented
 set pastetoggle=<C-F1>
 set spelllang=en_us
-nmap  <C-F2> :set spell!<CR>
+nnoremap  <C-F2> :set spell!<CR>
 
 " copy / paste
 vmap <C-C> "+y

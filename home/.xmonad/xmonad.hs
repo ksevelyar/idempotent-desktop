@@ -277,8 +277,6 @@ scratchpads = [
 -- M - Win, M1 - Alt, C - Control, S - Shift.
 myKeys = \conf -> mkKeymap conf $
     [ ("M-<Return>", spawn $ XMonad.terminal conf)
-    -- , ("M-o", spawn "xmessage 'woohoo!'")  -- type mod+x then w to pop up 'woohoo!'
-    -- , ("M-x y", spawn "xmessage 'yay!'")     -- type mod+x then y to pop up 'yay!'
     , ("M-q", kill) -- close focused window
     , ("M-o", spawn "sleep 0.5; xset dpms force off; pkill -f gpmdp")
 
@@ -291,10 +289,10 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-p", spawn "rofi-pass")
     , ("M-=", spawn "rofi -modi calc -show")
     , ("M-c", spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
-    , ("M-l", spawn "dm-tool lock")
+    , ("M-l", spawn "tomb close; dm-tool lock")
     , ("M-b", raiseMaybe (spawn "firefox -p default --class firefox-default") (className =? "firefox-default"))
     , ("M-y", raiseMaybe (spawn "firefox -p tor --class firefox-tor") (className =? "firefox-tor"))
-    , ("M-v", raiseMaybe (runInTerm "--class nvim" "nvim") (resource =? "nvim"))
+    , ("M-v", raiseMaybe (spawn "alacritty --class nvim -e fish -c nvim") (resource =? "nvim"))
     , ("M-j", raiseMaybe (runInTerm "--class tmux" "tmux") (resource =? "tmux"))
     , ("M-<Space>", sendMessage NextLayout)  -- Rotate through the available layout algorithms
     , ("M-S-<Space>", sendMessage ToggleStruts )
@@ -354,6 +352,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("<F6>", namedScratchpadAction scratchpads  "gotop")
     , ("<F7>", namedScratchpadAction scratchpads  "blueman-manager")
     , ("<F8>", namedScratchpadAction scratchpads  "pavucontrol")
+    , ("<F9>", namedScratchpadAction scratchpads  "gpmdp")
     , ("<F12>", namedScratchpadAction scratchpads "upwork")
     , ("M-i", namedScratchpadAction scratchpads  "images_browser")
 
@@ -376,27 +375,20 @@ myKeys = \conf -> mkKeymap conf $
     , ("<XF86MonBrightnessDown>", spawn "brightnessctl set -10%")
 
     , ("M-,",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
-    , ("M-S-,",  spawn  "sh ~/.config/polybar/gpmdp-rewind.sh")
-    , ("M-S-.", spawn  "sh ~/.config/polybar/gpmdp-next.sh")
+    , ("M-S-,",  spawn  "xdotool key XF86AudioPrev")
+    , ("M-S-.", spawn  "xdotool key XF86AudioNext")
     , ("M-/",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 40%")
 
     , ("M-C-<Backspace>", spawn "systemctl --user restart picom; xmonad --recompile && xmonad --restart") -- Restart xmonad
     ]
     ++
 
-    -- mod-[1..9], Switch to workspace N
-    -- mod-shift-[1..9], Move client to workspace N
-    --
     [ (m ++ i, windows $ f j)
           | (i, j) <- zip (map show ([1..9]++[0])) (XMonad.workspaces conf)
           , (m, f) <- [("M-", W.view), ("M-S-", W.shift)]
     ]
     ++
-    --
-    -- --
-    -- -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
-    -- -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
-    -- --
+
     [(m ++ "M-" ++ [key], screenWorkspace sc >>= flip whenJust (windows . f))
         | (key, sc) <- zip "wer" [0..]
         , (f, m) <- [(W.view, ""), (W.shift, "S-")]]

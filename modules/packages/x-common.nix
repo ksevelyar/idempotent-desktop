@@ -76,7 +76,9 @@ in
       xorg.xkbcomp
 
       # sec
+      keepassxc
       tomb
+      qtpass
       pinentry-gtk2
       qtox
       tdesktop
