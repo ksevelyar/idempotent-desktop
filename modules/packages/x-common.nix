@@ -75,6 +75,9 @@ in
       xorg.xfd
       xorg.xkbcomp
 
+      # voip
+      (pkgs.mumble.override { pulseSupport = true; })
+
       # sec
       keepassxc
       tomb
