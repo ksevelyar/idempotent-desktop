@@ -480,7 +480,7 @@ nnoremap <C-K> <C-W><C-K> " navigate up
 nnoremap <C-L> <C-W><C-L> " navigate right
 nnoremap <C-H> <C-W><C-H> " navigate left
 
-nnoremap <leader>c <plug>NERDCommenterToggle
+nmap <leader>c <plug>NERDCommenterToggle
 xmap <leader>c <plug>NERDCommenterToggle
 nnoremap <silent> <Leader>. :Files <C-r>=expand("%:h")<CR>/<CR>
 nnoremap <silent> <Leader>g :GFiles?
@@ -513,7 +513,7 @@ cmap w!! w !sudo tee % >/dev/null<Up>
 
 " legacy mappings
 nnoremap  <C-F3> :NERDTreeToggle<cr>
-nnoremap  <C-F4> :w<cr>
+nnoremap  <silent><C-F4> :w<cr>
 nnoremap  <C-F7> <C-w>:Files<CR>
 nnoremap  <C-F8> :History<cr>
 

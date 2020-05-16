@@ -87,6 +87,7 @@ in
       gopass
 
       # cli
+      # task add priority:L due:eod recur:daily wait:due-6h Log daily activities
       taskwarrior
       nmap
       wget
