@@ -3,7 +3,7 @@
 [options]
 background = 1B161F
 fullscreen = true
-loop_input = false
+loop_input = true
 overlay_font = Terminus:18
 scaling_mode = shrink
 
