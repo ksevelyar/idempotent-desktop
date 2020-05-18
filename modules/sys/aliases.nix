@@ -1,6 +1,6 @@
 {
   environment.shellAliases = {
-    lsof-all = "sudo lsof -i -P -n | grep LISTEN";
+    ports = "sudo lsof -Pin";
     i = "sh /etc/scripts/system-info.sh";
     l = "ls -lahXF --group-directories-first";
     j = "z"; # autojump alias for z

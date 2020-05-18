@@ -20,6 +20,177 @@ autocmd VimEnter *
 call plug#begin()
 Plug 'laher/fuzzymenu.vim'
 Plug 'ruanyl/vim-gh-line'
+
+
+
+
+
+Plug 'rbgrouleff/bclose.vim'
+" Plug 'ap/vim-css-color'
+Plug 'tpope/vim-surround'
+Plug 'alvan/vim-closetag'
+
+Plug 'preservim/nerdcommenter'
+let g:NERDCreateDefaultMappings = 0
+let g:NERDSpaceDelims = 1
+
+Plug 'majutsushi/tagbar'
+
+" Plug 'vim-scripts/YankRing.vim'
+" let g:yankring_clipboard_monitor=0
+
+Plug 'easymotion/vim-easymotion'
+
+
+" Plug 'dracula/vim', { 'as': 'dracula' }
+
+" let g:colorizer_auto_filetype='css,sass,vim'
+" let g:colorizer_disable_bufleave = 1
+" Plug 'chrisbra/Colorizer'
+
+
+" Plug 'vim-ruby/vim-ruby'
+" Plug 'tpope/vim-rails'
+" Plug 'tpope/vim-haml'
+" Plug 'slim-template/vim-slim'
+
+Plug 'godlygeek/tabular'
+" Plug 'ervandew/supertab'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+let g:fzf_commits_log_options = '--graph --color=always
+  \ --format="%C(yellow)%h%C(red)%d%C(reset)
+  \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
+
+let g:fzf_layout = { 'window': {
+      \ 'width': 0.9,
+      \ 'height': 0.7,
+      \ 'highlight': 'Comment',
+      \ 'rounded': v:false } }
+
+
+Plug 'tpope/vim-endwise'
+Plug 'valloric/MatchTagAlways'
+" Plug 'Raimondi/delimitMate'
+
+
+Plug 'janko-m/vim-test'
+
+Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
+
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
+let g:prosession_dir = '~/.config/nvim/session/'
+
+Plug 'airblade/vim-rooter'
+let g:rooter_silent_chdir = 1
+Plug 'tpope/vim-abolish'
+Plug 'brooth/far.vim'
+let g:far#source = 'rg'
+let g:far#file_mask_favorites = ['%', '**/*.*', '**/*.rb', '**/*.slim', '**/*.js', '**/*.css', '**/*.sass']
+
+
+Plug 'mbbill/undotree'
+
+" Interpolation
+" Plug 'hwartig/vim-seeing-is-believing'
+" augroup seeingIsBelievingSettings
+"   autocmd!
+"
+"   autocmd FileType ruby nnoremap <buffer> <F2> <Plug>(seeing-is-believing-mark-and-run)
+"   autocmd FileType ruby xmap <buffer> <F2> <Plug>(seeing-is-believing-mark-and-run)
+" augroup END
+
+""" Navigation
+" Plug 'SirVer/ultisnips'
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Plug 'honza/vim-snippets'
+Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
+let NERDTreeMinimalUI=1
+let NERDTreeWinSize=40
+let NERDTreeShowHidden=1
+" let NERDTreeDirArrows=1
+" let g:NERDTreeChDirMode=2
+
+" -------------------------
+" UI
+" -------------------------
+Plug 'luochen1990/rainbow'
+Plug 'tpope/vim-scriptease'
+
+Plug 'vim-airline/vim-airline'
+set laststatus=2
+" lol https://github.com/vim-airline/vim-airline/issues/1729#issuecomment-392053950
+let g:airline#extensions#branch#notexists = '∄'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections = 1
+" let g:airline_left_sep=''
+" let g:airline_right_sep=''
+" let g:airline_section_a = ''
+" let g:airline_section_z = ''
+" let g:airline#extensions#default#layout = [ [ 'a', 'b', 'c' ], [ 'x', 'y', 'z', 'error', 'warning' ] ]
+let airline#extensions#ale#error_symbol = ' '
+let airline#extensions#ale#warning_symbol = ' '
+let airline#extensions#ale#show_line_numbers = 0
+let airline#extensions#ale#open_lnum_symbol = ''
+let airline#extensions#ale#close_lnum_symbol = ''
+
+let g:airline#extensions#default#layout = [ [ 'b', 'c' ], [ 'x', 'y', 'warning', 'error' ] ]
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline#extensions#ctrlp#show_adjacent_modes = 0
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_skip_empty_sections = 1
+
+Plug 'ksevelyar/joker.vim'
+Plug 'rafalbromirski/vim-aurora'
+Plug 'dracula/vim'
+Plug 'whatyouhide/vim-gotham'
+" Plug '/c/joker.vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'chriskempson/base16-vim'
+Plug 'cocopon/iceberg.vim'
+Plug 'ryanoasis/vim-devicons'
+
+Plug '907th/vim-auto-save'
+let g:auto_save = 0
+augroup ft_markdown
+  au!
+  au FileType markdown let b:auto_save = 1
+augroup END
+
+" Dev
+Plug 'tpope/vim-fugitive'
+Plug 'slashmili/alchemist.vim'
+Plug 'LnL7/vim-nix'
+Plug 'elixir-editors/vim-elixir'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'dag/vim-fish'
+Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
+
+Plug 'elzr/vim-json'
+let g:vim_json_syntax_conceal = 0
+
+Plug 'chr4/nginx.vim'
+Plug 'Yggdroot/indentLine'
+
+" Plug 'posva/vim-vue'
+" let g:vue_pre_processors = ['pug', 'sass']
+Plug 'digitaltoad/vim-pug'
+
+Plug 'jsfaint/gen_tags.vim'
+let g:gen_tags#ctags_auto_gen = 1
+
 Plug 'w0rp/ale'
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 0
@@ -34,28 +205,18 @@ let g:ale_fixers = {
 \   'nix': ['nixpkgs-fmt'],
 \   'haskell': ['stylish-haskell']
 \}
-
 let g:ale_linters = {
 \   'c': [], 'cpp': [], 'elixir': [], 'go': [], 'sh': [],
 \   'html': [], 'css': [], 'javascript': [], 'typescript': [],
 \   'json': [], 'vue': [],
 \ }
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
 \ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-eslint', 'coc-tsserver',
 \ 'coc-elixir', 'coc-go', 'coc-yaml', 'coc-tag', 'coc-markdownlint', 'coc-yank',
 \ 'coc-vimlsp', 'coc-sh', 'coc-emoji', 'coc-git', 'coc-highlight', 'coc-svg'
 \ ]
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -97,170 +258,6 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-
-Plug 'rbgrouleff/bclose.vim'
-" Plug 'ap/vim-css-color'
-Plug 'tpope/vim-surround'
-Plug 'alvan/vim-closetag'
-
-Plug 'preservim/nerdcommenter'
-let g:NERDCreateDefaultMappings = 0
-let g:NERDSpaceDelims = 1
-
-Plug 'majutsushi/tagbar'
-
-" Plug 'vim-scripts/YankRing.vim'
-" let g:yankring_clipboard_monitor=0
-
-" Plug 'easymotion/vim-easymotion'
-
-
-" Plug 'dracula/vim', { 'as': 'dracula' }
-
-" let g:colorizer_auto_filetype='css,sass,vim'
-" let g:colorizer_disable_bufleave = 1
-" Plug 'chrisbra/Colorizer'
-
-
-" Plug 'vim-ruby/vim-ruby'
-" Plug 'tpope/vim-rails'
-" Plug 'tpope/vim-haml'
-" Plug 'slim-template/vim-slim'
-
-Plug 'slashmili/alchemist.vim'
-Plug 'LnL7/vim-nix'
-Plug 'elixir-editors/vim-elixir'
-Plug 'neovimhaskell/haskell-vim'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'godlygeek/tabular'
-" Plug 'ervandew/supertab'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-let g:fzf_commits_log_options = '--graph --color=always
-  \ --format="%C(yellow)%h%C(red)%d%C(reset)
-  \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
-
-let g:fzf_layout = { 'window': {
-      \ 'width': 0.9,
-      \ 'height': 0.7,
-      \ 'highlight': 'Comment',
-      \ 'rounded': v:false } }
-
-Plug 'dag/vim-fish'
-
-Plug 'tpope/vim-endwise'
-Plug 'valloric/MatchTagAlways'
-" Plug 'Raimondi/delimitMate'
-
-Plug 'pangloss/vim-javascript'
-Plug 'othree/yajs.vim'
-Plug 'elzr/vim-json'
-let g:vim_json_syntax_conceal = 0
-
-Plug 'chr4/nginx.vim'
-
-Plug 'janko-m/vim-test'
-
-Plug 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled=1
-
-Plug 'tpope/vim-obsession'
-Plug 'dhruvasagar/vim-prosession'
-let g:prosession_dir = '~/.config/nvim/session/'
-
-Plug 'airblade/vim-rooter'
-let g:rooter_silent_chdir = 1
-Plug 'tpope/vim-abolish'
-Plug 'brooth/far.vim'
-let g:far#source = 'rg'
-let g:far#file_mask_favorites = ['%', '**/*.*', '**/*.rb', '**/*.slim', '**/*.js', '**/*.css', '**/*.sass']
-
-" Plug 'jsfaint/gen_tags.vim'
-Plug 'mbbill/undotree'
-
-let g:gen_tags#ctags_auto_gen = 1
-
-" Interpolation
-" Plug 'hwartig/vim-seeing-is-believing'
-" augroup seeingIsBelievingSettings
-"   autocmd!
-"
-"   autocmd FileType ruby nnoremap <buffer> <F2> <Plug>(seeing-is-believing-mark-and-run)
-"   autocmd FileType ruby xmap <buffer> <F2> <Plug>(seeing-is-believing-mark-and-run)
-" augroup END
-
-" -------------------------
-" UI
-" -------------------------
-Plug 'luochen1990/rainbow'
-Plug 'tpope/vim-scriptease'
-
-Plug 'vim-airline/vim-airline'
-set laststatus=2
-" lol https://github.com/vim-airline/vim-airline/issues/1729#issuecomment-392053950
-let g:airline#extensions#branch#notexists = '∄'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_skip_empty_sections = 1
-" let g:airline_left_sep=''
-" let g:airline_right_sep=''
-" let g:airline_section_a = ''
-" let g:airline_section_z = ''
-" let g:airline#extensions#default#layout = [ [ 'a', 'b', 'c' ], [ 'x', 'y', 'z', 'error', 'warning' ] ]
-let airline#extensions#ale#error_symbol = ' '
-let airline#extensions#ale#warning_symbol = ' '
-let airline#extensions#ale#show_line_numbers = 0
-let airline#extensions#ale#open_lnum_symbol = ''
-let airline#extensions#ale#close_lnum_symbol = ''
-
-let g:airline#extensions#default#layout = [ [ 'b', 'c' ], [ 'x', 'y', 'warning', 'error' ] ]
-let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-let g:airline#extensions#hunks#enabled=0
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#tab_min_count = 2
-let g:airline#extensions#ctrlp#show_adjacent_modes = 0
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_skip_empty_sections = 1
-
-
-Plug 'tpope/vim-fugitive'
-" Plug 'posva/vim-vue'
-" let g:vue_pre_processors = ['pug', 'sass']
-Plug 'digitaltoad/vim-pug'
-
-""" Navigation
-" Plug 'SirVer/ultisnips'
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" Plug 'honza/vim-snippets'
-Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
-let NERDTreeMinimalUI=1
-let NERDTreeWinSize=40
-let NERDTreeShowHidden=1
-" let NERDTreeDirArrows=1
-" let g:NERDTreeChDirMode=2
-
-""" Themes
-Plug 'rafalbromirski/vim-aurora'
-Plug 'dracula/vim'
-Plug 'whatyouhide/vim-gotham'
-
-Plug 'ksevelyar/joker.vim'
-" Plug '/c/joker.vim'
-
-Plug 'arcticicestudio/nord-vim'
-Plug 'chriskempson/base16-vim'
-Plug 'cocopon/iceberg.vim'
-Plug 'ryanoasis/vim-devicons'
-Plug '907th/vim-auto-save'
-let g:auto_save = 0
-augroup ft_markdown
-  au!
-  au FileType markdown let b:auto_save = 1
-augroup END
 
 call plug#end()
 
@@ -398,6 +395,15 @@ set splitright
 nnoremap <Leader>? <Plug>Fzm
 vmap <Leader>? <Plug>FzmVisual
 
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
 " Symbol renaming.
 nnoremap <leader>rn <Plug>(coc-rename)
 
@@ -486,6 +492,7 @@ nnoremap <silent> <Leader>. :Files <C-r>=expand("%:h")<CR>/<CR>
 nnoremap <silent> <Leader>g :GFiles?
 nnoremap <silent> <Leader>\  :Commits<CR>
 nnoremap <silent> <Leader>b :BCommits<CR>
+nnoremap <silent> <Leader>i :IndentLinesToggle<CR>
 
 " nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>]  :Tags<CR>
@@ -534,4 +541,3 @@ map j gj
 map k gk
 
 command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
-:cabbrev h vert h
