@@ -81,8 +81,13 @@
   hardware = {
     cpu.intel.updateMicrocode = true;
     nvidia.modesetting.enable = true;
+    pulseaudio = {
+      # pacmd list-sinks | grep -e 'name:' -e 'index:'
+      extraConfig = ''
+        set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo
+      '';
+    };
   };
-
 
   # fs
   swapDevices = [];
@@ -122,9 +127,4 @@
   #   /srv/vvv     192.168.0.1/24(rw,nohide,all_squash,insecure)
   # '';
 
-  hardware.pulseaudio = {
-    extraConfig = ''
-      set-default-sink 0
-    '';
-  };
 }

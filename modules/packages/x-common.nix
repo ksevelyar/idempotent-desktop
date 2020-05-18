@@ -101,7 +101,7 @@ in
       # media
       mpv
       imv
-      # nomacs
+      nomacs
 
       # fs
       spaceFM

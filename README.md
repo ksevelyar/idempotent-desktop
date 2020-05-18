@@ -9,7 +9,7 @@
 
 * NixOS, Xmonad, Polybar, Alacritty, Conky, Picom
 * rofi with plugins: rofi-pass, [rofi-emoji](#rofi-emoji-with-argb-transparency), rofi-calc
-* mpv, imv, feh
+* mpv, nomacs, imv, feh
 * Pixel perfect font with Terminus.otb
 * fish, z.lua, SpaceFM, nnn, ncdu
 * nmtui + blueman-manger
