@@ -223,16 +223,19 @@ scratchpads = [
   NS "tmux" "alacritty --class tmux -e tmux new-session -A -s main"
     (resource =? "tmux")
     nonFloating,
+
   NS "terminal-1" "alacritty --class terminal-1 --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
     (resource =? "terminal-1")
-    (customFloating $ W.RationalRect 0.25 0.52 0.5 0.4),
+    (customFloating $ W.RationalRect 0 0.03 0.5 0.47),
   NS "terminal-2" "alacritty --class terminal-2 --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
     (resource =? "terminal-2")
-    (customFloating $ W.RationalRect 0.25 0.10 0.5 0.4),
-
+    (customFloating $ W.RationalRect 0.5 0.03 0.5 0.47),
   NS "notes" "alacritty --class notes -e nvim ~/notes"
     (resource =? "notes")
-    (customFloating $ W.RationalRect 0.25 0.05 0.5 0.7),
+    (customFloating $ W.RationalRect 0.5 0.5 0.5 0.47),
+  NS "nnn" "cd /storage && alacritty --class nnn -e nnn"
+    (resource =? "nnn")
+    (customFloating $ W.RationalRect 0 0.5 0.5 0.47),
 
   NS "keepassx" "keepassxc"
     (className =? "KeePassXC")
@@ -263,11 +266,7 @@ scratchpads = [
 
   NS "pavucontrol" "pavucontrol"
     (className =? "Pavucontrol")
-    (customFloating $ W.RationalRect 0.25 0.05 0.5 0.7),
-
-  NS "nnn" "cd /storage && alacritty --class nnn -e nnn"
-    (resource =? "nnn")
-    nonFloating
+    (customFloating $ W.RationalRect 0.25 0.05 0.5 0.7)
   ]
   where
   role = stringProperty "WM_WINDOW_ROLE"
