@@ -3,7 +3,7 @@
   imports =
     [
       ./shared.nix
-      ./shared-gui.nix
+      ./x-shared.nix
     ];
 
   vars.user = "kh";

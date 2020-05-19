@@ -5,7 +5,7 @@
   imports =
     [
       ./shared.nix
-      ./shared-gui.nix
+      ./x-shared.nix
     ];
 
   boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;

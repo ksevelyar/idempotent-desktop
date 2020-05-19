@@ -13,10 +13,10 @@
       ../modules/sys/aliases.nix
       ../modules/sys/scripts.nix
       ../modules/sys/tty.nix
-      # ../modules/sys/debug.nix
+      ../modules/sys/gc.nix
+      ../modules/sys/vars.nix
 
       ../modules/boot/bios.nix
-      # ../modules/boot/multiboot.nix
 
       ../modules/services/common.nix
       ../modules/services/nginx.nix
@@ -34,7 +34,8 @@
       ../modules/net/wireguard.nix
       ../modules/net/nfs.nix
 
-      ../users/ksevelyar-headless.nix
+      ../users/shared.nix
+      ../users/ksevelyar.nix
     ];
 
   hardware = {

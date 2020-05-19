@@ -12,10 +12,13 @@
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
       ../modules/sys/aliases.nix
       ../modules/sys/scripts.nix
+      ../modules/sys/tty.nix
+      ../modules/sys/gc.nix
+      ../modules/sys/vars.nix
       # ../modules/sys/debug.nix
 
       ../modules/boot/efi.nix
-      # ../modules/boot/multiboot.nix
+      ../modules/boot/multiboot.nix
 
       ../modules/services/common.nix
       ../modules/services/x.nix

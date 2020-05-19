@@ -7,11 +7,6 @@ in
 
 {
   vars.user = "ksevelyar";
-  imports =
-    [
-      ./shared.nix
-      ./shared-gui.nix
-    ];
 
   # dev hosts
   networking.extraHosts =

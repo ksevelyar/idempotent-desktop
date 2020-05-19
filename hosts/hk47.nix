@@ -43,6 +43,8 @@
 
       ../modules/vm/hypervisor.nix
 
+      ../users/shared.nix
+      ../users/x-shared.nix
       ../users/ksevelyar.nix
     ];
 

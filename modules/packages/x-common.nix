@@ -89,7 +89,7 @@ in
       simplescreenrecorder
       xclip
       qalculate-gtk
-      (rofi.override { plugins = [ rofi-file-browser rofi-emoji rofi-systemd rofi-calc ]; })
+      (rofi.override { plugins = [ rofi-file-browser rofi-emoji rofi-systemd rofi-calc pass-otp ]; })
       rofi-pass
       pavucontrol
       libnotify
