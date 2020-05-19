@@ -55,6 +55,7 @@
       disableWhileTyping = true;
       clickMethod = "buttonareas";
       scrollMethod = lib.mkDefault "edge";
+      # additionalOptions = ''MatchIsTouchpad "on"'';
     };
 
     config = ''

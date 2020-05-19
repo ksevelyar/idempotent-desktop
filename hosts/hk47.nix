@@ -14,6 +14,7 @@
       ../modules/sys/scripts.nix
       ../modules/sys/tty.nix
       ../modules/sys/gc.nix
+      ../modules/sys/vars.nix
 
       ../modules/boot/efi.nix
       # ../modules/boot/multiboot.nix
@@ -44,6 +45,10 @@
 
       ../users/ksevelyar.nix
     ];
+
+  boot.loader.grub.splashImage = lib.mkForce ../assets/grub_1024x768.png;
+  # boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;
+  # boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
 
   # boot
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];

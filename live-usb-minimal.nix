@@ -3,6 +3,7 @@
 
 { config, pkgs, lib, ... }:
 {
+
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
 
@@ -10,6 +11,7 @@
     ./modules/sys/scripts.nix
     ./modules/sys/tty.nix
     ./modules/sys/debug.nix
+    ./modules/sys/vars.nix
 
     ./modules/services/common.nix
     # ./modules/services/x.nix

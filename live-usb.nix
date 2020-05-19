@@ -1,7 +1,7 @@
 # nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix -o live-usb
 # sudo dd bs=4M if=live-usb/iso/nixos.iso of=/dev/sdc status=progress && sync
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, vars, ... }:
 {
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-base.nix>
@@ -10,6 +10,7 @@
     ./modules/sys/scripts.nix
     ./modules/sys/tty.nix
     ./modules/sys/debug.nix
+    ./modules/sys/vars.nix
 
     ./modules/services/common.nix
     ./modules/services/x.nix
@@ -36,6 +37,7 @@
     # ../modules/vm/hypervisor.nix
 
     ./users/live-usb.nix
+    ./users/shared-gui.nix
   ];
 
   # isoImage.splashImage = /etc/nixos/assets/grub.png;
@@ -59,16 +61,9 @@
   services.xserver = {
     autorun = false;
     displayManager.lightdm = {
-      autoLogin = { enable = true; user = "mrpoppybutthole"; };
+      autoLogin = { enable = true; user = vars.user; };
     };
   };
-  home-manager = {
-    users.mrpoppybutthole = {
-      xsession.windowManager.xmonad.enable = true;
-      xsession.windowManager.xmonad.enableContribAndExtras = true;
-    };
-  };
-
 
   boot.kernelModules = [ "wl" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];

@@ -29,6 +29,7 @@ in
   environment.systemPackages = with pkgs;
     [
       # sys
+      home-manager
       libqalculate # qalc
       exa
       bat

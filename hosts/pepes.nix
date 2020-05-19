@@ -45,6 +45,9 @@
       ../users/kh.nix
     ];
 
+  boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;
+  boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
+
   services.xserver = {
     libinput = {
       enable = true;
@@ -79,13 +82,8 @@
       peers = [
         {
           publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
-
           allowedIPs = [ "192.168.42.0/24" ];
-
-          # Set this to the server IP and port.
           endpoint = "77.37.166.17:51820";
-
-          # Send keepalives every 25 seconds. Important to keep NAT tables alive.
           persistentKeepalive = 25;
         }
       ];

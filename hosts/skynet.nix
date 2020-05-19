@@ -45,6 +45,7 @@
   networking.firewall.enable = lib.mkForce true;
   networking.networkmanager.enable = lib.mkForce false;
 
+  boot.loader.grub.splashImage = lib.mkForce ../assets/grub_1024x768.png;
   boot.cleanTmpDir = true;
   boot.tmpOnTmpfs = true;
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "xhci_pci" "usb_storage" "usbhid" "sd_mod" ];
