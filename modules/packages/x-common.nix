@@ -3,9 +3,6 @@ let
   stable = import <stable> {
     config = config.nixpkgs.config;
   };
-  compiledLayout = pkgs.runCommand "keyboard-layout" {} ''
-    ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${../../assets/layout.xkb} $out
-  '';
 in
 {
   # i18n.inputMethod = {

@@ -1,9 +1,4 @@
 { config, pkgs, lib, ... }:
-let
-  compiledLayout = pkgs.runCommand "keyboard-layout" {} ''
-    ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${../../assets/layout.xkb} $out
-  '';
-in
 {
   environment.systemPackages = with pkgs;
     let
@@ -34,7 +29,6 @@ in
     displayManager = {
       defaultSession = "none+xmonad";
       sessionCommands = lib.mkDefault ''
-        # ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY
         (rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log) &
         sh ~/.fehbg
         xsetroot -cursor_name left_ptr
@@ -42,7 +36,6 @@ in
         lxqt-policykit-agent &
         xxkb &
         xcape -e 'Super_R=Super_R|X'
-        sh ~/.config/conky/launch.sh
       '';
     };
 
