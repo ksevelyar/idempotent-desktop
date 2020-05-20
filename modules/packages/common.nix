@@ -81,14 +81,13 @@ in
       passExtensions.pass-genphrase
       # passExtensions.pass-import
       passExtensions.pass-otp
-      # passExtensions.pass-tomb
+      passExtensions.pass-tomb
       passExtensions.pass-update
       (pass.withExtensions (ext: with ext; [ pass-audit pass-otp pass-genphrase pass-update ]))
       # ripasso-cursive
       gopass
 
       # cli
-      # task add priority:L due:eod recur:daily wait:due-6h Log daily activities
       taskwarrior
       nmap
       wget

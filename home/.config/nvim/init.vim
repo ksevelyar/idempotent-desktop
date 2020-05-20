@@ -7,26 +7,31 @@
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
+  autocmd VimEnter * silent! PlugInstall
 endif
 
 " Automatically install missing plugins on startup
-autocmd VimEnter *
+autocmd VimEnter * silent!
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
   \| endif
+
+" Reloads vimrc after saving but keep cursor position
+if !exists('*ReloadVimrc')
+   fun! ReloadVimrc()
+       let save_cursor = getcurpos()
+       source $MYVIMRC
+       call setpos('.', save_cursor)
+   endfun
+endif
+autocmd! BufWritePost $MYVIMRC call ReloadVimrc()
 
 """ Plugins
 call plug#begin()
 Plug 'laher/fuzzymenu.vim'
 Plug 'ruanyl/vim-gh-line'
 
-
-
-
-
 Plug 'rbgrouleff/bclose.vim'
-" Plug 'ap/vim-css-color'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 
@@ -36,23 +41,11 @@ let g:NERDSpaceDelims = 1
 
 Plug 'majutsushi/tagbar'
 
-" Plug 'vim-scripts/YankRing.vim'
-" let g:yankring_clipboard_monitor=0
+Plug 'vim-scripts/YankRing.vim'
+let g:yankring_clipboard_monitor=0
 
 Plug 'easymotion/vim-easymotion'
 
-
-" Plug 'dracula/vim', { 'as': 'dracula' }
-
-" let g:colorizer_auto_filetype='css,sass,vim'
-" let g:colorizer_disable_bufleave = 1
-" Plug 'chrisbra/Colorizer'
-
-
-" Plug 'vim-ruby/vim-ruby'
-" Plug 'tpope/vim-rails'
-" Plug 'tpope/vim-haml'
-" Plug 'slim-template/vim-slim'
 
 Plug 'godlygeek/tabular'
 " Plug 'ervandew/supertab'
@@ -103,10 +96,10 @@ Plug 'mbbill/undotree'
 " augroup END
 
 """ Navigation
-" Plug 'SirVer/ultisnips'
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
@@ -151,12 +144,12 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_skip_empty_sections = 1
 
 Plug 'ksevelyar/joker.vim'
+" Plug '/c/joker.vim'
+
 Plug 'rafalbromirski/vim-aurora'
 Plug 'dracula/vim'
 Plug 'whatyouhide/vim-gotham'
-" Plug '/c/joker.vim'
 Plug 'arcticicestudio/nord-vim'
-Plug 'chriskempson/base16-vim'
 Plug 'cocopon/iceberg.vim'
 Plug 'ryanoasis/vim-devicons'
 
@@ -177,12 +170,17 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'dag/vim-fish'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/yajs.vim'
-
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
-
 Plug 'chr4/nginx.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-haml'
+Plug 'slim-template/vim-slim'
+
 Plug 'Yggdroot/indentLine'
+" Plug 'tommcdo/vim-lion.git'
+" let b:lion_squeeze_spaces = 1
 
 " Plug 'posva/vim-vue'
 " let g:vue_pre_processors = ['pug', 'sass']
@@ -263,7 +261,7 @@ call plug#end()
 
 set termguicolors
 
-" hi EndOfBuffer guifg=bg
+hi EndOfBuffer guifg=bg
 " :Colors to change theme
 silent! colorscheme joker
 " set background=dark
@@ -281,6 +279,7 @@ set clipboard=unnamedplus " sync vim clipboard with linux clipboard
 
 set signcolumn=yes
 set hidden
+set path+=**
 set number
 " set relativenumber
 set colorcolumn=100
@@ -293,6 +292,7 @@ set title
 set mouse=a
 
 set shortmess=AI
+
 " set shortmess+=c
 
 " --- Backups --- "
@@ -471,15 +471,15 @@ nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
 nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+nmap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+nmap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent> <space>p  :<C-u>CocListRsume<CR>
+" nnoremap <silent> <space>p  :<C-u>CocListRsume<CR>
 
 
-" map <Leader>j <Plug>(easymotion-j)
-" map <Leader>k <Plug>(easymotion-k)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 nnoremap <C-J> <C-W><C-J> " navigate down
 nnoremap <C-K> <C-W><C-K> " navigate up
@@ -518,12 +518,6 @@ nnoremap <silent><leader>p :let @+=expand("%:p")<CR>
 "command! SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
 cmap w!! w !sudo tee % >/dev/null<Up>
 
-" legacy mappings
-nnoremap  <C-F3> :NERDTreeToggle<cr>
-nnoremap  <silent><C-F4> :w<cr>
-nnoremap  <C-F7> <C-w>:Files<CR>
-nnoremap  <C-F8> :History<cr>
-
 " Enable/Disable paste mode, where data won't be autoindented
 set pastetoggle=<C-F1>
 set spelllang=en_us
@@ -534,7 +528,8 @@ vmap <C-C> "+y
 imap <C-V> <esc>"+pi
 
 nnoremap ; :
-nnoremap <leader>; q:i
+" this way x can be used for cut operations
+nnoremap d "_d
 
 " Treat long lines as break lines (useful when moving around in them)
 map j gj

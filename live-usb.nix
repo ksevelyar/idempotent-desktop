@@ -37,7 +37,7 @@
     # ../modules/vm/hypervisor.nix
 
     ./users/live-usb.nix
-    ./users/shared-gui.nix
+    ./users/x-shared.nix
   ];
 
   # isoImage.splashImage = /etc/nixos/assets/grub.png;

@@ -22,6 +22,9 @@ in
 
   environment.systemPackages = with pkgs;
     [
+      universal-ctags
+      global
+
       emacs
       codeql
 
@@ -41,12 +44,13 @@ in
 
       # tools
       stable.nixpkgs-fmt
-      ngrok
+      # ngrok
       direnv
       inotify-tools
       gitg
 
       # langs
+      nodejs_latest
       go
       elixir
 
