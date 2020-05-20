@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   vars.user = "manya";
 
@@ -17,8 +17,8 @@
         userName = "Maria Elizarova";
         userEmail = "porosenie@gmail.com";
       };
-      xsession.windowManager.xmonad.config = ../home/.xmonad/xmonad.hs;
-      home.file."Wallpapers/1.png".source = ../home/wallpapers/1.png;
+      xsession.windowManager.xmonad.config = lib.mkForce ./manya/xmonad.hs;
+      home.file.".config/polybar/config".source = lib.mkForce ./manya/polybar/config;
     };
   };
 
