@@ -76,12 +76,6 @@
           publicKey = "3DUHA0EYOaFVjeemwvqYa3wtbLDAc4wPhrPVnXxsdQ0=";
           allowedIPs = [ "192.168.42.4" ];
         }
-
-        # prism
-        {
-          publicKey = "FLCkV96NM5ortoqDNiF4eswK1vnLSa04gTnDMmLuaAg=";
-          allowedIPs = [ "192.168.42.5" ];
-        }
       ];
     };
   };
