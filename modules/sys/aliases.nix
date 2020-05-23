@@ -21,11 +21,13 @@
     vanilla-v = "nvim -U none";
     g = "git";
     t = "task";
+    fd = "fd --hidden --exclude .git";
     sss = "sudo systemctl stop";
     ssr = "sudo systemctl restart";
     py-files-server = "python3 -m http.server 9000";
     refresh-channels = "sh /etc/scripts/refresh-channels.sh";
     vnc-server = "x11vnc -repeat -forever -noxrecord -noxdamage -rfbport 5900";
     grab-display = "export DISPLAY=':0.0'";
+    log = "journalctl -u";
   };
 }

@@ -32,7 +32,7 @@ in
       seturgent
       stylish-haskell
       alacritty
-      rxvt-unicode
+      roxterm # fallback terminal
       firefoxWrapper
       tor-browser-bundle-bin
       zathura
