@@ -168,7 +168,7 @@ myManageHook = manageDocks <+> (composeAll . concat $
   , [isDialog       --> doFocusCenterFloat                     ]
   , [isFullscreen   --> doFullFloat                            ]
   , [namedScratchpadManageHook scratchpads                     ]
-  -- , [insertPosition Below Newer                             ]
+  , [insertPosition Below Newer                             ]
   ])
 
   where
@@ -347,12 +347,12 @@ myKeys = \conf -> mkKeymap conf $
     , ("<F2>", namedScratchpadAction scratchpads  "terminal-2")
     , ("<F3>", namedScratchpadAction scratchpads "nnn")
     , ("<F4>", namedScratchpadAction scratchpads  "notes")
-    , ("<F5>", namedScratchpadAction scratchpads  "keepassx")
+    -- , ("<F5>", namedScratchpadAction scratchpads  "keepassx")
     , ("<F6>", namedScratchpadAction scratchpads  "gotop")
     , ("<F7>", namedScratchpadAction scratchpads  "blueman-manager")
     , ("<F8>", namedScratchpadAction scratchpads  "pavucontrol")
     , ("<F9>", namedScratchpadAction scratchpads  "gpmdp")
-    , ("<F12>", namedScratchpadAction scratchpads "upwork")
+    , ("<F10>", namedScratchpadAction scratchpads "upwork")
     , ("M-i", namedScratchpadAction scratchpads  "images_browser")
 
     , ("M-s",namedScratchpadAction scratchpads  "spacefm")
@@ -373,10 +373,10 @@ myKeys = \conf -> mkKeymap conf $
     , ("<XF86MonBrightnessUp>", spawn "brightnessctl set +10%")
     , ("<XF86MonBrightnessDown>", spawn "brightnessctl set -10%")
 
-    , ("M-,",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
-    , ("M-S-,",  spawn  "xdotool key XF86AudioPrev")
-    , ("M-S-.", spawn  "xdotool key XF86AudioNext")
-    , ("M-/",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 40%")
+    -- , ("M-,",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
+    , ("M-,",  spawn  "xdotool key XF86AudioPrev")
+    , ("M-.", spawn  "xdotool key XF86AudioNext")
+    -- , ("M-/",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 40%")
 
     , ("M-C-<Backspace>", spawn "systemctl --user restart picom; xmonad --recompile && xmonad --restart") -- Restart xmonad
     ]

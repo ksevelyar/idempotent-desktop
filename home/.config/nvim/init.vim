@@ -28,44 +28,25 @@ autocmd! BufWritePost $MYVIMRC call ReloadVimrc()
 
 """ Plugins
 call plug#begin()
-Plug 'laher/fuzzymenu.vim'
-Plug 'ruanyl/vim-gh-line'
 
 Plug 'rbgrouleff/bclose.vim'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 
-Plug 'preservim/nerdcommenter'
-let g:NERDCreateDefaultMappings = 0
-let g:NERDSpaceDelims = 1
-
 Plug 'majutsushi/tagbar'
 
-Plug 'vim-scripts/YankRing.vim'
-let g:yankring_clipboard_monitor=0
+" Plug 'vim-scripts/YankRing.vim'
+" let g:yankring_clipboard_monitor=0
 
 Plug 'easymotion/vim-easymotion'
 
 
-Plug 'godlygeek/tabular'
+Plug 'junegunn/vim-easy-align'
 " Plug 'ervandew/supertab'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-let g:fzf_commits_log_options = '--graph --color=always
-  \ --format="%C(yellow)%h%C(red)%d%C(reset)
-  \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
-
-let g:fzf_layout = { 'window': {
-      \ 'width': 0.9,
-      \ 'height': 0.7,
-      \ 'highlight': 'Comment',
-      \ 'rounded': v:false } }
-
 
 Plug 'tpope/vim-endwise'
 Plug 'valloric/MatchTagAlways'
 " Plug 'Raimondi/delimitMate'
-
 
 Plug 'janko-m/vim-test'
 
@@ -73,18 +54,20 @@ Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 
 Plug 'tpope/vim-obsession'
+
 Plug 'dhruvasagar/vim-prosession'
 let g:prosession_dir = '~/.config/nvim/session/'
 
 Plug 'airblade/vim-rooter'
 let g:rooter_silent_chdir = 1
+
 Plug 'tpope/vim-abolish'
+
 Plug 'brooth/far.vim'
 let g:far#source = 'rg'
 let g:far#file_mask_favorites = ['%', '**/*.*', '**/*.rb', '**/*.slim', '**/*.js', '**/*.css', '**/*.sass']
 
-
-Plug 'mbbill/undotree'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
 " Interpolation
 " Plug 'hwartig/vim-seeing-is-believing'
@@ -95,13 +78,9 @@ Plug 'mbbill/undotree'
 "   autocmd FileType ruby xmap <buffer> <F2> <Plug>(seeing-is-believing-mark-and-run)
 " augroup END
 
-""" Navigation
-Plug 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" Plug 'honza/vim-snippets'
+" -------------------------
+" Navigation
+" -------------------------
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
 let NERDTreeMinimalUI=1
 let NERDTreeWinSize=40
@@ -109,9 +88,22 @@ let NERDTreeShowHidden=1
 " let NERDTreeDirArrows=1
 " let g:NERDTreeChDirMode=2
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+let g:fzf_commits_log_options = '--graph --color=always
+  \ --format="%C(yellow)%h%C(red)%d%C(reset)
+  \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
+
+" let g:fzf_layout = { 'window': {
+      " \ 'width': 0.9,
+      " \ 'height': 0.7,
+      " \ 'highlight': 'Comment',
+      " \ 'rounded': v:false } }
+
 " -------------------------
 " UI
 " -------------------------
+Plug 'ryanoasis/vim-devicons'
 Plug 'luochen1990/rainbow'
 Plug 'tpope/vim-scriptease'
 
@@ -121,25 +113,19 @@ set laststatus=2
 let g:airline#extensions#branch#notexists = '∄'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_skip_empty_sections = 1
-" let g:airline_left_sep=''
-" let g:airline_right_sep=''
-" let g:airline_section_a = ''
-" let g:airline_section_z = ''
-" let g:airline#extensions#default#layout = [ [ 'a', 'b', 'c' ], [ 'x', 'y', 'z', 'error', 'warning' ] ]
 let airline#extensions#ale#error_symbol = ' '
 let airline#extensions#ale#warning_symbol = ' '
 let airline#extensions#ale#show_line_numbers = 0
 let airline#extensions#ale#open_lnum_symbol = ''
 let airline#extensions#ale#close_lnum_symbol = ''
 
+" let g:airline#extensions#default#layout = [ [ 'a', 'b', 'c' ], [ 'x', 'y', 'z', 'error', 'warning' ] ]
 let g:airline#extensions#default#layout = [ [ 'b', 'c' ], [ 'x', 'y', 'warning', 'error' ] ]
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 let g:airline#extensions#hunks#enabled=0
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_min_count = 2
-let g:airline#extensions#ctrlp#show_adjacent_modes = 0
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_skip_empty_sections = 1
 
@@ -151,7 +137,6 @@ Plug 'dracula/vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'arcticicestudio/nord-vim'
 Plug 'cocopon/iceberg.vim'
-Plug 'ryanoasis/vim-devicons'
 
 Plug '907th/vim-auto-save'
 let g:auto_save = 0
@@ -160,7 +145,20 @@ augroup ft_markdown
   au FileType markdown let b:auto_save = 1
 augroup END
 
+" -------------------------
 " Dev
+" -------------------------
+Plug 'ruanyl/vim-gh-line'
+Plug 'preservim/nerdcommenter'
+let g:NERDCreateDefaultMappings = 0
+let g:NERDSpaceDelims = 1
+
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 Plug 'tpope/vim-fugitive'
 Plug 'slashmili/alchemist.vim'
 Plug 'LnL7/vim-nix'
@@ -170,8 +168,10 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'dag/vim-fish'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/yajs.vim'
+
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
+
 Plug 'chr4/nginx.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
@@ -261,7 +261,7 @@ call plug#end()
 
 set termguicolors
 
-hi EndOfBuffer guifg=bg
+" hi EndOfBuffer guifg=bg
 " :Colors to change theme
 silent! colorscheme joker
 " set background=dark
@@ -392,9 +392,6 @@ set splitbelow
 set splitright
 
 " -- :help index --
-nnoremap <Leader>? <Plug>Fzm
-vmap <Leader>? <Plug>FzmVisual
-
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
