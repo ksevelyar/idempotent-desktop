@@ -1,14 +1,15 @@
 {
   environment.shellAliases = {
+    x = "sudo systemctl start display-manager.service";
+    xr = "sudo systemctl restart display-manager.service";
     ports = "sudo lsof -Pin";
     i = "sh /etc/scripts/system-info.sh";
     l = "ls -lahXF --group-directories-first";
-    j = "z"; # autojump alias for z
+    j = "z"; # autojump alias for z.lua
     u = "aunpack";
     e = "sudo nvim /etc/nixos/configuration.nix";
     b = "sudo nixos-rebuild switch --keep-going";
     br = "b && systemctl restart display-manager.service";
-    # while true; bu && break; end
     bu = "b --upgrade";
     collect-garbage = "sudo nix-collect-garbage --delete-older-than 30d";
     tm = "tmux new-session -A -s main";

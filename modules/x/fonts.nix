@@ -11,8 +11,8 @@
       antialias = true;
       defaultFonts = {
         monospace = [ "Terminus" ];
-        # sansSerif = [ "Vegur" ];
-        # serif = [ "Vegur" ];
+        sansSerif = [ "Roboto" ];
+        serif = [ "Roboto Slab" ];
       };
     };
 
@@ -30,6 +30,7 @@
         # Required for polybar
         siji # https://github.com/stark/siji
 
+        roboto
         dejavu_fonts
         cozette
         ankacoder

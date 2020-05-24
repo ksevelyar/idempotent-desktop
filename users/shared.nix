@@ -8,7 +8,10 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${vars.user} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "libvirtd" ]; # Enable ‘sudo’ for the user.
+
+    # Enable ‘sudo’ for the user.
+    # https://en.wikipedia.org/wiki/Wheel_(computing)
+    extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
   };
 
   systemd.services."home-manager-ugly-hack" = {

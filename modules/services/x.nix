@@ -1,10 +1,5 @@
 { pkgs, lib, ... }:
 {
-  environment.shellAliases = {
-    x = "sudo systemctl start display-manager.service";
-    xr = "sudo systemctl restart display-manager.service";
-  };
-
   services.tor = {
     enable = true;
     client.enable = true;

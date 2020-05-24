@@ -296,7 +296,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-<Space>", sendMessage NextLayout)  -- Rotate through the available layout algorithms
     , ("M-S-<Space>", sendMessage ToggleStruts )
     , ("M-n", refresh) -- Resize viewed windows to the correct size
-    , ("M-m", raiseMaybe (spawn "xfce4-mime-settings") (resource =? "xfce4-mime-settings"))
+    , ("M-m", spawn "jgmenu --center")
 
     , ("M-t", raiseMaybe (spawn "telegram-desktop") (className =? "TelegramDesktop")) --
 
@@ -373,10 +373,10 @@ myKeys = \conf -> mkKeymap conf $
     , ("<XF86MonBrightnessUp>", spawn "brightnessctl set +10%")
     , ("<XF86MonBrightnessDown>", spawn "brightnessctl set -10%")
 
-    -- , ("M-,",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
-    , ("M-,",  spawn  "xdotool key XF86AudioPrev")
-    , ("M-.", spawn  "xdotool key XF86AudioNext")
-    -- , ("M-/",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 40%")
+    , ("M-,",  spawn  "sleep 3 && xdotool key --clearmodifiers XF86AudioPrev")
+    , ("M-.", spawn  "sleep 3 && xdotool key --clearmodifiers XF86AudioNext")
+    , ("M-S-,",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
+    , ("M-S-.",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 40%")
 
     , ("M-C-<Backspace>", spawn "systemctl --user restart picom; xmonad --recompile && xmonad --restart") -- Restart xmonad
     ]

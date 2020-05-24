@@ -27,6 +27,7 @@ in
       piper
 
       # xmonad defaults
+      jgmenu
       conky
       xdotool
       seturgent

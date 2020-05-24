@@ -53,6 +53,7 @@
   # boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
 
   # boot
+  boot.blacklistedKernelModules = [];
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [];
   boot.kernelModules = [ "kvm-intel" ];

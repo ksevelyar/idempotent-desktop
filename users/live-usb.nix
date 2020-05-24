@@ -28,11 +28,9 @@
     # create blank hardware-configuration.nix & configuration.nix
     sudo nixos-generate-config --root /mnt
     bat /mnt/etc/nixos/*.nix
-    sudo cp -ra /mnt/etc/nixos{,.bak}
+    sudo mv /mnt/etc/nixos{,.bak}
 
     # downloand repo 
     sudo git clone https://github.com/ksevelyar/dotfiles.git /mnt/etc/nixos
-    bat /mnt/etc/nixos/*.nix
-    nvim /mnt/etc/nixos/configuration.nix
   '';
 }

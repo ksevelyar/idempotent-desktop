@@ -27,7 +27,7 @@ grey2 = #5bf1c9
 
 [bar/base]
 font-0 = Terminus:size=14;0
-font-1 = Siji:size=14;0
+font-1 = Siji:size=14;1
 width = 100%
 height = 24
 offset-x = 0
@@ -83,7 +83,7 @@ bottom = false
 
 modules-left = volume gpmdp
 modules-center = filesystem
-modules-right = vnc ssh eth cpu memory battery
+modules-right = vnc ssh eth cpu memory
 
 [bar/laptop-top]
 inherit = bar/base
@@ -106,18 +106,21 @@ type = custom/script
 exec = tail -F /tmp/.xmonad-workspace-log
 exec-if = [ -p /tmp/.xmonad-workspace-log ]
 tail = true
+click-right = jgmenu_run >/dev/null 2>&1 &
 
 [module/vnc]
 type = custom/script
 exec-if = pgrep x11vnc
-exec = echo "%{F#FF79C6}vnc%{F-} $(lsof -Pni | grep x11vnc | grep -v LISTEN | wc -l)"
+exec = echo "$(lsof -Pni | grep x11vnc | grep -v LISTEN | wc -l)"
+format-prefix = "%{F#FF79C6} vnc%{F-} "
 click-right = pkill x11vnc
 interval = 2
 
 [module/ssh]
 type = custom/script
 exec-if = pgrep sshd
-exec = echo "%{F#FF79C6}ssh%{F-} $(who | grep pts | wc -l)"
+exec = echo "$(who | grep pts | wc -l)"
+format-prefix = "%{F#FF79C6} ssh%{F-} "
 click-right = sudo systemctl stop sshd
 interval = 2
 
@@ -130,9 +133,10 @@ interval = 300
 type = custom/script
 exec-if = pgrep -f google-play-music-desktop-player
 exec = ~/.config/polybar/gpmdp.sh
-interval = 2
+interval = 1
 format-foreground = #6B5A68
-click-right = pkill -f google-play-music-desktop-player
+click-left = xdotool key XF86AudioPlay &
+click-right = xdotool key XF86AudioNext &
 
 [module/filesystem]
 type = internal/fs
@@ -209,7 +213,7 @@ label = %{F#6B5A68}%date%%{F-}  %time%
 type = internal/pulseaudio
 interval = 2
 
-label-volume = "%{F#9c71C7} %{F-}%percentage%%"
+label-volume = "%{F#9c71C7} %{F-}%percentage%%"
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = "%{F#9c71C7}%{F-} "

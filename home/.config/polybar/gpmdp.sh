@@ -7,5 +7,5 @@ TITLE=$(echo $DATA | jq -r '.song.title')
 if [ "$TITLE" == "null" ]; then
   echo ""
 else
-  echo "%{A1:sh /etc/nixos/home/.config/polybar/gpmdp-next.sh:}$ARTIST - $TITLE%{A}"
+  echo "$ARTIST - $TITLE"
 fi
