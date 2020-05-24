@@ -9,6 +9,7 @@
 
 * NixOS, Xmonad, Polybar, Alacritty, Conky, Picom
 * rofi with plugins: rofi-pass, [rofi-emoji](#rofi-emoji-with-argb-transparency), rofi-calc
+* [jgmenu](#jgmenu)
 * mpv, nomacs, imv, feh
 * Pixel perfect font with Terminus.otb
 * fish, z.lua, SpaceFM, nnn, ncdu
@@ -59,6 +60,10 @@
 ## [rofi-emoji](https://github.com/ksevelyar/dotfiles/tree/master/home/.config/rofi) with argb transparency
 
 ![rofi](https://i.imgur.com/oGVe1s2.png)
+
+## jgmenu
+
+![jgmenu](https://i.imgur.com/uwLFMAu.png)
 
 ## spacefm + ncdu
 
