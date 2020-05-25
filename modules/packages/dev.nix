@@ -15,11 +15,6 @@ in
     '';
   };
 
-  # pg admin dep
-  # nixpkgs.config.permittedInsecurePackages = [
-  #   "openssl-1.0.2u"
-  # ];
-
   environment.systemPackages = with pkgs;
     [
       universal-ctags
@@ -35,7 +30,6 @@ in
       curlie
 
       # sql
-      # pgadmin
       dbeaver
       sequeler
 

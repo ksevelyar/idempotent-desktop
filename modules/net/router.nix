@@ -76,6 +76,11 @@
           publicKey = "3DUHA0EYOaFVjeemwvqYa3wtbLDAc4wPhrPVnXxsdQ0=";
           allowedIPs = [ "192.168.42.4" ];
         }
+        # manya phone
+        {
+          publicKey = "Cf1ZnKsJMTYTZfjU0xV+NJCXeOKvBq1/b2O4553Y+Ac=";
+          allowedIPs = [ "192.168.42.5" ];
+        }
       ];
     };
   };
