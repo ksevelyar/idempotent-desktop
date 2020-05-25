@@ -46,6 +46,7 @@ in
       stable.nixpkgs-fmt
       # ngrok
       direnv
+      lorri
       inotify-tools
       gitg
 

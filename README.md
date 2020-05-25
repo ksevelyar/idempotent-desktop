@@ -3,55 +3,56 @@
 ![screen](https://i.imgur.com/fWKORz4.png)
 ![screen](https://i.imgur.com/fhAtYZY.png)
 
-🍕 *work in progress* 🍕
+🍕 _work in progress_ 🍕
 
 **Sys**
 
-* NixOS, Xmonad, Polybar, Alacritty, Conky, Picom
-* rofi with plugins: rofi-pass, [rofi-emoji](#rofi-emoji-with-argb-transparency), rofi-calc
-* [jgmenu](#jgmenu)
-* mpv, nomacs, imv, feh
-* Pixel perfect font with Terminus.otb
-* fish, z.lua, SpaceFM, nnn, ncdu
-* nmtui + blueman-manger
-* ssd friendly with fstrim service and `noatime` mount option
-* Pair programming with x11vnc & sshd
-* Native virtualization with kvm & virt-manager
-* [Easily hackable live usb](#live-usb)
+- NixOS, Xmonad, Polybar, Alacritty, Conky, Picom
+- rofi with plugins: rofi-pass, [rofi-emoji](#rofi-emoji-with-argb-transparency), rofi-calc
+- [jgmenu](#jgmenu)
+- mpv, nomacs, imv, feh
+- Pixel perfect font with Terminus.otb
+- fish, z.lua, SpaceFM, nnn, ncdu
+- nmtui + blueman-manger
+- ssd friendly with fstrim service and `noatime` mount option
+- Pair programming with x11vnc & sshd
+- Native virtualization with kvm & virt-manager
+- [Easily hackable live usb](#live-usb)
 
 **IDE**
 
-* LSP via coc.nvim for Elixir, JS, HTML, CSS
-* FZF, Ripgrep, Fish, Tmux, Zeal
-* Firefox with Vimium
-* [joker.vim](https://github.com/ksevelyar/joker.vim) (heavily inspired by vim-gotham)
-* arduino, fritzing
-* Cura, OpenSCAD, Gimp
+- LSP via coc.nvim for Elixir, JS, HTML, CSS
+- FZF, Ripgrep, Fish, Tmux, Zeal
+- Firefox with [tridactyl](https://tridactyl.xyz/)
+- [joker.vim](https://github.com/ksevelyar/joker.vim) (heavily inspired by vim-gotham)
+- arduino, fritzing
+- Cura, OpenSCAD, Gimp
 
 **Sec**
 
-* fail2ban
-* tomb
-* browserpass, gopass, rofi-pass
-* Adblocking DNS with `dnsmasq` by pi-hole methodology
-* Tor, Switchy Omega, qTox
-* Bypassing symmetrical NATs with WireGuard
+- fail2ban
+- tomb
+- browserpass, gopass, rofi-pass
+- Adblocking DNS with `dnsmasq` by pi-hole methodology
+- Tor, Switchy Omega, qTox
+- Bypassing symmetrical NATs with WireGuard
 
 **Polybar scripts**
 
-* weather via wttr.in
-* local and public ips
-* vpn & ssh indicators
-* google-play-music-desktop-player current song
+- weather via wttr.in
+- local and public ips
+- vpn & ssh indicators
+- google-play-music-desktop-player current song
 
 **Games**
 
-* steam, playonlinux, wine
+- steam, wine
 
 **Proprietary suite**
-* Upwork, Slack, Skype, Telegram Desktop
-* Google-Chrome, Google-Play-Music-Desktop-Player
-* Memtest, Broadcom Wi-Fi drivers
+
+- Upwork, Slack, Skype, Telegram Desktop
+- Google-Chrome, Google-Play-Music-Desktop-Player
+- Memtest, Broadcom Wi-Fi drivers
 
 ## [alacritty scratchpad](https://github.com/ksevelyar/dotfiles/blob/93dad4b540532e4feee2eb5c2a372d7273ac6102/home/.xmonad/xmonad.hs#L226-L228)
 
@@ -121,4 +122,3 @@ sudo nix-channel --update
 sudo ln -s /etc/nixos/hosts/hk47.nix /etc/nixos/configuration.nix
 
 sudo nixos-rebuild switch --keep-going
-```
