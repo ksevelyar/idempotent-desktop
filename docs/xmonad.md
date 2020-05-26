@@ -12,7 +12,7 @@
 
 `<Win>=` Rofi: calc
 
-`<Win>=` Rofi: clipboard entries
+`<Win>c` Rofi: clipboard entries
 
 ## Windows & workspaces
 
