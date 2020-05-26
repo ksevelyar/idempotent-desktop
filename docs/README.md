@@ -1,52 +1,19 @@
-# λ Idempotent Freelancer Desktop
+---
+home: true
+heroText: λ Idempotent Freelancer Desktop
+tagline: NixOS, Neovim, Xmonad
+heroImage: /nix-snowflake.svg
+actionText: Start →
+actionLink: /guide/
+features:
+- title: Idempotent
+  details: Reproduce your favorite environment with one command.
+- title: Declarative
+  details: Describe your systems, hardware and users with text files under VCS.
+- title: Hackable Live ISO
+  details: Create your own live usb while reusing the main config modules.
+footer: MIT Licensed
+---
 
 ![screen](https://i.imgur.com/fWKORz4.png)
 ![screen](https://i.imgur.com/fhAtYZY.png)
-
-## Sys
-
-- NixOS, Xmonad, Polybar, Alacritty, Conky, Picom
-- rofi with plugins: rofi-pass, rofi-emoji, rofi-calc
-- jgmenu
-- mpv, nomacs, imv, feh
-- Pixel perfect font with Terminus.otb
-- fish, z.lua, SpaceFM, nnn, ncdu
-- nmtui + blueman-manger
-- ssd friendly with fstrim service and `noatime` mount option
-- Pair programming with x11vnc & sshd
-- Native virtualization with kvm & virt-manager
-
-## IDE
-
-- LSP via coc.nvim for Elixir, JS, HTML, CSS
-- FZF, Ripgrep, Fish, Tmux, Zeal
-- Firefox with [tridactyl](https://tridactyl.xyz/)
-- [joker.vim](https://github.com/ksevelyar/joker.vim) (heavily inspired by vim-gotham)
-- arduino, fritzing
-- Cura, OpenSCAD, Gimp
-
-## Sec
-
-- fail2ban
-- tomb
-- browserpass, gopass, rofi-pass
-- Adblocking DNS with `dnsmasq` by pi-hole methodology
-- Tor, Switchy Omega, qTox
-- Bypassing symmetrical NATs with WireGuard
-
-## Polybar scripts
-
-- weather via wttr.in
-- local and public ips
-- vpn & ssh indicators
-- google-play-music-desktop-player current song
-
-## Games
-
-- steam, wine
-
-## Proprietary suite
-
-- Upwork, Slack, Skype, Telegram Desktop
-- Google-Chrome, Google-Play-Music-Desktop-Player
-- Memtest, Broadcom Wi-Fi drivers
