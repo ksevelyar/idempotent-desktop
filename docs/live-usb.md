@@ -1,4 +1,4 @@
-# live usb
+# Live Usb
 
 [live-usb.nix](https://github.com/ksevelyar/dotfiles/blob/master/live-usb.nix) ~2GB
 
