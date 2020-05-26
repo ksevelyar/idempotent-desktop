@@ -1,5 +1,4 @@
 module.exports = {
-  base: '/dotfiles/',
   themeConfig: {
     sidebar: [
       '/',
