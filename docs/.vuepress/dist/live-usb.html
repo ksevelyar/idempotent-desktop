@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>live usb</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    
+    <meta name="description" content="">
+    <link rel="preload" href="/dotfiles/assets/css/0.styles.bd777ca2.css" as="style"><link rel="preload" href="/dotfiles/assets/js/app.fba89ea4.js" as="script"><link rel="preload" href="/dotfiles/assets/js/2.5ad4ef0d.js" as="script"><link rel="preload" href="/dotfiles/assets/js/6.edae34e7.js" as="script"><link rel="prefetch" href="/dotfiles/assets/js/3.0a9d2ad3.js"><link rel="prefetch" href="/dotfiles/assets/js/4.2b7fc900.js"><link rel="prefetch" href="/dotfiles/assets/js/5.701bb497.js"><link rel="prefetch" href="/dotfiles/assets/js/7.04139008.js"><link rel="prefetch" href="/dotfiles/assets/js/8.93de59ef.js"><link rel="prefetch" href="/dotfiles/assets/js/9.5ab9f861.js">
+    <link rel="stylesheet" href="/dotfiles/assets/css/0.styles.bd777ca2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/dotfiles/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/dotfiles/" aria-current="page" class="sidebar-link">λ Idempotent Freelancer Desktop</a></li><li><a href="/dotfiles/vim.html" class="sidebar-link">Vim</a></li><li><a href="/dotfiles/xmonad.html" class="sidebar-link">Xmonad</a></li><li><a href="/dotfiles/live-usb.html" aria-current="page" class="active sidebar-link">live usb</a></li><li><a href="/dotfiles/screenshots.html" class="sidebar-link">Screens</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="live-usb"><a href="#live-usb" class="header-anchor">#</a> live usb</h1> <p><a href="https://github.com/ksevelyar/dotfiles/blob/master/live-usb.nix" target="_blank" rel="noopener noreferrer">live-usb.nix<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> ~2GB</p> <p><a href="https://github.com/ksevelyar/dotfiles/blob/master/live-usb-minimal.nix" target="_blank" rel="noopener noreferrer">live-usb-minimal.nix<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> ~900MB</p> <div class="language-sh extra-class"><pre class="language-sh"><code>nix-build <span class="token string">'&lt;nixpkgs/nixos&gt;'</span> -A config.system.build.isoImage -I nixos-config<span class="token operator">=</span>/etc/nixos/live-usb.nix -o live-usb
+<span class="token function">sudo</span> <span class="token function">dd</span> <span class="token assign-left variable">bs</span><span class="token operator">=</span>4M <span class="token assign-left variable">if</span><span class="token operator">=</span>live-usb/iso/nixos.iso <span class="token assign-left variable">of</span><span class="token operator">=</span>/dev/sdc <span class="token assign-left variable">status</span><span class="token operator">=</span>progress <span class="token operator">&amp;&amp;</span> <span class="token function">sync</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/dotfiles/xmonad.html" class="prev">
+        Xmonad
+      </a></span> <span class="next"><a href="/dotfiles/screenshots.html">
+        Screens
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/dotfiles/assets/js/app.fba89ea4.js" defer></script><script src="/dotfiles/assets/js/2.5ad4ef0d.js" defer></script><script src="/dotfiles/assets/js/6.edae34e7.js" defer></script>
+  </body>
+</html>

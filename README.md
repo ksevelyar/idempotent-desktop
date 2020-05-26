@@ -5,11 +5,11 @@
 
 🍕 _work in progress_ 🍕
 
-**Sys**
+## Sys
 
 - NixOS, Xmonad, Polybar, Alacritty, Conky, Picom
-- rofi with plugins: rofi-pass, [rofi-emoji](#rofi-emoji-with-argb-transparency), rofi-calc
-- [jgmenu](#jgmenu)
+- rofi with plugins: rofi-pass, rofi-emoji, rofi-calc
+- jgmenu
 - mpv, nomacs, imv, feh
 - Pixel perfect font with Terminus.otb
 - fish, z.lua, SpaceFM, nnn, ncdu
@@ -17,9 +17,9 @@
 - ssd friendly with fstrim service and `noatime` mount option
 - Pair programming with x11vnc & sshd
 - Native virtualization with kvm & virt-manager
-- [Easily hackable live usb](#live-usb)
+- Easily hackable live usb
 
-**IDE**
+## IDE
 
 - LSP via coc.nvim for Elixir, JS, HTML, CSS
 - FZF, Ripgrep, Fish, Tmux, Zeal
@@ -28,7 +28,7 @@
 - arduino, fritzing
 - Cura, OpenSCAD, Gimp
 
-**Sec**
+## Sec
 
 - fail2ban
 - tomb
@@ -37,18 +37,18 @@
 - Tor, Switchy Omega, qTox
 - Bypassing symmetrical NATs with WireGuard
 
-**Polybar scripts**
+## Polybar scripts
 
 - weather via wttr.in
 - local and public ips
 - vpn & ssh indicators
 - google-play-music-desktop-player current song
 
-**Games**
+## Games
 
 - steam, wine
 
-**Proprietary suite**
+## Proprietary suite
 
 - Upwork, Slack, Skype, Telegram Desktop
 - Google-Chrome, Google-Play-Music-Desktop-Player

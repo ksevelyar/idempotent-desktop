@@ -47,6 +47,7 @@ in
       tldr
       git
       gitAndTools.diff-so-fancy
+      gitAndTools.tig
       bash
       mkpasswd
       file

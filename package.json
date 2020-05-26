@@ -1,0 +1,24 @@
+{
+  "name": "docs",
+  "description": "html docs generated from markdown files",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "vuepress": "^1.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksevelyar/dotfiles.git"
+  },
+  "keywords": [
+    "NixOS"
+  ],
+  "author": "ksevelyar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ksevelyar/dotfiles/issues"
+  },
+  "homepage": "https://github.com/ksevelyar/dotfiles#readme"
+}

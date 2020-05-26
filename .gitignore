@@ -27,3 +27,5 @@ home/.config/openbox/
 home/.config/session/
 
 configuration.nix
+
+node_modules

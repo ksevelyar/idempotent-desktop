@@ -292,7 +292,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-b", raiseMaybe (spawn "firefox -p default --class firefox-default") (className =? "firefox-default"))
     , ("M-y", raiseMaybe (spawn "firefox -p tor --class firefox-tor") (className =? "firefox-tor"))
     , ("M-v", raiseMaybe (spawn "alacritty --class nvim -e fish -c nvim") (resource =? "nvim"))
-    , ("M-j", raiseMaybe (runInTerm "--class tmux" "tmux") (resource =? "tmux"))
+    -- , ("M-j", raiseMaybe (runInTerm "--class tmux" "tmux") (resource =? "tmux"))
     , ("M-<Space>", sendMessage NextLayout)  -- Rotate through the available layout algorithms
     , ("M-S-<Space>", sendMessage ToggleStruts )
     , ("M-n", refresh) -- Resize viewed windows to the correct size
@@ -300,8 +300,8 @@ myKeys = \conf -> mkKeymap conf $
 
     , ("M-t", raiseMaybe (spawn "telegram-desktop") (className =? "TelegramDesktop")) --
 
-    , ("M-S-,", sendMessage (IncMasterN 1)) -- Increment the number of windows in the master area
-    , ("M-S-.", sendMessage (IncMasterN (-1))) -- Deincrement the number of windows in the master area
+    , ("M-,", sendMessage (IncMasterN 1)) -- Increment the number of windows in the master area
+    , ("M-.", sendMessage (IncMasterN (-1))) -- Deincrement the number of windows in the master area
     -- power
     , ("M-C-r", spawn "systemctl reboot")
     , ("M-C-h", spawn "systemctl poweroff")
@@ -373,8 +373,8 @@ myKeys = \conf -> mkKeymap conf $
     , ("<XF86MonBrightnessUp>", spawn "brightnessctl set +10%")
     , ("<XF86MonBrightnessDown>", spawn "brightnessctl set -10%")
 
-    , ("M-,",  spawn  "sleep 3 && xdotool key --clearmodifiers XF86AudioPrev")
-    , ("M-.", spawn  "sleep 3 && xdotool key --clearmodifiers XF86AudioNext")
+    -- , ("M-,",  spawn  "sleep 3 && xdotool key --clearmodifiers XF86AudioPrev")
+    -- , ("M-.", spawn  "sleep 3 && xdotool key --clearmodifiers XF86AudioNext")
     , ("M-S-,",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
     , ("M-S-.",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 40%")
 

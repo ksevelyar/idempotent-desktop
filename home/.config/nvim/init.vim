@@ -16,16 +16,6 @@ autocmd VimEnter * silent!
   \|   PlugInstall --sync | q
   \| endif
 
-" Reloads vimrc after saving but keep cursor position
-if !exists('*ReloadVimrc')
-   fun! ReloadVimrc()
-       let save_cursor = getcurpos()
-       source $MYVIMRC
-       call setpos('.', save_cursor)
-   endfun
-endif
-autocmd! BufWritePost $MYVIMRC call ReloadVimrc()
-
 """ Plugins
 call plug#begin()
 
@@ -85,7 +75,8 @@ Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
 let NERDTreeMinimalUI=1
 let NERDTreeWinSize=40
 let NERDTreeShowHidden=1
-" let NERDTreeDirArrows=1
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
 " let g:NERDTreeChDirMode=2
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -140,10 +131,10 @@ Plug 'cocopon/iceberg.vim'
 
 Plug '907th/vim-auto-save'
 let g:auto_save = 0
-augroup ft_markdown
-  au!
-  au FileType markdown let b:auto_save = 1
-augroup END
+" augroup ft_markdown
+  " au!
+  " au FileType markdown let b:auto_save = 1
+" augroup END
 
 " -------------------------
 " Dev
@@ -179,8 +170,9 @@ Plug 'tpope/vim-haml'
 Plug 'slim-template/vim-slim'
 
 Plug 'Yggdroot/indentLine'
-" Plug 'tommcdo/vim-lion.git'
-" let b:lion_squeeze_spaces = 1
+let g:indentLine_fileType = ['nix', 'html', 'vue']
+let g:indentLine_char = '┊'
+let g:indentLine_color_gui = "#3f3b52"
 
 " Plug 'posva/vim-vue'
 " let g:vue_pre_processors = ['pug', 'sass']
@@ -256,7 +248,6 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-
 call plug#end()
 
 set termguicolors
@@ -266,8 +257,8 @@ set termguicolors
 silent! colorscheme joker
 " set background=dark
 
-
 """ General
+set conceallevel=0
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
 syntax on
@@ -283,6 +274,8 @@ set path+=**
 set number
 " set relativenumber
 set colorcolumn=100
+" set cursorcolumn
+" set cursorline
 
 set encoding=utf-8
 set fileformat=unix
@@ -292,7 +285,6 @@ set title
 set mouse=a
 
 set shortmess=AI
-
 " set shortmess+=c
 
 " --- Backups --- "
@@ -315,7 +307,7 @@ set backupcopy=yes "Overwrite the original backup file
 au BufWritePre * let &bex = 'gh' . '@' . strftime("%F.%H") . '.bac'
 
 set undofile
-set undolevels=500
+set undolevels=999
 set display+=lastline
 set nojoinspaces
 
@@ -339,13 +331,9 @@ set expandtab
 set list
 set listchars=nbsp:¬,tab:>•,extends:»,precedes:«
 
-autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
 set updatetime=200
-
+set wildmenu
+set wildmode=list:longest,full
 
 """ Search
 set ignorecase
@@ -354,18 +342,6 @@ set smartcase
 set incsearch
 set inccommand=split
 set gdefault
-
-let g:highlighting = 0
-function! Highlighting()
-  if g:highlighting == 1 && @/ =~ '^\\<'.expand('<cword>').'\\>$'
-    let g:highlighting = 0
-    return ":silent nohlsearch\<CR>"
-  endif
-  let @/ = '\<'.expand('<cword>').'\>'
-  let g:highlighting = 1
-  return ":silent set hlsearch\<CR>"
-endfunction
-nnoremap <silent> <expr> <CR> Highlighting()
 
 """ Bindings
 " :verbose imap
@@ -499,14 +475,13 @@ nnoremap <leader>v <C-w>v<CR>
 nnoremap <leader>h <C-w>s<CR>
 
 nnoremap <leader><leader> :Files<CR>
-nnoremap , :Rg<cr>
-nnoremap m <C-w>:History<CR>
-
+nnoremap <leader>r :Rg<cr>
+nnoremap <leader>m <C-w>:History<CR>
 
 nnoremap <leader>u :UndotreeToggle<CR>
-nnoremap <leader>x :qa<cr>
+" nnoremap <leader>x :qa<cr>
 nnoremap <leader>t :NERDTreeToggle<cr>
-nnoremap <C-T> :NERDTreeFind<cr>
+nnoremap <leader>f :NERDTreeFind<cr>
 nnoremap <silent><leader>w :w<cr>
 " ctags
 nnoremap <leader>s :TagbarToggle<cr>
@@ -518,14 +493,14 @@ cmap w!! w !sudo tee % >/dev/null<Up>
 " Enable/Disable paste mode, where data won't be autoindented
 set pastetoggle=<C-F1>
 set spelllang=en_us
-nnoremap  <C-F2> :set spell!<CR>
+nnoremap <leader>o :set spell!<CR>
 
 " copy / paste
-vmap <C-C> "+y
+" vmap <C-C> "+y
 imap <C-V> <esc>"+pi
 
 nnoremap ; :
-" this way x can be used for cut operations
+" Shift+V+d for cut
 nnoremap d "_d
 
 " Treat long lines as break lines (useful when moving around in them)
