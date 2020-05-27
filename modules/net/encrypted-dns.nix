@@ -2,7 +2,6 @@
 {
   # No matter what proxy you use, you should set your DNS nameservers statically and make sure that your network manager won't override your carefully set nameservers with some random settings it received over DHCP. 
   services.resolved.enable = false;
-
   networking = {
     nameservers = [ "::1" ];
     resolvconf.enable = lib.mkForce false;

@@ -85,27 +85,25 @@
     };
   };
 
-  # https://github.com/notracking/hosts-blocklists
-  services.dnsmasq.enable = true;
-  services.dnsmasq.extraConfig = ''
-    domain-needed
-    bogus-priv
-    no-resolv
+  services.resolved.enable = false;
+  networking = {
+    nameservers = [ "::1" ];
+    resolvconf.enable = lib.mkForce false;
+    # If using dhcpcd:
+    dhcpcd.extraConfig = "nohook resolv.conf";
+    # If using NetworkManager:
+    networkmanager.dns = "none";
+  };
 
-    server=208.67.220.220
-    server=1.1.1.1
-    
-    listen-address=::1,127.0.0.1,192.168.0.1
-    bind-interfaces
-    
-    cache-size=10000
-    log-queries
-    log-facility=/tmp/ad-block.log
-    local-ttl=300
-
-    conf-file=/etc/nixos/assets/hosts-blocklists/domains.txt
-    addn-hosts=/etc/nixos/assets/hosts-blocklists/hostnames.txt
-  '';
+  services.kresd = {
+    enable = true;
+    listenPlain = [ 53 ];
+    extraConfig = ''
+      policy.add(policy.all(policy.TLS_FORWARD({
+        { '2620:fe::fe', hostname = 'dns.quad9.net', ca_file = '/etc/ssl/certs/ca-bundle.crt' },
+      })))
+    '';
+  };
 
   services.dhcpd4 = {
     enable = true;
