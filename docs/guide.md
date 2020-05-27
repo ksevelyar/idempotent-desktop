@@ -3,6 +3,12 @@
 ![screen](https://i.imgur.com/fWKORz4.png)
 ![screen](https://i.imgur.com/fhAtYZY.png)
 
+## Try
+
+Easiest way is to create or download [live-usb](/live-usb)
+
+## Install
+
 I'll point only things that differ from [nixos.org/nixos/manual](https://nixos.org/nixos/manual/)
 
 Physical machines locates in `hosts`; users in `users`. You'll need to link your host to configuration.nix and rebuild system.
