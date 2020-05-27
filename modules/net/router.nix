@@ -9,33 +9,42 @@
 
   networking.firewall = {
     enable = lib.mkForce true;
-    allowedTCPPorts = [
-      # Transmission
-      41414
 
-      # NFS
-      111 # portmapper
-      2049
-      20000
-      20001
-      20002
+    interfaces.enp3s0 = {
+      allowedTCPPorts = [
+        41414
+        # http, https
+        80
+        443
+      ];
+      allowedUDPPorts = [
+        41414
+        # wireguard
+        51820
+      ];
+    };
 
-      # http
-      80
-
-      # https
-      443
-    ];
-    allowedUDPPorts = [
-      # Transmission
-      41414
-
-      # wireguard
-      51820
-
-      # dnsmasq
-      53
-    ];
+    interfaces.enp5s0 = {
+      allowedTCPPorts = [
+        41414
+        # NFS
+        111 # portmapper
+        2049
+        20000
+        20001
+        20002
+        # http, https
+        80
+        443
+      ];
+      allowedUDPPorts = [
+        41414
+        # wireguard
+        51820
+        # dns cache
+        53
+      ];
+    };
   };
 
   networking.nat = {
@@ -85,22 +94,14 @@
     };
   };
 
-  services.resolved.enable = false;
-  networking = {
-    nameservers = [ "::1" ];
-    resolvconf.enable = lib.mkForce false;
-    # If using dhcpcd:
-    dhcpcd.extraConfig = "nohook resolv.conf";
-    # If using NetworkManager:
-    networkmanager.dns = "none";
-  };
-
   services.kresd = {
     enable = true;
-    listenPlain = [ "53" ];
+    listenPlain = [ "[::1]:53" "127.0.0.1:53" "192.168.0.1:53" ];
     extraConfig = ''
+      cache.size = 100 * MB
+
       policy.add(policy.all(policy.TLS_FORWARD({
-        { '2620:fe::fe', hostname = 'dns.quad9.net', ca_file = '/etc/ssl/certs/ca-bundle.crt' },
+      { '9.9.9.9', hostname = 'dns.quad9.net' },
       })))
     '';
   };
