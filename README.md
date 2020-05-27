@@ -11,9 +11,7 @@
 
 _work in progress_
 
-[netlify](https://idempotent-desktop.netlify.app/)
-
-Feel free to create an issue if something is unclear or broken.
+[Read on Netlify](https://idempotent-desktop.netlify.app/). Feel free to create an issue if something is unclear or broken.
 
 ## Sys
 
