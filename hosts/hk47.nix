@@ -39,6 +39,7 @@
       ../modules/hardware/ssd.nix
 
       ../modules/net/firewall-desktop.nix
+      ../modules/net/encrypted-dns.nix
       ../modules/net/wireguard.nix
 
       ../modules/vm/hypervisor.nix

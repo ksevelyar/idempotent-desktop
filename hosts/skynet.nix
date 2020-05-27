@@ -31,6 +31,7 @@
       ../modules/hardware/ssd.nix
 
       ../modules/net/router.nix
+      ../modules/net/encrypted-dns.nix
       ../modules/net/wireguard.nix
       ../modules/net/nfs.nix
 
