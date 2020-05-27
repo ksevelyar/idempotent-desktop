@@ -4,7 +4,9 @@
 ![screen](https://i.imgur.com/fhAtYZY.png)
 
 🍕 This repo is just a bunch of NixOS [modules](https://github.com/ksevelyar/dotfiles/tree/master/modules), so you can pick or override anything
+
 🍕 You can create [live usb](https://nixos.org/nixos/manual/index.html#sec-building-cd) with single one-liner
+
 🍕 You can use these dotfiles in other unix too, check [home](https://github.com/ksevelyar/dotfiles/tree/master/home)
 
 ## Docs
