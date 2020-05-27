@@ -97,7 +97,7 @@
 
   services.kresd = {
     enable = true;
-    listenPlain = [ 53 ];
+    listenPlain = [ "53" ];
     extraConfig = ''
       policy.add(policy.all(policy.TLS_FORWARD({
         { '2620:fe::fe', hostname = 'dns.quad9.net', ca_file = '/etc/ssl/certs/ca-bundle.crt' },
