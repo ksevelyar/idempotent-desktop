@@ -2,8 +2,8 @@
 home: true
 heroText: λ Idempotent Freelancer Desktop
 tagline: NixOS, Neovim, Xmonad
-heroImage: /nix-snowflake.svg
-actionText: Start →
+heroImage: https://i.imgur.com/fhAtYZY.png
+actionText: → Start
 actionLink: /guide/
 features:
 - title: Idempotent
@@ -14,6 +14,3 @@ features:
   details: Create your own live usb while reusing the main config modules.
 footer: MIT Licensed
 ---
-
-![screen](https://i.imgur.com/fWKORz4.png)
-![screen](https://i.imgur.com/fhAtYZY.png)

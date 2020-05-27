@@ -3,50 +3,49 @@
 ![screen](https://i.imgur.com/fWKORz4.png)
 ![screen](https://i.imgur.com/fhAtYZY.png)
 
-## Sys
+I'll point only things that differ from [nixos.org/nixos/manual](https://nixos.org/nixos/manual/)
 
-- NixOS, Xmonad, Polybar, Alacritty, Conky, Picom
-- rofi with plugins: rofi-pass, rofi-emoji, rofi-calc
-- jgmenu
-- mpv, nomacs, imv, feh
-- Pixel perfect font with Terminus.otb
-- fish, z.lua, SpaceFM, nnn, ncdu
-- nmtui + blueman-manger
-- ssd friendly with fstrim service and `noatime` mount option
-- Pair programming with x11vnc & sshd
-- Native virtualization with kvm & virt-manager
+Physical machines locates in `hosts`; users in `users`. You'll need to link your host to configuration.nix and rebuild system.
 
-## IDE
+Example of fresh installation from `live-usb`:
 
-- LSP via coc.nvim for Elixir, JS, HTML, CSS
-- FZF, Ripgrep, Fish, Tmux, Zeal
-- Firefox with [tridactyl](https://tridactyl.xyz/)
-- [joker.vim](https://github.com/ksevelyar/joker.vim) (heavily inspired by vim-gotham)
-- arduino, fritzing
-- Cura, OpenSCAD, Gimp
+## Mount drives
 
-## Sec
+```sh
+mount /dev/disk/by-label/nixos /mnt
+mount /dev/disk/by-label/boot  /mnt/boot
 
-- fail2ban
-- tomb
-- browserpass, gopass, rofi-pass
-- Adblocking DNS with `dnsmasq` by pi-hole methodology
-- Tor, Switchy Omega, qTox
-- Bypassing symmetrical NATs with WireGuard
+```
 
-## Polybar scripts
+## Clone repo
 
-- weather via wttr.in
-- local and public ips
-- vpn & ssh indicators
-- google-play-music-desktop-player current song
+`sudo git clone git@github.com:ksevelyar/dotfiles.git /mnt/etc/nixos`
 
-## Games
+## Create new user
 
-- steam, wine
+`nvim /mnt/etc/nixos/hosts/new-host.nix`
 
-## Proprietary suite
+You can use [ksevelyar.nix](https://github.com/ksevelyar/dotfiles/blob/master/users/ksevelyar.nix) as reference.
 
-- Upwork, Slack, Skype, Telegram Desktop
-- Google-Chrome, Google-Play-Music-Desktop-Player
-- Memtest, Broadcom Wi-Fi drivers
+## Generate configs and merge them to new host
+
+```sh
+sudo nixos-generate-config --root /mnt
+bat /mnt/etc/nixos/*.nix
+sudo mv /mnt/etc/nixos{,.bak}
+
+nvim /mnt/etc/nixos/hosts/new-host.nix
+
+```
+
+You can use [hk47.nix](https://github.com/ksevelyar/dotfiles/blob/master/hosts/hk47.nix) as reference.
+
+## Add channels and install nixos
+
+```sh
+sudo nix-channel --add https://nixos.org/channels/nixos-20.03 stable
+sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+sudo nix-channel --update
+
+sudo nixos-install
+```
