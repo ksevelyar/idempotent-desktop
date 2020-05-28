@@ -1,3 +1,4 @@
+" https://idempotent-desktop.netlify.app/vim.html
 " https://github.com/ksevelyar/dotfiles/blob/master/modules/packages/nvim.nix
 
 " NOTE: type za to toggle current fold.
@@ -13,7 +14,8 @@ endif
 " Automatically install missing plugins on startup
 autocmd VimEnter * silent!
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \|   PlugInstall --sync | q
+  \| PlugInstall --sync | q
+  \| colorscheme joker
   \| endif
 
 """ Plugins
@@ -55,7 +57,7 @@ Plug 'tpope/vim-abolish'
 
 Plug 'brooth/far.vim'
 let g:far#source = 'rg'
-let g:far#file_mask_favorites = ['%', '**/*.*', '**/*.rb', '**/*.slim', '**/*.js', '**/*.css', '**/*.sass']
+" let g:far#file_mask_favorites = ['%', '**/*.*', '**/*.rb', '**/*.slim', '**/*.js', '**/*.css', '**/*.sass']
 
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
@@ -78,6 +80,37 @@ let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 " let g:NERDTreeChDirMode=2
+
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+function! s:goyo_enter()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status off
+    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  endif
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  Limelight
+  " ...
+endfunction
+
+function! s:goyo_leave()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status on
+    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  endif
+  set showmode
+  set showcmd
+  set scrolloff=5
+  Limelight!
+  " ...
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -246,7 +279,9 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+if &rtp =~ 'coc.nvim'
+  set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+endif
 
 call plug#end()
 
@@ -489,6 +524,9 @@ nnoremap <leader>f :NERDTreeFind<cr>
 nnoremap <silent><leader>w :w<cr>
 " ctags
 nnoremap <leader>s :TagbarToggle<cr>
+
+nnoremap \ :Goyo<cr>
+
 " copy curent buffer filepath
 nnoremap <silent> <leader>p :let @+=expand("%:p")<CR>
 "command! SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
