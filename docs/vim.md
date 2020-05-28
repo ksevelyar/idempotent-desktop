@@ -58,4 +58,12 @@ The "Leader key" is a way of extending VIM's shortcuts by using sequences of key
 
 `G` move to botom
 
+`:42` move to line 42
+
 `:retab` replace tabs with spaces
+
+`<Shift>*` search word under cursor
+
+`/` incremental search
+
+`:%s/foo/bar` replace foo to bar in file

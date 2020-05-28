@@ -11,8 +11,9 @@ module.exports = {
     sidebar: [
       '/',
       '/guide',
-      '/vim',
       '/xmonad',
+      '/vim',
+      '/firefox',
       '/live-usb',
       '/screenshots',
     ]

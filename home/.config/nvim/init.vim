@@ -324,6 +324,8 @@ set mouse=a
 set shortmess=AI
 " set shortmess+=c
 
+set timeoutlen=2000
+
 " --- Backups --- "
 if isdirectory($HOME . '/.config/nvim/undo') == 0
   :silent !mkdir -p ~/.config/nvim/undo > /dev/null 2>&1

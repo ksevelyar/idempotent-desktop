@@ -240,6 +240,9 @@ scratchpads = [
   NS "keepassx" "keepassxc"
     (className =? "KeePassXC")
     (customFloating $ W.RationalRect 0.50 0.05 0.4 0.87),
+  NS "qtpass" "qtpass"
+    (className =? "QtPass")
+    (customFloating $ W.RationalRect 0.50 0.05 0.4 0.87),
 
   NS "gotop" "alacritty --class gotop -e gotop"
     (resource =? "gotop")
@@ -285,7 +288,6 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-h", focusUrgent)
     , ("M-x", spawn "rofi -modi drun -matching fuzzy -sorting-method fzf drun -show")
     , ("M-z", spawn "rofi -modi emoji -no-show-match -no-sort -matching normal -show")
-    , ("M-p", spawn "rofi-pass")
     , ("M-=", spawn "rofi -modi calc -show")
     , ("M-c", spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
     , ("M-l", spawn "tomb close; dm-tool lock")
@@ -343,6 +345,7 @@ myKeys = \conf -> mkKeymap conf $
     -- custom
     , ("M-f", sendMessage ToggleLayout)
     --
+    , ("M-p", namedScratchpadAction scratchpads "qtpass")
     , ("<F1>", namedScratchpadAction scratchpads  "terminal-1")
     , ("<F2>", namedScratchpadAction scratchpads  "terminal-2")
     , ("<F3>", namedScratchpadAction scratchpads "nnn")
