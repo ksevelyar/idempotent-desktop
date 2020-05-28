@@ -90,6 +90,12 @@
           publicKey = "Cf1ZnKsJMTYTZfjU0xV+NJCXeOKvBq1/b2O4553Y+Ac=";
           allowedIPs = [ "192.168.42.5" ];
         }
+
+        # macbook anya
+        {
+          publicKey = "xrw8dXQlFEt+PuRRZ8uov+6PCpsCW+0nkBk06Erzu0E=";
+          allowedIPs = [ "192.168.42.7" ];
+        }
       ];
     };
   };

@@ -28,6 +28,7 @@
             "services.sync.declinedEngines" = "passwords";
             "services.sync.engine.passwords" = false;
             "permissions.default.desktop-notification" = 2;
+            "ui.context_menus.after_mouseup" = true;
           };
         in
           {
