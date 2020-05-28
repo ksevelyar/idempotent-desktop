@@ -1,38 +1,22 @@
 # Firefox
 
-## Bindings
+## [Plugins](https://addons.mozilla.org/en-US/firefox/collections/5389223/idempotent-desktop/?page=1&collection_sort=-popularity)
 
-to do
-
-## Plugins
-
-### Dracula
-
-https://draculatheme.com/firefox
+### [Dracula](https://draculatheme.com/firefox)
 
 ### Browserpass
 
-* https://addons.mozilla.org/en-US/firefox/addon/browserpass-ce/
-* https://github.com/browserpass/browserpass-native
+* [plugin](https://addons.mozilla.org/en-US/firefox/addon/browserpass-ce/)
+* [native app](https://github.com/browserpass/browserpass-native)
 
-### Tridactyl
+### [Tridactyl](https://tridactyl.cmcaine.co.uk/betas/nonewtab/tridactyl_no_new_tab_beta-latest.xpi)
 
-https://addons.mozilla.org/en-US/firefox/addon/tridactyl-vim/?src=collection
+`:h` to see Tridactyl bindings
 
-OR
+### [Tab Groups](https://addons.mozilla.org/en-US/firefox/addon/simple-tab-groups/?src=featured)
 
-https://tridactyl.cmcaine.co.uk/betas/nonewtab/tridactyl_no_new_tab_beta-latest.xpi
+### [Form recovery](https://addons.mozilla.org/en-US/firefox/addon/form-history-control/)
 
-:colors base16-rebecca
+### [Tabby Cat](https://addons.mozilla.org/en-US/firefox/addon/tabby-cat-friend/)
 
-### Tab Groups
-
-https://addons.mozilla.org/en-US/firefox/addon/simple-tab-groups/?src=featured
-
-### Form recovery
-
-https://addons.mozilla.org/en-US/firefox/addon/form-history-control/
-
-### Tabby Cat
-
-https://addons.mozilla.org/en-US/firefox/addon/tabby-cat-friend/
+### [low level CSS tweaks](https://github.com/Timvde/UserChrome-Tweaks)
