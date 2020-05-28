@@ -33,13 +33,13 @@
       ../modules/packages/games.nix
       ../modules/packages/nvim.nix
       ../modules/packages/tmux.nix
+      ../modules/packages/firefox.nix
 
       ../modules/hardware/bluetooth.nix
       ../modules/hardware/sound.nix
       ../modules/hardware/ssd.nix
 
       ../modules/net/firewall-desktop.nix
-      ../modules/net/encrypted-dns.nix
       ../modules/net/wireguard.nix
 
       ../modules/vm/hypervisor.nix

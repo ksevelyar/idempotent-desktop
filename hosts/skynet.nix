@@ -6,7 +6,6 @@
   # should.
   system.stateVersion = "20.03"; # Did you read the comment?
 
-
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
@@ -31,7 +30,6 @@
       ../modules/hardware/ssd.nix
 
       ../modules/net/router.nix
-      ../modules/net/encrypted-dns.nix
       ../modules/net/wireguard.nix
       ../modules/net/nfs.nix
 

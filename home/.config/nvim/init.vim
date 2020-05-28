@@ -250,7 +250,9 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 call plug#end()
 
-set termguicolors
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 " hi EndOfBuffer guifg=bg
 " :Colors to change theme
@@ -419,7 +421,10 @@ inoremap <silent><expr> <c-space> coc#refresh()
 "   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " endif
 
-" Use `[g` and `]g` to navigate diagnostics
+" Use `[g` and `]g` to navigate git chunks
+nmap [c <Plug>(coc-git-prevchunk)
+nmap ]c <Plug>(coc-git-nextchunk)
+
 nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
 nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
 
@@ -450,7 +455,6 @@ nmap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 " nnoremap <silent> <space>p  :<C-u>CocListRsume<CR>
 
-
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
@@ -462,7 +466,7 @@ nnoremap <C-H> <C-W><C-H> " navigate left
 nmap <leader>c <plug>NERDCommenterToggle
 xmap <leader>c <plug>NERDCommenterToggle
 nnoremap <silent> <Leader>. :Files <C-r>=expand("%:h")<CR>/<CR>
-nnoremap <silent> <Leader>g :GFiles?
+nnoremap <silent> <Leader>g :GFiles?<CR>
 nnoremap <silent> <Leader>\  :Commits<CR>
 nnoremap <silent> <Leader>b :BCommits<CR>
 nnoremap <silent> <Leader>i :IndentLinesToggle<CR>
@@ -486,7 +490,7 @@ nnoremap <silent><leader>w :w<cr>
 " ctags
 nnoremap <leader>s :TagbarToggle<cr>
 " copy curent buffer filepath
-nnoremap <silent><leader>p :let @+=expand("%:p")<CR>
+nnoremap <silent> <leader>p :let @+=expand("%:p")<CR>
 "command! SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
 cmap w!! w !sudo tee % >/dev/null<Up>
 

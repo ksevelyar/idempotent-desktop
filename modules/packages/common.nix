@@ -70,6 +70,7 @@ in
       inetutils
 
       # sec
+      openvpn
       # To create a 100MB tomb called “secret” do:
       # tomb dig -s 100 secret.tomb
       # tomb forge secret.tomb.key

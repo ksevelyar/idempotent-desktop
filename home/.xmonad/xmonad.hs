@@ -189,8 +189,8 @@ myManageHook = manageDocks <+> (composeAll . concat $
   myIm          = ["TelegramDesktop", "Mumble", "Skype"]
   myEd          = ["nvim"]
   myGfxs        = ["Inkscape", "Gimp-2.10"]
-  myWeb         = ["firefox-default"]
-  myMisc        = ["firefox-tor"]
+  myWeb         = ["firefox-work"]
+  myMisc        = ["firefox-chill"]
 
   -- roles
   -- myServ        = ["rails_dobroserver", "rails_fitlog"]
@@ -289,8 +289,8 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-=", spawn "rofi -modi calc -show")
     , ("M-c", spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
     , ("M-l", spawn "tomb close; dm-tool lock")
-    , ("M-b", raiseMaybe (spawn "firefox -p default --class firefox-default") (className =? "firefox-default"))
-    , ("M-y", raiseMaybe (spawn "firefox -p tor --class firefox-tor") (className =? "firefox-tor"))
+    , ("M-b", raiseMaybe (spawn "firefox -p work --class firefox-work") (className =? "firefox-work"))
+    , ("M-y", raiseMaybe (spawn "firefox -p chill --class firefox-chill") (className =? "firefox-chill"))
     , ("M-v", raiseMaybe (spawn "alacritty --class nvim -e fish -c nvim") (resource =? "nvim"))
     -- , ("M-j", raiseMaybe (runInTerm "--class tmux" "tmux") (resource =? "tmux"))
     , ("M-<Space>", sendMessage NextLayout)  -- Rotate through the available layout algorithms

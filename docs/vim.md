@@ -8,6 +8,10 @@ You can start with built-in `:Tutor`
 
 The "Leader key" is a way of extending VIM's shortcuts by using sequences of keys to perform a command. The leader key is `<Space>`.
 
+`<Space>j` navigate down
+
+`<Space>k` navigate up
+
 `<Space>f` find current file in NerdTree
 
 `<Space>g` show changed git files with FZF
@@ -40,6 +44,12 @@ The "Leader key" is a way of extending VIM's shortcuts by using sequences of key
 
 `<Space>u` toggle undo tree
 
+`<Space>o` check orphography
+
+`[c` next git chunk
+
+`]c` prev git chunk
+
 ### Useful built-in commands
 
 `<Ctrl>6` switch to previous file
@@ -47,3 +57,5 @@ The "Leader key" is a way of extending VIM's shortcuts by using sequences of key
 `gg` move to top
 
 `G` move to botom
+
+`:retab` replace tabs with spaces
