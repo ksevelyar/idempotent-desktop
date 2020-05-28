@@ -29,6 +29,7 @@
             "services.sync.engine.passwords" = false;
             "permissions.default.desktop-notification" = 2;
             "ui.context_menus.after_mouseup" = true;
+            "svg.context-properties.content.enabled" = true;
           };
         in
           {

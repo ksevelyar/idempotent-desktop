@@ -4,7 +4,7 @@ module.exports = {
     docsDir: 'docs',
     editLinks: true,
     editLinkText: 'Help to improve this page ❀◕ ‿ ◕❀',
-    logo: 'nix-snowflake.svg',
+    logo: 'logo.png',
     nav: [
       {text: 'NixOS', link: 'https://nixos.org/nixos/manual/'},
     ],
