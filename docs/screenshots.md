@@ -36,6 +36,10 @@
 
 ![screen](https://i.imgur.com/Yvq668e.png)
 
-## kvm + virt-manager + live usb
+## virt-manager + live usb
 
 ![screen](https://i.imgur.com/1n0SWwG.png)
+
+## virt-manager + kali
+
+![screen](https://i.imgur.com/RzoS3rR.png)
