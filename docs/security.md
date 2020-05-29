@@ -33,3 +33,7 @@ bash -c 'for key in ~/.ssh/id_*; do ssh-keygen -l -f "${key}"; done | uniq'
 [upgrade-your-ssh-key-to-ed25519](https://medium.com/risan/upgrade-your-ssh-key-to-ed25519-c6e8d60d3c54)
 
 `ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519`
+
+## Fail2Ban
+
+Currently integrated with `sshd`.
