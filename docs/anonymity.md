@@ -33,6 +33,6 @@ torsocks curl ifconfig.me
 
 [services.kresd](https://github.com/ksevelyar/dotfiles/blob/42b8264d1b259c99f887be38224f3ae0a62448c5/modules/net/firewall-desktop.nix#L4-L14)
 
-## Use VPN if you need anonymity
+## Use VPN if you need anonymity or Spotify
 
-`openvpn` preinstalled, you can try free proton vpn.
+`openvpn` preinstalled, you can try free [ProtonVpn](https://protonvpn.com/).
