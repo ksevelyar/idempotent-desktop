@@ -16,6 +16,12 @@ Autostart disabled, use `sudo systemctl start sshd`
 
 The port is 9922. Use `ssh user@host -p 9922` to connect.
 
+In case your sshd is runninng you will see it in polybar with amount of active connects:
+
+![polybar](https://i.imgur.com/zZz3AfZ.png)
+
+The same for x11vnc.
+
 ### Check your ssh keys
 
 ```bash
