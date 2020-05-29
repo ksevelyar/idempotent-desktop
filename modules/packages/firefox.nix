@@ -4,7 +4,7 @@
     useGlobalPkgs = true;
     users.${vars.user} = {
       home.file.".config/tridactyl/tridactylrc".source = ../../home/.config/tridactyl/tridactylrc;
-      home.file.".config/tridactyl/base16-rebecca.css".source = ../../home/.config/tridactyl/base16-rebecca.css;
+      home.file.".config/tridactyl/themes/base16-rebecca.css".source = ../../home/.config/tridactyl/themes/base16-rebecca.css;
 
       programs.browserpass.enable = true;
       programs.firefox.enable = true;

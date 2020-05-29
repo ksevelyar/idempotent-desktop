@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   services.mingetty.greetingLine = ''\l'';
+  services.kmscon.enable = true;
 
   console = {
     # packages = with pkgs; [ terminus_font ];

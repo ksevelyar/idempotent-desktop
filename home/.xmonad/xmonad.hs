@@ -251,6 +251,10 @@ scratchpads = [
     (className =? "Google Play Music Desktop Player")
     (customFloating $ W.RationalRect 0.15 0.2 0.7 0.7),
 
+  NS "spotify" "spotify"
+    (className =? "Spotify")
+    (customFloating $ W.RationalRect 0.15 0.2 0.7 0.7),
+
   NS "upwork" "upwork"
     (wm_name =? "Time Tracker")
     (customFloating $ W.RationalRect 0.5 0.05 0.4 0.44),
@@ -276,6 +280,7 @@ scratchpads = [
   wm_name = stringProperty "WM_NAME"
 
 -- Bindings --------------------------------------------------------------------
+-- https://hackage.haskell.org/package/xmonad-contrib-0.16/docs/XMonad-Util-EZConfig.html
 -- M - Win, M1 - Alt, C - Control, S - Shift.
 myKeys = \conf -> mkKeymap conf $
     [ ("M-<Return>", spawn $ XMonad.terminal conf)
@@ -354,13 +359,13 @@ myKeys = \conf -> mkKeymap conf $
     , ("<F6>", namedScratchpadAction scratchpads  "gotop")
     , ("<F7>", namedScratchpadAction scratchpads  "blueman-manager")
     , ("<F8>", namedScratchpadAction scratchpads  "pavucontrol")
-    , ("<F9>", namedScratchpadAction scratchpads  "gpmdp")
+    , ("<F9>", namedScratchpadAction scratchpads "spotify")
     , ("<F10>", namedScratchpadAction scratchpads "upwork")
     , ("M-i", namedScratchpadAction scratchpads  "images_browser")
 
     , ("M-s",namedScratchpadAction scratchpads  "spacefm")
-    , ("M-g",namedScratchpadAction scratchpads  "gpmdp")
-    , ("M-j",namedScratchpadAction scratchpads  "tmux")
+    , ("M-g",namedScratchpadAction scratchpads "gpmdp")
+    , ("M-j",namedScratchpadAction scratchpads "tmux")
 
     , ("<Print>",  spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
     , ("M-<Delete>", spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")

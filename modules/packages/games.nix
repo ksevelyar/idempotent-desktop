@@ -22,8 +22,9 @@ in
       wineWowPackages.stable
       # anbox
       steam
-      # lutris
-      playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
+      # (steam.override { nativeOnly = true; })
+      lutris
+      # playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
 
       # text 
       dwarf-fortress

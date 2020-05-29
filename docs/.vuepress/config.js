@@ -16,6 +16,7 @@ module.exports = {
       '/firefox',
       '/security',
       '/live-usb',
+      '/nix',
       '/screenshots',
     ]
   }

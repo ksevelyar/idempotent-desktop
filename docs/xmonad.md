@@ -48,7 +48,7 @@
 
 `<Win>j` toggle tmux scratchpad
 
-`<Win>s` toggle file manager (SpaceFM)
+`<Win>s` toggle SpaceFM
 
 `<Win>i` toggle images browser (Nomacs)
 
@@ -66,7 +66,9 @@
 
 `<F7>` toggle bluetooth scratchpad
 
-`<F7>` toggle audio settings scratchpad
+`<F8>` toggle audio settings scratchpad
+
+`<F9>` toggle Spotify
 
 ## Layouts
 
