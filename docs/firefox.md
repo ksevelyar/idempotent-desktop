@@ -23,4 +23,4 @@
 
 ### [Tabby Cat](https://addons.mozilla.org/en-US/firefox/addon/tabby-cat-friend/)
 
-### [low level userChrome.css tweaks](https://github.com/Timvde/UserChrome-Tweaks)
+## [low level userChrome.css tweaks](https://github.com/Timvde/UserChrome-Tweaks)
