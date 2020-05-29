@@ -18,7 +18,7 @@
 
 Feel free to create an issue if something is unclear or broken.
 
-## [More Screenshots](https://idempotent-desktop.netlify.app/screenshots.html)
+## [More screenshots](https://idempotent-desktop.netlify.app/screenshots.html)
 
 ## Try
 

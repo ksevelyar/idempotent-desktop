@@ -6,13 +6,13 @@
 
 `<Win>m` show jgmenu
 
-`<Win>z` Rofi: emoji
-
-`<Win>p` Rofi: pass
-
-`<Win>=` Rofi: calc
+`<Win>p` qtpass
 
 `<Win>c` Rofi: clipboard entries
+
+`<Win>z` Rofi: emoji
+
+`<Win>=` Rofi: calc
 
 ## Windows & workspaces
 
