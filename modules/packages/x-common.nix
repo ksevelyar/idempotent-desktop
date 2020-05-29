@@ -94,6 +94,7 @@ in
       pavucontrol
       libnotify
       dunst
+      etcher
 
       # media
       mpv

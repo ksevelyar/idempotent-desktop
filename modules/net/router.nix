@@ -100,6 +100,7 @@
     };
   };
 
+  # https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Public+Resolvers#DNSPrivacyPublicResolvers-DNS-over-TLS(DoT)
   services.kresd = {
     enable = true;
     listenPlain = [ "[::1]:53" "127.0.0.1:53" "192.168.0.1:53" ];
@@ -108,6 +109,7 @@
 
       policy.add(policy.all(policy.TLS_FORWARD({
       { '9.9.9.9', hostname = 'dns.quad9.net' },
+      { '176.103.130.131', hostname = 'dns.adguard.com' },
       })))
     '';
   };
