@@ -3,10 +3,6 @@
   services.mingetty.greetingLine = ''\l'';
 
   console = {
-    # packages = with pkgs; [ terminus_font ];
-    # showconsolefont
-    # font = "ter-powerline-v18n";
-
     earlySetup = true;
 
     # Joker palette

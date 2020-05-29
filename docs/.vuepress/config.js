@@ -15,6 +15,7 @@ module.exports = {
       '/vim',
       '/firefox',
       '/security',
+      '/anonymity',
       '/live-usb',
       '/nix',
       '/screenshots',

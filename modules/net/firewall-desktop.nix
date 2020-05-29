@@ -7,6 +7,7 @@
     extraConfig = ''
       cache.size = 100 * MB
       
+      # https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Public+Resolvers#DNSPrivacyPublicResolvers-DNS-over-TLS(DoT)
       policy.add(policy.all(policy.TLS_FORWARD({
       { '9.9.9.9', hostname = 'dns.quad9.net' },
       })))
@@ -31,8 +32,5 @@
   networking.firewall.allowedUDPPorts = [
     # Transmission
     41414
-
-    # wireguard
-    51820
   ];
 }

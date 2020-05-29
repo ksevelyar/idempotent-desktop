@@ -4,6 +4,4 @@
     [
       wireguard
     ];
-
-  networking.firewall.allowedUDPPorts = [ 51820 ];
 }

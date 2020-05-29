@@ -1,14 +1,22 @@
-# Sec
+# Security
 
-You can run tails or kali in virt-manager ¯\_(ツ)_/¯
+You can run tails or kali in virt-manager `¯\_(ツ)_/¯`
 
-## [Opened ports](https://github.com/ksevelyar/dotfiles/blob/master/modules/net/firewall-desktop.nix)
+## Opened ports
 
-## DNS over TLS with kresd
+[firewall-desktop](https://github.com/ksevelyar/dotfiles/blob/master/modules/net/firewall-desktop.nix)
 
-[services.kresd](https://github.com/ksevelyar/dotfiles/blob/42b8264d1b259c99f887be38224f3ae0a62448c5/modules/net/firewall-desktop.nix#L4-L14)
+## Show listening ports
 
-## Check your ssh keys
+`sudo lsof -Pni | grep -i listen`
+
+## [sshd](https://github.com/ksevelyar/dotfiles/blob/0c25763c040e5a50f393d2c2bb7c6eee616f3729/modules/services/common.nix#L9-L16)
+
+Autostart disabled, use `sudo systemctl start sshd`
+
+The port is 9922. Use `ssh user@host -p 9922` to connect.
+
+### Check your ssh keys
 
 ```bash
 bash -c 'for key in ~/.ssh/id_*; do ssh-keygen -l -f "${key}"; done | uniq'
