@@ -27,8 +27,8 @@ Plug 'alvan/vim-closetag'
 
 Plug 'majutsushi/tagbar'
 
-" Plug 'vim-scripts/YankRing.vim'
-" let g:yankring_clipboard_monitor=0
+Plug 'vim-scripts/YankRing.vim'
+let g:yankring_clipboard_monitor=0
 
 Plug 'easymotion/vim-easymotion'
 
@@ -542,6 +542,7 @@ nnoremap <leader>o :set spell!<CR>
 " copy / paste
 " vmap <C-C> "+y
 imap <C-V> <esc>"+pi
+nnoremap <leader>y :YRShow<cr>
 
 nnoremap ; :
 " Shift+V+d for cut

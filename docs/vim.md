@@ -46,6 +46,10 @@ The "Leader key" is a way of extending VIM's shortcuts by using sequences of key
 
 `<Space>o` check orphography
 
+`<Space>y` show clipboard history
+
+### Git
+
 `[c` next git chunk
 
 `]c` prev git chunk
@@ -67,3 +71,7 @@ The "Leader key" is a way of extending VIM's shortcuts by using sequences of key
 `/` incremental search
 
 `:%s/foo/bar` replace foo to bar in file
+
+### Goyo
+
+`\`

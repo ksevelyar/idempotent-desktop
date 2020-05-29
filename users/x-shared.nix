@@ -13,6 +13,8 @@
 
       home.file.".config/dunst/dunstrc".source = ../home/.config/dunst/dunstrc;
 
+      home.file.".config/zathura/zathurarc".source = ../home/.config/zathura/zathurarc;
+
       home.file.".config/conky/conky-taskwarrior.conf".source = ../home/.config/conky/conky-taskwarrior.conf;
       home.file.".config/conky/conky-lyrics.conf".source = ../home/.config/conky/conky-lyrics.conf;
       home.file.".config/conky/launch.sh".source = ../home/.config/conky/launch.sh;

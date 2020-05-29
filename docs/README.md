@@ -1,6 +1,6 @@
 ---
 home: true
-heroText: λ Idempotent Freelancer Desktop
+heroText: λ Idempotent Desktop
 tagline: NixOS, Neovim, Xmonad
 heroImage: https://i.imgur.com/fhAtYZY.png
 actionText: → Start

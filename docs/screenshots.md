@@ -22,7 +22,7 @@
 
 ## firefox
 
-![screen](https://i.imgur.com/BYpqCbi.png)
+![screen](https://i.imgur.com/8WruLfd.png)
 
 ## steam
 
