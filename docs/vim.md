@@ -1,5 +1,7 @@
 # [Nvim](https://github.com/ksevelyar/dotfiles/blob/master/modules/packages/nvim.nix)
 
+![screen](https://i.imgur.com/fhAtYZY.png)
+
 Integrated with `lsp`, `fzf`, `fd`, `rg`.
 
 ## Learn
