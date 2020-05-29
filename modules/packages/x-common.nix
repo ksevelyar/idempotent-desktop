@@ -77,8 +77,7 @@ in
       (pkgs.mumble.override { pulseSupport = true; })
 
       # sec
-      keepassxc
-      tomb
+      openvpn
       qtpass
       pinentry-gtk2
       qtox

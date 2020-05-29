@@ -1,4 +1,8 @@
-# Vim
+# [Nvim](https://github.com/ksevelyar/dotfiles/blob/master/modules/packages/nvim.nix)
+
+Integrated with `lsp`, `fzf`, `fd`, `rg`.
+
+## Learn
 
 You can start with built-in `:Tutor`
 
