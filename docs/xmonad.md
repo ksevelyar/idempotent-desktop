@@ -1,4 +1,6 @@
-# Xmonad
+# [Xmonad](https://github.com/ksevelyar/dotfiles/blob/master/modules/x/xmonad.nix)
+
+![screen](https://i.imgur.com/fWKORz4.png)
 
 ## Launchers
 
