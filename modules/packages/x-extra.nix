@@ -66,9 +66,10 @@ in
       # fluidsynth # Real-time software synthesizer based on the SoundFont 2 specifications
       # mikmod # Tracker music player for the terminal
       # mpg123 # Fast console MPEG Audio Player and decoder library
-      schismtracker # Music tracker application, free reimplementation of Impulse Tracker
+      # schismtracker # Music tracker application, free reimplementation of Impulse Tracker
       # vorbis-tools # Extra tools for Ogg-Vorbis audio codec
       google-play-music-desktop-player
+      spotify
       # shortwave # online radio
 
       shotcut # video editor
