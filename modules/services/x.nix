@@ -1,10 +1,5 @@
 { pkgs, lib, ... }:
 {
-  services.tor = {
-    enable = true;
-    client.enable = true;
-  };
-
   services.ratbagd.enable = true;
 
   services.udisks2.enable = true;
@@ -20,14 +15,6 @@
   services.fail2ban = {
     enable = true;
   };
-  services.openssh = {
-    ports = [ 9922 ];
-    enable = true;
-    permitRootLogin = "no";
-    passwordAuthentication = true;
-  };
-  # Allow sshd to be started manually through sudo systemctl start sshd
-  systemd.services.sshd.wantedBy = pkgs.lib.mkForce [];
 
   services.journald.extraConfig = "SystemMaxUse=700M";
 

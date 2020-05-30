@@ -15,6 +15,7 @@
       ../modules/sys/tty.nix
       ../modules/sys/gc.nix
       ../modules/sys/vars.nix
+      ../modules/sys/sysctl.nix
 
       ../modules/boot/efi.nix
       # ../modules/boot/multiboot.nix
@@ -41,11 +42,13 @@
 
       ../modules/net/firewall-desktop.nix
       ../modules/net/wireguard.nix
+      ../modules/net/i2p.nix
+      ../modules/net/tor.nix
+      ../modules/net/sshd.nix
 
       ../modules/vm/hypervisor.nix
 
       ../users/shared.nix
-      ../users/x-shared.nix
       ../users/ksevelyar.nix
     ];
 
@@ -89,9 +92,9 @@
   services.xserver.videoDrivers = [ "nvidia" ];
 
   # Fix smooth scroll in Firefox
-  services.xserver.screenSection = ''
-    Option "metamodes" "nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
-  '';
+  # services.xserver.screenSection = ''
+  # Option "metamodes" "nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
+  # '';
   hardware = {
     cpu.intel.updateMicrocode = true;
     nvidia.modesetting.enable = true;

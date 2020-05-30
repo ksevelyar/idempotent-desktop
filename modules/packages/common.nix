@@ -53,8 +53,10 @@ in
       file
       memtest86plus
       jq
+      ccze
 
       # monitoring 
+      iperf3
       lm_sensors
       lsof
       hwinfo
@@ -101,6 +103,7 @@ in
       youtube-dl
 
       # fs
+      ffsend
       unar
       unzip
       unrar

@@ -5,6 +5,7 @@
     users.${vars.user} = {
       home.file.".config/tridactyl/tridactylrc".source = ../../home/.config/tridactyl/tridactylrc;
       home.file.".config/tridactyl/themes/joker.css".source = ../../home/.config/tridactyl/themes/joker.css;
+      home.file.".config/firefox/SwitchyOmega.bak".source = ../../home/.config/firefox/SwitchyOmega.bak;
 
       programs.browserpass.enable = true;
       programs.firefox.enable = true;

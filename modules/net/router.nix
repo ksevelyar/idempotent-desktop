@@ -1,5 +1,12 @@
 { lib, ... }:
 {
+  boot.kernelPackages = pkgs.linuxPackages_hardened;
+  boot.kernelModules = [ "tcp_bbr" ];
+  boot.kernel.sysctl = {
+    "net.ipv4.tcp_congestion_control" = "bbr";
+    "net.core.default_qdisc" = "cake";
+  };
+
   networking.useDHCP = false;
 
   networking.interfaces = {
@@ -55,6 +62,9 @@
     forwardPorts = [
       { sourcePort = 41414; destination = "192.168.0.47:41414"; proto = "tcp"; }
       { sourcePort = 41414; destination = "192.168.0.47:41414"; proto = "udp"; }
+
+      { sourcePort = 11786; destination = "192.168.0.47:11786"; proto = "tcp"; }
+      { sourcePort = 11786; destination = "192.168.0.47:11786"; proto = "udp"; }
     ];
   };
 

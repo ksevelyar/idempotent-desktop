@@ -81,3 +81,7 @@ The "Leader key" is a way of extending VIM's shortcuts by using sequences of key
 ### Goyo
 
 `\`
+
+### Misc
+
+`:Colors` set color theme with fzf

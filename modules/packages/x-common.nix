@@ -5,24 +5,16 @@ let
   };
 in
 {
-  # i18n.inputMethod = {
-  #   enabled = "ibus";
-  #   ibus.engines = with pkgs.ibus-engines; [ table table-others anthy mozc hangul uniemoji ];
-  # };
+  programs.browserpass.enable = true;
+  programs.dconf.enable = true;
+  programs.qt5ct.enable = true;
 
+  environment = {
+    etc."imv_config".source = ../../home/.config/imv/config;
+  };
 
   environment.systemPackages = with pkgs;
     [
-      # media
-      # sweet
-      # pantheon.elementary-icon-theme
-      # ibus-qt
-      # ibus-with-plugins
-      libva-utils
-      mpv
-      cava
-      moc
-
       # mouse
       piper
 
@@ -35,7 +27,6 @@ in
       alacritty
       roxterm # fallback terminal
       firefoxWrapper
-      tor-browser-bundle-bin
       zathura
       evince
       # text    
@@ -77,6 +68,7 @@ in
       (pkgs.mumble.override { pulseSupport = true; })
 
       # sec
+      tor-browser-bundle-bin
       openvpn
       qtpass
       pinentry-gtk2
@@ -86,6 +78,7 @@ in
       # sys
       keepassx-community
       maim
+      vokoscreen
       simplescreenrecorder
       peek
       xclip
@@ -98,6 +91,7 @@ in
       etcher # write live usb with gui
 
       # media
+      spotify
       mpv
       imv
       nomacs
@@ -113,13 +107,13 @@ in
 
       # laptop
       arandr
+
+      # sweet
+      # pantheon.elementary-icon-theme
+      # ibus-qt
+      # ibus-with-plugins
+      libva-utils
+      cava
+      moc
     ];
-
-  programs.browserpass.enable = true;
-  programs.dconf.enable = true;
-  programs.qt5ct.enable = true;
-
-  environment = {
-    etc."imv_config".source = ../../home/.config/imv/config;
-  };
 }

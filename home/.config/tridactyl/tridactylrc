@@ -8,7 +8,7 @@
 
 sanitise tridactyllocal tridactylsync
 
-colors base16-rebecca
+colors joker
 set modeindicator false
 set searchengine duckduckgo
 

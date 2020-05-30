@@ -313,7 +313,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-C-r", spawn "systemctl reboot")
     , ("M-C-h", spawn "systemctl poweroff")
     --
-    , ("M-k", spawn "sh /etc/scripts/pick-color.sh")
+    , ("M-k", spawn "id-pick-color")
     --
     -- -- bookmarks
     , ("M1-b m", spawn "xdg-open https://mail.google.com/")

@@ -30,7 +30,8 @@
 
       ../modules/net/wireguard.nix
 
-      ../users/ksevelyar-headless.nix
+      ../users/shared.nix
+      ../users/ksevelyar.nix
     ];
 
   boot.cleanTmpDir = true;

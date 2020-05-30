@@ -2,11 +2,6 @@
 {
   vars.user = "mrpoppybutthole";
 
-  imports =
-    [
-      ./shared.nix
-    ];
-
   users.users.root = {
     # jkl
     initialHashedPassword = lib.mkForce "$6$krVCM45j$6lYj1WKEX8q7hMZGG6ctAG6kQDDND/ngpGOwENT1TIOD25F0yep/VvIuL.v9XyRntLJ61Pr8r7djynGy5lh3x0";

@@ -11,6 +11,7 @@
     ./modules/sys/tty.nix
     ./modules/sys/debug.nix
     ./modules/sys/vars.nix
+    ./modules/sys/sysctl.nix
 
     ./modules/services/common.nix
     ./modules/services/x.nix
@@ -26,23 +27,27 @@
     # ./modules/packages/games.nix
     ./modules/packages/nvim.nix
     ./modules/packages/tmux.nix
+    ./modules/packages/firefox.nix
 
     ./modules/hardware/bluetooth.nix
     ./modules/hardware/sound.nix
     ./modules/hardware/laptop.nix
 
     ./modules/net/firewall-desktop.nix
-    # ../modules/net/wireguard.nix
+    # ./modules/net/wireguard.nix
+    # ./modules/net/i2p.nix
+    ./modules/net/tor.nix
+    ./modules/net/sshd.nix
 
-    # ../modules/vm/hypervisor.nix
+    # ./modules/vm/hypervisor.nix
 
+    ./users/shared.nix
     ./users/live-usb.nix
-    ./users/x-shared.nix
   ];
 
-  # isoImage.splashImage = /etc/nixos/assets/grub.png;
-  isoImage.volumeID = lib.mkForce "nixos-maxi";
-  isoImage.isoName = lib.mkForce "nixos.iso";
+  isoImage.splashImage = lib.mkForce /etc/nixos/assets/grub_big.png;
+  isoImage.volumeID = lib.mkForce "idempotent-desktop";
+  isoImage.isoName = lib.mkForce "idempotent-desktop.iso";
 
   # Whitelist wheel users to do anything
   # This is useful for things like pkexec or gparted
@@ -59,7 +64,6 @@
   '';
 
   services.xserver = {
-    autorun = false;
     displayManager.lightdm = {
       autoLogin = { enable = true; user = vars.user; };
     };

@@ -1,8 +1,16 @@
 # Anonimity
 
+There is no such thing as “perfect anonymity.” Instead, you should look at anonymity as more of a spectrum.
+
 You can run tails or kali in [virt-manager](https://i.imgur.com/RzoS3rR.png) `¯\_(ツ)_/¯`
 
-## Use Tor as a socks5 proxy
+## [I2P](https://geti2p.net/en/about/intro)
+
+* Router Console accessible via web browser at [localhost:7070](http://localhost:7070).
+* http proxy is `http://127.0.0.1:4444`
+* http://identiguy.i2p/
+
+## Use [Tor](https://github.com/ajvb/awesome-tor) as a socks5 proxy
 
 ### Firefox with [SwitchyOmega](https://addons.mozilla.org/en-US/firefox/addon/switchyomega/)
 
