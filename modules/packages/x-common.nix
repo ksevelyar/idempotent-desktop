@@ -87,6 +87,7 @@ in
       keepassx-community
       maim
       simplescreenrecorder
+      peek
       xclip
       qalculate-gtk
       (rofi.override { plugins = [ rofi-file-browser rofi-emoji rofi-systemd rofi-calc ]; })
@@ -94,7 +95,7 @@ in
       pavucontrol
       libnotify
       dunst
-      etcher
+      etcher # write live usb with gui
 
       # media
       mpv

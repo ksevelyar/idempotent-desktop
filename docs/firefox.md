@@ -17,7 +17,7 @@
 
 ### [Tridactyl](https://tridactyl.cmcaine.co.uk/betas/nonewtab/tridactyl_no_new_tab_beta-latest.xpi)
 
-`:h` to see Tridactyl bindings
+`:h` to see Tridactyl help, `:viewconfig` nmap to see deafult keybindings
 
 ### [Tab Groups](https://addons.mozilla.org/en-US/firefox/addon/simple-tab-groups/?src=featured)
 

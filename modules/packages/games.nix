@@ -18,12 +18,12 @@ in
       linuxConsoleTools
 
       # emulators & platforms
-      # retroarchBare
-      wineWowPackages.stable
-      # anbox
       steam
+      wineWowPackages.stable
+      # retroarchBare
+      # anbox
       # (steam.override { nativeOnly = true; })
-      lutris
+      # lutris
       # playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
 
       # text 

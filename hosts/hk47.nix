@@ -67,7 +67,7 @@
   networking.interfaces.enp4s0.useDHCP = true;
   networking.useDHCP = false;
   networking.firewall.enable = lib.mkForce true;
-  networking.networkmanager.enable = true; # run nmtui for wi-fi
+  networking.networkmanager.enable = false; # run nmtui for wi-fi
   networking.wireguard.interfaces = {
     skynet = {
       ips = [ "192.168.42.47" ];
@@ -87,6 +87,11 @@
 
   # hardware
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  # Fix smooth scroll in Firefox
+  services.xserver.screenSection = ''
+    Option "metamodes" "nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
+  '';
   hardware = {
     cpu.intel.updateMicrocode = true;
     nvidia.modesetting.enable = true;
