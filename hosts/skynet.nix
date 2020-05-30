@@ -32,6 +32,7 @@
       ../modules/net/router.nix
       ../modules/net/wireguard.nix
       ../modules/net/nfs.nix
+      ../modules/net/sshd.nix
 
       ../users/shared.nix
       ../users/ksevelyar.nix

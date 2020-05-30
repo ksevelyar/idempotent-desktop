@@ -12,12 +12,13 @@
     refresh-channels = "id-refresh-channels";
     b = "sudo nixos-rebuild switch --keep-going";
 
+    s = "sudo";
     p = "gopass";
     br = "b && systemctl restart display-manager.service";
     bu = "b --upgrade";
     collect-garbage = "sudo nix-collect-garbage --delete-older-than 30d";
     tm = "tmux new-session -A -s main";
-    off = "sleep 0.5; xset dpms force off; pkill -f gpmdp";
+    off = "sleep 0.5; xset dpms force off; pkill -f spotify";
     pgrep = "pgrep --full";
     pkill = "pkill --full";
 

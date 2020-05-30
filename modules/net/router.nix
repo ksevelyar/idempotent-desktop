@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   boot.kernelPackages = pkgs.linuxPackages_hardened;
   boot.kernelModules = [ "tcp_bbr" ];
