@@ -22,12 +22,4 @@
       "http://stats.i2p/cgi-bin/newhosts.txt"
     ];
   };
-
-  networking.firewall.allowedUDPPorts = [
-    11786
-  ];
-
-  networking.firewall.allowedTCPPorts = [
-    11786
-  ];
 }
