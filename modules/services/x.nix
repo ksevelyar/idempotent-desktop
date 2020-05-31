@@ -57,10 +57,6 @@
       Option "OffTime" "0"
     '';
 
-    desktopManager.plasma5.enable = false;
-    displayManager.sddm = {
-      enable = false;
-    };
     displayManager.lightdm = {
       enable = true;
       background = "/etc/nixos/assets/displayManager.png";
