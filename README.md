@@ -75,3 +75,14 @@ sudo nixos-install
 
 - [scripts.nix](https://github.com/ksevelyar/dotfiles/blob/master/modules/sys/scripts.nix)
 - [aliases.nix](https://github.com/ksevelyar/dotfiles/blob/master/modules/sys/aliases.nix)
+
+## Todo 🍒
+
+- [ ] Write docs
+  - [ ] Русская документация
+  - [ ] Add animated svgs to docs
+  - [ ] Find dark theme for vuepress
+- [ ] Declarative Node packages
+- [ ] Declarative secrets 
+- [ ] Pack [Neovide](https://github.com/Kethku/neovide)
+- [ ] semantic versioning
