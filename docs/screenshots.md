@@ -43,3 +43,7 @@
 ## virt-manager + kali
 
 ![screen](https://i.imgur.com/RzoS3rR.png)
+
+## spotify, nnn
+
+![screen](https://i.imgur.com/5CLbVRR.png)

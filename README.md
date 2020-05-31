@@ -18,7 +18,7 @@ Feel free to create an issue if something is unclear or broken.
 
 ## [Screenshots](https://idempotent-desktop.netlify.app/screenshots.html)
 
-## Try 
+## Try
 
 [Build](/live-usb) or [download](https://drive.google.com/file/d/1Vop9uElS_zUUiBNeym8XCVJkWLibmY4E/view?usp=sharing) live-usb 💾
 
@@ -40,7 +40,7 @@ mount /dev/disk/by-label/boot  /mnt/boot
 
 ## Clone repo
 
-`sudo git clone git@github.com:ksevelyar/dotfiles.git /mnt/etc/nixos`
+`sudo git clone https://github.com/ksevelyar/dotfiles.git /mnt/etc/nixos`
 
 ## Create new user
 
@@ -71,6 +71,7 @@ sudo nix-channel --update
 sudo nixos-install
 ```
 
-## Scripts can save some time
+## Scripts and aliases can save some time
 
-[scripts.nix](https://github.com/ksevelyar/dotfiles/blob/master/modules/sys/scripts.nix)
+- [scripts.nix](https://github.com/ksevelyar/dotfiles/blob/master/modules/sys/scripts.nix)
+- [aliases.nix](https://github.com/ksevelyar/dotfiles/blob/master/modules/sys/aliases.nix)
