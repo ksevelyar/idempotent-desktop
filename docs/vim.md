@@ -85,3 +85,5 @@ The "Leader key" is a way of extending VIM's shortcuts by using sequences of key
 ### Misc
 
 `:Colors` set color theme with fzf
+
+Select lines with `Shift+V`, then type `:sort<Enter>` to sort lines alphabetically.

@@ -35,6 +35,14 @@
             # "gfx.xrender.enabled" = false; # fix tearing with smooth scroll
             "layers.acceleration.force-enabled" = true; # fix wrong geometry in xmonad after restart
             "signon.rememberSignons" = false; # disable built-in password manager
+            "browser.startup.page" = 3; # restore last session
+            "browser.urlbar.suggest.history" = false;
+            "devtools.toolbox.host" = "right";
+            "general.smoothScroll" = false;
+            "print.print_footerleft" = "";
+            "print.print_footerright" = "";
+            "print.print_headerleft" = "";
+            "print.print_headerright" = "";
           };
         in
           {
