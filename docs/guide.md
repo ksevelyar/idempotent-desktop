@@ -30,7 +30,7 @@ Physical machines locates in `hosts`; users in `users`. You'll need to link your
 
 Example of fresh installation from `live-usb`:
 
-## Mount drives
+### Mount drives
 
 ```sh
 mount /dev/disk/by-label/nixos /mnt
@@ -38,17 +38,17 @@ mount /dev/disk/by-label/boot  /mnt/boot
 
 ```
 
-## Clone repo
+### Clone repo
 
 `sudo git clone https://github.com/ksevelyar/dotfiles.git /mnt/etc/nixos`
 
-## Create new user
+### Create new user
 
 `nvim /mnt/etc/nixos/users/new-user.nix`
 
 You can use [ksevelyar.nix](https://github.com/ksevelyar/dotfiles/blob/master/users/ksevelyar.nix) as reference.
 
-## Generate configs and merge them to new host
+### Generate configs and merge them to new host
 
 ```sh
 sudo nixos-generate-config --root /mnt
@@ -61,7 +61,7 @@ nvim /mnt/etc/nixos/hosts/new-host.nix
 
 You can use [hk47.nix](https://github.com/ksevelyar/dotfiles/blob/master/hosts/hk47.nix) as reference.
 
-## Add channels and install nixos
+### Add channels and install nixos
 
 ```sh
 sudo nix-channel --add https://nixos.org/channels/nixos-20.03 stable
@@ -71,7 +71,18 @@ sudo nix-channel --update
 sudo nixos-install
 ```
 
-## Scripts and aliases can save some time
+### Scripts and aliases can save some time
 
 - [scripts.nix](https://github.com/ksevelyar/dotfiles/blob/master/modules/sys/scripts.nix)
 - [aliases.nix](https://github.com/ksevelyar/dotfiles/blob/master/modules/sys/aliases.nix)
+
+## Todo 🍒
+
+- [ ] Write docs
+  - [ ] Русская документация
+  - [ ] Add animated svgs to docs
+  - [ ] Find dark theme for vuepress
+- [ ] Declarative Node packages
+- [ ] Declarative secrets 
+- [ ] Pack [Neovide](https://github.com/Kethku/neovide)
+- [ ] semantic versioning
