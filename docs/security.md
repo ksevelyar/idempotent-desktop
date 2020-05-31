@@ -37,3 +37,7 @@ bash -c 'for key in ~/.ssh/id_*; do ssh-keygen -l -f "${key}"; done | uniq'
 ## Fail2Ban
 
 Currently integrated with `sshd`.
+
+## hardened kernel
+
+You can switch kernel with one line: [sysctl.nix](https://github.com/ksevelyar/dotfiles/blob/504570d52ab79463704e4ddcf908f82c5936217e/modules/sys/sysctl.nix#L4-L6)
