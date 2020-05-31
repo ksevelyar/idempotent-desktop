@@ -20,9 +20,9 @@ Feel free to create an issue if something is unclear or broken.
 
 ## [More screenshots](https://idempotent-desktop.netlify.app/screenshots.html)
 
-## Try
+## Try 
 
-Easiest way is to create or download [live-usb](/live-usb)
+[Build](/live-usb) or [download](https://drive.google.com/file/d/1Vop9uElS_zUUiBNeym8XCVJkWLibmY4E/view?usp=sharing) live-usb 💾
 
 ## Install
 
