@@ -11,6 +11,7 @@ module.exports = {
       '/xmonad',
       '/vim',
       '/firefox',
+      '/fish',
       '/security',
       '/anonymity',
       '/live-usb',

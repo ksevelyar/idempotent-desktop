@@ -100,6 +100,7 @@ in
       unzip
       unrar
       atool
+      ffmpeg
 
       bind
       parted

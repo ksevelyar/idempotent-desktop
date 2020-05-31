@@ -1,6 +1,9 @@
-# Shell
+# [Fish](https://fishshell.com/)
 
-##  [Fish](https://fishshell.com/)
+<video width="100%" height="auto" controls>
+  <source src="/fish.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 💜 Fish is one of the saniest software I've seen.
 
