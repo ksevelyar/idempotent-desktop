@@ -2,7 +2,7 @@
 
 ## Download it
 
-[nixos.iso](https://drive.google.com/file/d/1T1pzVe1y0EykfEeW7w4QbJmwu8HGn45X/view?usp=sharing) ~2GB
+[idempotent-desktop.iso](https://drive.google.com/file/d/1Vop9uElS_zUUiBNeym8XCVJkWLibmY4E/view?usp=sharing) ~2GB
 
 ## Or generate
 
