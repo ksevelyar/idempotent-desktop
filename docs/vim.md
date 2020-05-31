@@ -8,6 +8,7 @@ Integrated with `lsp`, `fzf`, `fd`, `rg`.
 
 You can start with built-in `:Tutor`
 
+
 ## Bindings
 
 ### Leader Key
@@ -62,6 +63,11 @@ The "Leader key" is a way of extending VIM's shortcuts by using sequences of key
 
 ### Useful built-in commands
 
+Exit and save: `ZZ`
+Exit witout save: `ZQ`
+
+You can undo your actions with `u` and redo with `Ctrl-R`.
+
 `<Ctrl>6` switch to previous file
 
 `gg` move to top
@@ -78,6 +84,8 @@ The "Leader key" is a way of extending VIM's shortcuts by using sequences of key
 
 `:%s/foo/bar` replace foo to bar in file
 
+Select lines with `Shift+V`, then type `:sort<Enter>` to sort lines alphabetically.
+
 ### Goyo
 
 `\`
@@ -85,5 +93,3 @@ The "Leader key" is a way of extending VIM's shortcuts by using sequences of key
 ### Misc
 
 `:Colors` set color theme with fzf
-
-Select lines with `Shift+V`, then type `:sort<Enter>` to sort lines alphabetically.

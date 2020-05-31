@@ -11,19 +11,48 @@ You can use `gopass` for fuzzy matchings (aliased to `p`) or GUI `qtpass` (binde
 ## [Tomb](https://www.dyne.org/software/tomb/)
 
 [Quickstart](https://github.com/dyne/Tomb/wiki/Quickstart)
-[Advanced features](https://github.com/dyne/Tomb/wiki/Advancedfeatures)
 
-To create a 100MB tomb called “secret” do:
+To create a 100MB tomb:
 
 ```sh
-tomb dig -s 100 secret.tomb
-tomb forge secret.tomb.key
-tomb lock secret.tomb -k secret.tomb.key
+mkdir -p ~/.secrets && cd ~/.secrets
+
+tomb dig -s 100 mrpoppybutthole.tomb
+tomb forge mrpoppybutthole.tomb.key
+tomb lock secret.tomb -k mrpoppybutthole.tomb.key
 ```
 
-To open it, do `tomb open secret.tomb -k secret.tomb.key`
+To open it, do `tomb open mrpoppybutthole.tomb -k mrpoppybutthole.tomb.key`
 
 and after you are done `tomb close`
+
+## [Mount .ssh and .password-store from tomb](https://github.com/dyne/Tomb/wiki/Advancedfeatures)
+
+```fish
+cd /run/media/ksevelyar/mrpoppybutthole
+v bind-hooks
+
+change content to:
+
+```
+.ssh            .ssh
+.password-store .password-store
+```
+
+and move this dirs to tomb.
+
+Create empty folders:
+
+```fish
+mkdir ~/.password-store
+mkdir ~/.ssh
+```
+
+Open tomb `tomb open mrpoppybutthole.tomb -k mrpoppybutthole.tomb.key`.
+
+Done, now your ssh keys and passwords should be served from tomb.
+
+[Also, with tomb you can bury your key inside jpeg](https://github.com/dyne/Tomb/wiki/Advancedfeatures#hide-the-key).
 
 ## Opened ports
 
