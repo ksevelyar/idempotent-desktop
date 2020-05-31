@@ -219,7 +219,7 @@ format-underline = ${colors.grey}
 label = %{F#6B5A68}%date%%{F-}  %time%
 
 [module/volume]
-type = internal/pulseaudio
+type = internal/alsa
 interval = 2
 
 label-volume = "%{F#9c71C7} %{F-}%percentage%%"
