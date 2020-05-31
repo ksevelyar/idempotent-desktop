@@ -16,15 +16,14 @@ in
       # work
       # syncthing
       upwork
+      keepassx-community
       # masterpdfeditor
       # memtest86-efi
       # os-prober
 
       # office
       libreoffice
-      thunderbird
-
-      # boot
+      # thunderbird
 
       # cli
       # browsh
@@ -71,15 +70,12 @@ in
       # schismtracker # Music tracker application, free reimplementation of Impulse Tracker
       # vorbis-tools # Extra tools for Ogg-Vorbis audio codec
       # google-play-music-desktop-player
-      spotify
       # shortwave # online radio
 
       # shotcut # video editor
       # openshot-qt
 
       # dev
-      # lazygit
-      rclone-browser
       cool-retro-term
       asciinema
 

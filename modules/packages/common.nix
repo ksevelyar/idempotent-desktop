@@ -124,6 +124,7 @@ in
       exfat
       sshfsFuse
       rsync
+      # rclone mount gdrive: ~/gdrive/
       rclone
 
       # im

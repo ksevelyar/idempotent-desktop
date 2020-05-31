@@ -73,11 +73,9 @@ in
       tdesktop
 
       # sys
-      keepassx-community
       maim
       vokoscreen
       simplescreenrecorder
-      peek
       xclip
       qalculate-gtk
       (rofi.override { plugins = [ rofi-file-browser rofi-emoji rofi-systemd rofi-calc ]; })

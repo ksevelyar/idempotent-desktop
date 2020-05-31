@@ -42,7 +42,7 @@
     ./users/live-usb.nix
   ];
 
-  isoImage.splashImage = lib.mkForce /etc/nixos/assets/grub_big.png;
+  # isoImage.splashImage = lib.mkForce /etc/nixos/assets/grub_big.png;
   isoImage.volumeID = lib.mkForce "idempotent-desktop-min";
   isoImage.isoName = lib.mkForce "idempotent-desktop-min.iso";
 
