@@ -17,9 +17,6 @@ in
     [
       # mouse
       piper
-
-      # xmonad defaults
-      jgmenu
       conky
       xdotool
       seturgent
@@ -91,6 +88,7 @@ in
       etcher # write live usb with gui
 
       # media
+      # ncspot # requires premium
       spotify
       mpv
       imv

@@ -53,6 +53,8 @@
       home.file.".config/rofi/joker.rasi".source = ../../home/.config/rofi/joker.rasi;
       home.file.".config/rofi/config.rasi".source = ../../home/.config/rofi/config.rasi;
 
+      home.file.".config/jgmenu/jgmenurc".source = ../../home/.config/jgmenu/jgmenurc;
+
       home.file.".xxkbrc".source = ../../home/.xxkbrc;
 
       home.file.".config/conky/conky-taskwarrior.conf".source = ../../home/.config/conky/conky-taskwarrior.conf;
@@ -64,6 +66,7 @@
       home.file.".config/polybar/launch.sh".source = ../../home/.config/polybar/launch.sh;
       home.file.".config/polybar/config".source = ../../home/.config/polybar/config;
       home.file.".config/polybar/gpmdp.sh".source = ../../home/.config/polybar/gpmdp.sh;
+      home.file.".config/polybar/spotify.sh".source = ../../home/.config/polybar/spotify.sh;
       home.file.".config/polybar/weather.sh".source = ../../home/.config/polybar/weather.sh;
       home.file.".config/polybar/local_and_public_ips.sh".source = ../../home/.config/polybar/local_and_public_ips.sh;
     };

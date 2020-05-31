@@ -252,7 +252,7 @@ scratchpads = [
     (customFloating $ W.RationalRect 0.15 0.2 0.7 0.7),
 
   NS "spotify" "spotify"
-    (className =? "Spotify")
+    (resource =? "spotify")
     (customFloating $ W.RationalRect 0.15 0.2 0.7 0.7),
 
   NS "upwork" "upwork"

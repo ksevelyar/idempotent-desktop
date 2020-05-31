@@ -81,7 +81,7 @@ modules-right = weather date
 inherit = bar/base
 bottom = false
 
-modules-left = volume gpmdp
+modules-left = volume spotify
 modules-center = filesystem
 modules-right = vnc ssh eth cpu memory
 
@@ -89,7 +89,7 @@ modules-right = vnc ssh eth cpu memory
 inherit = bar/base
 bottom = false
 
-modules-left = volume gpmdp
+modules-left = volume spotify
 modules-center = filesystem
 modules-right = vnc ssh wlp2s0 cpu memory battery
 
@@ -133,6 +133,15 @@ interval = 300
 type = custom/script
 exec-if = pgrep -f google-play-music-desktop-player
 exec = ~/.config/polybar/gpmdp.sh
+interval = 1
+format-foreground = #6B5A68
+click-left = xdotool key XF86AudioPlay &
+click-right = xdotool key XF86AudioNext &
+
+[module/spotify]
+type = custom/script
+exec-if = pgrep -f spotify
+exec = ~/.config/polybar/spotify.sh
 interval = 1
 format-foreground = #6B5A68
 click-left = xdotool key XF86AudioPlay &
