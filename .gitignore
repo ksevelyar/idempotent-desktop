@@ -29,3 +29,5 @@ home/.config/session/
 configuration.nix
 node_modules
 docs/.vuepress/dist
+
+.secrets

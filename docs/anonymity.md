@@ -1,8 +1,6 @@
 # Anonimity
 
-There is no such thing as “perfect anonymity.” Instead, you should look at anonymity as more of a spectrum.
-
-You can run tails or kali in [virt-manager](https://i.imgur.com/RzoS3rR.png) `¯\_(ツ)_/¯`
+> “Democracy requires Privacy as much as Freedom of Expression.” Anonymous
 
 ## [I2P](https://geti2p.net/en/about/intro)
 
@@ -44,3 +42,29 @@ torsocks curl ifconfig.me
 ## Use VPN if you need anonymity or Spotify
 
 `openvpn` preinstalled, you can try free [ProtonVpn](https://protonvpn.com/).
+
+## Shell
+
+### Don't write command to history
+
+Prefix your sensitive commands (pass and tomb kind of stuff) with space: ` pass`.
+
+This way your telling your shell to not keep it in history.
+
+### Delete sensitive commands form history with fuzzy matching
+
+You can sanitize history like this:
+
+```fish
+history --delete --contains 'openvpn'
+
+[1] sudo openvpn us-free-03.protonvpn.com.udp.ovpn
+[2] sudo openvpn USA_freeopenvpn_udp.ovpn
+[3] sudo openvpn us-free-02.protonvpn.com.udp.ovpn
+
+Enter nothing to cancel the delete, or
+Enter one or more of the entry IDs separated by a space, or
+Enter "all" to delete all the matching entries.
+
+Delete which entries? >
+```

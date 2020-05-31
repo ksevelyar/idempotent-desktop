@@ -1,6 +1,29 @@
 # Security
 
-You can run tails or kali in [virt-manager](https://i.imgur.com/RzoS3rR.png) `¯\_(ツ)_/¯`
+## Pass
+
+### Import your passwords to pass
+
+[pass-import](https://github.com/roddhjav/pass-import#pass-import)
+
+You can use `gopass` for fuzzy matchings (aliased to `p`) or GUI `qtpass` (binded to `Win+p`).
+
+## [Tomb](https://www.dyne.org/software/tomb/)
+
+[Quickstart](https://github.com/dyne/Tomb/wiki/Quickstart)
+[Advanced features](https://github.com/dyne/Tomb/wiki/Advancedfeatures)
+
+To create a 100MB tomb called “secret” do:
+
+```sh
+tomb dig -s 100 secret.tomb
+tomb forge secret.tomb.key
+tomb lock secret.tomb -k secret.tomb.key
+```
+
+To open it, do `tomb open secret.tomb -k secret.tomb.key`
+
+and after you are done `tomb close`
 
 ## Opened ports
 
@@ -40,4 +63,4 @@ Currently integrated with `sshd`.
 
 ## hardened kernel
 
-You can switch kernel with one line: [sysctl.nix](https://github.com/ksevelyar/dotfiles/blob/504570d52ab79463704e4ddcf908f82c5936217e/modules/sys/sysctl.nix#L4-L6)
+You can switch to the hardened kernel with one line: [sysctl.nix](https://github.com/ksevelyar/dotfiles/blob/504570d52ab79463704e4ddcf908f82c5936217e/modules/sys/sysctl.nix#L4-L6)

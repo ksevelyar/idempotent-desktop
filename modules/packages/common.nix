@@ -73,22 +73,14 @@ in
 
       # sec
       openvpn
-      # To create a 100MB tomb called “secret” do:
-      # tomb dig -s 100 secret.tomb
-      # tomb forge secret.tomb.key
-      # tomb lock secret.tomb -k secret.tomb.key
       tomb
 
-      # We can add existing passwords to the store with insert:
-      # pass insert Business/cheese-whiz-factory
       passExtensions.pass-audit
       passExtensions.pass-genphrase
-      # passExtensions.pass-import
+      passExtensions.pass-import
       passExtensions.pass-otp
-      passExtensions.pass-tomb
       passExtensions.pass-update
-      (pass.withExtensions (ext: with ext; [ pass-audit pass-otp pass-genphrase pass-update ]))
-      # ripasso-cursive
+      (pass.withExtensions (ext: with ext; [ pass-audit pass-otp pass-genphrase pass-import pass-update ]))
       gopass
 
       # cli
