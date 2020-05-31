@@ -46,7 +46,7 @@ mount /dev/disk/by-label/boot  /mnt/boot
 
 ## Create new user
 
-`nvim /mnt/etc/nixos/hosts/new-host.nix`
+`nvim /mnt/etc/nixos/users/new-user.nix`
 
 You can use [ksevelyar.nix](https://github.com/ksevelyar/dotfiles/blob/master/users/ksevelyar.nix) as reference.
 
@@ -72,3 +72,7 @@ sudo nix-channel --update
 
 sudo nixos-install
 ```
+
+## Scripts can save some time
+
+[scripts.nix](https://github.com/ksevelyar/dotfiles/blob/master/modules/sys/scripts.nix)
