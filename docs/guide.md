@@ -10,7 +10,7 @@
 
 🍕 I use NixOS for [development](https://idempotent-desktop.netlify.app/vim.html), as a headless [router](https://github.com/ksevelyar/dotfiles/blob/master/modules/net/router.nix), for my tv (mostly `kodi`) and as a k8s node for my [atoms](https://ark.intel.com/content/www/us/en/ark/products/59682/intel-atom-processor-d2500-1m-cache-1-86-ghz.html).
 
-🍕 You can use [tor](https://idempotent-desktop.netlify.app/anonymity.html#use-tor-as-a-socks5-proxy), [i2pd](/anonymity.html#i2p), `wireguard` or `openvpn` to bypass government blocks of selected sites.
+🍕 You can use [tor](https://idempotent-desktop.netlify.app/anonymity.html#use-tor-as-a-socks5-proxy), [i2pd](https://idempotent-desktop.netlify.app/anonymity.html#i2p), `wireguard` or `openvpn` to bypass government blocks of selected sites.
 
 🍕 You can use these dotfiles in other unix too, check [home](https://github.com/ksevelyar/dotfiles/tree/master/home)
 
@@ -20,7 +20,7 @@ Feel free to create an issue if something is unclear or broken.
 
 ## Try
 
-[Build](/live-usb) or [download](https://drive.google.com/file/d/1Vop9uElS_zUUiBNeym8XCVJkWLibmY4E/view?usp=sharing) live-usb 💾
+[Build](https://idempotent-desktop.netlify.app/live-usb.html) or [download](https://drive.google.com/file/d/1Vop9uElS_zUUiBNeym8XCVJkWLibmY4E/view?usp=sharing) live-usb 💾
 
 ## Install
 
