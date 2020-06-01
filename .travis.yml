@@ -21,4 +21,6 @@ before_install:
 - if [ -n "$CACHIX_SIGNING_KEY" ]; then cachix push idempotent-desktop --watch-store; fi &
 
 script:
-- nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=live-usb.nix --no-out-link
+  - nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=live-usb.nix --no-out-link
+  - nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=hosts/hk47.nix --no-out-link
+  - nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=hosts/cyberdemon.nix --no-out-link
