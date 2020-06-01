@@ -11,6 +11,7 @@
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
       ../modules/sys/aliases.nix
       ../modules/sys/scripts.nix
+      ../modules/sys/vars.nix
       # ../modules/sys/debug.nix
 
       ../modules/boot/bios.nix
@@ -46,7 +47,6 @@
   networking.networkmanager.enable = true; # run nmtui for wi-fi
   networking.useDHCP = false;
   networking.interfaces.wlp3s0.useDHCP = true;
-  networking.useDHCP = false;
   networking.interfaces.eno0.useDHCP = true;
 
   # sudo e2label /dev/disk/by-uuid/44b4a02e-1993-4470-b345-b2ca5e3e5b42 nixos

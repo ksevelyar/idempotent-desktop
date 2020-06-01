@@ -7,6 +7,7 @@
       ripgrep
       universal-ctags
       global
+      python3
 
       (
         neovim.override {

@@ -41,6 +41,9 @@
 
     id-inspect-store = "nix path-info -rSh /run/current-system | sort -k2h";
 
+    # nix
     id-push = "sudo nix-store -qR --include-outputs /run/current-system | cachix push idempotent-desktop";
+    # id-test-config nixos-config=/etc/nixos/hosts/kitt2000.nix 
+    # id-test-config = "nix-build '<nixpkgs/nixos>' -A vm -I --no-out-link";
   };
 }

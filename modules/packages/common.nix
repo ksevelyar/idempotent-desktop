@@ -36,14 +36,6 @@ in
       bat
       kakoune
       watchman
-      (
-        python3.withPackages (
-          ps: with ps; [
-            httpserver
-            pywal
-          ]
-        )
-      )
       sipcalc
       tldr
       git
