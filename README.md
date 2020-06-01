@@ -38,6 +38,8 @@ mount /dev/disk/by-label/boot  /mnt/boot
 
 ```
 
+I don't use swap for last ten years 🤷‍
+
 ### Clone repo
 
 `sudo git clone https://github.com/ksevelyar/dotfiles.git /mnt/etc/nixos`
@@ -61,7 +63,7 @@ nvim /mnt/etc/nixos/hosts/new-host.nix
 
 You can use [hk47.nix](https://github.com/ksevelyar/dotfiles/blob/master/hosts/hk47.nix) as reference.
 
-### Add channels and install nixos
+### Add channels and install NixOS
 
 ```sh
 sudo nix-channel --add https://nixos.org/channels/nixos-20.03 stable
