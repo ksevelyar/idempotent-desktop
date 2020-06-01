@@ -38,5 +38,9 @@
 
     # log sshd -f
     log = "sudo journalctl --output cat -u";
+
+    id-inspect-store = "nix path-info -rSh /run/current-system | sort -k2h";
+
+    id-push = "sudo nix-store -qR --include-outputs /run/current-system | cachix push idempotent-desktop";
   };
 }
