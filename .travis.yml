@@ -1,24 +1,27 @@
 language: nix
 nix: 2.3.5
-
 cache:
   directories:
-  - $HOME/nix.store
-
+  - "$HOME/nix.store"
 before_install:
 - sudo mkdir -p /etc/nix && echo 'sandbox = true' | sudo tee /etc/nix/nix.conf
 - nix-channel --add https://nixos.org/channels/nixos-20.03 stable
 - nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 - nix-channel --update
-
-- echo "binary-caches = https://cache.nixos.org https://idempotent-desktop.cachix.org" | sudo tee -a /etc/nix/nix.conf > /dev/null
-- echo "binary-cache-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= idempotent-desktop.cachix.org-1:OkWDud90b2/k/k1yIUg1lxZdNRWEvCfv6zSSRQ75lVM=" | sudo tee -a /etc/nix/nix.conf > /dev/null
-
+- echo "binary-caches = https://cache.nixos.org https://idempotent-desktop.cachix.org"
+  | sudo tee -a /etc/nix/nix.conf > /dev/null
+- echo "binary-cache-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
+  idempotent-desktop.cachix.org-1:OkWDud90b2/k/k1yIUg1lxZdNRWEvCfv6zSSRQ75lVM=" |
+  sudo tee -a /etc/nix/nix.conf > /dev/null
 - nix-env -iA cachix -f https://cachix.org/api/v1/install
 - cachix use idempotent-desktop
-- if [ -n "$CACHIX_SIGNING_KEY" ]; then cachix push idempotent-desktop --watch-store; fi &
-
+- if [ -n "$CACHIX_SIGNING_KEY" ]; then cachix push idempotent-desktop --watch-store;
+  fi &
 script:
-  - nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=live-usb.nix --no-out-link --keep-going
-  - nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=hosts/hk47.nix --no-out-link --keep-going
-  - nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=hosts/cyberdemon.nix --no-out-link --keep-going
+- nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=live-usb.nix --no-out-link --keep-going
+- nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=hosts/hk47.nix --no-out-link --keep-going
+- nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=hosts/cyberdemon.nix --no-out-link
+  --keep-going
+env:
+  global:
+    secure: IBiN9TFKh1IQXdZK6j3xe/29yzX/oVGrquFrZywMBJzf6wRpdUyR+ZP6tQmw966Ps0BzUxshlKCFmk8l/QxXyQwOsXgSqlNscbdTyWSCS5IwpCL1TsTIYVttdqy2vaBFrrA/Pt3aTdqICTThC5lnjSKtQ8fbhHLGqEEMcBK6l+4=
