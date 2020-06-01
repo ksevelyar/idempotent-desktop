@@ -1,4 +1,4 @@
-# λ Idempotent Desktop
+# λ Idempotent Desktop [![Build Status](https://travis-ci.org/ksevelyar/dotfiles.svg?branch=master)](https://travis-ci.org/ksevelyar/dotfiles)
 
 ![screen](https://i.imgur.com/fWKORz4.png)
 ![screen](https://i.imgur.com/fhAtYZY.png)
@@ -83,6 +83,6 @@ sudo nixos-install
   - [ ] Add animated svgs to docs
   - [ ] Find dark theme for vuepress
 - [ ] Declarative Node packages
-- [ ] Declarative secrets 
+- [ ] Declarative secrets
 - [ ] Pack [Neovide](https://github.com/Kethku/neovide)
 - [ ] semantic versioning
