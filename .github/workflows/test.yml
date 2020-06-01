@@ -12,4 +12,4 @@ jobs:
       with:
         name: idempotent-desktop
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
-    - run: NIXOS_CONFIG=hosts/hk47.nix nix-build '<nixpkgs/nixos>' -A vm --no-out-link
+    - run: nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=live-usb.nix --no-out-link
