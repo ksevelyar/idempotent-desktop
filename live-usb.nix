@@ -4,6 +4,7 @@
 { config, pkgs, lib, vars, ... }:
 {
   imports = [
+    ./cachix.nix
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-base.nix>
 
     ./modules/sys/aliases.nix

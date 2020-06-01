@@ -21,7 +21,6 @@ in
       global
 
       emacs
-      codeql
 
       # docs
       zeal
@@ -30,7 +29,6 @@ in
       curlie
 
       # sql
-      dbeaver
       sequeler
 
       # images

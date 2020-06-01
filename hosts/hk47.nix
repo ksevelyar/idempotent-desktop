@@ -8,6 +8,7 @@
 
   imports =
     [
+      ../cachix.nix
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
       ../modules/sys/debug.nix
       ../modules/sys/aliases.nix
