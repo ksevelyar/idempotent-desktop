@@ -1,0 +1,15 @@
+name: "Test"
+on:
+  pull_request:
+  push:
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: cachix/install-nix-action@v9
+    - uses: cachix/cachix-action@v6
+      with:
+        name: idempotent-desktop
+        signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
+    - run: NIXOS_CONFIG=hosts/hk47.nix nix-build '<nixpkgs/nixos>' -A vm --no-out-link
