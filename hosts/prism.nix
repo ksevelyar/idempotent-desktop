@@ -36,7 +36,7 @@
       ../modules/packages/games.nix
       ../modules/packages/nvim.nix
       ../modules/packages/tmux.nix
-      ../modules/packages/firefox.nix
+      # ../modules/packages/firefox.nix
 
       ../modules/hardware/bluetooth.nix
       ../modules/hardware/sound.nix
