@@ -106,6 +106,12 @@
           publicKey = "xrw8dXQlFEt+PuRRZ8uov+6PCpsCW+0nkBk06Erzu0E=";
           allowedIPs = [ "192.168.42.7" ];
         }
+
+        # prism
+        {
+          publicKey = "FLCkV96NM5ortoqDNiF4eswK1vnLSa04gTnDMmLuaAg=";
+          allowedIPs = [ "192.168.42.50" ];
+        }
       ];
     };
   };
