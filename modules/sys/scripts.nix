@@ -7,7 +7,9 @@ let
 
     sudo nix-channel --add https://nixos.org/channels/nixos-20.03 stable 
     sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos 
-    sudo nix-channel --update 
+    
+    for i in {1..5}; do sudo nix-channel --update && break || sleep 1; done
+    
     sudo nix-channel --list
   '';
 
@@ -50,6 +52,28 @@ let
 
     lsblk -f
   '';
+
+  id-deploy = pkgs.writeScriptBin "id-deploy" ''
+    #!${pkgs.stdenv.shell}
+    cd /etc/nixos 
+
+    set -e
+
+    sudo nix-channel --add https://nixos.org/channels/nixos-20.03 stable
+    sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+
+    for i in {1..5}; do sudo nix-channel --update && break || sleep 1; done
+    
+    sudo nix-channel --list
+
+    nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=/etc/nixos/configuration.nix --no-out-link | cachix push idempotent-desktop
+    nix-du --root /run/current-system/sw/ -s 100MB | tred | dot -Tsvg > nix-store.svg
+
+    nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix -o /tmp/live-usb
+    rclone copy /tmp/live-usb/iso/idempotent-desktop.iso gdrive:
+    echo -e "\nimv nix-store.svg\n"
+  '';
+
 in
 {
   environment.systemPackages = [
@@ -57,5 +81,6 @@ in
     id-build-iso
     id-pick-color
     id-refresh-channels
+    id-deploy
   ];
 }

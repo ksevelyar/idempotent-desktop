@@ -5,9 +5,14 @@
   Your browser does not support the video tag.
 </video>
 
+
 💜 Fish is one of the saniest software I've seen.
 
 Almost vanilla [config](https://github.com/ksevelyar/dotfiles/blob/master/home/.config/fish/config.fish), a lot of faster than zsh/zim bundle with the same functionality.
+
+## `fish-config`
+
+Use `fish-config` to configure it with GUI.
 
 ## Fish Prompt
 

@@ -1,5 +1,11 @@
 # Nix
 
+## [Tree](https://github.com/ksevelyar/dotfiles/blob/master/nix-store.svg)
+
+![nix-store](https://github.com/ksevelyar/dotfiles/blob/master/nix-store.svg)
+
+You can investigate tree with `nix path-info -rSh /run/current-system | sort -k2h`
+
 ## Manual tests
 
 You can build any configuration without leaving trash:
