@@ -67,9 +67,6 @@
         Inherits=Vanilla-DMZ
       '';
 
-      home.file.".ssh/config".source = ../home/.ssh/config;
-      # home.extraBuilderCommands = "sed -i 's/| head -1)/| head -1 || true)/' $out/activate";
-
       home.file.".eslintrc.json".source = ../home/.eslintrc.json;
       home.file.".npmrc".source = ../home/.npmrc;
 
