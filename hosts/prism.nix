@@ -55,9 +55,26 @@
       ../users/obstinatekate.nix
     ];
 
+  boot.loader.grub.splashImage = lib.mkForce ../assets/grub_1024x768.png;
+  # boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;
+  # boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
+
+  # boot
+  # boot.blacklistedKernelModules = [];
+  # boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" "sdhci_pci" ];
+  boot.cleanTmpDir = true;
+  boot.tmpOnTmpfs = true;
+
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [];
+  boot.plymouth.enable = false;
+
+  networking.hostName = "prism"; # Define your hostname.
   networking.wireguard.interfaces = {
     skynet = {
-      ips = [ "192.168.42.5" ];
+      ips = [ "192.168.42.50" ];
       privateKeyFile = "/home/obstinatekate/wireguard-keys/private";
 
       peers = [
@@ -84,7 +101,6 @@
     device = "192.168.42.1:/export";
     fsType = "nfs";
   };
-  networking.hostName = "prism"; # Define your hostname.
 
   hardware = {
     cpu.intel.updateMicrocode = true;
@@ -95,24 +111,9 @@
     displayManager = {
       sddm.enable = lib.mkForce true;
       lightdm.enable = lib.mkForce false;
-
-      sessionCommands = ''
-        (rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log) &
-        sh ~/.fehbg
-        xsetroot -cursor_name left_ptr
-        
-        lxqt-policykit-agent &
-        xxkb &
-        xcape -e 'Super_R=Super_R|X'
-      '';
     };
   };
 
-  boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" "sdhci_pci" ];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [];
-  boot.plymouth.enable = false;
 
   swapDevices = [];
 
@@ -122,6 +123,6 @@
       # device = "/dev/disk/by-label/nixos";
       device = "/dev/disk/by-uuid/32685a01-79cc-4ec0-9d6f-c8708c897a3b";
       fsType = "ext4";
-      options = [ "noatime" "nodiratime" ];
+      options = [ "noatime" "nodiratime" ]; # ssd
     };
 }
