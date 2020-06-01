@@ -1,10 +1,6 @@
 # Nix
 
-## [Tree](https://github.com/ksevelyar/dotfiles/blob/master/nix-store.svg)
-
-![nix-store](https://github.com/ksevelyar/dotfiles/blob/master/nix-store.svg)
-
-You can investigate tree with
+You can investigate nix tree with
 
 ```fish
 nix path-info -rSh /run/current-system | sort -k2h
@@ -41,3 +37,8 @@ Travis is both free and slow, don't forget to populate Cachix for your tests:
 - [pills](https://nixos.org/nixos/nix-pills/why-you-should-give-it-a-try.html)
 - [options](https://nixos.org/nixos/options.html)
 - [manual](https://nixos.org/nixos/manual/')
+
+
+## [.svg Tree](https://github.com/ksevelyar/dotfiles/blob/master/nix-store.svg)
+
+![nix-store](https://github.com/ksevelyar/dotfiles/blob/master/nix-store.svg)
