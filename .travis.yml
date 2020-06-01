@@ -13,4 +13,4 @@ before_install:
 - nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 - nix-channel --update
 
-script: nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=live-usb.nix
+script: nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=live-usb.nix --no-out-link
