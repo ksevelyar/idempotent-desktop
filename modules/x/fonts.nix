@@ -21,8 +21,8 @@
         # vegur
         # unfree Microsoft fonts
         corefonts # Andale Mono, Arial, Comic Sans, Courier New, Georgia, Impact, Times New Roman, Trebuchet, Verdana, Webdings
-        vistafonts # Calibri, Cambria, Candara, Consolas, Constantia, Corbel
-        vistafonts-chs # Microsoft YaHei
+        # vistafonts # Calibri, Cambria, Candara, Consolas, Constantia, Corbel
+        # vistafonts-chs # Microsoft YaHei
 
         # Required for ryanoasis/vim-devicons
         (nerdfonts.override { fonts = [ "FiraCode" "Hack" "Inconsolata" ]; })
