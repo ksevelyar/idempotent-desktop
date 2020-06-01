@@ -1,6 +1,47 @@
 # Security
 
+## GPG
+
+### Create template for your keys
+
+`nvim gpg.template`
+
+```
+Key-Type: eddsa
+Key-Curve: Ed25519
+Key-Usage: sign
+Subkey-Type: ecdh
+Subkey-Curve: Curve25519
+Subkey-Usage: encrypt
+Name-Real: dude
+Name-Email: dude@domain.tld
+Expire-Date: 0
+%commit
+```
+
+### Generate a Ed25519 key
+
+```fish
+gpg --batch --generate-key gpg.template
+```
+
+### Enlist keys
+
+```fish
+gpg --list-secret-keys
+```
+
+You can use this key for pass now.
+
 ## Pass
+
+### Init
+
+`pass init <gpg-id>`
+
+### Generate
+
+`pass generate -c mail/protonmail.com`
 
 ### Import your passwords to pass
 
@@ -24,19 +65,19 @@ tomb lock secret.tomb -k mrpoppybutthole.tomb.key
 
 To open it, do `tomb open mrpoppybutthole.tomb -k mrpoppybutthole.tomb.key`
 
-and after you are done `tomb close`
-
 ## [Mount .ssh and .password-store from tomb](https://github.com/dyne/Tomb/wiki/Advancedfeatures)
 
 ```fish
 cd /run/media/ksevelyar/mrpoppybutthole
 v bind-hooks
+```
 
-change content to:
+Change content to:
 
 ```
 .ssh            .ssh
 .password-store .password-store
+.gnupg          .gnupg
 ```
 
 and move this dirs to tomb.
@@ -44,8 +85,7 @@ and move this dirs to tomb.
 Create empty folders:
 
 ```fish
-mkdir ~/.password-store
-mkdir ~/.ssh
+mkdir -p ~/.password-store ~/.gnupg ~/ssh
 ```
 
 Open tomb `tomb open mrpoppybutthole.tomb -k mrpoppybutthole.tomb.key`.
@@ -53,6 +93,8 @@ Open tomb `tomb open mrpoppybutthole.tomb -k mrpoppybutthole.tomb.key`.
 Done, now your ssh keys and passwords should be served from tomb.
 
 [Also, with tomb you can bury your key inside jpeg](https://github.com/dyne/Tomb/wiki/Advancedfeatures#hide-the-key).
+
+Run `tomb close` to unmount tomb.
 
 ## Opened ports
 
