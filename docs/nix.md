@@ -14,6 +14,10 @@ Combine previous commands, Cachix and CI.
 
 [Example with Travis CI](https://github.com/ksevelyar/dotfiles/blob/master/.travis.yml)
 
+Travis is both free and slow, don't forget to populate Cachix for your tests:
+
+`nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=/etc/nixos/hosts/hk47.nix --no-out-link | cachix push idempotent-desktop`
+
 ## Tutorials
 
 - [nixcloud.io/tour](https://nixcloud.io/tour)
