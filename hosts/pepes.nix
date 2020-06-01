@@ -15,6 +15,7 @@
       ../modules/sys/tty.nix
       ../modules/sys/gc.nix
       ../modules/sys/vars.nix
+      ../modules/sys/sysctl.nix
       # ../modules/sys/debug.nix
 
       ../modules/boot/efi.nix
@@ -34,6 +35,7 @@
       ../modules/packages/games.nix
       ../modules/packages/nvim.nix
       ../modules/packages/tmux.nix
+      ../modules/packages/firefox.nix
 
       ../modules/hardware/bluetooth.nix
       ../modules/hardware/sound.nix
@@ -42,6 +44,9 @@
 
       ../modules/net/firewall-desktop.nix
       ../modules/net/wireguard.nix
+      ../modules/net/i2p.nix
+      ../modules/net/tor.nix
+      ../modules/net/sshd.nix
 
       ../modules/vm/hypervisor.nix
 
