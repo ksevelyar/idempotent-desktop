@@ -10,6 +10,8 @@ You can build any configuration without leaving trash:
 
 ## Autotests
 
+Yay! You can autotest all your linux configurations! You should because you can do it fo free, with simple setup.
+
 Combine previous commands and a binary cache for CI.
 
 ### [Cachix](https://cachix.org/) Free 10GB binary cache for public repos
