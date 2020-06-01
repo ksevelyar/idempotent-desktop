@@ -23,7 +23,7 @@ in
 
       # office
       libreoffice-fresh
-      # thunderbird
+      thunderbird-bin
 
       # cli
       # browsh
