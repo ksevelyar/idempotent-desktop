@@ -42,6 +42,7 @@
       ../modules/hardware/ssd.nix
 
       ../modules/net/firewall-desktop.nix
+      ../modules/net/kresd.nix
       ../modules/net/wireguard.nix
       ../modules/net/i2p.nix
       ../modules/net/tor.nix
