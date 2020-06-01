@@ -4,13 +4,13 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "20.03"; # Did you read the comment?
+  system.stateVersion = "20.09"; # Did you read the comment?
 
 
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-      ../users/shared.nix
+      ../cachix.nix
       ../modules/sys/debug.nix
       ../modules/sys/aliases.nix
       ../modules/sys/scripts.nix
