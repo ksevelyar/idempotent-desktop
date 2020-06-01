@@ -22,7 +22,7 @@ in
       # os-prober
 
       # office
-      libreoffice
+      libreoffice-fresh
       # thunderbird
 
       # cli
