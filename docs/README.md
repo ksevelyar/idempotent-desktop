@@ -3,14 +3,14 @@ home: true
 heroText: λ Idempotent Desktop
 tagline: NixOS, Neovim, Xmonad
 heroImage: https://i.imgur.com/fhAtYZY.png
-actionText: → Start
+actionText: 🪀 Start
 actionLink: /guide/
 features:
-- title: Idempotent
-  details: Reproduce your favorite environment with one command.
-- title: Declarative
-  details: Describe your systems, hardware and users with text files under VCS.
-- title: Hackable Live ISO
-  details: Create your own live usb while reusing the main config modules.
+- title: Perfomant
+  details: Zero delays UI; Requres only 500MB RAM to boot to X.
+- title: Declarative & Modular
+  details: Pick only modules you want. Reuse, override, and extend them. Use nix for your projects
+- title: Friendly
+  details: Optimised for both keyboard and mouse. Steam, Spotify, Google Play Music, Slack, broadcom drivers and other proprietary programs if you want them.
 footer: MIT Licensed
 ---
