@@ -14,15 +14,15 @@
     '';
 
     enable = true;
-    virtualHosts."occams-razor.dev" = {
+    virtualHosts."legacy-intelligence.life" = {
       enableACME = true;
       forceSSL = true;
-      root = "/var/www/dobroserver";
+      root = "/var/www/li";
     };
   };
   # Optional: You can configure the email address used with Let's Encrypt.
   # This way you get renewal reminders (automated by NixOS) as well as expiration emails.
   security.acme.certs = {
-    "occams-razor.dev".email = "ksevelyar@gmail.com";
+    "legacy-intelligence.life".email = "ksevelyar@gmail.com";
   };
 }
