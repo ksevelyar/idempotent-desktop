@@ -114,7 +114,7 @@ exec-if = pgrep x11vnc
 exec = echo "$(lsof -Pni | grep x11vnc | grep -v LISTEN | wc -l)"
 format-prefix = "%{F#FF79C6} vnc%{F-} "
 click-right = pkill x11vnc
-interval = 2
+interval = 1
 
 [module/ssh]
 type = custom/script
@@ -122,7 +122,7 @@ exec-if = pgrep sshd
 exec = echo "$(who | grep pts | wc -l)"
 format-prefix = "%{F#FF79C6} ssh%{F-} "
 click-right = sudo systemctl stop sshd
-interval = 2
+interval = 1
 
 [module/weather]
 type = custom/script
@@ -149,7 +149,7 @@ click-right = xdotool key XF86AudioNext &
 
 [module/filesystem]
 type = internal/fs
-interval = 25
+interval = 2
 
 mount-0 = /
 mount-1 = /storage
@@ -171,7 +171,7 @@ format-discharging = %{F#9c71C7}%{F-} <label-discharging>
 
 [module/cpu]
 type = internal/cpu
-interval = 2
+interval = 1
 format-prefix = "  %{F#9c71C7}%{F-}"
 format-prefix-foreground = ${colors.foreground}
 format-underline = ${colors.grey}
@@ -179,7 +179,7 @@ label = %percentage:3%%
 
 [module/memory]
 type = internal/memory
-interval = 2
+interval = 1
 format-prefix = "%{F#9c71C7}%{F-}"
 format-prefix-foreground = ${colors.foreground}
 format-underline = ${colors.grey}
@@ -207,7 +207,7 @@ format-connected = <label-connected>
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 1
 
 date = " %A %B %d"
 time = %H:%M
@@ -219,8 +219,8 @@ format-underline = ${colors.grey}
 label = %{F#6B5A68}%date%%{F-}  %time%
 
 [module/volume]
-type = internal/alsa
-interval = 2
+type = internal/pulseaudio
+interval = 1
 
 label-volume = "%{F#9c71C7} %{F-}%percentage%%"
 label-volume-foreground = ${root.foreground}

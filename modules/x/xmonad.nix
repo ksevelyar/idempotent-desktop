@@ -1,16 +1,21 @@
 { config, pkgs, lib, vars, ... }:
 {
   environment.systemPackages = with pkgs;
-    [
-      polybar
-      jgmenu
-      xcape
+    let
+      polybar = pkgs.polybar.override {
+        pulseSupport = true;
+      };
+    in
+      [
+        polybar
+        jgmenu
+        xcape
 
-      lxqt.lxqt-policykit
-      libnotify
-      dunst
-      xfce.xfce4-settings # xfce4-mime-settings
-    ];
+        lxqt.lxqt-policykit
+        libnotify
+        dunst
+        xfce.xfce4-settings # xfce4-mime-settings
+      ];
 
   console.useXkbConfig = true;
   services.xserver.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
