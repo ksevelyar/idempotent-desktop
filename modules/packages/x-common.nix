@@ -73,8 +73,6 @@ in
       tdesktop
 
       # sys
-      # graphviz
-      # nix-du # nix-du --root /run/current-system/sw/ -s 300MB | tred | dot -Tsvg > store.svg
       maim
       vokoscreen
       simplescreenrecorder
