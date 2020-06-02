@@ -52,5 +52,6 @@
     id-inspect-store = "nix path-info - rSh /run/current-system | sort - k2h ";
     id-push = "sudo nix-store - qR - -include-outputs /run/current-system | cachix push idempotent-desktop ";
     id-store-to-svg = "nix-du --root /run/current-system/sw/ -s 100MB | tred | dot -Tsvg > ./nix-store.svg";
+    id-sync = "cd /etc/nixos && git stash && git pull --rebase && git stash pop";
   };
 }
