@@ -1,56 +1,57 @@
 {
   environment.shellAliases = {
+    # help
     # https://www.quora.com/Unix-Why-are-explanations-in-man-pages-so-bad
     # try tldr instead of man
-    h = "tldr" 
+    h = "tldr";
     # h rsync
     # h parted
     # h npm
 
+    # sys
+    s = "sudo";
+    sss = "sudo systemctl stop";
+    ssr = "sudo systemctl restart";
     x = "sudo systemctl restart display-manager.service";
-
+    log = "sudo journalctl --output cat -u"; # log sshd -f
+    p = "gopass";
     ports = "sudo lsof -Pni"; # ports | fzf
+    pgrep = "pgrep --full";
+    pkill = "pkill --full";
     i = "id-info";
     l = "ls -lahXF --group-directories-first";
     j = "z"; # autojump alias for z.lua
     u = "aunpack"; # one tool to unpack them all
-
-    e = "sudo nvim /etc/nixos/configuration.nix";
-    refresh-channels = "id-refresh-channels";
-    b = "sudo nixos-rebuild switch --keep-going";
-
-    s = "sudo";
-    p = "gopass";
-    br = "b && systemctl restart display-manager.service";
-    bu = "b --upgrade";
-    collect-garbage = "sudo nix-collect-garbage --delete-older-than 30d";
-    tm = "tmux new-session -A -s 🦙";
-    off = "sleep 0.5; xset dpms force off; pkill -f spotify";
-    pgrep = "pgrep --full";
-    pkill = "pkill --full";
-
     v = "nvim";
     vo = "nvim -o (fzf)";
-    vv = "nvim -U none"; # vanilla v
+    vv = "nvim -U none"; # vanilla v, don't load plugins & init.vim
+
+    tm = "tm1";
+    tm1 = "tmux new-session -A -s 🦙";
+    tm2 = "tmux new-session -A -s 🔮";
+    tm3 = "tmux new-session -A -s 🦹";
 
     g = "git";
-    t = "task";
+    t = "task"; # https://www.youtube.com/watch?v=zl68asL9jZA
     fd = "fd --hidden --exclude .git";
+    # turn screen off and stop music
+    off = "sleep 0.5 && xset dpms force off; pkill -f spotify; xdotool key XF86AudioPause";
 
+    m = "mosh";
+    grab-display = "export DISPLAY = ':0.0'";
     vnc-server = "x11vnc -repeat -forever -noxrecord -noxdamage -rfbport 5900";
-    grab-display = "export DISPLAY=':0.0'";
-
-    sss = "sudo systemctl stop";
-    ssr = "sudo systemctl restart";
-
-    # log sshd -f
-    log = "sudo journalctl --output cat -u";
-
-    id-inspect-store = "nix path-info -rSh /run/current-system | sort -k2h";
 
     # nix
-    id-push = "sudo nix-store -qR --include-outputs /run/current-system | cachix push idempotent-desktop";
+    e = "sudo nvim /etc/nixos/configuration.nix";
+    refresh = "id-refresh-channels";
+    b = "sudo nixos-rebuild switch --keep-going && xmonad --restart";
+    bu = "refresh && b";
+
+    id-gc = "sudo nix-collect-garbage --delete-older-than 30d";
+    id-inspect-store = "nix path-info - rSh /run/current-system | sort - k2h ";
+    id-push = "sudo nix-store - qR - -include-outputs /run/current-system | cachix push idempotent-desktop ";
+
     # id-test-config nixos-config=/etc/nixos/hosts/kitt2000.nix 
-    # id-test-config = "nix-build '<nixpkgs/nixos>' -A vm -I --no-out-link";
+    id-test-config = "nix-build '<nixpkgs/nixos>' - A vm - I - -no-out-link ";
   };
 }
