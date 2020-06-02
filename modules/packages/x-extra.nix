@@ -39,6 +39,8 @@ in
       openscad
 
       # themes
+      # pantheon.elementary-icon-theme
+      # pantheon.elementary-gtk-theme
       # pop-gtk-theme
       # adapta-gtk-theme
       # ant-theme
