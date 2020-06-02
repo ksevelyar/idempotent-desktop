@@ -17,7 +17,7 @@
     virtualHosts."legacy-intelligence.life" = {
       enableACME = true;
       forceSSL = true;
-      root = "/var/www/li";
+      root = "/var/www/legacy-intelligence.life";
     };
   };
   # Optional: You can configure the email address used with Let's Encrypt.

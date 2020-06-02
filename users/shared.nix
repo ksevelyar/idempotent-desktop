@@ -11,7 +11,7 @@
 
     # Enable ‘sudo’ for the user.
     # https://en.wikipedia.org/wiki/Wheel_(computing)
-    extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
+    extraGroups = [ "wheel" "networkmanager" "libvirtd" "nginx" ];
   };
 
   systemd.services."home-manager-ugly-hack" = {
