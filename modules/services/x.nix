@@ -20,8 +20,7 @@
 
   services.picom = {
     enable = true;
-    fade = true;
-    fadeDelta = 5;
+    fade = false;
     shadow = false;
     backend = "glx";
     vSync = true;
