@@ -108,7 +108,7 @@ Run `tomb close` to unmount tomb.
 
 Autostart disabled, use `sudo systemctl start sshd`
 
-The port is 9922. Use `ssh user@host -p 9922` to connect.
+The port is 9922. Use `mosh --ssh="ssh -p 9922" user@host` or legacy `ssh user@host -p 9922` to connect.
 
 In case your sshd is runninng you will see it in polybar with amount of active connects:
 
