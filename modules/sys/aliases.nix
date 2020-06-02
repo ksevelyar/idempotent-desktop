@@ -10,9 +10,9 @@
 
     # sys
     s = "sudo";
-    sss = "sudo systemctl stop";
-    ssr = "sudo systemctl restart";
-    x = "sudo systemctl restart display-manager.service";
+    ss = "sudo systemctl stop";
+    sr = "sudo systemctl restart";
+    x = "sudo systemctl restart display-manager";
     log = "sudo journalctl --output cat -u"; # log sshd -f
     p = "gopass";
     ports = "sudo lsof -Pni"; # ports | fzf
@@ -50,8 +50,6 @@
     id-gc = "sudo nix-collect-garbage --delete-older-than 30d";
     id-inspect-store = "nix path-info - rSh /run/current-system | sort - k2h ";
     id-push = "sudo nix-store - qR - -include-outputs /run/current-system | cachix push idempotent-desktop ";
-
-    # id-test-config nixos-config=/etc/nixos/hosts/kitt2000.nix 
-    id-test-config = "nix-build '<nixpkgs/nixos>' - A vm - I - -no-out-link ";
+    id-store-to-svg = "nix-du --root /run/current-system/sw/ -s 100MB | tred | dot -Tsvg > ./nix-store.svg";
   };
 }
