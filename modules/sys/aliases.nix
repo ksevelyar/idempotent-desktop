@@ -1,12 +1,19 @@
 {
   environment.shellAliases = {
+    # https://www.quora.com/Unix-Why-are-explanations-in-man-pages-so-bad
+    # try tldr instead of man
+    h = "tldr" 
+    # h rsync
+    # h parted
+    # h npm
+
     x = "sudo systemctl restart display-manager.service";
 
     ports = "sudo lsof -Pni"; # ports | fzf
     i = "id-info";
     l = "ls -lahXF --group-directories-first";
     j = "z"; # autojump alias for z.lua
-    u = "aunpack";
+    u = "aunpack"; # one tool to unpack them all
 
     e = "sudo nvim /etc/nixos/configuration.nix";
     refresh-channels = "id-refresh-channels";
