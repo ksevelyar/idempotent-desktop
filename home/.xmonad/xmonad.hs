@@ -220,7 +220,7 @@ myStartupHook = do
 
 scratchpads = [
   -- RationalRect left top width height
-  NS "tmux" "alacritty --class tmux -e tmux new-session -A -s main"
+  NS "tmux" "alacritty --class tmux -e tmux new-session -A -s 🦙"
     (resource =? "tmux")
     nonFloating,
 
