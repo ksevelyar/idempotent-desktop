@@ -47,6 +47,8 @@ in
       memtest86plus
       jq
       ccze
+      nix-du
+      graphviz
 
       # monitoring 
       iperf3
