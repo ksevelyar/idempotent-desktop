@@ -5,9 +5,6 @@ let
   };
 in
 {
-  services.flatpak.enable = true;
-  xdg.portal.enable = true; # flatpak dep
-
   # upwork
   nixpkgs.overlays = [ (import ../../overlays) ];
 
