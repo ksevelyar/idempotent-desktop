@@ -30,6 +30,7 @@
     };
 
     windowManager.xmonad.enable = true;
+    windowManager.xmonad.enableContribAndExtras = true;
   };
 
   home-manager = {

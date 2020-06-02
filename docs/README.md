@@ -11,6 +11,6 @@ features:
 - title: Declarative & Modular
   details: Pick only modules you want. Reuse, override, and extend them. Simplify development with nix, direnv, lorri, and fuzzy matching.
 - title: Friendly
-  details: Optimised for both keyboard and mouse. Works well with both gtk and qt. Steam, Spotify, Slack, Broadcom Wi-Fi drivers and other proprietary programs if you want them.
+  details: Optimised for both keyboard and mouse. Works well with both gtk and qt. Steam, Spotify, Slack and other proprietary programs if you want them.
 footer: MIT Licensed
 ---
