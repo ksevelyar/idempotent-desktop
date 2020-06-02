@@ -45,6 +45,7 @@
     e = "sudo nvim /etc/nixos/configuration.nix";
     refresh = "id-refresh-channels";
     b = "sudo nixos-rebuild switch --keep-going";
+    br = "b && xmonad --restart";
     bu = "refresh && b";
 
     id-gc = "sudo nix-collect-garbage --delete-older-than 30d";
