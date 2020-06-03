@@ -11,15 +11,16 @@
   "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
   "git.changeRemovedSign.text": "~",
   "eslint.autoFixOnSave": true,
-  "eslint.filetypes": ["javascript", "vue"],
+  "eslint.filetypes": [
+    "javascript",
+    "vue"
+  ],
   "markdownlint.config": {
     "default": true,
     "line_length": false
   },
-
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
-    "html",
     "nix",
     "markdown",
     "json",
