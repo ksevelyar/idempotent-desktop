@@ -35,7 +35,7 @@ let
     ls -lah result/iso/idempotent-desktop.iso
 
     lsblk -f
-    echo 'sudo dd bs=4M if=result/iso/idempotent-desktop.iso of=/dev/sdX status=progress && sync'
+    echo 'sudo dd bs=4M if=result/iso/idempotent-desktop.iso of=/dev/sdX status=progress oflag=sync'
   '';
 
   id-info = pkgs.writeScriptBin "id-info" ''

@@ -43,8 +43,8 @@
   ];
 
   # isoImage.splashImage = lib.mkForce /etc/nixos/assets/grub_big.png;
-  isoImage.volumeID = lib.mkForce "idempotent-desktop-min";
-  isoImage.isoName = lib.mkForce "idempotent-desktop-min.iso";
+  isoImage.volumeID = lib.mkForce "id-live-min";
+  isoImage.isoName = lib.mkForce "id-live-min.iso";
 
   boot.kernelModules = [ "wl" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];

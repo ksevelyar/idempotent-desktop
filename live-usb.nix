@@ -47,8 +47,8 @@
   ];
 
   # isoImage.splashImage = lib.mkForce /etc/nixos/assets/grub_big.png;
-  isoImage.volumeID = lib.mkForce "idempotent-desktop";
-  isoImage.isoName = lib.mkForce "idempotent-desktop.iso";
+  isoImage.volumeID = lib.mkForce "id-live";
+  isoImage.isoName = lib.mkForce "id-live.iso";
 
   # Whitelist wheel users to do anything
   # This is useful for things like pkexec or gparted
