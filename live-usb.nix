@@ -9,6 +9,7 @@
     ./modules/sys/aliases.nix
     ./modules/sys/scripts.nix
     ./modules/sys/tty.nix
+    ./modules/sys/nix.nix
     ./modules/sys/debug.nix
     ./modules/sys/vars.nix
     ./modules/sys/sysctl.nix
@@ -34,8 +35,8 @@
     ./modules/hardware/laptop.nix
 
     ./modules/net/firewall-desktop.nix
-    # ./modules/net/wireguard.nix
-    # ./modules/net/i2p.nix
+    ./modules/net/wireguard.nix
+    ./modules/net/i2p.nix
     ./modules/net/tor.nix
     ./modules/net/sshd.nix
 
@@ -77,7 +78,6 @@
 
   services.mingetty.helpLine = lib.mkForce ''
     The "root" account has "jkl" password.
-    Type `x' to start the graphical user interface.
     Type `i' to print system information.
 
     .     .       .  .   . .   .   . .    +  .
