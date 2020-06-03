@@ -11,14 +11,6 @@ in
     "p7zip-16.02"
   ];
 
-  nix = {
-    useSandbox = true;
-    maxJobs = lib.mkDefault 4;
-    extraOptions = ''
-      connect-timeout = 10 
-    '';
-  };
-
   programs.wireshark.enable = true;
   programs.bandwhich.enable = true;
   programs.fish.enable = true;
@@ -67,6 +59,10 @@ in
       usbutils # lsusb
       psmisc # pstree, killall
       inetutils
+
+      # mail
+      # stable.astroid
+      notmuch
 
       # sec
       openvpn

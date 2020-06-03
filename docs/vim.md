@@ -60,6 +60,8 @@ The "Leader key" is a way of extending VIM's shortcuts by using sequences of key
 
 `]c` prev git chunk
 
+`:GH` open this line on GitHub
+
 ### Useful built-in commands
 
 Exit and save: `ZZ`
