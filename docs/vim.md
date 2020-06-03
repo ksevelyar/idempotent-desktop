@@ -8,7 +8,6 @@ Integrated with `lsp`, `fzf`, `fd`, `rg`.
 
 You can start with built-in `:Tutor`
 
-
 ## Bindings
 
 ### Leader Key
@@ -93,3 +92,7 @@ Select lines with `Shift+V`, then type `:sort<Enter>` to sort lines alphabetical
 ### Misc
 
 `:Colors` set color theme with fzf
+
+### Links
+
+- [programmingfonts.org](https://www.programmingfonts.org/)

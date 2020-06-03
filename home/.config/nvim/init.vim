@@ -143,6 +143,11 @@ let airline#extensions#ale#show_line_numbers = 0
 let airline#extensions#ale#open_lnum_symbol = ''
 let airline#extensions#ale#close_lnum_symbol = ''
 
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+
 " let g:airline#extensions#default#layout = [ [ 'a', 'b', 'c' ], [ 'x', 'y', 'z', 'error', 'warning' ] ]
 let g:airline#extensions#default#layout = [ [ 'b', 'c' ], [ 'x', 'y', 'warning', 'error' ] ]
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'

@@ -1,3 +1,5 @@
+# nixos.option programs
+
 { config, pkgs, lib, ... }:
 let
   stable = import <stable> {

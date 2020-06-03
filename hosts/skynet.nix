@@ -12,7 +12,7 @@
       ../modules/sys/aliases.nix
       ../modules/sys/scripts.nix
       ../modules/sys/tty.nix
-      ../modules/sys/gc.nix
+      ../modules/sys/nix.nix
       ../modules/sys/vars.nix
 
       ../modules/boot/bios.nix

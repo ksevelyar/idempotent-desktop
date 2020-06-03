@@ -9,12 +9,11 @@
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-      ../cachix.nix
       ../modules/sys/debug.nix
       ../modules/sys/aliases.nix
       ../modules/sys/scripts.nix
       ../modules/sys/tty.nix
-      ../modules/sys/gc.nix
+      ../modules/sys/nix.nix
       ../modules/sys/vars.nix
       ../modules/sys/sysctl.nix
 

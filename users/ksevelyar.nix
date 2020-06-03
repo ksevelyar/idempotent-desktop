@@ -1,10 +1,4 @@
 { config, pkgs, lib, ... }:
-let
-  compiledLayout = pkgs.runCommand "keyboard-layout" {} ''
-    ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${../assets/layout.xkb} $out
-  '';
-in
-
 {
   vars.user = "ksevelyar";
 
@@ -28,14 +22,13 @@ in
   services.xserver = {
     displayManager = {
       sessionCommands = ''
-        ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY
         (rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log) &
         sh ~/.fehbg
         xsetroot -cursor_name left_ptr
         
         lxqt-policykit-agent &
         xxkb &
-        xcape -e 'Super_R=Super_R|X'
+        xcape -e 'Super_R=Super_R|X' # run rofi with single win key
         sh ~/.config/conky/launch.sh
       '';
     };

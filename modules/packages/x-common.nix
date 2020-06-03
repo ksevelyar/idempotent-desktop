@@ -83,7 +83,8 @@ in
       pavucontrol
       libnotify
       dunst
-      etcher # write live usb with gui
+      pywal
+      woeusb # write win10.iso to usb drive
 
       # media
       # ncspot # requires premium

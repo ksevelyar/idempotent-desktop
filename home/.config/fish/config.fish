@@ -13,6 +13,15 @@ function zeal-docs-fix
   popd >/dev/null || exit
 end
 
+# https://github.com/fish-shell/fish-shell/issues/2644#issuecomment-307816380
+function rr
+  set PREV_CMD (history | head -1)
+  set PREV_OUTPUT (eval $PREV_CMD)
+  set CMD $argv[1]
+  echo "Running '$CMD $PREV_OUTPUT'"
+  eval "$CMD $PREV_OUTPUT"
+end
+
 git_aliases
 
 set -u DEFAULT_USER (whoami)
