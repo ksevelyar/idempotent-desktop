@@ -38,7 +38,7 @@ mount /dev/disk/by-label/boot  /mnt/boot
 
 ```
 
-I don't use swap for last ten years 🤷‍
+I don't use swap for last ten years 🤷
 
 ### Clone repo
 
