@@ -1,4 +1,4 @@
-# Idempotent Desktop [![Build Status](https://travis-ci.org/ksevelyar/dotfiles.svg?branch=master)](https://travis-ci.org/ksevelyar/dotfiles)
+# Idempotent Desktop [![Build Status](https://travis-ci.org/ksevelyar/idempotent-desktop.svg?branch=master)](https://travis-ci.org/ksevelyar/dotfiles)
 
 ![screen](https://i.imgur.com/fWKORz4.png)
 ![screen](https://i.imgur.com/fhAtYZY.png)
