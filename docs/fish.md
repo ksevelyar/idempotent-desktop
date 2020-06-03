@@ -8,7 +8,7 @@
 
 💜 Fish is one of the saniest software I've seen.
 
-Almost vanilla [config](https://github.com/ksevelyar/dotfiles/blob/master/home/.config/fish/config.fish), a lot of faster than zsh/zim bundle with the same functionality.
+Almost vanilla [config](https://github.com/ksevelyar/idempotent-desktop/blob/master/home/.config/fish/config.fish), a lot of faster than zsh/zim bundle with the same functionality.
 
 ## `fish-config`
 
@@ -54,7 +54,7 @@ Press `Alt+C`
 
 Type `v <Alt>-t` or `v -o (fzf)`
 
-## [Git aliases](https://github.com/ksevelyar/dotfiles/blob/master/home/.config/fish/functions/git_aliases.fish)
+## [Git aliases](https://github.com/ksevelyar/idempotent-desktop/blob/master/home/.config/fish/functions/git_aliases.fish)
 
 ## Don't use cd
 

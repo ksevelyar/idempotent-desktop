@@ -61,7 +61,7 @@ in
       inetutils
 
       # mail
-      # stable.astroid
+      astroid
       notmuch
 
       # sec

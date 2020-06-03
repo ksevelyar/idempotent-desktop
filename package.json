@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ksevelyar/dotfiles.git"
+    "url": "git+https://github.com/ksevelyar/idempotent-desktop.git"
   },
   "keywords": [
     "NixOS"

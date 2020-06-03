@@ -8,7 +8,7 @@
 
 🍕 This repo is just a bunch of NixOS [modules](https://github.com/ksevelyar/dotfiles/tree/master/modules), so you can pick or override anything.
 
-🍕 I use NixOS for [development](https://idempotent-desktop.netlify.app/vim.html), as a headless [router](https://github.com/ksevelyar/dotfiles/blob/master/modules/net/router.nix), for my tv (mostly `kodi`) and as a k8s node for my [atoms](https://ark.intel.com/content/www/us/en/ark/products/59682/intel-atom-processor-d2500-1m-cache-1-86-ghz.html).
+🍕 I use NixOS for [development](https://idempotent-desktop.netlify.app/vim.html), as a headless [router](https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/net/router.nix), for my tv (mostly `kodi`) and as a k8s node for my [atoms](https://ark.intel.com/content/www/us/en/ark/products/59682/intel-atom-processor-d2500-1m-cache-1-86-ghz.html).
 
 🍕 You can use [tor](https://idempotent-desktop.netlify.app/anonymity.html#use-tor-as-a-socks5-proxy), [i2pd](https://idempotent-desktop.netlify.app/anonymity.html#i2p), `wireguard` or `openvpn` to bypass government blocks of selected sites.
 
@@ -42,13 +42,13 @@ I don't use swap for last ten years 🤷‍
 
 ### Clone repo
 
-`sudo git clone https://github.com/ksevelyar/dotfiles.git /mnt/etc/nixos`
+`sudo git clone https://github.com/ksevelyar/idempotent-desktop.git /mnt/etc/nixos`
 
 ### Create new user
 
 `nvim /mnt/etc/nixos/users/new-user.nix`
 
-You can use [ksevelyar.nix](https://github.com/ksevelyar/dotfiles/blob/master/users/ksevelyar.nix) as reference.
+You can use [ksevelyar.nix](https://github.com/ksevelyar/idempotent-desktop/blob/master/users/ksevelyar.nix) as reference.
 
 ### Generate configs and merge them to new host
 
@@ -61,7 +61,7 @@ nvim /mnt/etc/nixos/hosts/new-host.nix
 
 ```
 
-You can use [hk47.nix](https://github.com/ksevelyar/dotfiles/blob/master/hosts/hk47.nix) as reference.
+You can use [hk47.nix](https://github.com/ksevelyar/idempotent-desktop/blob/master/hosts/hk47.nix) as reference.
 
 ### Add channels and install NixOS
 
@@ -75,8 +75,8 @@ sudo nixos-install
 
 ### Scripts and aliases can save some time
 
-- [scripts.nix](https://github.com/ksevelyar/dotfiles/blob/master/modules/sys/scripts.nix)
-- [aliases.nix](https://github.com/ksevelyar/dotfiles/blob/master/modules/sys/aliases.nix)
+- [scripts.nix](https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/sys/scripts.nix)
+- [aliases.nix](https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/sys/aliases.nix)
 
 ## Todo 🍒
 

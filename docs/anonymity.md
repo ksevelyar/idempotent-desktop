@@ -37,7 +37,7 @@ torsocks curl ifconfig.me
 
 ## DNS over TLS with kresd
 
-[services.kresd](https://github.com/ksevelyar/dotfiles/blob/42b8264d1b259c99f887be38224f3ae0a62448c5/modules/net/firewall-desktop.nix#L4-L14)
+[services.kresd](https://github.com/ksevelyar/idempotent-desktop/blob/42b8264d1b259c99f887be38224f3ae0a62448c5/modules/net/firewall-desktop.nix#L4-L14)
 
 ## Use VPN if you need anonymity or Spotify
 

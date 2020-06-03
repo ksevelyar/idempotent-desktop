@@ -2,9 +2,9 @@
 
 ![screen](https://i.imgur.com/8WruLfd.png)
 
-- [firefox.nix](https://github.com/ksevelyar/dotfiles/blob/master/modules/packages/firefox.nix)
-- [userChrome.css](https://github.com/ksevelyar/dotfiles/blob/master/home/.config/firefox/userChrome.css)
-- [tridactylrc](https://github.com/ksevelyar/dotfiles/blob/master/home/.config/tridactyl/tridactylrc)
+- [firefox.nix](https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/packages/firefox.nix)
+- [userChrome.css](https://github.com/ksevelyar/idempotent-desktop/blob/master/home/.config/firefox/userChrome.css)
+- [tridactylrc](https://github.com/ksevelyar/idempotent-desktop/blob/master/home/.config/tridactyl/tridactylrc)
 
 ## [Plugins](https://addons.mozilla.org/en-US/firefox/collections/5389223/idempotent-desktop/?page=1&collection_sort=-popularity)
 

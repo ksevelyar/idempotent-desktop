@@ -1,4 +1,4 @@
-# [Xmonad](https://github.com/ksevelyar/dotfiles/blob/master/modules/x/xmonad.nix)
+# [Xmonad](https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/x/xmonad.nix)
 
 ![screen](https://i.imgur.com/fWKORz4.png)
 
