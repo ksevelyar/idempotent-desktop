@@ -1,6 +1,6 @@
 module.exports = {
   themeConfig: {
-    repo: 'ksevelyar/dotfiles',
+    repo: 'ksevelyar/idempotent-desktop',
     docsDir: 'docs',
     editLinks: true,
     editLinkText: 'Help to improve this page ❀◕ ‿ ◕❀',

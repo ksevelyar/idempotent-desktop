@@ -1,6 +1,6 @@
 # Idempotent Desktop
 
-[![Build Status](https://travis-ci.org/ksevelyar/idempotent-desktop.svg?branch=master)](https://travis-ci.org/ksevelyar/dotfiles)
+[![Build Status](https://travis-ci.org/ksevelyar/idempotent-desktop.svg?branch=master)](https://travis-ci.org/ksevelyar/idempotent-desktop)
 
 ![screen](https://i.imgur.com/fWKORz4.png)
 ![screen](https://i.imgur.com/fhAtYZY.png)
@@ -8,13 +8,13 @@
 
 ## [Other Screens](https://idempotent-desktop.netlify.app/screenshots.html)
 
-🍕 This repo is just a bunch of NixOS [modules](https://github.com/ksevelyar/dotfiles/tree/master/modules), so you can pick or override anything.
+🍕 This repo is just a bunch of NixOS [modules](https://github.com/ksevelyar/idempotent-desktop/tree/master/modules), so you can pick or override anything.
 
 🍕 I use NixOS for [development](https://idempotent-desktop.netlify.app/vim.html), as a headless [router](https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/net/router.nix), for my tv (mostly `kodi`) and as a k8s node for my [atoms](https://ark.intel.com/content/www/us/en/ark/products/59682/intel-atom-processor-d2500-1m-cache-1-86-ghz.html).
 
 🍕 You can use [tor](https://idempotent-desktop.netlify.app/anonymity.html#use-tor-as-a-socks5-proxy), [i2pd](https://idempotent-desktop.netlify.app/anonymity.html#i2p), `wireguard` or `openvpn` to bypass government blocks of selected sites.
 
-🍕 You can use these dotfiles in other unix too, check [home](https://github.com/ksevelyar/dotfiles/tree/master/home)
+🍕 You can use these dotfiles in other unix too, check [home](https://github.com/ksevelyar/idempotent-desktop/tree/master/home)
 
 ## [Docs](https://idempotent-desktop.netlify.app/)
 

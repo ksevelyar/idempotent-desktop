@@ -25,7 +25,7 @@
     bat /mnt/etc/nixos/*.nix
     sudo mv /mnt/etc/nixos{,.bak}
 
-    # downloand repo 
-    sudo git clone https://github.com/ksevelyar/dotfiles.git /mnt/etc/nixos
+    # downloand repo
+    sudo git clone https://github.com/ksevelyar/idempotent-desktop.git /mnt/etc/nixos
   '';
 }
