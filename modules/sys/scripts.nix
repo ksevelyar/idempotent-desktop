@@ -32,10 +32,10 @@ let
 
     cd /tmp
     nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix 
-    ls -lah result/iso/idempotent-desktop.iso
+    ls -lah result/iso/id-live.iso
 
     lsblk -f
-    echo 'sudo dd bs=4M if=result/iso/idempotent-desktop.iso of=/dev/sdX status=progress oflag=sync'
+    echo 'sudo dd bs=4M if=result/iso/id-live.iso of=/dev/disk/by-label/id-live status=progress oflag=sync'
   '';
 
   id-info = pkgs.writeScriptBin "id-info" ''
@@ -70,7 +70,7 @@ let
     nix-du --root /run/current-system/sw/ -s 100MB | tred | dot -Tsvg > nix-store.svg
 
     nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix -o /tmp/live-usb
-    rclone copy /tmp/live-usb/iso/idempotent-desktop.iso gdrive:
+    rclone copy /tmp/live-usb/iso/id-live.iso gdrive:
     echo -e "\nimv nix-store.svg\n"
   '';
 
