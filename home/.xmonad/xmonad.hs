@@ -32,7 +32,7 @@ import           XMonad.Util.Run                (runInTerm, safeSpawn)
 
 import           XMonad.Layout.Grid
 import           XMonad.Layout.IM
-import           XMonad.Layout.LayoutHints
+-- import           XMonad.Layout.LayoutHints
 import           XMonad.Layout.MultiColumns
 import           XMonad.Layout.NoBorders
 import           XMonad.Layout.PerWorkspace     (onWorkspace)
@@ -206,14 +206,20 @@ myManageHook = manageDocks <+> (composeAll . concat $
 
 -- Event handling --------------------------------------------------------------
 
-myEventHook = hintsEventHook <+> docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEventHook
--- myEventHook = docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEventHook
+-- myEventHook = hintsEventHook <+> docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEventHook
+myEventHook = docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEventHook
 
 -- Startup hook ----------------------------------------------------------------
 
 myStartupHook = do
-  setFullscreenSupport
+  spawn "rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log"
+  spawn "sh ~/.fehbg"
   spawn "sh ~/.config/polybar/launch.sh"
+  spawn "xsetroot -cursor_name left_ptr"
+  spawn "lxqt-policykit-agent"
+  spawn "xxkb"
+  spawn "xcape -e 'Super_R=Super_R|X'"
+  setFullscreenSupport
 
 -- Scratchpads -----------------------------------------------------------------
 -- xprop | grep WM_CLASS

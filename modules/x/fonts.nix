@@ -40,8 +40,10 @@
         # Required for polybar
         siji # https://github.com/stark/siji
 
+        open-sans
         roboto
         roboto-slab
+        roboto-mono
       ];
   };
 

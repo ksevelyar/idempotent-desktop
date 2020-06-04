@@ -23,7 +23,11 @@
       ../modules/services/common.nix
       ../modules/services/x.nix
 
+
       ../modules/x/xmonad.nix
+      # ../modules/x/kde.nix
+      # ../modules/x/pantheon.nix
+
       ../modules/x/fonts.nix
       ../modules/packages/x-common.nix
       ../modules/packages/x-extra.nix
@@ -43,7 +47,7 @@
       ../modules/net/firewall-desktop.nix
       ../modules/net/kresd.nix
       ../modules/net/wireguard.nix
-      ../modules/net/i2p.nix
+      ../modules/net/i2pd.nix
       ../modules/net/tor.nix
       ../modules/net/sshd.nix
 

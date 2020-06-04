@@ -8,6 +8,10 @@ in
   programs.browserpass.enable = true;
   programs.dconf.enable = true;
   programs.qt5ct.enable = true;
+  programs.spacefm = {
+    enable = true;
+    settings.source = ../../home/.config/spacefm/spacefm.conf;
+  };
 
   environment = {
     etc."imv_config".source = ../../home/.config/imv/config;
@@ -15,22 +19,19 @@ in
 
   environment.systemPackages = with pkgs;
     [
-      # mouse
-      piper
+      piper # mouse settings
       conky
       xdotool
       seturgent
       stylish-haskell
       alacritty
       roxterm # fallback terminal
-      firefoxWrapper
+      firefox-beta-bin
       zathura
-      evince
+      fbreader
       # text    
       hunspell
       hunspellDicts.en_US-large
-      calibre # epub
-      spaceFM
 
       # themes
       lxappearance-gtk3
@@ -54,7 +55,6 @@ in
       glxinfo
       transmission_gtk
       feh
-      xlsfonts
       xxkb
       xorg.xev
       xorg.xfontsel

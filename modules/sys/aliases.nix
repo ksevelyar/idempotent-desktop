@@ -47,6 +47,7 @@
     b = "sudo nixos-rebuild switch --keep-going";
     br = "b && xmonad --restart";
     bu = "refresh && b";
+    no = "nixos-option";
 
     id-gc = "sudo nix-collect-garbage --delete-older-than 30d";
     id-inspect-store = "nix path-info - rSh /run/current-system | sort - k2h ";

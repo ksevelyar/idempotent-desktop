@@ -31,6 +31,7 @@
   services.xserver = {
     enable = true;
 
+    # TODO: move to laptop.nix
     libinput = {
       enable = true;
       accelProfile = "flat"; # flat profile for touchpads
@@ -78,43 +79,16 @@
           package = pkgs.vanilla-dmz;
         };
       };
-
-      greeters.gtk = {
-        enable = false;
-        indicators = [
-          "~host"
-          "~spacer"
-          "~clock"
-          "~spacer"
-          "~session"
-        ];
-
-        theme = {
-          name = "Ant-Dracula";
-          package = pkgs.ant-dracula-theme;
-        };
-        iconTheme = {
-          name = "ePapirus";
-          package = pkgs.papirus-icon-theme;
-        };
-        cursorTheme = {
-          name = "Vanilla-DMZ";
-          package = pkgs.vanilla-dmz;
-        };
-      };
     };
 
     layout = "us,ru";
     xkbOptions = "grp:caps_toggle,grp:alt_shift_toggle,grp_led:caps";
     desktopManager = {
       xterm.enable = false;
-      gnome3.enable = false;
-      pantheon.enable = false;
-      lxqt.enable = false;
     };
   };
 
-  qt5 = { style = "gtk2"; platformTheme = "gtk2"; };
+  qt5 = { style = "gtk2"; platformTheme = "gnome"; };
   environment = {
     etc."xdg/gtk-3.0/settings.ini" = {
       text = ''

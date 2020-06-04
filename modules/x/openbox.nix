@@ -1,9 +1,4 @@
 { config, pkgs, lib, ... }:
-let
-  compiledLayout = pkgs.runCommand "keyboard-layout" {} ''
-    ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${../../assets/layout.xkb} $out
-  '';
-in
 {
   environment.systemPackages = with pkgs;
     let
@@ -32,19 +27,6 @@ in
 
   # services.xserver.desktopManager.lxqt.enable = true;
   services.xserver = {
-    displayManager = {
-      sessionCommands = ''
-        # ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY
-        sh ~/.fehbg
-        xsetroot -cursor_name left_ptr
-        (rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log) &
-
-        lxqt-policykit-agent &
-        xxkb &
-        xcape -e 'Super_R=Super_R|X'
-      '';
-    };
-
     windowManager = {
       openbox.enable = true;
     };
