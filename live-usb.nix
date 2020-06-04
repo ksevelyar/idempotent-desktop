@@ -1,6 +1,3 @@
-# nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix -o live-usb
-# sudo dd bs=4M if=live-usb/iso/nixos.iso of=/dev/sdc status=progress && sync
-
 { config, pkgs, lib, vars, ... }:
 {
   imports = [

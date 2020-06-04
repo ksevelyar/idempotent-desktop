@@ -1,6 +1,4 @@
-# nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb-min.nix
-# sudo dd bs=4M if=result/iso/nixos.iso of=/dev/sdc status=progress && sync
-
+# https://github.com/ksevelyar/idempotent-desktop/blob/master/docs/live-usb.md
 { config, pkgs, lib, ... }:
 {
 
@@ -52,8 +50,17 @@
   networking.networkmanager.enable = true; # nmcli for wi-fi
   networking.wireless.enable = lib.mkForce false;
 
+  nix = {
+    binaryCaches = [
+      "https://idempotent-desktop.cachix.org"
+    ];
+    binaryCachePublicKeys = [
+      "idempotent-desktop.cachix.org-1:OkWDud90b2/k/k1yIUg1lxZdNRWEvCfv6zSSRQ75lVM="
+    ];
+  };
+
   services.mingetty.helpLine = lib.mkForce ''
-    The "root" account has "jkl" password.
+    The "root" account has "id" password.
     Type `i' to print system information.
 
     .     .       .  .   . .   .   . .    +  .
