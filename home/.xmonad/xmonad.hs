@@ -235,10 +235,10 @@ scratchpads = [
     (customFloating $ W.RationalRect 0.01 0.5 0.48 0.47),
   NS "terminal-2" "alacritty --class terminal-2 --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
     (resource =? "terminal-2")
-    (customFloating $ W.RationalRect 0.5 0.5 0.48 0.47),
+    (customFloating $ W.RationalRect 0.51 0.5 0.48 0.47),
   NS "notes" "alacritty --class notes -e nvim ~/notes"
     (resource =? "notes")
-    (customFloating $ W.RationalRect 0.5 0.03 0.48 0.47),
+    (customFloating $ W.RationalRect 0.51 0.03 0.48 0.47),
   NS "nnn" "cd /storage && alacritty --class nnn -e nnn"
     (resource =? "nnn")
     (customFloating $ W.RationalRect 0.01 0.03 0.48 0.47),
