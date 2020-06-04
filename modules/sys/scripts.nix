@@ -2,6 +2,7 @@
 
 let
   id-error = pkgs.writeScriptBin "id-error" ''
+    #!${pkgs.stdenv.shell}
     echo -e "\n💀\n"
   '';
 
@@ -84,6 +85,7 @@ let
 in
 {
   environment.systemPackages = [
+    id-error
     id-info
     id-build-iso
     id-pick-color
