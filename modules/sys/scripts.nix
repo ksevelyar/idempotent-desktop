@@ -30,12 +30,11 @@ let
     #!${pkgs.stdenv.shell}
     set -e
 
-    cd /tmp
     nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix 
-    ls -lah result/iso/id-live.iso
+    du -h /tmp/result/iso/id-live.iso
 
     lsblk -f
-    echo 'sudo dd bs=4M if=result/iso/id-live.iso of=/dev/disk/by-label/id-live status=progress oflag=sync'
+    echo 'sudo dd bs=4M if=/tmp/result/iso/id-live.iso of=/dev/disk/by-label/id-live status=progress oflag=sync'
   '';
 
   id-info = pkgs.writeScriptBin "id-info" ''
