@@ -9,7 +9,6 @@
     ./modules/sys/aliases.nix
     ./modules/sys/scripts.nix
     ./modules/sys/tty.nix
-    ./modules/sys/nix.nix
     ./modules/sys/debug.nix
     ./modules/sys/vars.nix
     ./modules/sys/sysctl.nix
@@ -73,11 +72,20 @@
   boot.kernelModules = [ "wl" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true; # run nmtui to connect wi-fi
   networking.wireless.enable = false;
 
+  nix = {
+    binaryCaches = [
+      "https://idempotent-desktop.cachix.org"
+    ];
+    binaryCachePublicKeys = [
+      "idempotent-desktop.cachix.org-1:OkWDud90b2/k/k1yIUg1lxZdNRWEvCfv6zSSRQ75lVM="
+    ];
+  };
+
   services.mingetty.helpLine = lib.mkForce ''
-    The "root" account has "jkl" password.
+    The "root" account has "id" password.
     Type `i' to print system information.
 
     .     .       .  .   . .   .   . .    +  .

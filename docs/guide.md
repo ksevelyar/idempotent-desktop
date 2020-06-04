@@ -10,7 +10,7 @@
 
 🍕 This repo is just a bunch of NixOS [modules](https://github.com/ksevelyar/idempotent-desktop/tree/master/modules), so you can pick or override anything.
 
-🍕 I use NixOS for [development](https://idempotent-desktop.netlify.app/vim.html), as a headless [router](https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/net/router.nix), for my tv (mostly `kodi`) and as a k8s node for my [atoms](https://ark.intel.com/content/www/us/en/ark/products/59682/intel-atom-processor-d2500-1m-cache-1-86-ghz.html).
+🍕 I use NixOS for [development](https://idempotent-desktop.netlify.app/vim.html), as a headless [router](https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/net/router.nix), for my tv (mostly `kodi`) and as a k8s node for my [atoms](https://ark.intel.com/content/www/us/en/ark/products/59682/intel-atom-processor-d2500-1m-cache-1-86-ghz.html). Raspberry Pi also in the list.
 
 🍕 You can use [tor](https://idempotent-desktop.netlify.app/anonymity.html#use-tor-as-a-socks5-proxy), [i2pd](https://idempotent-desktop.netlify.app/anonymity.html#i2p), `wireguard` or `openvpn` to bypass government blocks of selected sites.
 
@@ -31,6 +31,10 @@ I'll point only things that differ from [nixos.org/nixos/manual](https://nixos.o
 Physical machines locates in `hosts`; users in `users`. You'll need to link your host to configuration.nix and rebuild system.
 
 Example of fresh installation from `live-usb`:
+
+### Wi-Fi
+
+You can connect to wi-fi with `nmtui`
 
 ### Mount drives
 
@@ -73,6 +77,18 @@ sudo nix-channel --update
 sudo nixos-install
 ```
 
+You should see prompt for root password in the end.
+
+### Finalize user
+
+Set password with `passwd username` and set correct rights to /etc/nixos for your user:
+
+```sh
+sudo chown 1000:1000 /mnt/etc/nixos
+```
+
+Now you can reboot to your system.
+
 ### Scripts and aliases can save some time
 
 - [scripts.nix](https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/sys/scripts.nix)
@@ -80,6 +96,7 @@ sudo nixos-install
 
 ## Todo 🍒
 
+- [ ] Live Usb with persistence layer
 - [ ] Write docs
   - [ ] Русская документация
   - [ ] Add animated svgs to docs

@@ -7,6 +7,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${vars.user} = {
+    uid = 1000;
     isNormalUser = true;
 
     # Enable ‘sudo’ for the user.
@@ -48,24 +49,14 @@
 
       home.file.".config/zathura/zathurarc".source = ../home/.config/zathura/zathurarc;
 
-      home.file.".config/roxterm.sourceforge.net/Colours/joker".source =
-        ../home/.config/roxterm.sourceforge.net/Colours/joker;
-      home.file.".config/roxterm.sourceforge.net/Profiles/Default".source =
-        ../home/.config/roxterm.sourceforge.net/Profiles/Default;
-      home.file.".config/roxterm.sourceforge.net/Global".source =
-        ../home/.config/roxterm.sourceforge.net/Global;
+      home.file.".config/roxterm.sourceforge.net/Colours/joker".source = ../home/.config/roxterm.sourceforge.net/Colours/joker;
+      home.file.".config/roxterm.sourceforge.net/Profiles/Default".source = ../home/.config/roxterm.sourceforge.net/Profiles/Default;
+      home.file.".config/roxterm.sourceforge.net/Global".source = ../home/.config/roxterm.sourceforge.net/Global;
 
       home.file.".config/alacritty/alacritty.yml".source = ../home/.config/alacritty/alacritty.yml;
       home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../home/.config/alacritty/alacritty-scratchpad.yml;
 
       home.file.".config/mpv/mpv.conf".source = ../home/.config/mpv/mpv.conf;
-
-      # home.file.".icons/default/index.theme".text = ''
-      # [Icon Theme]
-      # Name=Default
-      # Comment=Default Cursor Theme
-      # Inherits=Vanilla-DMZ
-      # '';
 
       home.file.".eslintrc.json".source = ../home/.eslintrc.json;
       home.file.".npmrc".source = ../home/.npmrc;

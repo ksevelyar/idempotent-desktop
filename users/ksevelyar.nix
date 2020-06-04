@@ -2,6 +2,10 @@
 {
   vars.user = "ksevelyar";
 
+  users.users.${vars.user} = {
+    description = "Sergey Zubkov";
+  };
+
   # dev hosts
   networking.extraHosts =
     ''
@@ -11,7 +15,6 @@
 
   home-manager = {
     users.ksevelyar = {
-      # home.file."Wallpapers/1.png".source = ../home/wallpapers/1.png;
       programs.git = {
         userName = "Sergey Zubkov";
         userEmail = "ksevelyar@gmail.com";
