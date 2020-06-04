@@ -55,7 +55,7 @@ myXPConfig = def
   { position          = Top
   , alwaysHighlight   = True
   , promptBorderWidth = 0
-  , font              = "xft:Terminess Powerline:size=14"
+  , font              = "Terminus:size=14"
   }
 
 
@@ -149,6 +149,7 @@ myLayout = windowNavigation $
 
 -- Window Management -----------------------------------------------------------
 -- xprop
+-- TODO: refactor to composeOne
 myManageHook = manageDocks <+> (composeAll . concat $
   [
     [resource  =? r --> doIgnore           | r <- myIgnores    ]
@@ -185,7 +186,7 @@ myManageHook = manageDocks <+> (composeAll . concat $
 
   -- classnames
   -- myFloats      = ["Lxappearance", "XFontSel" ]
-  -- myFullFloats  = ["feh", "mpv", "Zathura", "Mcomix", "smplayer"]
+  myFullFloats  = ["mpv", "Zathura", "Image Lounge"]
   myIm          = ["TelegramDesktop", "Mumble", "Skype"]
   myEd          = ["nvim"]
   myGfxs        = ["Inkscape", "Gimp-2.10"]
@@ -273,9 +274,9 @@ scratchpads = [
     (className =? "Spacefm")
     (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8),
 
-  NS "images_browser" "nomacs"
-    (className =? "Image Lounge")
-    (customFloating $ W.RationalRect 0.01 0.01 0.98 0.98),
+  -- NS "images_browser" "nomacs"
+    -- (className =? "Image Lounge")
+    -- (customFloating $ W.RationalRect 0.01 0.01 0.98 0.98),
 
   NS "pavucontrol" "pavucontrol"
     (className =? "Pavucontrol")

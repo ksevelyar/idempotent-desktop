@@ -5,6 +5,63 @@ let
   };
 in
 {
+  environment = {
+    variables = {
+      VISUAL = "nvim";
+      BROWSER = "firefox";
+    };
+
+    # run xfce4-mime-settings to change with gui
+    etc."xdg/mimeapps.list" = {
+      text = ''
+        [Default Applications]
+        inode/directory=spacefm.desktop
+        x-scheme-handler/http=firefox.desktop
+        x-scheme-handler/https=firefox.desktop
+        x-scheme-handler/ftp=firefox.desktop
+        x-scheme-handler/chrome=firefox.desktop
+        text/html=firefox.desktop
+        application/x-extension-htm=firefox.desktop
+        application/x-extension-html=firefox.desktop
+        application/x-extension-shtml=firefox.desktop
+        application/xhtml+xml=firefox.desktop
+        application/x-extension-xhtml=firefox.desktop
+        application/x-extension-xht=firefox.desktop
+        x-scheme-handler/magnet=userapp-transmission-gtk-DXP9G0.desktop
+        x-scheme-handler/about=firefox.desktop
+        x-scheme-handler/unknown=firefox.desktop
+        video/x-matroska=mpv.desktop;
+        video/mpeg=mpv.desktop;
+        image/gif=nomacs.desktop;
+        image/png=nomacs.desktop;
+        image/jpeg=nomacs.desktop;
+        application/pdf=org.gnome.Evince.desktop;
+
+        [Added Associations]
+        x-scheme-handler/http=firefox.desktop;
+        x-scheme-handler/https=firefox.desktop;
+        x-scheme-handler/ftp=firefox.desktop;
+        x-scheme-handler/chrome=firefox.desktop;
+        text/html=firefox.desktop;
+        application/x-extension-htm=firefox.desktop;
+        application/x-extension-html=firefox.desktop;
+        application/x-extension-shtml=firefox.desktop;
+        application/xhtml+xml=firefox.desktop;
+        application/x-extension-xhtml=firefox.desktop;
+        application/x-extension-xht=firefox.desktop;
+        x-scheme-handler/magnet=userapp-transmission-gtk-DXP9G0.desktop;
+        application/pdf=org.gnome.Evince.desktop;
+        image/jpeg=nomacs.desktop;
+        image/png=nomacs.desktop;
+        video/x-matroska=mpv.desktop;
+        video/mpeg=mpv.desktop;
+        image/gif=nomacs.desktop;      
+      '';
+    };
+
+    etc."imv_config".source = ../../home/.config/imv/config;
+  };
+
   programs.browserpass.enable = true;
   programs.dconf.enable = true;
   programs.qt5ct.enable = true;
@@ -13,23 +70,14 @@ in
     settings.source = ../../home/.config/spacefm/spacefm.conf;
   };
 
-  environment = {
-    etc."imv_config".source = ../../home/.config/imv/config;
-  };
-
   environment.systemPackages = with pkgs;
     [
-      piper # mouse settings
-      conky
-      xdotool
-      seturgent
-      stylish-haskell
-      alacritty
-      roxterm # fallback terminal
+      # net
       firefox-beta-bin
-      zathura
-      fbreader
+      transmission_gtk
+
       # text    
+      zathura
       hunspell
       hunspellDicts.en_US-large
 
@@ -37,80 +85,48 @@ in
       lxappearance-gtk3
       vanilla-dmz
       ant-dracula-theme
-      # papirus-icon-theme
       stable.papirus-maia-icon-theme
 
-      # paper-icon-theme
-      # deepin.deepin-icon-theme
-      # elementary-xfce-icon-theme
-      # faba-icon-theme
-      # maia-icon-theme
-      # mate.mate-icon-theme
-      # mate.mate-icon-theme-faenza
-      # moka-icon-theme
-      # numix-icon-theme
-      # cinnamon.mint-y-icons
-      # flat-remix-icon-theme
-
-      glxinfo
-      transmission_gtk
-      feh
-      xxkb
-      xorg.xev
-      xorg.xfontsel
-      xorg.xfd
-      xorg.xkbcomp
-
-      # voip
-      (pkgs.mumble.override { pulseSupport = true; })
-
       # sec
-      tor-browser-bundle-bin
-      openvpn
       qtpass
       pinentry-gtk2
       qtox
       tdesktop
 
       # sys
+      xxkb
+      xorg.xev
+      xorg.xfd
+      xorg.xkbcomp
+      piper # mouse settings
+      conky
+      xdotool
+      seturgent
+      alacritty
       maim
       vokoscreen
-      simplescreenrecorder
       xclip
       qalculate-gtk
-      (rofi.override { plugins = [ rofi-file-browser rofi-emoji rofi-systemd rofi-calc ]; })
-      rofi-pass
-      pavucontrol
+      (rofi.override { plugins = [ rofi-emoji rofi-calc ]; })
       libnotify
       dunst
-      pywal
-      woeusb # write win10.iso to usb drive
 
       # media
-      # ncspot # requires premium
+      glxinfo
+      feh
       spotify
       mpv
       imv
-      nomacs
-
-      # fs
-      spaceFM
-
-      gparted
-      # x11vnc -repeat -forever -noxrecord -noxdamage -rfbport 5900
-      tigervnc
-      x11vnc
-      # x2goclient
-
-      # laptop
-      arandr
-
-      # sweet
-      # pantheon.elementary-icon-theme
-      # ibus-qt
-      # ibus-with-plugins
       libva-utils
       cava
       moc
+
+      # fs
+      nomacs
+      spaceFM
+      gparted
+
+      # laptop
+      arandr
     ];
 }

@@ -35,6 +35,7 @@ in
       imagemagick
 
       # tools
+      stylish-haskell
       stable.nixpkgs-fmt
       # ngrok
       direnv

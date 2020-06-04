@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 let
+  id-error = pkgs.writeScriptBin "id-error" ''
+    echo -e "\n💀\n"
+  '';
+
   id-refresh-channels = pkgs.writeScriptBin "id-refresh-channels" ''
     #!${pkgs.stdenv.shell}
     set -e
@@ -8,7 +12,7 @@ let
     sudo nix-channel --add https://nixos.org/channels/nixos-20.03 stable 
     sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos 
     
-    for i in {1..5}; do sudo nix-channel --update && break || sleep 1; done
+    for i in {1..5}; do sudo nix-channel --update && break || id-error; done
     
     sudo nix-channel --list
   '';
@@ -49,7 +53,11 @@ let
     echo -e "Processor: $CPU"
     echo -e "Video: $VIDEO\n"
 
+    echo -e "\n"
     lsblk -f
+    
+    echo -e "\n"
+    lsmod | rg kvm
   '';
 
   id-deploy = pkgs.writeScriptBin "id-deploy" ''

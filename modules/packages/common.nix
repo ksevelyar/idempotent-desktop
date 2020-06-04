@@ -43,6 +43,13 @@ in
       ccze
       nix-du
       graphviz
+      nmap
+      wget
+      curl
+      aria2
+      translate-shell
+      brightnessctl
+      youtube-dl
 
       # monitoring 
       iperf3
@@ -60,9 +67,11 @@ in
       psmisc # pstree, killall
       inetutils
 
-      # mail
+      # mail & tasks
       astroid
       notmuch
+      offlineimap
+      taskwarrior
 
       # sec
       openvpn
@@ -76,28 +85,14 @@ in
       (pass.withExtensions (ext: with ext; [ pass-audit pass-otp pass-genphrase pass-import pass-update ]))
       gopass
 
-      # cli
-      taskwarrior
-      nmap
-      wget
-      curl
-      aria2
-      translate-shell
-      websocat
-      brightnessctl
-      youtube-dl
-
       # fs
-      ffsend
-      unar
       unzip
       unrar
       atool
       ffmpeg
-
       bind
       parted
-
+      ffsend
       fd
       nnn
       ncdu
@@ -110,8 +105,7 @@ in
       exfat
       sshfsFuse
       rsync
-      # rclone mount gdrive: ~/gdrive/
-      rclone
+      rclone # rclone mount gdrive: ~/gdrive/
 
       # im
       toxic

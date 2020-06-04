@@ -27,9 +27,9 @@ You can generate your own iso, just add new modules and remove things you don't 
 
 ## Write it to usb
 
-`sudo dd bs=4M if=result/iso/idempotent-desktop.iso of=/dev/sdX status=progress && sync`
+`sudo dd bs=4M if=/tmp/result/iso/id-live.iso of=/dev/disk/by-label/id-live status=progress oflag=sync`
 
-Replace `/dev/sdX` to proper device from `lsblk` output.
+You can replace `/dev/disk/by-label/id-live` with `/dev/sdX` with proper device from `lsblk` output.
 
 ## Or run with virt-manager
 

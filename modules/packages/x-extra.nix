@@ -24,10 +24,12 @@ in
       thunderbird-bin
 
       # cli
+      roxterm # fallback terminal
       # browsh
 
       # gui
-      # ulauncher
+      pywal
+      vlc
       # appimage-run
       stable.cura
       google-chrome
@@ -39,8 +41,6 @@ in
       openscad
 
       # themes
-      # pantheon.elementary-icon-theme
-      # pantheon.elementary-gtk-theme
       # pop-gtk-theme
       # adapta-gtk-theme
       # ant-theme
@@ -52,13 +52,26 @@ in
       # adwaita-qt
       # arc-icon-theme
       # zafiro-icons
+      # paper-icon-theme
+      # deepin.deepin-icon-theme
+      # elementary-xfce-icon-theme
+      # faba-icon-theme
+      # maia-icon-theme
+      # mate.mate-icon-theme
+      # mate.mate-icon-theme-faenza
+      # moka-icon-theme
+      # numix-icon-theme
+      # cinnamon.mint-y-icons
+      # flat-remix-icon-theme
 
       # im
       # skype
       # slack
 
       # media
+      # ncspot # requires premium
       glava
+      simplescreenrecorder
       # audacious
       # lmms
       vlc
@@ -81,7 +94,7 @@ in
 
       # sys
       # tightvnc
-      # winusb
+      woeusb # write win10.iso to usb drive
 
     ];
 }

@@ -18,7 +18,7 @@
       ../modules/sys/sysctl.nix
 
       ../modules/boot/efi.nix
-      # ../modules/boot/multiboot.nix
+      ../modules/boot/multiboot.nix
 
       ../modules/services/common.nix
       ../modules/services/x.nix
@@ -26,7 +26,6 @@
 
       ../modules/x/xmonad.nix
       # ../modules/x/kde.nix
-      # ../modules/x/pantheon.nix
 
       ../modules/x/fonts.nix
       ../modules/packages/x-common.nix

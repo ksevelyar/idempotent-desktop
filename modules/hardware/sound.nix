@@ -1,9 +1,19 @@
 { config, pkgs, lib, ... }:
 {
-  hardware = {
-    pulseaudio.enable = true;
-  };
   sound.enable = true;
 
-  # nixpkgs.config.pulseaudio = true;
+  hardware = {
+    pulseaudio = {
+      enable = true;
+      package = pkgs.pulseaudioFull;
+      extraModules = [ pkgs.pulseaudio-modules-bt ];
+      extraConfig = "load-module module-switch-on-connect"; # auto-switch to bluetooth headset
+    };
+  };
+
+  environment.systemPackages = with pkgs;
+    lib.mkIf (config.services.xserver.enable) [
+      pavucontrol
+      (mumble.override { pulseSupport = true; })
+    ];
 }

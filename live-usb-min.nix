@@ -27,7 +27,7 @@
     ./modules/packages/nvim.nix
     ./modules/packages/tmux.nix
 
-    # ./modules/hardware/bluetooth.nix
+    ./modules/hardware/bluetooth.nix
     # ./modules/hardware/sound.nix
     # ./modules/hardware/laptop.nix
 
