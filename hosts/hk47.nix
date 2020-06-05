@@ -94,7 +94,8 @@
   };
 
   # hardware
-  services.xserver.videoDrivers = [ "nouveau" ];
+  services.xserver.videoDrivers = [ "nvidiaLegacy390" ];
+  # services.xserver.videoDrivers = [ "nouveau" ];
 
   # Fix smooth scroll in Firefox
   # services.xserver.screenSection = ''

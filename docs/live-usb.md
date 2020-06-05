@@ -34,3 +34,9 @@ You can replace `/dev/disk/by-label/id-live` with `/dev/sdX` with proper device 
 ## Or run with virt-manager
 
 ![virt-manager](https://i.imgur.com/1n0SWwG.png)
+
+### Try your usb in vm before reboot
+
+```fish
+sudo qemu-kvm -hdb /dev/sdc
+```

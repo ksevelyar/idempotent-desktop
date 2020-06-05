@@ -23,6 +23,9 @@ in
   environment.systemPackages = with pkgs;
     [
       # sys
+      fzf
+      ripgrep
+      fd
       cachix
       home-manager
       libqalculate # qalc
@@ -94,7 +97,11 @@ in
       parted
       ffsend
       fd
+
+      # curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
       nnn
+      viu
+
       ncdu
       exa
       z-lua

@@ -185,7 +185,7 @@ myManageHook = manageDocks <+> (composeAll . concat $
   doFocusFullFloat   = doFullFloat
 
   -- classnames
-  -- myFloats      = ["Lxappearance", "XFontSel" ]
+  -- myFloats      = ["Lxappearance" ]
   myFullFloats  = ["mpv", "Zathura", "Image Lounge"]
   myIm          = ["TelegramDesktop", "Mumble", "Skype"]
   myEd          = ["nvim"]
@@ -194,7 +194,7 @@ myManageHook = manageDocks <+> (composeAll . concat $
   myMisc        = ["firefox-chill"]
 
   -- roles
-  -- myServ        = ["rails_dobroserver", "rails_fitlog"]
+  -- myServ        = ["elixir", "node"]
   myFs          = ["nnn_startup"]
 
   -- resources
@@ -213,6 +213,7 @@ myEventHook = docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEve
 -- Startup hook ----------------------------------------------------------------
 
 myStartupHook = do
+  spawn "mkdir -p ~/Screenshots ~/.ssh ~/.gnupg ~/.password-store ~/.secrets" -- create mountpoints for tomb
   spawn "rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log"
   spawn "sh ~/.fehbg"
   spawn "sh ~/.config/polybar/launch.sh"
@@ -273,10 +274,6 @@ scratchpads = [
   NS "spacefm" "spacefm"
     (className =? "Spacefm")
     (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8),
-
-  -- NS "images_browser" "nomacs"
-    -- (className =? "Image Lounge")
-    -- (customFloating $ W.RationalRect 0.01 0.01 0.98 0.98),
 
   NS "pavucontrol" "pavucontrol"
     (className =? "Pavucontrol")
@@ -368,17 +365,19 @@ myKeys = \conf -> mkKeymap conf $
     , ("<F8>", namedScratchpadAction scratchpads  "pavucontrol")
     , ("<F9>", namedScratchpadAction scratchpads "spotify")
     , ("<F10>", namedScratchpadAction scratchpads "upwork")
-    , ("M-i", namedScratchpadAction scratchpads  "images_browser")
+    -- , ("M-i", namedScratchpadAction scratchpads  "images_browser")
 
     , ("M-s",namedScratchpadAction scratchpads  "spacefm")
     , ("M-g",namedScratchpadAction scratchpads "gpmdp")
     , ("M-j",namedScratchpadAction scratchpads "tmux")
 
-    , ("<Print>",  spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
-    , ("M-<Delete>", spawn "maim -s /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
+    , ("<Print>",  spawn "maim -s ~/Screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
+    , ("M-<Print>", spawn "maim ~/Screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
+    , ("M-S-<Print>", spawn "maim --delay=5 --quiet ~/Screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
 
-    , ("M-<Print>",    spawn "maim --delay=1 --quiet /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
-    , ("M-C-<Delete>", spawn "maim /storage/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
+    -- for keyaboards without print scrn
+    , ("M-C-<Delete>", spawn "maim ~/Screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
+    , ("M-<Delete>", spawn "maim -s ~/Screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")
 
     , ("M-<Home>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
     , ("M-<Page_Up>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%")
@@ -393,7 +392,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-S-,",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
     , ("M-S-.",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 40%")
 
-    , ("M-C-<Backspace>", spawn "systemctl --user restart picom; xmonad --recompile && xmonad --restart") -- Restart xmonad
+    , ("M-C-<Backspace>", spawn "xmonad --recompile && xmonad --restart && systemctl --user restart picom") -- Restart xmonad
     ]
     ++
 

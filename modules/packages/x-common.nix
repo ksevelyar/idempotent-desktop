@@ -9,6 +9,7 @@ in
     variables = {
       VISUAL = "nvim";
       BROWSER = "firefox";
+      TERMINAL = "alacritty";
     };
 
     # run xfce4-mime-settings to change with gui

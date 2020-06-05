@@ -35,11 +35,18 @@ let
     #!${pkgs.stdenv.shell}
     set -e
 
-    nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix 
-    du -h /tmp/result/iso/id-live.iso
+    nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix -o /tmp/live-usb
+    du -h /tmp/live-usb/iso/id-live.iso
+  '';
 
-    lsblk -f
-    echo 'sudo dd bs=4M if=/tmp/result/iso/id-live.iso of=/dev/disk/by-label/id-live status=progress oflag=sync'
+  id-write-usb = pkgs.writeScriptBin "id-write-usb" ''
+    #!${pkgs.stdenv.shell}
+    set -e
+
+    id-build-iso
+    sudo dd bs=4M if=/tmp/live-usb/iso/id-live.iso of=/dev/disk/by-label/id-live status=progress oflag=sync
+
+    echo -e "\n💽"
   '';
 
   id-info = pkgs.writeScriptBin "id-info" ''
@@ -67,19 +74,16 @@ let
 
     set -e
 
-    sudo nix-channel --add https://nixos.org/channels/nixos-20.03 stable
-    sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
-
-    for i in {1..5}; do sudo nix-channel --update && break || sleep 1; done
-    
-    sudo nix-channel --list
+    id-refresh-channels
+    id-build-iso
 
     nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=/etc/nixos/configuration.nix --no-out-link | cachix push idempotent-desktop
     nix-du --root /run/current-system/sw/ -s 100MB | tred | dot -Tsvg > nix-store.svg
 
-    nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix -o /tmp/live-usb
+    id-build-iso
     rclone copy /tmp/live-usb/iso/id-live.iso gdrive:
-    echo -e "\nimv nix-store.svg\n"
+
+    echo 🐗
   '';
 
 in
@@ -88,6 +92,7 @@ in
     id-error
     id-info
     id-build-iso
+    id-write-usb
     id-pick-color
     id-refresh-channels
     id-deploy
