@@ -135,3 +135,7 @@ Currently integrated with `sshd`.
 ## hardened kernel
 
 You can switch to the hardened kernel with one line: [sysctl.nix](https://github.com/ksevelyar/idempotent-desktop/blob/504570d52ab79463704e4ddcf908f82c5936217e/modules/sys/sysctl.nix#L4-L6)
+
+## Monitor
+
+- [email](https://haveibeenpwned.com/)

@@ -123,7 +123,7 @@
       options = [ "noatime" "nodiratime" ];
     };
 
-  # sudo fatlabel /dev/disk/by-uuid/3A05-EA05
+  # sudo fatlabel /dev/disk/by-uuid/3A05-EA05 boot
   fileSystems."/boot" =
     {
       device = "/dev/disk/by-label/boot";

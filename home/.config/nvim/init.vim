@@ -7,16 +7,15 @@
 " Install Vim Plug if not installed
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * silent! PlugInstall
 endif
 
 " Automatically install missing plugins on startup
 autocmd VimEnter * silent!
-  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | q
-  \| colorscheme joker
-  \| endif
+      \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+      \| PlugInstall --sync | q
+      \| endif
 
 """ Plugins
 call plug#begin()
@@ -115,14 +114,14 @@ autocmd! User GoyoLeave Limelight!
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 let g:fzf_commits_log_options = '--graph --color=always
-  \ --format="%C(yellow)%h%C(red)%d%C(reset)
-  \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
+      \ --format="%C(yellow)%h%C(red)%d%C(reset)
+      \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
 
 " let g:fzf_layout = { 'window': {
-      " \ 'width': 0.9,
-      " \ 'height': 0.7,
-      " \ 'highlight': 'Comment',
-      " \ 'rounded': v:false } }
+" \ 'width': 0.9,
+" \ 'height': 0.7,
+" \ 'highlight': 'Comment',
+" \ 'rounded': v:false } }
 
 " -------------------------
 " UI
@@ -170,8 +169,8 @@ Plug 'cocopon/iceberg.vim'
 Plug '907th/vim-auto-save'
 let g:auto_save = 0
 " augroup ft_markdown
-  " au!
-  " au FileType markdown let b:auto_save = 1
+" au!
+" au FileType markdown let b:auto_save = 1
 " augroup END
 
 " -------------------------
@@ -226,25 +225,25 @@ let g:ale_lint_on_enter = 0
 let g:ale_sign_error = '◉'
 let g:ale_sign_warning = '◉'
 let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'ruby': ['rubocop'],
-\   'sass': ['stylelint'],
-\   'elixir': ['mix_format'],
-\   'nix': ['nixpkgs-fmt'],
-\   'haskell': ['stylish-haskell']
-\}
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'ruby': ['rubocop'],
+      \   'sass': ['stylelint'],
+      \   'elixir': ['mix_format'],
+      \   'nix': ['nixpkgs-fmt'],
+      \   'haskell': ['stylish-haskell']
+      \}
 let g:ale_linters = {
-\   'c': [], 'cpp': [], 'elixir': [], 'go': [], 'sh': [],
-\   'html': [], 'css': [], 'javascript': [], 'typescript': [],
-\   'json': [], 'vue': [],
-\ }
+      \   'c': [], 'cpp': [], 'elixir': [], 'go': [], 'sh': [],
+      \   'html': [], 'css': [], 'javascript': [], 'typescript': [],
+      \   'json': [], 'vue': [],
+      \ }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
-\ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-eslint', 'coc-tsserver',
-\ 'coc-elixir', 'coc-go', 'coc-yaml', 'coc-tag', 'coc-markdownlint', 'coc-yank',
-\ 'coc-vimlsp', 'coc-sh', 'coc-emoji', 'coc-git', 'coc-highlight', 'coc-svg'
-\ ]
+      \ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-eslint', 'coc-tsserver',
+      \ 'coc-elixir', 'coc-go', 'coc-yaml', 'coc-tag', 'coc-markdownlint', 'coc-yank',
+      \ 'coc-vimlsp', 'coc-sh', 'coc-emoji', 'coc-git', 'coc-highlight', 'coc-svg'
+      \ ]
 
 function! s:check_back_space() abort
   let col = col('.') - 1

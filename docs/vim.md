@@ -97,4 +97,5 @@ Select lines with `Shift+V`, then type `:sort<Enter>` to sort lines alphabetical
 
 ### Links
 
+- [awesome vim](https://vimawesome.com/)
 - [programmingfonts.org](https://www.programmingfonts.org/)
