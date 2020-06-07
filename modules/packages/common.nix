@@ -36,6 +36,7 @@ in
       memtest86plus
       jq
       ccze
+      lnav
       nix-du
       graphviz
       nmap
@@ -45,6 +46,7 @@ in
       translate-shell
       brightnessctl
       youtube-dl
+      ddgr
 
       # monitoring 
       iperf3

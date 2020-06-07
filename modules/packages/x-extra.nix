@@ -25,7 +25,8 @@ in
 
       # cli
       roxterm # fallback terminal
-      # browsh
+      browsh # cli browser
+      googler
 
       # gui
       pywal

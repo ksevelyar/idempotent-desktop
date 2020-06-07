@@ -1,3 +1,4 @@
+# mostly for Travis CI
 { config, pkgs, lib, vars, ... }:
 {
   imports = [
