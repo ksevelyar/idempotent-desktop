@@ -71,6 +71,8 @@ You can undo your actions with `u` and redo with `Ctrl-R`.
 
 `<Ctrl>6` switch to previous file
 
+`<Ctrl>V` visual block mode for multi-line editing
+
 `gg` move to top
 
 `G` move to botom

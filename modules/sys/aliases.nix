@@ -28,12 +28,29 @@
     r = "rsync -ra --info=progress2";
 
     tm = "tm1";
-    tm1 = "tmux new-session -A -s 🦙";
-    tm2 = "tmux new-session -A -s 🔮";
-    tm3 = "tmux new-session -A -s 🦹";
+    tm1 = "tmux new -A -s 🦙";
+    tm2 = "tmux new -A -s 🔮";
+    tm3 = "tmux new -A -s 🦹";
 
     g = "git";
+    gst = "git stash";
+    gsp = "git stash pop";
+    gsa = "git stash apply";
+    gsl = "git stash list --pretty=format:'%Cblue%gd%C(yellow): %C(brightwhite)%s'";
+
+    gco = "git checkout";
+    gc = "git commit --message";
+    gca = "git commit -all --message";
+
     tig = "tig status";
+    gs = "git status --short";
+
+    gd = "git diff";
+    gdc = "git diff --cached";
+    gfr = "git pull --rebase";
+
+    # Log (l)
+    gl = "git lg";
 
     t = "task"; # https://www.youtube.com/watch?v=zl68asL9jZA
     fd = "fd --hidden --exclude .git";
