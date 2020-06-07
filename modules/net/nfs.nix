@@ -1,6 +1,5 @@
-# sudo mkdir -p /export
 # sipcalc 192.168.0.1/24
-# https://graspingtech.com/mount-nfs-share-windows-10/
+# https://github.com/ksevelyar/carbicide/blob/5f8adcfd79fc2d543c16b67de16a64e828865345/choco.ps1#L248-L250
 {
   fileSystems."/export/learn" = { device = "/storage/learn"; options = [ "bind" ]; };
   fileSystems."/export/work" = { device = "/storage/work"; options = [ "bind" ]; };

@@ -17,13 +17,6 @@ in
 
   environment.systemPackages = with pkgs;
     [
-      universal-ctags
-      global
-
-      # git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-      # ~/.emacs.d/bin/doom install
-      # emacs
-
       # docs
       zeal
 
@@ -34,9 +27,11 @@ in
       sequeler
 
       # images
-      imagemagick
+      # imagemagick
 
       # tools
+      universal-ctags
+      global
       stylish-haskell
       stable.nixpkgs-fmt
       # ngrok
@@ -44,16 +39,22 @@ in
       lorri
       inotify-tools
       gitg
+      gitAndTools.tig
+      lazygit # https://youtu.be/CPLdltN7wgE
 
       # langs
       nodejs_latest
-      go
       elixir
+      # go
 
       # arduino
       arduino
       arduino-core
       stable.fritzing
       ino
+
+      # git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+      # ~/.emacs.d/bin/doom install
+      # emacs
     ];
 }

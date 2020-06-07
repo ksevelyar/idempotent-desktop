@@ -18,7 +18,7 @@ before_install:
 - if [ -n "$CACHIX_SIGNING_KEY" ]; then cachix push idempotent-desktop --watch-store;
   fi &
 script:
-- nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=live-usb/max.nix --no-out-link --keep-going
+- nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=live-usb/graphical.nix --no-out-link --keep-going
 env:
   global:
     secure: IBiN9TFKh1IQXdZK6j3xe/29yzX/oVGrquFrZywMBJzf6wRpdUyR+ZP6tQmw966Ps0BzUxshlKCFmk8l/QxXyQwOsXgSqlNscbdTyWSCS5IwpCL1TsTIYVttdqy2vaBFrrA/Pt3aTdqICTThC5lnjSKtQ8fbhHLGqEEMcBK6l+4=

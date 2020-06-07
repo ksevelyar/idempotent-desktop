@@ -2,6 +2,7 @@
 { config, pkgs, lib, vars, ... }:
 {
   imports = [
+    <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-base.nix>
     ./iso.nix
 
     ./users/shared.nix

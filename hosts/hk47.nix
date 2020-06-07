@@ -16,7 +16,6 @@
       ../modules/sys/nix.nix
       ../modules/sys/vars.nix
       ../modules/sys/sysctl.nix
-      ../modules/sys/folders.nix
 
       ../modules/boot/efi.nix
       ../modules/boot/multiboot.nix

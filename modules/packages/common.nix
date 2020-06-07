@@ -23,18 +23,18 @@ in
       libqalculate # qalc
       exa
       bat
-      kakoune
+      micro
       watchman
       sipcalc
       tldr
       git
       gitAndTools.diff-so-fancy
-      gitAndTools.tig
       bash
       mkpasswd
       file
       memtest86plus
       jq
+      miller
       ccze
       lnav
       nix-du
@@ -47,6 +47,8 @@ in
       brightnessctl
       youtube-dl
       ddgr
+      entr
+      termdown
 
       # monitoring 
       iperf3
@@ -65,6 +67,7 @@ in
       inetutils
 
       # mail & tasks
+      aerc
       astroid
       notmuch
       offlineimap

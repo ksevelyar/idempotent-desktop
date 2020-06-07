@@ -33,6 +33,8 @@
     tm3 = "tmux new-session -A -s 🦹";
 
     g = "git";
+    tig = "tig status";
+
     t = "task"; # https://www.youtube.com/watch?v=zl68asL9jZA
     fd = "fd --hidden --exclude .git";
     # turn screen off and stop music
