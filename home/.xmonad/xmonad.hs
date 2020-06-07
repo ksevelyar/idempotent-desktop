@@ -214,7 +214,6 @@ myEventHook = docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEve
 
 myStartupHook = do
   spawn "mkdir -p ~/Screenshots ~/.ssh ~/.gnupg ~/.password-store ~/.secrets" -- create mountpoints for tomb
-  spawn "rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log"
   spawn "sh ~/.fehbg"
   spawn "sh ~/.config/polybar/launch.sh"
   spawn "xsetroot -cursor_name left_ptr"
@@ -238,12 +237,19 @@ scratchpads = [
   NS "terminal-2" "alacritty --class terminal-2 --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
     (resource =? "terminal-2")
     (customFloating $ W.RationalRect 0.51 0.5 0.48 0.47),
+  NS "terminal-3" "alacritty --class terminal-3 --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
+    (resource =? "terminal-3")
+    (customFloating $ W.RationalRect 0.01 0.03 0.48 0.47),
+  NS "terminal-4" "alacritty --class terminal-4 --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
+    (resource =? "terminal-4")
+    (customFloating $ W.RationalRect 0.51 0.03 0.48 0.47),
+
   NS "notes" "alacritty --class notes -e nvim ~/notes"
     (resource =? "notes")
-    (customFloating $ W.RationalRect 0.51 0.03 0.48 0.47),
+    nonFloating,
   NS "nnn" "cd /storage && alacritty --class nnn -e nnn"
     (resource =? "nnn")
-    (customFloating $ W.RationalRect 0.01 0.03 0.48 0.47),
+    nonFloating,
 
   NS "keepassx" "keepassxc"
     (className =? "KeePassXC")
@@ -261,7 +267,7 @@ scratchpads = [
 
   NS "spotify" "spotify"
     (resource =? "spotify")
-    (customFloating $ W.RationalRect 0.15 0.2 0.7 0.7),
+    (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8),
 
   NS "upwork" "upwork"
     (wm_name =? "Time Tracker")
@@ -269,7 +275,7 @@ scratchpads = [
 
   NS "blueman-manager" "blueman-manager"
     (resource =? ".blueman-manager-wrapped")
-    (customFloating $ W.RationalRect 0.5 0.05 0.4 0.44),
+    (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8),
 
   NS "spacefm" "spacefm"
     (className =? "Spacefm")
@@ -277,7 +283,7 @@ scratchpads = [
 
   NS "pavucontrol" "pavucontrol"
     (className =? "Pavucontrol")
-    (customFloating $ W.RationalRect 0.25 0.05 0.5 0.7)
+    (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8)
   ]
   where
   role = stringProperty "WM_WINDOW_ROLE"
@@ -306,7 +312,6 @@ myKeys = \conf -> mkKeymap conf $
     -- , ("M-j", raiseMaybe (runInTerm "--class tmux" "tmux") (resource =? "tmux"))
     , ("M-<Space>", sendMessage NextLayout)  -- Rotate through the available layout algorithms
     , ("M-S-<Space>", sendMessage ToggleStruts )
-    , ("M-n", refresh) -- Resize viewed windows to the correct size
     , ("M-m", spawn "jgmenu --center")
 
     , ("M-t", raiseMaybe (spawn "telegram-desktop") (className =? "TelegramDesktop")) --
@@ -355,21 +360,25 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-f", sendMessage ToggleLayout)
     --
     , ("M-p", namedScratchpadAction scratchpads "qtpass")
-    , ("<F1>", namedScratchpadAction scratchpads  "terminal-1")
-    , ("<F2>", namedScratchpadAction scratchpads  "terminal-2")
-    , ("<F3>", namedScratchpadAction scratchpads "nnn")
-    , ("<F4>", namedScratchpadAction scratchpads  "notes")
-    -- , ("<F5>", namedScratchpadAction scratchpads  "keepassx")
+    , ("M-k", namedScratchpadAction scratchpads "keepassx")
+
+    -- cross
+    , ("<F1>", namedScratchpadAction scratchpads "terminal-1")
+    , ("<F2>", namedScratchpadAction scratchpads "terminal-2")
+    , ("<F3>", namedScratchpadAction scratchpads "terminal-3")
+    , ("<F4>", namedScratchpadAction scratchpads "terminal-4")
+    --, ("<F5>", namedScratchpadAction scratchpads  "keepassx")
     , ("<F6>", namedScratchpadAction scratchpads  "gotop")
     , ("<F7>", namedScratchpadAction scratchpads  "blueman-manager")
     , ("<F8>", namedScratchpadAction scratchpads  "pavucontrol")
     , ("<F9>", namedScratchpadAction scratchpads "spotify")
     , ("<F10>", namedScratchpadAction scratchpads "upwork")
-    -- , ("M-i", namedScratchpadAction scratchpads  "images_browser")
+    , ("M-i", namedScratchpadAction scratchpads  "notes")
 
     , ("M-s",namedScratchpadAction scratchpads  "spacefm")
     , ("M-g",namedScratchpadAction scratchpads "gpmdp")
     , ("M-j",namedScratchpadAction scratchpads "tmux")
+    , ("M-n", namedScratchpadAction scratchpads "nnn")
 
     , ("<Print>",  spawn "maim -s ~/Screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png")
     , ("M-<Print>", spawn "maim ~/Screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png")

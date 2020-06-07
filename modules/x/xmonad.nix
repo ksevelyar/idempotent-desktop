@@ -29,6 +29,12 @@
     windowManager.xmonad.enableContribAndExtras = true;
   };
 
+  # polybar integration
+  systemd.tmpfiles.rules =
+    [
+      "p+ /tmp/.xmonad-workspace-log 0600 1000 users"
+    ];
+
   home-manager = {
     users.${vars.user} = {
       xsession.windowManager.xmonad.enable = true;
