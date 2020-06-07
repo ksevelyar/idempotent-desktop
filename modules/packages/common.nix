@@ -68,9 +68,6 @@ in
 
       # mail & tasks
       aerc
-      astroid
-      notmuch
-      offlineimap
       taskwarrior
 
       # sec

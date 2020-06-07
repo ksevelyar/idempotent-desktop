@@ -40,6 +40,7 @@
     # turn screen off and stop music
     off = "sleep 0.5 && xset dpms force off; pkill -f spotify; xdotool key XF86AudioPause";
 
+    ssht = "ssh -t skynet 'tmux new -A -s 🦙'";
     m = "mosh";
     grab-display = "export DISPLAY = ':0.0'";
     vnc-server = "x11vnc -repeat -forever -noxrecord -noxdamage -rfbport 5900";

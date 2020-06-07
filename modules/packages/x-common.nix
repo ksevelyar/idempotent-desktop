@@ -94,6 +94,11 @@ in
       qtox
       tdesktop
 
+      # mail
+      astroid
+      notmuch
+      offlineimap
+
       # sys
       xxkb
       xorg.xev
