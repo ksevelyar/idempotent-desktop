@@ -137,10 +137,10 @@
     {
       device = "/dev/disk/by-label/storage";
       fsType = "ext4";
-      options = [ "noatime" "nodiratime" ];
+      options = [ "noatime" ];
     };
 
-  fileSystems."/mnt/skynet" = {
+  fileSystems."/skynet" = {
     device = "192.168.0.1:/export";
     fsType = "nfs";
   };
