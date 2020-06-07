@@ -131,7 +131,7 @@ function fish_right_prompt
     set status_untracked 1
   end
 
-  set_color -o
+  # set_color -o
 
   if test $status_ahead -ne 0
     echo -n ' '(set_color brmagenta)

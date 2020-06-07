@@ -40,7 +40,7 @@
 
     gco = "git checkout";
     gc = "git commit --message";
-    gca = "git commit -all --message";
+    gca = "git commit --all --message";
 
     tig = "tig status";
     gs = "git status --short";
