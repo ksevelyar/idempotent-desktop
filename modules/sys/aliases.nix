@@ -42,15 +42,13 @@
     gc = "git commit --message";
     gca = "git commit --all --message";
 
-    tig = "tig status";
     gs = "git status --short";
-
     gd = "git diff";
     gdc = "git diff --cached";
     gfr = "git pull --rebase";
-
-    # Log (l)
+    tig = "tig status";
     gl = "git lg";
+    gp = "git push";
 
     t = "task"; # https://www.youtube.com/watch?v=zl68asL9jZA
     fd = "fd --hidden --exclude .git";
