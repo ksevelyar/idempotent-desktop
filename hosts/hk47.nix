@@ -38,6 +38,7 @@
       ../modules/packages/nvim.nix
       ../modules/packages/tmux.nix
       ../modules/packages/firefox.nix
+      ../modules/packages/pass.nix
 
       ../modules/hardware/bluetooth.nix
       ../modules/hardware/sound.nix

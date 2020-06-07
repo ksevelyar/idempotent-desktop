@@ -10,14 +10,14 @@ Install nix with `curl -L https://nixos.org/nix/install | sh` (for non NixOS use
 
 Clone repo: `git clone git@github.com:ksevelyar/idempotent-desktop.git && cd idempotent-desktop`
 
-Build [live-usb.nix](https://github.com/ksevelyar/idempotent-desktop/blob/master/live-usb.nix) ~2GB:
+Build [live-usb.nix](https://github.com/ksevelyar/idempotent-desktop/blob/master/live-usb/graphical.nix) ~2GB:
 
 ```sh
-nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=live-usb.nix
+nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=live-usb/graphical.nix
 
 ```
 
-[Or minimal version without X](https://github.com/ksevelyar/idempotent-desktop/blob/master/live-usb-min.nix) ~900MB:
+[Or minimal version without X](https://github.com/ksevelyar/idempotent-desktop/blob/master/live-usb/term.nix) ~900MB:
 
 ```sh
 nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=live-usb-min.nix

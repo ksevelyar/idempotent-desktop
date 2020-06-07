@@ -6,7 +6,7 @@
 
 `nvim gpg.template`
 
-```
+```conf
 Key-Type: eddsa
 Key-Curve: Ed25519
 Key-Usage: sign
@@ -33,15 +33,17 @@ gpg --list-secret-keys
 
 You can use this key for pass now.
 
-## Pass
+## [gopass](https://woile.github.io/gopass-presentation/)
+
+Aliased to `p`.
 
 ### Init
 
-`pass init <gpg-id>`
+`gopass init <gpg-id>`
 
-### Generate
+### Generate password with special symbols and copy it to clipboard
 
-`pass generate -c mail/protonmail.com`
+`p generate -s mail/protonmail.com 80`
 
 ### Import your passwords to pass
 

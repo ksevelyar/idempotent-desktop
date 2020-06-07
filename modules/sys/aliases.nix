@@ -25,6 +25,7 @@
     v = "nvim";
     vo = "nvim -o (fzf)";
     vv = "nvim -U none"; # vanilla v, don't load plugins & init.vim
+    r = "rsync -ra --info=progress2";
 
     tm = "tm1";
     tm1 = "tmux new-session -A -s 🦙";

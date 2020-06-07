@@ -8,6 +8,52 @@
 
 ## [Other Screens](https://idempotent-desktop.netlify.app/screenshots.html)
 
+## Features
+
+> Idempotence is the property of certain operations in mathematics and computer science whereby they can be applied multiple times without changing the result beyond the initial application.
+
+### NixOS
+
+- Nix: Doom Slayer in Dependency Hell.
+- Syntastic sugar over linux configuration. Describe your sysem before install and put it to git.
+- Automatic backups after each rebuild.
+- Autotest all your Linux configurations with Cachix and CI. Reuse binary caches for fast builds.
+
+### Agnostic DE, without actual DE
+
+- Opimised for both keyboard and mouse
+- Unified look for gtk and qt with `ant-dracula` theme
+- `xmonad`, `polybar`, `rofi`, `dunst`, `tmux`, `lxqt-policykit`, and friends
+- Effective use of resources, requires **less than 500MB RAM** to boot to the graphical user interface.
+- Install system with all you preferences with three commands
+
+### Security
+
+- Use master password with `gopass` or `keepassxc` (both has browser integration)
+- Keep your secrets in `tomb`
+- See info about `sshd` and `x11vnc` connects in `polybar`
+
+### Anonimity
+
+- Tor Browser Bundle and `onionshare`
+- Tor as socks5 proxy for Telegram Desktop and Firefox.
+- `openvpn`, `wireguard`, `i2p`
+
+### Proprietary suite
+
+Steam, Spotify, Slack, Upwork and others if you want them.
+
+### Games
+
+`games.nix` includes opendune, dwarf-fortress, rogue, nethack, stepmania, wesnoth and wine
+
+### Hackable Live Usb 💾
+
+- [Build](https://idempotent-desktop.netlify.app/live-usb.html)
+- [Or Download](https://drive.google.com/file/d/1Vop9uElS_zUUiBNeym8XCVJkWLibmY4E/view?usp=sharing)
+
+## [Docs](https://idempotent-desktop.netlify.app/)
+
 🍕 This repo is just a bunch of NixOS [modules](https://github.com/ksevelyar/idempotent-desktop/tree/master/modules), so you can pick or override anything.
 
 🍕 I use NixOS for [development](https://idempotent-desktop.netlify.app/vim.html), as a headless [router](https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/net/router.nix), for my tv (mostly `kodi`) and as a k8s node for my [atoms](https://ark.intel.com/content/www/us/en/ark/products/59682/intel-atom-processor-d2500-1m-cache-1-86-ghz.html). Raspberry Pi also in the list.
@@ -16,33 +62,65 @@
 
 🍕 You can use these dotfiles in other unix too, check [home](https://github.com/ksevelyar/idempotent-desktop/tree/master/home)
 
-## [Docs](https://idempotent-desktop.netlify.app/)
-
 Feel free to create an issue if something is unclear or broken.
 
-## Try
+## Quick install
 
-[Build](https://idempotent-desktop.netlify.app/live-usb.html) or [download](https://drive.google.com/file/d/1Vop9uElS_zUUiBNeym8XCVJkWLibmY4E/view?usp=sharing) live-usb 💾
+Boot from live-usb. You can prepare drives with `gparted` (`Win` for app launcher).
 
-## Install
+### Internet
 
-I'll point only things that differ from [nixos.org/nixos/manual](https://nixos.org/nixos/manual/)
+Internet connection is required.
 
-Physical machines locates in `hosts`; users in `users`. You'll need to link your host to configuration.nix and rebuild system.
+You can connect to wi-fi with `nmtui` from terminal (`Win+Enter` for terminal)
 
-Example of fresh installation from `live-usb`:
+Run `refresh` to update channels.
 
-### Wi-Fi
+### Mount drives (EFI)
 
-You can connect to wi-fi with `nmtui`
-
-### Mount drives
-
-```sh
+```fish
 mount /dev/disk/by-label/nixos /mnt
 mount /dev/disk/by-label/boot  /mnt/boot
 
 ```
+
+### Clone repo to /mnt/etc/nixos
+
+```fish
+sudo git clone https://github.com/ksevelyar/idempotent-desktop.git /mnt/etc/nixos
+```
+
+### Link your machine
+
+```fish
+cd /mnt/etc/nixos
+ln -s hosts/hk47.nix configuration.nix
+```
+
+### Install
+
+```fish
+sudo nixos-install
+```
+
+NixOS will ask root password on successful installation
+
+### Finalize user
+
+Set password and correct rights to /etc/nixos for your user:
+
+```fish
+sudo passwd username
+sudo chown 1000:1000 /mnt/etc/nixos
+```
+
+Now you can reboot to your system with `reboot`.
+
+## More verbose installation with new host and user generation
+
+Physical machines locates in `hosts`; users in `users`. You'll need to link your host to configuration.nix and rebuild system.
+
+Example of fresh installation from `live-usb`:
 
 ### Clone repo
 
@@ -78,16 +156,6 @@ sudo nixos-install
 ```
 
 You should see prompt for root password in the end.
-
-### Finalize user
-
-Set password with `passwd username` and set correct rights to /etc/nixos for your user:
-
-```sh
-sudo chown 1000:1000 /mnt/etc/nixos
-```
-
-Now you can reboot to your system.
 
 ### Scripts and aliases can save some time
 

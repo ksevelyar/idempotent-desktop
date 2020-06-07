@@ -7,18 +7,10 @@ let
   };
 in
 {
-  nixpkgs.config.permittedInsecurePackages = [
-    "p7zip-16.02"
-  ];
-
   programs.wireshark.enable = true;
   programs.bandwhich.enable = true;
   programs.fish.enable = true;
   programs.mosh.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
 
   environment.systemPackages = with pkgs;
     [
@@ -79,14 +71,6 @@ in
       # sec
       openvpn
       tomb
-
-      passExtensions.pass-audit
-      passExtensions.pass-genphrase
-      passExtensions.pass-import
-      passExtensions.pass-otp
-      passExtensions.pass-update
-      (pass.withExtensions (ext: with ext; [ pass-audit pass-otp pass-genphrase pass-import pass-update ]))
-      gopass
 
       # fs
       unzip

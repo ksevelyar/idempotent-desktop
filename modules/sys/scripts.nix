@@ -35,7 +35,7 @@ let
     #!${pkgs.stdenv.shell}
     set -e
 
-    nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb.nix -o /tmp/live-usb
+    nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb/graphical.nix -o /tmp/live-usb
     du -h /tmp/live-usb/iso/id-live.iso
   '';
 
