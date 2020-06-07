@@ -5,6 +5,7 @@ let
   # id-install hk-47
   id-install = pkgs.writeScriptBin "id-install" ''
     #!${pkgs.stdenv.shell}
+    set -e
     echo -e "\n🤖\n"
 
     sudo mount /dev/disk/by-label/nixos /mnt

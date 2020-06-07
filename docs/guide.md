@@ -21,9 +21,9 @@
 
 ### Agnostic DE, without actual DE
 
+- `xmonad`, `polybar`, `rofi`, `dunst`, `tmux`, `lxqt-policykit`, and friends
 - Opimised for both keyboard and mouse
 - Unified look for gtk and qt with `ant-dracula` theme
-- `xmonad`, `polybar`, `rofi`, `dunst`, `tmux`, `lxqt-policykit`, and friends
 - Effective use of resources, requires **less than 500MB RAM** to boot to the graphical user interface.
 - Install system with all you preferences with three commands
 
