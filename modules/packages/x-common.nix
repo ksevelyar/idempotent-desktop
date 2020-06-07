@@ -90,6 +90,7 @@ in
 
       # sec
       qtpass
+      keepassx-community
       pinentry-gtk2
       qtox
       tdesktop

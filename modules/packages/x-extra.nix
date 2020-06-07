@@ -14,7 +14,6 @@ in
       # work
       # syncthing
       upwork
-      keepassx-community
       # masterpdfeditor
       # memtest86-efi
       # os-prober
@@ -24,13 +23,15 @@ in
       thunderbird-bin
 
       # cli
+      aerc
       roxterm # fallback terminal
       browsh # cli browser
       googler
+      nix-du
+      graphviz
 
       # gui
       pywal
-      vlc
       # appimage-run
       stable.cura
       google-chrome
@@ -75,6 +76,7 @@ in
       simplescreenrecorder
       # audacious
       # lmms
+      ffmpeg
       vlc
       stable.kodi
       cmus # Small, fast and powerful console music player for Linux and *BSD
@@ -96,6 +98,5 @@ in
       # sys
       # tightvnc
       woeusb # write win10.iso to usb drive
-
     ];
 }

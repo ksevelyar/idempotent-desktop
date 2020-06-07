@@ -67,7 +67,6 @@ in
       inetutils
 
       # mail & tasks
-      aerc
       taskwarrior
 
       # sec
@@ -78,7 +77,6 @@ in
       unzip
       unrar
       atool
-      ffmpeg
       bind
       parted
       ffsend
@@ -102,7 +100,7 @@ in
 
       # im
       toxic
-      neomutt
+      # neomutt
 
       # bells and whistles
       cmatrix
