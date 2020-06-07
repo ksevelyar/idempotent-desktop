@@ -121,7 +121,7 @@ in
       # media
       glxinfo
       feh
-      spotify
+      spotifywm
       mpv
       imv
       libva-utils
