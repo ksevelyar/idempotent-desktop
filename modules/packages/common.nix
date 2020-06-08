@@ -26,7 +26,7 @@ in
       sipcalc
       tldr
       git
-      gitAndTools.delta
+      gitAndTools.delta # https://github.com/dandavison/delta
       bash
       mkpasswd
       file
@@ -47,6 +47,8 @@ in
       ddgr
       entr
       termdown
+      imagemagick
+      sampler
 
       # monitoring 
       bandwhich

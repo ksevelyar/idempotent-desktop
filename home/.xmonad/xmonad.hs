@@ -251,7 +251,7 @@ scratchpads = [
     (resource =? "nnn")
     nonFloating,
 
-  NS "keepassx" "keepassxc"
+  NS "keepassxc" "keepassxc"
     (className =? "KeePassXC")
     (customFloating $ W.RationalRect 0.50 0.05 0.4 0.87),
   NS "qtpass" "qtpass"
@@ -360,7 +360,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-f", sendMessage ToggleLayout)
     --
     , ("M-p", namedScratchpadAction scratchpads "qtpass")
-    , ("M-k", namedScratchpadAction scratchpads "keepassx")
+    , ("M-C-p", namedScratchpadAction scratchpads "keepassxc")
 
     -- cross
     , ("<F1>", namedScratchpadAction scratchpads "terminal-1")
@@ -401,7 +401,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-S-,",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
     , ("M-S-.",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 40%")
 
-    , ("M-C-<Backspace>", spawn "xmonad --recompile && xmonad --restart && systemctl --user restart picom") -- Restart xmonad
+    , ("M-C-<Backspace>", spawn "xmonad --restart && systemctl --user restart picom") -- Restart xmonad
     ]
     ++
 

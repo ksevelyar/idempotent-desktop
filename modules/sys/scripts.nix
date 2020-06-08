@@ -93,8 +93,13 @@ in
     id-info
     id-build-iso
     id-write-usb
+
     id-pick-color
+    pkgs.imagemagick
+
     id-refresh-channels
+
     id-deploy
+    pkgs.rclone
   ];
 }
