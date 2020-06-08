@@ -99,6 +99,7 @@ in
       astroid # notmuch gui
 
       # sys
+      neovim-qt
       xxkb
       xorg.xev
       xorg.xfd

@@ -7,6 +7,7 @@
       };
     in
       [
+        twmn
         polybar
         jgmenu
         xcape

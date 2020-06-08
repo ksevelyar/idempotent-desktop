@@ -72,6 +72,7 @@ in
       msmtp # send mail
       notmuch # index and search mail
       neomutt # terminal mail client
+      notmuch-bower
       mu # https://zmalltalker.com/linux/mu.html
       taskwarrior # todo & tasks
 

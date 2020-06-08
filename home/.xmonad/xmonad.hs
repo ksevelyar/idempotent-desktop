@@ -281,6 +281,10 @@ scratchpads = [
     (className =? "Spacefm")
     (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8),
 
+  NS "astroid" "astroid"
+    (className =? ".astroid-wrapped")
+    (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8),
+
   NS "pavucontrol" "pavucontrol"
     (className =? "Pavucontrol")
     (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8)
@@ -359,6 +363,7 @@ myKeys = \conf -> mkKeymap conf $
     -- custom
     , ("M-f", sendMessage ToggleLayout)
     --
+    , ("M-a", namedScratchpadAction scratchpads "astroid")
     , ("M-p", namedScratchpadAction scratchpads "qtpass")
     , ("M-C-p", namedScratchpadAction scratchpads "keepassxc")
 

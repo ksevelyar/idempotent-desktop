@@ -2,7 +2,7 @@
 
 ## Download it
 
-[idempotent-desktop.iso](https://drive.google.com/file/d/1Vop9uElS_zUUiBNeym8XCVJkWLibmY4E/view?usp=sharing) ~2GB
+[idempotent-desktop.iso](https://drive.google.com/file/d/1XBa1LUK32A_DbMBge44co_AFfg44Ngqo/view?usp=sharing) ~1.7GB
 
 ## Or generate
 
@@ -10,14 +10,14 @@ Install nix with `curl -L https://nixos.org/nix/install | sh` (for non NixOS use
 
 Clone repo: `git clone git@github.com:ksevelyar/idempotent-desktop.git && cd idempotent-desktop`
 
-Build [live-usb.nix](https://github.com/ksevelyar/idempotent-desktop/blob/master/live-usb/graphical.nix) ~2GB:
+Build [live-usb.nix](https://github.com/ksevelyar/idempotent-desktop/blob/master/live-usb/graphical.nix)
 
 ```sh
 nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=live-usb/graphical.nix
 
 ```
 
-[Or minimal version without X](https://github.com/ksevelyar/idempotent-desktop/blob/master/live-usb/term.nix) ~900MB:
+[Or minimal version without X](https://github.com/ksevelyar/idempotent-desktop/blob/master/live-usb/term.nix) ~700MB:
 
 ```sh
 nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=live-usb-min.nix

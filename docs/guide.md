@@ -50,7 +50,7 @@ Steam, Spotify, Slack, Upwork and others if you want them.
 ### Hackable Live Usb 💾
 
 - [Build](https://idempotent-desktop.netlify.app/live-usb.html)
-- [Or Download](https://drive.google.com/file/d/1Vop9uElS_zUUiBNeym8XCVJkWLibmY4E/view?usp=sharing)
+- [Or Download](https://drive.google.com/file/d/1XBa1LUK32A_DbMBge44co_AFfg44Ngqo/view?usp=sharing)
 
 ## [Docs](https://idempotent-desktop.netlify.app/)
 
