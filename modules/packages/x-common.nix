@@ -133,7 +133,19 @@ in
       spaceFM
       gparted
 
-      # laptop
+      # gui for external monitors
       arandr
+
+      # freelance (hire me)
+      upwork
+
+      # 3d
+      stable.cura
+      openscad
+
+      # gfx
+      gimp
+      inkscape
+      blender
     ];
 }

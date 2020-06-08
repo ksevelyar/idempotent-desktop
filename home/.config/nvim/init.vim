@@ -17,6 +17,27 @@ autocmd VimEnter * silent!
       \| PlugInstall --sync | q
       \| endif
 
+" sane terminal
+" :tnoremap <Esc> <C-\><C-n>
+augroup term_settings
+    autocmd!
+    autocmd TermOpen * setlocal nonumber
+    autocmd TermOpen * startinsert
+augroup END
+
+" let g:nvim_config_root = expand('<sfile>:p:h')
+" let g:config_file_list = [
+    " \ 'options.vim',
+    " \ 'autocommands.vim',
+    " \ 'mappings.vim',
+    " \ 'plugins.vim',
+    " \ 'ui.vim'
+    " \ ]
+
+" for s:fname in g:config_file_list
+    " execute 'source ' . g:nvim_config_root . '/' . s:fname
+" endfor
+
 """ Plugins
 call plug#begin()
 
@@ -26,8 +47,8 @@ Plug 'alvan/vim-closetag'
 
 Plug 'majutsushi/tagbar'
 
-Plug 'vim-scripts/YankRing.vim'
-let g:yankring_clipboard_monitor=0
+" Plug 'vim-scripts/YankRing.vim'
+" let g:yankring_clipboard_monitor=0
 
 Plug 'easymotion/vim-easymotion'
 
@@ -56,18 +77,8 @@ Plug 'tpope/vim-abolish'
 
 Plug 'brooth/far.vim'
 let g:far#source = 'rg'
-" let g:far#file_mask_favorites = ['%', '**/*.*', '**/*.rb', '**/*.slim', '**/*.js', '**/*.css', '**/*.sass']
 
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-
-" Interpolation
-" Plug 'hwartig/vim-seeing-is-believing'
-" augroup seeingIsBelievingSettings
-"   autocmd!
-"
-"   autocmd FileType ruby nnoremap <buffer> <F2> <Plug>(seeing-is-believing-mark-and-run)
-"   autocmd FileType ruby xmap <buffer> <F2> <Plug>(seeing-is-believing-mark-and-run)
-" augroup END
 
 " -------------------------
 " Navigation
@@ -90,7 +101,7 @@ function! s:goyo_enter()
   set noshowmode
   set noshowcmd
   set scrolloff=999
-  Limelight
+  " Limelight
   " ...
 endfunction
 
@@ -102,20 +113,18 @@ function! s:goyo_leave()
   set showmode
   set showcmd
   set scrolloff=5
-  Limelight!
+  " Limelight!
   " ...
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-let g:fzf_commits_log_options = '--graph --color=always
-      \ --format="%C(yellow)%h%C(red)%d%C(reset)
-      \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
+" let g:fzf_commits_log_options = '--graph --color=always
+      " \ --format="%C(yellow)%h%C(red)%d%C(reset)
+      " \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
 
 " let g:fzf_layout = { 'window': {
 " \ 'width': 0.9,
@@ -126,39 +135,78 @@ let g:fzf_commits_log_options = '--graph --color=always
 " -------------------------
 " UI
 " -------------------------
+Plug 'ksevelyar/joker.vim'
+" Plug '/c/joker.vim'
+
 Plug 'ryanoasis/vim-devicons'
 Plug 'luochen1990/rainbow'
 Plug 'tpope/vim-scriptease'
 
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
+
+" Defaults
+" :h lightline
+" let g:lightline.active = {
+      " \ 'left': [ [ 'mode', 'paste' ],
+      " \           [ 'readonly', 'filename', 'modified' ] ],
+      " \ 'right': [ [ 'lineinfo' ],
+      " \            [ 'percent' ],
+      " \            [ 'fileformat', 'fileencoding', 'filetype' ] ] }
+" let g:lightline.inactive = {
+      " \ 'left': [ [ 'filename' ] ],
+      " \ 'right': [ [ 'lineinfo' ],
+      " \            [ 'percent' ] ] }
+" let g:lightline.tabline = {
+      " \ 'left': [ [ 'tabs' ] ],
+      " \ 'right': [ [ 'close' ] ] }
+
+let g:lightline = {
+\ 'active': {
+\   'left':[ [ 'filename', ], [ 'gitbranch', 'modified', 'readonly', 'paste'] ],
+\   'right':[ [ 'fileformat', 'fileencoding', 'filetype' ] ],
+\ },
+\ 'inactive': {
+\ 'left': [ [ 'filename', 'modified' ] ],
+\ 'right': [ ],
+\ },
+\ 'component_function': {
+\   'modified': 'LightlineModified',
+\   'readonly': 'LightlineReadonly',
+\   'gitbranch': 'LightlineFugitive'
+\ }
+\ }
+function! LightlineModified()
+  let modified = &modified ? '+' : ''
+  " let modified = &modified ? '🐷' : ''
+  return &readonly ? '' : modified
+endfunction
+
+" function! LightlineReadonly()
+  " return &readonly && &filetype !=# 'help' ? 'RO' : ''
+" endfunction
+
+function! LightlineReadonly()
+  return &readonly ? '' : ''
+endfunction
+
+function! LightlineFugitive()
+  if exists('*FugitiveHead')
+    let branch = FugitiveHead()
+    return branch !=# '' ? ' '.branch : ''
+  endif
+  return ''
+endfunction
+
+let g:lightline.separator = { 'left': '', 'right': '' }
+let g:lightline.subseparator = {  'left': '', 'right': '' }
+let g:lightline.colorscheme = 'joker'
+
 set laststatus=2
 " lol https://github.com/vim-airline/vim-airline/issues/1729#issuecomment-392053950
-let g:airline#extensions#branch#notexists = '∄'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let airline#extensions#ale#error_symbol = ' '
-let airline#extensions#ale#warning_symbol = ' '
-let airline#extensions#ale#show_line_numbers = 0
-let airline#extensions#ale#open_lnum_symbol = ''
-let airline#extensions#ale#close_lnum_symbol = ''
-
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-
-" let g:airline#extensions#default#layout = [ [ 'a', 'b', 'c' ], [ 'x', 'y', 'z', 'error', 'warning' ] ]
-let g:airline#extensions#default#layout = [ [ 'b', 'c' ], [ 'x', 'y', 'warning', 'error' ] ]
-let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-let g:airline#extensions#hunks#enabled=0
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#tab_min_count = 2
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_skip_empty_sections = 1
-
-Plug 'ksevelyar/joker.vim'
-" Plug '/c/joker.vim'
+" let g:airline#extensions#branch#notexists = '∄'
+" let airline#extensions#ale#error_symbol = ' '
+" let airline#extensions#ale#warning_symbol = ' '
+" let airline#extensions#ale#show_line_numbers = 0
 
 Plug 'rafalbromirski/vim-aurora'
 Plug 'dracula/vim'
@@ -283,14 +331,23 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-if &rtp =~ 'coc.nvim'
-  set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-endif
+" if &rtp =~ 'coc.nvim'
+  " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" endif
 
 call plug#end()
 
 if (has("termguicolors"))
   set termguicolors
+endif
+
+" neovim-qt
+if exists('g:GuiLoaded')
+  " call GuiWindowMaximized(1)
+  GuiTabline 0
+  GuiPopupmenu 0
+  GuiLinespace 2
+  GuiFont! Terminus:h14
 endif
 
 " hi EndOfBuffer guifg=bg

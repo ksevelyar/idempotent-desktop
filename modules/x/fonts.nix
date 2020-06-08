@@ -18,12 +18,12 @@
     fonts = with pkgs;
       [
         # dejavu_fonts
-        freefont_ttf
         # gyre-fonts # TrueType substitutes for standard PostScript fonts
-        liberation_ttf
         # xorg.fontmiscmisc
         # xorg.fontcursormisc
         unifont
+        cozette
+        fixedsys-excelsior
         noto-fonts-emoji
 
         # https://www.programmingfonts.org/
@@ -34,7 +34,8 @@
 
         # Required for ryanoasis/vim-devicons
         # https://www.programmingfonts.org/
-        (nerdfonts.override { fonts = [ "Lekton" ]; })
+        (nerdfonts.override { fonts = [ "Iosevka" ]; })
+        fira-code
 
         # Required for polybar
         siji # https://github.com/stark/siji

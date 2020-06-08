@@ -23,21 +23,20 @@ in
       # retroarchBare
       # anbox
       # (steam.override { nativeOnly = true; })
-      # lutris
-      # playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
+      stable.playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
 
       # text 
-      # dwarf-fortress
-      # nethack
-      # rogue
+      dwarf-fortress
+      nethack
+      rogue
 
       # gui
-      # xonotic
-      # wesnoth
+      xonotic
+      wesnoth
       stepmania
       opendune
       # yquake2
-      # openra
+      openra
       gzdoom
       # quakespasm
     ];

@@ -98,7 +98,8 @@
       home.file.".local/share/fonts/ter-u32n.otb".source = ../assets/fonts/ter-u32b.otb;
       home.file.".local/share/fonts/ter-u32b.otb".source = ../assets/fonts/ter-u32b.otb;
 
-      # home.file.".config/nvim/init.vim".source = ../home/.config/nvim/init.vim;
+      home.file.".config/nvim/init.vim".source = ../home/.config/nvim/init.vim;
+      home.file.".config/nvim/ginit.vim".source = ../home/.config/nvim/init.vim;
       home.file.".config/nvim/coc-settings.json".source = ../home/.config/nvim/coc-settings.json;
 
       home.file.".config/fish/config.fish".source = ../home/.config/fish/config.fish;

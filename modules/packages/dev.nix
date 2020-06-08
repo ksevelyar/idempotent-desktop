@@ -5,16 +5,6 @@ let
   };
 in
 {
-  services.pgmanage.enable = false;
-  services.postgresql = {
-    package = pkgs.postgresql_12;
-    enable = true;
-    authentication = ''
-      local all all trust
-      host all all localhost trust
-    '';
-  };
-
   environment.systemPackages = with pkgs;
     [
       # docs
@@ -22,9 +12,6 @@ in
 
       # api
       curlie
-
-      # sql
-      sequeler
 
       # images
       # imagemagick
@@ -52,9 +39,5 @@ in
       arduino-core
       stable.fritzing
       ino
-
-      # git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-      # ~/.emacs.d/bin/doom install
-      # emacs
     ];
 }

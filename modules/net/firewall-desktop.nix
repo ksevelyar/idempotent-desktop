@@ -1,5 +1,7 @@
 { lib, ... }:
 {
+  systemd.services.sshd.wantedBy = lib.mkForce []; # sudo systemctl start sshd
+
   networking.firewall.enable = lib.mkForce true;
   networking.firewall.allowedTCPPorts = [
     # Transmission

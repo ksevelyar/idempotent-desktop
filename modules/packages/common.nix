@@ -12,21 +12,19 @@ in
 
   environment.systemPackages = with pkgs;
     [
-      # sys
+      # sys 
       fzf
       ripgrep
-      fd
+      bat
+      gitAndTools.delta # https://github.com/dandavison/delta
       cachix
       home-manager
       libqalculate # qalc
-      exa
-      bat
       micro
       watchman
       sipcalc
       tldr
       git
-      gitAndTools.delta # https://github.com/dandavison/delta
       bash
       mkpasswd
       file
@@ -35,8 +33,6 @@ in
       miller
       ccze
       lnav
-      nix-du
-      graphviz
       nmap
       wget
       curl
@@ -44,11 +40,13 @@ in
       translate-shell
       brightnessctl
       youtube-dl
-      ddgr
+      ddgr # cli duckduckgo
+      googler # cli google
       entr
       termdown
       imagemagick
       sampler
+      taskwarrior # todo & tasks
 
       # monitoring 
       bandwhich
@@ -73,26 +71,28 @@ in
       notmuch # index and search mail
       neomutt # terminal mail client
       notmuch-bower
+      lynx
+      mailcap
       mu # https://zmalltalker.com/linux/mu.html
-      taskwarrior # todo & tasks
+
+      # im
+      toxic
 
       # sec
       openvpn
       tomb
 
       # fs
+      fd
+      exa
       unzip
       unrar
       atool
       bind
       parted
       ffsend
-      fd
-
-      # curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
-      nnn
+      nnn # curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
       viu
-
       ncdu
       exa
       z-lua
@@ -105,11 +105,16 @@ in
       rsync
       rclone # rclone mount gdrive: ~/gdrive/
 
-      # im
-      toxic
-      # neomutt
+      # media
+      cmus
+      moc
+      glava
 
       # bells and whistles
       cmatrix
+
+      # games for live usb
+      rogue
+      nethack
     ];
 }

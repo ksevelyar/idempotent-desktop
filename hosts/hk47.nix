@@ -22,6 +22,7 @@
 
       ../modules/services/common.nix
       ../modules/services/x.nix
+      ../modules/services/postgresql.nix
 
 
       ../modules/x/xmonad.nix
@@ -29,12 +30,12 @@
 
       ../modules/x/fonts.nix
       ../modules/packages/x-common.nix
-      ../modules/packages/x-extra.nix
+      # ../modules/packages/x-extra.nix
 
       ../modules/packages/absolutely-proprietary.nix
       ../modules/packages/common.nix
       ../modules/packages/dev.nix
-      ../modules/packages/games.nix
+      # ../modules/packages/games.nix
       ../modules/packages/nvim.nix
       ../modules/packages/tmux.nix
       ../modules/packages/firefox.nix
@@ -47,7 +48,7 @@
       ../modules/net/firewall-desktop.nix
       ../modules/net/kresd.nix
       ../modules/net/wireguard.nix
-      ../modules/net/i2pd.nix
+      ../modules/net/i2p.nix
       ../modules/net/tor.nix
       ../modules/net/sshd.nix
 

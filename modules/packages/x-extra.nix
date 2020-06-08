@@ -13,7 +13,6 @@ in
     [
       # work
       # syncthing
-      upwork
       # masterpdfeditor
       # memtest86-efi
 
@@ -24,21 +23,14 @@ in
       wireshark-qt
 
       # cli
-      # roxterm # fallback terminal
+      roxterm # fallback terminal
       # browsh # cli browser
-      googler
 
       # gui
       pywal
       # appimage-run
-      stable.cura
-      google-chrome
       # chromium
       # vivaldi
-      gimp
-      inkscape
-      blender
-      openscad
 
       # themes
       # pop-gtk-theme
@@ -70,14 +62,12 @@ in
 
       # media
       # ncspot # requires premium
-      glava
       # simplescreenrecorder
       # audacious
       # lmms
       ffmpeg
       vlc
       stable.kodi
-      cmus # Small, fast and powerful console music player for Linux and *BSD
       # fluidsynth # Real-time software synthesizer based on the SoundFont 2 specifications
       # mikmod # Tracker music player for the terminal
       # mpg123 # Fast console MPEG Audio Player and decoder library
