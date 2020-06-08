@@ -213,11 +213,11 @@ myEventHook = docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEve
 -- Startup hook ----------------------------------------------------------------
 
 myStartupHook = do
-  spawn "mkdir -p ~/Screenshots ~/.ssh ~/.gnupg ~/.password-store ~/.secrets" -- create mountpoints for tomb
   spawn "sh ~/.fehbg"
   spawn "sh ~/.config/polybar/launch.sh"
   spawn "xsetroot -cursor_name left_ptr"
   spawn "lxqt-policykit-agent"
+  spawn "twmnd"
   spawn "xxkb"
   spawn "xcape -e 'Super_R=Super_R|X'"
   setFullscreenSupport

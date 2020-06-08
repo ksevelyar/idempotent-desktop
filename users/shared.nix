@@ -46,7 +46,7 @@
           "core" = {
             excludesfile = "~/.gitignore";
             pager = ''
-              delta --plus-color="#0F1A13" --minus-color="#261719" --theme='ansi-dark'
+              delta --plus-color="#16271C" --minus-color="#331F21" --theme='ansi-dark'
             '';
           };
           "interactive" = {

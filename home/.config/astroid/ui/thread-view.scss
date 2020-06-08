@@ -1,0 +1,18 @@
+/* ui-version: 5 (do not change when modifying theme for yourself) */
+/* Variables */
+/* Background colors associated with received emails: */
+$recv-normal: #ffffff;
+$recv-quoted: #e8e8e8;
+$recv-collapsed: #f5f5f5;
+/* Background colors associated with sent emails: */
+$sent-normal: #ffffff;
+$sent-quoted: #e8e8e8;
+$sent-collapsed: #f5f5f5;
+/* Fonts */
+$font-base-size: 20px;
+$font-mono: "Terminus", "Inconsolata", monospace;
+$font-sans: "Roboto", sans-serif;
+$font-family-default: $font-mono;
+/* Colours */
+$email-solid: #d8d8d8;
+$focused-solid: #4a90d9;

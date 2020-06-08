@@ -60,6 +60,7 @@
       home.file.".config/conky/launch.sh".source = ../../home/.config/conky/launch.sh;
 
       home.file.".config/dunst/dunstrc".source = ../../home/.config/dunst/dunstrc;
+      home.file.".config/twmn/twmn.conf".source = ../../home/.config/twmn/twmn.conf;
 
       home.file.".config/polybar/launch.sh".source = ../../home/.config/polybar/launch.sh;
       home.file.".config/polybar/config".source = ../../home/.config/polybar/config;
