@@ -75,7 +75,8 @@
       home.file.".eslintrc.json".source = ../home/.eslintrc.json;
       home.file.".npmrc".source = ../home/.npmrc;
 
-      home.file.".config/astroid/ui/thread-view.scss".source = ../home/.config/astroid/ui/thread-view.scss;
+      home.file.".config/astroid/config".source = ../home/.config/astroid/config;
+      home.file.".config/astroid/poll.sh".source = ../home/.config/astroid/poll.sh;
 
       # TODO: create module for Terminus
       home.file.".local/share/fonts/ter-u12n.otb".source = ../assets/fonts/ter-u12n.otb;

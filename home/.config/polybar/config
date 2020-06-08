@@ -12,18 +12,7 @@ background-alt = #0f0f0f
 background-alt-2 = #ff5fafcf
 foreground = #BEB3CD
 foreground-alt = #c1c2c3
-red = #fb4934
-green = #b8bb26
-yellow = #fabd2f
-blue = #83a598
-purple = #d3869b
-aqua = #8ec07c
-orange = #fe8019
-white = #dddddd
-blue_arch = #83afe1
-grey = #5b51c9
-grey1 = #5bb1c9
-grey2 = #5bf1c9
+violet = #5b51c9
 
 [bar/base]
 font-0 = Terminus:size=14;0
@@ -174,7 +163,7 @@ type = internal/cpu
 interval = 1
 format-prefix = "  %{F#9c71C7}%{F-}"
 format-prefix-foreground = ${colors.foreground}
-format-underline = ${colors.grey}
+format-underline = ${colors.violet}
 label = %percentage:3%%
 
 [module/memory]
@@ -182,7 +171,7 @@ type = internal/memory
 interval = 1
 format-prefix = "%{F#9c71C7}%{F-}"
 format-prefix-foreground = ${colors.foreground}
-format-underline = ${colors.grey}
+format-underline = ${colors.violet}
 label = %percentage_used:3%%
 
 [module/eth]
@@ -214,7 +203,7 @@ time = %H:%M
 
 format-prefix = "%{F#9c71C7}%{F-}"
 format-prefix-foreground = ${colors.foreground}
-format-underline = ${colors.grey}
+format-underline = ${colors.violet}
 
 label = %{F#6B5A68}%date%%{F-}  %time%
 

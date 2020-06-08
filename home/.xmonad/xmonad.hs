@@ -217,7 +217,7 @@ myStartupHook = do
   spawn "sh ~/.config/polybar/launch.sh"
   spawn "xsetroot -cursor_name left_ptr"
   spawn "lxqt-policykit-agent"
-  spawn "twmnd"
+  spawn "pkill twmnd; twmnd"
   spawn "xxkb"
   spawn "xcape -e 'Super_R=Super_R|X'"
   setFullscreenSupport
