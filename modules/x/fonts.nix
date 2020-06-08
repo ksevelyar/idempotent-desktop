@@ -26,7 +26,6 @@
         unifont
         noto-fonts-emoji
 
-
         # https://www.programmingfonts.org/
         # unfree Microsoft fonts
         corefonts # Andale Mono, Arial, Comic Sans, Courier New, Georgia, Impact, Times New Roman, Trebuchet, Verdana, Webdings

@@ -20,11 +20,14 @@
     ];
 
   home-manager = {
-    users.ksevelyar = {
+    users.${vars.user} = {
       programs.git = {
         userName = "Sergey Zubkov";
         userEmail = "ksevelyar@gmail.com";
       };
+
+      home.file.".mbsyncrc".source = ./ksevelyar/.mbsyncrc;
+      home.file.".notmuch-config".source = ./ksevelyar/.notmuch-config;
     };
   };
 

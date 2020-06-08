@@ -19,7 +19,7 @@ in
 
       # emulators & platforms
       steam
-      wineWowPackages.stable
+      # wineWowPackages.stable
       # retroarchBare
       # anbox
       # (steam.override { nativeOnly = true; })
@@ -27,18 +27,18 @@ in
       # playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
 
       # text 
-      dwarf-fortress
-      nethack
-      rogue
+      # dwarf-fortress
+      # nethack
+      # rogue
 
       # gui
-      xonotic
-      wesnoth
+      # xonotic
+      # wesnoth
       stepmania
       opendune
-      yquake2
-      openra
+      # yquake2
+      # openra
       gzdoom
-      quakespasm
+      # quakespasm
     ];
 }

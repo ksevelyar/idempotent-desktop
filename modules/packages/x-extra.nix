@@ -16,19 +16,17 @@ in
       upwork
       # masterpdfeditor
       # memtest86-efi
-      # os-prober
 
       # office
       libreoffice-fresh
       thunderbird-bin
+      qalculate-gtk
+      wireshark-qt
 
       # cli
-      aerc
-      roxterm # fallback terminal
-      browsh # cli browser
+      # roxterm # fallback terminal
+      # browsh # cli browser
       googler
-      nix-du
-      graphviz
 
       # gui
       pywal
@@ -73,7 +71,7 @@ in
       # media
       # ncspot # requires premium
       glava
-      simplescreenrecorder
+      # simplescreenrecorder
       # audacious
       # lmms
       ffmpeg

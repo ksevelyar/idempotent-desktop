@@ -1,2 +1,67 @@
 /* hide tabs */
 #TabsToolbar { visibility: collapse !important; }
+
+/* Hide sidebar header */
+/* #sidebar-box #sidebar-header { */
+  /* visibility: collapse; */
+/* } */
+
+#sidebar-box #sidebar-header * {
+  margin-top: -3px !important;
+  margin-bottom: -3px !important;
+}
+
+/* Move sidebar header to the bottom */
+#sidebar-box {
+  -moz-box-direction: reverse;
+}
+#sidebar-switcher-arrow {
+  transform: rotate(180deg);
+}
+
+/* Hide sidebar with only one tab open */
+#main-window[titlepreface^="[1] "] #sidebar-box[sidebarcommand="_0ad88674-2b41-4cfb-99e3-e206c74a0076_-sidebar-action"] {
+  visibility: collapse;
+}
+
+/* Sidebar colors for dark theme */
+/* #sidebar-header { */
+  /* background: #0C0C0D; */
+  /* border-bottom: none !important; */
+/* } */
+/* #sidebar-splitter { */
+  /* border-right-color: #0C0C0D !important; */
+  /* border-left-color: #0C0C0D !important; */
+/* } */
+/* #sidebar-switcher-target, */
+/* #sidebar-close { */
+  /* filter: invert(100%); */
+/* } */
+
+
+#tablist {
+  flex-direction: column-reverse;
+  display: flex;
+  flex: 0 0 auto;
+}
+.tab.pinned {
+  order: 1;
+}
+/* color for icon border + transparent icon bg */
+#tablist-wrapper:not(.shrinked) #tablist .tab-icon-wrapper,
+#tablist-wrapper:not(.shrinked) #pinnedtablist:not(.compact){
+  background-color: silver;
+}
+/* color for thumbnail border */
+#tablist-wrapper:not(.shrinked) #tablist .tab-meta-image.has-thumbnail,
+#tablist-wrapper:not(.shrinked) #pinnedtablist:not(.compact) .tab-meta-image.has-thumbnail {
+    border: 2px solid silver;
+}
+/* color for thumbnail bg color */
+#tablist-wrapper:not(.shrinked) #tablist .tab-meta-image,
+#tablist-wrapper:not(.shrinked) #pinnedtablist:not(.compact) .tab-meta-image  {
+  background-color: #38383D;
+}
+#tablist-wrapper {
+  scrollbar-width: none;
+}

@@ -83,7 +83,7 @@ in
       hunspellDicts.en_US-large
 
       # themes
-      lxappearance-gtk3
+      lxappearance
       vanilla-dmz
       ant-dracula-theme
       stable.papirus-maia-icon-theme
@@ -96,9 +96,7 @@ in
       tdesktop
 
       # mail
-      astroid
-      notmuch
-      offlineimap
+      astroid # notmuch gui
 
       # sys
       xxkb
@@ -113,10 +111,11 @@ in
       maim
       vokoscreen
       xclip
-      qalculate-gtk
       (rofi.override { plugins = [ rofi-emoji rofi-calc ]; })
       libnotify
       dunst
+      nix-du
+      graphviz
 
       # media
       glxinfo

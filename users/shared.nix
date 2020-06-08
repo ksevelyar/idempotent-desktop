@@ -40,8 +40,22 @@
     users.${vars.user} = {
       programs.git = {
         enable = true;
+        extraConfig = {
+          "push" = { default = "current"; };
+          "rerere" = { enabled = 1; };
+          "core" = {
+            excludesfile = "~/.gitignore";
+            pager = ''
+              delta --plus-color="#57a16d" --minus-color="#c84e4e" --theme='Monokai Extended'
+            '';
+          };
+          "interactive" = {
+            diffFilter = "delta --color-only";
+          };
+        };
+
         aliases = {
-          lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
+          lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(magenta)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
           pp = "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)";
           recent-branches = "branch --sort=-committerdate";
         };
@@ -60,6 +74,8 @@
 
       home.file.".eslintrc.json".source = ../home/.eslintrc.json;
       home.file.".npmrc".source = ../home/.npmrc;
+
+      home.file.".config/astroid/ui/thread-view.scss".source = ../home/.config/astroid/ui/thread-view.scss;
 
       # TODO: create module for Terminus
       home.file.".local/share/fonts/ter-u12n.otb".source = ../assets/fonts/ter-u12n.otb;

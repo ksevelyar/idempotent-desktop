@@ -7,8 +7,6 @@ let
   };
 in
 {
-  programs.wireshark.enable = true;
-  programs.bandwhich.enable = true;
   programs.fish.enable = true;
   programs.mosh.enable = true;
 
@@ -28,7 +26,7 @@ in
       sipcalc
       tldr
       git
-      gitAndTools.diff-so-fancy
+      gitAndTools.delta
       bash
       mkpasswd
       file
@@ -51,6 +49,7 @@ in
       termdown
 
       # monitoring 
+      bandwhich
       iperf3
       lm_sensors
       lsof
@@ -67,7 +66,12 @@ in
       inetutils
 
       # mail & tasks
-      taskwarrior
+      isync # sync imap
+      msmtp # send mail
+      notmuch # index and search mail
+      neomutt # terminal mail client
+      mu # https://zmalltalker.com/linux/mu.html
+      taskwarrior # todo & tasks
 
       # sec
       openvpn
