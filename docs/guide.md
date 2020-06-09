@@ -15,17 +15,17 @@
 ### NixOS
 
 - Nix: Doom Slayer in Dependency Hell.
-- Syntastic sugar over linux configuration. Describe your sysem before install and put it to git.
+- Syntaсtic sugar over linux configuration. Describe your sysem before installation and put it to git.
 - Automatic backups after each rebuild.
 - Autotest all your Linux configurations with Cachix and CI. Reuse binary caches for fast builds.
 
-### Agnostic DE, without actual DE
+### Agnostic DE without actual DE
 
 - `xmonad`, `polybar`, `rofi`, `dunst`, `tmux`, `lxqt-policykit`, and friends
 - Opimised for both keyboard and mouse
 - Unified look for gtk and qt with `ant-dracula` theme
-- Effective use of resources, requires **less than 500MB RAM** to boot to the graphical user interface.
-- Install system with all you preferences with three commands
+- Effective usage of resources, requires **less than 500MB RAM** to boot to the graphical user interface.
+- Install system with all you preferences using three commands
 
 ### Security
 
@@ -41,7 +41,7 @@
 
 ### Proprietary suite
 
-Steam, Spotify, Slack, Upwork and others if you want them.
+Steam, Spotify, Slack, Upwork and others if you need them.
 
 ### Games
 
