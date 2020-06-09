@@ -14,7 +14,6 @@
 
   systemd.tmpfiles.rules =
     [
-      "d /sql 0700 1000 wheel" # sql dumps
       "d /vvv 0700 1000 wheel" # secrets
       "d /c 0744 1000 wheel" # code
     ];
