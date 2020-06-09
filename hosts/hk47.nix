@@ -9,13 +9,17 @@
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-      ../modules/sys/debug.nix
+
+      ../users/shared.nix
+      ../users/ksevelyar.nix
+
       ../modules/sys/aliases.nix
-      ../modules/sys/scripts.nix
-      ../modules/sys/tty.nix
+      ../modules/sys/debug.nix
       ../modules/sys/nix.nix
-      ../modules/sys/vars.nix
+      ../modules/sys/scripts.nix
       ../modules/sys/sysctl.nix
+      ../modules/sys/tty.nix
+      ../modules/sys/vars.nix
 
       ../modules/boot/efi.nix
       ../modules/boot/multiboot.nix
@@ -32,14 +36,14 @@
       ../modules/packages/x-common.nix
       # ../modules/packages/x-extra.nix
 
+      # ../modules/packages/games.nix
       ../modules/packages/absolutely-proprietary.nix
       ../modules/packages/common.nix
       ../modules/packages/dev.nix
-      # ../modules/packages/games.nix
-      ../modules/packages/nvim.nix
-      ../modules/packages/tmux.nix
       ../modules/packages/firefox.nix
+      ../modules/packages/nvim.nix
       ../modules/packages/pass.nix
+      ../modules/packages/tmux.nix
 
       ../modules/hardware/bluetooth.nix
       ../modules/hardware/sound.nix
@@ -48,14 +52,11 @@
       ../modules/net/firewall-desktop.nix
       ../modules/net/kresd.nix
       ../modules/net/wireguard.nix
-      ../modules/net/i2p.nix
+      ../modules/net/i2pd.nix
       ../modules/net/tor.nix
       ../modules/net/sshd.nix
 
       ../modules/vm/hypervisor.nix
-
-      ../users/shared.nix
-      ../users/ksevelyar.nix
     ];
 
   boot.loader.grub.splashImage = lib.mkForce ../assets/grub_1024x768.png;

@@ -12,6 +12,10 @@
     s = "sudo";
     ss = "sudo systemctl stop";
     sr = "sudo systemctl restart";
+
+    ssu = "systemctl stop --user";
+    sru = "systemctl restart --user";
+
     x = "sudo systemctl restart display-manager";
     log = "sudo journalctl --output cat -u"; # log sshd -f
     ports = "sudo lsof -Pni"; # ports | fzf

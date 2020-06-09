@@ -327,21 +327,19 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-C-h", spawn "systemctl poweroff")
     --
     , ("M-k", spawn "id-pick-color")
-    --
-    -- -- bookmarks
+
+    -- bookmarks
     , ("M1-b m", spawn "xdg-open https://mail.google.com/")
     , ("M1-b r", spawn "xdg-open https://reddit.com/")
     , ("M1-b g", spawn "xdg-open https://github.com/")
     , ("M1-b e", spawn "xdg-open https://emojifinder.com/")
     , ("M-`", spawn "sh ~/.fehbg") -- random wallpaper
 
-    -- -- resizing
+    -- nav
     , ("M-S-<Left>", sendMessage Shrink)
     , ("M-S-<Right>", sendMessage Expand)
     , ("M-S-<Down>", sendMessage MirrorShrink)
     , ("M-S-<Up>", sendMessage MirrorExpand)
-    --
-    -- -- navigation
     , ("M-<Right>",   sendMessage $ Go R)
     , ("M-<Left>",    sendMessage $ Go L)
     , ("M-<Up>",      sendMessage $ Go U)
@@ -350,29 +348,16 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-C-<Left>",  sendMessage $ Swap L)
     , ("M-C-<Up>",    sendMessage $ Swap U)
     , ("M-C-<Down>",  sendMessage $ Swap D)
-
-    -- , ("M-l", ), sendMessage $ Go R)
-    -- , ("M-h", ), sendMessage $ Go L)
-    -- , ("M-k", ), sendMessage $ Go U)
-    -- , ("M-j", ), sendMessage $ Go D)
-    -- , (("M-C", xK_l ), sendMessage $ Swap R)
-    -- , (("M-C", xK_h ), sendMessage $ Swap L)
-    -- , (("M-C", xK_k ), sendMessage $ Swap U)
-    -- , (("M-C", xK_j ), sendMessage $ Swap D)
-
-    -- custom
     , ("M-f", sendMessage ToggleLayout)
-    --
     , ("M-a", namedScratchpadAction scratchpads "astroid")
     , ("M-p", namedScratchpadAction scratchpads "qtpass")
     , ("M-C-p", namedScratchpadAction scratchpads "keepassxc")
 
-    -- cross
+    -- scratchpads
     , ("<F1>", namedScratchpadAction scratchpads "terminal-1")
     , ("<F2>", namedScratchpadAction scratchpads "terminal-2")
     , ("<F3>", namedScratchpadAction scratchpads "terminal-3")
     , ("<F4>", namedScratchpadAction scratchpads "terminal-4")
-    --, ("<F5>", namedScratchpadAction scratchpads  "keepassx")
     , ("<F6>", namedScratchpadAction scratchpads  "gotop")
     , ("<F7>", namedScratchpadAction scratchpads  "blueman-manager")
     , ("<F8>", namedScratchpadAction scratchpads  "pavucontrol")
