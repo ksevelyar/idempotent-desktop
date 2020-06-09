@@ -1,9 +1,7 @@
 { pkgs, lib, ... }:
 {
   services.ratbagd.enable = true;
-
   services.udisks2.enable = true;
-  # services.devmon.enable = true;
   services.greenclip.enable = true;
 
   services.redshift = {
@@ -21,7 +19,6 @@
     vSync = true;
   };
 
-  console.useXkbConfig = true;
   services.xserver = {
     enable = true;
 
@@ -81,6 +78,4 @@
       xterm.enable = false;
     };
   };
-
-  qt5 = { style = "gtk2"; platformTheme = "gnome"; };
 }

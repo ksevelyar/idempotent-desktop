@@ -14,7 +14,6 @@
     sr = "sudo systemctl restart";
     x = "sudo systemctl restart display-manager";
     log = "sudo journalctl --output cat -u"; # log sshd -f
-    p = "gopass";
     ports = "sudo lsof -Pni"; # ports | fzf
     pgrep = "pgrep --full";
     pkill = "pkill --full";
@@ -27,6 +26,10 @@
     vv = "nvim -U none"; # vanilla v, don't load plugins & init.vim
     r = "rsync -ra --info=progress2";
     ns = "notify-dend";
+
+    # sec
+    p = "gopass";
+    dig = "tomb open .secrets/*.tomb -k .secrets/*.tomb.key && notify-send 'Drains 5 Karma per grave.'";
 
     tm = "tm1";
     tm1 = "tmux new -A -s 🦙";
@@ -50,6 +53,7 @@
     tig = "tig status";
     gl = "git lg";
     gp = "git push";
+    gso = "git log -p --all --source -S "; # search string in all branches, gso <string>
 
     t = "task"; # https://www.youtube.com/watch?v=zl68asL9jZA
     fd = "fd --hidden --exclude .git";

@@ -8,6 +8,7 @@ in
   # upwork
   nixpkgs.overlays = [ (import ../../overlays) ];
 
+  programs.dconf.enable = true;
 
   environment.systemPackages = with pkgs;
     [

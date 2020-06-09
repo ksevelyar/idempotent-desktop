@@ -1,12 +1,6 @@
 { pkgs, lib, ... }:
 {
-  services.locate = {
-    enable = true;
-    locate = pkgs.mlocate;
-    localuser = null;
-  };
-
-  services.journald.extraConfig = lib.mkDefault "SystemMaxUse=1000M";
+  services.journald.extraConfig = lib.mkDefault "SystemMaxUse=500M";
 
   services.fail2ban = {
     enable = true;

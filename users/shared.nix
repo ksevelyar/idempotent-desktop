@@ -69,6 +69,13 @@
         };
       };
 
+      home.file.".icons/default/index.theme".text = ''
+        [Icon Theme]
+        Name=Default
+        Comment=Default Cursor Theme
+        Inherits=Vanilla-DMZ
+      '';
+
       home.file.".config/zathura/zathurarc".source = ../home/.config/zathura/zathurarc;
 
       home.file.".config/roxterm.sourceforge.net/Colours/joker".source = ../home/.config/roxterm.sourceforge.net/Colours/joker;
@@ -85,6 +92,7 @@
 
       home.file.".config/astroid/config".source = ../home/.config/astroid/config;
       home.file.".config/astroid/poll.sh".source = ../home/.config/astroid/poll.sh;
+
 
       # TODO: create module for Terminus
       home.file.".local/share/fonts/ter-u12n.otb".source = ../assets/fonts/ter-u12n.otb;

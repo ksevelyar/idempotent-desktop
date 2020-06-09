@@ -10,6 +10,17 @@ in
       VISUAL = "nvim";
       BROWSER = "firefox";
       TERMINAL = "alacritty";
+      QT_STYLE_OVERRIDE = "gtk2";
+    };
+
+    etc."xdg/gtk-3.0/settings.ini" = {
+      text = ''
+        [Settings]
+        gtk-theme-name=Ant-Dracula
+        gtk-icon-theme-name=Papirus-Dark-Maia
+        gtk-font-name=Terminus 14
+        gtk-cursor-theme-name=Vanilla-DMZ
+      '';
     };
 
     # run xfce4-mime-settings to change with gui
@@ -64,8 +75,9 @@ in
   };
 
   programs.browserpass.enable = true;
-  programs.dconf.enable = true;
   programs.qt5ct.enable = true;
+  console.useXkbConfig = true;
+
   programs.spacefm = {
     enable = true;
     settings.source = ../../home/.config/spacefm/spacefm.conf;
