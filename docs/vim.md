@@ -73,11 +73,11 @@ You can undo your actions with `u` and redo with `Ctrl-R`.
 
 `<Ctrl>V` visual block mode for multi-line editing
 
-`gg` move to top
+`gg` go to top
 
-`G` move to botom
+`G` go to botom
 
-`gf` open file under cursor
+`gf` go to file under cursor
 
 `:42` move to line 42
 

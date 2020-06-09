@@ -39,7 +39,7 @@
     ../modules/net/firewall-desktop.nix
     ../modules/net/wireguard.nix
     ../modules/net/i2pd.nix
-    # ./modules/net/i2p.nix
+    # ../modules/net/i2p.nix
     ../modules/net/tor.nix
     ../modules/net/sshd.nix
 
