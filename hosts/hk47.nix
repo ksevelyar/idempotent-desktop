@@ -28,7 +28,6 @@
       ../modules/services/x.nix
       ../modules/services/postgresql.nix
 
-
       ../modules/x/xmonad.nix
       # ../modules/x/kde.nix
 
@@ -40,6 +39,7 @@
       ../modules/packages/absolutely-proprietary.nix
       ../modules/packages/common.nix
       ../modules/packages/dev.nix
+      # ../modules/packages/games.nix
       ../modules/packages/firefox.nix
       ../modules/packages/nvim.nix
       ../modules/packages/pass.nix
