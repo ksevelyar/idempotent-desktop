@@ -43,7 +43,7 @@
     ./modules/net/tor.nix
     ./modules/net/sshd.nix
 
-    # ./modules/vm/hypervisor.nix
+    ./modules/vm/hypervisor.nix
   ];
 
   isoImage.volumeID = lib.mkForce "id-live-max";
