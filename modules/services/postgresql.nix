@@ -4,11 +4,11 @@ let
     #!${pkgs.stdenv.shell}
     set -e
     
-    backup_dir="/storage/backup/pg"
+    backup_dir="/home/${vars.user}/.backup/pg"
     excludes='template1 template0'
 
     # list of all dbs
-    databases="$(sudo -u postgres psql -At -c 'select datname from pg_database postgres')"
+    databases="$(psql -At -c 'select datname from pg_database postgres' postgres)"
 
     # clean list from excludes
     for exclude in $excludes; do
@@ -19,20 +19,16 @@ let
     mkdir -p $backup_dir
 
     for database in $databases; do
-      echo $database
+      dump_name=$backup_dir/$database/$database-$(date +%Y-%m-%d-%H-%M).sql
+      echo $dump_name
 
       mkdir -p $backup_dir/$database
-      pg_dump --format=custom \
-              --compress=9    \
-              --clean         \
-              --no-privileges \
-              --no-owner \
-              --file=$backup_dir/$database/$database.$(date +%Y-%m-%d-%H-%M).sql \
+      pg_dump --format=custom --compress=9 --clean --no-privileges --no-owner \
+              --file=$backup_dir/$database/$database-$(date +%Y-%m-%d-%H-%M).sql \
               $database
     done
 
-    # rm old backups
-    find $backup_dir -mtime +31 -delete
+    du -h --max-depth=1 $backup_dir 
   '';
 in
 {
