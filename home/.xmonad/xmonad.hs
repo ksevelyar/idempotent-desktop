@@ -204,7 +204,6 @@ myManageHook = manageDocks <+> (composeAll . concat $
   -- names
   -- myNames   = ["Google Chrome Options", "Chromium Options", "Firefox Preferences"]
 
-
 -- Event handling --------------------------------------------------------------
 
 -- myEventHook = hintsEventHook <+> docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEventHook
@@ -261,10 +260,13 @@ scratchpads = [
   NS "gotop" "alacritty --class gotop -e gotop"
     (resource =? "gotop")
     (customFloating $ W.RationalRect 0.15 0.2 0.7 0.7),
+
+  NS "pavucontrol" "pavucontrol"
+    (className =? "Pavucontrol")
+    (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8),
   NS "gpmdp" "google-play-music-desktop-player"
     (className =? "Google Play Music Desktop Player")
     (customFloating $ W.RationalRect 0.15 0.2 0.7 0.7),
-
   NS "spotify" "spotifywm"
     (resource =? "spotify")
     (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8),
@@ -283,10 +285,6 @@ scratchpads = [
 
   NS "astroid" "astroid"
     (className =? ".astroid-wrapped")
-    (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8),
-
-  NS "pavucontrol" "pavucontrol"
-    (className =? "Pavucontrol")
     (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8)
   ]
   where
@@ -297,35 +295,28 @@ scratchpads = [
 -- https://hackage.haskell.org/package/xmonad-contrib-0.16/docs/XMonad-Util-EZConfig.html
 -- M - Win, M1 - Alt, C - Control, S - Shift.
 myKeys = \conf -> mkKeymap conf $
-    [ ("M-<Return>", spawn $ XMonad.terminal conf)
-    , ("M-q", kill) -- close focused window
-    , ("M-o", spawn "sleep 0.5; xset dpms force off; pkill -f gpmdp")
-
-    -- unfloat, push window back into tiling
-    , ("M-u", withFocused $ windows . W.sink)
-
-    , ("M-h", focusUrgent)
+    -- launchers
+    [ ("M-m", spawn "jgmenu --center")
+    , ("M-<Return>", spawn $ XMonad.terminal conf)
     , ("M-x", spawn "rofi -modi drun -matching fuzzy -sorting-method fzf drun -show")
     , ("M-z", spawn "rofi -modi emoji -no-show-match -no-sort -matching normal -show")
     , ("M-=", spawn "rofi -modi calc -show")
     , ("M-c", spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
     , ("M-l", spawn "tomb close; dm-tool lock")
+
+    -- apps
     , ("M-b", raiseMaybe (spawn "firefox -p work --class firefox-work") (className =? "firefox-work"))
     , ("M-y", raiseMaybe (spawn "firefox -p chill --class firefox-chill") (className =? "firefox-chill"))
     , ("M-v", raiseMaybe (spawn "alacritty --class nvim -e fish -c nvim") (resource =? "nvim"))
-    -- , ("M-j", raiseMaybe (runInTerm "--class tmux" "tmux") (resource =? "tmux"))
-    , ("M-<Space>", sendMessage NextLayout)  -- Rotate through the available layout algorithms
-    , ("M-S-<Space>", sendMessage ToggleStruts )
-    , ("M-m", spawn "jgmenu --center")
-
     , ("M-t", raiseMaybe (spawn "telegram-desktop") (className =? "TelegramDesktop")) --
 
-    , ("M-,", sendMessage (IncMasterN 1)) -- Increment the number of windows in the master area
-    , ("M-.", sendMessage (IncMasterN (-1))) -- Deincrement the number of windows in the master area
-    -- power
+    -- sys
+    , ("M-q", kill) -- close focused window
+    , ("M-`", spawn "sh ~/.fehbg") -- random wallpaper from ~/Wallpapers
+    , ("M-h", focusUrgent)
+    , ("M-o", spawn "sleep 0.5; xset dpms force off; pkill -f gpmdp")
     , ("M-C-r", spawn "systemctl reboot")
     , ("M-C-h", spawn "systemctl poweroff")
-    --
     , ("M-k", spawn "id-pick-color")
 
     -- bookmarks
@@ -333,9 +324,12 @@ myKeys = \conf -> mkKeymap conf $
     , ("M1-b r", spawn "xdg-open https://reddit.com/")
     , ("M1-b g", spawn "xdg-open https://github.com/")
     , ("M1-b e", spawn "xdg-open https://emojifinder.com/")
-    , ("M-`", spawn "sh ~/.fehbg") -- random wallpaper
 
-    -- nav
+    -- layout
+    , ("M-<Space>", sendMessage NextLayout)  -- Rotate through the available layout algorithms
+    , ("M-S-<Space>", sendMessage ToggleStruts )
+    , ("M-,", sendMessage (IncMasterN 1)) -- Increment the number of windows in the master area
+    , ("M-.", sendMessage (IncMasterN (-1))) -- Deincrement the number of windows in the master area
     , ("M-S-<Left>", sendMessage Shrink)
     , ("M-S-<Right>", sendMessage Expand)
     , ("M-S-<Down>", sendMessage MirrorShrink)
@@ -349,11 +343,12 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-C-<Up>",    sendMessage $ Swap U)
     , ("M-C-<Down>",  sendMessage $ Swap D)
     , ("M-f", sendMessage ToggleLayout)
+    , ("M-u", withFocused $ windows . W.sink) -- unfloat, push window back into tiling
+
+    -- scratchpads
     , ("M-a", namedScratchpadAction scratchpads "astroid")
     , ("M-p", namedScratchpadAction scratchpads "qtpass")
     , ("M-C-p", namedScratchpadAction scratchpads "keepassxc")
-
-    -- scratchpads
     , ("<F1>", namedScratchpadAction scratchpads "terminal-1")
     , ("<F2>", namedScratchpadAction scratchpads "terminal-2")
     , ("<F3>", namedScratchpadAction scratchpads "terminal-3")

@@ -36,7 +36,7 @@
       ../modules/packages/absolutely-proprietary.nix
       ../modules/packages/common.nix
       ../modules/packages/dev.nix
-      # ../modules/packages/games.nix
+      ../modules/packages/games.nix
       ../modules/packages/firefox.nix
       ../modules/packages/nvim.nix
       ../modules/packages/pass.nix
@@ -56,6 +56,7 @@
       ../modules/vm/hypervisor.nix
     ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest_hardened;
   boot.loader.grub.splashImage = lib.mkForce ../assets/grub_1024x768.png;
   # boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;
   # boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
@@ -94,7 +95,7 @@
   };
 
   # hardware
-  services.xserver.videoDrivers = [ "nvidiaLegacy390" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
   # services.xserver.videoDrivers = [ "nouveau" ];
 
   # Fix smooth scroll in Firefox

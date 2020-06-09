@@ -1,6 +1,6 @@
 # [Nvim](https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/packages/nvim.nix)
 
-![screen](https://i.imgur.com/fhAtYZY.png)
+![screen](https://i.imgur.com/XFf02K8.png)
 
 Integrated with `lsp`, `fzf`, `fd`, `rg`.
 
@@ -76,6 +76,8 @@ You can undo your actions with `u` and redo with `Ctrl-R`.
 `gg` move to top
 
 `G` move to botom
+
+`gf` open file under cursor
 
 `:42` move to line 42
 

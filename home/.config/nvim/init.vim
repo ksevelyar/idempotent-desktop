@@ -18,12 +18,9 @@ autocmd VimEnter * silent!
       \| endif
 
 " sane terminal
-" :tnoremap <Esc> <C-\><C-n>
-augroup term_settings
-    autocmd!
-    autocmd TermOpen * setlocal nonumber
-    autocmd TermOpen * startinsert
-augroup END
+au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+au TermOpen * setlocal nonumber
+au FileType fzf tunmap <buffer> <Esc>
 
 " let g:nvim_config_root = expand('<sfile>:p:h')
 " let g:config_file_list = [
@@ -33,7 +30,6 @@ augroup END
     " \ 'plugins.vim',
     " \ 'ui.vim'
     " \ ]
-
 " for s:fname in g:config_file_list
     " execute 'source ' . g:nvim_config_root . '/' . s:fname
 " endfor
@@ -162,12 +158,12 @@ Plug 'itchyny/lightline.vim'
 
 let g:lightline = {
 \ 'active': {
-\   'left':[ [ 'filename', ], [ 'gitbranch', 'modified', 'readonly', 'paste'] ],
-\   'right':[ [ 'fileformat', 'fileencoding', 'filetype' ] ],
+\   'left':[[ 'filename', ], [ 'gitbranch', 'modified', 'readonly', 'paste']],
+\   'right':[[ 'fileformat', 'fileencoding', 'filetype' ]],
 \ },
 \ 'inactive': {
-\ 'left': [ [ 'filename', 'modified' ] ],
-\ 'right': [ ],
+\ 'left': [[ 'filename', 'modified' ]],
+\ 'right': [],
 \ },
 \ 'component_function': {
 \   'modified': 'LightlineModified',
@@ -175,15 +171,11 @@ let g:lightline = {
 \   'gitbranch': 'LightlineFugitive'
 \ }
 \ }
+
 function! LightlineModified()
   let modified = &modified ? '+' : ''
-  " let modified = &modified ? '🐷' : ''
   return &readonly ? '' : modified
 endfunction
-
-" function! LightlineReadonly()
-  " return &readonly && &filetype !=# 'help' ? 'RO' : ''
-" endfunction
 
 function! LightlineReadonly()
   return &readonly ? '' : ''
@@ -368,7 +360,7 @@ set clipboard=unnamedplus " sync vim clipboard with linux clipboard
 
 set signcolumn=yes
 set hidden
-set path+=**
+set path+=** " type gf to open file under cursor
 set number
 " set relativenumber
 set colorcolumn=100
