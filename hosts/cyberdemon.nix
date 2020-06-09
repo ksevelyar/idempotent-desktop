@@ -4,29 +4,35 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "20.03"; # Did you read the comment?
+  system.stateVersion = "20.09"; # Did you read the comment?
 
 
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+
+      ../users/shared.nix
+      ../users/manya.nix
+
       ../modules/sys/aliases.nix
-      ../modules/sys/scripts.nix
-      ../modules/sys/tty.nix
-      ../modules/sys/nix.nix
-      ../modules/sys/vars.nix
       # ../modules/sys/debug.nix
+      ../modules/sys/nix.nix
+      ../modules/sys/scripts.nix
+      ../modules/sys/sysctl.nix
+      ../modules/sys/tty.nix
+      ../modules/sys/vars.nix
 
       ../modules/boot/efi.nix
       ../modules/boot/multiboot.nix
 
       ../modules/services/common.nix
       ../modules/services/x.nix
+      ../modules/services/postgresql.nix
 
       ../modules/x/xmonad.nix
       ../modules/x/fonts.nix
       ../modules/packages/x-common.nix
-      ../modules/packages/x-extra.nix
+      # ../modules/packages/x-extra.nix
 
       ../modules/packages/absolutely-proprietary.nix
       ../modules/packages/common.nix
@@ -42,10 +48,11 @@
 
       ../modules/net/firewall-desktop.nix
       ../modules/net/wireguard.nix
+      ../modules/net/i2pd.nix
+      ../modules/net/tor.nix
+      ../modules/net/sshd.nix
 
       ../modules/vm/hypervisor.nix
-
-      ../users/manya.nix
     ];
 
   boot.cleanTmpDir = lib.mkDefault true;

@@ -29,13 +29,10 @@
       ../modules/services/postgresql.nix
 
       ../modules/x/xmonad.nix
-      # ../modules/x/kde.nix
-
       ../modules/x/fonts.nix
       ../modules/packages/x-common.nix
       # ../modules/packages/x-extra.nix
 
-      # ../modules/packages/games.nix
       ../modules/packages/absolutely-proprietary.nix
       ../modules/packages/common.nix
       ../modules/packages/dev.nix
