@@ -75,6 +75,15 @@
         Comment=Default Cursor Theme
         Inherits=Vanilla-DMZ
       '';
+      home.file.".config/qt5ct/qt5ct.conf".text = ''
+        [Appearance]
+        icon_theme=Papirus-Dark
+        style=gtk2
+
+        [Fonts]
+        fixed="@Variant(\0\0\0@\0\0\0\x10\0T\0\x65\0r\0m\0i\0n\0u\0s@,\0\0\0\0\0\0\xff\xff\xff\xff\x5\x1\0\x32\x10)"
+        general="@Variant(\0\0\0@\0\0\0\x10\0T\0\x65\0r\0m\0i\0n\0u\0s@,\0\0\0\0\0\0\xff\xff\xff\xff\x5\x1\0\x32\x10)"
+      '';
 
       home.file.".config/zathura/zathurarc".source = ../home/.config/zathura/zathurarc;
 
@@ -92,7 +101,8 @@
 
       home.file.".config/astroid/config".source = ../home/.config/astroid/config;
       home.file.".config/astroid/poll.sh".source = ../home/.config/astroid/poll.sh;
-
+      home.file.".config/astroid/hooks/toggle".source = ../home/.config/astroid/hooks/toggle;
+      home.file.".config/astroid/keybindings".source = ../home/.config/astroid/keybindings;
 
       # TODO: create module for Terminus
       home.file.".local/share/fonts/ter-u12n.otb".source = ../assets/fonts/ter-u12n.otb;

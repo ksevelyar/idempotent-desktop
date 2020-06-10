@@ -25,5 +25,5 @@ SubFolders Verbatim
 Channel gmail
 Master :gmail-remote:
 Slave :gmail-local:
-Patterns * !"[Gmail]/Spam"
+Patterns * !"[Gmail]/Spam" !"[Gmail]/Trash"
 CopyArrivalDate yes

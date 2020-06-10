@@ -285,7 +285,8 @@ scratchpads = [
 
   NS "astroid" "astroid"
     (className =? ".astroid-wrapped")
-    (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8)
+    nonFloating
+    -- (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8)
   ]
   where
   role = stringProperty "WM_WINDOW_ROLE"
