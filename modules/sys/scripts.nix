@@ -39,6 +39,14 @@ let
     du -h /tmp/live-usb/iso/id-live.iso
   '';
 
+  id-build-rpi = pkgs.writeScriptBin "id-build-rpi" ''
+    #!${pkgs.stdenv.shell}
+    set -e
+
+    sudo nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage -I nixos-config=/etc/nixos/live-usb/rpi.nix -o /tmp/live-arm --system aarch64-linux
+    du -h /tmp/live-usb/iso/id-live-arm.iso
+  '';
+
   id-write-usb = pkgs.writeScriptBin "id-write-usb" ''
     #!${pkgs.stdenv.shell}
     set -e
@@ -46,7 +54,7 @@ let
     id-build-iso
     sudo dd bs=4M if=/tmp/live-usb/iso/id-live.iso of=/dev/disk/by-label/id-live status=progress oflag=sync
 
-    echo -e "\n💽"
+    echo -e "\n💽\n"
   '';
 
   id-info = pkgs.writeScriptBin "id-info" ''
@@ -70,8 +78,6 @@ let
 
   id-deploy = pkgs.writeScriptBin "id-deploy" ''
     #!${pkgs.stdenv.shell}
-    cd /etc/nixos 
-
     set -e
 
     id-refresh-channels
@@ -83,21 +89,54 @@ let
     id-build-iso
     rclone copy /tmp/live-usb/iso/id-live.iso gdrive:
 
-    echo 🐗
+    echo -e "\n🐗\n"
   '';
 
+  # id-install <hostname>
+  # id-install hk-47
+  id-install = pkgs.writeScriptBin "id-install" ''
+    #!${pkgs.stdenv.shell}
+    set -e
+    echo -e "\n🤖\n"
+    
+    id-refresh-channels
+
+    sudo mount /dev/disk/by-label/nixos /mnt
+    sudo mount /dev/disk/by-label/boot /mnt/boot/
+    echo -e "\n💾"
+    lsblk -f
+    
+    echo
+    sudo git clone https://github.com/ksevelyar/idempotent-desktop.git /mnt/etc/nixos
+    
+    if [ -z "$1" ]
+      then
+        nixos-generate-config --root /mnt/etc/nixos
+        bat /mnt/etc/nixos/*.nix
+      else
+        cd /mnt/etc/nixos && sudo ln -s hosts/$1 configuration.nix
+    fi
+
+    sudo chown -R 1000:1000 /etc/nixos/
+    sudo ls -lah /etc/nixos/configuration.nix
+
+    sudo nixos-install
+    echo -e "\n🍈\n"
+  '';
 in
 {
   environment.systemPackages = [
+    id-refresh-channels
     id-error
     id-info
+    id-install
+
     id-build-iso
+    id-build-rpi
     id-write-usb
 
     id-pick-color
     pkgs.imagemagick
-
-    id-refresh-channels
 
     id-deploy
     pkgs.rclone

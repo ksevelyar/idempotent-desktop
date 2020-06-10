@@ -5,6 +5,7 @@
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
     ./iso.nix
 
+    ../users/shared.nix
     ../users/live-usb.nix
 
     ../modules/sys/aliases.nix

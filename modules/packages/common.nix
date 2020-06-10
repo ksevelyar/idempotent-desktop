@@ -25,7 +25,6 @@ in
       sipcalc
       tldr
       git
-      bash
       mkpasswd
       file
       memtest86plus

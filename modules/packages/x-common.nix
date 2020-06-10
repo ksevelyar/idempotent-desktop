@@ -152,7 +152,7 @@ in
       upwork
 
       # 3d
-      stable.cura
+      cura
       openscad
 
       # gfx

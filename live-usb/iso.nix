@@ -1,39 +1,6 @@
 # https://github.com/ksevelyar/idempotent-desktop/blob/master/docs/live-usb.md
 { config, pkgs, lib, vars, ... }:
-let
-  # id-install <hostname>
-  # id-install hk-47
-  id-install = pkgs.writeScriptBin "id-install" ''
-    #!${pkgs.stdenv.shell}
-    set -e
-    echo -e "\n🤖\n"
-
-    sudo mount /dev/disk/by-label/nixos /mnt
-    sudo mount /dev/disk/by-label/boot /mnt/boot/
-    echo -e "\n💾"
-    lsblk -f
-    
-    echo
-    sudo git clone https://github.com/ksevelyar/idempotent-desktop.git /mnt/etc/nixos
-    
-    if [ -z "$1" ]
-      then
-        nixos-generate-config --root /mnt/etc/nixos
-      else
-        cd /mnt/etc/nixos && sudo ln -s hosts/$1 configuration.nix
-    fi
-
-    sudo chown -R 1000:1000 /etc/nixos/
-    sudo ls -lah /etc/nixos/configuration.nix
-
-    sudo nixos-install
-  '';
-in
 {
-  environment.systemPackages = [
-    id-install
-  ];
-
   boot.kernelModules = [ "wl" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
@@ -93,4 +60,13 @@ in
     .      . . .   .  .  . ... :..:.."(  ..)"
      .   .       .      :  .   .: ::/  .  .::\
   '';
+
+  systemd.services.id-bootstrap = {
+    script = ''
+      id-refresh-channels
+    '';
+
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network-online.target" ];
+  };
 }
