@@ -80,6 +80,7 @@ in
       # sec
       openvpn
       tomb
+      pwgen
 
       # fs
       fd

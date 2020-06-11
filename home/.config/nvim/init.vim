@@ -4,37 +4,9 @@
 " NOTE: type za to toggle current fold.
 ":help folding".
 
-" Install Vim Plug if not installed
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * silent! PlugInstall
-endif
-
-" Automatically install missing plugins on startup
-autocmd VimEnter * silent!
-      \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-      \| PlugInstall --sync | q
-      \| endif
-
-" sane terminal
-au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
-au TermOpen * setlocal nonumber
-au FileType fzf tunmap <buffer> <Esc>
-
-" let g:nvim_config_root = expand('<sfile>:p:h')
-" let g:config_file_list = [
-    " \ 'options.vim',
-    " \ 'autocommands.vim',
-    " \ 'mappings.vim',
-    " \ 'plugins.vim',
-    " \ 'ui.vim'
-    " \ ]
-" for s:fname in g:config_file_list
-    " execute 'source ' . g:nvim_config_root . '/' . s:fname
-" endfor
-
-""" Plugins
+" -------------------------------------------------------------------------------------------------
+" Plugins
+" -------------------------------------------------------------------------------------------------
 call plug#begin()
 
 Plug 'rbgrouleff/bclose.vim'
@@ -76,9 +48,7 @@ let g:far#source = 'rg'
 
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
-" -------------------------
-" Navigation
-" -------------------------
+" Navigation --------------------------------------------------------------------------------------
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
 let NERDTreeMinimalUI=1
 let NERDTreeWinSize=40
@@ -89,6 +59,7 @@ let g:NERDTreeDirArrowCollapsible = ''
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+
 function! s:goyo_enter()
   if executable('tmux') && strlen($TMUX)
     silent !tmux set status off
@@ -97,8 +68,7 @@ function! s:goyo_enter()
   set noshowmode
   set noshowcmd
   set scrolloff=999
-  " Limelight
-  " ...
+  Limelight
 endfunction
 
 function! s:goyo_leave()
@@ -109,8 +79,7 @@ function! s:goyo_leave()
   set showmode
   set showcmd
   set scrolloff=5
-  " Limelight!
-  " ...
+  Limelight!
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
@@ -128,9 +97,7 @@ Plug 'junegunn/fzf.vim'
 " \ 'highlight': 'Comment',
 " \ 'rounded': v:false } }
 
-" -------------------------
-" UI
-" -------------------------
+" UI ----------------------------------------------------------------------------------------------
 Plug 'ksevelyar/joker.vim'
 " Plug '/c/joker.vim'
 
@@ -138,24 +105,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'luochen1990/rainbow'
 Plug 'tpope/vim-scriptease'
 
-Plug 'itchyny/lightline.vim'
-
-" Defaults
-" :h lightline
-" let g:lightline.active = {
-      " \ 'left': [ [ 'mode', 'paste' ],
-      " \           [ 'readonly', 'filename', 'modified' ] ],
-      " \ 'right': [ [ 'lineinfo' ],
-      " \            [ 'percent' ],
-      " \            [ 'fileformat', 'fileencoding', 'filetype' ] ] }
-" let g:lightline.inactive = {
-      " \ 'left': [ [ 'filename' ] ],
-      " \ 'right': [ [ 'lineinfo' ],
-      " \            [ 'percent' ] ] }
-" let g:lightline.tabline = {
-      " \ 'left': [ [ 'tabs' ] ],
-      " \ 'right': [ [ 'close' ] ] }
-
+Plug 'itchyny/lightline.vim' " :h lightline
 let g:lightline = {
 \ 'active': {
 \   'left':[[ 'filename', ], [ 'gitbranch', 'modified', 'readonly', 'paste']],
@@ -193,7 +143,6 @@ let g:lightline.separator = { 'left': '', 'right': '' }
 let g:lightline.subseparator = {  'left': '', 'right': '' }
 let g:lightline.colorscheme = 'joker'
 
-set laststatus=2
 " lol https://github.com/vim-airline/vim-airline/issues/1729#issuecomment-392053950
 " let g:airline#extensions#branch#notexists = '∄'
 " let airline#extensions#ale#error_symbol = ' '
@@ -208,10 +157,6 @@ Plug 'cocopon/iceberg.vim'
 
 Plug '907th/vim-auto-save'
 let g:auto_save = 0
-" augroup ft_markdown
-" au!
-" au FileType markdown let b:auto_save = 1
-" augroup END
 
 " -------------------------
 " Dev
@@ -290,7 +235,6 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -298,18 +242,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-augroup cocnvim
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
@@ -329,35 +261,44 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 
 call plug#end()
 
-if (has("termguicolors"))
-  set termguicolors
+" -------------------------------------------------------------------------------------------------
+" Autocommands
+" -------------------------------------------------------------------------------------------------
+" Install Vim Plug if not installed
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * silent! PlugInstall
 endif
 
-" neovim-qt
-if exists('g:GuiLoaded')
-  " call GuiWindowMaximized(1)
-  GuiTabline 0
-  GuiPopupmenu 0
-  GuiLinespace 2
-  GuiFont! Terminus:h14
-endif
+" Automatically install missing plugins on startup
+autocmd VimEnter * silent!
+      \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+      \| PlugInstall --sync | q
+      \| endif
 
-" hi EndOfBuffer guifg=bg
-" :Colors to change theme
-silent! colorscheme joker
-" set background=dark
+" sane terminal
+au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+au TermOpen * setlocal nonumber
+au FileType fzf tunmap <buffer> <Esc>
 
-""" General
-set conceallevel=0
-set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
-syntax on
-filetype plugin on " to use filetype plugin
-filetype indent on " to use filetype indent
+augroup cocnvim
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
 
-set noshowmode
-set clipboard=unnamedplus " sync vim clipboard with linux clipboard
 
+" -------------------------------------------------------------------------------------------------
+" Core Settings
+" -------------------------------------------------------------------------------------------------
+set updatetime=200
+set laststatus=2
 set signcolumn=yes
 set hidden
 set path+=** " type gf to open file under cursor
@@ -370,16 +311,52 @@ set colorcolumn=100
 set encoding=utf-8
 set fileformat=unix
 
-set history=1000
 set title
-set mouse=a
-
-set shortmess=AI
 " set shortmess+=c
 
 " set timeoutlen=2000
 
-" --- Backups --- "
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+
+" UI ----------------------------------------------------------------------------------------------
+set mouse=a
+set shortmess=AI
+
+set wildmenu
+set wildmode=list:longest,full
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+" neovim-qt
+if exists('g:GuiLoaded')
+  GuiTabline 0
+  GuiPopupmenu 0
+  GuiLinespace 2
+  GuiFont! Terminus:h16
+endif
+
+" hi EndOfBuffer guifg=bg
+" :Colors to change theme
+silent! colorscheme joker
+" set background=dark
+set conceallevel=0
+
+set splitbelow
+set splitright
+
+syntax on
+filetype plugin on " to use filetype plugin
+filetype indent on " to use filetype indent
+
+" Clipboard ---------------------------------------------------------------------------------------
+set noshowmode
+set clipboard=unnamedplus " sync vim clipboard with linux clipboard
+
+" Backups -----------------------------------------------------------------------------------------
 if isdirectory($HOME . '/.config/nvim/undo') == 0
   :silent !mkdir -p ~/.config/nvim/undo > /dev/null 2>&1
 endif
@@ -387,6 +364,7 @@ if isdirectory($HOME . '/.config/nvim/backup') == 0
   :silent !mkdir -p ~/.config/nvim/backup > /dev/null 2>&1
 endif
 
+set history=1000
 set undodir=~/.config/nvim/undo//
 set noswapfile
 
@@ -403,14 +381,7 @@ set undolevels=999
 set display+=lastline
 set nojoinspaces
 
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-
-
-""" Format
-
-" File type settings
+" Format ------------------------------------------------------------------------------------------
 " Do not automatically insert a comment leader after an enter
 " set autowrite
 autocmd FileType * setlocal formatoptions-=ro
@@ -423,11 +394,7 @@ set expandtab
 set list
 set listchars=nbsp:¬,tab:>•,extends:»,precedes:«
 
-set updatetime=200
-set wildmenu
-set wildmode=list:longest,full
-
-""" Search
+" Search ------------------------------------------------------------------------------------------
 set ignorecase
 set smartcase
 
@@ -435,34 +402,45 @@ set incsearch
 set inccommand=split
 set gdefault
 
-""" Bindings
-" :verbose imap
-
-:let g:mapleader = " "
 
 " Switch between the last two files:
-" nnoremap <Leader><Leader> <C-^>
-" map <Leader> <Plug>(easymotion-prefix)
 let g:EasyMotion_do_mapping = 0
-" Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
 
 " JK motions: Line motions
 set so=2 " Set 2 lines to the cursor - when moving vertically using j/k
+
+" -------------------------------------------------------------------------------------------------
+" Key Mappings
+" -------------------------------------------------------------------------------------------------
+let g:mapleader = " "
+
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 "Max out the height of the current split - ctrl + w _
 "Max out the width of the current split - ctrl + w |
 "Normalize all split sizes - ctrl + w =
-
 "Swap top/bottom or left/right split - Ctrl+W R
 "Break out current window into a new tabview - Ctrl+W T
 "Close every window in the current tabview but the current one - Ctrl+W o
-set splitbelow
-set splitright
 
 " -- :help index --
 " Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
+
+" coc.nvim ----------------------------------------------------------------------------------------
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nmap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nmap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+" nnoremap <silent> <space>p  :<C-u>CocListRsume<CR>
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -529,21 +507,9 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Mappings using CoCList:
 " Show all diagnostics.
+
 nnoremap <silent> <space>a  :AutoSaveToggle<cr>
 " Manage extensions.
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nmap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nmap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-" nnoremap <silent> <space>p  :<C-u>CocListRsume<CR>
 
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
@@ -598,11 +564,11 @@ imap <C-V> <esc>"+pi
 nnoremap <leader>y :YRShow<cr>
 
 nnoremap ; :
-" Shift+V+d for cut
+" Shift+V d for cut
 nnoremap d "_d
 
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
 
-command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
+" command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
