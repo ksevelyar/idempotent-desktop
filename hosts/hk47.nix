@@ -56,7 +56,7 @@
       ../modules/vm/hypervisor.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest_hardened;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.grub.splashImage = lib.mkForce ../assets/grub_1024x768.png;
   # boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;
   # boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
@@ -95,6 +95,7 @@
   };
 
   # hardware
+  powerManagement.cpuFreqGovernor = "performance";
   services.xserver.videoDrivers = [ "nvidia" ];
   # services.xserver.videoDrivers = [ "nouveau" ];
 
@@ -105,12 +106,7 @@
   hardware = {
     cpu.intel.updateMicrocode = true;
     nvidia.modesetting.enable = true;
-    pulseaudio = {
-      # pacmd list-sinks | grep -e 'name:' -e 'index:'
-      extraConfig = ''
-        set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo
-      '';
-    };
+    pulseaudio.configFile = ../users/ksevelyar/default.pa;
   };
 
   # fs

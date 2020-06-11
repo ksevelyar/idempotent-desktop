@@ -1,5 +1,5 @@
 # uname -a to check kernel version
-{ pkgs, ... }:
+{ pkgs, libs, ... }:
 {
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelPackages = pkgs.linuxPackages_latest_hardened;

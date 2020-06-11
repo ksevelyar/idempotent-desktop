@@ -59,7 +59,6 @@ let g:NERDTreeDirArrowCollapsible = ''
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-
 function! s:goyo_enter()
   if executable('tmux') && strlen($TMUX)
     silent !tmux set status off
@@ -97,9 +96,16 @@ Plug 'junegunn/fzf.vim'
 " \ 'highlight': 'Comment',
 " \ 'rounded': v:false } }
 
-" UI ----------------------------------------------------------------------------------------------
-Plug 'ksevelyar/joker.vim'
-" Plug '/c/joker.vim'
+" Color Themes ------------------------------------------------------------------------------------
+" :Colors to change
+" Plug 'ksevelyar/joker.vim'
+Plug '/c/joker.vim'
+
+Plug 'rafalbromirski/vim-aurora'
+Plug 'dracula/vim'
+Plug 'whatyouhide/vim-gotham'
+Plug 'arcticicestudio/nord-vim'
+Plug 'cocopon/iceberg.vim'
 
 Plug 'ryanoasis/vim-devicons'
 Plug 'luochen1990/rainbow'
@@ -149,11 +155,6 @@ let g:lightline.colorscheme = 'joker'
 " let airline#extensions#ale#warning_symbol = ' '
 " let airline#extensions#ale#show_line_numbers = 0
 
-Plug 'rafalbromirski/vim-aurora'
-Plug 'dracula/vim'
-Plug 'whatyouhide/vim-gotham'
-Plug 'arcticicestudio/nord-vim'
-Plug 'cocopon/iceberg.vim'
 
 Plug '907th/vim-auto-save'
 let g:auto_save = 0

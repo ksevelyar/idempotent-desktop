@@ -88,6 +88,7 @@ in
       # net
       firefox-beta-bin
       transmission_gtk
+      (mumble.override { pulseSupport = true; })
 
       # text    
       zathura
