@@ -98,8 +98,8 @@ Plug 'junegunn/fzf.vim'
 
 " Color Themes ------------------------------------------------------------------------------------
 " :Colors to change
-" Plug 'ksevelyar/joker.vim'
-Plug '/c/joker.vim'
+Plug 'ksevelyar/joker.vim'
+" Plug '/c/joker.vim'
 
 Plug 'rafalbromirski/vim-aurora'
 Plug 'dracula/vim'
