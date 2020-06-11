@@ -3,7 +3,6 @@ main_window.quit=q
 thread_index.run(hooks::toggle deleted %1, hooks::toggle deleted %1)=d
 thread_index.run(hooks::toggle work %1, hooks::toggle work %1)=w
 thread_index.run(hooks::toggle spam %1, hooks::toggle spam %1)=s
-thread_index.run(hooks::toggle queue %1, hooks::toggle spam %1)=s
 
 main_window.show_saved_searches=M1-s # Show saved searches, default: M-s
 # main_window.search_tag=L # Search for tag:, default: L
