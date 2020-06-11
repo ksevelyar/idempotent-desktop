@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/ksevelyar/idempotent-desktop/issues"
   },
-  "homepage": "https://github.com/ksevelyar/idempotent-desktop#readme"
+  "homepage": "https://github.com/ksevelyar/idempotent-desktop#readme",
+  "dependencies": {
+    "markdown-it-task-lists": "^2.1.1",
+    "vuepress-theme-default-prefers-color-scheme": "^1.0.9"
+  }
 }

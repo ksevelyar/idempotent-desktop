@@ -1,4 +1,10 @@
 module.exports = {
+  markdown: {
+    extendMarkdown: md => {
+      md.use(require('markdown-it-task-lists'))
+    }
+  },
+  theme: 'default-prefers-color-scheme',
   themeConfig: {
     repo: 'ksevelyar/idempotent-desktop',
     docsDir: 'docs',
