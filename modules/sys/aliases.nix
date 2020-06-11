@@ -58,6 +58,7 @@
     gl = "git lg";
     gp = "git push";
     gso = "git log -p --all --source -S "; # search string in all branches, gso <string>
+    df = "git diff --no-index"; # delta diff for non git files
 
     t = "task"; # https://www.youtube.com/watch?v=zl68asL9jZA
     fd = "fd --hidden --exclude .git";

@@ -189,7 +189,7 @@ myManageHook = manageDocks <+> (composeAll . concat $
   myFullFloats  = ["mpv", "Zathura", "Image Lounge"]
   myIm          = ["TelegramDesktop", "Mumble", "Skype"]
   myEd          = ["nvim"]
-  myGfxs        = ["Inkscape", "Gimp-2.10"]
+  myGfxs        = ["Inkscape", "Gimp-2.10", "cura"]
   myWeb         = ["firefox-work"]
   myMisc        = ["firefox-chill"]
 

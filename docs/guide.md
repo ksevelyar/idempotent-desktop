@@ -32,6 +32,7 @@
 - Use master password with `gopass` or `keepassxc` (both has browser integration)
 - Keep your secrets in `tomb`
 - See info about `sshd` and `x11vnc` connects in `polybar`
+- Use hardened kernel
 
 ### Anonimity
 

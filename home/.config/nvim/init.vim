@@ -547,7 +547,7 @@ nnoremap <silent><leader>w :w<cr>
 " ctags
 nnoremap <leader>s :TagbarToggle<cr>
 
-nnoremap \ :Goyo<cr>
+nnoremap <silent>\ :Goyo<cr>
 
 " copy curent buffer filepath
 nnoremap <silent> <leader>p :let @+=expand("%:p")<CR>
