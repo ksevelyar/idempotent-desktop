@@ -4,7 +4,7 @@ module.exports = {
     docsDir: 'docs',
     editLinks: true,
     editLinkText: 'Help to improve this page ❀◕ ‿ ◕❀',
-    logo: 'logo.png',
+    logo: 'nixoscolorful.svg',
     sidebar: [
       '/',
       '/guide',
