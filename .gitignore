@@ -2,6 +2,6 @@
 configuration.nix
 
 node_modules
-docs/.vuepress
+docs/.vuepress/dist
 
 .secrets
