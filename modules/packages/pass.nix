@@ -16,6 +16,7 @@
       passExtensions.pass-otp
 
       gopass
+      ripasso-cursive
     ];
   };
 }

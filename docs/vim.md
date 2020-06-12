@@ -7,7 +7,8 @@ Integrated with `lsp`, `fzf`, `fd`, `rg`.
 
 ## Learn
 
-You can start with built-in `:Tutor`
+- You can start with built-in `:Tutor`
+- [Cheatsheet](/vim-cheatsheet-complete.pdf) by [blnd_the-dsgner](https://www.reddit.com/r/vim/comments/czieda/hello_guys_as_promised_here_are_all_cheatsheet)
 
 ## Bindings
 
