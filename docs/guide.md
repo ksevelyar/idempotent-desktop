@@ -27,10 +27,6 @@
 - Effective usage of resources, requires **less than 500MB RAM** to boot to the graphical user interface.
 - Install system with all you preferences using three commands
 
-### Linux as IDE
-
-Files: `z.lua`, `fzf`, `rg`, `fd`
-
 ### Security
 
 - Use master password with `gopass` or `keepassxc` (both has browser integration)
