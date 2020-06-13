@@ -9,6 +9,12 @@
     initialHashedPassword = lib.mkForce "$6$zKk1qNy.84$mVGFT2YYt39K2NI17T7skDyyVXf8LVMG.7vF.JMrKqTq6INet9eLj8BUeLR.QAKdU2cyGELQ04UP6GFIG4LX./";
   };
 
+  home-manager = {
+    users.${vars.user} = {
+      home.file."Wallpapers/Season-01-Gas-station-by-dutchtide.png".source = ../../assets/wallpapers/Season-01-Gas-station-by-dutchtide.png;
+    };
+  };
+
   users.users.${vars.user} = {
     # Allow the graphical user to login without password
     initialHashedPassword = "";

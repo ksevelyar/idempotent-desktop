@@ -33,7 +33,7 @@
 
     # sec
     p = "gopass";
-    dig = "tomb open *.tomb -k *.tomb.key && notify-send 'Drains 5 Karma per grave.'";
+    open-tomb = "tomb open *.tomb -k *.tomb.key && notify-send 'Drains 5 Karma per grave.'";
 
     tm = "tm1";
     tm1 = "tmux new -A -s 🦙";

@@ -78,7 +78,6 @@ in
       toxic
 
       # sec
-      openvpn
       tomb
       pwgen
 

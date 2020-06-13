@@ -1,8 +1,13 @@
 # FIXME
 { config, pkgs, lib, vars, ... }:
 {
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   nixpkgs.config.allowUnsupportedSystem = true; # build arm from x64
+  # nixpkgs = rec {
+  # crossSystem = (import <nixpkgs> {}).pkgsCross.aarch64-multiplatform.stdenv.targetPlatform;
+  # localSystem = crossSystem;
+  # };
 
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/sd-image-aarch64.nix>

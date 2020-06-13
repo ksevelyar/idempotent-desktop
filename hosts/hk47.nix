@@ -47,14 +47,19 @@
       ../modules/hardware/ssd.nix
 
       ../modules/net/firewall-desktop.nix
-      ../modules/net/kresd.nix
+      # ../modules/net/kresd.nix
       ../modules/net/wireguard.nix
       ../modules/net/i2pd.nix
       ../modules/net/tor.nix
       ../modules/net/sshd.nix
+      ../modules/net/openvpn.nix
 
       ../modules/vm/hypervisor.nix
     ];
+
+  # build arm from x64, live-usb/rpi.nix for example
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  nixpkgs.config.allowUnsupportedSystem = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.grub.splashImage = lib.mkForce ../assets/grub_1024x768.png;

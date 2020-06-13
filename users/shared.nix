@@ -41,6 +41,7 @@
       "d /home/${vars.user}/.backup         0700 1000 1000"
       "d /home/${vars.user}/.password-store 0700 1000 1000"
       "d /home/${vars.user}/.secrets        0700 1000 1000"
+      "d /home/${vars.user}/Wallpapers      0700 1000 1000"
     ];
 
   home-manager = {
