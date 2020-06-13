@@ -11,7 +11,7 @@
 
   home-manager = {
     users.${vars.user} = {
-      home.file."Wallpapers/Season-01-Gas-station-by-dutchtide.png".source = ../../assets/wallpapers/Season-01-Gas-station-by-dutchtide.png;
+      home.file."Wallpapers/Season-01-Gas-station-by-dutchtide.png".source = ../assets/wallpapers/Season-01-Gas-station-by-dutchtide.png;
     };
   };
 
