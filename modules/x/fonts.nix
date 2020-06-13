@@ -1,3 +1,4 @@
+# https://www.programmingfonts.org/
 { pkgs, lib, ... }:
 {
   fonts = {
@@ -21,12 +22,12 @@
         # gyre-fonts # TrueType substitutes for standard PostScript fonts
         # xorg.fontmiscmisc
         # xorg.fontcursormisc
+        terminus_font.otb
         unifont
         cozette
         fixedsys-excelsior
         noto-fonts-emoji
 
-        # https://www.programmingfonts.org/
         # unfree Microsoft fonts
         corefonts # Andale Mono, Arial, Comic Sans, Courier New, Georgia, Impact, Times New Roman, Trebuchet, Verdana, Webdings
         # vistafonts # Calibri, Cambria, Candara, Consolas, Constantia, Corbel
@@ -38,7 +39,7 @@
         fira-code
 
         # Required for polybar
-        siji # https://github.com/stark/siji
+        siji.otb # https://github.com/stark/siji
 
         open-sans
         roboto

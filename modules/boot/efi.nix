@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   boot.loader = {
     efi = {
@@ -24,7 +24,8 @@
       # Add to your host to change defaults:
       # font = ../../assets/fonts/ter-u16n.pf2;
       # splashImage = ../../assets/grub.png;
-      # extraConfig = "set theme=($drive1)//grub/themes/fallout-grub-theme/theme.txt";
     };
   };
+
+  environment.systemPackages = with pkgs; [ memtest86plus ];
 }

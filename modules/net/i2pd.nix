@@ -4,7 +4,7 @@
 
 {
   services.i2pd = {
-    enable = false;
+    enable = true;
     bandwidth = 2500; # kb/s
     proto.http.enable = true;
     proto.httpProxy.enable = true;

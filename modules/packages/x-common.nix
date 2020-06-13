@@ -10,7 +10,6 @@ in
       VISUAL = "nvim";
       BROWSER = "firefox";
       TERMINAL = "alacritty";
-      QT_STYLE_OVERRIDE = "gtk2";
     };
 
     etc."xdg/gtk-3.0/settings.ini" = {
@@ -86,7 +85,8 @@ in
   environment.systemPackages = with pkgs;
     [
       # net
-      firefox-beta-bin
+      firefox
+      google-chrome
       transmission_gtk
       (mumble.override { pulseSupport = true; })
 
@@ -135,7 +135,7 @@ in
       glxinfo
       feh
       spotifywm
-      mpv
+      mpv # https://github.com/mpv-player/mpv/blob/master/etc/input.conf
       imv
       libva-utils
       cava
@@ -143,7 +143,6 @@ in
 
       # fs
       nomacs
-      spaceFM
       gparted
 
       # gui for external monitors

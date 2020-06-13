@@ -22,19 +22,4 @@
 
   services.mingetty.autologinUser = lib.mkForce vars.user;
   services.mingetty.greetingLine = lib.mkForce ''\l'';
-
-  environment.shellAliases = {
-    wire-dotfiles = "sh /etc/scripts/wire-dotfiles.sh";
-  };
-  # NOTE: /mnt and /mnt/boot should be mounted before this command
-  environment.etc."/scripts/wire-dotfiles.sh".text = ''
-    refresh-channels
-    # create blank hardware-configuration.nix & configuration.nix
-    sudo nixos-generate-config --root /mnt
-    bat /mnt/etc/nixos/*.nix
-    sudo mv /mnt/etc/nixos{,.bak}
-
-    # downloand repo
-    sudo git clone https://github.com/ksevelyar/idempotent-desktop.git /mnt/etc/nixos
-  '';
 }

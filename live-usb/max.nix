@@ -15,6 +15,8 @@
     ../modules/sys/vars.nix
     ../modules/sys/sysctl.nix
 
+    ../modules/boot/broadcom-wifi.nix
+
     ../modules/services/common.nix
     ../modules/services/x.nix
 
@@ -38,8 +40,8 @@
 
     ../modules/net/firewall-desktop.nix
     ../modules/net/wireguard.nix
-    # ../modules/net/i2pd.nix
-    ../modules/net/i2p.nix
+    ../modules/net/i2pd.nix
+    # ../modules/net/i2p.nix
     ../modules/net/tor.nix
     ../modules/net/sshd.nix
 

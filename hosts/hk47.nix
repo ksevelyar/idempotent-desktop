@@ -23,6 +23,7 @@
 
       ../modules/boot/efi.nix
       ../modules/boot/multiboot.nix
+      # ../modules/boot/broadcom-wifi.nix
 
       ../modules/services/common.nix
       ../modules/services/x.nix
@@ -102,6 +103,10 @@
   # hardware
   powerManagement.cpuFreqGovernor = "performance";
   services.xserver.videoDrivers = [ "nvidia" ];
+  services.picom = {
+    backend = "xrender";
+  };
+
   # services.xserver.videoDrivers = [ "nouveau" ];
 
   # Fix smooth scroll in Firefox

@@ -27,7 +27,6 @@ in
       git
       mkpasswd
       file
-      memtest86plus
       jq
       miller
       ccze
@@ -61,18 +60,15 @@ in
       lshw
       pciutils # lspci
       usbutils # lsusb
-      psmisc # pstree, killall
       inetutils
 
       # mail & tasks
       isync # sync imap
       msmtp # send mail
       notmuch # index and search mail
-      neomutt # terminal mail client
-      notmuch-bower
-      lynx
-      mailcap
-      mu # https://zmalltalker.com/linux/mu.html
+      notmuch-bower # notmuch tui
+      lynx # bower dep
+      mailcap # bower dep
 
       # im
       toxic

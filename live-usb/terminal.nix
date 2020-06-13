@@ -15,6 +15,8 @@
     ../modules/sys/vars.nix
     ../modules/sys/sysctl.nix
 
+    ../modules/boot/broadcom-wifi.nix
+
     ./modules/services/common.nix
     # ../modules/services/x.nix
 

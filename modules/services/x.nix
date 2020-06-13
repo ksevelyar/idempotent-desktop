@@ -15,7 +15,7 @@
     fade = true;
     fadeDelta = 5;
     shadow = false;
-    backend = "glx";
+    backend = lib.mkDefault "glx";
     vSync = true;
   };
 

@@ -15,13 +15,13 @@ in
       # work
       # syncthing
       # masterpdfeditor
-      # memtest86-efi
 
       # office
       libreoffice-fresh
       thunderbird-bin
       qalculate-gtk
       wireshark-qt
+      notepadqq
 
       # cli
       roxterm # fallback terminal

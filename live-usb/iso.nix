@@ -1,9 +1,6 @@
 # https://github.com/ksevelyar/idempotent-desktop/blob/master/docs/live-usb.md
 { config, pkgs, lib, vars, ... }:
 {
-  boot.kernelModules = [ "wl" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
-
   networking.networkmanager.enable = true; # nmcli for wi-fi
   networking.wireless.enable = lib.mkForce false;
 
