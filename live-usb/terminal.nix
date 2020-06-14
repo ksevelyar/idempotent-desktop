@@ -17,7 +17,7 @@
 
     ../modules/boot/broadcom-wifi.nix
 
-    ./modules/services/common.nix
+    ../modules/services/common.nix
     # ../modules/services/x.nix
 
     # ./modules/x/openbox.nix
@@ -37,12 +37,12 @@
     # ./modules/hardware/sound.nix
     # ./modules/hardware/laptop.nix
 
-    ./modules/net/firewall-desktop.nix
-    ./modules/net/wireguard.nix
+    ../modules/net/firewall-desktop.nix
+    ../modules/net/wireguard.nix
     # ./modules/net/i2pd.nix
     # ./modules/net/i2p.nix
     # ./modules/net/tor.nix
-    ./modules/net/sshd.nix
+    ../modules/net/sshd.nix
 
     # ./modules/vm/hypervisor.nix
   ];

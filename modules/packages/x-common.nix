@@ -151,8 +151,8 @@ in
       # freelance (hire me)
       upwork
 
-      # 3d
-      cura
+      # 3d print
+      cura # https://www.thingiverse.com/ksevelyar/likes
       openscad
 
       # gfx

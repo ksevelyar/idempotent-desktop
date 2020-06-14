@@ -103,9 +103,9 @@
   # hardware
   powerManagement.cpuFreqGovernor = "performance";
   services.xserver.videoDrivers = [ "nvidia" ];
-  services.picom = {
-    backend = "xrender";
-  };
+  # services.picom = {
+  # backend = "xrender";
+  # };
 
   # services.xserver.videoDrivers = [ "nouveau" ];
 

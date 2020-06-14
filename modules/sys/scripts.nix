@@ -35,24 +35,23 @@ let
     #!${pkgs.stdenv.shell}
     set -e
 
-    nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb/graphical.nix -o /tmp/live-usb
-    du -h /tmp/live-usb/iso/id-live.iso
+    nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb/graphical.nix --no-out-link
   '';
 
   id-build-rpi = pkgs.writeScriptBin "id-build-rpi" ''
     #!${pkgs.stdenv.shell}
     set -e
 
-    sudo nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage -I nixos-config=/etc/nixos/live-usb/rpi.nix -o /tmp/live-arm --system aarch64-linux
-    du -h /tmp/live-usb/iso/id-live-arm.iso
+    sudo nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage -I nixos-config=/etc/nixos/live-usb/rpi.nix --no-out-link --system aarch64-linux
   '';
 
   id-write-usb = pkgs.writeScriptBin "id-write-usb" ''
     #!${pkgs.stdenv.shell}
     set -e
 
-    id-build-iso
-    sudo dd bs=4M if=/tmp/live-usb/iso/id-live.iso of=/dev/disk/by-label/id-live status=progress oflag=sync
+    iso=$(id-build-iso)
+    sudo dd bs=4M if=$iso/iso/id-live.iso of=/dev/disk/by-label/id-live status=progress oflag=sync
+    # sudo dd bs=4M if=$img/sd-image/id-live-arm.iso.bz2 of=/dev/disk/by-label/id-live status=progress oflag=sync
 
     echo -e "\n💽\n"
   '';
