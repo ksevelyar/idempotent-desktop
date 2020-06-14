@@ -19,7 +19,7 @@ in
 
       # emulators & platforms
       steam
-      # wineWowPackages.stable
+      wineFull
       # retroarchBare
       # anbox
       # (steam.override { nativeOnly = true; })
@@ -31,6 +31,7 @@ in
       rogue
 
       # gui
+      jdk11 # minecraft
       xonotic
       wesnoth
       stepmania

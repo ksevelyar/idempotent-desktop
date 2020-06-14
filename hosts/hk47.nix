@@ -28,6 +28,7 @@
       ../modules/services/common.nix
       ../modules/services/x.nix
       ../modules/services/postgresql.nix
+      ../modules/services/mongodb.nix
 
       ../modules/x/xmonad.nix
       ../modules/x/fonts.nix

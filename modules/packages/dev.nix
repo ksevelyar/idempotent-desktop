@@ -15,6 +15,9 @@ in
 
       # images
       # imagemagick
+      ruby_2_7
+      zlib
+      postgresql
 
       # tools
       universal-ctags

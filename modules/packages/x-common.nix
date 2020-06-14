@@ -89,6 +89,7 @@ in
       google-chrome
       transmission_gtk
       (mumble.override { pulseSupport = true; })
+      x11vnc
 
       # text    
       zathura
