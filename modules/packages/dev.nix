@@ -7,19 +7,21 @@ in
 {
   environment.systemPackages = with pkgs;
     [
-      # docs
-      zeal
 
-      # api
-      curlie
-
-      # images
-      # imagemagick
+      # ruby
       ruby_2_7
+      solargraph # ruby lsp
       zlib
       postgresql
 
+      nodejs_latest
+
+      elixir
+
       # tools
+      zeal # docs
+      curlie # api
+      imagemagick
       universal-ctags
       global
       stylish-haskell
@@ -31,11 +33,6 @@ in
       gitg
       gitAndTools.tig
       lazygit # https://youtu.be/CPLdltN7wgE
-
-      # langs
-      nodejs_latest
-      elixir
-      # go
 
       # arduino
       arduino

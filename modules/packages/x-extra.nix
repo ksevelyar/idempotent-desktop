@@ -5,11 +5,7 @@ let
   };
 in
 {
-  # upwork
-  nixpkgs.overlays = [ (import ../../overlays) ];
-
   programs.dconf.enable = true;
-
   environment.systemPackages = with pkgs;
     [
       # work
@@ -22,6 +18,7 @@ in
       qalculate-gtk
       wireshark-qt
       notepadqq
+      neovim-qt
 
       # cli
       roxterm # fallback terminal

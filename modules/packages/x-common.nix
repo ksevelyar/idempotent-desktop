@@ -3,6 +3,7 @@ let
   stable = import <stable> {
     config = config.nixpkgs.config;
   };
+  upwork = pkgs.callPackage ./upwork.nix {};
 in
 {
   environment = {
@@ -113,7 +114,6 @@ in
       astroid # notmuch gui
 
       # sys
-      neovim-qt
       xxkb
       xorg.xev
       xorg.xfd

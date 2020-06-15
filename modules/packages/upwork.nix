@@ -1,5 +1,3 @@
-# https://github.com/dambaev/upwork-overlay
-
 { stdenv
 , fetchurl
 , dpkg
@@ -23,7 +21,6 @@
 , systemd
 }:
 let
-  # TODO: refactor to map dotted version into version with _
   version = "5.3.3.862";
   version_hash = "v5_3_3_862_0gofuuatmjqd0n86";
 in

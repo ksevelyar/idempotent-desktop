@@ -5,14 +5,16 @@ let
   stable = import <stable> {
     config = config.nixpkgs.config;
   };
+  hunter = pkgs.callPackage ./hunter.nix {};
 in
 {
+
   programs.fish.enable = true;
   programs.mosh.enable = true;
 
   environment.systemPackages = with pkgs;
     [
-      # sys 
+      # sys
       fzf
       ripgrep
       bat
@@ -46,7 +48,7 @@ in
       sampler
       taskwarrior # todo & tasks
 
-      # monitoring 
+      # monitoring
       bandwhich
       iperf3
       lm_sensors
@@ -86,7 +88,7 @@ in
       bind
       parted
       ffsend
-      nnn # curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
+      hunter
       viu
       ncdu
       exa
