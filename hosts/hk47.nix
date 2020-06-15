@@ -103,12 +103,15 @@
 
   # hardware
   powerManagement.cpuFreqGovernor = "performance";
-  services.xserver.videoDrivers = [ "nvidia" ];
-  # services.picom = {
-  # backend = "xrender";
-  # };
-
-  # services.xserver.videoDrivers = [ "nouveau" ];
+  # services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "nouveau" ];
+  services.picom = {
+    enable = true;
+    fade = false;
+    backend = "glx";
+    # backend = "xrender";
+    vSync = true;
+  };
 
   # Fix smooth scroll in Firefox
   # services.xserver.screenSection = ''

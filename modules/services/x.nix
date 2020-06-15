@@ -11,10 +11,10 @@
   };
 
   services.picom = {
-    enable = true;
-    fade = true;
-    fadeDelta = 5;
-    shadow = false;
+    enable = lib.mkDefault true;
+    fade = lib.mkDefault true;
+    fadeDelta = lib.mkDefault 5;
+    shadow = lib.mkDefault false;
     backend = lib.mkDefault "glx";
     vSync = true;
   };

@@ -4,6 +4,8 @@ let
     config = config.nixpkgs.config;
   };
   upwork = pkgs.callPackage ./upwork.nix {};
+  # TODO: pack neovide
+  # neovide = pkgs.callPackage ./neovide.nix {};
 in
 {
   environment = {
@@ -137,6 +139,7 @@ in
       feh
       spotifywm
       mpv # https://github.com/mpv-player/mpv/blob/master/etc/input.conf
+      vlc
       imv
       libva-utils
       cava

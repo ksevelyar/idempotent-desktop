@@ -11,4 +11,9 @@ function ssht
   ssh -t $argv[1] 'tmux new -A -s 🦙'
 end
 
+function vmk
+  mkdir -p (dirname $argv[1])
+  nvim $argv[1]
+end
+
 set -u DEFAULT_USER (whoami)

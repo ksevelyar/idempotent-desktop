@@ -88,5 +88,6 @@
 
     # dev
     rbe = "bundle exec";
+    bro = "browser-sync start --server --files .";
   };
 }
