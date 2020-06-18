@@ -55,6 +55,7 @@
       ../modules/net/tor.nix
       ../modules/net/sshd.nix
       ../modules/net/openvpn.nix
+      ../modules/net/lidarr.nix
 
       ../modules/vm/hypervisor.nix
     ];
@@ -63,7 +64,7 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   nixpkgs.config.allowUnsupportedSystem = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.grub.splashImage = lib.mkForce ../assets/grub_1024x768.png;
   # boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;
   # boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
@@ -103,7 +104,7 @@
 
   # hardware
   powerManagement.cpuFreqGovernor = "performance";
-  # services.xserver.videoDrivers = [ "nvidia" ];
+  # services.xserver.videoDriver = "nvidia";
   services.xserver.videoDrivers = [ "nouveau" ];
   services.picom = {
     enable = true;

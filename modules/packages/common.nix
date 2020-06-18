@@ -103,11 +103,10 @@ in
       rclone # rclone mount gdrive: ~/gdrive/
 
       # media
-      cmus
       moc
-      glava
 
       # bells and whistles
+      cava
       cmatrix
 
       # games for live usb

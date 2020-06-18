@@ -10,13 +10,17 @@
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+
+      ../users/shared.nix
+      ../users/kh.nix
+
       ../modules/sys/aliases.nix
-      ../modules/sys/scripts.nix
-      ../modules/sys/tty.nix
-      ../modules/sys/nix.nix
-      ../modules/sys/vars.nix
-      ../modules/sys/sysctl.nix
       # ../modules/sys/debug.nix
+      ../modules/sys/nix.nix
+      ../modules/sys/scripts.nix
+      ../modules/sys/sysctl.nix
+      ../modules/sys/tty.nix
+      ../modules/sys/vars.nix
 
       ../modules/boot/efi.nix
       ../modules/boot/multiboot.nix
@@ -34,6 +38,7 @@
       ../modules/packages/dev.nix
       ../modules/packages/games.nix
       ../modules/packages/nvim.nix
+      ../modules/packages/pass.nix
       ../modules/packages/tmux.nix
       # ../modules/packages/firefox.nix
 
@@ -44,14 +49,13 @@
 
       ../modules/net/firewall-desktop.nix
       ../modules/net/wireguard.nix
-      ../modules/net/i2p.nix
+      ../modules/net/i2pd.nix
       ../modules/net/tor.nix
       ../modules/net/sshd.nix
+      ../modules/net/openvpn.nix
+      # ../modules/net/lidarr.nix
 
       ../modules/vm/hypervisor.nix
-
-      ../users/shared.nix
-      ../users/kh.nix
     ];
 
   boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;
@@ -98,7 +102,7 @@
       ];
     };
   };
-  fileSystems."/mnt/skynet" = {
+  fileSystems."/skynet" = {
     device = "192.168.42.1:/export";
     fsType = "nfs";
   };

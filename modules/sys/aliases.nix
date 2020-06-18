@@ -17,7 +17,10 @@
     sru = "systemctl restart --user";
 
     x = "sudo systemctl restart display-manager";
+
     log = "sudo journalctl --output cat -u"; # log sshd -f
+    log-previous-boot = "sudo journalctl --boot=-1";
+
     ports = "sudo lsof -Pni"; # ports | fzf
     pgrep = "pgrep --full";
     pkill = "pkill --full";

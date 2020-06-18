@@ -85,8 +85,9 @@ let
     nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=/etc/nixos/configuration.nix --no-out-link | cachix push idempotent-desktop
     nix-du --root /run/current-system/sw/ -s 100MB | tred | dot -Tsvg -Nfontname=Roboto -Efontname=Roboto > nix-store.svg
 
-    id-build-iso
-    rclone copy /tmp/live-usb/iso/id-live.iso gdrive:
+    iso=$(id-build-iso)
+    du -h $iso/iso/id-live.iso
+    rclone copy $iso/iso/id-live.iso gdrive:
 
     echo -e "\n🐗\n"
   '';

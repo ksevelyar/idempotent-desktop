@@ -267,9 +267,9 @@ scratchpads = [
   NS "gpmdp" "google-play-music-desktop-player"
     (className =? "Google Play Music Desktop Player")
     (customFloating $ W.RationalRect 0.15 0.2 0.7 0.7),
-  NS "spotify" "spotifywm"
+  NS "spotify" "spotify"
     (resource =? "spotify")
-    (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8),
+    nonFloating,
 
   NS "upwork" "upwork"
     (wm_name =? "Time Tracker")

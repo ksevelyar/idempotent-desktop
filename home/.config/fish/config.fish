@@ -11,6 +11,10 @@ function ssht
   ssh -t $argv[1] 'tmux new -A -s 🦙'
 end
 
+function pgen
+  gopass generate -s -c $argv[1] 42 # if you can type your password it's no good
+end
+
 function vmk
   mkdir -p (dirname $argv[1])
   nvim $argv[1]

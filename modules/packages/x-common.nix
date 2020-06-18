@@ -137,13 +137,13 @@ in
       # media
       glxinfo
       feh
-      spotifywm
+      spotify
       mpv # https://github.com/mpv-player/mpv/blob/master/etc/input.conf
       vlc
+      stable.kodi
       imv
       libva-utils
-      cava
-      moc
+      glava
 
       # fs
       nomacs
@@ -156,7 +156,8 @@ in
       upwork
 
       # 3d print
-      cura # https://www.thingiverse.com/ksevelyar/likes
+      # version from testing permanently broken 🤦
+      stable.cura # https://www.thingiverse.com/ksevelyar/likes
       openscad
 
       # gfx
