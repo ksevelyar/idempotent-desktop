@@ -16,16 +16,16 @@ in
       libreoffice-fresh
       thunderbird-bin
       qalculate-gtk
-      wireshark-qt
+      # wireshark-qt
       notepadqq
-      neovim-qt
+      # neovim-qt
 
       # cli
       roxterm # fallback terminal
       # browsh # cli browser
 
       # gui
-      pywal
+      # pywal
       # appimage-run
       # chromium
       # vivaldi
@@ -64,8 +64,6 @@ in
       # audacious
       # lmms
       ffmpeg
-      vlc
-      stable.kodi
       # fluidsynth # Real-time software synthesizer based on the SoundFont 2 specifications
       # mikmod # Tracker music player for the terminal
       # mpg123 # Fast console MPEG Audio Player and decoder library
