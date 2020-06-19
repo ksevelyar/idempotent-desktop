@@ -156,8 +156,8 @@ in
       upwork
 
       # 3d print
-      # version from testing permanently broken 🤦
-      stable.cura # https://www.thingiverse.com/ksevelyar/likes
+      # https://www.thingiverse.com/ksevelyar/likes
+      slic3r-prusa3d
       openscad
 
       # gfx

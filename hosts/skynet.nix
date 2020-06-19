@@ -5,6 +5,10 @@
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+
+      ../users/shared.nix
+      ../users/ksevelyar.nix
+
       ../modules/sys/aliases.nix
       ../modules/sys/scripts.nix
       ../modules/sys/tty.nix
@@ -31,8 +35,7 @@
       ../modules/net/sshd.nix
       ../modules/net/minecraft.nix
 
-      ../users/shared.nix
-      ../users/ksevelyar.nix
+      ../modules/vm/docker.nix
     ];
 
   hardware = {

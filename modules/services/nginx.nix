@@ -2,7 +2,8 @@
   security.acme.acceptTerms = true;
 
   services.nginx = {
-    # Use recommended settings
+    enable = true;
+
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
     recommendedProxySettings = true;
@@ -13,20 +14,27 @@
       source_charset utf-8;
     '';
 
-    enable = true;
     virtualHosts."legacy-intelligence.life" = {
       enableACME = true;
       forceSSL = true;
       root = "/var/www/legacy-intelligence.life";
+    };
 
-      locations."/drawable-map".extraConfig = ''
-        proxyPass = "http://127.0.0.1:3000";
-      '';
+    virtualHosts."preview.network" = {
+      enableACME = true;
+      forceSSL = true;
+      root = "/var/www/legacy-intelligence.life";
+    };
+    virtualHosts."map.preview.network" = {
+      enableACME = true;
+      forceSSL = true;
+      root = "/var/www/drawable-map/public";
+
+      locations."/polygons" = {
+        proxyPass = http://127.0.0.1:3000;
+      };
     };
   };
-  # Optional: You can configure the email address used with Let's Encrypt.
-  # This way you get renewal reminders (automated by NixOS) as well as expiration emails.
-  security.acme.certs = {
-    "legacy-intelligence.life".email = "ksevelyar@gmail.com";
-  };
+
+  security.acme.email = "ksevelyar@gmail.com";
 }
