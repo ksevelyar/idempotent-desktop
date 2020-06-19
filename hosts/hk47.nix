@@ -58,6 +58,7 @@
       ../modules/net/lidarr.nix
 
       ../modules/vm/hypervisor.nix
+      ../modules/vm/docker.nix
     ];
 
   # build arm from x64, live-usb/rpi.nix for example
@@ -104,8 +105,8 @@
 
   # hardware
   powerManagement.cpuFreqGovernor = "performance";
-  # services.xserver.videoDriver = "nvidia";
-  services.xserver.videoDrivers = [ "nouveau" ];
+  services.xserver.videoDriver = "nvidia";
+  # services.xserver.videoDrivers = [ "nouveau" ];
   services.picom = {
     enable = true;
     fade = false;

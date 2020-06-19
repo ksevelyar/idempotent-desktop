@@ -18,6 +18,10 @@
       enableACME = true;
       forceSSL = true;
       root = "/var/www/legacy-intelligence.life";
+
+      locations."/drawable-map".extraConfig = ''
+        proxyPass = "http://127.0.0.1:3000";
+      '';
     };
   };
   # Optional: You can configure the email address used with Let's Encrypt.
