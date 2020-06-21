@@ -2,7 +2,7 @@
 {
   virtualisation.docker = {
     enable = true;
-    enableOnBoot = false;
+    enableOnBoot = lib.mkDefault false;
   };
 
   users.users.${vars.user}.extraGroups = [ "docker" ];
