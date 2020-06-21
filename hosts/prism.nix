@@ -39,12 +39,11 @@
 
       ../modules/hardware/bluetooth.nix
       ../modules/hardware/sound.nix
-      ../modules/hardware/ssd.nix
       ../modules/hardware/power-management.nix
 
       ../modules/net/firewall-desktop.nix
       ../modules/net/wireguard.nix
-      ../modules/net/i2p.nix
+      # ../modules/net/i2p.nix
       ../modules/net/tor.nix
       ../modules/net/sshd.nix
 
@@ -59,18 +58,14 @@
   # boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
 
   # boot
-  # boot.blacklistedKernelModules = [];
-  # boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" "sdhci_pci" ];
+  boot.initrd.kernelModules = [];
   boot.cleanTmpDir = true;
   boot.tmpOnTmpfs = true;
-
-  boot.initrd.kernelModules = [];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [];
-  boot.plymouth.enable = false;
 
-  networking.hostName = "prism"; # Define your hostname.
+  networking.hostName = "prism";
   networking.wireguard.interfaces = {
     skynet = {
       ips = [ "192.168.42.50" ];
@@ -79,10 +74,7 @@
       peers = [
         {
           publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
-
           allowedIPs = [ "192.168.42.0/24" ];
-
-          # Set this to the server IP and port.
           endpoint = "77.37.166.17:51820";
 
           # Send keepalives every 25 seconds. Important to keep NAT tables alive.
@@ -96,7 +88,7 @@
   networking.useDHCP = false;
   networking.interfaces.enp4s0.useDHCP = true;
   networking.interfaces.wlp2s0.useDHCP = true;
-  fileSystems."/mnt/skynet" = {
+  fileSystems."/skynet" = {
     device = "192.168.42.1:/export";
     fsType = "nfs";
   };
@@ -119,8 +111,7 @@
   # sudo e2label /dev/disk/by-uuid/32685a01-79cc-4ec0-9d6f-c8708c897a3b nixos
   fileSystems."/" =
     {
-      # device = "/dev/disk/by-label/nixos";
-      device = "/dev/disk/by-uuid/32685a01-79cc-4ec0-9d6f-c8708c897a3b";
+      device = "/dev/disk/by-label/nixos";
       fsType = "ext4";
       options = [ "noatime" "nodiratime" ]; # ssd
     };

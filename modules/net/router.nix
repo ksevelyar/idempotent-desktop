@@ -78,16 +78,23 @@
       privateKeyFile = "/home/ksevelyar/wireguard-keys/private";
 
       peers = [
-        # HK-47
+        # ksevelyar
+        ## hk-47 42-52
         {
           publicKey = "Ql36tqX82moc8k5Yx4McF2zxF4QG3jeoXoj8AxSUNRU=";
           allowedIPs = [ "192.168.42.47" ];
         }
 
-        # pepes
+        # kh 10-20
+        ## catch-22
+        {
+          publicKey = "FcxMzEwr5LM30FWy+etfBU5CQScioa4WJSXv7vulIDk=";
+          allowedIPs = [ "192.168.42.10" ];
+        }
+        ## pepes
         {
           publicKey = "dKznTEMMN4xKXuP8UDo92G14pzwrJNGTISeSXoMcTxQ=";
-          allowedIPs = [ "192.168.42.3" ];
+          allowedIPs = [ "192.168.42.11" ];
         }
 
         # cyberdemon

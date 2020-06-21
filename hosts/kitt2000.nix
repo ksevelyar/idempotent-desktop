@@ -26,7 +26,6 @@
       ../modules/packages/nvim.nix
       ../modules/packages/tmux.nix
 
-      ../modules/hardware/ssd.nix
       ../modules/hardware/bluetooth.nix
 
       ../modules/net/wireguard.nix

@@ -44,7 +44,6 @@
 
       ../modules/hardware/bluetooth.nix
       ../modules/hardware/sound.nix
-      ../modules/hardware/ssd.nix
       # ../modules/hardware/power-management.nix
 
       ../modules/net/firewall-desktop.nix
