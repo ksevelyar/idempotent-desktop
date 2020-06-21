@@ -28,8 +28,6 @@
       ../modules/packages/nvim.nix
       ../modules/packages/tmux.nix
 
-      ../modules/hardware/ssd.nix
-
       ../modules/net/router.nix
       ../modules/net/wireguard.nix
       ../modules/net/nfs.nix
