@@ -41,7 +41,7 @@
       ../modules/packages/nvim.nix
       ../modules/packages/tmux.nix
 
-      ../modules/hardware/laptop.nix
+      ../modules/hardware/power-management.nix
       ../modules/hardware/bluetooth.nix
       ../modules/hardware/sound.nix
       ../modules/hardware/ssd.nix

@@ -92,7 +92,8 @@ in
       google-chrome
       transmission_gtk
       (mumble.override { pulseSupport = true; })
-      x11vnc
+      x11vnc # vnc-server
+      tigervnc # vncviewer
 
       # text    
       zathura
@@ -154,6 +155,7 @@ in
 
       # freelance (hire me)
       upwork
+      skype
 
       # 3d print
       # https://www.thingiverse.com/ksevelyar/likes

@@ -37,7 +37,7 @@
 
     ../modules/hardware/bluetooth.nix
     ../modules/hardware/sound.nix
-    # ../modules/hardware/laptop.nix
+    # ../modules/hardware/power-management.nix
 
     ../modules/net/firewall-desktop.nix
     ../modules/net/wireguard.nix
@@ -114,7 +114,7 @@
         image/png=nomacs.desktop;
         video/x-matroska=mpv.desktop;
         video/mpeg=mpv.desktop;
-        image/gif=nomacs.desktop;      
+        image/gif=nomacs.desktop;
       '';
     };
 
@@ -133,7 +133,7 @@
 
   environment.systemPackages = with pkgs;
     [
-      # sys 
+      # sys
       fzf
       ripgrep
       bat
@@ -170,7 +170,7 @@
       firefox
       transmission_gtk
 
-      # monitoring 
+      # monitoring
       # bandwhich
       iperf3
       lm_sensors
@@ -214,7 +214,7 @@
       rclone # rclone mount gdrive: ~/gdrive/
 
 
-      # text    
+      # text
       zathura
       hunspell
       hunspellDicts.en_US-large

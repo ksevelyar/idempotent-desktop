@@ -22,7 +22,6 @@
   services.xserver = {
     enable = true;
 
-    # TODO: move to laptop.nix
     libinput = {
       enable = true;
       accelProfile = "flat"; # flat profile for touchpads
@@ -30,7 +29,6 @@
       disableWhileTyping = true;
       clickMethod = "buttonareas";
       scrollMethod = lib.mkDefault "edge";
-      # additionalOptions = ''MatchIsTouchpad "on"'';
     };
 
     config = ''

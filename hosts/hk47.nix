@@ -159,4 +159,15 @@
     # don't freeze system if mount point not available on boot
     options = [ "x-systemd.automount" "noauto" ];
   };
+
+
+  # tmp
+  environment.systemPackages = with pkgs;
+    [
+      libimobiledevice
+      ifuse
+      usbmuxd
+      libplist
+    ];
+
 }

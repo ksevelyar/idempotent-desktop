@@ -8,8 +8,7 @@
   # dev hosts
   networking.extraHosts =
     ''
-      127.0.0.1 l.lcl
-      127.0.0.1 or.lcl
+      127.0.0.1 dev.lcl
     '';
 
   systemd.tmpfiles.rules =

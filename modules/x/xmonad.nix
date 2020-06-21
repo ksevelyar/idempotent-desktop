@@ -23,7 +23,7 @@
 
   services.xserver = {
     displayManager = {
-      defaultSession = "none+xmonad";
+      defaultSession = lib.mkDefault "none+xmonad";
     };
 
     windowManager.xmonad.enable = true;
@@ -40,7 +40,7 @@
     users.${vars.user} = {
       xsession.windowManager.xmonad.enable = true;
       xsession.windowManager.xmonad.enableContribAndExtras = true;
-      xsession.windowManager.xmonad.config = ../../home/.xmonad/xmonad.hs;
+      xsession.windowManager.xmonad.config = lib.mkDefault ../../home/.xmonad/xmonad.hs;
 
       home.file.".fehbg".text = ''
         #!/bin/sh

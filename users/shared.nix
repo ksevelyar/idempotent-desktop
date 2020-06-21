@@ -37,11 +37,18 @@
 
   systemd.tmpfiles.rules =
     [
+      # tomb mount points
       "d /home/${vars.user}/.mail           0700 1000 1000"
       "d /home/${vars.user}/.backup         0700 1000 1000"
       "d /home/${vars.user}/.password-store 0700 1000 1000"
+      "d /home/${vars.user}/.ssh            0700 1000 1000"
+
       "d /home/${vars.user}/.secrets        0700 1000 1000"
       "d /home/${vars.user}/Wallpapers      0700 1000 1000"
+      "d /home/${vars.user}/Screenshots     0700 1000 1000"
+      "d /home/${vars.user}/Documents       0700 1000 1000"
+      "d /home/${vars.user}/Pictures        0700 1000 1000"
+      "d /home/${vars.user}/Photos          0700 1000 1000"
     ];
 
   home-manager = {
