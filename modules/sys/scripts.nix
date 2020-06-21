@@ -102,22 +102,23 @@ let
     id-refresh-channels
 
     sudo mount /dev/disk/by-label/nixos /mnt
+    sudo mkdir -p /mnt/boot
     sudo mount /dev/disk/by-label/boot /mnt/boot/
     echo -e "\n💾"
     lsblk -f
     
     echo
     sudo git clone https://github.com/ksevelyar/idempotent-desktop.git /mnt/etc/nixos
+    sudo chown -R 1000:1000 /etc/nixos/
     
     if [ -z "$1" ]
       then
-        nixos-generate-config --root /mnt/etc/nixos
+        nixos-generate-config --root /mnt
         bat /mnt/etc/nixos/*.nix
       else
-        cd /mnt/etc/nixos && sudo ln -s hosts/$1 configuration.nix
+        cd /mnt/etc/nixos && ln -s hosts/$1 configuration.nix
     fi
 
-    sudo chown -R 1000:1000 /etc/nixos/
     sudo ls -lah /etc/nixos/configuration.nix
 
     sudo nixos-install
