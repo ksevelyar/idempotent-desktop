@@ -29,6 +29,9 @@ in
     etc."xdg/mimeapps.list" = {
       text = ''
         [Default Applications]
+        application/javascript=nvim.desktop;
+        application/json=nvim.desktop;
+        text/plain=nvim.desktop;
         inode/directory=spacefm.desktop
         x-scheme-handler/http=firefox.desktop
         x-scheme-handler/https=firefox.desktop
@@ -48,10 +51,15 @@ in
         video/mpeg=mpv.desktop;
         image/gif=nomacs.desktop;
         image/png=nomacs.desktop;
-        image/jpeg=nomacs.desktop;
-        application/pdf=org.gnome.Evince.desktop;
+        image/jpeg=nomacs.desktop;imv.desktop;
+        image/jpeg=nomacs.desktop;imv.desktop;
+        image/png=nomacs.desktop;imv.desktop;
 
         [Added Associations]
+        application/javascript=nvim.desktop;
+        application/json=nvim.desktop;
+        text/markdown=nvim.desktop;
+        text/plain=nvim.desktop;
         x-scheme-handler/http=firefox.desktop;
         x-scheme-handler/https=firefox.desktop;
         x-scheme-handler/ftp=firefox.desktop;
@@ -65,7 +73,9 @@ in
         application/x-extension-xht=firefox.desktop;
         x-scheme-handler/magnet=userapp-transmission-gtk-DXP9G0.desktop;
         application/pdf=org.gnome.Evince.desktop;
-        image/jpeg=nomacs.desktop;
+        image/jpeg=nomacs.desktop;imv.desktop;
+        image/jpeg=nomacs.desktop;imv.desktop;
+        image/png=nomacs.desktop;imv.desktop;
         image/png=nomacs.desktop;
         video/x-matroska=mpv.desktop;
         video/mpeg=mpv.desktop;
