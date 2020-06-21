@@ -1,4 +1,4 @@
-# Backup
+# Backup with rsync and dm_crypt
 
 ## Prepare usb
 
