@@ -1,0 +1,9 @@
+.npm*
+.cache
+.config/coc
+
+.local/share/TelegramDesktop
+.local/share/tor-browser
+
+Downloads
+Screenshots

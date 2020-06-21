@@ -15,7 +15,6 @@ in
   environment.systemPackages = with pkgs;
     [
       # sys
-      procs
       fzf
       ripgrep
       sd
@@ -49,6 +48,8 @@ in
       imagemagick
       sampler
       taskwarrior # todo & tasks
+      procs
+      hyperfine
 
       # monitoring
       bandwhich
@@ -78,6 +79,7 @@ in
       toxic
 
       # sec
+      cryptsetup
       tomb
       pwgen
 
@@ -93,6 +95,7 @@ in
       hunter
       viu
       ncdu
+      du-dust
       exa
       zoxide
       dosfstools
@@ -103,6 +106,7 @@ in
       sshfsFuse
       rsync
       rclone # rclone mount gdrive: ~/gdrive/
+      pigz
 
       # media
       moc
