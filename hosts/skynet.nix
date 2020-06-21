@@ -19,6 +19,7 @@
 
       ../modules/services/common.nix
       ../modules/services/nginx.nix
+      ../modules/services/mongodb.nix
       ../modules/services/murmur.nix
       # ../modules/services/xonotic-dedicated.nix
 
@@ -33,10 +34,15 @@
       ../modules/net/wireguard.nix
       ../modules/net/nfs.nix
       ../modules/net/sshd.nix
-      ../modules/net/minecraft.nix
+      # ../modules/net/minecraft.nix
 
       ../modules/vm/docker.nix
     ];
+
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = true;
+  };
 
   hardware = {
     cpu.intel.updateMicrocode = true;
