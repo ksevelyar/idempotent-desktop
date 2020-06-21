@@ -18,6 +18,7 @@ in
       procs
       fzf
       ripgrep
+      sd
       bat
       gitAndTools.delta # https://github.com/dandavison/delta
       cachix
@@ -93,7 +94,7 @@ in
       viu
       ncdu
       exa
-      z-lua
+      zoxide
       dosfstools
       mtools
       sshfs

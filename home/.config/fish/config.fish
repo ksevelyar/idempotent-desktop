@@ -7,6 +7,8 @@ set -gx FZF_DEFAULT_COMMAND 'fd --type f --hidden --exclude .git'
 set -gx FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 set -gx FZF_ALT_C_COMMAND 'fd --type d .'
 
+zoxide init fish | source
+
 function ssht
   ssh -t $argv[1] 'tmux new -A -s 🦙'
 end

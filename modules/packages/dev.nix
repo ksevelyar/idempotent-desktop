@@ -7,15 +7,7 @@ in
 {
   environment.systemPackages = with pkgs;
     [
-
-      # ruby
-      ruby_2_7
-      solargraph # ruby lsp
-      zlib
-      postgresql
-
       nodejs_latest
-
       elixir
 
       # tools
@@ -31,8 +23,7 @@ in
       lorri
       inotify-tools
       gitg
-      gitAndTools.tig
-      lazygit # https://youtu.be/CPLdltN7wgE
+      gitAndTools.gitui
 
       # arduino
       arduino
