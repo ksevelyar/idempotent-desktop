@@ -15,6 +15,7 @@ in
   environment.systemPackages = with pkgs;
     [
       # sys
+      procs
       fzf
       ripgrep
       bat
@@ -25,7 +26,7 @@ in
       micro
       watchman
       sipcalc
-      tldr
+      tealdeer
       git
       mkpasswd
       file
