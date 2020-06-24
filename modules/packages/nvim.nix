@@ -2,12 +2,11 @@
 {
   environment.systemPackages = with pkgs;
     [
-      nodejs_latest
+      nodejs_latest # coc.nvim dep
       fzf
       ripgrep
       universal-ctags
       global
-      python3
 
       (
         neovim.override {

@@ -20,6 +20,7 @@ import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.InsertPosition
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
+import           XMonad.Hooks.SetWMName
 import           XMonad.Hooks.UrgencyHook
 
 import           XMonad.Actions.CycleWS
@@ -220,6 +221,7 @@ myStartupHook = do
   spawn "xxkb"
   spawn "xcape -e 'Super_R=Super_R|X'"
   setFullscreenSupport
+  setWMName "LG3D" -- Arduino IDE support
 
 -- Scratchpads -----------------------------------------------------------------
 -- xprop | grep WM_CLASS

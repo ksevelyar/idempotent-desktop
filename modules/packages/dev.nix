@@ -30,5 +30,8 @@ in
       arduino-core
       stable.fritzing
       ino
+
+      # esp8266
+      # nix-shell https://github.com/nix-community/nix-environments/archive/master.tar.gz -A arduino
     ];
 }

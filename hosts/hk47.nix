@@ -29,6 +29,7 @@
       ../modules/services/x.nix
       ../modules/services/postgresql.nix
       ../modules/services/mongodb.nix
+      # ../modules/services/flatpak.nix
 
       ../modules/x/xmonad.nix
       ../modules/x/fonts.nix
@@ -158,15 +159,4 @@
     # don't freeze system if mount point not available on boot
     options = [ "x-systemd.automount" "noauto" ];
   };
-
-
-  # tmp
-  environment.systemPackages = with pkgs;
-    [
-      libimobiledevice
-      ifuse
-      usbmuxd
-      libplist
-    ];
-
 }
