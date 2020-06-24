@@ -7,12 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: cachix/install-nix-action@v9
+    - uses: cachix/install-nix-action@v10
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+    - run: nix-channel --add https://nixos.org/channels/nixos-20.03 stable
+    - run: nix-channel --update
+
     - uses: cachix/cachix-action@v6
       with:
         name: idempotent-desktop
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
-    - run: nix-channel --add https://nixos.org/channels/nixos-unstable nixos
-    - run: nix-channel --add https://nixos.org/channels/nixos-20.03 stable
-    - run: nix-channel --update
-    - run: nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=live-usb/max.nix --no-out-link --keep-going
+    - run: nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=live-usb/max.nix --no-out-link
