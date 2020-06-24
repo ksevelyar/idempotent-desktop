@@ -76,10 +76,9 @@
 
     # nix
     e = "sudo nvim /etc/nixos/configuration.nix";
-    refresh = "id-refresh-channels";
     b = "sudo nixos-rebuild switch --keep-going";
     br = "b && xmonad --restart";
-    bu = "refresh && b";
+    bu = "b --update";
     no = "nixos-option";
     id-wipe-user-packages = "nix-env -e '*'";
 

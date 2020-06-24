@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
 let
-  stable = import <stable> {
-    config = config.nixpkgs.config;
-  };
   python-packages = python-packages: with python-packages; [
     pywal
   ];

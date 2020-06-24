@@ -1,9 +1,4 @@
 { config, pkgs, ... }:
-let
-  stable = import <stable> {
-    config = config.nixpkgs.config;
-  };
-in
 {
   # Required for Steam
   hardware = {

@@ -57,13 +57,4 @@
     .      . . .   .  .  . ... :..:.."(  ..)"
      .   .       .      :  .   .: ::/  .  .::\
   '';
-
-  systemd.services.id-bootstrap = {
-    script = ''
-      id-refresh-channels
-    '';
-
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network-online.target" ];
-  };
 }

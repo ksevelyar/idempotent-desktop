@@ -6,18 +6,6 @@ let
     echo -e "\n💀\n"
   '';
 
-  id-refresh-channels = pkgs.writeScriptBin "id-refresh-channels" ''
-    #!${pkgs.stdenv.shell}
-    set -e
-
-    sudo nix-channel --add https://nixos.org/channels/nixos-20.03 stable 
-    sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos 
-    
-    for i in {1..5}; do sudo nix-channel --update && break || id-error; done
-    
-    sudo nix-channel --list
-  '';
-
   # https://stackoverflow.com/a/22102938
   # Get hex rgb color under mouse cursor, put it into clipboard and create a notification.
   id-pick-color = pkgs.writeScriptBin "id-pick-color" ''
@@ -79,7 +67,6 @@ let
     #!${pkgs.stdenv.shell}
     set -e
 
-    id-refresh-channels
     id-build-iso
 
     nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=/etc/nixos/configuration.nix --no-out-link | cachix push idempotent-desktop
@@ -99,8 +86,6 @@ let
     set -e
     echo -e "\n🤖\n"
     
-    id-refresh-channels
-
     sudo mount /dev/disk/by-label/nixos /mnt
     sudo mkdir -p /mnt/boot
     sudo mount /dev/disk/by-label/boot /mnt/boot/
@@ -127,7 +112,6 @@ let
 in
 {
   environment.systemPackages = [
-    id-refresh-channels
     id-error
     id-info
     id-install

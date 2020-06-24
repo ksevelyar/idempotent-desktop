@@ -1,8 +1,5 @@
 { config, pkgs, lib, ... }:
 let
-  stable = import <stable> {
-    config = config.nixpkgs.config;
-  };
   upwork = pkgs.callPackage ./upwork.nix {};
   # TODO: pack neovide
   # neovide = pkgs.callPackage ./neovide.nix {};
