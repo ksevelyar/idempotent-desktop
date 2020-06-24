@@ -7,6 +7,7 @@ before_install:
 - sudo mkdir -p /etc/nix && echo 'sandbox = true' | sudo tee /etc/nix/nix.conf
 - nix-channel --add https://nixos.org/channels/nixos-20.03 stable
 - nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+- echo "trusted-users = root travis" | sudo tee -a /etc/nix/nix.conf && sudo pkill nix-daemon
 - nix-env -iA cachix -f https://cachix.org/api/v1/install
 - cachix use idempotent-desktop
 - if [ -n "$CACHIX_SIGNING_KEY" ]; then cachix push idempotent-desktop --watch-store;
