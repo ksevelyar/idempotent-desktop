@@ -13,6 +13,7 @@ before_install:
 - echo "binary-cache-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
   idempotent-desktop.cachix.org-1:OkWDud90b2/k/k1yIUg1lxZdNRWEvCfv6zSSRQ75lVM=" |
   sudo tee -a /etc/nix/nix.conf > /dev/null
+- echo "trusted-users = root travis" | sudo tee -a /etc/nix/nix.conf
 - nix-env -iA cachix -f https://cachix.org/api/v1/install
 - cachix use idempotent-desktop
 - if [ -n "$CACHIX_SIGNING_KEY" ]; then cachix push idempotent-desktop --watch-store;
