@@ -109,6 +109,7 @@
       home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../home/.config/alacritty/alacritty-scratchpad.yml;
 
       home.file.".config/mpv/mpv.conf".source = ../home/.config/mpv/mpv.conf;
+      home.file.".config/mpv/input.conf".source = ../home/.config/mpv/input.conf;
 
       home.file.".eslintrc.json".source = ../home/.eslintrc.json;
       home.file.".npmrc".source = ../home/.npmrc;

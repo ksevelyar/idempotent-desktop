@@ -3,10 +3,14 @@ let
   stable = import <stable> {
     config = config.nixpkgs.config;
   };
+  python-packages = python-packages: with python-packages; [
+    pywal
+  ];
 in
 {
   environment.systemPackages = with pkgs;
     [
+      # (python3.withPackages python-packages)
       nodejs_latest
       elixir
 
@@ -32,6 +36,7 @@ in
       ino
 
       # esp8266
+      esptool
       # nix-shell https://github.com/nix-community/nix-environments/archive/master.tar.gz -A arduino
     ];
 }
