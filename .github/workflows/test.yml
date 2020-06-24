@@ -15,4 +15,4 @@ jobs:
       with:
         name: idempotent-desktop
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
-    - run: nix-channel --add https://nixos.org/channels/nixos-20.03 stable && nix-channel --update && nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=live-usb/max.nix --no-out-link
+    - run: nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=live-usb/max.nix --no-out-link
