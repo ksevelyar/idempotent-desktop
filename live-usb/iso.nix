@@ -1,6 +1,20 @@
 # https://github.com/ksevelyar/idempotent-desktop/blob/master/docs/live-usb.md
 { config, pkgs, lib, vars, ... }:
+let
+  stableTarball =
+    fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-20.03.tar.gz;
+  # unstableTarball =
+  # fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
+in
 {
+  nixpkgs.config = {
+    packageOverrides = pkgs: {
+      stable = import stableTarball {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
+
   networking.networkmanager.enable = true; # nmcli for wi-fi
   networking.wireless.enable = lib.mkForce false;
 

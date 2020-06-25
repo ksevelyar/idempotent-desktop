@@ -1,22 +1,17 @@
 { config, lib, pkgs, ... }:
-let
-  stableTarball =
-    fetchTarball
-      https://github.com/NixOS/nixpkgs-channels/archive/nixos-20.03.tar.gz;
-in
 {
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
   system.stateVersion = "20.09"; # Did you read the comment?
-  nixpkgs.config = {
-    packageOverrides = pkgs: {
-      stable = import stableTarball {
-        config = config.nixpkgs.config;
-      };
-    };
-  };
+
+  # nix.nixPath = [
+  # "nixpkgs=${pinnedNixpkgs}"
+  # "nixos-config=/etc/nixos/configuration.nix"
+  # "/nix/var/nix/profiles/per-user/root/channels"
+  # "stable=${stable}"
+  # ];
 
   imports =
     [
