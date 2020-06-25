@@ -1,6 +1,6 @@
 # Idempotent Desktop
 
-[![Build Status](https://travis-ci.org/ksevelyar/idempotent-desktop.svg?branch=master)](https://travis-ci.org/ksevelyar/idempotent-desktop)
+![Build Status](https://github.com/ksevelyar/idempotent-desktop/workflows/build/badge.svg)
 
 ![screen](https://i.imgur.com/fWKORz4.png)
 ![screen](https://i.imgur.com/fhAtYZY.png)
