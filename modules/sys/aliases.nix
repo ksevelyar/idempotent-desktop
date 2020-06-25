@@ -78,13 +78,13 @@
     e = "sudo nvim /etc/nixos/configuration.nix";
     b = "sudo nixos-rebuild switch --keep-going";
     br = "b && xmonad --restart";
-    bu = "b --update";
+    bu = "b --upgrade";
     no = "nixos-option";
     id-wipe-user-packages = "nix-env -e '*'";
 
     id-gc = "sudo nix-collect-garbage --delete-older-than 30d";
     id-inspect-store = "nix path-info -rSh /run/current-system | sort -k2h ";
-    id-push = "sudo nix-store - qR - -include-outputs /run/current-system | cachix push idempotent-desktop ";
+    id-push = "sudo nix-store -qR --include-outputs /run/current-system | cachix push idempotent-desktop ";
     id-store-to-svg = "nix-du --root /run/current-system/sw/ -s 100MB | tred | dot -Tsvg > ./nix-store.svg";
     id-sync = "cd /etc/nixos && git stash && git pull --rebase";
 

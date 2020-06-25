@@ -51,15 +51,6 @@ import           Data.Function                  (on)
 import           Data.List                      (sortBy)
 import           Data.Monoid
 
---
-myXPConfig = def
-  { position          = Top
-  , alwaysHighlight   = True
-  , promptBorderWidth = 0
-  , font              = "Terminus:size=14"
-  }
-
-
 -- hack to let firefox fullscreen
 setFullscreenSupport :: X ()
 setFullscreenSupport = withDisplay $ \dpy -> do
