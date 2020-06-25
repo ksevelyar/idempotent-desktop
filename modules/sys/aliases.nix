@@ -26,6 +26,7 @@
     pkill = "pkill --full";
     i = "id-info";
     l = "ls -lahXF --group-directories-first";
+    tree = "exa --tree";
     j = "z"; # autojump alias for z.lua
     u = "aunpack"; # one tool to unpack them all
     v = "nvim";

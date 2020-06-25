@@ -4,28 +4,49 @@
 
 ![screen](https://i.imgur.com/fWKORz4.png)
 ![screen](https://i.imgur.com/fhAtYZY.png)
-![screen](https://i.imgur.com/8WruLfd.png)
 
-## [Other Screens](https://idempotent-desktop.netlify.app/screenshots.html)
+## [Docs](https://idempotent-desktop.netlify.app/)
+
+This repo is just a bunch of NixOS [modules](https://github.com/ksevelyar/idempotent-desktop/tree/master/modules), so you can pick or override anything.
+
+[Other Screens](https://idempotent-desktop.netlify.app/screenshots.html).
 
 ## Features
 
 > Idempotence is the property of certain operations in mathematics and computer science whereby they can be applied multiple times without changing the result beyond the initial application.
 
-### NixOS
-
-- Nix: Doom Slayer in Dependency Hell.
-- Syntaсtic sugar over linux configuration. Describe your sysem before installation and put it to git.
-- Automatic backups after each rebuild.
-- Autotest all your Linux configurations with Cachix and CI. Reuse binary caches for fast builds.
-
 ### Agnostic DE without actual DE
 
 - `xmonad`, `polybar`, `rofi`, `dunst`, `tmux`, `lxqt-policykit`, and friends
-- Opimised for both keyboard and mouse
+- Opimised for both touch typing and mouse
 - Unified look for gtk and qt with `ant-dracula` theme
-- Effective usage of resources, requires **less than 500MB RAM** to boot to the graphical user interface.
+- Effective usage of resources, requires **less than 500MB RAM** to boot to the graphical user interface
 - Install system with all you preferences using three commands
+
+### Friendly for developers and DIY enthusiasts
+
+- `elixir`, `node`, `rust` nix-shell environments
+- `mongodb`, `postgresql`
+- `docker`
+
+- `arduino-ide`, `ino`, `esptool.py`
+- `fritzing`
+
+### CLI Tools
+
+- `fish`, `alacritty`
+- `fd`, `rg`, `fzf`, `delta`, `bat`
+- `jq`
+- `hunter`, `ncdu`, `zoxide`
+- `tealdeer`
+- `ddgr`, `googler`
+- `imv`, `mpv`, `viu`, `moc`
+
+### NixOS
+
+- Describe your sysem before installation with text files and put them to git
+- Automatic backups after each rebuild
+- Autotest all your hosts with Cachix and [CI](https://github.com/ksevelyar/idempotent-desktop/blob/master/.github/workflows/build.yml)
 
 ### Security
 
@@ -52,18 +73,6 @@ Steam, Spotify, Slack, Upwork and others if you need them.
 
 - [Build](https://idempotent-desktop.netlify.app/live-usb.html)
 - [Or Download](https://drive.google.com/file/d/1XBa1LUK32A_DbMBge44co_AFfg44Ngqo/view?usp=sharing)
-
-## [Docs](https://idempotent-desktop.netlify.app/)
-
-🍕 This repo is just a bunch of NixOS [modules](https://github.com/ksevelyar/idempotent-desktop/tree/master/modules), so you can pick or override anything.
-
-🍕 I use NixOS for [development](https://idempotent-desktop.netlify.app/vim.html), as a headless [router](https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/net/router.nix), for my tv (mostly `kodi`) and as a k8s node for my [atoms](https://ark.intel.com/content/www/us/en/ark/products/59682/intel-atom-processor-d2500-1m-cache-1-86-ghz.html). Raspberry Pi also in the list.
-
-🍕 You can use [tor](https://idempotent-desktop.netlify.app/anonymity.html#use-tor-as-a-socks5-proxy), [i2pd](https://idempotent-desktop.netlify.app/anonymity.html#i2p), `wireguard` or `openvpn` to bypass government blocks of selected sites.
-
-🍕 You can use these dotfiles in other unix too, check [home](https://github.com/ksevelyar/idempotent-desktop/tree/master/home)
-
-Feel free to create an issue if something is unclear or broken.
 
 ## Quick install
 
