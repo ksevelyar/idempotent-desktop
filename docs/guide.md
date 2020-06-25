@@ -31,6 +31,7 @@ This repo is just a bunch of NixOS [modules](https://github.com/ksevelyar/idempo
 
 - `arduino-ide`, `ino`, `esptool.py`
 - `fritzing`
+- `openscad`, `prusa-slicer`
 
 ### CLI Tools
 
@@ -50,7 +51,7 @@ This repo is just a bunch of NixOS [modules](https://github.com/ksevelyar/idempo
 
 ### Security
 
-- Use master password with `gopass` or `keepassxc` (both has browser integration)
+- Use master password with `gopass` and integrate it to [browser](https://addons.mozilla.org/en-US/firefox/addon/browserpass-ce/)
 - Keep your secrets in `tomb`
 - See info about `sshd` and `x11vnc` connects in `polybar`
 - Use hardened kernel

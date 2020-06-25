@@ -104,6 +104,7 @@ in
 
       # text    
       zathura
+      bookworm
       hunspell
       hunspellDicts.en_US-large
 
@@ -155,6 +156,7 @@ in
 
       # fs
       nomacs
+      ahoviewer
       gparted
 
       # gui for external monitors
