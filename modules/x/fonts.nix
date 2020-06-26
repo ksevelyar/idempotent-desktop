@@ -35,7 +35,7 @@
 
         # Required for ryanoasis/vim-devicons
         # https://www.programmingfonts.org/
-        (nerdfonts.override { fonts = [ "Iosevka" ]; })
+        (nerdfonts.override { fonts = [ "Iosevka" "IBMPlexMono" ]; })
         fira-code
 
         # Required for polybar
