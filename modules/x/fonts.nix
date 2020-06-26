@@ -35,6 +35,7 @@
 
         # Required for ryanoasis/vim-devicons
         # https://www.programmingfonts.org/
+        # https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/nerdfonts/shas.nix
         (nerdfonts.override { fonts = [ "Iosevka" "IBMPlexMono" ]; })
         fira-code
 
