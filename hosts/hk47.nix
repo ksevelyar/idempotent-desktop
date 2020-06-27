@@ -117,8 +117,8 @@
   services.picom = {
     enable = true;
     fade = false;
-    backend = "glx";
-    # backend = "xrender";
+    # backend = "glx";
+    backend = "xrender";
     vSync = true;
   };
 

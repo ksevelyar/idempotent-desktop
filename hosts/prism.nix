@@ -39,7 +39,7 @@
 
       ../modules/hardware/bluetooth.nix
       ../modules/hardware/sound.nix
-      ../modules/hardware/power-management.nix
+      # ../modules/hardware/power-management.nix
 
       ../modules/net/firewall-desktop.nix
       ../modules/net/wireguard.nix
