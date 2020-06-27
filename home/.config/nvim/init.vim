@@ -1,9 +1,6 @@
 " https://idempotent-desktop.netlify.app/vim.html
 " https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/packages/nvim.nix
 
-" NOTE: type za to toggle current fold.
-":help folding".
-
 " -------------------------------------------------------------------------------------------------
 " Plugins
 " -------------------------------------------------------------------------------------------------

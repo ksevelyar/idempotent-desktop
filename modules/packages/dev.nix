@@ -26,11 +26,12 @@ in
       gitg
       gitAndTools.gitui
 
+      stable.fritzing
+
       # arduino
+      # arduino --board arduino:avr:nano --port /dev/ttyUSB0 --upload shroom-box.ino
       arduino
       arduino-core
-      stable.fritzing
-      ino
 
       # esp8266
       esptool
