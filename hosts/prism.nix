@@ -10,6 +10,10 @@
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+
+      ../users/shared.nix
+      ../users/obstinatekate.nix
+
       ../modules/sys/debug.nix
       ../modules/sys/aliases.nix
       ../modules/sys/scripts.nix
@@ -32,8 +36,9 @@
       ../modules/packages/absolutely-proprietary.nix
       ../modules/packages/common.nix
       ../modules/packages/dev.nix
-      ../modules/packages/games.nix
+      # ../modules/packages/games.nix
       ../modules/packages/nvim.nix
+      ../modules/packages/pass.nix
       ../modules/packages/tmux.nix
       ../modules/packages/firefox.nix
 
@@ -46,11 +51,9 @@
       # ../modules/net/i2p.nix
       ../modules/net/tor.nix
       ../modules/net/sshd.nix
+      ../modules/net/openvpn.nix
 
-      ../modules/vm/hypervisor.nix
-
-      ../users/shared.nix
-      ../users/obstinatekate.nix
+      # ../modules/vm/hypervisor.nix
     ];
 
   boot.loader.grub.splashImage = lib.mkForce ../assets/grub_1024x768.png;
