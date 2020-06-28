@@ -29,8 +29,7 @@ This repo is just a bunch of NixOS [modules](https://github.com/ksevelyar/idempo
 - `mongodb`, `postgresql`
 - `docker`
 
-- `arduino-ide`, `ino`, `esptool.py`
-- `fritzing`
+- `arduino-ide`, `esptool.py`, `fritzing`
 - `openscad`, `prusa-slicer`
 
 ### CLI Tools
@@ -54,13 +53,13 @@ This repo is just a bunch of NixOS [modules](https://github.com/ksevelyar/idempo
 - Use master password with `gopass` and integrate it to [browser](https://addons.mozilla.org/en-US/firefox/addon/browserpass-ce/)
 - Keep your secrets in `tomb`
 - See info about `sshd` and `x11vnc` connects in `polybar`
-- Use hardened kernel
 
 ### Anonimity
 
 - Tor Browser Bundle and `onionshare`
 - Tor as socks5 proxy for Telegram Desktop and Firefox.
-- `openvpn`, `wireguard`, `i2p`
+- `openvpn` with `update-resolv-conf` (tested with [protonvpn.com](https://protonvpn.com))
+- `wireguard`, `i2p`
 
 ### Proprietary suite
 
