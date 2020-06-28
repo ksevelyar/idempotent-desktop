@@ -1,13 +1,7 @@
 { config, pkgs, ... }:
-let
-  python-packages = python-packages: with python-packages; [
-    pywal
-  ];
-in
 {
   environment.systemPackages = with pkgs;
     [
-      # (python3.withPackages python-packages)
       nodejs_latest
       elixir
 

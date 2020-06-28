@@ -109,6 +109,23 @@ let
     sudo nixos-install
     echo -e "\n🍈\n"
   '';
+
+  id-random-wallpaper = pkgs.writeScriptBin "id-random-wallpaper" ''
+    #!${pkgs.stdenv.shell}
+    feh --randomize --bg-fill --no-fehbg ~/Wallpapers  
+  '';
+
+  id-random-unsplash-wallpaper = pkgs.writeScriptBin "id-random-unsplash-wallpaper" ''
+    #!${pkgs.stdenv.shell}
+    set -e
+
+    resolution=$(xrandr | grep \* | cut -d' ' -f4)
+
+    mkdir -p ~/Pictures/unsplash
+    curl -G -f -v -L -# https://source.unsplash.com/random/$resolution?$1 -o ~/Pictures/unsplash/$(date +'%Y-%m-%d-%H-%M-%S').jpg
+
+    feh --bg-fill --no-fehbg $(fd . ~/Pictures/unsplash | tail -n1) 
+  '';
 in
 {
   environment.systemPackages = [
@@ -125,5 +142,8 @@ in
 
     id-deploy
     pkgs.rclone
+
+    id-random-wallpaper
+    id-random-unsplash-wallpaper
   ];
 }

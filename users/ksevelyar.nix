@@ -28,6 +28,11 @@
       home.file.".notmuch-config".source = ./ksevelyar/.notmuch-config;
       home.file.".config/msmtp/msmtp/config".source = ./ksevelyar/.config/msmtp/config;
       home.file."Wallpapers/Season-01-Gas-station-by-dutchtide.png".source = ../assets/wallpapers/Season-01-Gas-station-by-dutchtide.png;
+
+      home.file.".fehbg".text = ''
+        #!/bin/sh
+        feh --bg-fill --no-fehbg $(fd . ~/Pictures/unsplash | tail -n1) 
+      '';
     };
   };
 

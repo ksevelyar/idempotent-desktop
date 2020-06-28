@@ -36,7 +36,7 @@
       xsession.windowManager.xmonad.enableContribAndExtras = true;
       xsession.windowManager.xmonad.config = lib.mkDefault ../../home/.xmonad/xmonad.hs;
 
-      home.file.".fehbg".text = ''
+      home.file.".fehbg".text = lib.mkDefault ''
         #!/bin/sh
         /run/current-system/sw/bin/feh --randomize --bg-fill --no-fehbg ~/Wallpapers/
       '';
