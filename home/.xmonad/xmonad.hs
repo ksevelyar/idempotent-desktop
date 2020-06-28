@@ -204,7 +204,7 @@ myEventHook = docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEve
 -- Startup hook ----------------------------------------------------------------
 
 myStartupHook = do
-  spawn "rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log)"
+  spawn "rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log"
   spawn "sh ~/.fehbg"
   spawn "sh ~/.config/polybar/launch.sh"
   spawn "xsetroot -cursor_name left_ptr"
