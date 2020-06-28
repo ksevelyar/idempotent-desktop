@@ -237,6 +237,9 @@ scratchpads = [
     (resource =? "terminal-4")
     (customFloating $ W.RationalRect 0.51 0.03 0.48 0.47),
 
+  NS "images_browser" "nomacs"
+    (className =? "Image Lounge")
+    nonFloating,
   NS "notes" "alacritty --class notes -e nvim ~/notes"
     (resource =? "notes")
     nonFloating,
@@ -353,7 +356,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("<F8>", namedScratchpadAction scratchpads  "pavucontrol")
     , ("<F9>", namedScratchpadAction scratchpads "spotify")
     , ("<F10>", namedScratchpadAction scratchpads "upwork")
-    , ("M-i", namedScratchpadAction scratchpads  "notes")
+    , ("M-i", namedScratchpadAction scratchpads  "images_browser")
 
     , ("M-s",namedScratchpadAction scratchpads  "spacefm")
     , ("M-g",namedScratchpadAction scratchpads "gpmdp")
