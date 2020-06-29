@@ -67,6 +67,7 @@ let
     #!${pkgs.stdenv.shell}
     set -e
 
+    id-build-doc
     id-build-iso
 
     nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=/etc/nixos/configuration.nix --no-out-link | cachix push idempotent-desktop
@@ -77,6 +78,11 @@ let
     rclone copy $iso/iso/id-live.iso gdrive:
 
     echo -e "\n🐗\n"
+  '';
+
+  id-build-doc = pkgs.writeScriptBin "id-build-doc" ''
+    #!${pkgs.stdenv.shell}
+    cd /etc/nixos/docs && npm install && vuepress build
   '';
 
   # id-install <hostname>
@@ -158,5 +164,6 @@ in
     id-random-wallpaper
     id-random-unsplash-wallpaper
     id-tm
+    id-build-doc
   ];
 }

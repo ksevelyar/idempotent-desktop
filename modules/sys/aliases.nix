@@ -89,7 +89,6 @@
     id-store-to-svg = "nix-du --root /run/current-system/sw/ -s 100MB | tred | dot -Tsvg > ./nix-store.svg";
     id-sync = "cd /etc/nixos && git stash && git pull --rebase";
     id-doc = "xdg-open http://docs.lcl";
-    id-build-doc = "cd /etc/nixos/docs && vuepress build";
 
     # dev
     rbe = "bundle exec";
