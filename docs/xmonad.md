@@ -2,9 +2,12 @@
 
 ![screen](https://i.imgur.com/fWKORz4.png)
 
+
 ## Launchers
 
 `<Win>` run application
+
+`<Win>+h` show docs
 
 `<Win>m` show jgmenu
 
