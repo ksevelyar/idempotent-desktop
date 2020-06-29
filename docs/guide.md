@@ -23,6 +23,7 @@ This repo is just a bunch of NixOS [modules](https://github.com/ksevelyar/idempo
 - Unified look for gtk and qt with `ant-dracula` theme
 - Effective usage of resources, requires **less than 500MB RAM** to boot to the graphical user interface
 - Install system with all you preferences using three commands
+- Docs awailable on [docs.lcl](http://docs.local) or by pressing `win+h`
 
 ### Friendly for developers and DIY enthusiasts
 

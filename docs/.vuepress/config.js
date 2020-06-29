@@ -1,4 +1,8 @@
 module.exports = {
+  title: 'Idempotent Desktop',
+  head: [
+    ['link', { rel: "icon", type: "image/svg+xml", href: "/images/favicon.svg"}],
+  ],
   markdown: {
     extendMarkdown: md => {
       md.use(require('markdown-it-task-lists'))
