@@ -17,7 +17,6 @@ module.exports = {
     logo: 'nixoscolorful.svg',
     sidebar: [
       '/',
-      '/guide',
       '/xmonad',
       '/vim',
       '/firefox',
