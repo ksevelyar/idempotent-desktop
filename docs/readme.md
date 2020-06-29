@@ -86,8 +86,6 @@ Internet connection is required.
 
 You can connect to wi-fi with `nmtui` from terminal (`Win+Enter` for terminal)
 
-Run `refresh` to update channels.
-
 ### Mount drives (EFI)
 
 ```fish
@@ -157,13 +155,9 @@ nvim /mnt/etc/nixos/hosts/new-host.nix
 
 You can use [hk47.nix](https://github.com/ksevelyar/idempotent-desktop/blob/master/hosts/hk47.nix) as reference.
 
-### Add channels and install nixos
+### Install nixos
 
 ```sh
-sudo nix-channel --add https://nixos.org/channels/nixos-20.03 stable
-sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
-sudo nix-channel --update
-
 sudo nixos-install
 ```
 
