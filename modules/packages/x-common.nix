@@ -105,6 +105,7 @@ in
       # text    
       zathura
       bookworm
+      calibre
       hunspell
       hunspellDicts.en_US-large
 

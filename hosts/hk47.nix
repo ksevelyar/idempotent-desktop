@@ -115,21 +115,20 @@
   services.xserver.videoDriver = "nvidia";
   # services.xserver.videoDrivers = [ "nouveau" ];
   services.picom = {
-    enable = true;
+    enable = false;
     fade = false;
-    # backend = "glx";
-    backend = "xrender";
+    backend = "glx";
+    # backend = "xrender";
     vSync = true;
   };
 
-  # Fix smooth scroll in Firefox
-  # services.xserver.screenSection = ''
-  # Option "metamodes" "nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
-  # '';
+  # Fix Nvidia tearing 🤦
+  services.xserver.screenSection = ''
+    Option "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
+  '';
   hardware = {
     cpu.intel.updateMicrocode = true;
     nvidia.modesetting.enable = true;
-    pulseaudio.configFile = ../users/ksevelyar/default.pa;
   };
 
   # fs
