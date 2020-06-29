@@ -321,7 +321,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M1-b m", spawn "xdg-open https://mail.google.com/")
     , ("M1-b r", spawn "xdg-open https://reddit.com/")
     , ("M1-b g", spawn "xdg-open https://github.com/")
-    , ("M1-b l", spawn "xdg-open https://libgen.io/")
+    , ("M1-b l", spawn "xdg-open https://libgen.is/")
 
     -- layout
     , ("M-<Space>", sendMessage NextLayout)  -- Rotate through the available layout algorithms

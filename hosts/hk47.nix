@@ -54,6 +54,8 @@
 
       ../modules/hardware/bluetooth.nix
       ../modules/hardware/sound.nix
+      ../modules/hardware/nvidia.nix
+      ../modules/hardware/nvidia-tearing-fix.nix
 
       ../modules/net/firewall-desktop.nix
       # ../modules/net/kresd.nix
@@ -68,7 +70,9 @@
       ../modules/vm/docker.nix
     ];
 
-  # build arm from x64, live-usb/rpi.nix for example
+  # build arm from x64
+  # set rpi_img (sudo nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage -I nixos-config=/etc/nixos/live-usb/rpi.nix --no-out-link --argstr system aarch64-linux)
+  # du -h $rpi_img
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   nixpkgs.config.allowUnsupportedSystem = true;
 
@@ -112,23 +116,8 @@
 
   # hardware
   powerManagement.cpuFreqGovernor = "performance";
-  services.xserver.videoDriver = "nvidia";
-  # services.xserver.videoDrivers = [ "nouveau" ];
-  services.picom = {
-    enable = false;
-    fade = false;
-    backend = "glx";
-    # backend = "xrender";
-    vSync = true;
-  };
-
-  # Fix Nvidia tearing 🤦
-  services.xserver.screenSection = ''
-    Option "metamodes" "nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
-  '';
   hardware = {
     cpu.intel.updateMicrocode = true;
-    nvidia.modesetting.enable = true;
   };
 
   # fs

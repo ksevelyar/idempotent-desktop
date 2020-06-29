@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
-  boot.plymouth.enable = false;
+  boot.plymouth.enable = lib.mkDefault true;
 }

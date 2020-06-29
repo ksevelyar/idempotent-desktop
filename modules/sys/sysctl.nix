@@ -7,6 +7,8 @@
 
   boot.kernelModules = [ "tcp_bbr" ];
   boot.kernel.sysctl = {
+    # https://www.kernel.org/doc/html/latest/admin-guide/sysrq.html
+    "kernel.sysrq" = 1;
 
     # Requires >= 4.9 & kernel module
     "net.ipv4.tcp_congestion_control" = "bbr";

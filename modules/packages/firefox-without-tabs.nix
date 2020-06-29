@@ -51,6 +51,7 @@
               settings = defaultSettings // {
                 "browser.startup.homepage" = "https://weekly.nixos.org/";
               };
+              userChrome = builtins.readFile ../../home/.config/firefox/userChrome.css;
             };
 
             chill = {
@@ -58,6 +59,7 @@
               settings = defaultSettings // {
                 "browser.startup.homepage" = "https://reddit.com/";
               };
+              userChrome = builtins.readFile ../../home/.config/firefox/userChrome.css;
             };
           };
     };
