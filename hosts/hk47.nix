@@ -65,6 +65,7 @@
       ../modules/net/sshd.nix
       ../modules/net/openvpn.nix
       ../modules/net/lidarr.nix
+      ../modules/net/nginx.nix # id-doc
 
       ../modules/vm/hypervisor.nix
       ../modules/vm/docker.nix

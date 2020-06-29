@@ -311,7 +311,7 @@ myKeys = \conf -> mkKeymap conf $
     -- sys
     , ("M-q", kill) -- close focused window
     , ("M-`", spawn "id-random-unsplash-wallpaper arduino") -- ~/Pictures/unsplash
-    , ("M-h", focusUrgent)
+    , ("M-h", spawn "xdg-open http://docs.lcl")
     , ("M-o", spawn "sleep 0.5; xset dpms force off; pkill -f gpmdp")
     , ("M-C-r", spawn "systemctl reboot")
     , ("M-C-h", spawn "systemctl poweroff")

@@ -1,7 +1,3 @@
 # ln -s hosts/your-host.nix configuration.nix
 configuration.nix
-
 node_modules
-docs/.vuepress/dist
-
-.secrets

@@ -18,7 +18,6 @@
       ../modules/boot/bios.nix
 
       ../modules/services/common.nix
-      ../modules/services/nginx.nix
       ../modules/services/mongodb.nix
       ../modules/services/murmur.nix
       # ../modules/services/xonotic-dedicated.nix
@@ -29,6 +28,7 @@
       ../modules/packages/tmux.nix
 
       ../modules/net/router.nix
+      ../modules/net/nginx.nix
       ../modules/net/wireguard.nix
       ../modules/net/nfs.nix
       ../modules/net/sshd.nix
@@ -36,6 +36,28 @@
 
       ../modules/vm/docker.nix
     ];
+
+  services.nginx = {
+    virtualHosts."legacy-intelligence.life" = {
+      enableACME = true;
+      forceSSL = true;
+      root = "/var/www/legacy-intelligence.life";
+    };
+    virtualHosts."preview.network" = {
+      enableACME = true;
+      forceSSL = true;
+      root = "/var/www/legacy-intelligence.life";
+    };
+    virtualHosts."map.preview.network" = {
+      enableACME = true;
+      forceSSL = true;
+      root = "/var/www/drawable-map/public";
+
+      locations."/polygons" = {
+        proxyPass = http://127.0.0.1:3000;
+      };
+    };
+  };
 
   virtualisation.docker = {
     enable = true;

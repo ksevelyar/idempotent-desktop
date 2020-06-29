@@ -1,6 +1,8 @@
 { config, pkgs, lib, vars, ... }:
 {
   vars.user = "ksevelyar";
+  vars.email = "ksevelyar@gmail.com";
+
   users.users.${vars.user} = {
     description = "Sergey Zubkov";
   };
@@ -21,7 +23,7 @@
     users.${vars.user} = {
       programs.git = {
         userName = "Sergey Zubkov";
-        userEmail = "ksevelyar@gmail.com";
+        userEmail = vars.email;
       };
 
       home.file.".mbsyncrc".source = ./ksevelyar/.mbsyncrc;

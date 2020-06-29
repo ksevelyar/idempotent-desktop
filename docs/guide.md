@@ -4,6 +4,7 @@
 
 ![screen](https://i.imgur.com/fWKORz4.png)
 ![screen](https://i.imgur.com/fhAtYZY.png)
+![tomb](/docs/images/tomb.png)
 
 ## [Docs](https://idempotent-desktop.netlify.app/)
 

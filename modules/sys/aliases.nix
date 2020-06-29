@@ -39,10 +39,10 @@
     p = "gopass";
     open-tomb = "tomb open *.tomb -k *.tomb.key && notify-send 'Drains 5 Karma per grave.'";
 
-    tm = "tm1";
-    tm1 = "tmux new -A -s 🦙";
-    tm2 = "tmux new -A -s 🔮";
-    tm3 = "tmux new -A -s 🦹";
+    tm = "id-tm";
+    tm1 = "id-tm 🦙";
+    tm2 = "id-tm 🔮";
+    tm3 = "id-tm 🦹";
 
     g = "git";
     gst = "git stash";

@@ -126,6 +126,18 @@ let
 
     feh --bg-fill --no-fehbg $(fd . ~/Pictures/unsplash | tail -n1) 
   '';
+
+  id-tm = pkgs.writeScriptBin "id-tm" ''
+    #!${pkgs.stdenv.shell}
+    set -e
+
+     if [ -z "$1" ]
+      then
+        tmux new -A -s 🦙
+      else
+        tmux new -A -s $1
+    fi
+  '';
 in
 {
   environment.systemPackages = [
@@ -145,5 +157,6 @@ in
 
     id-random-wallpaper
     id-random-unsplash-wallpaper
+    id-tm
   ];
 }
