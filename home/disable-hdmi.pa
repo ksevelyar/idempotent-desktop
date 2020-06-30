@@ -13,6 +13,7 @@ load-module module-card-restore
 load-module module-augment-properties
 
 ### Should be after module-*-restore but before module-*-detect
+### Disable hdmi sound
 # load-module module-switch-on-port-available
 load-module module-switch-on-connect
 
@@ -122,6 +123,6 @@ load-module module-filter-apply
 #set-default-sink output
 
 # pacmd list-sinks | grep -e 'name:' -e 'index:'
-set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo
+# set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo
 
 #set-default-source input

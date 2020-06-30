@@ -113,6 +113,7 @@
 
   hardware = {
     cpu.intel.updateMicrocode = true;
+    pulseaudio.configFile = ../home/disable-hdmi.pa;
   };
   services.xserver.videoDrivers = [ "nvidia" ];
 

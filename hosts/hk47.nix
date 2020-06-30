@@ -119,6 +119,7 @@
   powerManagement.cpuFreqGovernor = "performance";
   hardware = {
     cpu.intel.updateMicrocode = true;
+    pulseaudio.configFile = ../home/disable-hdmi.pa;
   };
 
   # fs
