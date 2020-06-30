@@ -50,6 +50,7 @@
       ../modules/net/i2pd.nix
       ../modules/net/tor.nix
       ../modules/net/sshd.nix
+      ../modules/net/nginx.nix
 
       ../modules/vm/hypervisor.nix
     ];

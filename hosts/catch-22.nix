@@ -53,6 +53,7 @@
       ../modules/net/sshd.nix
       ../modules/net/openvpn.nix
       # ../modules/net/lidarr.nix
+      ../modules/net/nginx.nix
 
       ../modules/vm/hypervisor.nix
     ];

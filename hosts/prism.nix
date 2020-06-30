@@ -52,6 +52,7 @@
       ../modules/net/tor.nix
       ../modules/net/sshd.nix
       ../modules/net/openvpn.nix
+      ../modules/net/nginx.nix
 
       # ../modules/vm/hypervisor.nix
     ];
