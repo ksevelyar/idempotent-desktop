@@ -47,7 +47,7 @@
       ../modules/packages/common.nix
       ../modules/packages/dev.nix
       ../modules/packages/games.nix
-      ../modules/packages/firefox.nix
+      ../modules/packages/firefox-without-tabs.nix
       ../modules/packages/nvim.nix
       ../modules/packages/pass.nix
       ../modules/packages/tmux.nix
@@ -58,13 +58,11 @@
       ../modules/hardware/nvidia-tearing-fix.nix
 
       ../modules/net/firewall-desktop.nix
-      # ../modules/net/kresd.nix
       ../modules/net/wireguard.nix
       ../modules/net/i2pd.nix
       ../modules/net/tor.nix
       ../modules/net/sshd.nix
       ../modules/net/openvpn.nix
-      ../modules/net/lidarr.nix
       ../modules/net/nginx.nix # id-doc
 
       ../modules/vm/hypervisor.nix
