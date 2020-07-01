@@ -18,7 +18,7 @@
       # retroarchBare
       # anbox
       # (steam.override { nativeOnly = true; })
-      stable.playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
+      # stable.playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
 
       # text 
       dwarf-fortress
@@ -26,7 +26,7 @@
       rogue
 
       # gui
-      jdk11 # minecraft
+      # jdk11 # minecraft
       xonotic
       wesnoth
       stepmania

@@ -147,17 +147,20 @@ in
       # media
       glxinfo
       feh
+      google-play-music-desktop-player
       spotify
       mpv # https://github.com/mpv-player/mpv/blob/master/etc/input.conf
       vlc
       stable.kodi
-      imv
       libva-utils
       glava
 
-      # fs
+      # images
+      imv
       nomacs
       ahoviewer
+
+      # fs
       gparted
 
       # gui for external monitors
