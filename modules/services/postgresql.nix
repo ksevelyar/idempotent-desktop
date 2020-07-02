@@ -47,6 +47,12 @@ in
           "ALL TABLES IN SCHEMA public" = "ALL PRIVILEGES";
         };
       }
+      {
+        name = "postgres"; # phoenix defaults
+        ensurePermissions = {
+          "ALL TABLES IN SCHEMA public" = "ALL PRIVILEGES";
+        };
+      }
     ];
   };
 
