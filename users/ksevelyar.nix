@@ -33,7 +33,7 @@
 
       home.file.".fehbg".text = ''
         #!/bin/sh
-        feh --bg-fill --no-fehbg $(fd . ~/Pictures/unsplash | tail -n1) 
+        feh --bg-fill --no-fehbg $(ls -dt ~/Pictures/unsplash/* | head -n1) 
       '';
     };
   };

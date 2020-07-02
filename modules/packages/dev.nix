@@ -21,6 +21,8 @@
       gitAndTools.gitui
 
       stable.fritzing
+      librepcb
+      xoscope
 
       # arduino
       # arduino --board arduino:avr:nano --port /dev/ttyUSB0 --upload shroom-box.ino
