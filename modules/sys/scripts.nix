@@ -121,26 +121,6 @@ let
     feh --randomize --bg-fill --no-fehbg ~/Wallpapers  
   '';
 
-  # TODO: rewrite with Rust
-  id-random-unsplash-wallpaper = pkgs.writeScriptBin "id-random-unsplash-wallpaper" ''
-    #!${pkgs.stdenv.shell}
-    set -e
-
-    # Fix blurry photos
-    screen_width=$(($(xrandr | grep \* | cut -d' ' -f4 | cut -d'x' -f1)*2))
-    screen_height=$(($(xrandr | grep \* | cut -d' ' -f4 | cut -d'x' -f1)*2))
-    resolution=$screen_width\x$screen_height
-
-    if [ -z "$1" ]
-      then
-        curl -G -f -L -# https://source.unsplash.com/featured/$resolution/ -o ~/Pictures/unsplash/$(date +'%Y-%m-%d')-featured.jpg
-      else
-        curl -G -f -v -L -# https://source.unsplash.com/featured/$resolution/?$1 -o ~/Pictures/unsplash/$(date +'%Y-%m-%d-%H-%M-%S')-$1.jpg
-    fi
-
-    feh --bg-fill --no-fehbg $(ls -dt ~/Pictures/unsplash/* | head -n1) 
-  '';
-
   id-tm = pkgs.writeScriptBin "id-tm" ''
     #!${pkgs.stdenv.shell}
     set -e
@@ -170,7 +150,6 @@ in
     pkgs.rclone
 
     id-random-wallpaper
-    id-random-unsplash-wallpaper
     id-tm
     id-build-doc
   ];
