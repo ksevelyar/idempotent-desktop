@@ -99,6 +99,10 @@
         general="@Variant(\0\0\0@\0\0\0\x10\0T\0\x65\0r\0m\0i\0n\0u\0s@,\0\0\0\0\0\0\xff\xff\xff\xff\x5\x1\0\x32\x10)"
       '';
 
+      home.file.".config/nixpkgs/config.nix".text = ''
+        { allowUnfree = true; }
+      '';
+
       home.file.".config/zathura/zathurarc".source = ../home/.config/zathura/zathurarc;
 
       home.file.".config/roxterm.sourceforge.net/Colours/joker".source = ../home/.config/roxterm.sourceforge.net/Colours/joker;
