@@ -224,8 +224,8 @@ let g:ale_linters = {
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-eslint', 'coc-tsserver',
-      \ 'coc-elixir', 'coc-go', 'coc-yaml', 'coc-tag', 'coc-markdownlint', 'coc-solargraph',
-      \ 'coc-vimlsp', 'coc-sh', 'coc-emoji', 'coc-git', 'coc-highlight', 'coc-svg'
+      \ 'coc-elixir', 'coc-go', 'coc-yaml', 'coc-tag', 'coc-solargraph',
+      \ 'coc-vimlsp', 'coc-sh', 'coc-git', 'coc-highlight', 'coc-svg'
       \ ]
 
 function! s:check_back_space() abort

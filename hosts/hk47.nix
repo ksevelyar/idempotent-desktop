@@ -35,7 +35,7 @@
       ../modules/services/common.nix
       ../modules/services/x.nix
       ../modules/services/postgresql.nix
-      ../modules/services/mongodb.nix
+      # ../modules/services/mongodb.nix
       # ../modules/services/flatpak.nix
 
       ../modules/x/xmonad.nix
