@@ -18,7 +18,7 @@
       ../modules/boot/bios.nix
 
       ../modules/services/common.nix
-      ../modules/services/mongodb.nix
+      # ../modules/services/mongodb.nix
       ../modules/services/murmur.nix
       # ../modules/services/xonotic-dedicated.nix
 
@@ -34,7 +34,7 @@
       ../modules/net/sshd.nix
       # ../modules/net/minecraft.nix
 
-      ../modules/vm/docker.nix
+      # ../modules/vm/docker.nix
     ];
 
   services.nginx = {
@@ -42,20 +42,6 @@
       enableACME = true;
       forceSSL = true;
       root = "/var/www/legacy-intelligence/dist/";
-    };
-    virtualHosts."preview.network" = {
-      enableACME = true;
-      forceSSL = true;
-      root = "/var/www/legacy-intelligence/dist/";
-    };
-    virtualHosts."map.preview.network" = {
-      enableACME = true;
-      forceSSL = true;
-      root = "/var/www/drawable-map/public";
-
-      locations."/polygons" = {
-        proxyPass = http://127.0.0.1:3000;
-      };
     };
   };
 
