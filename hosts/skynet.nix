@@ -41,12 +41,12 @@
     virtualHosts."legacy-intelligence.life" = {
       enableACME = true;
       forceSSL = true;
-      root = "/var/www/legacy-intelligence.life";
+      root = "/var/www/legacy-intelligence/dist/";
     };
     virtualHosts."preview.network" = {
       enableACME = true;
       forceSSL = true;
-      root = "/var/www/legacy-intelligence.life";
+      root = "/var/www/legacy-intelligence/dist/";
     };
     virtualHosts."map.preview.network" = {
       enableACME = true;
