@@ -33,8 +33,6 @@
       ../modules/net/nfs.nix
       ../modules/net/sshd.nix
       # ../modules/net/minecraft.nix
-
-      # ../modules/vm/docker.nix
     ];
 
   services.nginx = {
@@ -43,11 +41,6 @@
       forceSSL = true;
       root = "/var/www/legacy-intelligence/dist/";
     };
-  };
-
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = true;
   };
 
   hardware = {
