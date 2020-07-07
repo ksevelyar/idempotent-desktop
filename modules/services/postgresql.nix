@@ -32,7 +32,6 @@ let
   '';
 in
 {
-  services.pgmanage.enable = false;
   services.postgresql = {
     package = pkgs.postgresql_12;
     enable = true;
@@ -42,13 +41,7 @@ in
     '';
     ensureUsers = [
       {
-        name = vars.user;
-        ensurePermissions = {
-          "ALL TABLES IN SCHEMA public" = "ALL PRIVILEGES";
-        };
-      }
-      {
-        name = "postgres"; # phoenix defaults
+        name = "postgres";
         ensurePermissions = {
           "ALL TABLES IN SCHEMA public" = "ALL PRIVILEGES";
         };

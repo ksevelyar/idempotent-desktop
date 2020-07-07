@@ -1,17 +1,6 @@
 { config, lib, pkgs, ... }:
 {
-  # This value determines the NixOS release with which your system is to be
-  # compatible, in order to avoid breaking some software such as database
-  # servers. You should change this only after NixOS release notes say you
-  # should.
-  system.stateVersion = "20.09"; # Did you read the comment?
-
-  # nix.nixPath = [
-  # "nixpkgs=${pinnedNixpkgs}"
-  # "nixos-config=/etc/nixos/configuration.nix"
-  # "/nix/var/nix/profiles/per-user/root/channels"
-  # "stable=${stable}"
-  # ];
+  system.stateVersion = "20.09";
 
   imports =
     [

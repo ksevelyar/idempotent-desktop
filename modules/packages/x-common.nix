@@ -3,6 +3,8 @@ let
   upwork = pkgs.callPackage ./upwork.nix {};
   # TODO: pack neovide
   # neovide = pkgs.callPackage ./neovide.nix {};
+
+  hubstaff = pkgs.callPackage ./hubstaff/default.nix {};
 in
 {
   environment = {
@@ -166,7 +168,8 @@ in
       # gui for external monitors
       arandr
 
-      # freelance (hire me)
+      # freelance
+      hubstaff
       upwork
       skype
 

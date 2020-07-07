@@ -20,7 +20,6 @@
       ../modules/services/common.nix
       # ../modules/services/mongodb.nix
       ../modules/services/murmur.nix
-      # ../modules/services/xonotic-dedicated.nix
 
       ../modules/packages/absolutely-proprietary.nix
       ../modules/packages/common.nix
@@ -32,7 +31,6 @@
       ../modules/net/wireguard.nix
       ../modules/net/nfs.nix
       ../modules/net/sshd.nix
-      # ../modules/net/minecraft.nix
     ];
 
   services.nginx = {
