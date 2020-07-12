@@ -1,4 +1,3 @@
-# Fix Nvidia tearing on legacy cards like GTX 650
 { pkgs, ... }:
 {
   services.xserver.screenSection = ''
