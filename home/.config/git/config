@@ -1,0 +1,24 @@
+[include]
+  path = ~/.config/git/user
+
+[core]
+  excludesfile = ~/.config/git/ignore
+  filemode = false
+  pager = "delta --plus-color=\"#16271C\" --minus-color=\"#331F21\" --theme='ansi-dark'\n"
+
+[branch "master"]
+  remote = origin
+
+[alias]
+  lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(magenta)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+  pp = "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
+  recent-branches = "branch --sort=-committerdate"
+
+[interactive]
+  diffFilter = "delta --color-only"
+
+[push]
+  default = "current"
+
+[rerere]
+  enabled = 1

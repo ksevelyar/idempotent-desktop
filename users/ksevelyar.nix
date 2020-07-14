@@ -2,9 +2,10 @@
 {
   vars.user = "ksevelyar";
   vars.email = "ksevelyar@gmail.com";
+  vars.name = "Sergey Zubkov";
 
   users.users.${vars.user} = {
-    description = "Sergey Zubkov";
+    description = vars.name;
   };
 
   # dev hosts
@@ -21,10 +22,7 @@
 
   home-manager = {
     users.${vars.user} = {
-      programs.git = {
-        userName = "Sergey Zubkov";
-        userEmail = vars.email;
-      };
+
 
       home.file.".mbsyncrc".source = ./ksevelyar/.mbsyncrc;
       home.file.".notmuch-config".source = ./ksevelyar/.notmuch-config;

@@ -60,29 +60,6 @@
   home-manager = {
     useGlobalPkgs = true;
     users.${vars.user} = {
-      programs.git = {
-        enable = true;
-        extraConfig = {
-          "push" = { default = "current"; };
-          "rerere" = { enabled = 1; };
-          "core" = {
-            excludesfile = "~/.gitignore";
-            pager = ''
-              delta --plus-color="#16271C" --minus-color="#331F21" --theme='ansi-dark'
-            '';
-          };
-          "interactive" = {
-            diffFilter = "delta --color-only";
-          };
-        };
-
-        aliases = {
-          lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(magenta)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
-          pp = "!git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)";
-          recent-branches = "branch --sort=-committerdate";
-        };
-      };
-
       home.file.".icons/default/index.theme".text = ''
         [Icon Theme]
         Name=Default
@@ -98,9 +75,16 @@
         fixed="@Variant(\0\0\0@\0\0\0\x10\0T\0\x65\0r\0m\0i\0n\0u\0s@,\0\0\0\0\0\0\xff\xff\xff\xff\x5\x1\0\x32\x10)"
         general="@Variant(\0\0\0@\0\0\0\x10\0T\0\x65\0r\0m\0i\0n\0u\0s@,\0\0\0\0\0\0\xff\xff\xff\xff\x5\x1\0\x32\x10)"
       '';
-
       home.file.".config/nixpkgs/config.nix".text = ''
         { allowUnfree = true; }
+      '';
+
+      home.file.".config/git/config".source = ../home/.config/git/config;
+      home.file.".config/git/ignore".source = ../home/.config/git/ignore;
+      home.file.".config/git/user".text = ''
+        [user]
+          email = ${vars.email}
+          name = ${vars.name}
       '';
 
       home.file.".config/zathura/zathurarc".source = ../home/.config/zathura/zathurarc;
