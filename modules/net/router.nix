@@ -107,6 +107,11 @@
           publicKey = "Cf1ZnKsJMTYTZfjU0xV+NJCXeOKvBq1/b2O4553Y+Ac=";
           allowedIPs = [ "192.168.42.5" ];
         }
+        # manya PC
+        {
+          publicKey = "XMoxgJ0y+SAFZDKhSWIC0WfrAVOvIbtGrDKfV5SInnI=";
+          allowedIPs = [ "192.168.42.6" ];
+        }
 
         # macbook anya
         {
