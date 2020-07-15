@@ -2,6 +2,8 @@
 { config, pkgs, lib, vars, ... }:
 {
   vars.user = "mrpoppybutthole";
+  vars.email = "";
+  vars.name = "Mr Poppy Butthole";
 
   users.users.root = {
     # id

@@ -36,7 +36,7 @@ in
   '';
 
   services.xserver = {
-    displayManager.lightdm = {
+    displayManager = {
       autoLogin = { enable = true; user = vars.user; };
     };
   };
