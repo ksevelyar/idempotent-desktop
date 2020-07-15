@@ -1,20 +1,15 @@
--- Import ----------------------------------------------------------------------
-
+import           Control.Monad                  (forM_, join, liftM2)
+import           Data.Function                  (on)
+import           Data.List                      (sortBy)
+import qualified Data.Map                       as M
+import           Data.Monoid
 import           Graphics.X11.ExtraTypes.XF86
-import           XMonad
-
-
 import           System.Exit
 import qualified System.IO
-
-import qualified Data.Map                       as M
--- import qualified XMonad.Layout.HintedTile       as HT
-import qualified XMonad.StackSet                as W
-
-import           XMonad.Prompt
-import           XMonad.Prompt.ConfirmPrompt
-import           XMonad.Prompt.Shell
-
+import           XMonad
+import           XMonad.Actions.CycleWS
+import           XMonad.Actions.WindowGo
+import           XMonad.Config.Desktop
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.InsertPosition
@@ -22,18 +17,8 @@ import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
 import           XMonad.Hooks.SetWMName
 import           XMonad.Hooks.UrgencyHook
-
-import           XMonad.Actions.CycleWS
-import           XMonad.Actions.WindowGo
-
-import           XMonad.Util.EZConfig
-import           XMonad.Util.NamedScratchpad
-import           XMonad.Util.NamedWindows       (getName)
-import           XMonad.Util.Run                (runInTerm, safeSpawn)
-
 import           XMonad.Layout.Grid
 import           XMonad.Layout.IM
--- import           XMonad.Layout.LayoutHints
 import           XMonad.Layout.MultiColumns
 import           XMonad.Layout.NoBorders
 import           XMonad.Layout.PerWorkspace     (onWorkspace)
@@ -43,15 +28,16 @@ import           XMonad.Layout.ResizableTile
 import           XMonad.Layout.ThreeColumns
 import           XMonad.Layout.ToggleLayouts
 import           XMonad.Layout.WindowNavigation
+import           XMonad.Prompt
+import           XMonad.Prompt.ConfirmPrompt
+import           XMonad.Prompt.Shell
+import qualified XMonad.StackSet                as W
+import           XMonad.Util.EZConfig
+import           XMonad.Util.NamedScratchpad
+import           XMonad.Util.NamedWindows       (getName)
+import           XMonad.Util.Run                (runInTerm, safeSpawn)
 
-import           XMonad.Config.Desktop
-
-import           Control.Monad                  (forM_, join, liftM2)
-import           Data.Function                  (on)
-import           Data.List                      (sortBy)
-import           Data.Monoid
-
--- hack to let firefox fullscreen
+-- Hack to let firefox fullscreen
 setFullscreenSupport :: X ()
 setFullscreenSupport = withDisplay $ \dpy -> do
     r <- asks theRoot
@@ -70,8 +56,7 @@ setFullscreenSupport = withDisplay $ \dpy -> do
                          ]
     io $ changeProperty32 dpy r a c propModeReplace (fmap fromIntegral supp)
 
--- Main ------------------------------------------------------------------------
-
+-- Main
 main = do
   xmonad $ withUrgencyHook NoUrgencyHook $ ewmh desktopConfig {
     -- simple stuff
@@ -97,12 +82,8 @@ main = do
 
 myWorkspaces = ["www","ed","sh","bg","im","fs","media","gfx","h","*"]
 
--- Status bars and logging -----------------------------------------------------
-
+-- Status bars and logging
 wsOutput wsStr = do
-  -- h <- System.IO.openFile "/tmp/.xmonad-workspace-log" System.IO.WriteMode
-  -- System.IO.hPutStrLn h wsStr
-  -- System.IO.hClose h
   io $ appendFile "/tmp/.xmonad-workspace-log" (wsStr ++ "\n")
 
 polybarPP = dynamicLogWithPP $ def {
@@ -117,8 +98,7 @@ polybarPP = dynamicLogWithPP $ def {
   , ppOutput = wsOutput
   }
 
-
--- Layouts ---------------------------------------------------------------------
+-- Layouts
 myLayout = windowNavigation $
            avoidStruts $
            smartBorders $
@@ -139,7 +119,7 @@ myLayout = windowNavigation $
 
   grid = renamed [Replace "g" ] $ Grid
 
--- Window Management -----------------------------------------------------------
+-- Window Management
 -- xprop
 -- TODO: refactor to composeOne
 myManageHook = manageDocks <+> (composeAll . concat $
@@ -289,7 +269,7 @@ scratchpads = [
   role = stringProperty "WM_WINDOW_ROLE"
   wm_name = stringProperty "WM_NAME"
 
--- Bindings --------------------------------------------------------------------
+-- Bindings
 -- https://hackage.haskell.org/package/xmonad-contrib-0.16/docs/XMonad-Util-EZConfig.html
 -- M - Win, M1 - Alt, C - Control, S - Shift.
 myKeys = \conf -> mkKeymap conf $
@@ -359,7 +339,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-i", namedScratchpadAction scratchpads  "images_browser")
 
     , ("M-s",namedScratchpadAction scratchpads  "spacefm")
-    , ("M-g",namedScratchpadAction scratchpads "gpmdp")
+    -- , ("M-g",namedScratchpadAction scratchpads "gpmdp")
     , ("M-j",namedScratchpadAction scratchpads "tmux")
     , ("M-n", namedScratchpadAction scratchpads "nnn")
 
@@ -379,10 +359,8 @@ myKeys = \conf -> mkKeymap conf $
     , ("<XF86MonBrightnessUp>", spawn "brightnessctl set +10%")
     , ("<XF86MonBrightnessDown>", spawn "brightnessctl set -10%")
 
-    -- , ("M-,",  spawn  "sleep 3 && xdotool key --clearmodifiers XF86AudioPrev")
-    -- , ("M-.", spawn  "sleep 3 && xdotool key --clearmodifiers XF86AudioNext")
-    , ("M-S-,",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
-    , ("M-S-.",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 40%")
+    , ("M-,",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
+    , ("M-.",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 50%")
 
     , ("M-C-<Backspace>", spawn "xmonad --restart && systemctl --user restart picom") -- Restart xmonad
     ]

@@ -70,7 +70,7 @@ modules-right = weather date
 inherit = bar/base
 bottom = false
 
-modules-left = volume gpmdp
+modules-left = volume spotify
 modules-center = filesystem
 modules-right = vnc ssh eth cpu memory
 
@@ -78,7 +78,7 @@ modules-right = vnc ssh eth cpu memory
 inherit = bar/base
 bottom = false
 
-modules-left = volume gpmdp
+modules-left = volume spotify
 modules-center = filesystem
 modules-right = vnc ssh wlp2s0 cpu memory battery
 
