@@ -64,7 +64,7 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   nixpkgs.config.allowUnsupportedSystem = true;
 
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest; # fix Cambridge Silicon Radio
   boot.loader.grub.splashImage = lib.mkForce ../assets/grub_1024x768.png;
   # boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;
   # boot.loader.grub.backgroundColor = lib.mkForce "#09090B";

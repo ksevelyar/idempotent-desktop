@@ -292,7 +292,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("M-q", kill) -- close focused window
     , ("M-`", spawn "id-random-wallpaper")
     , ("M-h", spawn "xdg-open http://docs.lcl")
-    , ("M-o", spawn "sleep 0.5; xset dpms force off; pkill -f gpmdp")
+    , ("M-o", spawn "sleep 0.5; xset dpms force off; pkill -f spotify")
     , ("M-C-r", spawn "systemctl reboot")
     , ("M-C-h", spawn "systemctl poweroff")
     , ("M-k", spawn "id-pick-color")
