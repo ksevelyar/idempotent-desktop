@@ -9,53 +9,53 @@
       ../users/shared.nix
       ../users/ksevelyar.nix
 
-      ../modules/sys/aliases.nix
-      ../modules/sys/debug.nix
-      ../modules/sys/nix.nix
-      ../modules/sys/scripts.nix
-      ../modules/sys/sysctl.nix
-      ../modules/sys/tty.nix
-      ../modules/sys/vars.nix
+      ../hardware/bluetooth.nix
+      ../hardware/mouse.nix
+      ../hardware/nvidia.nix
+      ../hardware/sound.nix
+      ../hardware/ssd.nix
 
-      ../modules/boot/efi.nix
-      ../modules/boot/multiboot.nix
-      # ../modules/boot/broadcom-wifi.nix
+      ../sys/aliases.nix
+      ../sys/debug.nix
+      ../sys/fonts.nix
+      ../sys/nix.nix
+      ../sys/scripts.nix
+      ../sys/sysctl.nix
+      ../sys/tty.nix
+      ../sys/vars.nix
 
-      ../modules/services/common.nix
-      ../modules/services/x.nix
-      ../modules/services/postgresql.nix
-      # ../modules/services/mongodb.nix
-      # ../modules/services/flatpak.nix
+      ../boot/efi.nix
+      ../boot/multiboot.nix
+      ../boot/plymouth.nix
 
-      ../modules/x/xmonad.nix
-      ../modules/x/fonts.nix
-      ../modules/packages/x-common.nix
-      # ../modules/packages/x-extra.nix
+      ../packages/absolutely-proprietary.nix
+      ../packages/common.nix
+      ../packages/dev.nix
+      ../packages/firefox-without-tabs.nix
+      ../packages/games.nix
+      ../packages/nvim.nix
+      ../packages/pass.nix
+      ../packages/tmux.nix
+      ../packages/x-common.nix
 
-      ../modules/packages/absolutely-proprietary.nix
-      ../modules/packages/common.nix
-      ../modules/packages/dev.nix
-      ../modules/packages/games.nix
-      ../modules/packages/firefox-without-tabs.nix
-      ../modules/packages/nvim.nix
-      ../modules/packages/pass.nix
-      ../modules/packages/tmux.nix
+      # ../services/flatpak.nix
+      # ../services/mongodb.nix
+      ../services/journald.nix
+      ../services/postgresql.nix
+      ../services/x.nix
+      ../services/x/xmonad.nix
 
-      ../modules/hardware/bluetooth.nix
-      ../modules/hardware/sound.nix
-      ../modules/hardware/nvidia.nix
-      ../modules/hardware/nvidia-tearing-fix.nix
+      # ../services/net/i2pd.nix
+      ../services/net/fail2ban.nix
+      ../services/net/firewall-desktop.nix
+      ../services/net/nginx.nix # id-doc
+      ../services/net/openvpn.nix
+      ../services/net/sshd.nix
+      ../services/net/tor.nix
+      ../services/net/wireguard.nix
 
-      ../modules/net/firewall-desktop.nix
-      ../modules/net/wireguard.nix
-      ../modules/net/i2pd.nix
-      ../modules/net/tor.nix
-      ../modules/net/sshd.nix
-      ../modules/net/openvpn.nix
-      ../modules/net/nginx.nix # id-doc
-
-      ../modules/vm/hypervisor.nix
-      ../modules/vm/docker.nix
+      ../services/vm/hypervisor.nix
+      # ../services/vm/docker.nix
     ];
 
   # build arm from x64
@@ -64,10 +64,8 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   nixpkgs.config.allowUnsupportedSystem = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest; # fix Cambridge Silicon Radio
-  boot.loader.grub.splashImage = lib.mkForce ../assets/grub_1024x768.png;
-  # boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;
-  # boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
+  boot.kernelPackages = pkgs.linuxPackages_latest; # fix Cambridge Silicon Radio wi-fi dongles
+  boot.loader.grub.splashImage = ../assets/displayManager.png;
 
   # boot
   boot.blacklistedKernelModules = [];
@@ -103,10 +101,9 @@
   };
 
   # hardware
-  powerManagement.cpuFreqGovernor = "performance";
   hardware = {
     cpu.intel.updateMicrocode = true;
-    pulseaudio.configFile = ../home/disable-hdmi.pa;
+    pulseaudio.configFile = ../users/shared/disable-hdmi.pa;
   };
 
   # fs

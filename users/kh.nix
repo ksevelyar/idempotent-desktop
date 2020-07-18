@@ -23,7 +23,7 @@
         userEmail = "ts.khol@gmail.com";
       };
 
-      # xsession.windowManager.xmonad.config = ../home/.xmonad/xmonad.hs;
+      # xsession.windowManager.xmonad.config = ../users/shared/.xmonad/xmonad.hs;
       home.file."Wallpapers/Season-01-Gas-station-by-dutchtide.png".source = ../assets/wallpapers/Season-01-Gas-station-by-dutchtide.png;
     };
   };

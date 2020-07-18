@@ -2,7 +2,7 @@
 
 ![screen](https://i.imgur.com/8WruLfd.png)
 
-- [firefox.nix](https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/packages/firefox.nix)
+- [firefox.nix](https://github.com/ksevelyar/idempotent-desktop/blob/mast../packages/firefox.nix)
 - [userChrome.css](https://github.com/ksevelyar/idempotent-desktop/blob/master/home/.config/firefox/userChrome.css)
 - [tridactylrc](https://github.com/ksevelyar/idempotent-desktop/blob/master/home/.config/tridactyl/tridactylrc)
 

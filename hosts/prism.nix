@@ -14,47 +14,47 @@
       ../users/shared.nix
       ../users/obstinatekate.nix
 
-      ../modules/sys/debug.nix
-      ../modules/sys/aliases.nix
-      ../modules/sys/scripts.nix
-      ../modules/sys/tty.nix
-      ../modules/sys/nix.nix
-      ../modules/sys/vars.nix
-      ../modules/sys/sysctl.nix
+      ../sys/debug.nix
+      ../sys/aliases.nix
+      ../sys/scripts.nix
+      ../sys/tty.nix
+      ../sys/nix.nix
+      ../sys/vars.nix
+      ../sys/sysctl.nix
 
-      ../modules/boot/bios.nix
-      ../modules/boot/multiboot.nix
+      ../boot/bios.nix
+      ../boot/multiboot.nix
 
-      ../modules/services/common.nix
-      ../modules/services/x.nix
+      ../services/common.nix
+      ../services/x.nix
 
-      ../modules/x/xmonad.nix
-      ../modules/x/fonts.nix
-      ../modules/packages/x-common.nix
-      ../modules/packages/x-extra.nix
+      ../services/x/xmonad.nix
+      ../sys/fonts.nix
+      ../packages/x-common.nix
+      ../packages/x-extra.nix
 
-      ../modules/packages/absolutely-proprietary.nix
-      ../modules/packages/common.nix
-      ../modules/packages/dev.nix
-      # ../modules/packages/games.nix
-      ../modules/packages/nvim.nix
-      ../modules/packages/pass.nix
-      ../modules/packages/tmux.nix
-      ../modules/packages/firefox.nix
+      ../packages/absolutely-proprietary.nix
+      ../packages/common.nix
+      ../packages/dev.nix
+      # ../packages/games.nix
+      ../packages/nvim.nix
+      ../packages/pass.nix
+      ../packages/tmux.nix
+      ../packages/firefox.nix
 
-      ../modules/hardware/bluetooth.nix
-      ../modules/hardware/sound.nix
-      # ../modules/hardware/power-management.nix
+      ../hardware/bluetooth.nix
+      ../hardware/sound.nix
+      # ../hardware/power-management.nix
 
-      ../modules/net/firewall-desktop.nix
-      ../modules/net/wireguard.nix
-      # ../modules/net/i2p.nix
-      ../modules/net/tor.nix
-      ../modules/net/sshd.nix
-      ../modules/net/openvpn.nix
-      ../modules/net/nginx.nix
+      ../services/net/firewall-desktop.nix
+      ../services/net/wireguard.nix
+      # ../services/net/i2p.nix
+      ../services/net/tor.nix
+      ../services/net/sshd.nix
+      ../services/net/openvpn.nix
+      ../services/net/nginx.nix
 
-      # ../modules/vm/hypervisor.nix
+      # ../services/vm/hypervisor.nix
     ];
 
   boot.loader.grub.splashImage = lib.mkForce ../assets/grub_1024x768.png;

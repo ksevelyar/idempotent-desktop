@@ -8,44 +8,42 @@
     ../users/shared.nix
     ../users/live-usb.nix
 
-    ../modules/sys/aliases.nix
-    ../modules/sys/scripts.nix
-    ../modules/sys/tty.nix
-    ../modules/sys/debug.nix
-    ../modules/sys/vars.nix
-    ../modules/sys/sysctl.nix
+    ../sys/aliases.nix
+    ../sys/scripts.nix
+    ../sys/tty.nix
+    ../sys/debug.nix
+    ../sys/vars.nix
+    ../sys/sysctl.nix
+    ../sys/fonts.nix
 
-    ../modules/boot/broadcom-wifi.nix
 
-    ../modules/services/common.nix
-    ../modules/services/x.nix
+    ../services/x.nix
+    ../services/x/xmonad.nix
+    ../packages/x-common.nix
+    # ../packages/x-extra.nix
 
-    ../modules/x/xmonad.nix
-    ../modules/x/fonts.nix
-    ../modules/packages/x-common.nix
-    # ../modules/packages/x-extra.nix
+    ../packages/absolutely-proprietary.nix
+    ../packages/common.nix
+    ../packages/dev.nix
+    ../packages/games.nix
+    ../packages/nvim.nix
+    ../packages/tmux.nix
+    ../packages/firefox.nix
+    ../packages/pass.nix
 
-    ../modules/packages/absolutely-proprietary.nix
-    ../modules/packages/common.nix
-    ../modules/packages/dev.nix
-    ../modules/packages/games.nix
-    ../modules/packages/nvim.nix
-    ../modules/packages/tmux.nix
-    ../modules/packages/firefox.nix
-    ../modules/packages/pass.nix
+    ../hardware/broadcom-wifi.nix
+    ../hardware/bluetooth.nix
+    ../hardware/sound.nix
+    ../hardware/power-management.nix
 
-    ../modules/hardware/bluetooth.nix
-    ../modules/hardware/sound.nix
-    ../modules/hardware/power-management.nix
+    ../services/net/firewall-desktop.nix
+    ../services/net/wireguard.nix
+    ../services/net/i2pd.nix
+    # ../services/net/i2p.nix
+    ../services/net/tor.nix
+    ../services/net/sshd.nix
 
-    ../modules/net/firewall-desktop.nix
-    ../modules/net/wireguard.nix
-    ../modules/net/i2pd.nix
-    # ../modules/net/i2p.nix
-    ../modules/net/tor.nix
-    ../modules/net/sshd.nix
-
-    # ../modules/vm/hypervisor.nix
+    # ../services/vm/hypervisor.nix
   ];
 
   isoImage.volumeID = lib.mkForce "id-live-max";

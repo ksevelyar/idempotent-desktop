@@ -79,41 +79,41 @@
         { allowUnfree = true; }
       '';
 
-      home.file.".config/git/config".source = ../home/.config/git/config;
-      home.file.".config/git/ignore".source = ../home/.config/git/ignore;
+      home.file.".config/git/config".source = ../users/shared/.config/git/config;
+      home.file.".config/git/ignore".source = ../users/shared/.config/git/ignore;
       home.file.".config/git/user".text = ''
         [user]
           email = ${vars.email}
           name = ${vars.name}
       '';
 
-      home.file.".config/zathura/zathurarc".source = ../home/.config/zathura/zathurarc;
+      home.file.".config/zathura/zathurarc".source = ../users/shared/.config/zathura/zathurarc;
 
-      home.file.".config/roxterm.sourceforge.net/Colours/joker".source = ../home/.config/roxterm.sourceforge.net/Colours/joker;
-      home.file.".config/roxterm.sourceforge.net/Profiles/Default".source = ../home/.config/roxterm.sourceforge.net/Profiles/Default;
-      home.file.".config/roxterm.sourceforge.net/Global".source = ../home/.config/roxterm.sourceforge.net/Global;
+      home.file.".config/roxterm.sourceforge.net/Colours/joker".source = ../users/shared/.config/roxterm.sourceforge.net/Colours/joker;
+      home.file.".config/roxterm.sourceforge.net/Profiles/Default".source = ../users/shared/.config/roxterm.sourceforge.net/Profiles/Default;
+      home.file.".config/roxterm.sourceforge.net/Global".source = ../users/shared/.config/roxterm.sourceforge.net/Global;
 
-      home.file.".config/alacritty/alacritty.yml".source = ../home/.config/alacritty/alacritty.yml;
-      home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../home/.config/alacritty/alacritty-scratchpad.yml;
+      home.file.".config/alacritty/alacritty.yml".source = ../users/shared/.config/alacritty/alacritty.yml;
+      home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../users/shared/.config/alacritty/alacritty-scratchpad.yml;
 
-      home.file.".config/mpv/mpv.conf".source = ../home/.config/mpv/mpv.conf;
-      home.file.".config/mpv/input.conf".source = ../home/.config/mpv/input.conf;
+      home.file.".config/mpv/mpv.conf".source = ../users/shared/.config/mpv/mpv.conf;
+      home.file.".config/mpv/input.conf".source = ../users/shared/.config/mpv/input.conf;
 
-      home.file.".eslintrc.json".source = ../home/.eslintrc.json;
-      home.file.".npmrc".source = ../home/.npmrc;
+      home.file.".eslintrc.json".source = ../users/shared/.eslintrc.json;
+      home.file.".npmrc".source = ../users/shared/.npmrc;
 
-      home.file.".config/astroid/config".source = ../home/.config/astroid/config;
-      home.file.".config/astroid/poll.sh".source = ../home/.config/astroid/poll.sh;
-      home.file.".config/astroid/hooks/toggle".source = ../home/.config/astroid/hooks/toggle;
-      home.file.".config/astroid/keybindings".source = ../home/.config/astroid/keybindings;
+      home.file.".config/astroid/config".source = ../users/shared/.config/astroid/config;
+      home.file.".config/astroid/poll.sh".source = ../users/shared/.config/astroid/poll.sh;
+      home.file.".config/astroid/hooks/toggle".source = ../users/shared/.config/astroid/hooks/toggle;
+      home.file.".config/astroid/keybindings".source = ../users/shared/.config/astroid/keybindings;
 
-      home.file.".config/nvim/init.vim".source = ../home/.config/nvim/init.vim;
-      home.file.".config/nvim/ginit.vim".source = ../home/.config/nvim/init.vim;
-      home.file.".config/nvim/coc-settings.json".source = ../home/.config/nvim/coc-settings.json;
+      home.file.".config/nvim/init.vim".source = ../users/shared/.config/nvim/init.vim;
+      home.file.".config/nvim/ginit.vim".source = ../users/shared/.config/nvim/init.vim;
+      home.file.".config/nvim/coc-settings.json".source = ../users/shared/.config/nvim/coc-settings.json;
 
-      home.file.".config/fish/config.fish".source = ../home/.config/fish/config.fish;
-      home.file.".config/fish/functions/fish_prompt.fish".source = ../home/.config/fish/functions/fish_prompt.fish;
-      home.file.".config/fish/functions/fish_print_git_action.fish".source = ../home/.config/fish/functions/fish_print_git_action.fish;
+      home.file.".config/fish/config.fish".source = ../users/shared/.config/fish/config.fish;
+      home.file.".config/fish/functions/fish_prompt.fish".source = ../users/shared/.config/fish/functions/fish_prompt.fish;
+      home.file.".config/fish/functions/fish_print_git_action.fish".source = ../users/shared/.config/fish/functions/fish_print_git_action.fish;
     };
   };
 }

@@ -8,4 +8,4 @@
 
 ## [Docs](https://idempotent-desktop.netlify.app/)
 
-This repo is just a bunch of NixOS [modules](https://github.com/ksevelyar/idempotent-desktop/tree/master/modules), so you can pick or override anything.
+This repo is just a bunch of NixOS [modules](https://github.com/ksevelyar/idempotent-desktop/tree/mast..), so you can pick or override anything.

@@ -1,8 +1,8 @@
-# https://github.com/ksevelyar/idempotent-desktop/blob/master/docs/live-usb.md
 { config, pkgs, lib, vars, ... }:
 let
   stableTarball =
     fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-20.03.tar.gz;
+
   # unstableTarball =
   # fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
 in

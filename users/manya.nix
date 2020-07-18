@@ -1,21 +1,14 @@
 { config, pkgs, lib, ... }:
 {
   vars.user = "manya";
-
-  imports =
-    [
-      ./shared.nix
-    ];
+  vars.email = "porosenie@gmail.com";
+  vars.name = "Maria Elizarova";
 
   boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;
   boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
 
   home-manager = {
     users.manya = {
-      programs.git = {
-        userName = "Maria Elizarova";
-        userEmail = "porosenie@gmail.com";
-      };
       xsession.windowManager.xmonad.config = lib.mkForce ./manya/xmonad.hs;
       home.file.".config/polybar/config".source = lib.mkForce ./manya/polybar/config;
     };

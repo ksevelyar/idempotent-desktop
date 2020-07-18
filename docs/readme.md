@@ -8,7 +8,7 @@
 
 ## [Docs](https://idempotent-desktop.netlify.app/)
 
-This repo is just a bunch of NixOS [modules](https://github.com/ksevelyar/idempotent-desktop/tree/master/modules), so you can pick or override anything.
+This repo is just a bunch of NixOS [modules](https://github.com/ksevelyar/idempotent-desktop/tree/mast..), so you can pick or override anything.
 
 [Other Screens](https://idempotent-desktop.netlify.app/screenshots.html).
 
@@ -165,8 +165,8 @@ You should see prompt for root password in the end.
 
 ### Scripts and aliases can save some time
 
-- [scripts.nix](https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/sys/scripts.nix)
-- [aliases.nix](https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/sys/aliases.nix)
+- [scripts.nix](https://github.com/ksevelyar/idempotent-desktop/blob/mast../sys/scripts.nix)
+- [aliases.nix](https://github.com/ksevelyar/idempotent-desktop/blob/mast../sys/aliases.nix)
 
 ## Todo 🍒
 

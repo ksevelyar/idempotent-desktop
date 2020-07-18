@@ -9,28 +9,28 @@
       ../users/shared.nix
       ../users/ksevelyar.nix
 
-      ../modules/sys/aliases.nix
-      ../modules/sys/scripts.nix
-      ../modules/sys/tty.nix
-      ../modules/sys/nix.nix
-      ../modules/sys/vars.nix
+      ../sys/aliases.nix
+      ../sys/scripts.nix
+      ../sys/tty.nix
+      ../sys/nix.nix
+      ../sys/vars.nix
 
-      ../modules/boot/bios.nix
+      ../boot/bios.nix
 
-      ../modules/services/common.nix
-      # ../modules/services/mongodb.nix
-      ../modules/services/murmur.nix
+      ../services/common.nix
+      # ../services/mongodb.nix
+      ../services/murmur.nix
 
-      ../modules/packages/absolutely-proprietary.nix
-      ../modules/packages/common.nix
-      ../modules/packages/nvim.nix
-      ../modules/packages/tmux.nix
+      ../packages/absolutely-proprietary.nix
+      ../packages/common.nix
+      ../packages/nvim.nix
+      ../packages/tmux.nix
 
-      ../modules/net/router.nix
-      ../modules/net/nginx.nix
-      ../modules/net/wireguard.nix
-      ../modules/net/nfs.nix
-      ../modules/net/sshd.nix
+      ../services/net/router.nix
+      ../services/net/nginx.nix
+      ../services/net/wireguard.nix
+      ../services/net/nfs.nix
+      ../services/net/sshd.nix
     ];
 
   services.nginx = {

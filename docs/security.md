@@ -100,13 +100,13 @@ Run `tomb close` to unmount tomb.
 
 ## Opened ports
 
-[firewall-desktop](https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/net/firewall-desktop.nix)
+[firewall-desktop](https://github.com/ksevelyar/idempotent-desktop/blob/mast../services/net/firewall-desktop.nix)
 
 ## Show listening ports
 
 `sudo lsof -Pni | grep -i listen`
 
-## [sshd](https://github.com/ksevelyar/idempotent-desktop/blob/0c25763c040e5a50f393d2c2bb7c6eee616f3729/modules/services/common.nix#L9-L16)
+## [sshd](https://github.com/ksevelyar/idempotent-desktop/blob/0c25763c040e5a50f393d2c2bb7c6eee616f37../services/common.nix#L9-L16)
 
 Autostart disabled, use `sudo systemctl start sshd`
 
@@ -136,7 +136,7 @@ Currently integrated with `sshd`.
 
 ## hardened kernel
 
-You can switch to the hardened kernel with one line: [sysctl.nix](https://github.com/ksevelyar/idempotent-desktop/blob/504570d52ab79463704e4ddcf908f82c5936217e/modules/sys/sysctl.nix#L4-L6)
+You can switch to the hardened kernel with one line: [sysctl.nix](https://github.com/ksevelyar/idempotent-desktop/blob/504570d52ab79463704e4ddcf908f82c593621../sys/sysctl.nix#L4-L6)
 
 ## Monitor
 

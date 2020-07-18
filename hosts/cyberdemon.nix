@@ -14,45 +14,50 @@
       ../users/shared.nix
       ../users/manya.nix
 
-      ../modules/sys/aliases.nix
-      # ../modules/sys/debug.nix
-      ../modules/sys/nix.nix
-      ../modules/sys/scripts.nix
-      ../modules/sys/sysctl.nix
-      ../modules/sys/tty.nix
-      ../modules/sys/vars.nix
+      ../sys/aliases.nix
+      # ../sys/debug.nix
+      ../sys/nix.nix
+      ../sys/scripts.nix
+      ../sys/sysctl.nix
+      ../sys/tty.nix
+      ../sys/vars.nix
+      ../sys/fonts.nix
 
-      ../modules/boot/efi.nix
-      ../modules/boot/multiboot.nix
+      ../boot/efi.nix
+      ../boot/multiboot.nix
 
-      ../modules/services/common.nix
-      ../modules/services/x.nix
-      ../modules/services/postgresql.nix
+      ../services/journald.nix
+      ../services/x.nix
+      ../services/postgresql.nix
 
-      ../modules/x/xmonad.nix
-      ../modules/x/fonts.nix
-      ../modules/packages/x-common.nix
-      # ../modules/packages/x-extra.nix
+      ../services/x/xmonad.nix
+      ../packages/x-common.nix
+      # ../packages/x-extra.nix
 
-      ../modules/packages/absolutely-proprietary.nix
-      ../modules/packages/common.nix
-      ../modules/packages/dev.nix
-      ../modules/packages/games.nix
-      ../modules/packages/nvim.nix
-      ../modules/packages/tmux.nix
+      ../packages/absolutely-proprietary.nix
+      ../packages/common.nix
+      ../packages/dev.nix
+      ../packages/games.nix
+      ../packages/nvim.nix
+      ../packages/tmux.nix
 
-      ../modules/hardware/power-management.nix
-      ../modules/hardware/bluetooth.nix
-      ../modules/hardware/sound.nix
+      ../hardware/power-management.nix
+      ../hardware/bluetooth.nix
+      ../hardware/sound.nix
+      ../hardware/mouse.nix
+      ../hardware/ssd.nix
 
-      ../modules/net/firewall-desktop.nix
-      ../modules/net/wireguard.nix
-      ../modules/net/i2pd.nix
-      ../modules/net/tor.nix
-      ../modules/net/sshd.nix
-      ../modules/net/nginx.nix
+      ../services/net/firewall-desktop.nix
+      ../services/net/fail2ban.nix
+      ../services/net/wireguard.nix
+      ../services/net/i2pd.nix
+      ../services/net/tor.nix
+      ../services/net/sshd.nix
+      ../services/net/nginx.nix
+      ../services/net/openvpn.nix
 
-      ../modules/vm/hypervisor.nix
+      ../services/vm/hypervisor.nix
+      # ../services/vm/docker.nix
     ];
 
   boot.cleanTmpDir = lib.mkDefault true;

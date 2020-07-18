@@ -1,4 +1,4 @@
-# [Nvim](https://github.com/ksevelyar/idempotent-desktop/blob/master/modules/packages/nvim.nix)
+# [Nvim](https://github.com/ksevelyar/idempotent-desktop/blob/mast../packages/nvim.nix)
 
 ![joker.vim](https://i.imgur.com/XFf02K8.png)
 ![goyo](https://i.imgur.com/nSz4Gg5.png)

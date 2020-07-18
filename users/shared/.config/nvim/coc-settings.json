@@ -1,0 +1,44 @@
+{
+  "suggest.echodocSupport": true,
+  "suggest.maxCompleteItemCount": 10,
+  "diagnostic.errorSign": "◉",
+  "diagnostic.warningSign": "◉",
+  "diagnostic.infoSign": "◉",
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+  "git.changeRemovedSign.text": "~",
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": [
+    "javascript",
+    "vue"
+  ],
+  "solargraph.useBundler": false,
+  "solargraph.checkGemVersion": false,
+  "solargraph.promptDownload": false,
+  "solargraph.diagnostics": true,
+  "solargraph.hover": true,
+  "markdownlint.config": {
+    "default": true,
+    "line_length": false
+  },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "nix",
+    "markdown",
+    "json",
+    "vim",
+    "typescript",
+    "ruby"
+  ],
+  "languageserver": {
+    "nix": {
+      "command": "rnix-lsp",
+      "filetypes": [
+        "nix"
+      ]
+    }
+  }
+}

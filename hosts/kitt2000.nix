@@ -9,26 +9,26 @@
   imports =
     [
       <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-      ../modules/sys/aliases.nix
-      ../modules/sys/scripts.nix
-      ../modules/sys/vars.nix
-      # ../modules/sys/debug.nix
+      ../sys/aliases.nix
+      ../sys/scripts.nix
+      ../sys/vars.nix
+      # ../sys/debug.nix
 
-      ../modules/boot/bios.nix
-      # ../modules/boot/multiboot.nix
+      ../boot/bios.nix
+      # ../boot/multiboot.nix
 
-      ../modules/services/common.nix
-      ../modules/services/nginx.nix
-      # ../modules/services/nfs.nix
+      ../services/common.nix
+      ../services/nginx.nix
+      # ../services/nfs.nix
 
-      ../modules/packages/absolutely-proprietary.nix
-      ../modules/packages/common.nix
-      ../modules/packages/nvim.nix
-      ../modules/packages/tmux.nix
+      ../packages/absolutely-proprietary.nix
+      ../packages/common.nix
+      ../packages/nvim.nix
+      ../packages/tmux.nix
 
-      ../modules/hardware/bluetooth.nix
+      ../hardware/bluetooth.nix
 
-      ../modules/net/wireguard.nix
+      ../services/net/wireguard.nix
 
       ../users/shared.nix
       ../users/ksevelyar.nix
