@@ -2,7 +2,7 @@
   "name": "idempotent-desktop-docs",
   "description": "html docs generated from markdown files",
   "devDependencies": {
-    "vuepress": "^1.5.2"
+    "vuepress": "^1"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,6 @@
   "homepage": "https://github.com/ksevelyar/idempotent-desktop#readme",
   "dependencies": {
     "markdown-it-task-lists": "^2.1.1",
-    "vuepress-theme-default-prefers-color-scheme": "^1.0.9"
+    "vuepress-theme-default-prefers-color-scheme": "^1.1.0"
   }
 }
