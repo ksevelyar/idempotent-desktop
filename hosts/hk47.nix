@@ -101,6 +101,10 @@
   };
 
   # hardware
+  ## i5-9400F
+  ## PRIME B360M-K
+  ## RTX 2060
+  ## DIMM DDR4 2133MHz 8GBx2
   hardware = {
     cpu.intel.updateMicrocode = true;
     pulseaudio.configFile = ../users/shared/disable-hdmi.pa;
