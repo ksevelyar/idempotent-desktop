@@ -9,6 +9,8 @@
       ../users/shared.nix
       ../users/ksevelyar.nix
 
+      ../hardware/ssd.nix
+
       ../sys/aliases.nix
       ../sys/scripts.nix
       ../sys/tty.nix
@@ -17,15 +19,15 @@
 
       ../boot/bios.nix
 
-      ../services/common.nix
-      # ../services/mongodb.nix
-      ../services/murmur.nix
 
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
       ../packages/nvim.nix
       ../packages/tmux.nix
+      ../packages/pass.nix
 
+      ../services/journald.nix
+      ../services/net/murmur.nix
       ../services/net/router.nix
       ../services/net/nginx.nix
       ../services/net/wireguard.nix
