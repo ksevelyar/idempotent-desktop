@@ -43,6 +43,7 @@
       ../services/journald.nix
       ../services/postgresql.nix
       ../services/x.nix
+      ../services/x/picom.nix
       ../services/x/xmonad.nix
 
       # ../services/net/i2pd.nix

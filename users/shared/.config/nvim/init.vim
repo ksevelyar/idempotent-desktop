@@ -152,9 +152,8 @@ let g:auto_save = 0
 " Dev
 " -------------------------
 Plug 'ruanyl/vim-gh-line'
-Plug 'preservim/nerdcommenter'
-let g:NERDCreateDefaultMappings = 0
-let g:NERDSpaceDelims = 1
+Plug 'tomtom/tcomment_vim'
+let g:tcomment_maps = 0
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -186,8 +185,8 @@ let g:indentLine_fileType = ['nix', 'html', 'vue']
 let g:indentLine_char = '┊'
 let g:indentLine_color_gui = "#3f3b52"
 
-" Plug 'posva/vim-vue'
-" let g:vue_pre_processors = ['pug', 'sass']
+Plug 'posva/vim-vue'
+let g:vue_pre_processors = ['pug', 'sass', 'scss']
 Plug 'digitaltoad/vim-pug'
 
 Plug 'jsfaint/gen_tags.vim'
@@ -490,8 +489,8 @@ nnoremap <C-K> <C-W><C-K> " navigate up
 nnoremap <C-L> <C-W><C-L> " navigate right
 nnoremap <C-H> <C-W><C-H> " navigate left
 
-nmap <leader>c <plug>NERDCommenterToggle
-xmap <leader>c <plug>NERDCommenterToggle
+nmap <leader>c :TComment<cr>
+xmap <leader>c :TComment<cr>
 nnoremap <silent> <Leader>. :Files <C-r>=expand("%:h")<CR>/<CR>
 nnoremap <silent> <Leader>g :GFiles?<CR>
 nnoremap <silent> <Leader>\  :Commits<CR>

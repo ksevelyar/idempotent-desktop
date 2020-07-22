@@ -85,6 +85,12 @@
           allowedIPs = [ "192.168.42.47" ];
         }
 
+        # alesha 110-120
+        {
+          publicKey = "iV9Y2eiZVk7WOizM2cM29R87AZuKCrwAgrtgwQh+AWQ=";
+          allowedIPs = [ "192.168.42.110" ];
+        }
+
         # kh 10-20
         ## catch-22
         {
