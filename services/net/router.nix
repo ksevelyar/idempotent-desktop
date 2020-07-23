@@ -90,6 +90,10 @@
           publicKey = "iV9Y2eiZVk7WOizM2cM29R87AZuKCrwAgrtgwQh+AWQ=";
           allowedIPs = [ "192.168.42.110" ];
         }
+        {
+          publicKey = "3vALuKpVsF/IN38IcSIpapRgbMP5bYlE3eQbjXzQJBA=";
+          allowedIPs = [ "192.168.42.117" ];
+        }
 
         # kh 10-20
         ## catch-22

@@ -195,7 +195,7 @@ let g:gen_tags#ctags_auto_gen = 1
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-eslint', 'coc-tsserver',
-      \ 'coc-elixir', 'coc-yaml', 'coc-tag', 'coc-solargraph',
+      \ 'coc-elixir', 'coc-yaml', 'coc-tag', 
       \ 'coc-vimlsp', 'coc-sh', 'coc-git', 'coc-highlight',
       \ 'coc-clangd'
       \ ]
