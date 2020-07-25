@@ -91,8 +91,8 @@
           allowedIPs = [ "192.168.42.110" ];
         }
         {
-          publicKey = "3vALuKpVsF/IN38IcSIpapRgbMP5bYlE3eQbjXzQJBA=";
-          allowedIPs = [ "192.168.42.117" ];
+          publicKey = "cLlSJcvND2mIY36vthOBxFUtpUTltiKGghPM/PcNSxI=";
+          allowedIPs = [ "192.168.42.114" ];
         }
 
         # kh 10-20

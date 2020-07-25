@@ -7,8 +7,23 @@
     nvidia.modesetting.enable = true;
   };
 
-  # fix nvidia tearing
   services.picom = {
     backend = "xrender";
+  };
+
+  services.xserver = {
+    deviceSection = ''
+      Option "NoLogo" "1"
+    '';
+
+    screenSection = ''
+      Option "TripleBuffer" "1"
+    '';
+
+    extraConfig = ''
+      Section "Extensions"
+        Option "Composite" "Enable"
+      EndSection
+    '';
   };
 }
