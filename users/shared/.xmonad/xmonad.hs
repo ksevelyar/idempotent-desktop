@@ -251,6 +251,9 @@ scratchpads = [
   NS "upwork" "upwork"
     (wm_name =? "Time Tracker")
     (customFloating $ W.RationalRect 0.5 0.05 0.4 0.44),
+  NS "hubstaff" "HubstaffClient"
+    (className =? "Hubstaff")
+    (customFloating $ W.RationalRect 0.5 0.05 0.4 0.44),
 
   NS "blueman-manager" "blueman-manager"
     (resource =? ".blueman-manager-wrapped")
@@ -335,7 +338,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("<F7>", namedScratchpadAction scratchpads  "blueman-manager")
     , ("<F8>", namedScratchpadAction scratchpads  "pavucontrol")
     , ("<F9>", namedScratchpadAction scratchpads "spotify")
-    , ("<F10>", namedScratchpadAction scratchpads "upwork")
+    , ("<F10>", namedScratchpadAction scratchpads "hubstaff")
     , ("M-i", namedScratchpadAction scratchpads  "images_browser")
 
     , ("M-s",namedScratchpadAction scratchpads  "spacefm")

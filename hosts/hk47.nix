@@ -65,7 +65,7 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   nixpkgs.config.allowUnsupportedSystem = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest; # fix Cambridge Silicon Radio wi-fi dongles
+  # boot.kernelPackages = pkgs.linuxPackages_latest; # fix Cambridge Silicon Radio wi-fi dongles
   boot.loader.grub.splashImage = ../assets/displayManager.png;
 
   # boot
