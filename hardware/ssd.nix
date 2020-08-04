@@ -1,3 +1,3 @@
 {
-  services.fstrim.enable = true; # ssd
+  services.fstrim.enable = true; 
 }
