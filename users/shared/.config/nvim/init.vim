@@ -180,6 +180,8 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-haml'
 Plug 'slim-template/vim-slim'
 
+Plug 'sirtaj/vim-openscad'
+
 Plug 'Yggdroot/indentLine'
 let g:indentLine_fileType = ['nix', 'html', 'vue']
 let g:indentLine_char = '┊'
@@ -195,7 +197,7 @@ let g:gen_tags#ctags_auto_gen = 1
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-eslint', 'coc-tsserver',
-      \ 'coc-elixir', 'coc-yaml', 'coc-tag', 
+      \ 'coc-elixir', 'coc-solargraph', 'coc-yaml', 'coc-tag', 
       \ 'coc-vimlsp', 'coc-sh', 'coc-git', 'coc-highlight',
       \ 'coc-clangd'
       \ ]

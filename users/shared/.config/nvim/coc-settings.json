@@ -15,11 +15,13 @@
     "javascript",
     "vue"
   ],
-  "solargraph.useBundler": false,
+  "solargraph.useBundler": true,
   "solargraph.checkGemVersion": false,
   "solargraph.promptDownload": false,
   "solargraph.diagnostics": true,
   "solargraph.hover": true,
+  "solargraph.autoformat": true,
+  "solargraph.formatting": true,
   "markdownlint.config": {
     "default": true,
     "line_length": false
