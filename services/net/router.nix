@@ -78,16 +78,17 @@
       privateKeyFile = "/home/ksevelyar/wireguard-keys/private";
 
       peers = [
-        # ksevelyar
-        ## hk-47 42-52
+        # ksevelyar 42-52
+        ## hk-47 
         {
           publicKey = "Ql36tqX82moc8k5Yx4McF2zxF4QG3jeoXoj8AxSUNRU=";
           allowedIPs = [ "192.168.42.47" ];
         }
 
         # alesha 110-120
+        ## a11dtop
         {
-          publicKey = "iV9Y2eiZVk7WOizM2cM29R87AZuKCrwAgrtgwQh+AWQ=";
+          publicKey = "OEXPYF1DDFB4x2paUbzUKT0lcl4CMkxgwfOeq5ShC1A=";
           allowedIPs = [ "192.168.42.110" ];
         }
         {
@@ -107,17 +108,18 @@
           allowedIPs = [ "192.168.42.11" ];
         }
 
-        # cyberdemon
+        # manya
+        ## cyberdemon
         {
           publicKey = "3DUHA0EYOaFVjeemwvqYa3wtbLDAc4wPhrPVnXxsdQ0=";
           allowedIPs = [ "192.168.42.4" ];
         }
-        # manya phone
+        ## phone
         {
           publicKey = "Cf1ZnKsJMTYTZfjU0xV+NJCXeOKvBq1/b2O4553Y+Ac=";
           allowedIPs = [ "192.168.42.5" ];
         }
-        # manya PC
+        ## archnotron
         {
           publicKey = "XMoxgJ0y+SAFZDKhSWIC0WfrAVOvIbtGrDKfV5SInnI=";
           allowedIPs = [ "192.168.42.6" ];
