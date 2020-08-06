@@ -88,7 +88,7 @@
         # alesha 110-120
         ## a11dtop
         {
-          publicKey = "OEXPYF1DDFB4x2paUbzUKT0lcl4CMkxgwfOeq5ShC1A=";
+          publicKey = "B3MbJOo+t9Lds4Wms7CF7SPqIM291vSNKCFDVn4eixk=";
           allowedIPs = [ "192.168.42.110" ];
         }
         {
