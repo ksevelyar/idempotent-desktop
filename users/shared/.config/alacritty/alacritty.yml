@@ -15,7 +15,8 @@ font:
 
 background_opacity: 0.94
 
-dynamic_title: true
+window:
+  dynamic_title: true
 
 cursor:
   style: Underline

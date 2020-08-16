@@ -192,7 +192,7 @@ let g:vue_pre_processors = ['pug', 'sass', 'scss']
 Plug 'digitaltoad/vim-pug'
 
 Plug 'jsfaint/gen_tags.vim'
-let g:gen_tags#ctags_auto_gen = 1
+let g:gen_tags#ctags_auto_gen = 0
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
