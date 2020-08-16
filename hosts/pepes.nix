@@ -48,14 +48,13 @@
 
       ../services/net/firewall-desktop.nix
       ../services/net/wireguard.nix
-      ../services/net/i2pd.nix
+      # ../services/net/i2pd.nix
       ../services/net/tor.nix
       ../services/net/sshd.nix
       ../services/net/openvpn.nix
       ../services/net/nginx.nix
-      # ../services/net/lidarr.nix
 
-      ../services/vm/hypervisor.nix
+      # ../services/vm/hypervisor.nix
     ];
 
   boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;

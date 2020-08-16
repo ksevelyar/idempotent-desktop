@@ -31,6 +31,8 @@
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
       ../packages/dev.nix
+      ../packages/3d-print.nix
+      ../packages/electronics.nix
       ../packages/firefox-without-tabs.nix
       ../packages/games.nix
       ../packages/nvim.nix

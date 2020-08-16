@@ -5,6 +5,7 @@
   excludesfile = ~/.config/git/ignore
   filemode = false
   pager = "delta --plus-color=\"#16271C\" --minus-color=\"#331F21\" --theme='ansi-dark'\n"
+  autocrlf = input
 
 [branch "master"]
   remote = origin

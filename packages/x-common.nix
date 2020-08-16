@@ -174,12 +174,6 @@ in
       upwork
       skype
 
-      # 3d print
-      # https://www.thingiverse.com/ksevelyar/likes
-      # cura
-      slic3r-prusa3d
-      openscad
-
       # gfx
       gimp
       inkscape
