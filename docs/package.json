@@ -2,7 +2,7 @@
   "name": "idempotent-desktop-docs",
   "description": "html docs generated from markdown files",
   "devDependencies": {
-    "vuepress": "^1"
+    "vuepress": "^1.5.3"
   },
   "repository": {
     "type": "git",

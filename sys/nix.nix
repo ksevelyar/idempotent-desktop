@@ -40,6 +40,4 @@ in
       max-free = ${toString (20 * 1024 * 1024 * 1024)}
     '';
   };
-
-  services.nixosManual.showManual = false;
 }
