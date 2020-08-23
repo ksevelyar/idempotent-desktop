@@ -1,5 +1,5 @@
 " https://idempotent-desktop.netlify.app/vim.html
-" https://github.com/ksevelyar/idempotent-desktop/blob/mast../packages/nvim.nix
+" https://github.com/ksevelyar/idempotent-desktop/blob/master/packages/nvim.nix
 
 " -------------------------------------------------------------------------------------------------
 " Plugins
@@ -12,18 +12,12 @@ Plug 'alvan/vim-closetag'
 
 Plug 'majutsushi/tagbar'
 
-" Plug 'vim-scripts/YankRing.vim'
-" let g:yankring_clipboard_monitor=0
-
 Plug 'easymotion/vim-easymotion'
 
-
 Plug 'junegunn/vim-easy-align'
-" Plug 'ervandew/supertab'
 
 Plug 'tpope/vim-endwise'
 Plug 'valloric/MatchTagAlways'
-" Plug 'Raimondi/delimitMate'
 
 Plug 'janko-m/vim-test'
 
@@ -82,18 +76,8 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" let g:fzf_commits_log_options = '--graph --color=always
-      " \ --format="%C(yellow)%h%C(red)%d%C(reset)
-      " \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
-
-" let g:fzf_layout = { 'window': {
-" \ 'width': 0.9,
-" \ 'height': 0.7,
-" \ 'highlight': 'Comment',
-" \ 'rounded': v:false } }
 
 " Color Themes ------------------------------------------------------------------------------------
-" :Colors to change
 Plug 'ksevelyar/joker.vim'
 " Plug '/c/joker.vim'
 
@@ -269,16 +253,21 @@ augroup end
 " -------------------------------------------------------------------------------------------------
 " Core Settings
 " -------------------------------------------------------------------------------------------------
+set conceallevel=0
+
+set splitbelow
+set splitright
+
+syntax on
+filetype plugin on " to use filetype plugin
+filetype indent on " to use filetype indent
 set updatetime=200
 set laststatus=2
 set signcolumn=yes
 set hidden
 set path+=** " type gf to open file under cursor
 set number
-" set relativenumber
 set colorcolumn=100
-" set cursorcolumn
-" set cursorline
 
 set encoding=utf-8
 set fileformat=unix
@@ -288,7 +277,7 @@ set title
 
 " set timeoutlen=2000
 
-" No annoying sound on errors
+" Disable annoying sound on errors
 set noerrorbells
 set novisualbell
 
@@ -311,18 +300,9 @@ if exists('g:GuiLoaded')
   GuiFont! Terminus:h16
 endif
 
-" hi EndOfBuffer guifg=bg
 " :Colors to change theme
 silent! colorscheme joker
-" set background=dark
-set conceallevel=0
 
-set splitbelow
-set splitright
-
-syntax on
-filetype plugin on " to use filetype plugin
-filetype indent on " to use filetype indent
 
 " Clipboard ---------------------------------------------------------------------------------------
 set noshowmode
@@ -355,7 +335,6 @@ set nojoinspaces
 
 " Format ------------------------------------------------------------------------------------------
 " Do not automatically insert a comment leader after an enter
-" set autowrite
 autocmd FileType * setlocal formatoptions-=ro
 
 set shiftwidth=2
@@ -388,15 +367,6 @@ set so=2 " Set 2 lines to the cursor - when moving vertically using j/k
 let g:mapleader = " "
 
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
-"Max out the height of the current split - ctrl + w _
-"Max out the width of the current split - ctrl + w |
-"Normalize all split sizes - ctrl + w =
-"Swap top/bottom or left/right split - Ctrl+W R
-"Break out current window into a new tabview - Ctrl+W T
-"Close every window in the current tabview but the current one - Ctrl+W o
-
-" -- :help index --
-" Use tab for trigger completion with characters ahead and navigate.
 
 " coc.nvim ----------------------------------------------------------------------------------------
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
@@ -452,15 +422,6 @@ xmap <silent> <TAB> <Plug>(coc-range-select)
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" if has('patch8.1.1068')
-"   " Use `complete_info` if your (Neo)Vim version supports it.
-"   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-" else
-"   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" endif
-
 " Use `[g` and `]g` to navigate git chunks
 nmap [c <Plug>(coc-git-prevchunk)
 nmap ]c <Plug>(coc-git-nextchunk)
@@ -499,7 +460,6 @@ nnoremap <silent> <Leader>\  :Commits<CR>
 nnoremap <silent> <Leader>b :BCommits<CR>
 nnoremap <silent> <Leader>i :IndentLinesToggle<CR>
 
-" nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>]  :Tags<CR>
 nnoremap <silent> <Leader>b] :BTags<CR>
 
@@ -511,11 +471,9 @@ nnoremap <leader>r :Rg<cr>
 nnoremap <leader>m <C-w>:History<CR>
 
 nnoremap <leader>u :UndotreeToggle<CR>
-" nnoremap <leader>x :qa<cr>
 nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
 nnoremap <silent><leader>w :w<cr>
-" ctags
 nnoremap <leader>s :TagbarToggle<cr>
 
 nnoremap <silent>\ :Goyo<cr>
@@ -533,7 +491,6 @@ nnoremap <leader>o :set spell!<CR>
 " copy / paste
 " vmap <C-C> "+y
 imap <C-V> <esc>"+pi
-nnoremap <leader>y :YRShow<cr>
 
 nnoremap ; :
 " Shift+V d for cut
