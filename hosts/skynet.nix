@@ -154,7 +154,6 @@
   };
 
   networking.hostName = "skynet";
-  networking.firewall.enable = lib.mkForce true;
   networking.networkmanager.enable = lib.mkForce false;
 
   boot.loader.grub.splashImage = lib.mkForce ../assets/grub_1024x768.png;
