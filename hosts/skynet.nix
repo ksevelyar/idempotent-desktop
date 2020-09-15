@@ -49,22 +49,21 @@
     interfaces.enp3s0 = {
       allowedTCPPorts = [
         41414
+        51821
         # NFS
         111 # portmapper
         2049
         20000
         20001
         20002
+
         # http, https
         80
         443
       ];
       allowedUDPPorts = [
         41414
-        # wireguard
-        51820
-        # dns cache
-        53
+        51821
       ];
     };
   };
