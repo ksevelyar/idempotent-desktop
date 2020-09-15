@@ -142,7 +142,7 @@
     };
 
   fileSystems."/skynet" = {
-    device = "192.168.0.1:/export";
+    device = "192.168.0.99:/export";
     fsType = "nfs";
 
     # don't freeze system if mount point not available on boot
