@@ -182,8 +182,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \ 'coc-vetur', 'coc-json', 'coc-html', 'coc-css', 'coc-eslint', 'coc-tsserver',
       \ 'coc-elixir', 'coc-solargraph', 'coc-yaml', 'coc-tag', 
-      \ 'coc-vimlsp', 'coc-sh', 'coc-git', 'coc-highlight',
-      \ 'coc-clangd'
+      \ 'coc-vimlsp', 'coc-sh', 'coc-git', 'coc-highlight'
       \ ]
 
 function! s:check_back_space() abort

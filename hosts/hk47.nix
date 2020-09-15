@@ -16,7 +16,7 @@
       ../hardware/ssd.nix
 
       ../sys/aliases.nix
-      ../sys/debug.nix
+      # ../sys/debug.nix
       ../sys/fonts.nix
       ../sys/nix.nix
       ../sys/scripts.nix
@@ -26,19 +26,19 @@
 
       ../boot/efi.nix
       ../boot/multiboot.nix
-      ../boot/plymouth.nix
+      # ../boot/plymouth.nix
 
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
+      ../packages/x-common.nix
       ../packages/dev.nix
       ../packages/3d-print.nix
       ../packages/electronics.nix
       ../packages/firefox-without-tabs.nix
-      ../packages/games.nix
+      # ../packages/games.nix
       ../packages/nvim.nix
       ../packages/pass.nix
       ../packages/tmux.nix
-      ../packages/x-common.nix
 
       # ../services/flatpak.nix
       # ../services/mongodb.nix
@@ -96,7 +96,7 @@
         {
           publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
           allowedIPs = [ "192.168.42.0/24" ];
-          endpoint = "77.37.166.17:51820";
+          endpoint = "95.165.99.133:51820";
           # Send keepalives every 25 seconds. Important to keep NAT tables alive.
           persistentKeepalive = 25;
         }

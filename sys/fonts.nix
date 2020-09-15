@@ -22,7 +22,7 @@
         # gyre-fonts # TrueType substitutes for standard PostScript fonts
         # xorg.fontmiscmisc
         # xorg.fontcursormisc
-        terminus_font.otb
+        terminus_font
         unifont
         cozette
         fixedsys-excelsior
@@ -40,7 +40,7 @@
         fira-code
 
         # Required for polybar
-        siji.otb # https://github.com/stark/siji
+        siji # https://github.com/stark/siji
 
         open-sans
         roboto
