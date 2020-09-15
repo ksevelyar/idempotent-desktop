@@ -74,7 +74,7 @@
   networking.wireguard.interfaces = {
     skynet = {
       ips = [ "192.168.42.1" ];
-      listenPort = 51820;
+      listenPort = 51821;
 
       privateKeyFile = "/home/ksevelyar/wireguard-keys/private";
 
