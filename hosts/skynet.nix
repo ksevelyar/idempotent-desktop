@@ -48,7 +48,6 @@
 
     interfaces.enp3s0 = {
       allowedTCPPorts = [
-        41414
         51821
         # NFS
         111 # portmapper
@@ -62,7 +61,6 @@
         443
       ];
       allowedUDPPorts = [
-        41414
         51821
       ];
     };
@@ -119,7 +117,7 @@
           publicKey = "Cf1ZnKsJMTYTZfjU0xV+NJCXeOKvBq1/b2O4553Y+Ac=";
           allowedIPs = [ "192.168.42.5" ];
         }
-        ## archnotron
+        ## arachnotron
         {
           publicKey = "XMoxgJ0y+SAFZDKhSWIC0WfrAVOvIbtGrDKfV5SInnI=";
           allowedIPs = [ "192.168.42.6" ];
@@ -167,6 +165,7 @@
   boot.kernel.sysctl = {
     "net.ipv4.tcp_congestion_control" = "bbr";
     "net.core.default_qdisc" = "cake";
+    "net.ipv4.ip_forward" = true;
   };
 
   swapDevices = [];
