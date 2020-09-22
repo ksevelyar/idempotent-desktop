@@ -44,6 +44,7 @@
 
       ../hardware/bluetooth.nix
       ../hardware/sound.nix
+      ../hardware/ssd.nix
       # ../hardware/laptop.nix
 
       ../services/net/firewall-desktop.nix
@@ -80,7 +81,7 @@
         {
           publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
           allowedIPs = [ "192.168.42.0/24" ];
-          endpoint = "77.37.166.17:51820";
+          endpoint = "95.165.99.133:51821";
           persistentKeepalive = 25;
         }
       ];
@@ -117,7 +118,7 @@
 
   hardware = {
     cpu.intel.updateMicrocode = true;
-    pulseaudio.configFile = ../users/shared/disable-hdmi.pa;
+    # pulseaudio.configFile = ../users/shared/disable-hdmi.pa;
   };
   services.xserver.videoDrivers = [ "nvidia" ];
 

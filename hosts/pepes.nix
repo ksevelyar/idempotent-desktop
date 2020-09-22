@@ -21,32 +21,36 @@
       ../sys/sysctl.nix
       ../sys/tty.nix
       ../sys/vars.nix
+      ../sys/fonts.nix
 
       ../boot/efi.nix
       ../boot/multiboot.nix
 
-      ../services/common.nix
+      ../services/journald.nix
+      ../services/postgresql.nix
       ../services/x.nix
-
+      ../services/x/picom.nix
       ../services/x/xmonad.nix
-      ../sys/fonts.nix
-      ../packages/x-common.nix
-      ../packages/x-extra.nix
 
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
       ../packages/dev.nix
+      ../packages/electronics.nix
+      ../packages/firefox.nix
       ../packages/games.nix
       ../packages/nvim.nix
       ../packages/pass.nix
       ../packages/tmux.nix
-      # ../packages/firefox.nix
+      ../packages/x-common.nix
 
       ../hardware/bluetooth.nix
+      ../hardware/mouse.nix
       ../hardware/sound.nix
+      ../hardware/ssd.nix
       # ../hardware/power-management.nix
 
       ../services/net/firewall-desktop.nix
+      ../services/net/fail2ban.nix
       ../services/net/wireguard.nix
       # ../services/net/i2pd.nix
       ../services/net/tor.nix
@@ -88,14 +92,14 @@
   networking.interfaces.wlp3s0.useDHCP = true;
   networking.wireguard.interfaces = {
     skynet = {
-      ips = [ "192.168.42.3" ];
+      ips = [ "192.168.42.11" ];
       privateKeyFile = "/home/kh/wireguard-keys/private";
 
       peers = [
         {
           publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
           allowedIPs = [ "192.168.42.0/24" ];
-          endpoint = "77.37.166.17:51820";
+          endpoint = "95.165.99.133:51821";
           persistentKeepalive = 25;
         }
       ];
@@ -120,6 +124,7 @@
     {
       device = "/dev/disk/by-uuid/2aeb21b3-e390-4f10-b163-7cf8615dc3bc";
       fsType = "ext4";
+      options = [ "noatime" ]; # ssd
     };
 
   fileSystems."/boot" =
