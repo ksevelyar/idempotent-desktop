@@ -82,6 +82,11 @@
           publicKey = "Ql36tqX82moc8k5Yx4McF2zxF4QG3jeoXoj8AxSUNRU=";
           allowedIPs = [ "192.168.42.47" ];
         }
+        ## laundry 
+        {
+          publicKey = "ywV4e4436z6mqKCGF2cJdmuYOTeSY2u+GxrZntneNRw=";
+          allowedIPs = [ "192.168.42.46" ];
+        }
 
         # alesha 110-120
         ## a11dtop

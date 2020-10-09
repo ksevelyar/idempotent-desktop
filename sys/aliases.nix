@@ -62,7 +62,7 @@
     gl = "git lg";
     gp = "git push";
     gso = "git log -p --all --source -S "; # search string in all branches, gso <string>
-    df = "git diff --no-index"; # delta diff for non git files
+    gdf = "git diff --no-index"; # delta diff for non git files
 
     t = "task"; # https://www.youtube.com/watch?v=zl68asL9jZA
     fd = "fd --hidden --exclude .git";
@@ -84,6 +84,7 @@
     id-wipe-user-packages = "nix-env -e '*'";
 
     id-gc = "sudo nix-collect-garbage --delete-older-than 30d";
+    id-gc-force = "sudo rm /nix/var/nix/gc.lock; id-gc";
     id-inspect-store = "nix path-info -rSh /run/current-system | sort -k2h ";
     id-push = "sudo nix-store -qR --include-outputs /run/current-system | cachix push idempotent-desktop ";
     id-store-to-svg = "nix-du --root /run/current-system/sw/ -s 100MB | tred | dot -Tsvg > ./nix-store.svg";

@@ -34,7 +34,7 @@
       ../packages/dev.nix
       ../packages/3d-print.nix
       ../packages/electronics.nix
-      ../packages/firefox-without-tabs.nix
+      ../packages/firefox.nix
       # ../packages/games.nix
       ../packages/nvim.nix
       ../packages/pass.nix

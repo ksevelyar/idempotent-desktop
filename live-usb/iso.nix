@@ -39,6 +39,7 @@ in
     displayManager = {
       autoLogin = { enable = true; user = vars.user; };
     };
+    videoDrivers = [ "nvidia" "amdgpu" "vesa" "modesetting" ];
   };
 
   services.mingetty.helpLine = lib.mkForce ''
