@@ -2,8 +2,8 @@
 { pkgs, lib, ... }:
 {
   fonts = {
-    enableDefaultFonts = false;
-    enableFontDir = true; # ls /run/current-system/sw/share/X11-fonts
+    enableDefaultFonts = true;
+    fontDir.enable = true; # ls /run/current-system/sw/share/X11-fonts
     fontconfig = {
       enable = true;
       cache32Bit = true;
