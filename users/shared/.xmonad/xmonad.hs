@@ -360,7 +360,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%")
     , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%")
     , ("<XF86MonBrightnessUp>", spawn "brightnessctl set +10%")
-    , ("<XF86MonBrightnessDown>", spawn "brightnessctl set -10%")
+    , ("<XF86MonBrightnessDown>", spawn "brightnessctl set 10%-")
 
     , ("M-,",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 20%")
     , ("M-.",  spawn  "pactl set-sink-volume @DEFAULT_SINK@ 50%")
