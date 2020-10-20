@@ -65,6 +65,8 @@
 
   home-manager = {
     users.ksevelyar = {
+      home.file.".config/polybar/launch.sh".source = ../users/shared/.config/polybar/launch-laptop.sh;
+
       home.file.".config/alacritty/alacritty.yml".source = ../users/ksevelyar/.config/alacritty-laptop/alacritty.yml;
       home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../users/ksevelyar/.config/alacritty-laptop/alacritty-scratchpad.yml;
     };

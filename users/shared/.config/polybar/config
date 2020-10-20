@@ -80,7 +80,7 @@ bottom = false
 
 modules-left = volume spotify
 modules-center = filesystem
-modules-right = vnc ssh wlp2s0 cpu memory battery
+modules-right = vnc ssh wifi cpu memory battery
 
 [module/title]
 type = internal/xwindow
@@ -151,7 +151,7 @@ label-unmounted-foreground = ${colors.foreground}
 [module/battery]
 type = internal/battery
 # ls -l /sys/class/power_supply
-battery = BAT0
+battery = BATT
 adapter = AC
 full-at = 98
 
@@ -182,7 +182,7 @@ label-connected = %{A1:sh ~/.config/polybar/local_and_public_ips.sh:} %{F#9c71C7
 
 [module/wifi]
 type = internal/network
-interface = wlp3s0
+interface = wlp1s0
 interval = 1.0
 label-connected = %essid% %{A1:sh ~/.config/polybar/local_and_public_ips.sh:} %{F#9c71C7}%{F-}%downspeed:8%   %{F#9c71C7}%{F-}%upspeed:8%%{A}
 format-connected = <label-connected>
