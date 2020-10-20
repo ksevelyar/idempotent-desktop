@@ -18,6 +18,7 @@
     [
       "d /vvv 0700 1000 wheel" # secrets
       "d /c 0744 1000 wheel" # code
+      "d /com 0744 1000 wheel" # code
     ];
 
   home-manager = {
@@ -31,11 +32,11 @@
     };
   };
 
-  services.xserver = {
-    displayManager = {
-      sessionCommands = ''
-        sh ~/.config/conky/launch.sh
-      '';
-    };
-  };
+  # services.xserver = {
+  #   displayManager = {
+  #     sessionCommands = ''
+  #       sh ~/.config/conky/launch.sh
+  #     '';
+  #   };
+  # };
 }

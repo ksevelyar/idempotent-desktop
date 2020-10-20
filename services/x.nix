@@ -10,7 +10,7 @@
 
     libinput = {
       enable = true;
-      accelProfile = "flat"; # flat profile for touchpads
+      accelProfile = lib.mkDefault "adaptive";
       naturalScrolling = false;
       disableWhileTyping = true;
       clickMethod = "buttonareas";

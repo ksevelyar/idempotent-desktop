@@ -62,7 +62,27 @@
       # ../services/vm/docker.nix
     ];
 
+
+  home-manager = {
+    users.ksevelyar = {
+      home.file.".config/alacritty/alacritty.yml".source = ../users/ksevelyar/.config/alacritty-laptop/alacritty.yml;
+      home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../users/ksevelyar/.config/alacritty-laptop/alacritty-scratchpad.yml;
+    };
+  };
   # systemd.services.sshd.wantedBy = lib.mkOverride 40 [ "multi-user.target" ];
+
+  services.xserver = {
+    libinput = {
+      enable = true;
+      accelProfile = "adaptive"; # flat profile for touchpads
+      naturalScrolling = false;
+      accelSpeed = "0.2";
+      disableWhileTyping = true;
+      clickMethod = "buttonareas";
+      # scrollMethod = "edge";
+    };
+  };
+
 
   # boot.kernelPackages = pkgs.linuxPackages_latest; # fix Cambridge Silicon Radio wi-fi dongles
   boot.loader.grub.splashImage = ../assets/displayManager.png;

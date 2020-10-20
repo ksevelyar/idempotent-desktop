@@ -1,4 +1,4 @@
-{ config, pkgs, vars, ... }:
+{ config, pkgs, vars, lib, ... }:
 {
   imports =
     [
@@ -93,8 +93,8 @@
       home.file.".config/roxterm.sourceforge.net/Profiles/Default".source = ../users/shared/.config/roxterm.sourceforge.net/Profiles/Default;
       home.file.".config/roxterm.sourceforge.net/Global".source = ../users/shared/.config/roxterm.sourceforge.net/Global;
 
-      home.file.".config/alacritty/alacritty.yml".source = ../users/shared/.config/alacritty/alacritty.yml;
-      home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../users/shared/.config/alacritty/alacritty-scratchpad.yml;
+      home.file.".config/alacritty/alacritty.yml".source = lib.mkDefault ../users/shared/.config/alacritty/alacritty.yml;
+      home.file.".config/alacritty/alacritty-scratchpad.yml".source = lib.mkDefault ../users/shared/.config/alacritty/alacritty-scratchpad.yml;
 
       home.file.".config/mpv/mpv.conf".source = ../users/shared/.config/mpv/mpv.conf;
       home.file.".config/mpv/input.conf".source = ../users/shared/.config/mpv/input.conf;
