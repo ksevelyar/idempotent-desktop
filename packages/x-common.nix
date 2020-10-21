@@ -17,7 +17,7 @@ in
     etc."xdg/gtk-3.0/settings.ini" = {
       text = ''
         [Settings]
-        gtk-theme-name=Ant-Dracula
+        gtk-theme-name=Dracula
         gtk-icon-theme-name=Papirus-Dark-Maia
         gtk-font-name=Terminus 14
         gtk-cursor-theme-name=Vanilla-DMZ
@@ -114,7 +114,7 @@ in
       # themes
       lxappearance
       vanilla-dmz
-      ant-dracula-theme
+      dracula-theme
       adwaita-qt
       papirus-maia-icon-theme
 
