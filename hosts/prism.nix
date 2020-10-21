@@ -14,27 +14,36 @@
       ../users/shared.nix
       ../users/obstinatekate.nix
 
-      ../sys/debug.nix
+      ../hardware/bluetooth.nix
+      ../hardware/mouse.nix
+      ../hardware/sound.nix
+      # ../hardware/power-management.nix
+
       ../sys/aliases.nix
-      ../sys/scripts.nix
-      ../sys/tty.nix
+      ../sys/debug.nix
       ../sys/nix.nix
-      ../sys/vars.nix
+      ../sys/scripts.nix
       ../sys/sysctl.nix
+      ../sys/tty.nix
+      ../sys/vars.nix
+      ../sys/fonts.nix
 
       ../boot/bios.nix
       ../boot/multiboot.nix
 
-      ../services/common.nix
+      ../services/journald.nix
+      ../services/postgresql.nix
+      ../services/redis.nix
       ../services/x.nix
-
+      ../services/x/picom.nix
       ../services/x/xmonad.nix
-      ../sys/fonts.nix
+
       ../packages/x-common.nix
       ../packages/x-extra.nix
 
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
+      ../packages/x-common.nix
       ../packages/dev.nix
       # ../packages/games.nix
       ../packages/nvim.nix
@@ -42,14 +51,11 @@
       ../packages/tmux.nix
       ../packages/firefox.nix
 
-      ../hardware/bluetooth.nix
-      ../hardware/sound.nix
-      # ../hardware/power-management.nix
-
+      ../services/net/fail2ban.nix
       ../services/net/firewall-desktop.nix
       ../services/net/wireguard.nix
       # ../services/net/i2p.nix
-      ../services/net/tor.nix
+      # ../services/net/tor.nix
       ../services/net/sshd.nix
       ../services/net/openvpn.nix
       ../services/net/nginx.nix
@@ -79,7 +85,7 @@
         {
           publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
           allowedIPs = [ "192.168.42.0/24" ];
-          endpoint = "77.37.166.17:51820";
+          endpoint = "95.165.99.133:51821";
 
           # Send keepalives every 25 seconds. Important to keep NAT tables alive.
           persistentKeepalive = 25;

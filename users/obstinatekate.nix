@@ -1,14 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, vars, ... }:
 {
   vars.user = "obstinatekate";
+  vars.email = "obstinatekate@gmail.com";
+  vars.name = "obstinatekate";
 
-  home-manager = {
-    users.obstinatekate = {
-      programs.git = {
-        enable = true;
-        userName = "Ekaterina Lobanova";
-        userEmail = "obstinatekate@gmail.com";
-      };
-    };
+  users.users.${vars.user} = {
+    description = vars.name;
   };
 }
