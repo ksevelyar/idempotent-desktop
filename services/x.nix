@@ -42,8 +42,8 @@
         blur = false;
 
         theme = {
-          name = "Ant-Dracula";
-          package = pkgs.ant-dracula-theme;
+          name = "Dracula";
+          package = pkgs.dracula-theme;
         };
         iconTheme = {
           name = "ePapirus";

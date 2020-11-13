@@ -31,12 +31,4 @@
       home.file."Wallpapers/Season-01-Gas-station-by-dutchtide.png".source = ../assets/wallpapers/Season-01-Gas-station-by-dutchtide.png;
     };
   };
-
-  # services.xserver = {
-  #   displayManager = {
-  #     sessionCommands = ''
-  #       sh ~/.config/conky/launch.sh
-  #     '';
-  #   };
-  # };
 }

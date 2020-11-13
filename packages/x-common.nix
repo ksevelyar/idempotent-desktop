@@ -108,6 +108,7 @@ in
       zathura
       bookworm
       calibre
+      fbreader
       hunspell
       hunspellDicts.en_US-large
 

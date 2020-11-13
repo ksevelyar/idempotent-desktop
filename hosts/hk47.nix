@@ -73,7 +73,7 @@
 
   # boot
   boot.blacklistedKernelModules = [];
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [];
@@ -104,6 +104,10 @@
     };
   };
 
+  # services.openssh = {
+  #   passwordAuthentication = lib.mkForce true;
+  # };
+
   # hardware
   ## i5-9400F
   ## PRIME B360M-K
@@ -112,6 +116,14 @@
   hardware = {
     cpu.intel.updateMicrocode = true;
     pulseaudio.configFile = ../users/shared/disable-hdmi.pa;
+  };
+
+  services.xserver = {
+    displayManager = {
+      sessionCommands = ''
+        nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceCompositionPipeline=On, ForceFullCompositionPipeline=On }"
+      '';
+    };
   };
 
   # fs
