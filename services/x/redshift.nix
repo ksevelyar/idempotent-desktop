@@ -2,7 +2,7 @@
 {
   services.redshift = {
     enable = true;
-    temperature.night = 4000;
+    temperature.night = 3800;
     temperature.day = 6500;
   };
 }

@@ -192,6 +192,7 @@ myStartupHook = do
   spawn "pkill twmnd; twmnd"
   spawn "xxkb"
   spawn "xcape -e 'Super_R=Super_R|X'"
+  spawn "systemctl --user start redshift"
   setFullscreenSupport
   setWMName "LG3D" -- Arduino IDE support
 

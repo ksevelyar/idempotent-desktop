@@ -20,7 +20,7 @@
 
       # stm32
       stlink
-      openocd
+      stable.openocd
       gcc-arm-embedded
       stm32cubemx
       gnumake

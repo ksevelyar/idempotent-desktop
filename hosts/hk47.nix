@@ -48,6 +48,7 @@
       ../services/x.nix
       ../services/x/picom.nix
       ../services/x/xmonad.nix
+      ../services/x/redshift.nix
 
       # ../services/net/i2pd.nix
       ../services/net/fail2ban.nix
@@ -67,6 +68,7 @@
   # du -h $rpi_img
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   nixpkgs.config.allowUnsupportedSystem = true;
+  nixpkgs.config.allowBroken = true;
 
   # boot.kernelPackages = pkgs.linuxPackages_latest; # fix Cambridge Silicon Radio wi-fi dongles
   boot.loader.grub.splashImage = ../assets/displayManager.png;
