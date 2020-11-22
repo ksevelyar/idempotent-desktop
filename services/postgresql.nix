@@ -50,7 +50,7 @@ in
   };
 
   environment.systemPackages = [
-    pkgs.sequeler
+    # pkgs.sequeler
     id-pg-backup
   ];
 }

@@ -111,6 +111,7 @@ in
       fbreader
       hunspell
       hunspellDicts.en_US-large
+      libreoffice-fresh
 
       # themes
       lxappearance

@@ -12,8 +12,6 @@ in
       # syncthing
       # masterpdfeditor
 
-      # office
-      libreoffice-fresh
       thunderbird-bin
       qalculate-gtk
       # wireshark-qt
