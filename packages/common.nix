@@ -5,7 +5,7 @@ let
   stable = import <stable> {
     config = config.nixpkgs.config;
   };
-  hunter = pkgs.callPackage ./hunter.nix {};
+  # hunter = pkgs.callPackage ./hunter.nix {};
 in
 {
 
@@ -92,7 +92,8 @@ in
       bind
       parted
       ffsend
-      hunter
+      # hunter
+      nnn
       viu
       ncdu
       du-dust
