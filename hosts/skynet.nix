@@ -87,6 +87,11 @@
           publicKey = "ywV4e4436z6mqKCGF2cJdmuYOTeSY2u+GxrZntneNRw=";
           allowedIPs = [ "192.168.42.46" ];
         }
+        ## phone
+        {
+          publicKey = "Z9kuAhDf9i5azQ49VJuSy16ciqDJ0uPhkqkbRykkPSM=";
+          allowedIPs = [ "192.168.42.48" ];
+        }
 
         # alesha 110-120
         ## a11dtop
