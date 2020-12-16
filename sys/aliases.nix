@@ -13,6 +13,8 @@
     ss = "sudo systemctl stop";
     sr = "sudo systemctl restart";
 
+    clip = "xclip -selection clipboard";
+
     ssu = "systemctl stop --user";
     sru = "systemctl restart --user";
 

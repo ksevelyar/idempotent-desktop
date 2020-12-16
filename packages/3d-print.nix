@@ -5,7 +5,7 @@
     [
       # slicers
       slic3r-prusa3d
-      cura
+      stable.cura
 
       # programmatic cads
       openscad
