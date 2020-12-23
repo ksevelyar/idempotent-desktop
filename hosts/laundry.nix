@@ -48,6 +48,7 @@
       ../services/x.nix
       ../services/x/picom.nix
       ../services/x/xmonad.nix
+      ../services/x/redshift.nix
 
       # ../services/net/i2pd.nix
       ../services/net/fail2ban.nix
