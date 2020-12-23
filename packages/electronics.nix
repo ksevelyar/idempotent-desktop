@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs;
     [
-      stable.fritzing
+      fritzing
       librepcb
       xoscope
 
@@ -11,19 +11,19 @@
 
       # arduino
       # arduino --board arduino:avr:nano --port /dev/ttyUSB0 --upload shroom-box.ino
-      arduino
-      arduino-core
+      # arduino
+      # arduino-core
 
       # esp8266 / 32
-      esptool
+      # esptool
       # nix-shell https://github.com/nix-community/nix-environments/archive/master.tar.gz -A arduino
 
       # stm32
       stlink
-      stable.openocd
+      openocd
       gcc-arm-embedded
-      stm32cubemx
+      # stm32cubemx
       gnumake
-      python
+      # python
     ];
 }
