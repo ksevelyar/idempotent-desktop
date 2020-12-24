@@ -4,7 +4,7 @@ let
   # TODO: pack neovide
   # neovide = pkgs.callPackage ./neovide.nix {};
 
-  hubstaff = pkgs.callPackage ./hubstaff/default.nix {};
+  # hubstaff = pkgs.callPackage ./hubstaff/default.nix {};
 in
 {
   environment = {
@@ -152,7 +152,7 @@ in
       # media
       glxinfo
       feh
-      google-play-music-desktop-player
+      # google-play-music-desktop-player
       spotify
       mpv # https://github.com/mpv-player/mpv/blob/master/etc/input.conf
       vlc
@@ -172,13 +172,13 @@ in
       arandr
 
       # freelance
-      hubstaff
+      # hubstaff
       upwork
       skype
 
       # gfx
       gimp
       inkscape
-      blender
+      # blender
     ];
 }

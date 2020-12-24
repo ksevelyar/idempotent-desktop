@@ -14,26 +14,25 @@
 
       # emulators & platforms
       steam
-      wineFull
+      # wineFull
       # retroarchBare
       # anbox
       # (steam.override { nativeOnly = true; })
       # stable.playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
 
       # text 
-      dwarf-fortress
-      nethack
-      rogue
+      # dwarf-fortress
+      # nethack
+      # rogue
 
       # gui
-      # jdk11 # minecraft
-      xonotic
-      wesnoth
-      stepmania
-      opendune
+      # xonotic
+      # wesnoth
+      # stepmania
+      # opendune
       # yquake2
-      openra
-      gzdoom
+      # openra
+      # gzdoom
       # quakespasm
     ];
 }

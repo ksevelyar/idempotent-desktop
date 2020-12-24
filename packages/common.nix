@@ -92,7 +92,6 @@ in
       bind
       parted
       ffsend
-      # hunter
       nnn
       viu
       ncdu

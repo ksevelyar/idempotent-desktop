@@ -1,9 +1,7 @@
 " https://idempotent-desktop.netlify.app/vim.html
 " https://github.com/ksevelyar/idempotent-desktop/blob/master/packages/nvim.nix
 
-" -------------------------------------------------------------------------------------------------
 " Plugins
-" -------------------------------------------------------------------------------------------------
 call plug#begin()
 
 Plug 'rbgrouleff/bclose.vim'
@@ -39,7 +37,7 @@ let g:far#source = 'rg'
 
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
-" Navigation --------------------------------------------------------------------------------------
+"" Navigation 
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
 let NERDTreeMinimalUI=1
 let NERDTreeWinSize=40
@@ -77,7 +75,7 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Color Themes ------------------------------------------------------------------------------------
+"" Color Themes 
 Plug 'ksevelyar/joker.vim'
 " Plug '/c/joker.vim'
 
@@ -132,9 +130,7 @@ let g:lightline.colorscheme = 'joker'
 Plug '907th/vim-auto-save'
 let g:auto_save = 0
 
-" -------------------------
-" Dev
-" -------------------------
+"" Dev
 Plug 'ruanyl/vim-gh-line'
 Plug 'tomtom/tcomment_vim'
 let g:tcomment_maps = 0
@@ -172,30 +168,27 @@ Plug 'jsfaint/gen_tags.vim'
 let g:gen_tags#ctags_auto_gen = 0
 
 call plug#end()
-" -------------------------------------------------------------------------------------------------
+
 " Autocommands
-" -------------------------------------------------------------------------------------------------
-" Install Vim Plug if not installed
+"" Install Vim Plug if not installed
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * silent! PlugInstall
 endif
 
-" Automatically install missing plugins on startup
+"" Automatically install missing plugins on startup
 autocmd VimEnter * silent!
       \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
       \| PlugInstall --sync | q
       \| endif
 
-" sane terminal
+"" sane terminal
 au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
 au TermOpen * setlocal nonumber
 au FileType fzf tunmap <buffer> <Esc>
 
-" -------------------------------------------------------------------------------------------------
 " Core Settings
-" -------------------------------------------------------------------------------------------------
 set conceallevel=0
 
 set splitbelow
@@ -217,11 +210,11 @@ set fileformat=unix
 
 set title
 
-" Disable annoying sound on errors
+"" Disable annoying sound on errors
 set noerrorbells
 set novisualbell
 
-" UI ----------------------------------------------------------------------------------------------
+" UI 
 set mouse=a
 set shortmess=AI
 
@@ -232,7 +225,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-" neovim-qt
+"" neovim-qt
 if exists('g:GuiLoaded')
   GuiTabline 0
   GuiPopupmenu 0
@@ -240,15 +233,15 @@ if exists('g:GuiLoaded')
   GuiFont! Terminus:h16
 endif
 
-" :Colors to change theme
+"" :Colors to change theme
 silent! colorscheme joker
 
 
-" Clipboard ---------------------------------------------------------------------------------------
+"" Clipboard 
 set noshowmode
 set clipboard=unnamedplus " sync vim clipboard with linux clipboard
 
-" Backups -----------------------------------------------------------------------------------------
+" Backups 
 if isdirectory($HOME . '/.config/nvim/undo') == 0
   :silent !mkdir -p ~/.config/nvim/undo > /dev/null 2>&1
 endif
@@ -265,7 +258,7 @@ set backupdir=~/.config/nvim/backup//
 set writebackup "Make backup before overwriting the current buffer
 set backupcopy=yes "Overwrite the original backup file
 
-"Meaningful backup name, ex: filename@2015-04-05.14
+"" Meaningful backup name, ex: filename@2015-04-05.14
 au BufWritePre * let &bex = 'gh' . '@' . strftime("%F.%H") . '.bac'
 
 set undofile
@@ -273,8 +266,8 @@ set undolevels=999
 set display+=lastline
 set nojoinspaces
 
-" Format ------------------------------------------------------------------------------------------
-" Do not automatically insert a comment leader after an enter
+"" Format 
+"" Do not automatically insert a comment leader after an enter
 autocmd FileType * setlocal formatoptions-=ro
 
 set shiftwidth=2
@@ -285,7 +278,7 @@ set expandtab
 set list
 set listchars=nbsp:¬,tab:>•,extends:»,precedes:«
 
-" Search ------------------------------------------------------------------------------------------
+"" Search 
 set ignorecase
 set smartcase
 
@@ -294,22 +287,20 @@ set inccommand=split
 set gdefault
 
 
-" Switch between the last two files:
+"" Switch between the last two files:
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 
-" JK motions: Line motions
+"" JK motions: Line motions
 set so=2 " Set 2 lines to the cursor - when moving vertically using j/k
 
-" -------------------------------------------------------------------------------------------------
 " Key Mappings
-" -------------------------------------------------------------------------------------------------
 let g:mapleader = " "
 
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
 nnoremap <silent> <space>a  :AutoSaveToggle<cr>
-" Manage extensions.
+"" Manage extensions.
 
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
@@ -345,7 +336,7 @@ nnoremap <leader>s :TagbarToggle<cr>
 
 nnoremap <silent>\ :Goyo<cr>
 
-" copy curent buffer filepath
+"" copy curent buffer filepath
 nnoremap <silent> <leader>p :let @+=expand("%:p")<CR>
 "command! SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
 cmap w!! w !sudo tee % >/dev/null<Up>
@@ -353,14 +344,14 @@ cmap w!! w !sudo tee % >/dev/null<Up>
 set spelllang=en_us
 nnoremap <leader>o :set spell!<CR>
 
-" copy / paste
-" vmap <C-C> "+y
+"" copy / paste
+"" vmap <C-C> "+y
 imap <C-V> <esc>"+pi
 
 nnoremap ; :
-" Shift+V d for cut
+"" Shift+V d for cut
 nnoremap d "_d
 
-" Treat long lines as break lines (useful when moving around in them)
+"" Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
