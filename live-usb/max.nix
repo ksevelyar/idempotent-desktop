@@ -1,4 +1,3 @@
-# mostly for Travis CI
 { config, pkgs, lib, vars, ... }:
 {
   imports = [
@@ -20,7 +19,6 @@
     ../services/x.nix
     ../services/x/xmonad.nix
     ../packages/x-common.nix
-    # ../packages/x-extra.nix
 
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
@@ -38,8 +36,6 @@
 
     ../services/net/firewall-desktop.nix
     ../services/net/wireguard.nix
-    ../services/net/i2pd.nix
-    # ../services/net/i2p.nix
     ../services/net/tor.nix
     ../services/net/sshd.nix
 
