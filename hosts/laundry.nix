@@ -28,7 +28,7 @@
 
       ../boot/efi.nix
       ../boot/multiboot.nix
-      ../boot/plymouth.nix
+      # ../boot/plymouth.nix
 
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
@@ -91,6 +91,7 @@
 
   # boot.kernelPackages = pkgs.linuxPackages_latest; # fix Cambridge Silicon Radio wi-fi dongles
   boot.loader.grub.splashImage = ../assets/displayManager.png;
+  boot.loader.grub.splashMode = "stretch";
 
   # boot
   boot.blacklistedKernelModules = [];
