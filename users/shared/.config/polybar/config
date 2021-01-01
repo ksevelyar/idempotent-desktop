@@ -141,7 +141,7 @@ type = internal/fs
 interval = 2
 
 mount-0 = /
-mount-1 = /storage
+; mount-1 = /storage
 
 ; format-prefix = " "
 label-mounted = %{F#9c71C7}%mountpoint%%{F-} %free%
@@ -154,7 +154,7 @@ type = internal/battery
 battery = BATT
 adapter = AC
 full-at = 98
-
+; click-left = sh ~/.config/polybar/battery.sh &
 format-charging = %{F#9c71C7}%{F-} <label-charging>
 format-full = %{F#9c71C7}%{F-} <label-full>
 format-discharging = %{F#9c71C7}%{F-} <label-discharging>

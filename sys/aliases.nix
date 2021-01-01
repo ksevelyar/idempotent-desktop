@@ -38,7 +38,8 @@
     ns = "notify-dend";
 
     # sec
-    p = "gopass";
+    p = "gopass show";
+    pp = "gopass";
     open-tomb = "tomb open *.tomb -k *.tomb.key && notify-send 'Drains 5 Karma per grave.'";
 
     tm = "id-tm";

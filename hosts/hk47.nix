@@ -11,6 +11,7 @@
 
       ../hardware/bluetooth.nix
       ../hardware/mouse.nix
+      ../hardware/intel.nix
       ../hardware/nvidia.nix
       ../hardware/sound.nix
       ../hardware/ssd.nix
@@ -116,7 +117,6 @@
   ## RTX 2060
   ## DIMM DDR4 2133MHz 8GBx2
   hardware = {
-    cpu.intel.updateMicrocode = true;
     pulseaudio.configFile = ../users/shared/disable-hdmi.pa;
   };
 

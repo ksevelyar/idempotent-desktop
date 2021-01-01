@@ -11,12 +11,14 @@
 
       ../hardware/bluetooth.nix
       ../hardware/mouse.nix
-      ../hardware/amdgpu.nix
+      ../hardware/amd-gpu.nix
+      ../hardware/amd-cpu.nix
       ../hardware/sound.nix
       ../hardware/ssd.nix
+      ../hardware/power-management.nix
 
       ../sys/aliases.nix
-      ../sys/debug.nix
+      # ../sys/debug.nix
       ../sys/fonts.nix
       ../sys/nix.nix
       ../sys/scripts.nix
@@ -26,7 +28,7 @@
 
       ../boot/efi.nix
       ../boot/multiboot.nix
-      # ../boot/plymouth.nix
+      ../boot/plymouth.nix
 
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
@@ -51,9 +53,9 @@
       ../services/x/redshift.nix
 
       # ../services/net/i2pd.nix
-      ../services/net/fail2ban.nix
+      # ../services/net/fail2ban.nix
       ../services/net/firewall-desktop.nix
-      ../services/net/nginx.nix # id-doc
+      # ../services/net/nginx.nix # id-doc
       ../services/net/openvpn.nix
       ../services/net/sshd.nix
       ../services/net/tor.nix
@@ -131,7 +133,6 @@
   # SSD 512Gb
   # IPS 1920x1080
   hardware = {
-    cpu.amd.updateMicrocode = true;
     # pulseaudio.configFile = ../users/shared/disable-hdmi.pa;
   };
 
