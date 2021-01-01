@@ -61,7 +61,6 @@
       home.file.".config/polybar/spotify.sh".source = ../../users/shared/.config/polybar/spotify.sh;
       home.file.".config/polybar/weather.sh".source = ../../users/shared/.config/polybar/weather.sh;
       home.file.".config/polybar/local_and_public_ips.sh".source = ../../users/shared/.config/polybar/local_and_public_ips.sh;
-      home.file.".config/polybar/battery.sh".source = ../../users/shared/.config/polybar/battery.sh;
     };
   };
 }

@@ -148,16 +148,17 @@ label-mounted = %{F#9c71C7}%mountpoint%%{F-} %free%
 label-unmounted =
 label-unmounted-foreground = ${colors.foreground}
 
+# ls -l /sys/class/power_supply
 [module/battery]
 type = internal/battery
-# ls -l /sys/class/power_supply
 battery = BATT
 adapter = AC
 full-at = 98
-; click-left = sh ~/.config/polybar/battery.sh &
 format-charging = %{F#9c71C7}%{F-} <label-charging>
 format-full = %{F#9c71C7}%{F-} <label-full>
-format-discharging = %{F#9c71C7}%{F-} <label-discharging>
+time-format = %H:%M
+label-discharging = %{F#9c71C7}%{F-} %percentage%% %{F#6B5A68}%time%%{F-}
+format-discharging = <label-discharging>
 
 [module/cpu]
 type = internal/cpu

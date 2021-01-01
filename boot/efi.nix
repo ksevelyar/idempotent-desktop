@@ -21,5 +21,4 @@
       splashImage = lib.mkDefault null;
     };
   };
-
 }
