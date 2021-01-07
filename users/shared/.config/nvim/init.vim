@@ -165,9 +165,16 @@ let g:vue_pre_processors = ['pug', 'sass', 'scss']
 Plug 'digitaltoad/vim-pug'
 
 Plug 'jsfaint/gen_tags.vim'
+Plug 'neovim/nvim-lspconfig'
 let g:gen_tags#ctags_auto_gen = 0
 
 call plug#end()
+
+" npm install -g typescript typescript-language-server vls
+lua <<EOF
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.vuels.setup{}
+EOF
 
 " Autocommands
 "" Install Vim Plug if not installed

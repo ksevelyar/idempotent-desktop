@@ -4,6 +4,7 @@
     [
       nodejs_latest
       elixir
+      gcc
 
       # lsp
       rnix-lsp

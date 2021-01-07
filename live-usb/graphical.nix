@@ -21,7 +21,6 @@
 
     ../services/x/xmonad.nix
     ../packages/x-common.nix
-    # ../packages/x-extra.nix
 
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix

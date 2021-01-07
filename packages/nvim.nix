@@ -1,13 +1,11 @@
 { config, pkgs, ... }:
 {
+  nixpkgs.overlays = [
+    (import ./neovim-0-5.nix)
+  ];
+
   environment.systemPackages = with pkgs;
     [
-      nodejs_latest # coc.nvim dep
-      fzf
-      ripgrep
-      universal-ctags
-      global
-
       (
         neovim.override {
           vimAlias = true;
