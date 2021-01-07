@@ -22,6 +22,6 @@
     initialHashedPassword = "";
   };
 
-  services.mingetty.autologinUser = lib.mkForce vars.user;
-  services.mingetty.greetingLine = lib.mkForce ''\l'';
+  services.getty.autologinUser = lib.mkForce vars.user;
+  services.getty.greetingLine = lib.mkForce ''\l'';
 }

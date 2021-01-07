@@ -15,6 +15,8 @@ in
     };
   };
 
+  vars.battery = "BAT0";
+
   networking.networkmanager.enable = true; # nmcli for wi-fi
   networking.wireless.enable = lib.mkForce false;
 
@@ -42,7 +44,7 @@ in
     videoDrivers = [ "nvidia" "amdgpu" "vesa" "modesetting" ];
   };
 
-  services.mingetty.helpLine = lib.mkForce ''
+  services.getty.helpLine = lib.mkForce ''
     The "root" account has "id" password.
     Type `i' to print system information.
 

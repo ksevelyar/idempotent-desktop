@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, vars, ... }:
 {
   powerManagement = {
     enable = true;
@@ -22,4 +22,23 @@
       tlp
     ];
   };
+
+  systemd.user.timers.notify-on-low-battery = {
+    timerConfig.OnBootSec = "2m";
+    timerConfig.OnUnitInactiveSec = "2m";
+    timerConfig.Unit = "notify-on-low-battery.service";
+    wantedBy = ["timers.target"];
+  };
+  systemd.user.services.notify-on-low-battery =
+    {
+      serviceConfig.PassEnvironment = "DISPLAY";
+      script = ''
+        export battery_capacity=$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/${vars.battery}/capacity)
+        export battery_status=$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/${vars.battery}/status)
+
+          if [[ $battery_capacity -le 5 && $battery_status = "Discharging" ]]; then
+            ${pkgs.libnotify}/bin/notify-send --urgency=critical "$battery_capacity%: See you, space cowboy..."
+          fi
+      '';
+    };
 }

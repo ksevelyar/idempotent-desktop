@@ -1,6 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, vars, ... }:
 {
   system.stateVersion = "20.09";
+
+  vars.battery = "BATT";
 
   imports =
     [
@@ -163,23 +165,4 @@
     # don't freeze system if mount point not available on boot
     options = [ "x-systemd.automount" "noauto" ];
   };
-
-  # systemd.timers.notify-on-low-battery = {
-  #   wantedBy = [ "multi-user.target" ];
-  #   timerConfig = {
-  #     OnUnitActiveSec = "120";
-  #     OnBootSec= "120";
-  #   };
-  # };
-  # systemd.services.notify-on-low-battery =
-  #   let
-  #     notify-on-low-battery = pkgs.writeShellScriptBin
-  #     "battery-notification" ''
-  #       notify-send hru
-  #     '';
-  #   in
-  #   {
-  #     serviceConfig = { Type = "oneshot"; };
-  #     script = "${notify-on-low-battery}/bin/notify-on-low-battery";
-  #     };
 }

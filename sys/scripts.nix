@@ -67,7 +67,6 @@ let
     #!${pkgs.stdenv.shell}
     set -e
 
-    id-build-doc
     id-build-iso
 
     nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=/etc/nixos/configuration.nix --no-out-link | cachix push idempotent-desktop
@@ -152,5 +151,7 @@ in
     id-random-wallpaper
     id-tm
     id-build-doc
+
+    id-low-battery
   ];
 }

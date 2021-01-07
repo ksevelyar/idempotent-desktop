@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  services.mingetty.greetingLine = ''\l'';
+  services.getty.greetingLine = ''\l'';
 
   console = {
     earlySetup = true;
