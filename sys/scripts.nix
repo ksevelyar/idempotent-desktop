@@ -151,7 +151,5 @@ in
     id-random-wallpaper
     id-tm
     id-build-doc
-
-    id-low-battery
   ];
 }
