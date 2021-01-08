@@ -154,7 +154,7 @@ in
       feh
       # google-play-music-desktop-player
       spotify
-      mpv # https://github.com/mpv-player/mpv/blob/master/etc/input.conf
+      stable.mpv # https://github.com/mpv-player/mpv/blob/master/etc/input.conf
       vlc
       stable.kodi
       libva-utils
