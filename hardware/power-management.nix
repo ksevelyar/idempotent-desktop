@@ -36,9 +36,9 @@
         export battery_capacity=$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/${vars.battery}/capacity)
         export battery_status=$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/${vars.battery}/status)
 
-          if [[ $battery_capacity -le 10 && $battery_status = "Discharging" ]]; then
-            ${pkgs.libnotify}/bin/notify-send --urgency=critical "$battery_capacity%: See you, space cowboy..."
-          fi
+        if [[ $battery_capacity -le 10 && $battery_status = "Discharging" ]]; then
+          ${pkgs.libnotify}/bin/notify-send --urgency=critical "$battery_capacity%: See you, space cowboy..."
+        fi
       '';
     };
 }

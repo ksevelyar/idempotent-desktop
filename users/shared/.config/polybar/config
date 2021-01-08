@@ -31,10 +31,8 @@ underline-size = 0
 
 border-bottom-size = 0
 border-bottom-color = #ffffff
-
 module-margin-left = 1
 module-margin-right = 1
-
 
 radius = 0.0
 
@@ -52,7 +50,10 @@ padding-right = 1
 
 [bar/laptop-bottom]
 inherit = bar/base
+font-0 = Terminus:size=16;5
+font-1 = Siji:size=16;4
 bottom = true
+height = 22
 
 modules-left = workspaces-xmonad
 modules-center = title-short
@@ -76,7 +77,10 @@ modules-right = vnc ssh eth cpu memory
 
 [bar/laptop-top]
 inherit = bar/base
+font-0 = Terminus:size=16;2
+font-1 = Siji:size=16;1
 bottom = false
+height = 22
 
 modules-left = volume spotify
 modules-center = filesystem
