@@ -9,7 +9,7 @@
     enable = true;
     settings = {
       # Disable too aggressive power-management autosuspend for USB receiver for wireless mouse
-      USB_AUTOSUSPEND = 0; 
+      USB_AUTOSUSPEND = 0;
       CPU_SCALING_GOVERNOR_ON_AC = "performance";
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
     };
@@ -27,7 +27,7 @@
     timerConfig.OnBootSec = "2m";
     timerConfig.OnUnitInactiveSec = "2m";
     timerConfig.Unit = "notify-on-low-battery.service";
-    wantedBy = ["timers.target"];
+    wantedBy = [ "timers.target" ];
   };
   systemd.user.services.notify-on-low-battery =
     {
@@ -36,7 +36,7 @@
         export battery_capacity=$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/${vars.battery}/capacity)
         export battery_status=$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/${vars.battery}/status)
 
-          if [[ $battery_capacity -le 5 && $battery_status = "Discharging" ]]; then
+          if [[ $battery_capacity -le 10 && $battery_status = "Discharging" ]]; then
             ${pkgs.libnotify}/bin/notify-send --urgency=critical "$battery_capacity%: See you, space cowboy..."
           fi
       '';
