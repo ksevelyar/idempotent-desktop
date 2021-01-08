@@ -15,13 +15,7 @@
     "javascript",
     "vue"
   ],
-  "solargraph.useBundler": true,
-  "solargraph.checkGemVersion": false,
-  "solargraph.promptDownload": false,
-  "solargraph.diagnostics": true,
-  "solargraph.hover": true,
-  "solargraph.autoformat": true,
-  "solargraph.formatting": true,
+  "elixir.pathToElixirLS": "~/elixir-ls/rel/language_server.sh",
   "markdownlint.config": {
     "default": true,
     "line_length": false
