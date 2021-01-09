@@ -27,7 +27,7 @@
     "json",
     "vim",
     "typescript",
-    "ruby"
+    "elixir"
   ],
   "languageserver": {
     "nix": {
