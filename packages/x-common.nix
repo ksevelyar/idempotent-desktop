@@ -112,6 +112,7 @@ in
       hunspell
       hunspellDicts.en_US-large
       libreoffice-fresh
+      anki
 
       # themes
       lxappearance
