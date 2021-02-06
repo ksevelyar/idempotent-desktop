@@ -81,12 +81,13 @@
   services.xserver = {
     libinput = {
       enable = true;
-      accelProfile = "adaptive"; # flat profile for touchpads
-      naturalScrolling = false;
-      accelSpeed = "0.2";
-      disableWhileTyping = true;
-      clickMethod = "buttonareas";
-      # scrollMethod = "edge";
+      touchpad = {
+        accelProfile = "adaptive"; # flat profile for touchpads
+        naturalScrolling = false;
+        accelSpeed = "0.2";
+        disableWhileTyping = true;
+        clickMethod = "buttonareas";
+      };
     };
   };
 

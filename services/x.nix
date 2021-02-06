@@ -13,11 +13,13 @@
 
     libinput = {
       enable = true;
-      accelProfile = lib.mkDefault "adaptive";
-      naturalScrolling = false;
-      disableWhileTyping = true;
-      clickMethod = "buttonareas";
-      scrollMethod = lib.mkDefault "edge";
+      touchpad = {
+        accelProfile = lib.mkDefault "adaptive";
+        disableWhileTyping = true;
+        clickMethod = "buttonareas";
+        scrollMethod = lib.mkDefault "edge";
+        naturalScrolling = false;
+      };
     };
 
     config = ''

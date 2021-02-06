@@ -48,11 +48,11 @@ rustPlatform.buildRustPackage rec {
     gst_all_1.gst-plugins-ugly
     gst_all_1.gst-plugins-bad
     libsixel
-  ] ++ stdenv.lib.optionals stdenv.isDarwin [ IOKit ];
+  ] ++ pkgs.lib.optionals stdenv.isDarwin [ IOKit ];
 
   cargoSha256 = "18ycj1f310s74gkjz2hh4dqzjb3bnxm683968l1cbxs7gq20jzx6";
 
-  meta = with stdenv.lib; {
+  meta = with pkgs.lib; {
     description = "No Nonsense Neovim Client in Rust";
     homepage = https://github.com/Kethku/neovide;
     license = licenses.mit;

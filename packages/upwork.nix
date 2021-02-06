@@ -1,4 +1,5 @@
-{ stdenv
+{ pkgs
+, stdenv
 , fetchurl
 , dpkg
 , glib
@@ -39,7 +40,7 @@ stdenv.mkDerivation {
   # we will do that manually
   dontUnpack = true;
 
-  libPath = stdenv.lib.makeLibraryPath [
+  libPath = pkgs.lib.makeLibraryPath [
     glib
     gdk-pixbuf
     gtk3
@@ -95,7 +96,7 @@ stdenv.mkDerivation {
   meta = {
     homepage = https://upwork.com;
     description = "Time tracking application";
-    license = stdenv.lib.licenses.unfree;
+    license = pkgs.lib.licenses.unfree;
     platforms = [ "x86_64-linux" ];
     maintainers = [];
   };

@@ -9,7 +9,7 @@ let
 
   inherit (data) version url sha256;
 
-  rpath = stdenv.lib.makeLibraryPath
+  rpath = pkgs.lib.makeLibraryPath
     [ libX11 zlib libSM libICE libXext freetype libXrender fontconfig libXft
       libXinerama stdenv.cc.cc.lib libnotify glib gtk3 libappindicator-gtk3
       curl libXfixes libXScrnSaver ];
@@ -56,7 +56,7 @@ stdenv.mkDerivation {
     ln -s $opt/data/resources $opt/x86_64/resources
   '';
 
-  meta = with stdenv.lib; {
+  meta = with pkgs.lib; {
     description = "Time tracking software";
     homepage = "https://hubstaff.com/";
     license = licenses.unfree;

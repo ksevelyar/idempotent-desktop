@@ -7,7 +7,7 @@
 
   environment.systemPackages = with pkgs;
     lib.mkIf (config.services.xserver.enable) [
-      stable.tor-browser-bundle-bin
+      tor-browser-bundle-bin
       onionshare-gui
     ];
 }

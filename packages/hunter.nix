@@ -48,7 +48,7 @@ rustPlatform.buildRustPackage rec {
     gst_all_1.gst-plugins-ugly
     gst_all_1.gst-plugins-bad
     libsixel
-  ] ++ stdenv.lib.optionals stdenv.isDarwin [ IOKit ];
+  ] ++ pkgs.lib.optionals stdenv.isDarwin [ IOKit ];
 
   postInstall = ''
     wrapProgram $out/bin/hunter --prefix GST_PLUGIN_SYSTEM_PATH_1_0 : "$GST_PLUGIN_SYSTEM_PATH_1_0"
@@ -56,7 +56,7 @@ rustPlatform.buildRustPackage rec {
 
   cargoSha256 = "18ycj1f310s74gkjz2hh4dqzjb3bnxm683968l1cbxs7gq20jzx6";
 
-  meta = with stdenv.lib; {
+  meta = with pkgs.lib; {
     description = "The fastest file manager in the galaxy!";
     homepage = https://github.com/rabite0/hunter;
     license = licenses.wtfpl;
