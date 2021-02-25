@@ -1,9 +1,8 @@
 { config, pkgs, vars, ... }:
 {
   vars.user = "kh";
-  users.users.${vars.user} = {
-    description = "Tatiana Kh";
-  };
+  vars.email = "ts.khol@gmail.com";
+  vars.name = "Tatiana Kh";
 
   networking.extraHosts =
     ''
@@ -18,11 +17,6 @@
 
   home-manager = {
     users.${vars.user} = {
-      programs.git = {
-        userName = "Tatiana Kh";
-        userEmail = "ts.khol@gmail.com";
-      };
-
       # xsession.windowManager.xmonad.config = ../users/shared/.xmonad/xmonad.hs;
       home.file."Wallpapers/Season-01-Gas-station-by-dutchtide.png".source = ../assets/wallpapers/Season-01-Gas-station-by-dutchtide.png;
     };
