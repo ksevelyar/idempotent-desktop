@@ -1,9 +1,5 @@
 { config, pkgs, ... }:
 {
-  nixpkgs.overlays = [
-    (import ./neovim-0-5.nix)
-  ];
-
   environment.systemPackages = with pkgs;
     [
       (
