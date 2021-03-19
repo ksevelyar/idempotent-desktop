@@ -1,10 +1,6 @@
 { config, pkgs, lib, ... }:
 let
   upwork = pkgs.callPackage ./upwork.nix {};
-  # TODO: pack neovide
-  # neovide = pkgs.callPackage ./neovide.nix {};
-
-  # hubstaff = pkgs.callPackage ./hubstaff/default.nix {};
 in
 {
   environment = {
@@ -141,6 +137,7 @@ in
       xdotool
       seturgent
       alacritty
+      cool-retro-term
       maim
       vokoscreen
       xclip
@@ -155,9 +152,9 @@ in
       feh
       # google-play-music-desktop-player
       spotify
-      stable.mpv # https://github.com/mpv-player/mpv/blob/master/etc/input.conf
+      mpv # https://github.com/mpv-player/mpv/blob/master/etc/input.conf
       vlc
-      stable.kodi
+      kodi
       libva-utils
       glava
 
@@ -171,11 +168,6 @@ in
 
       # gui for external monitors
       arandr
-
-      # freelance
-      # hubstaff
-      upwork
-      skype
 
       # gfx
       gimp

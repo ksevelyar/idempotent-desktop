@@ -40,6 +40,7 @@
       ../packages/nvim.nix
       ../packages/pass.nix
       ../packages/tmux.nix
+      ../packages/freelance.nix
 
       # ../services/flatpak.nix
       # ../services/mongodb.nix
@@ -52,7 +53,7 @@
       ../services/x/redshift.nix
 
       # ../services/net/i2pd.nix
-      ../services/net/fail2ban.nix
+      # ../services/net/fail2ban.nix
       ../services/net/firewall-desktop.nix
       ../services/net/nginx.nix # id-doc
       ../services/net/openvpn.nix
@@ -60,18 +61,16 @@
       ../services/net/tor.nix
       ../services/net/wireguard.nix
 
-      ../services/vm/hypervisor.nix
+      # ../services/vm/hypervisor.nix
       # ../services/vm/docker.nix
     ];
 
   # build arm from x64
-  # set rpi_img (sudo nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage -I nixos-config=/etc/nixos/live-usb/rpi.nix --no-out-link --argstr system aarch64-linux)
-  # du -h $rpi_img
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-  nixpkgs.config.allowUnsupportedSystem = true;
-  nixpkgs.config.allowBroken = true;
+  # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  # nixpkgs.config.allowUnsupportedSystem = true;
+  # nixpkgs.config.allowBroken = true;
 
-  # boot.kernelPackages = pkgs.linuxPackages_latest; # fix Cambridge Silicon Radio wi-fi dongles
+  boot.kernelPackages = pkgs.linuxPackages_latest; # fix Cambridge Silicon Radio wi-fi dongles
   boot.loader.grub.splashImage = ../assets/displayManager.png;
 
   # boot
@@ -107,15 +106,11 @@
     };
   };
 
-  # services.openssh = {
-  #   passwordAuthentication = lib.mkForce true;
-  # };
-
   # hardware
   ## i5-9400F
   ## PRIME B360M-K
   ## RTX 2060
-  ## DIMM DDR4 2133MHz 8GBx2
+  ## DIMM DDR4 2133MHz 16GBx2
   hardware = {
     pulseaudio.configFile = ../users/shared/disable-hdmi.pa;
   };
@@ -131,7 +126,6 @@
   # fs
   swapDevices = [];
 
-  # sudo e2label /dev/disk/by-uuid/044a758f-4252-4e42-b68c-a87d2345dc4c nixos
   fileSystems."/" =
     {
       device = "/dev/disk/by-label/nixos";
@@ -139,7 +133,6 @@
       options = [ "noatime" "nodiratime" ];
     };
 
-  # sudo fatlabel /dev/disk/by-uuid/3A05-EA05 boot
   fileSystems."/boot" =
     {
       device = "/dev/disk/by-label/boot";
@@ -147,7 +140,6 @@
       options = [ "noatime" "nodiratime" ]; # ssd
     };
 
-  # sudo e2label /dev/disk/by-uuid/bd7a95b1-0a44-4477-8616-177b95561ad1 storage
   fileSystems."/storage" =
     {
       device = "/dev/disk/by-label/storage";

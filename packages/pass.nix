@@ -9,11 +9,7 @@
 
   environment = {
     systemPackages = with pkgs; [
-      # use vanilla pass for import from your password manger
-      (pass.withExtensions (ext: with ext; [ pass-import ]))
-      passExtensions.pass-import
       pinentry-curses
-
       gopass
       ripasso-cursive
     ];

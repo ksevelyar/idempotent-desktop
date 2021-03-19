@@ -45,11 +45,11 @@ in
       googler # cli google
       entr
       termdown
-      imagemagick
       sampler
       taskwarrior # todo & tasks
       procs
       hyperfine
+      woeusb # write win10.iso to usb drive
 
       # monitoring
       bandwhich
@@ -114,9 +114,5 @@ in
       # bells and whistles
       cava
       cmatrix
-
-      # games for live usb
-      rogue
-      nethack
     ];
 }

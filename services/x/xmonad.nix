@@ -14,7 +14,6 @@
 
         lxqt.lxqt-policykit
         libnotify
-        dunst
         xfce.xfce4-settings # xfce4-mime-settings
       ];
 

@@ -294,6 +294,8 @@ endif
 " :Colors to change theme
 silent! colorscheme joker
 
+" tree view for netrw
+let g:netrw_liststyle = 3
 
 " Clipboard ---------------------------------------------------------------------------------------
 set noshowmode
