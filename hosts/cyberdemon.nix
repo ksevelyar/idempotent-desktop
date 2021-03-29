@@ -9,8 +9,6 @@
 
   imports =
     [
-      <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-
       ../users/shared.nix
       ../users/manya.nix
 
@@ -50,7 +48,6 @@
       ../services/net/firewall-desktop.nix
       ../services/net/fail2ban.nix
       ../services/net/wireguard.nix
-      ../services/net/i2pd.nix
       ../services/net/tor.nix
       ../services/net/sshd.nix
       ../services/net/nginx.nix

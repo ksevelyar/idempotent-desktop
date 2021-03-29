@@ -25,13 +25,11 @@
       ../boot/efi.nix
       ../boot/multiboot.nix
 
-      ../services/common.nix
       ../services/x.nix
 
       ../services/x/xmonad.nix
       ../sys/fonts.nix
       ../packages/x-common.nix
-      ../packages/x-extra.nix
 
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
@@ -49,7 +47,6 @@
 
       ../services/net/firewall-desktop.nix
       ../services/net/wireguard.nix
-      ../services/net/i2pd.nix
       ../services/net/tor.nix
       ../services/net/sshd.nix
       ../services/net/openvpn.nix
