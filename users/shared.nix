@@ -1,9 +1,9 @@
 { config, pkgs, vars, lib, ... }:
 {
-  imports =
-    [
-      (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
-    ];
+  # imports =
+  #   [
+  #     (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
+  #   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${vars.user} = {
