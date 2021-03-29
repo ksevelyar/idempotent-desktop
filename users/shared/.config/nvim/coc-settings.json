@@ -13,21 +13,30 @@
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": [
     "javascript",
-    "vue"
+    "vue",
+    "typescript",
+    "javascript",
+    "javascriptreact",
+    "typescriptreact"
   ],
   "elixir.pathToElixirLS": "~/elixir-ls/rel/language_server.sh",
   "markdownlint.config": {
     "default": true,
     "line_length": false
   },
+  "typescript.format.enabled": false,
+  "javascript.format.enabled": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "nix",
     "html",
     "json",
     "vim",
+    "elixir",
     "typescript",
-    "elixir"
+    "javascript",
+    "javascriptreact",
+    "typescriptreact"
   ],
   "languageserver": {
     "nix": {
