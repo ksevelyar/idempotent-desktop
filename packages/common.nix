@@ -15,6 +15,7 @@ in
   environment.systemPackages = with pkgs;
     [
       # sys
+      nixos-generators
       fzf
       ripgrep
       sd

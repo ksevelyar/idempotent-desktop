@@ -31,6 +31,7 @@
           system = "x86_64-linux";
 
           modules = [
+            nixpkgs.nixosModules.notDetected
             home-manager.nixosModules.home-manager
             (import (./hosts + "/${host}.nix"))
           ];
@@ -51,19 +52,4 @@
           )
         );
       };
-
-  # outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs: {
-  #   nixosConfigurations.hk47 = {
-  #     athena = nixpkgs.lib.nixosSystem {
-  #       system = "x86_64-linux";
-  #       modules =
-  #         [
-  #           (import ./hosts/hk47.nix)
-  #           home-manager.nixosModules.home-manager
-  #           nixpkgs.nixosModules.notDetected
-  #         ];
-  #       specialArgs = { inherit inputs; };
-  #     };
-  #   };
-  # };
 }
