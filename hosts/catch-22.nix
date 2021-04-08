@@ -19,19 +19,26 @@
       ../sys/sysctl.nix
       ../sys/tty.nix
       ../sys/vars.nix
+      ../sys/fonts.nix
 
       ../boot/efi.nix
       ../boot/multiboot.nix
 
+      ../services/journald.nix
+      ../services/postgresql.nix
+      ../services/redis.nix
       ../services/x.nix
+      ../services/x/picom.nix
+      ../services/x/redshift.nix
 
       ../services/x/xmonad.nix
-      ../sys/fonts.nix
       ../packages/x-common.nix
 
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
       ../packages/dev.nix
+      ../packages/3d-print.nix
+      ../packages/electronics.nix
       ../packages/games.nix
       ../packages/nvim.nix
       ../packages/pass.nix
@@ -51,7 +58,7 @@
       # ../services/net/lidarr.nix
       ../services/net/nginx.nix
 
-      ../services/vm/hypervisor.nix
+      # ../services/vm/hypervisor.nix
     ];
 
   boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;
@@ -99,14 +106,23 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/21520a28-cf26-42a0-aaf6-17f8e6e62f36";
+      device = "/dev/disk/by-label/nixos";
       fsType = "ext4";
+      options = [ "noatime" "nodiratime" ];
     };
 
+  # sudo fatlabel /dev/disk/by-uuid/3A05-EA05 boot
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/88D8-38E9";
+      device = "/dev/disk/by-label/boot";
       fsType = "vfat";
+      options = [ "noatime" "nodiratime" ]; # ssd
+    };
+
+  fileSystems."/storage" =
+    {
+      device = "/dev/disk/by-label/storage";
+      fsType = "ntfs";
     };
 
   swapDevices = [];
