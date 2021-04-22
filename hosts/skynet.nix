@@ -158,7 +158,7 @@
     virtualHosts."preview-project.com" = {
       enableACME = true;
       forceSSL = true;
-      root = "/var/www/preview-project";
+      root = "/var/www/rooms-slider";
     };
   };
 
