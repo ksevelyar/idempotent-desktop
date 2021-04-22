@@ -154,6 +154,12 @@
       forceSSL = true;
       root = "/var/www/legacy-intelligence/dist/";
     };
+
+    virtualHosts."preview-project.com" = {
+      enableACME = true;
+      forceSSL = true;
+      root = "/var/www/preview-project";
+    };
   };
 
   hardware = {

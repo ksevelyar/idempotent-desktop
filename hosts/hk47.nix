@@ -49,6 +49,7 @@
       ../services/x/picom.nix
       ../services/x/xmonad.nix
       ../services/x/redshift.nix
+      ../services/vm/docker.nix
 
       # ../services/net/i2pd.nix
       # ../services/net/fail2ban.nix
@@ -59,8 +60,8 @@
       ../services/net/tor.nix
       ../services/net/wireguard.nix
 
-      # ../services/vm/hypervisor.nix
-      # ../services/vm/docker.nix
+      ../services/vm/hypervisor.nix
+      ../services/vm/docker.nix
     ];
 
   # build arm from x64

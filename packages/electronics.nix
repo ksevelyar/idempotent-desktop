@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 {
+  services.udev.packages = [ pkgs.stlink ];
+
   environment.systemPackages = with pkgs;
     [
       fritzing

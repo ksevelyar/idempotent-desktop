@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs;
     [
+      python
       nodejs_latest
       elixir
       gcc
