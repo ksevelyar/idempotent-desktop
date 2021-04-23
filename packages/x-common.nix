@@ -1,7 +1,4 @@
 { config, pkgs, lib, ... }:
-let
-  upwork = pkgs.callPackage ./upwork.nix {};
-in
 {
   environment = {
     variables = {
