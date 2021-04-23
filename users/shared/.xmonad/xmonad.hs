@@ -339,7 +339,7 @@ myKeys = \conf -> mkKeymap conf $
     , ("<F7>", namedScratchpadAction scratchpads  "blueman-manager")
     , ("<F8>", namedScratchpadAction scratchpads  "pavucontrol")
     , ("<F9>", namedScratchpadAction scratchpads "spotify")
-    , ("<F10>", namedScratchpadAction scratchpads "hubstaff")
+    , ("<F10>", namedScratchpadAction scratchpads "upwork")
     , ("M-i", namedScratchpadAction scratchpads  "images_browser")
 
     , ("M-s",namedScratchpadAction scratchpads  "spacefm")
