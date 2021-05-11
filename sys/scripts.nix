@@ -23,14 +23,7 @@ let
     #!${pkgs.stdenv.shell}
     set -e
 
-    nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=/etc/nixos/live-usb/graphical.nix --no-out-link
-  '';
-
-  id-build-rpi = pkgs.writeScriptBin "id-build-rpi" ''
-    #!${pkgs.stdenv.shell}
-    set -e
-
-    sudo nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage -I nixos-config=/etc/nixos/live-usb/rpi.nix --no-out-link --system aarch64-linux
+    nix build /etc/nixos#nixosConfigurations.live-usb.config.system.build.isoImage --impure
   '';
 
   id-write-usb = pkgs.writeScriptBin "id-write-usb" ''
@@ -69,7 +62,7 @@ let
 
     id-build-iso
 
-    nix-build '<nixpkgs/nixos>' -A vm -I nixos-config=/etc/nixos/configuration.nix --no-out-link | cachix push idempotent-desktop
+    nix flake check --impure
     nix-du --root /run/current-system/sw/ -s 100MB | tred | dot -Tsvg -Nfontname=Roboto -Efontname=Roboto > nix-store.svg
 
     iso=$(id-build-iso)
@@ -139,7 +132,6 @@ in
     id-install
 
     id-build-iso
-    id-build-rpi
     id-write-usb
 
     id-pick-color
