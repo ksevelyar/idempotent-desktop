@@ -34,7 +34,7 @@
       ../packages/3d-print.nix
       ../packages/electronics.nix
       ../packages/firefox.nix
-      # ../packages/games.nix
+      ../packages/games.nix
       ../packages/nvim.nix
       ../packages/pass.nix
       ../packages/tmux.nix
