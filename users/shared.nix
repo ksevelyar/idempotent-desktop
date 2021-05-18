@@ -1,17 +1,11 @@
 { config, pkgs, vars, lib, ... }:
 {
-  # imports =
-  #   [
-  #     (import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/master.tar.gz}/nixos")
-  #   ];
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${vars.user} = {
     uid = 1000;
     isNormalUser = true;
 
     # Enable ‘sudo’ for the user.
-    # https://en.wikipedia.org/wiki/Wheel_(computing)
     extraGroups = [
       "wheel"
       "networkmanager"

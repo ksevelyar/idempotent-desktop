@@ -1,5 +1,7 @@
 { config, pkgs, lib, vars, ... }:
 {
+  imports = [ ./shared.nix ];
+
   vars.user = "ksevelyar";
   vars.email = "ksevelyar@gmail.com";
   vars.name = "Sergey Zubkov";

@@ -4,7 +4,6 @@
 
   imports =
     [
-      ../users/shared.nix
       ../users/ksevelyar.nix
 
       ../hardware/bluetooth.nix
