@@ -250,7 +250,7 @@ scratchpads = [
     nonFloating,
 
   NS "upwork" "upwork"
-    (wm_name =? "Time Tracker")
+    (wm_name =? "Upwork")
     (customFloating $ W.RationalRect 0.5 0.05 0.4 0.44),
   NS "hubstaff" "HubstaffClient"
     (className =? "Hubstaff")
