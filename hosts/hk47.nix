@@ -55,6 +55,7 @@
       ../services/net/firewall-desktop.nix
       ../services/net/nginx.nix # id-doc
       ../services/net/openvpn.nix
+      ../services/vpn/vpn.nix
       ../services/net/sshd.nix
       ../services/net/tor.nix
       ../services/net/wireguard.nix

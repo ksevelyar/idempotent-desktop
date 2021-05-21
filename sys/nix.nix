@@ -15,6 +15,12 @@
     daemonNiceLevel = 2; # 19 max
     daemonIONiceLevel = 2; # 7 max
 
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+
     # free up to 20GiB whenever there is less than 5GB left: 
     extraOptions = ''
       experimental-features = nix-command flakes
