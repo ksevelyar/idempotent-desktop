@@ -23,7 +23,6 @@ args@{ config, lib, pkgs, ... }:
 
       ../boot/efi.nix
       ../boot/multiboot.nix
-      # ../boot/plymouth.nix
 
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
@@ -43,9 +42,7 @@ args@{ config, lib, pkgs, ... }:
       ../services/redis.nix
       ../services/x.nix
       ../services/x/picom.nix
-
       ../services/x/redshift.nix
-      ../services/vm/docker.nix
 
       ../services/net/firewall-desktop.nix
       ../services/net/nginx.nix
@@ -64,10 +61,11 @@ args@{ config, lib, pkgs, ... }:
   # nixpkgs.config.allowUnsupportedSystem = true;
   # nixpkgs.config.allowBroken = true;
 
+  # boot
   boot.kernelPackages = pkgs.linuxPackages_latest; # fix Cambridge Silicon Radio wi-fi dongles
   boot.loader.grub.splashImage = ../assets/displayManager.png;
+  boot.loader.grub.splashMode = "stretch";
 
-  # boot
   boot.blacklistedKernelModules = [];
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [];

@@ -1,7 +1,5 @@
 { config, lib, pkgs, vars, ... }:
 {
-  system.stateVersion = "20.09";
-
   vars.battery = "BATT";
 
   imports =
@@ -24,7 +22,6 @@
       ../sys/scripts.nix
       ../sys/sysctl.nix
       ../sys/tty.nix
-      ../sys/vars.nix
 
       ../boot/efi.nix
       ../boot/multiboot.nix

@@ -1,24 +1,18 @@
 { config, lib, pkgs, ... }:
 {
-  system.stateVersion = "9000";
-
   imports =
     [
-      <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-
-      ../users/shared.nix
       ../users/ksevelyar.nix
 
+      ../hardware/intel.nix
       ../hardware/ssd.nix
 
       ../sys/aliases.nix
       ../sys/scripts.nix
       ../sys/tty.nix
       ../sys/nix.nix
-      ../sys/vars.nix
 
       ../boot/bios.nix
-
 
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
@@ -28,7 +22,6 @@
 
       ../services/journald.nix
       ../services/net/murmur.nix
-      # ../services/net/router.nix
       ../services/net/nginx.nix
       ../services/net/wireguard.nix
       ../services/net/nfs.nix

@@ -4,7 +4,6 @@
   inputs = {
     home-manager = {
       url = "github:rycee/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixpkgs.url = "nixpkgs/nixos-unstable";

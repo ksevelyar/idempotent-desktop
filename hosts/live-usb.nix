@@ -40,8 +40,6 @@
 
     ../services/net/firewall-desktop.nix
     ../services/net/wireguard.nix
-    # ../services/net/i2pd.nix
-    # ../services/net/i2p.nix
     ../services/net/tor.nix
     ../services/net/sshd.nix
 
