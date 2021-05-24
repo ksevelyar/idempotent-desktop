@@ -23,6 +23,7 @@
       ../services/journald.nix
       ../services/net/murmur.nix
       ../services/net/nginx.nix
+      (import ../services/net/nginx.nix ({ email = "ksevelyar@gmail.com"; }))
       ../services/net/wireguard.nix
       ../services/net/nfs.nix
       ../services/net/sshd.nix

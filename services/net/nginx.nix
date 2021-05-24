@@ -1,7 +1,7 @@
-{ lib, vars, ... }:
+{ email }:
 {
   security.acme.acceptTerms = true;
-  security.acme.email = vars.email;
+  security.acme.email = email;
 
   services.nginx = {
     enable = true;
