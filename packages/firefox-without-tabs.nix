@@ -3,8 +3,6 @@
   home-manager = {
     useGlobalPkgs = true;
     users.${vars.user} = {
-      home.file.".config/tridactyl/tridactylrc".source = ../users/shared/.config/tridactyl/tridactylrc;
-      home.file.".config/tridactyl/themes/joker.css".source = ../users/shared/.config/tridactyl/themes/joker.css;
       home.file.".config/firefox/SwitchyOmega.bak".source = ../users/shared/.config/firefox/SwitchyOmega.bak;
 
       programs.browserpass.enable = true;

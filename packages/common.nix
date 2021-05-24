@@ -92,6 +92,7 @@ in
       atool
       bind
       parted
+      gptfdisk
       ffsend
       nnn
       viu

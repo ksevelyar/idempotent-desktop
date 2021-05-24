@@ -15,13 +15,9 @@
         dunst
 
         openbox-menu
+        jgmenu
         obconf
       ];
-
-  environment.shellAliases = {
-    x = "sudo systemctl start display-manager.service";
-    xr = "sudo systemctl restart display-manager.service";
-  };
 
   console.useXkbConfig = true;
 

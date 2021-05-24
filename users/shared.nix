@@ -1,8 +1,7 @@
-{ config, pkgs, vars, lib, ... }:
+{ lib, pkgs, user, email, name }:
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${vars.user} = {
-    uid = 1000;
+  users.users.${user} = {
     isNormalUser = true;
 
     # Enable ‘sudo’ for the user.
@@ -12,13 +11,14 @@
       "libvirtd"
       "nginx"
       "dialout"
+      "docker"
     ];
   };
 
   systemd.services."home-manager-ugly-hack" = {
-    script = "mkdir -p /nix/var/nix/profiles/per-user/${vars.user} && chown ${vars.user}:users /nix/var/nix/profiles/per-user/${vars.user}";
+    script = "mkdir -p /nix/var/nix/profiles/per-user/${user} && chown ${user}:users /nix/var/nix/profiles/per-user/${user}";
     path = [ pkgs.coreutils ];
-    before = [ "home-manager-${vars.user}.service" ];
+    before = [ "home-manager-${user}.service" ];
     wantedBy = [ "multi-user.target" ];
   };
 
@@ -38,22 +38,22 @@
   systemd.tmpfiles.rules =
     [
       # tomb mount points
-      "d /home/${vars.user}/.mail           0700 1000 1000"
-      "d /home/${vars.user}/.backup         0700 1000 1000"
-      "d /home/${vars.user}/.password-store 0700 1000 1000"
-      "d /home/${vars.user}/.ssh            0700 1000 1000"
+      "d /home/${user}/.mail           0700 1000 1000"
+      "d /home/${user}/.backup         0700 1000 1000"
+      "d /home/${user}/.password-store 0700 1000 1000"
+      "d /home/${user}/.ssh            0700 1000 1000"
 
-      "d /home/${vars.user}/.secrets        0700 1000 1000"
-      "d /home/${vars.user}/Wallpapers      0700 1000 1000"
-      "d /home/${vars.user}/Screenshots     0700 1000 1000"
-      "d /home/${vars.user}/Documents       0700 1000 1000"
-      "d /home/${vars.user}/Pictures        0700 1000 1000"
-      "d /home/${vars.user}/Photos          0700 1000 1000"
+      "d /home/${user}/.secrets        0700 1000 1000"
+      "d /home/${user}/Wallpapers      0700 1000 1000"
+      "d /home/${user}/Screenshots     0700 1000 1000"
+      "d /home/${user}/Documents       0700 1000 1000"
+      "d /home/${user}/Pictures        0700 1000 1000"
+      "d /home/${user}/Photos          0700 1000 1000"
     ];
 
   home-manager = {
     useGlobalPkgs = true;
-    users.${vars.user} = {
+    users.${user} = {
       home.file.".icons/default/index.theme".text = ''
         [Icon Theme]
         Name=Default
@@ -77,8 +77,8 @@
       home.file.".config/git/ignore".source = ../users/shared/.config/git/ignore;
       home.file.".config/git/user".text = ''
         [user]
-          email = ${vars.email}
-          name = ${vars.name}
+          email = ${email}
+          name = ${name}
       '';
 
       home.file.".config/zathura/zathurarc".source = ../users/shared/.config/zathura/zathurarc;

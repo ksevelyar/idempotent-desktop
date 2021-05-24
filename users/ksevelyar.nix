@@ -1,13 +1,27 @@
 { config, pkgs, lib, vars, ... }:
+let
+  user = "ksevelyar";
+  email = "ksevelyar@gmail.com";
+  name = "Sergey Zubkov";
+in
 {
-  imports = [ ./shared.nix ];
+  imports = [
+    (
+      import ./shared.nix (
+        {
+          pkgs = pkgs;
+          lib = lib;
+          user = user;
+          email = email;
+          name = name;
+        }
+      )
+    )
+  ];
 
-  vars.user = "ksevelyar";
-  vars.email = "ksevelyar@gmail.com";
-  vars.name = "Sergey Zubkov";
 
-  users.users.${vars.user} = {
-    description = vars.name;
+  users.users.${user} = {
+    description = name;
   };
 
   # dev hosts
@@ -24,7 +38,7 @@
     ];
 
   home-manager = {
-    users.${vars.user} = {
+    users.${user} = {
 
 
       home.file.".mbsyncrc".source = ./ksevelyar/.mbsyncrc;

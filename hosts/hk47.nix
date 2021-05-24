@@ -1,10 +1,10 @@
-{ config, lib, pkgs, ... }:
+args@{ config, lib, pkgs, ... }:
 {
-  system.stateVersion = "20.09";
-
   imports =
     [
       ../users/ksevelyar.nix
+      (import ../services/x/xmonad.nix (args // { user = "ksevelyar"; }))
+      (import ../packages/firefox.nix (args // { user = "ksevelyar"; }))
 
       ../hardware/bluetooth.nix
       ../hardware/mouse.nix
@@ -20,7 +20,6 @@
       ../sys/scripts.nix
       ../sys/sysctl.nix
       ../sys/tty.nix
-      ../sys/vars.nix
 
       ../boot/efi.nix
       ../boot/multiboot.nix
@@ -32,28 +31,24 @@
       ../packages/dev.nix
       ../packages/3d-print.nix
       ../packages/electronics.nix
-      ../packages/firefox.nix
+
       ../packages/games.nix
       ../packages/nvim.nix
       ../packages/pass.nix
       ../packages/tmux.nix
       ../packages/freelance.nix
 
-      # ../services/flatpak.nix
-      # ../services/mongodb.nix
       ../services/journald.nix
       ../services/postgresql.nix
       ../services/redis.nix
       ../services/x.nix
       ../services/x/picom.nix
-      ../services/x/xmonad.nix
+
       ../services/x/redshift.nix
       ../services/vm/docker.nix
 
-      # ../services/net/i2pd.nix
-      # ../services/net/fail2ban.nix
       ../services/net/firewall-desktop.nix
-      ../services/net/nginx.nix # id-doc
+      ../services/net/nginx.nix
       ../services/net/openvpn.nix
       ../services/vpn/vpn.nix
       ../services/net/sshd.nix
@@ -61,7 +56,7 @@
       ../services/net/wireguard.nix
 
       ../services/vm/hypervisor.nix
-      ../services/vm/docker.nix
+      # ../services/vm/docker.nix
     ];
 
   # build arm from x64

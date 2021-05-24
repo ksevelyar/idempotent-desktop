@@ -1,14 +1,14 @@
-{ pkgs, vars, ... }:
+{ pkgs, ... }:
 let
   id-pg-backup = pkgs.writeScriptBin "id-pg-backup" ''
     #!${pkgs.stdenv.shell}
     set -e
     
-    backup_dir="/home/${vars.user}/.backup/pg"
+    backup_dir="~/.backup/pg"
     excludes='template1 template0'
 
     # list of all dbs
-    databases="$(psql -At -c 'select datname from pg_database postgres' postgres)"
+    databases="$(psql -U postgres -At -c 'select datname from pg_database postgres' postgres)"
 
     # clean list from excludes
     for exclude in $excludes; do
@@ -23,7 +23,7 @@ let
       echo $dump_name
 
       mkdir -p $backup_dir/$database
-      pg_dump --format=custom --compress=9 --clean --no-privileges --no-owner \
+      pg_dump -U postgres --format=custom --compress=9 --clean --no-privileges --no-owner \
               --file=$backup_dir/$database/$database-$(date +%Y-%m-%d-%H-%M).sql \
               $database
     done
@@ -33,7 +33,7 @@ let
 in
 {
   services.postgresql = {
-    package = pkgs.postgresql_12;
+    package = pkgs.postgresql_13;
     enable = true;
     authentication = ''
       local all all trust
@@ -50,7 +50,6 @@ in
   };
 
   environment.systemPackages = [
-    # pkgs.sequeler
     id-pg-backup
   ];
 }
