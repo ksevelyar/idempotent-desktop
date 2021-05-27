@@ -137,8 +137,8 @@ exec-if = pgrep -f spotify
 exec = ~/.config/polybar/spotify.sh
 interval = 1
 format-foreground = #6B5A68
-click-left = xdotool key XF86AudioPlay &
-click-right = xdotool key XF86AudioNext &
+click-left = playerctl play-pause spotify &
+click-right = playerctl next spotify &
 
 [module/filesystem]
 type = internal/fs
