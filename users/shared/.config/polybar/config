@@ -122,15 +122,6 @@ type = custom/script
 exec = ~/.config/polybar/weather.sh
 interval = 300
 
-[module/gpmdp]
-type = custom/script
-exec-if = pgrep -f google-play-music-desktop-player
-exec = ~/.config/polybar/gpmdp.sh
-interval = 1
-format-foreground = #6B5A68
-click-left = xdotool key XF86AudioPlay &
-click-right = xdotool key XF86AudioNext &
-
 [module/spotify]
 type = custom/script
 exec-if = pgrep -f spotify

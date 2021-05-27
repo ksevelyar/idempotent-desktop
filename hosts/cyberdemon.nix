@@ -1,15 +1,7 @@
 { config, lib, pkgs, ... }:
 {
-  # This value determines the NixOS release with which your system is to be
-  # compatible, in order to avoid breaking some software such as database
-  # servers. You should change this only after NixOS release notes say you
-  # should.
-  system.stateVersion = "20.09"; # Did you read the comment?
-
-
   imports =
     [
-      ../users/shared.nix
       ../users/manya.nix
 
       ../sys/aliases.nix
@@ -18,7 +10,6 @@
       ../sys/scripts.nix
       ../sys/sysctl.nix
       ../sys/tty.nix
-      ../sys/vars.nix
       ../sys/fonts.nix
 
       ../boot/efi.nix
@@ -28,7 +19,6 @@
       ../services/x.nix
       ../services/postgresql.nix
 
-      ../services/x/xmonad.nix
       ../packages/x-common.nix
       # ../packages/x-extra.nix
 
@@ -50,7 +40,7 @@
       ../services/net/wireguard.nix
       ../services/net/tor.nix
       ../services/net/sshd.nix
-      ../services/net/nginx.nix
+      # (import ../services/net/nginx.nix { email = "ksevelyar@gmail.com"; })
       ../services/net/openvpn.nix
 
       ../services/vm/hypervisor.nix

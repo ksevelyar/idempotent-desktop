@@ -1,11 +1,7 @@
 { config, lib, pkgs, ... }:
 {
-  system.stateVersion = "20.09"; # Did you read the comment?
-  vars.battery = "BATT";
-
   imports =
     [
-      ../users/shared.nix
       ../users/kh.nix
 
       ../sys/aliases.nix
@@ -14,7 +10,6 @@
       ../sys/scripts.nix
       ../sys/sysctl.nix
       ../sys/tty.nix
-      ../sys/vars.nix
       ../sys/fonts.nix
 
       ../boot/efi.nix
@@ -24,7 +19,6 @@
       ../services/postgresql.nix
       ../services/x.nix
       ../services/x/picom.nix
-      ../services/x/xmonad.nix
       ../services/x/redshift.nix
 
       ../packages/absolutely-proprietary.nix
@@ -32,7 +26,6 @@
       ../packages/dev.nix
       ../packages/3d-print.nix
       ../packages/electronics.nix
-      ../packages/firefox.nix
       ../packages/games.nix
       ../packages/nvim.nix
       ../packages/pass.nix
@@ -45,16 +38,14 @@
       ../hardware/amd-cpu.nix
       ../hardware/sound.nix
       ../hardware/ssd.nix
-      ../hardware/power-management.nix
+      (import ../hardware/power-management.nix ({ pkgs = pkgs; battery = "BATT"; }))
 
       ../services/net/firewall-desktop.nix
-      # ../services/net/fail2ban.nix
       ../services/net/wireguard.nix
-      # ../services/net/i2pd.nix
       ../services/net/tor.nix
       ../services/net/sshd.nix
       ../services/net/openvpn.nix
-      ../services/net/nginx.nix
+      # ../services/net/nginx.nix
 
       # ../services/vm/hypervisor.nix
     ];

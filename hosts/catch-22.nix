@@ -1,15 +1,7 @@
 { config, lib, pkgs, ... }:
 {
-  # This value determines the NixOS release with which your system is to be
-  # compatible, in order to avoid breaking some software such as database
-  # servers. You should change this only after NixOS release notes say you
-  # should.
-  system.stateVersion = "20.09"; # Did you read the comment?
-
-
   imports =
     [
-      ../users/shared.nix
       ../users/kh.nix
 
       ../sys/aliases.nix
@@ -18,22 +10,19 @@
       ../sys/scripts.nix
       ../sys/sysctl.nix
       ../sys/tty.nix
-      ../sys/vars.nix
       ../sys/fonts.nix
 
       ../boot/efi.nix
       ../boot/multiboot.nix
 
       ../services/journald.nix
-      ../services/postgresql.nix
-      ../services/redis.nix
+      # ../services/postgresql.nix
+      # ../services/redis.nix
       ../services/x.nix
       ../services/x/picom.nix
       ../services/x/redshift.nix
 
-      ../services/x/xmonad.nix
       ../packages/x-common.nix
-
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
       ../packages/dev.nix
@@ -43,22 +32,20 @@
       ../packages/nvim.nix
       ../packages/pass.nix
       ../packages/tmux.nix
-      ../packages/firefox.nix
 
       ../hardware/bluetooth.nix
+      ../hardware/intel.nix
+      ../hardware/nvidia.nix
       ../hardware/sound.nix
       ../hardware/ssd.nix
-      # ../hardware/laptop.nix
 
       ../services/net/firewall-desktop.nix
       ../services/net/wireguard.nix
       ../services/net/tor.nix
       ../services/net/sshd.nix
       ../services/net/openvpn.nix
-      # ../services/net/lidarr.nix
-      ../services/net/nginx.nix
 
-      # ../services/vm/hypervisor.nix
+      ../services/vm/hypervisor.nix
     ];
 
   boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;
@@ -126,18 +113,4 @@
     };
 
   swapDevices = [];
-
-  hardware = {
-    cpu.intel.updateMicrocode = true;
-    # pulseaudio.configFile = ../users/shared/disable-hdmi.pa;
-  };
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  # console.font = lib.mkForce "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
-  # services.xserver.dpi = 180;
-  # environment.variables = {
-  #   GDK_SCALE = "2";
-  #   GDK_DPI_SCALE = "0.5";
-  #   _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
-  # };
 }

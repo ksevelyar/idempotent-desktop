@@ -12,21 +12,21 @@ in
     (import ../packages/firefox.nix (args // { user = user; }))
   ];
 
-  users.users.root = {
-    # id
-    # To generate hashed password run mkpasswd -m sha-512
-    initialHashedPassword = lib.mkForce "$6$zKk1qNy.84$mVGFT2YYt39K2NI17T7skDyyVXf8LVMG.7vF.JMrKqTq6INet9eLj8BUeLR.QAKdU2cyGELQ04UP6GFIG4LX./";
+  users.users = {
+    root = {
+      # id, to generate hashed password run mkpasswd -m sha-512
+      initialHashedPassword = lib.mkForce "$6$zKk1qNy.84$mVGFT2YYt39K2NI17T7skDyyVXf8LVMG.7vF.JMrKqTq6INet9eLj8BUeLR.QAKdU2cyGELQ04UP6GFIG4LX./";
+    };
+
+    ${user} = {
+      initialHashedPassword = "";
+    };
   };
 
   home-manager = {
     users.${user} = {
       home.file."Wallpapers/Season-01-Gas-station-by-dutchtide.png".source = ../assets/wallpapers/Season-01-Gas-station-by-dutchtide.png;
     };
-  };
-
-  users.users.${user} = {
-    # Allow the graphical user to login without password
-    initialHashedPassword = "";
   };
 
   services.getty.autologinUser = lib.mkForce user;

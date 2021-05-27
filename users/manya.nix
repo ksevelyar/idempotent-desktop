@@ -1,8 +1,15 @@
-{ config, pkgs, lib, ... }:
+args@{ config, pkgs, lib, ... }:
+let
+  user = "manya";
+  email = "porosenie@gmail.com";
+  name = "Maria Elizarova";
+in
 {
-  vars.user = "manya";
-  vars.email = "porosenie@gmail.com";
-  vars.name = "Maria Elizarova";
+  imports = [
+    (import ./shared.nix (args // { user = user; email = email; name = name; }))
+    (import ../services/x/xmonad.nix (args // { user = user; }))
+    (import ../packages/firefox.nix (args // { user = user; }))
+  ];
 
   boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;
   boot.loader.grub.backgroundColor = lib.mkForce "#09090B";

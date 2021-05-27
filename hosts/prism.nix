@@ -1,12 +1,5 @@
 { config, lib, pkgs, ... }:
 {
-  # This value determines the NixOS release with which your system is to be
-  # compatible, in order to avoid breaking some software such as database
-  # servers. You should change this only after NixOS release notes say you
-  # should.
-  system.stateVersion = "20.09"; # Did you read the comment?
-
-
   imports =
     [
       ../users/obstinatekate.nix
@@ -14,6 +7,7 @@
       ../hardware/bluetooth.nix
       ../hardware/mouse.nix
       ../hardware/sound.nix
+      ../hardware/ssd.nix
       # ../hardware/power-management.nix
 
       ../sys/aliases.nix
@@ -22,21 +16,17 @@
       ../sys/scripts.nix
       ../sys/sysctl.nix
       ../sys/tty.nix
-      ../sys/vars.nix
       ../sys/fonts.nix
 
       ../boot/bios.nix
       ../boot/multiboot.nix
 
       ../services/journald.nix
-      ../services/postgresql.nix
-      ../services/redis.nix
       ../services/x.nix
       ../services/x/picom.nix
-      ../services/x/xmonad.nix
+      ../services/x/redshift.nix
 
       ../packages/x-common.nix
-
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
       ../packages/x-common.nix
@@ -45,23 +35,17 @@
       ../packages/nvim.nix
       ../packages/pass.nix
       ../packages/tmux.nix
-      ../packages/firefox.nix
 
       ../services/net/fail2ban.nix
       ../services/net/firewall-desktop.nix
       ../services/net/wireguard.nix
-      # ../services/net/i2p.nix
-      # ../services/net/tor.nix
       ../services/net/sshd.nix
       ../services/net/openvpn.nix
-      ../services/net/nginx.nix
 
       # ../services/vm/hypervisor.nix
     ];
 
   boot.loader.grub.splashImage = lib.mkForce ../assets/grub_1024x768.png;
-  # boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;
-  # boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
 
   # boot
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" "sdhci_pci" ];
@@ -102,10 +86,6 @@
     options = [ "x-systemd.automount" "noauto" ];
   };
 
-  hardware = {
-    cpu.intel.updateMicrocode = true;
-  };
-
   services.xserver = {
     videoDrivers = [ "ati-drivers" ];
     displayManager = {
@@ -113,7 +93,6 @@
       lightdm.enable = lib.mkForce false;
     };
   };
-
 
   swapDevices = [];
 

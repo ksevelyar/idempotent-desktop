@@ -1,10 +1,7 @@
-{ config, lib, pkgs, vars, ... }:
+{ config, lib, pkgs, ... }:
 {
-  vars.battery = "BATT";
-
   imports =
     [
-      ../users/shared.nix
       ../users/ksevelyar.nix
 
       ../hardware/bluetooth.nix
@@ -33,7 +30,6 @@
       ../packages/dev.nix
       ../packages/3d-print.nix
       ../packages/electronics.nix
-      ../packages/firefox.nix
       ../packages/games.nix
       ../packages/nvim.nix
       ../packages/pass.nix
@@ -46,7 +42,6 @@
       ../services/redis.nix
       ../services/x.nix
       ../services/x/picom.nix
-      ../services/x/xmonad.nix
       ../services/x/redshift.nix
 
       # ../services/net/i2pd.nix

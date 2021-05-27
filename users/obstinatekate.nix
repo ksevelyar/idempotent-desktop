@@ -1,10 +1,13 @@
-{ config, pkgs, vars, ... }:
+args@{ config, pkgs, lib, ... }:
+let
+  user = "obstinatekate";
+  email = "obstinatekate@gmail.com";
+  name = "obstinatekate";
+in
 {
-  vars.user = "obstinatekate";
-  vars.email = "obstinatekate@gmail.com";
-  vars.name = "obstinatekate";
-
-  users.users.${vars.user} = {
-    description = vars.name;
-  };
+  imports = [
+    (import ./shared.nix (args // { user = user; email = email; name = name; }))
+    (import ../services/x/xmonad.nix (args // { user = user; }))
+    (import ../packages/firefox.nix (args // { user = user; }))
+  ];
 }
