@@ -1,11 +1,8 @@
-args@{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports =
     [
       ../users/ksevelyar.nix
-      (import ../services/x/xmonad.nix (args // { user = "ksevelyar"; }))
-      ../services/x/openbox.nix
-      (import ../packages/firefox.nix (args // { user = "ksevelyar"; }))
 
       ../hardware/bluetooth.nix
       ../hardware/mouse.nix
@@ -48,7 +45,6 @@ args@{ config, lib, pkgs, ... }:
       ../services/net/firewall-desktop.nix
       (import ../services/net/nginx.nix { email = "ksevelyar@gmail.com"; })
       ../services/net/openvpn.nix
-      ../services/vpn/vpn.nix
       ../services/net/sshd.nix
       ../services/net/tor.nix
       ../services/net/wireguard.nix
@@ -79,6 +75,15 @@ args@{ config, lib, pkgs, ... }:
     skynet = {
       ips = [ "192.168.42.47" ];
       privateKeyFile = "/home/ksevelyar/wireguard-keys/private";
+      peers = [
+        {
+          publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
+          allowedIPs = [ "192.168.42.0/24" ];
+          endpoint = "95.165.99.133:51821";
+          # Send keepalives every 25 seconds. Important to keep NAT tables alive.
+          persistentKeepalive = 25;
+        }
+      ];
     };
   };
 

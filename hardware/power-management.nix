@@ -1,4 +1,4 @@
-{ config, pkgs, lib, vars, ... }:
+{ pkgs, battery, ... }:
 {
   powerManagement = {
     enable = true;
@@ -33,8 +33,8 @@
     {
       serviceConfig.PassEnvironment = "DISPLAY";
       script = ''
-        export battery_capacity=$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/${vars.battery}/capacity)
-        export battery_status=$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/${vars.battery}/status)
+        export battery_capacity=$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/${battery}/capacity)
+        export battery_status=$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/${battery}/status)
 
         if [[ $battery_capacity -le 10 && $battery_status = "Discharging" ]]; then
           ${pkgs.libnotify}/bin/notify-send --urgency=critical "$battery_capacity%: See you, space cowboy..."

@@ -1,9 +1,16 @@
 # https://github.com/ksevelyar/idempotent-desktop/blob/master/docs/live-usb.md
-{ config, pkgs, lib, vars, ... }:
+args@{ config, pkgs, lib, ... }:
+let
+  user = "mrpoppybutthole";
+  email = "";
+  name = "Mr Poppy Butthole";
+in
 {
-  vars.user = "mrpoppybutthole";
-  vars.email = "";
-  vars.name = "Mr Poppy Butthole";
+  imports = [
+    (import ./shared.nix (args // { user = user; email = email; name = name; }))
+    (import ../services/x/xmonad.nix (args // { user = user; }))
+    (import ../packages/firefox.nix (args // { user = user; }))
+  ];
 
   users.users.root = {
     # id
@@ -12,16 +19,16 @@
   };
 
   home-manager = {
-    users.${vars.user} = {
+    users.${user} = {
       home.file."Wallpapers/Season-01-Gas-station-by-dutchtide.png".source = ../assets/wallpapers/Season-01-Gas-station-by-dutchtide.png;
     };
   };
 
-  users.users.${vars.user} = {
+  users.users.${user} = {
     # Allow the graphical user to login without password
     initialHashedPassword = "";
   };
 
-  services.getty.autologinUser = lib.mkForce vars.user;
+  services.getty.autologinUser = lib.mkForce user;
   services.getty.greetingLine = lib.mkForce ''\l'';
 }

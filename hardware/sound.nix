@@ -4,6 +4,7 @@
 
   hardware = {
     # pa-info to debug
+    # pacmd list-sinks | grep -e 'name:' -e 'index:'
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull; # JACK support, Bluetooth

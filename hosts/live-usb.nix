@@ -1,49 +1,41 @@
-{ config, pkgs, lib, vars, ... }:
+args@{ config, pkgs, lib, ... }:
 {
-  vars.battery = "BAT0";
   # isoImage.volumeID = lib.mkForce "id-live";
   # isoImage.isoName = lib.mkForce "id-live.iso";
 
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-base.nix>
 
-    ../users/shared.nix
     ../users/live-usb.nix
 
     ../sys/aliases.nix
     ../sys/scripts.nix
     ../sys/tty.nix
     ../sys/debug.nix
-    ../sys/vars.nix
     ../sys/sysctl.nix
     ../sys/fonts.nix
 
-
-    ../services/x.nix
-
-    ../services/x/xmonad.nix
     ../packages/x-common.nix
-
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
     # ../packages/dev.nix
-    # ../packages/games.nix
     ../packages/nvim.nix
     ../packages/tmux.nix
-    ../packages/firefox.nix
     ../packages/pass.nix
 
     ../hardware/broadcom-wifi.nix
     ../hardware/bluetooth.nix
     ../hardware/sound.nix
-    ../hardware/power-management.nix
+    (import ../hardware/power-management.nix ({ pkgs = pkgs; battery = "BAT0"; }))
 
+    ../services/x.nix
+    ../services/x/picom.nix
+    ../services/x/redshift.nix
     ../services/net/firewall-desktop.nix
     ../services/net/wireguard.nix
+    ../services/net/openvpn.nix
     ../services/net/tor.nix
     ../services/net/sshd.nix
-
-    #../services/vm/hypervisor.nix
   ];
 
   networking.hostName = lib.mkForce "live-usb";
@@ -69,7 +61,7 @@
 
   services.xserver = {
     displayManager = {
-      autoLogin = { enable = true; user = vars.user; };
+      autoLogin = { enable = true; user = "mrpoppybutthole"; };
     };
     videoDrivers = [ "nvidia" "amdgpu" "vesa" "modesetting" ];
   };

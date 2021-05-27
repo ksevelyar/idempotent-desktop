@@ -1,4 +1,4 @@
-{ config, pkgs, lib, vars, ... }:
+args@{ config, pkgs, lib, ... }:
 let
   user = "ksevelyar";
   email = "ksevelyar@gmail.com";
@@ -6,25 +6,11 @@ let
 in
 {
   imports = [
-    (
-      import ./shared.nix (
-        {
-          pkgs = pkgs;
-          lib = lib;
-          user = user;
-          email = email;
-          name = name;
-        }
-      )
-    )
+    (import ./shared.nix (args // { user = user; email = email; name = name; }))
+    (import ../services/x/xmonad.nix (args // { user = user; }))
+    (import ../packages/firefox.nix (args // { user = user; }))
   ];
 
-
-  users.users.${user} = {
-    description = name;
-  };
-
-  # dev hosts
   networking.extraHosts =
     ''
       127.0.0.1 dev.lcl
@@ -33,18 +19,13 @@ in
   systemd.tmpfiles.rules =
     [
       "d /vvv 0700 1000 wheel" # secrets
-      "d /c 0744 1000 wheel" # code
-      "d /com 0744 1000 wheel" # code
     ];
 
   home-manager = {
     users.${user} = {
-
-
       home.file.".mbsyncrc".source = ./ksevelyar/.mbsyncrc;
       home.file.".notmuch-config".source = ./ksevelyar/.notmuch-config;
       home.file.".config/msmtp/msmtp/config".source = ./ksevelyar/.config/msmtp/config;
-      home.file."Wallpapers/Season-01-Gas-station-by-dutchtide.png".source = ../assets/wallpapers/Season-01-Gas-station-by-dutchtide.png;
     };
   };
 }

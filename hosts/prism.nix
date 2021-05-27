@@ -9,7 +9,6 @@
 
   imports =
     [
-      ../users/shared.nix
       ../users/obstinatekate.nix
 
       ../hardware/bluetooth.nix
