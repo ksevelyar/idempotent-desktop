@@ -57,13 +57,8 @@ args@{ config, lib, pkgs, ... }:
       # ../services/vm/docker.nix
     ];
 
-  # build arm from x64
-  # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-  # nixpkgs.config.allowUnsupportedSystem = true;
-  # nixpkgs.config.allowBroken = true;
-
   # boot
-  boot.kernelPackages = pkgs.linuxPackages_latest; # fix Cambridge Silicon Radio wi-fi dongles
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.grub.splashImage = ../assets/displayManager.png;
   boot.loader.grub.splashMode = "stretch";
 
@@ -79,25 +74,16 @@ args@{ config, lib, pkgs, ... }:
   networking.hostName = "hk47";
   networking.interfaces.enp4s0.useDHCP = true;
   networking.useDHCP = false;
-  networking.firewall.enable = lib.mkForce true;
   networking.networkmanager.enable = false; # run nmtui for wi-fi
-
   networking.wireguard.interfaces = {
     skynet = {
       ips = [ "192.168.42.47" ];
       privateKeyFile = "/home/ksevelyar/wireguard-keys/private";
-
-      peers = [
-        {
-          publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
-          allowedIPs = [ "192.168.42.0/24" ];
-          endpoint = "95.165.99.133:51821";
-          # Send keepalives every 25 seconds. Important to keep NAT tables alive.
-          persistentKeepalive = 25;
-        }
-      ];
     };
   };
+
+  # x
+  services.xserver.displayManager.defaultSession = "none+xmonad";
 
   # hardware
   ## i5-9400F
@@ -106,14 +92,6 @@ args@{ config, lib, pkgs, ... }:
   ## DIMM DDR4 2133MHz 16GBx2
   hardware = {
     pulseaudio.configFile = ../users/shared/disable-hdmi.pa;
-  };
-
-  services.xserver = {
-    displayManager = {
-      sessionCommands = ''
-        nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceCompositionPipeline=On, ForceFullCompositionPipeline=On }"
-      '';
-    };
   };
 
   # fs

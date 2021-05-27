@@ -1,7 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
-  services.xserver.videoDriver = "nvidia";
-
   hardware = {
     nvidia.modesetting.enable = true;
   };
@@ -11,18 +9,12 @@
   };
 
   services.xserver = {
-    deviceSection = ''
-      Option "NoLogo" "1"
-    '';
+    videoDriver = "nvidia";
 
     screenSection = ''
-      Option "TripleBuffer" "1"
-    '';
-
-    extraConfig = ''
-      Section "Extensions"
-        Option "Composite" "Enable"
-      EndSection
+      Option         "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
+      Option         "AllowIndirectGLXProtocol" "off"
+      Option         "TripleBuffer" "on"
     '';
   };
 }

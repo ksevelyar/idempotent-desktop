@@ -1,12 +1,8 @@
 { pkgs, lib, ... }:
 {
   services.udisks2.enable = true;
-
   services.greenclip.enable = true;
-  # services.greenclip.package = pkgs.stable.haskellPackages.greenclip;
-
   services.gvfs.enable = lib.mkForce false;
-
 
   services.xserver = {
     enable = true;
