@@ -12,6 +12,7 @@
       "nginx"
       "dialout"
       "docker"
+      "jackaudio"
     ];
   };
 

@@ -91,7 +91,13 @@ args@{ config, lib, pkgs, ... }:
   ## RTX 2060
   ## DIMM DDR4 2133MHz 16GBx2
   hardware = {
-    pulseaudio.configFile = ../users/shared/disable-hdmi.pa;
+    pulseaudio = {
+      configFile = ../users/shared/disable-hdmi.pa;
+      extraConfig = ''
+        load-module module-switch-on-connect
+        set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo
+      '';
+    };
   };
 
   # fs
