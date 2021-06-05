@@ -95,7 +95,6 @@
       home.file.".config/mpv/mpv.conf".source = ../users/shared/.config/mpv/mpv.conf;
       home.file.".config/mpv/input.conf".source = ../users/shared/.config/mpv/input.conf;
 
-      home.file.".eslintrc.json".source = ../users/shared/.eslintrc.json;
       home.file.".npmrc".source = ../users/shared/.npmrc;
 
       home.file.".config/astroid/config".source = ../users/shared/.config/astroid/config;
