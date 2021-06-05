@@ -1,8 +1,11 @@
-{ config, lib, pkgs, ... }:
+args@{ config, lib, pkgs, ... }:
 {
   imports =
     [
       ../users/ksevelyar.nix
+      (import ../services/x/xmonad.nix (args // { user = "ksevelyar"; }))
+      ../services/x/openbox.nix
+      (import ../packages/firefox.nix (args // { user = "ksevelyar"; }))
 
       ../hardware/bluetooth.nix
       ../hardware/mouse.nix
@@ -45,6 +48,7 @@
       ../services/net/firewall-desktop.nix
       (import ../services/net/nginx.nix { email = "ksevelyar@gmail.com"; })
       ../services/net/openvpn.nix
+      ../services/vpn/vpn.nix
       ../services/net/sshd.nix
       ../services/net/tor.nix
       ../services/net/wireguard.nix
