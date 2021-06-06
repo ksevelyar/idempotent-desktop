@@ -6,6 +6,19 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 ![screen](https://i.imgur.com/fhAtYZY.png)
 ![tomb](https://i.imgur.com/XwVKUrm.png)
 
+## Install
+
+```
+sudo git clone https://github.com/ksevelyar/idempotent-desktop.git /etc/nixos
+sudo chown -R 1000:users /etc/nixos
+
+cd /etc/nixos
+mv configuration.nix{,.bak}
+ln -s hosts/hk47.nix configuration.nix
+
+sudo nixos-rebuild switch
+```
+
 ## Features
 
 1. Flakes for reproducible builds
@@ -13,12 +26,12 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 4. Tiling with Xmonad and Polybar
 6. [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
 
-### Linux as IDE
+## Linux as IDE
 
 * fish, alacritty, ripgrep, fd, fzf, zoxide, tldr, delta 
 * Neovim with LSP for js/elixir/rust
 
-### Security
+## Security
 
 * tomb / LUKS
 * gopass / browserpass integration
