@@ -73,7 +73,7 @@ bottom = false
 
 modules-left = volume spotify
 modules-center = filesystem
-modules-right = vnc ssh eth cpu memory
+modules-right = vpn vnc ssh eth cpu memory
 
 [bar/laptop-top]
 inherit = bar/base
@@ -108,6 +108,12 @@ exec = echo "$(lsof -Pni | grep x11vnc | grep -v LISTEN | wc -l)"
 format-prefix = "%{F#FF79C6} vnc%{F-} "
 click-right = pkill x11vnc
 interval = 1
+
+[module/vpn]
+type = custom/script
+exec = ~/.config/polybar/vpn.fish
+format-prefix = "%{F#FF79C6} %{F-} "
+interval = 5
 
 [module/ssh]
 type = custom/script
