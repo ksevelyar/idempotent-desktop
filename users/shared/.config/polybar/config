@@ -113,6 +113,7 @@ interval = 1
 type = custom/script
 exec = ~/.config/polybar/vpn.fish
 format-prefix = "%{F#FF79C6} %{F-} "
+click-left = sudo systemctl stop 'openvpn*'
 interval = 5
 
 [module/ssh]
