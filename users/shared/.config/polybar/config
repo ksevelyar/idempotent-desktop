@@ -121,7 +121,7 @@ type = custom/script
 exec-if = pgrep sshd
 exec = echo "$(who | grep pts | wc -l)"
 format-prefix = "%{F#FF79C6} ssh%{F-} "
-click-right = sudo systemctl stop sshd
+click-right = systemctl stop sshd
 interval = 1
 
 [module/weather]
