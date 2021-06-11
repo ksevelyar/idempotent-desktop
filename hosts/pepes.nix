@@ -45,6 +45,7 @@
       ../services/net/tor.nix
       ../services/net/sshd.nix
       ../services/net/openvpn.nix
+      ../services/vpn/vpn.nix
       # ../services/net/nginx.nix
 
       # ../services/vm/hypervisor.nix
