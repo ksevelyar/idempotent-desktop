@@ -89,12 +89,8 @@
         # alesha 110-120
         ## a11dtop
         {
-          publicKey = "B3MbJOo+t9Lds4Wms7CF7SPqIM291vSNKCFDVn4eixk=";
-          allowedIPs = [ "192.168.42.110" ];
-        }
-        {
-          publicKey = "cLlSJcvND2mIY36vthOBxFUtpUTltiKGghPM/PcNSxI=";
-          allowedIPs = [ "192.168.42.114" ];
+          publicKey = "7Gl9PF+4LUsmOzdY07f9j9m8dV4/RSrqCH8+d2yqhQs=";
+          allowedIPs = [ "192.168.42.119" ];
         }
 
         # kh 10-20
