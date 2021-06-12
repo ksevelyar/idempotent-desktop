@@ -31,6 +31,7 @@
       ../packages/pass.nix
       ../packages/tmux.nix
       ../packages/x-common.nix
+      ../packages/freelance.nix
 
       ../hardware/bluetooth.nix
       ../hardware/mouse.nix
