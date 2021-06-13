@@ -172,18 +172,10 @@ call plug#end()
 
 " npm install -g typescript typescript-language-server vls
 
-" git clone git@github.com:elixir-lsp/elixir-ls.git
-" cd elixir-ls && mkdir rel
-" git checkout tags/v0.6.2
-" mix deps.get && mix compile
-" mix elixir_ls.release -o rel
-" chmod +x /home/ksevelyar/elixir-ls/rel/language_server.sh
 lua <<EOF
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.vuels.setup{}
-require'lspconfig'.elixirls.setup{
-  cmd = { "/home/ksevelyar/elixir-ls/rel/language_server.sh" };
-}
+require'lspconfig'.elixirls.setup{}
 EOF
 
 " Autocommands

@@ -19,7 +19,7 @@
     "javascriptreact",
     "typescriptreact"
   ],
-  "elixir.pathToElixirLS": "~/elixir-ls/rel/language_server.sh",
+  "elixir.pathToElixirLS": "/run/current-system/sw/bin/elixir-ls",
   "markdownlint.config": {
     "default": true,
     "line_length": false

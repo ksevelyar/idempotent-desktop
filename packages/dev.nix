@@ -5,6 +5,7 @@
       python
       nodejs_latest
       elixir
+      elixir_ls
       gcc
 
       # lsp
