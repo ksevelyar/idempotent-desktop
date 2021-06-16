@@ -36,15 +36,10 @@ module-margin-right = 1
 
 radius = 0.0
 
-line-size = 3
-line-color = #f00
-
 border-size = 0
 border-color = #00000000
 
 tray-position = none
-tray-padding = 2
-tray-background = ${root.background}
 padding-left = 1
 padding-right = 1
 
@@ -135,8 +130,8 @@ exec-if = pgrep -f spotify
 exec = ~/.config/polybar/spotify.sh
 interval = 1
 format-foreground = #6B5A68
-click-left = playerctl play-pause spotify &
-click-right = playerctl next spotify &
+click-left = playerctl -p spotify play-pause spotify &
+click-right = playerctl -p spotify next spotify &
 
 [module/filesystem]
 type = internal/fs
@@ -167,7 +162,6 @@ type = internal/cpu
 interval = 1
 format-prefix = "  %{F#9c71C7}%{F-}"
 format-prefix-foreground = ${colors.foreground}
-format-underline = ${colors.violet}
 label = %percentage:3%%
 
 [module/memory]
@@ -175,7 +169,6 @@ type = internal/memory
 interval = 1
 format-prefix = "%{F#9c71C7}%{F-}"
 format-prefix-foreground = ${colors.foreground}
-format-underline = ${colors.violet}
 label = %percentage_used:3%%
 
 [module/eth]
@@ -207,7 +200,6 @@ time = %H:%M
 
 format-prefix = "%{F#9c71C7}%{F-}"
 format-prefix-foreground = ${colors.foreground}
-format-underline = ${colors.violet}
 
 label = %{F#6B5A68}%date%%{F-}  %time%
 
