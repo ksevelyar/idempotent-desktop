@@ -187,6 +187,7 @@ myStartupHook = do
   spawn "rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log"
   spawn "sh ~/.fehbg"
   spawn "sh ~/.config/polybar/launch.sh"
+  spawn "pkill conky; conky -c ~/.config/conky/conky-lyrics.conf"
   spawn "xsetroot -cursor_name left_ptr"
   spawn "lxqt-policykit-agent"
   spawn "pkill twmnd; twmnd"

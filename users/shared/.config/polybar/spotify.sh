@@ -1,31 +1,19 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-# https://unix.stackexchange.com/a/181920
+artist=$(playerctl metadata artist)
+title=$(playerctl metadata title)
 
-SP_VERSION="0.1"
-SP_DEST="org.mpris.MediaPlayer2.spotify"
-SP_PATH="/org/mpris/MediaPlayer2"
-SP_MEMB="org.mpris.MediaPlayer2.Player"
+path="$HOME/.cache/lyrics/$artist-$title.txt"
+path="${path// /-}"
 
-SPOTIFY_METADATA="$(dbus-send                                                 \
- --print-reply                                  `# We need the reply.`        \
- --dest=$SP_DEST                                                              \
- $SP_PATH                                                                     \
- org.freedesktop.DBus.Properties.Get                                          \
- string:"$SP_MEMB" string:'Metadata'                                          \
- | grep -Ev "^method"                           `# Ignore the first line.`    \
- | grep -Eo '("(.*)")|(\b[0-9][a-zA-Z0-9.]*\b)' `# Filter interesting fiels.` \
- | sed -E '2~2 a|'                              `# Mark odd fields.`         \
- | tr -d '\n'                                   `# Remove all newlines.`     \
- | sed -E 's/\|/\n/g'                           `# Restore newlines.`        \
- | sed -E 's/(xesam:)|(mpris:)//'               `# Remove ns prefixes.`      \
- | sed -E 's/^"//'                              `# Strip leading...`         \
- | sed -E 's/"$//'                              `# ...and trailing quotes.`  \
- | sed -E 's/\"+/|/'                             `# Regard "" as seperator.`  \
- | sed -E 's/ +/ /g'                            `# Merge consecutive spaces.`\
-)"
+if [ -f "$path" ]; then
+  lyrics=$(cat $path)
+else
+  lyrics=$(curl -s --get https://makeitpersonal.co/lyrics --data-urlencode artist="$artist" --data-urlencode title="$title")
+  mkdir -p $HOME/.cache/lyrics
+  printf "$lyrics" > $path
+fi
 
-ARTIST=$(echo "$SPOTIFY_METADATA" | sed -n 's/artist|//p')
-TITLE=$(echo "$SPOTIFY_METADATA" | sed -n 's/title|//p')
+printf "$lyrics" > /tmp/.current_song.txt
 
-echo "$ARTIST - $TITLE"
+echo "$artist - $title"
