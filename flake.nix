@@ -30,6 +30,14 @@
           system = "x86_64-linux";
 
           modules = [
+            (
+              { pkgs, ... }: {
+                nix.registry.sys = {
+                  from = { type = "indirect"; id = "sys"; };
+                  flake = nixpkgs;
+                };
+              }
+            )
             nixpkgs.nixosModules.notDetected
             home-manager.nixosModules.home-manager
             (import (./hosts + "/${host}.nix"))

@@ -18,10 +18,6 @@
 
     fonts = with pkgs;
       [
-        # dejavu_fonts
-        # gyre-fonts # TrueType substitutes for standard PostScript fonts
-        # xorg.fontmiscmisc
-        # xorg.fontcursormisc
         terminus_font
         unifont
         cozette
@@ -30,8 +26,6 @@
 
         # unfree Microsoft fonts
         corefonts # Andale Mono, Arial, Comic Sans, Courier New, Georgia, Impact, Times New Roman, Trebuchet, Verdana, Webdings
-        # vistafonts # Calibri, Cambria, Candara, Consolas, Constantia, Corbel
-        # vistafonts-chs # Microsoft YaHei
 
         # Required for ryanoasis/vim-devicons
         # https://www.programmingfonts.org/
@@ -39,7 +33,7 @@
         (nerdfonts.override { fonts = [ "Iosevka" "IBMPlexMono" ]; })
         fira-code
 
-        # Required for polybar
+        # Icons for polybar
         siji # https://github.com/stark/siji
 
         open-sans

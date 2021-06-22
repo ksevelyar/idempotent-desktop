@@ -1,8 +1,5 @@
 args@{ config, pkgs, lib, ... }:
 {
-  # isoImage.volumeID = lib.mkForce "id-live";
-  # isoImage.isoName = lib.mkForce "id-live.iso";
-
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-base.nix>
 
@@ -18,7 +15,7 @@ args@{ config, pkgs, lib, ... }:
     ../packages/x-common.nix
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
-    # ../packages/dev.nix
+    ../packages/dev.nix
     ../packages/nvim.nix
     ../packages/tmux.nix
     ../packages/pass.nix
@@ -34,7 +31,6 @@ args@{ config, pkgs, lib, ... }:
     ../services/net/firewall-desktop.nix
     ../services/net/wireguard.nix
     ../services/net/openvpn.nix
-    ../services/net/tor.nix
     ../services/net/sshd.nix
   ];
 

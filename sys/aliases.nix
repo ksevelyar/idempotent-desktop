@@ -29,13 +29,13 @@
     i = "id-info";
     l = "ls -lahXF --group-directories-first";
     tree = "exa --tree";
-    j = "z"; # autojump alias for z.lua
+    j = "z"; # autojump alias 
     u = "aunpack"; # one tool to unpack them all
     v = "nvim";
     vo = "nvim -o (fzf)";
     vv = "nvim -U none"; # vanilla v, don't load plugins & init.vim
     r = "rsync -ra --info=progress2";
-    ns = "notify-dend";
+    search = "nix search sys";
 
     # sec
     p = "gopass show";
@@ -82,8 +82,7 @@
     e = "sudo nvim /etc/nixos/configuration.nix";
     b = "sudo nixos-rebuild switch --keep-going";
     br = "b && xmonad --restart";
-    bu = "b --upgrade";
-    no = "nixos-option";
+    # no = "nixos-option";
     id-wipe-user-packages = "nix-env -e '*'";
 
     id-gc = "sudo nix-collect-garbage --delete-older-than 30d";
@@ -91,11 +90,7 @@
     id-inspect-store = "nix path-info -rSh /run/current-system | sort -k2h ";
     id-push = "sudo nix-store -qR --include-outputs /run/current-system | cachix push idempotent-desktop ";
     id-store-to-svg = "nix-du --root /run/current-system/sw/ -s 100MB | tred | dot -Tsvg > ./nix-store.svg";
-    id-sync = "cd /etc/nixos && git stash && git pull --rebase && bu";
+    id-sync = "cd /etc/nixos && git stash && git pull --rebase && b";
     id-doc = "xdg-open http://docs.lcl";
-
-    # dev
-    rbe = "bundle exec";
-    bro = "browser-sync start --server --files .";
   };
 }
