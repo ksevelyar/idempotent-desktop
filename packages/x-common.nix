@@ -12,7 +12,7 @@
         [Settings]
         gtk-theme-name=Dracula
         gtk-icon-theme-name=Papirus-Dark-Maia
-        gtk-font-name=Terminus 14
+        gtk-font-name=Terminus 16
         gtk-cursor-theme-name=Vanilla-DMZ
       '';
     };
@@ -111,6 +111,7 @@
       lxappearance
       vanilla-dmz
       dracula-theme
+      nordic
       adwaita-qt
       papirus-maia-icon-theme
 
