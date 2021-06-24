@@ -1,12 +1,4 @@
-# nixos.option programs
-
 { config, pkgs, lib, ... }:
-let
-  stable = import <stable> {
-    config = config.nixpkgs.config;
-  };
-  # hunter = pkgs.callPackage ./hunter.nix {};
-in
 {
 
   programs.fish.enable = true;

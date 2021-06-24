@@ -26,6 +26,7 @@
       ../services/net/wireguard.nix
       ../services/net/nfs.nix
       ../services/net/sshd.nix
+      ../services/net/avahi.nix
     ];
 
 
@@ -139,11 +140,11 @@
   };
 
   services.nginx = {
-    virtualHosts."legacy-intelligence.life" = {
-      enableACME = true;
-      forceSSL = true;
-      root = "/var/www/legacy-intelligence/dist/";
-    };
+    # virtualHosts."legacy-intelligence.life" = {
+    #   enableACME = true;
+    #   forceSSL = true;
+    #   root = "/var/www/legacy-intelligence/dist/";
+    # };
 
     virtualHosts."preview-project.com" = {
       enableACME = true;
@@ -169,11 +170,6 @@
     "net.core.default_qdisc" = "cake";
     "net.ipv4.ip_forward" = true;
   };
-
-  swapDevices = [];
-
-  # sudo e2label /dev/disk/by-uuid/44b4a02e-1993-4470-b345-b2ca5e3e5b42 nixos
-  # sudo e2label /dev/sdb1 storage
 
   fileSystems."/" =
     {

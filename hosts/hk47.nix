@@ -53,6 +53,7 @@ args@{ config, lib, pkgs, ... }:
       ../services/net/sshd.nix
       ../services/net/tor.nix
       ../services/net/wireguard.nix
+      ../services/net/avahi.nix
 
       ../services/vm/hypervisor.nix
       # ../services/vm/docker.nix
@@ -138,6 +139,6 @@ args@{ config, lib, pkgs, ... }:
     fsType = "nfs";
 
     # don't freeze system if mount point not available on boot
-    options = [ "x-systemd.automount" "noauto" ];
+    options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=300" ];
   };
 }
