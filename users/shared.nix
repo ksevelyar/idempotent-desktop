@@ -17,13 +17,6 @@
     ];
   };
 
-  systemd.services."home-manager-ugly-hack" = {
-    script = "mkdir -p /nix/var/nix/profiles/per-user/${user} && chown ${user}:users /nix/var/nix/profiles/per-user/${user}";
-    path = [ pkgs.coreutils ];
-    before = [ "home-manager-${user}.service" ];
-    wantedBy = [ "multi-user.target" ];
-  };
-
   users.defaultUserShell = pkgs.fish;
   i18n.defaultLocale = "en_US.UTF-8";
 

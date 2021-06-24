@@ -59,7 +59,6 @@ args@{ config, lib, pkgs, ... }:
     ];
 
   # boot
-  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.grub.splashImage = ../assets/displayManager.png;
   boot.loader.grub.splashMode = "stretch";
 
