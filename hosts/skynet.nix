@@ -31,7 +31,6 @@
 
 
   networking.useDHCP = false;
-
   networking.interfaces = {
     enp3s0.useDHCP = true;
   };
@@ -116,9 +115,9 @@
           publicKey = "Cf1ZnKsJMTYTZfjU0xV+NJCXeOKvBq1/b2O4553Y+Ac=";
           allowedIPs = [ "192.168.42.5" ];
         }
-        ## arachnotron
+        ## sobanya
         {
-          publicKey = "XMoxgJ0y+SAFZDKhSWIC0WfrAVOvIbtGrDKfV5SInnI=";
+          publicKey = "JRIVeD2SXvGF86NrBAur770DADZ9zYO5d7/sCFqjTRM=";
           allowedIPs = [ "192.168.42.6" ];
         }
 
@@ -149,10 +148,6 @@
       forceSSL = true;
       root = "/var/www/rooms-slider";
     };
-  };
-
-  hardware = {
-    cpu.intel.updateMicrocode = true;
   };
 
   networking.hostName = "skynet";

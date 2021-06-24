@@ -66,7 +66,6 @@ args@{ config, lib, pkgs, ... }:
   location.longitude = 37.61;
 
   # boot
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.grub.splashImage = ../assets/displayManager.png;
   boot.loader.grub.splashMode = "stretch";
 
@@ -86,8 +85,23 @@ args@{ config, lib, pkgs, ... }:
   networking.useDHCP = false;
   networking.networkmanager.enable = true; # run nmtui for wi-fi
 
-  # x
+  networking.wireguard.interfaces = {
+    skynet = {
+      ips = [ "192.168.42.6" ];
+      privateKeyFile = "/home/manya/wireguard-keys/private";
+      peers = [
+        {
+          publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
+          allowedIPs = [ "192.168.42.0/24" ];
+          endpoint = "95.165.99.133:51821";
+          # Send keepalives every 25 seconds. Important to keep NAT tables alive.
+          persistentKeepalive = 25;
+        }
+      ];
+    };
+  };
 
+  # x
   services.xserver = {
     displayManager = {
       defaultSession = "none+xmonad";
@@ -108,4 +122,11 @@ args@{ config, lib, pkgs, ... }:
       options = [ "noatime" "nodiratime" ];
     };
 
+  fileSystems."/skynet" = {
+    device = "192.168.42.1:/export";
+    fsType = "nfs";
+
+    # don't freeze system if mount point not available on boot
+    options = [ "x-systemd.automount" "noauto" ];
+  };
 }
