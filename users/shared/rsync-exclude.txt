@@ -1,9 +1,12 @@
 .npm*
 .cache
 .config/coc
+.cargo
 
 .local/share/TelegramDesktop
 .local/share/tor-browser
+.local/share/Steam
+.local/share/Zeal
 
 Downloads
 Screenshots

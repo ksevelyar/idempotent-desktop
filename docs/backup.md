@@ -19,7 +19,7 @@ sudo mkfs.ext4 -L secrets /dev/mapper/secrets
 
 ```fish
 sudo chown ksevelyar:nobody /run/media/ksevelyar/secrets/
-rsync -ra --info=progress2 --delete --exclude-from=/etc/nixos/home/rsync-exclude.txt --delete ~ /run/media/ksevelyar/secrets
+rsync -ra --info=progress2 --delete --exclude-from=/etc/nixos/users/shared/rsync-exclude.txt --delete ~ /run/media/ksevelyar/secrets
 ```
 
 ## Freeze it with 🐖🐖
