@@ -58,6 +58,8 @@
     };
   };
 
+  systemd.services.sshd.wantedBy = [ "multi-user.target" ];
+
   # mkdir -p ~/wireguard-keys && cd ~/wireguard-keys && umask 077
   # wg genkey | tee private | wg pubkey > public
   networking.wireguard.interfaces = {
