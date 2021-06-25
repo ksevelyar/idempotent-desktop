@@ -38,6 +38,7 @@ args@{ config, lib, pkgs, ... }:
       ../packages/nvim.nix
       ../packages/pass.nix
       ../packages/tmux.nix
+      ../packages/freelance.nix
 
       ../hardware/bluetooth.nix
       ../hardware/intel.nix
