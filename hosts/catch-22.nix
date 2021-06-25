@@ -22,8 +22,8 @@ args@{ config, lib, pkgs, ... }:
       ../boot/multiboot.nix
 
       ../services/journald.nix
-      # ../services/postgresql.nix
-      # ../services/redis.nix
+      ../services/postgresql.nix
+      ../services/redis.nix
       ../services/x.nix
       ../services/x/picom.nix
       ../services/x/redshift.nix
