@@ -1,8 +1,14 @@
-{ config, lib, pkgs, ... }:
+args@{ config, lib, pkgs, ... }:
 {
   imports =
     [
+      ../users/ksevelyar.nix
+      (import ../services/x/xmonad.nix (args // { user = "ksevelyar"; }))
+      (import ../packages/firefox.nix (args // { user = "ksevelyar"; }))
+
       ../users/kh.nix
+      (import ../services/x/xmonad.nix (args // { user = "kh"; }))
+      (import ../packages/firefox.nix (args // { user = "kh"; }))
 
       ../sys/aliases.nix
       # ../sys/debug.nix
@@ -82,7 +88,7 @@
     fsType = "nfs";
 
     # don't freeze system if mount point not available on boot
-    options = [ "x-systemd.automount" "noauto" ];
+    options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=300" ];
   };
 
   boot.cleanTmpDir = true;
@@ -112,6 +118,4 @@
       device = "/dev/disk/by-label/storage";
       fsType = "ntfs";
     };
-
-  swapDevices = [];
 }
