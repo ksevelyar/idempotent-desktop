@@ -30,6 +30,7 @@
           system = "x86_64-linux";
 
           modules = [
+            # nix search sys neovim
             (
               { pkgs, ... }: {
                 nix.registry.sys = {
@@ -45,6 +46,19 @@
         };
       };
 
+      live-usb = {
+        name = "live-usb";
+        value = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            nixpkgs.nixosModules.notDetected
+            home-manager.nixosModules.home-manager
+            (import ./live-usb/live-usb.nix)
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix"
+          ];
+        };
+      };
+
     in
       {
         nixosConfigurations = builtins.listToAttrs (
@@ -55,7 +69,7 @@
                   (build-target host)
                 ]
               )
-              hosts
+              hosts ++ [ live-usb ]
           )
         );
       };

@@ -4,30 +4,16 @@
 
 [idempotent-desktop.iso](https://drive.google.com/file/d/1XBa1LUK32A_DbMBge44co_AFfg44Ngqo/view?usp=sharing) ~1.7GB
 
-## Or generate
-
-Install nix with `curl -L https://nixos.org/nix/install | sh` (for non NixOS users)
-
-Clone repo: `git clone git@github.com:ksevelyar/idempotent-desktop.git && cd idempotent-desktop`
-
-Build [live-usb.nix](https://github.com/ksevelyar/idempotent-desktop/blob/master/live-usb/graphical.nix)
+## Generate
 
 ```sh
-nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=live-usb/graphical.nix
+nix build .#nixosConfigurations.live-usb.config.system.build.isoImage
 
 ```
-
-[Or minimal version without X](https://github.com/ksevelyar/idempotent-desktop/blob/master/live-usb/term.nix) ~700MB:
-
-```sh
-nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=live-usb-min.nix
-```
-
-You can generate your own iso, just add new modules and remove things you don't want
 
 ## Write it to usb
 
-`sudo dd bs=4M if=/tmp/result/iso/id-live.iso of=/dev/disk/by-label/id-live status=progress oflag=sync`
+`sudo dd bs=4M if=result/iso/id-live.iso of=/dev/disk/by-label/id-live status=progress oflag=sync`
 
 You can replace `/dev/disk/by-label/id-live` with `/dev/sdX` with proper device from `lsblk` output.
 
@@ -38,5 +24,5 @@ You can replace `/dev/disk/by-label/id-live` with `/dev/sdX` with proper device 
 ### Try your usb in vm before reboot
 
 ```fish
-sudo qemu-kvm -hdb /dev/sdc
+sudo qemu-kvm -hdb /dev/disk/by-label/id-live
 ```

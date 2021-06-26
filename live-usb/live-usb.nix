@@ -1,8 +1,6 @@
 args@{ config, pkgs, lib, ... }:
 {
   imports = [
-    <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-base.nix>
-
     ../users/live-usb.nix
 
     ../sys/aliases.nix
@@ -59,7 +57,7 @@ args@{ config, pkgs, lib, ... }:
     displayManager = {
       autoLogin = { enable = true; user = "mrpoppybutthole"; };
     };
-    videoDrivers = [ "nvidia" "amdgpu" "vesa" "modesetting" ];
+    videoDrivers = [ "nvidia" "nouveau" "amdgpu" "vesa" "modesetting" ];
   };
 
   services.getty.helpLine = lib.mkForce ''

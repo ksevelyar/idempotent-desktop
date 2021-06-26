@@ -23,7 +23,7 @@ let
     #!${pkgs.stdenv.shell}
     set -e
 
-    nix build /etc/nixos#nixosConfigurations.live-usb.config.system.build.isoImage --impure
+    nix build /etc/nixos#nixosConfigurations.live-usb.config.system.build.isoImage
   '';
 
   id-write-usb = pkgs.writeScriptBin "id-write-usb" ''
@@ -62,7 +62,7 @@ let
 
     id-build-iso
 
-    nix flake check --impure
+    nix flake check
     nix-du --root /run/current-system/sw/ -s 100MB | tred | dot -Tsvg -Nfontname=Roboto -Efontname=Roboto > nix-store.svg
 
     iso=$(id-build-iso)
