@@ -3,9 +3,7 @@ args@{ config, lib, pkgs, ... }:
   imports =
     [
       ../users/ksevelyar.nix
-      (import ../services/x/xmonad.nix (args // { user = "ksevelyar"; }))
       ../services/x/openbox.nix
-      (import ../packages/firefox.nix (args // { user = "ksevelyar"; }))
 
       ../hardware/bluetooth.nix
       ../hardware/mouse.nix

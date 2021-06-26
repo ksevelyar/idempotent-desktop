@@ -3,12 +3,7 @@ args@{ config, lib, pkgs, ... }:
   imports =
     [
       ../users/ksevelyar.nix
-      (import ../services/x/xmonad.nix (args // { user = "ksevelyar"; }))
-      (import ../packages/firefox.nix (args // { user = "ksevelyar"; }))
-
       ../users/kh.nix
-      (import ../services/x/xmonad.nix (args // { user = "kh"; }))
-      (import ../packages/firefox.nix (args // { user = "kh"; }))
 
       ../sys/aliases.nix
       # ../sys/debug.nix
