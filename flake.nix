@@ -2,11 +2,12 @@
   description = "Unstable + HM";
 
   inputs = {
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:rycee/home-manager/master";
+      inputs.nixpkgs.follows = "/nixpkgs";
     };
-
-    nixpkgs.url = "nixpkgs/nixos-unstable";
   };
 
   outputs = { self, home-manager, nixpkgs }:
@@ -30,15 +31,6 @@
           system = "x86_64-linux";
 
           modules = [
-            # nix search sys neovim
-            (
-              { pkgs, ... }: {
-                nix.registry.sys = {
-                  from = { type = "indirect"; id = "sys"; };
-                  flake = nixpkgs;
-                };
-              }
-            )
             nixpkgs.nixosModules.notDetected
             home-manager.nixosModules.home-manager
             (import (./hosts + "/${host}.nix"))
