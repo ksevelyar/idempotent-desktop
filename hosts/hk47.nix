@@ -32,7 +32,6 @@ args@{ config, lib, pkgs, ... }:
       ../packages/dev.nix
       ../packages/3d-print.nix
       ../packages/electronics.nix
-
       ../packages/games.nix
       ../packages/nvim.nix
       ../packages/pass.nix
