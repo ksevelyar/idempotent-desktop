@@ -7,8 +7,9 @@ in
 {
   imports = [
     (import ./shared.nix (args // { user = user; email = email; name = name; }))
-    (import ../services/x/xmonad.nix (args // { user = user; }))
-    (import ../packages/firefox.nix (args // { user = user; }))
+  ] ++ [
+    (lib.mkIf (config.services.xserver.enable) (import ../services/x/xmonad.nix (args // { user = user; })))
+    (lib.mkIf (config.services.xserver.enable) (import ../packages/firefox.nix (args // { user = user; })))
   ];
 
   networking.extraHosts =
@@ -18,7 +19,7 @@ in
 
   systemd.tmpfiles.rules =
     [
-      "d /vvv 0700 1000 wheel" # secrets
+      "d /vvv 0700 ${user} wheel" # secrets
     ];
 
   home-manager = {

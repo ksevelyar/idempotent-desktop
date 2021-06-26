@@ -8,14 +8,14 @@ in
 {
   imports = [
     (import ./shared.nix (args // { user = user; email = email; name = name; }))
-    (import ../services/x/xmonad.nix (args // { user = user; }))
-    (import ../packages/firefox.nix (args // { user = user; }))
+  ] ++ [
+    (lib.mkIf (config.services.xserver.enable) (import ../services/x/xmonad.nix (args // { user = user; })))
+    (lib.mkIf (config.services.xserver.enable) (import ../packages/firefox.nix (args // { user = user; })))
   ];
 
   users.users = {
     root = {
-      # id, to generate hashed password run mkpasswd -m sha-512
-      initialHashedPassword = lib.mkForce "$6$zKk1qNy.84$mVGFT2YYt39K2NI17T7skDyyVXf8LVMG.7vF.JMrKqTq6INet9eLj8BUeLR.QAKdU2cyGELQ04UP6GFIG4LX./";
+      initialHashedPassword = lib.mkForce "";
     };
 
     ${user} = {

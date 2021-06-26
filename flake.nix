@@ -43,14 +43,26 @@
         value = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix"
             nixpkgs.nixosModules.notDetected
             home-manager.nixosModules.home-manager
             (import ./live-usb/live-usb.nix)
-            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix"
           ];
         };
       };
 
+      live-usb-min = {
+        name = "live-usb-min";
+        value = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-base.nix"
+            nixpkgs.nixosModules.notDetected
+            home-manager.nixosModules.home-manager
+            (import ./live-usb/min.nix)
+          ];
+        };
+      };
     in
       {
         nixosConfigurations = builtins.listToAttrs (
@@ -61,7 +73,7 @@
                   (build-target host)
                 ]
               )
-              hosts ++ [ live-usb ]
+              hosts ++ [ live-usb live-usb-min ]
           )
         );
       };

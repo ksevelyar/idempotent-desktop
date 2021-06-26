@@ -7,14 +7,12 @@
   environment.systemPackages = with pkgs;
     [
       # sys
-      nixos-generators
       fzf
       ripgrep
       sd
       bat
       gitAndTools.delta # https://github.com/dandavison/delta
       cachix
-      home-manager
       libqalculate # qalc
       micro
       watchman
@@ -37,7 +35,6 @@
       ddgr # cli duckduckgo
       googler # cli google
       entr
-      termdown
       sampler
       taskwarrior # todo & tasks
       procs

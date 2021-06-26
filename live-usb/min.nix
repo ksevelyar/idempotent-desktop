@@ -1,9 +1,9 @@
-# nix build /etc/nixos#nixosConfigurations.live-usb.config.system.build.isoImage    
+# nix build /etc/nixos#nixosConfigurations.live-usb-min.config.system.build.isoImage    
 
-args@{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 {
-  isoImage.volumeID = lib.mkForce "id-live";
-  isoImage.isoName = lib.mkForce "id-live.iso";
+  isoImage.volumeID = lib.mkForce "id-live-min";
+  isoImage.isoName = lib.mkForce "id-live-min.iso";
 
   imports = [
     ../users/live-usb.nix
@@ -15,7 +15,6 @@ args@{ config, pkgs, lib, ... }:
     ../sys/sysctl.nix
     ../sys/fonts.nix
 
-    ../packages/x-common.nix
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
     ../packages/dev.nix
@@ -26,18 +25,14 @@ args@{ config, pkgs, lib, ... }:
     ../hardware/broadcom-wifi.nix
     ../hardware/bluetooth.nix
     ../hardware/sound.nix
-    (import ../hardware/power-management.nix ({ pkgs = pkgs; battery = "BAT0"; }))
 
-    ../services/x.nix
-    ../services/x/picom.nix
-    ../services/x/redshift.nix
     ../services/net/wireguard.nix
     ../services/net/openvpn.nix
     ../services/net/sshd.nix
   ];
 
-  networking.hostName = lib.mkForce "id-live";
-  networking.networkmanager.enable = true; # nmcli for wi-fi
+  networking.hostName = lib.mkForce "id-live-min";
+  networking.networkmanager.enable = true; # nmtui for wi-fi
   networking.wireless.enable = lib.mkForce false;
 
   nix = {
@@ -49,23 +44,7 @@ args@{ config, pkgs, lib, ... }:
     ];
   };
 
-  security.polkit.extraConfig = ''
-    polkit.addRule(function(action, subject) {
-      if (subject.isInGroup("wheel")) {
-        return polkit.Result.YES;
-      }
-    });
-  '';
-
-  services.xserver = {
-    displayManager = {
-      autoLogin = { enable = true; user = "mrpoppybutthole"; };
-    };
-    videoDrivers = [ "nvidia" "nouveau" "amdgpu" "vesa" "modesetting" ];
-  };
-
   services.getty.helpLine = lib.mkForce ''
-    The "root" account has "id" password.
     Type `i' to print system information.
 
     .     .       .  .   . .   .   . .    +  .
