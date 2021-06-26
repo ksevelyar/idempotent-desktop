@@ -26,7 +26,6 @@ args@{ config, pkgs, lib, ... }:
     ../hardware/broadcom-wifi.nix
     ../hardware/bluetooth.nix
     ../hardware/sound.nix
-    (import ../hardware/power-management.nix ({ pkgs = pkgs; battery = "BAT0"; }))
 
     ../services/x.nix
     ../services/x/picom.nix
@@ -37,7 +36,7 @@ args@{ config, pkgs, lib, ... }:
   ];
 
   networking.hostName = lib.mkForce "id-live";
-  networking.networkmanager.enable = true; # nmcli for wi-fi
+  networking.networkmanager.enable = true; # nmtui for wi-fi
   networking.wireless.enable = lib.mkForce false;
 
   nix = {
@@ -49,14 +48,6 @@ args@{ config, pkgs, lib, ... }:
     ];
   };
 
-  security.polkit.extraConfig = ''
-    polkit.addRule(function(action, subject) {
-      if (subject.isInGroup("wheel")) {
-        return polkit.Result.YES;
-      }
-    });
-  '';
-
   services.xserver = {
     displayManager = {
       autoLogin = { enable = true; user = "mrpoppybutthole"; };
@@ -65,7 +56,6 @@ args@{ config, pkgs, lib, ... }:
   };
 
   services.getty.helpLine = lib.mkForce ''
-    The "root" account has "id" password.
     Type `i' to print system information.
 
     .     .       .  .   . .   .   . .    +  .
