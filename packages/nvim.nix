@@ -2,6 +2,9 @@
 {
   environment.systemPackages = with pkgs;
     [
+      nodejs_latest # coc
+      global
+      universal-ctags
       (
         neovim.override {
           vimAlias = true;

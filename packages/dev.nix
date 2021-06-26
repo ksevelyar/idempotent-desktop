@@ -16,8 +16,6 @@
       zeal # docs
       curlie # api
       imagemagick
-      universal-ctags
-      global
       direnv
       lorri
       inotify-tools

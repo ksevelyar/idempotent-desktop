@@ -72,11 +72,6 @@ let
     echo -e "\n🐗\n"
   '';
 
-  id-build-doc = pkgs.writeScriptBin "id-build-doc" ''
-    #!${pkgs.stdenv.shell}
-    cd /etc/nixos/docs && npm install && vuepress build
-  '';
-
   # id-install <hostname>
   # id-install hk-47
   id-install = pkgs.writeScriptBin "id-install" ''
@@ -142,6 +137,5 @@ in
 
     id-random-wallpaper
     id-tm
-    id-build-doc
   ];
 }

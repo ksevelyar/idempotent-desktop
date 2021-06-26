@@ -13,23 +13,25 @@
     ../sys/tty.nix
     ../sys/debug.nix
     ../sys/sysctl.nix
-    ../sys/fonts.nix
 
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
-    ../packages/dev.nix
     ../packages/nvim.nix
     ../packages/tmux.nix
     ../packages/pass.nix
 
     ../hardware/broadcom-wifi.nix
     ../hardware/bluetooth.nix
-    ../hardware/sound.nix
 
-    ../services/net/wireguard.nix
-    ../services/net/openvpn.nix
     ../services/net/sshd.nix
+    ../services/net/avahi.nix
   ];
+
+  fonts.fonts = with pkgs;
+    [
+      terminus_font
+      cozette
+    ];
 
   networking.hostName = lib.mkForce "id-live-min";
   networking.networkmanager.enable = true; # nmtui for wi-fi
