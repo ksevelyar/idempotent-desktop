@@ -36,6 +36,7 @@ import           XMonad.Util.EZConfig
 import           XMonad.Util.NamedScratchpad
 import           XMonad.Util.NamedWindows       (getName)
 import           XMonad.Util.Run                (runInTerm, safeSpawn)
+import           System.Directory
 
 -- Hack to let firefox fullscreen
 setFullscreenSupport :: X ()
@@ -84,7 +85,9 @@ myWorkspaces = ["www","ed","sh","bg","im","fs","media","gfx","h","*"]
 
 -- Status bars and logging
 wsOutput wsStr = do
-  io $ appendFile "/tmp/.xmonad-workspace-log" (wsStr ++ "\n")
+  home <- io getHomeDirectory
+  let path = home ++ "/.cache/.xmonad-workspace-log"
+  io $ appendFile path (wsStr ++ "\n")
 
 polybarPP = dynamicLogWithPP $ def {
   ppCurrent = wrap ("%{F#9C71C7}[%{F-}%{F#BEB3CD}") "%{F-}%{F#9C71C7}]%{F-}"
@@ -184,7 +187,7 @@ myEventHook = docksEventHook <+> handleEventHook defaultConfig <+> fullscreenEve
 -- Startup hook ----------------------------------------------------------------
 
 myStartupHook = do
-  spawn "rm /tmp/.xmonad-workspace-log; mkfifo /tmp/.xmonad-workspace-log"
+  spawn "rm ~/.cache/.xmonad-workspace-log; mkfifo ~/.cache/.xmonad-workspace-log"
   spawn "sh ~/.fehbg"
   spawn "sh ~/.config/polybar/launch.sh"
   spawn "pkill conky; conky -c ~/.config/conky/conky-lyrics.conf"
@@ -193,6 +196,7 @@ myStartupHook = do
   spawn "pkill twmnd; twmnd"
   spawn "xxkb"
   spawn "xcape -e 'Super_R=Super_R|X'"
+  spawn "xcape -e 'Super_L=Super_L|X'"
   spawn "systemctl --user start redshift"
   setFullscreenSupport
   setWMName "LG3D" -- Arduino IDE support

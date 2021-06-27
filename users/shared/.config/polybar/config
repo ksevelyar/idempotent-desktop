@@ -102,8 +102,8 @@ label-maxlen = 70
 
 [module/workspaces-xmonad]
 type = custom/script
-exec = tail -F /tmp/.xmonad-workspace-log
-exec-if = [ -p /tmp/.xmonad-workspace-log ]
+exec = tail -F ~/.cache/.xmonad-workspace-log
+exec-if = [ -p ~/.cache/.xmonad-workspace-log ]
 tail = true
 click-right = jgmenu_run >/dev/null 2>&1 &
 

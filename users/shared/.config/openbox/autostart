@@ -1,6 +1,7 @@
 pkill -9 polybar
-polybar desktop-top >>/tmp/polybar1.log 2>&1 &
-polybar desktop-bottom-openbox >>/tmp/polybar2.log 2>&1 &
+
+polybar desktop-top >> ~/.cache/polybar-top.log 2>&1 &
+polybar desktop-bottom-openbox >> ~/.cache/polybar-bottom.log 2>&1 &
 
 sh ~/.fehbg
 xxkb

@@ -2,15 +2,11 @@
 
 # Terminate already running bar instances
 pkill -9 polybar
-# If all your bars have ipc enabled, you can also use
-# polybar-msg cmd quit
 
 # wait until the processes have been shut down
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
-# Launch bar1 and bar2
-echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
-polybar desktop-top >>/tmp/polybar1.log 2>&1 &
-polybar desktop-bottom >>/tmp/polybar2.log 2>&1 &
-
-echo "Bars launched..."
+echo "---" | tee -a ~/.cache/polybar-top.log ~/.cache/polybar-bottom.log
+polybar desktop-top >>~/.cache/polybar-top.log 2>&1 &
+polybar desktop-bottom >>~/.cache/polybar-bottom.log 2>&1 &
+echo "Polybar launched."
