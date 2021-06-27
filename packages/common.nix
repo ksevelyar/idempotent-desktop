@@ -7,22 +7,19 @@
   environment.systemPackages = with pkgs;
     [
       # sys
+      cachix
       fzf
       ripgrep
       sd
       bat
       gitAndTools.delta # https://github.com/dandavison/delta
-      cachix
       libqalculate # qalc
-      micro
       watchman
       sipcalc
       tealdeer
       git
       mkpasswd
       file
-      jq
-      miller
       ccze
       lnav
       nmap
@@ -40,6 +37,10 @@
       procs
       hyperfine
       woeusb # write win10.iso to usb drive
+
+      # data
+      jq
+      miller
 
       # monitoring
       bandwhich

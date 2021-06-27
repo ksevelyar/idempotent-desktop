@@ -4,6 +4,7 @@ args@{ config, lib, pkgs, ... }:
     [
       ../users/ksevelyar.nix
       ../users/kh.nix
+      ../services/x/openbox.nix
 
       ../sys/aliases.nix
       # ../sys/debug.nix
@@ -39,6 +40,7 @@ args@{ config, lib, pkgs, ... }:
       ../hardware/intel.nix
       ../hardware/nvidia.nix
       ../hardware/sound.nix
+      (import ../hardware/jack.nix (args // { output = "hw:0,0"; }))
       ../hardware/ssd.nix
 
       ../services/net/firewall-desktop.nix
@@ -52,11 +54,10 @@ args@{ config, lib, pkgs, ... }:
       ../services/vm/hypervisor.nix
     ];
 
-  boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;
-  boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
+  boot.loader.grub.splashImage = ../assets/displayManager.png;
+  boot.loader.grub.splashMode = "stretch";
 
   networking.hostName = "catch-22";
-  networking.firewall.enable = lib.mkForce true;
   networking.networkmanager.enable = true; # run nmtui for wi-fi
   networking.useDHCP = false;
   networking.interfaces.enp0s31f6.useDHCP = true;

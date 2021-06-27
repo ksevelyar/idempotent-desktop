@@ -14,7 +14,6 @@ args@{ config, lib, pkgs, ... }:
       ../hardware/ssd.nix
 
       ../sys/aliases.nix
-      # ../sys/debug.nix
       ../sys/fonts.nix
       ../sys/nix.nix
       ../sys/scripts.nix
@@ -35,6 +34,7 @@ args@{ config, lib, pkgs, ... }:
       ../packages/pass.nix
       ../packages/tmux.nix
       ../packages/freelance.nix
+      ../packages/mail.nix
 
       ../services/journald.nix
       ../services/postgresql.nix
@@ -53,18 +53,13 @@ args@{ config, lib, pkgs, ... }:
       ../services/net/avahi.nix
 
       ../services/vm/hypervisor.nix
-      # ../services/vm/docker.nix
     ];
 
   # boot
   boot.loader.grub.splashImage = ../assets/displayManager.png;
   boot.loader.grub.splashMode = "stretch";
 
-  boot.blacklistedKernelModules = [];
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [];
   boot.cleanTmpDir = true;
   boot.tmpOnTmpfs = true;
 

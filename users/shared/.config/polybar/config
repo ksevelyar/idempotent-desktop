@@ -62,6 +62,17 @@ modules-left = workspaces-xmonad
 modules-center = title
 modules-right = weather date
 
+[module/workspaces]
+type = internal/xworkspaces
+
+[bar/desktop-bottom-openbox]
+inherit = bar/base
+bottom = true
+
+modules-left = workspaces
+modules-center = title
+modules-right = weather date
+
 [bar/desktop-top]
 inherit = bar/base
 bottom = false

@@ -1,0 +1,16 @@
+pkill -9 polybar
+polybar desktop-top >>/tmp/polybar1.log 2>&1 &
+polybar desktop-bottom-openbox >>/tmp/polybar2.log 2>&1 &
+
+sh ~/.fehbg
+xxkb
+lxqt-policykit-agent
+
+# Notification
+twmnd &
+pkill conky; conky -c ~/.config/conky/conky-lyrics.conf
+
+xcape -e 'Super_R=Super_R|X'
+xcape -e 'Super_L=Super_L|X'
+
+spawn "systemctl --user start redshift"
