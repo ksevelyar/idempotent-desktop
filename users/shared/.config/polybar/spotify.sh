@@ -3,8 +3,10 @@
 artist=$(playerctl metadata artist)
 title=$(playerctl metadata title)
 
-path="$HOME/.cache/lyrics/$artist-$title.txt"
-path="${path// /-}"
+track="$artist $title"
+track_path="${track//[^a-z0-9]/-}"
+
+path="$HOME/.cache/lyrics/$track_path.txt"
 
 if [ -f "$path" ]; then
   lyrics=$(cat $path)
@@ -14,6 +16,6 @@ else
   printf "$lyrics" > $path
 fi
 
-printf "$lyrics" > /tmp/.current_song.txt
+printf "$lyrics" > "$HOME/.cache/lyrics/current-song.txt"
 
 echo "$artist - $title"
