@@ -10,7 +10,7 @@ args@{ config, lib, pkgs, ... }:
       ../hardware/intel.nix
       ../hardware/nvidia.nix
       ../hardware/sound.nix
-      ../hardware/jack.nix
+      # ../hardware/jack.nix
       ../hardware/ssd.nix
 
       ../sys/aliases.nix
