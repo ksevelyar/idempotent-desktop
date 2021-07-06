@@ -2,13 +2,9 @@ args@{ config, lib, pkgs, ... }:
 {
   imports =
     [
-      ../users/ksevelyar.nix
       ../users/manya.nix
-      (import ../services/x/xmonad.nix (args // { user = "ksevelyar"; }))
-      (import ../services/x/xmonad.nix (args // { user = "manya"; }))
+      ../users/ksevelyar.nix
       ../services/x/openbox.nix
-      (import ../packages/firefox.nix (args // { user = "ksevelyar"; }))
-      (import ../packages/firefox.nix (args // { user = "manya"; }))
 
       ../hardware/bluetooth.nix
       ../hardware/mouse.nix
@@ -106,7 +102,7 @@ args@{ config, lib, pkgs, ... }:
     displayManager = {
       defaultSession = "none+xmonad";
     };
-    videoDrivers = [ "nouveau" ];
+    videoDrivers = [ "nouveau" "modesetting" ];
   };
 
 
