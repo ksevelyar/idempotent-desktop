@@ -72,6 +72,12 @@
 
       peers = [
         # ksevelyar 42-52
+
+        ## tv 
+        {
+          publicKey = "9VERcnVTfy/hudaCyE/ULhA7KmOOnYGm+VxkFrS9T3k=";
+          allowedIPs = [ "192.168.42.42" ];
+        }
         ## hk-47 
         {
           publicKey = "Ql36tqX82moc8k5Yx4McF2zxF4QG3jeoXoj8AxSUNRU=";
