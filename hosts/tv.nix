@@ -7,6 +7,7 @@ args@{ config, lib, pkgs, ... }:
       ../hardware/bluetooth.nix
       ../hardware/mouse.nix
       ../hardware/intel.nix
+      ../hardware/intel-gpu.nix
       ../hardware/sound.nix
       # ../hardware/jack.nix
       ../hardware/ssd.nix
@@ -61,6 +62,7 @@ args@{ config, lib, pkgs, ... }:
   boot.tmpOnTmpfs = true;
 
   # net
+  systemd.services.sshd.wantedBy = [ "multi-user.target" ];
   networking.hostName = "tv";
   networking.interfaces.eno1.useDHCP = true;
   networking.useDHCP = false;
