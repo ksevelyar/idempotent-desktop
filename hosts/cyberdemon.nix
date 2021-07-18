@@ -38,7 +38,7 @@
       ../services/net/firewall-desktop.nix
       ../services/net/fail2ban.nix
       ../services/net/wireguard.nix
-      ../services/net/tor.nix
+      # ../services/net/tor.nix
       ../services/net/sshd.nix
       # (import ../services/net/nginx.nix { email = "ksevelyar@gmail.com"; })
       ../services/net/openvpn.nix

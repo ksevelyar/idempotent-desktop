@@ -45,7 +45,7 @@ args@{ config, lib, pkgs, ... }:
 
       ../services/net/firewall-desktop.nix
       ../services/net/wireguard.nix
-      ../services/net/tor.nix
+      # ../services/net/tor.nix
       ../services/net/sshd.nix
       ../services/net/openvpn.nix
       ../services/vpn/vpn.nix

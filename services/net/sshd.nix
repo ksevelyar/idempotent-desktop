@@ -1,4 +1,3 @@
-{ lib, ... }:
 {
   services.openssh = {
     ports = [ 9922 ];

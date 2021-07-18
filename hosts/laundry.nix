@@ -50,7 +50,6 @@
       # ../services/net/nginx.nix # id-doc
       ../services/net/openvpn.nix
       ../services/net/sshd.nix
-      ../services/net/tor.nix
       ../services/net/wireguard.nix
 
       # ../services/vm/hypervisor.nix
