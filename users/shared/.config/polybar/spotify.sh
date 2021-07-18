@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-artist=$(playerctl metadata artist)
-title=$(playerctl metadata title)
+artist=$(playerctl -p spotify metadata artist)
+title=$(playerctl -p spotify metadata title)
 
 track="$artist $title"
 track_path="${track//[^a-z0-9]/-}"
