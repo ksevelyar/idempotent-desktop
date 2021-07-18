@@ -11,7 +11,7 @@
     systemPackages = with pkgs; [
       pinentry-curses
       gopass
-      ripasso-cursive
+      # ripasso-cursive
     ];
   };
 }

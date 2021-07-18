@@ -11,4 +11,14 @@
       updateResolvConf = true;
     };
   };
+
+  security.sudo.extraRules = [
+    {
+      groups = [ "wheel" ];
+      commands = [
+        { command = "/run/current-system/sw/bin/systemctl start openvpn-uk-shark.service"; options = [ "SETENV" "NOPASSWD" ]; }
+        { command = "/run/current-system/sw/bin/systemctl stop openvpn-uk-shark.service"; options = [ "SETENV" "NOPASSWD" ]; }
+      ];
+    }
+  ];
 }
