@@ -9,7 +9,6 @@ args@{ config, lib, pkgs, ... }:
       ../hardware/intel.nix
       ../hardware/intel-gpu.nix
       ../hardware/sound.nix
-      # ../hardware/jack.nix
       ../hardware/ssd.nix
 
       ../sys/aliases.nix
@@ -21,7 +20,6 @@ args@{ config, lib, pkgs, ... }:
       ../sys/debug.nix
 
       ../boot/efi.nix
-      # ../boot/multiboot.nix
 
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
@@ -33,18 +31,13 @@ args@{ config, lib, pkgs, ... }:
       ../packages/nvim.nix
       ../packages/pass.nix
       ../packages/tmux.nix
-      # ../packages/freelance.nix
-      #  ../packages/mail.nix
 
       ../services/journald.nix
-      # ../services/postgresql.nix
-      #  ../services/redis.nix
       ../services/x.nix
       ../services/x/picom.nix
       ../services/x/redshift.nix
 
       ../services/net/firewall-desktop.nix
-      # (import ../services/net/nginx.nix { email = "ksevelyar@gmail.com"; })
       ../services/net/openvpn.nix
       # ../services/vpn/vpn.nix
       ../services/net/sshd.nix
@@ -65,7 +58,7 @@ args@{ config, lib, pkgs, ... }:
   networking.hostName = "tv";
   networking.interfaces.eno1.useDHCP = true;
   networking.useDHCP = false;
-  networking.networkmanager.enable = false; # run nmtui for wi-fi
+
 
   networking.wireguard.interfaces = {
     skynet = {
@@ -87,10 +80,8 @@ args@{ config, lib, pkgs, ... }:
   services.xserver.displayManager.defaultSession = "none+xmonad";
 
   # hardware
-  ## i5-9400F
-  ## PRIME B360M-K
-  ## RTX 2060
-  ## DIMM DDR4 2133MHz 16GBx2
+  ## J4125
+  ## DIMM DDR4 16GB
   hardware = {
     pulseaudio = {
       extraConfig = ''
