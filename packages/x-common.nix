@@ -135,6 +135,7 @@
       xdotool
       seturgent
       alacritty
+      roxterm
       cool-retro-term
       maim
       vokoscreen
