@@ -45,21 +45,12 @@ args@{ config, lib, pkgs, ... }:
       ../services/net/fail2ban.nix
       ../services/net/firewall-desktop.nix
       ../services/net/wireguard.nix
-      # ../services/net/i2p.nix
       ../services/net/sshd.nix
       ../services/net/openvpn.nix
-      # ../services/net/nginx.nix
       ../services/net/avahi.nix
 
       # ../services/vm/hypervisor.nix
     ];
-
-  # nix = {
-  #   package = pkgs.nixUnstable;
-  #   extraOptions = ''
-  #     experimental-features = nix-command flakes
-  #   '';
-  # };
 
   boot.loader.grub.splashImage = ../assets/displayManager.png;
   boot.loader.grub.splashMode = "stretch";
@@ -95,18 +86,7 @@ args@{ config, lib, pkgs, ... }:
   networking.networkmanager.enable = lib.mkDefault true; # run nmtui for wi-fi
   networking.useDHCP = false;
   networking.interfaces.enp6s0.useDHCP = true;
-  # networking.interfaces.wlp2s0.useDHCP = true;
-  # fileSystems."/skynet" = {
-  #   device = "192.168.42.1:/export";
-  #   fsType = "nfs";
-  #
-  #   # don't freeze system if mount point not available on boot
-  #   options = [ "x-systemd.automount" "noauto" ];
-  # };
 
-  swapDevices = [];
-
-  # sudo e2label /dev/disk/by-uuid/32685a01-79cc-4ec0-9d6f-c8708c897a3b nixos
   fileSystems."/" =
     {
       device = "/dev/disk/by-label/nixos";
@@ -114,7 +94,6 @@ args@{ config, lib, pkgs, ... }:
       options = [ "noatime" "nodiratime" ]; # ssd
     };
 
-  # sudo fatlabel /dev/disk/by-uuid/3A05-EA05 boot
   fileSystems."/boot" =
     {
       device = "/dev/disk/by-label/boot";
