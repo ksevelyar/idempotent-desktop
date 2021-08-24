@@ -141,6 +141,11 @@
           publicKey = "FLCkV96NM5ortoqDNiF4eswK1vnLSa04gTnDMmLuaAg=";
           allowedIPs = [ "192.168.42.50" ];
         }
+        # bubaleh
+        {
+          publicKey = "4uOtdM7jlN/JgJIZnz8faCPRoFmBDm1MvPio3woIYCg=";
+          allowedIPs = [ "192.168.42.51" ];
+        }
       ];
     };
   };
