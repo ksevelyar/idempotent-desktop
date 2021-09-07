@@ -2,7 +2,6 @@
 {
   environment.systemPackages = with pkgs;
     [
-      python
       nodejs_latest
       elixir
       elixir_ls
@@ -10,12 +9,14 @@
 
       # lsp
       rnix-lsp
-      clang-tools
+      rustup
+      rustfmt
+      cargo
+      rust-analyzer
 
       # tools
       zeal # docs
       curlie # api
-      imagemagick
       direnv
       lorri
       inotify-tools
