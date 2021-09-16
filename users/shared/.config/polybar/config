@@ -90,7 +90,7 @@ height = 22
 
 modules-left = volume spotify
 modules-center = filesystem
-modules-right = vnc ssh wifi cpu memory battery
+modules-right = vnc ssh vpn cpu memory battery
 
 [module/title]
 type = internal/xwindow
