@@ -74,6 +74,7 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+let g:fzf_layout = { 'down': '100%' }
 
 " Color Themes 
 Plug 'ksevelyar/joker.vim'
