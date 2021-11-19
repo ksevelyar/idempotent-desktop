@@ -77,6 +77,7 @@
       # fs
       fd
       exa
+      zip
       unzip
       unrar
       atool
