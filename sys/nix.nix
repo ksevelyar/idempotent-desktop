@@ -12,8 +12,8 @@
     ];
 
     # 🍑 smooth rebuilds
-    daemonNiceLevel = 2; # 19 max
-    daemonIONiceLevel = 2; # 7 max
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedPriority = 2; # 7 max
 
     gc = {
       automatic = true;
