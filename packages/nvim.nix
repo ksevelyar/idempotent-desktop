@@ -2,7 +2,6 @@
 {
   environment.systemPackages = with pkgs;
     [
-      nodejs_latest # coc
       global
       universal-ctags
       (

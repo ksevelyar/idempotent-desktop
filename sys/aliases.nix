@@ -49,6 +49,7 @@
     tm3 = "id-tm 🦹";
 
     g = "git";
+    gamend = "git add . && git commit --amend";
     gst = "git stash";
     gsp = "git stash pop";
     gsa = "git stash apply";

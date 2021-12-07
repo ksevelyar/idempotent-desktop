@@ -35,8 +35,6 @@ Plug 'tpope/vim-abolish'
 Plug 'brooth/far.vim'
 let g:far#source = 'rg'
 
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-
 " Navigation 
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
 let NERDTreeMinimalUI=1
@@ -86,7 +84,6 @@ Plug 'whatyouhide/vim-gotham'
 Plug 'arcticicestudio/nord-vim'
 Plug 'cocopon/iceberg.vim'
 
-Plug 'ryanoasis/vim-devicons'
 Plug 'luochen1990/rainbow'
 Plug 'tpope/vim-scriptease'
 
@@ -143,6 +140,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'slashmili/alchemist.vim'
 Plug 'LnL7/vim-nix'
 Plug 'elixir-editors/vim-elixir'
@@ -172,24 +170,15 @@ Plug 'jsfaint/gen_tags.vim'
 let g:gen_tags#ctags_auto_gen = 0
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'glepnir/lspsaga.nvim'
+Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
+Plug 'ray-x/navigator.lua'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
 " npm install -g typescript typescript-language-server vls
-lua << EOF
-local saga = require 'lspsaga'
-saga.init_lsp_saga()
-
-require'lspconfig'.rnix.setup{}
-require'lspconfig'.rust_analyzer.setup{}
-require'lspconfig'.elixirls.setup{
-  cmd = { "/run/current-system/sw/bin/elixir-ls" };
-}
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.vuels.setup{}
-
-EOF
+lua require('config')
 
 " -------------------------------------------------------------------------------------------------
 " Autocommands
@@ -223,7 +212,7 @@ set splitright
 syntax on
 filetype plugin on " to use filetype plugin
 filetype indent on " to use filetype indent
-set updatetime=200
+set updatetime=100
 set laststatus=2
 set signcolumn=yes
 set hidden
@@ -235,9 +224,6 @@ set encoding=utf-8
 set fileformat=unix
 
 set title
-" set shortmess+=c
-
-" set timeoutlen=2000
 
 " Disable annoying sound on errors
 set noerrorbells
@@ -265,7 +251,7 @@ endif
 " :Colors to change theme
 silent! colorscheme joker
 
-" tree view for netrw
+" Tree view for netrw
 let g:netrw_liststyle = 3
 
 " Clipboard ---------------------------------------------------------------------------------------
@@ -289,7 +275,7 @@ set backupdir=~/.config/nvim/backup//
 set writebackup "Make backup before overwriting the current buffer
 set backupcopy=yes "Overwrite the original backup file
 
-"Meaningful backup name, ex: filename@2015-04-05.14
+" Meaningful backup name, ex: filename@2015-04-05.14
 au BufWritePre * let &bex = 'gh' . '@' . strftime("%F.%H") . '.bac'
 
 set undofile
@@ -332,14 +318,7 @@ let g:mapleader = " "
 
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
-" show hover doc
-nnoremap <silent>K :Lspsaga hover_doc<CR>
-inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
-nnoremap <silent> gh <Cmd>Lspsaga lsp_finder<CR>
-
-
 nnoremap <silent> <space>a  :AutoSaveToggle<cr>
-" Manage extensions.
 
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)

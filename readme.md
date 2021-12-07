@@ -24,16 +24,17 @@ sudo nixos-rebuild switch
 1. Flakes for reproducible builds
 2. Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each host can contain multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users).
 4. Tiling with Xmonad and Polybar
-6. [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
+6. [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix), Spotify, Netflix
 
 ## Linux as IDE
 
 * fish, alacritty, ripgrep, fd, fzf, zoxide, tldr, delta 
-* Neovim with LSP for js/elixir/rust
+* Neovim with LSP for js, elixir, lua, rust and others.
 
 ## Security
 
 * tomb / LUKS
 * gopass / browserpass integration
+* uBlock Origin
 * VPN enabled by default
 * Tor
