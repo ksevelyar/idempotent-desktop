@@ -8,6 +8,8 @@
       gcc
 
       # lsp
+      sumneko-lua-language-server
+      efm-langserver
       rnix-lsp
       rustup
       rustfmt
