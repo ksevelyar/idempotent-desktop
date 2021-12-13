@@ -6,8 +6,6 @@ matching: "fuzzy";
 sort: true;
 sorting-method: "fzf";
 
-theme: "joker";
-
 /*	modi: "window,run,ssh";*/
 /*	width: 50;*/
 lines: 8;
@@ -145,3 +143,5 @@ drun-display-format: "{name} [<span weight='light' size='small'>({generic})</spa
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
+
+@theme "joker"
