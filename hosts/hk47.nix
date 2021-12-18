@@ -3,14 +3,12 @@ args@{ config, lib, pkgs, ... }:
   imports =
     [
       ../users/ksevelyar.nix
-      ../services/x/openbox.nix
 
       ../hardware/bluetooth.nix
       ../hardware/mouse.nix
       ../hardware/intel.nix
       ../hardware/nvidia.nix
       ../hardware/sound.nix
-      # ../hardware/jack.nix
       ../hardware/ssd.nix
 
       ../sys/aliases.nix
@@ -38,17 +36,14 @@ args@{ config, lib, pkgs, ... }:
 
       ../services/journald.nix
       ../services/postgresql.nix
-      ../services/redis.nix
       ../services/x.nix
       ../services/x/picom.nix
       ../services/x/redshift.nix
 
       ../services/net/firewall-desktop.nix
-      (import ../services/net/nginx.nix { email = "ksevelyar@gmail.com"; })
       ../services/net/openvpn.nix
       ../services/vpn/vpn.nix
       ../services/net/sshd.nix
-      # ../services/net/tor.nix
       ../services/net/wireguard.nix
       ../services/net/avahi.nix
 

@@ -1,6 +1,8 @@
 require'lspconfig'.elixirls.setup{
   cmd = { "/run/current-system/sw/bin/elixir-ls" };
 }
+vim.api.nvim_command("au BufWritePost *.ex lua vim.lsp.buf.formatting_sync(nil, 1000)")
+vim.api.nvim_command("au BufWritePost *.exs lua vim.lsp.buf.formatting_sync(nil, 1000)")
 
 local lspconfig = require('lspconfig')
 
@@ -20,12 +22,12 @@ require'navigator'.setup({
   treesitter_analysis = true,
   lsp = {
     tsserver = {
-      on_attach = function(client, bufnr)
+      on_attach = function(client)
         client.resolved_capabilities.document_formatting = false
       end,
     },
     efm = {
-      on_attach = function(client, bufnr)
+      on_attach = function(client)
         client.resolved_capabilities.document_formatting = true
       end,
       init_options = {documenFormatting = true, codeAction = true, document_formatting = true},
