@@ -1,8 +1,3 @@
-require'lspconfig'.elixirls.setup{
-  cmd = { "/run/current-system/sw/bin/elixir-ls" };
-}
-vim.api.nvim_command("au BufWritePost *.ex,*.exs lua vim.lsp.buf.formatting_sync(nil, 2000)")
-
 local lspconfig = require('lspconfig')
 
 local eslint = {
@@ -28,6 +23,7 @@ require'navigator'.setup({
     efm = {
       on_attach = function(client)
         client.resolved_capabilities.document_formatting = true
+        client.resolved_capabilities.completion = false
       end,
       init_options = {documenFormatting = true, codeAction = true, document_formatting = true},
       root_dir = lspconfig.util.root_pattern({'.git/', '.'}),
@@ -58,3 +54,54 @@ require'navigator'.setup({
     }
   }
 })
+
+local cmp = require'cmp'
+
+cmp.setup({
+  snippet = {
+    -- REQUIRED - you must specify a snippet engine
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+    end,
+  },
+  mapping = {
+    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-e>'] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  },
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' }, -- For vsnip users.
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+require'lspconfig'.elixirls.setup{
+  cmd = { "/run/current-system/sw/bin/elixir-ls" };
+  capabilities = capabilities
+}
+
+vim.api.nvim_command("au BufWritePost *.ex,*.exs lua vim.lsp.buf.formatting_sync(nil, 2000)")

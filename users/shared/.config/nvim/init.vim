@@ -1,4 +1,5 @@
-" npm i -g eslint_d prettier tsserver vls
+" npm i -g eslint_d prettier typescript-language-server vls
+" TODO: rewrite to lua modules
 
 " Plugins
 call plug#begin()
@@ -115,19 +116,10 @@ let g:lightline.separator = { 'left': '', 'right': '' }
 let g:lightline.subseparator = {  'left': '', 'right': '' }
 let g:lightline.colorscheme = 'joker'
 
-Plug '907th/vim-auto-save'
-let g:auto_save = 0
-
 " Dev
 Plug 'ruanyl/vim-gh-line'
 Plug 'tomtom/tcomment_vim'
 let g:tcomment_maps = 0
-
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -152,12 +144,18 @@ let g:indentLine_fileType = ['nix', 'html', 'vue']
 let g:indentLine_char = '┊'
 let g:indentLine_color_gui = "#3f3b52"
 
-Plug 'posva/vim-vue'
-let g:vue_pre_processors = ['pug', 'sass', 'scss']
 Plug 'digitaltoad/vim-pug'
 
-Plug 'jsfaint/gen_tags.vim'
-let g:gen_tags#ctags_auto_gen = 0
+" LSP
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+
+" For vsnip users.
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
@@ -169,6 +167,8 @@ call plug#end()
 
 " npm install -g typescript typescript-language-server vls
 lua require('config')
+
+set completeopt=menu,menuone,noselect
 
 " -------------------------------------------------------------------------------------------------
 " Autocommands
@@ -245,7 +245,7 @@ silent! colorscheme joker
 let g:netrw_liststyle = 3
 
 " Clipboard ---------------------------------------------------------------------------------------
-set noshowmode
+set noshowmode " cause the shape of cursor indicates the mode already
 set clipboard=unnamedplus " sync vim clipboard with linux clipboard
 
 " Backups -----------------------------------------------------------------------------------------
@@ -308,8 +308,6 @@ let g:mapleader = " "
 
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
-nnoremap <silent> <space>a  :AutoSaveToggle<cr>
-
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
@@ -324,10 +322,6 @@ nnoremap <silent> <Leader>. :Files <C-r>=expand("%:h")<CR>/<CR>
 nnoremap <silent> <Leader>g :GFiles?<CR>
 nnoremap <silent> <Leader>\  :Commits<CR>
 nnoremap <silent> <Leader>b :BCommits<CR>
-nnoremap <silent> <Leader>i :IndentLinesToggle<CR>
-
-nnoremap <silent> <Leader>]  :Tags<CR>
-nnoremap <silent> <Leader>b] :BTags<CR>
 
 nnoremap <leader>v <C-w>v<CR>
 nnoremap <leader>h <C-w>s<CR>
@@ -336,21 +330,16 @@ nnoremap <leader><leader> :Files<CR>
 nnoremap <leader>r :Rg<cr>
 nnoremap <leader>m <C-w>:History<CR>
 
-nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
 nnoremap <silent><leader>w :w<cr>
-nnoremap <leader>s :TagbarToggle<cr>
 
 nnoremap <silent>\ :Goyo<cr>
 
 " copy curent buffer filepath
 nnoremap <silent> <leader>p :let @+=expand("%:p")<CR>
-"command! SW :execute ':silent w !sudo tee % > /dev/null' | :edit!
 cmap w!! w !sudo tee % >/dev/null<Up>
 
-" Enable/Disable paste mode, where data won't be autoindented
-set pastetoggle=<C-F1>
 set spelllang=en_us
 nnoremap <leader>o :set spell!<CR>
 
