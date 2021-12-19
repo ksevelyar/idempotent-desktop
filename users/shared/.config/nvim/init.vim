@@ -1,5 +1,4 @@
-" https://idempotent-desktop.netlify.app/vim.html
-" https://github.com/ksevelyar/idempotent-desktop/blob/master/packages/nvim.nix
+" npm i -g eslint_d prettier tsserver vls
 
 " Plugins
 call plug#begin()
@@ -7,8 +6,6 @@ call plug#begin()
 Plug 'rbgrouleff/bclose.vim'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
-
-Plug 'majutsushi/tagbar'
 
 Plug 'easymotion/vim-easymotion'
 
@@ -22,15 +19,8 @@ Plug 'janko-m/vim-test'
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 
-Plug 'tpope/vim-obsession'
-
-Plug 'dhruvasagar/vim-prosession'
-let g:prosession_dir = '~/.config/nvim/session/'
-
 Plug 'airblade/vim-rooter'
 let g:rooter_silent_chdir = 1
-
-Plug 'tpope/vim-abolish'
 
 Plug 'brooth/far.vim'
 let g:far#source = 'rg'

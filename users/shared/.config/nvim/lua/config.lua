@@ -1,16 +1,16 @@
 require'lspconfig'.elixirls.setup{
   cmd = { "/run/current-system/sw/bin/elixir-ls" };
 }
-vim.api.nvim_command("au BufWritePost *.ex,*.exs lua vim.lsp.buf.formatting_sync(nil, 1000)")
+vim.api.nvim_command("au BufWritePost *.ex,*.exs lua vim.lsp.buf.formatting_sync(nil, 2000)")
 
 local lspconfig = require('lspconfig')
 
 local eslint = {
-  lintCommand = 'eslint -f unix --stdin --stdin-filename ${INPUT}',
+  lintCommand = 'eslint_d -f unix --stdin --stdin-filename ${INPUT}',
   lintIgnoreExitCode = true,
   lintStdin = true,
   lintFormats = {'%f:%l:%c: %m'},
-  formatCommand = 'eslint --fix-to-stdout --stdin --stdin-filename=${INPUT}',
+  formatCommand = 'eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}',
   formatStdin = true,
 }
 
@@ -34,10 +34,7 @@ require'navigator'.setup({
 
       filetypes = {
         "javascript",
-        "javascriptreact",
-        "typescriptreact",
         "vue",
-        "typescript",
         "scss",
         "css"
       },
@@ -48,18 +45,14 @@ require'navigator'.setup({
           less = {prettier},
           css = {prettier},
           html = {prettier},
-          javascript = {prettier, eslint},
-          javascriptreact = {prettier, eslint},
-          vue = {prettier, eslint},
+          javascript = {eslint},
+          vue = {eslint},
           json = {prettier},
           lua = {luaformatter},
           markdown = {prettier},
           scss = {prettier},
           typescript = {prettier, eslint},
-          typescriptreact = {prettier, eslint},
           yaml = {prettier},
-          ["javascript.jsx"] = {prettier, eslint},
-          ["typescript.tsx"] = {prettier, eslint},
         }
       }
     }
