@@ -27,12 +27,8 @@ Plug 'brooth/far.vim'
 let g:far#source = 'rg'
 
 " Navigation 
-Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
-let NERDTreeMinimalUI=1
-let NERDTreeWinSize=40
-let NERDTreeShowHidden=1
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -330,8 +326,8 @@ nnoremap <leader><leader> :Files<CR>
 nnoremap <leader>r :Rg<cr>
 nnoremap <leader>m <C-w>:History<CR>
 
-nnoremap <leader>t :NERDTreeToggle<cr>
-nnoremap <leader>f :NERDTreeFind<cr>
+nnoremap <leader>t :NvimTreeToggle<cr>
+nnoremap <leader>f :NvimTreeFindFile<cr>
 nnoremap <silent><leader>w :w<cr>
 
 nnoremap <silent>\ :Goyo<cr>

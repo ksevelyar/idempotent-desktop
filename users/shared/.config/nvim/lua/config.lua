@@ -105,3 +105,5 @@ require'lspconfig'.elixirls.setup{
 }
 
 vim.api.nvim_command("au BufWritePost *.ex,*.exs lua vim.lsp.buf.formatting_sync(nil, 2000)")
+
+require'nvim-tree'.setup()
