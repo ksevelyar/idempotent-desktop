@@ -288,7 +288,7 @@ nnoremap <leader>m <cmd>Telescope oldfiles<cr>
 nnoremap <leader>l <cmd>Telescope lsp_document_symbols<cr>
 
 nnoremap <leader>t :NvimTreeToggle<cr>
-nnoremap <leader>f :NvimTreeFindFile<cr>
+nnoremap <leader>f :NvimTreeFindFileToggle<cr>
 nnoremap <silent><leader>w :w<cr>
 
 nnoremap <silent>\ :Goyo<cr>
