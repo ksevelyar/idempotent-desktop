@@ -27,7 +27,6 @@ Plug 'brooth/far.vim'
 let g:far#source = 'rg'
 
 " Navigation 
-Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'junegunn/goyo.vim'
@@ -57,12 +56,10 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-let g:fzf_layout = { 'down': '100%' }
-
 " Color Themes 
 Plug 'ksevelyar/joker.vim'
+Plug 'shaunsingh/nord.nvim'
+Plug 'folke/tokyonight.nvim'
 " Plug '/c/joker.vim'
 
 Plug 'rafalbromirski/vim-aurora'
@@ -74,43 +71,10 @@ Plug 'cocopon/iceberg.vim'
 Plug 'luochen1990/rainbow'
 Plug 'tpope/vim-scriptease'
 
-Plug 'itchyny/lightline.vim' " :h lightline
-let g:lightline = {
-\ 'active': {
-\   'left':[[ 'filename', ], [ 'gitbranch', 'modified', 'readonly', 'paste']],
-\   'right':[[ 'fileformat', 'fileencoding', 'filetype' ]],
-\ },
-\ 'inactive': {
-\ 'left': [[ 'filename', 'modified' ]],
-\ 'right': [],
-\ },
-\ 'component_function': {
-\   'modified': 'LightlineModified',
-\   'readonly': 'LightlineReadonly',
-\   'gitbranch': 'LightlineFugitive'
-\ }
-\ }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
-function! LightlineModified()
-  let modified = &modified ? '+' : ''
-  return &readonly ? '' : modified
-endfunction
-
-function! LightlineReadonly()
-  return &readonly ? '' : ''
-endfunction
-
-function! LightlineFugitive()
-  if exists('*FugitiveHead')
-    let branch = FugitiveHead()
-    return branch !=# '' ? ' '.branch : ''
-  endif
-  return ''
-endfunction
-
-let g:lightline.separator = { 'left': '', 'right': '' }
-let g:lightline.subseparator = {  'left': '', 'right': '' }
-let g:lightline.colorscheme = 'joker'
+Plug 'nvim-lualine/lualine.nvim'
 
 " Dev
 Plug 'ruanyl/vim-gh-line'
@@ -185,7 +149,6 @@ autocmd VimEnter * silent!
 " sane terminal
 au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
 au TermOpen * setlocal nonumber
-au FileType fzf tunmap <buffer> <Esc>
 
 " -------------------------------------------------------------------------------------------------
 " Core Settings
@@ -314,17 +277,15 @@ nnoremap <C-H> <C-W><C-H> " navigate left
 
 nmap <leader>c :TComment<cr>
 xmap <leader>c :TComment<cr>
-nnoremap <silent> <Leader>. :Files <C-r>=expand("%:h")<CR>/<CR>
-nnoremap <silent> <Leader>g :GFiles?<CR>
-nnoremap <silent> <Leader>\  :Commits<CR>
-nnoremap <silent> <Leader>b :BCommits<CR>
 
 nnoremap <leader>v <C-w>v<CR>
 nnoremap <leader>h <C-w>s<CR>
 
-nnoremap <leader><leader> :Files<CR>
-nnoremap <leader>r :Rg<cr>
-nnoremap <leader>m <C-w>:History<CR>
+nnoremap <leader><leader> <cmd>Telescope find_files<cr>
+nnoremap <leader>r <cmd>Telescope live_grep<cr>
+nnoremap <leader>b <cmd>Telescope git_branches<cr>
+nnoremap <leader>m <cmd>Telescope oldfiles<cr>
+nnoremap <leader>l <cmd>Telescope lsp_document_symbols<cr>
 
 nnoremap <leader>t :NvimTreeToggle<cr>
 nnoremap <leader>f :NvimTreeFindFile<cr>
@@ -332,7 +293,7 @@ nnoremap <silent><leader>w :w<cr>
 
 nnoremap <silent>\ :Goyo<cr>
 
-" copy curent buffer filepath
+" copy current buffer filepath
 nnoremap <silent> <leader>p :let @+=expand("%:p")<CR>
 cmap w!! w !sudo tee % >/dev/null<Up>
 

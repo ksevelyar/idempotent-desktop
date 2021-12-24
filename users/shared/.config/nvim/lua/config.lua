@@ -1,4 +1,5 @@
 local lspconfig = require('lspconfig')
+local g   = vim.g
 
 local eslint = {
   lintCommand = 'eslint_d -f unix --stdin --stdin-filename ${INPUT}',
@@ -14,6 +15,14 @@ local luaformatter = {formatCommand = 'lua-format -i', formatStdin = true}
 
 require'navigator'.setup({
   treesitter_analysis = true,
+  icons = {
+    code_action_icon = '🔨',
+    diagnostic_err = '●',
+    diagnostic_warn = '●',
+    diagnostic_info = [[●]],
+    diagnostic_hint = [[●]],
+    diagnostic_virtual_text = '',
+  },
   lsp = {
     tsserver = {
       on_attach = function(client)
@@ -110,4 +119,63 @@ require'lspconfig'.rnix.setup{
   capabilities = capabilities
 }
 
-require'nvim-tree'.setup()
+require'lualine'.setup {
+  options = {
+    icons_enabled = true,
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    always_divide_middle = false,
+  },
+  sections = {
+    lualine_a = {
+      {
+        'filename',
+        symbols = {modified = ' + ', readonly = '  ', unnamed = 'No Name'},
+      }
+    },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {
+      {
+        'diagnostics',
+        symbols = {error = '● ', warn = '● ', info = '● ', hint = '● '},
+      }
+    },
+    lualine_z = {'branch'}
+  },
+  inactive_sections = {
+    lualine_a = {
+      {
+        'filename',
+        symbols = {modified = ' + ', readonly = '  ', unnamed = 'No Name'},
+      }
+    },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+}
+
+g.nvim_tree_show_icons = {
+  git = 1,
+  folders = 1, -- or 0,
+  files = 0, -- or 0,
+  folder_arrows = 0 -- or 0
+}
+
+require'nvim-tree'.setup {
+  view = {
+    hide_root_folder = false,
+    side = 'left',
+    auto_resize = false,
+    number = false,
+    relativenumber = false,
+    signcolumn = "yes"
+  }
+}
+
