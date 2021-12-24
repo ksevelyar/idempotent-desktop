@@ -104,6 +104,10 @@ require'lspconfig'.elixirls.setup{
   capabilities = capabilities
 }
 
-vim.api.nvim_command("au BufWritePost *.ex,*.exs lua vim.lsp.buf.formatting_sync(nil, 2000)")
+vim.api.nvim_command("au BufWritePost *.ex,*.exs,*.nix lua vim.lsp.buf.formatting_sync(nil, 2000)")
+
+require'lspconfig'.rnix.setup{
+  capabilities = capabilities
+}
 
 require'nvim-tree'.setup()

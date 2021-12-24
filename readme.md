@@ -29,7 +29,7 @@ sudo nixos-rebuild switch
 ## Linux as IDE
 
 * fish, alacritty, ripgrep, fd, fzf, zoxide, tldr, delta 
-* Neovim with [LSP](https://github.com/ray-x/navigator.lua) for js, elixir, lua, rust and others.
+* Neovim with [LSP](https://github.com/ray-x/navigator.lua) for elixir, rust, nix and others.
 
 ## Security
 

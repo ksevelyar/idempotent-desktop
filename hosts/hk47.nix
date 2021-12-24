@@ -99,7 +99,7 @@ args@{ config, lib, pkgs, ... }:
   };
 
   # fs
-  swapDevices = [];
+  swapDevices = [ ];
 
   fileSystems."/" =
     {
