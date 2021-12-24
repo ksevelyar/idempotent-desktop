@@ -37,4 +37,4 @@ sudo nixos-rebuild switch
 * gopass / [browserpass](https://github.com/browserpass/browserpass-extension#available-keyboard-shortcuts) integration
 * uBlock Origin
 * VPN enabled by default
-* Tor
+* element-desktop

@@ -13,9 +13,6 @@
       sd
       bat
       gitAndTools.delta # https://github.com/dandavison/delta
-      libqalculate # qalc
-      watchman
-      sipcalc
       tealdeer
       git
       mkpasswd
@@ -27,7 +24,6 @@
       curl
       aria2
       translate-shell
-      brightnessctl
       youtube-dl
       ddgr # cli duckduckgo
       googler # cli google
@@ -57,17 +53,6 @@
       pciutils # lspci
       usbutils # lsusb
       inetutils
-
-      # mail & tasks
-      isync # sync imap
-      msmtp # send mail
-      notmuch # index and search mail
-      notmuch-bower # notmuch tui
-      lynx # bower dep
-      mailcap # bower dep
-
-      # im
-      toxic
 
       # sec
       cryptsetup

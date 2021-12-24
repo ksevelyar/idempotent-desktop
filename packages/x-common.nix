@@ -93,25 +93,18 @@
       firefox
       google-chrome
       transmission_gtk
-      (mumble.override { pulseSupport = true; })
       x11vnc # vnc-server
       tigervnc # vncviewer
 
       # text    
       zathura
-      bookworm
       calibre
-      fbreader
-      hunspell
-      hunspellDicts.en_US-large
-      libreoffice-fresh
       anki
 
       # themes
       lxappearance
       vanilla-dmz
       dracula-theme
-      nordic
       adwaita-qt
       papirus-maia-icon-theme
 
@@ -119,13 +112,13 @@
       qtpass
       keepassx-community
       pinentry-gtk2
-      qtox
+
+      # im
+      element-desktop
       tdesktop
 
-      # mail
-      astroid # notmuch gui
-
       # sys
+      gparted
       xxkb
       xorg.xev
       xorg.xfd
@@ -135,26 +128,20 @@
       xdotool
       seturgent
       alacritty
-      roxterm
+      roxterm 
       cool-retro-term
-      maim
-      vokoscreen
+      maim # screenshot region or fullscreen
+      vokoscreen # record desktop
       xclip
-      (rofi.override { plugins = [ rofi-emoji rofi-calc ]; })
+      (rofi.override { plugins = [ rofi-emoji ]; })
       libnotify
-      dunst
-      nix-du
-      graphviz
 
       # media
       glxinfo
       feh
-      # google-play-music-desktop-player
       spotify
       playerctl
       mpv # https://github.com/mpv-player/mpv/blob/master/etc/input.conf
-
-
       vlc
       kodi
       libva-utils
@@ -164,9 +151,6 @@
       imv
       nomacs
       ahoviewer
-
-      # fs
-      gparted
 
       # gui for external monitors
       arandr

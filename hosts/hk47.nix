@@ -24,6 +24,7 @@ args@{ config, lib, pkgs, ... }:
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
       ../packages/x-common.nix
+      # ../packages/office.nix
       ../packages/dev.nix
       ../packages/3d-print.nix
       ../packages/electronics.nix

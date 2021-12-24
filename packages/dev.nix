@@ -5,6 +5,7 @@
       nodejs_latest
       elixir
       elixir_ls
+      exercism
       gcc
 
       # lsp
