@@ -278,8 +278,8 @@ nnoremap <C-H> <C-W><C-H> " navigate left
 nmap <leader>c :TComment<cr>
 xmap <leader>c :TComment<cr>
 
-nnoremap <leader>v <C-w>v<CR>
-nnoremap <leader>h <C-w>s<CR>
+nnoremap <leader>v <C-w>v<cr>
+nnoremap <leader>h <C-w>s<cr>
 
 nnoremap <leader><leader> <cmd>Telescope find_files<cr>
 nnoremap <leader>r <cmd>Telescope live_grep<cr>
@@ -293,12 +293,14 @@ nnoremap <silent><leader>w :w<cr>
 
 nnoremap <silent>\ :Goyo<cr>
 
+nnoremap <leader>y :%y+<cr>
+
 " copy current buffer filepath
-nnoremap <silent> <leader>p :let @+=expand("%:p")<CR>
+nnoremap <silent> <leader>p :let @+=expand("%:p")<cr>
 cmap w!! w !sudo tee % >/dev/null<Up>
 
 set spelllang=en_us
-nnoremap <leader>o :set spell!<CR>
+nnoremap <leader>o :set spell!<cr>
 
 " copy / paste
 " vmap <C-C> "+y
