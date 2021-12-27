@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs;
     [
       nodejs_latest
+      openssl
       elixir
       elixir_ls
       exercism
@@ -18,8 +19,7 @@
       rust-analyzer
 
       # tools
-      zeal # docs
-      curlie # api
+      curlie
       direnv
       lorri
       inotify-tools
