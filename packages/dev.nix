@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs;
     [
-      nodejs_latest
+      nodejs-14_x
       openssl
       elixir
       elixir_ls
