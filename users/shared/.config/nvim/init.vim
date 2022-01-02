@@ -1,4 +1,4 @@
-" npm i -g eslint_d prettier typescript-language-server vls
+" npm i -g eslint_d prettier typescript typescript-language-server vls
 " TODO: rewrite to lua modules
 
 " Plugins
@@ -288,15 +288,13 @@ nnoremap <leader>m <cmd>Telescope oldfiles<cr>
 nnoremap <leader>l <cmd>Telescope lsp_document_symbols<cr>
 
 nnoremap <leader>t :NvimTreeToggle<cr>
-nnoremap <leader>f :NvimTreeFindFileToggle<cr>
+nnoremap <leader>f :NvimTreeFindFile<cr>
 nnoremap <silent><leader>w :w<cr>
 
 nnoremap <silent>\ :Goyo<cr>
 
 nnoremap <leader>y :%y+<cr>
 
-" copy current buffer filepath
-nnoremap <silent> <leader>p :let @+=expand("%:p")<cr>
 cmap w!! w !sudo tee % >/dev/null<Up>
 
 set spelllang=en_us
