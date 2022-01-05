@@ -128,13 +128,14 @@
       xdotool
       seturgent
       alacritty
-      roxterm 
+      roxterm
       cool-retro-term
       maim # screenshot region or fullscreen
       vokoscreen # record desktop
       xclip
       (rofi.override { plugins = [ rofi-emoji ]; })
       libnotify
+      brightnessctl
 
       # media
       glxinfo
