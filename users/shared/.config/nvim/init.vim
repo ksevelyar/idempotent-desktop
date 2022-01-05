@@ -1,4 +1,4 @@
-" npm i -g eslint_d prettier typescript typescript-language-server vls
+" npm i -g eslint_d prettier typescript typescript-language-server vls 
 " TODO: rewrite to lua modules
 
 " Plugins

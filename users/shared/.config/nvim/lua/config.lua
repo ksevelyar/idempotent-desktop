@@ -35,29 +35,30 @@ require'navigator'.setup({
         client.resolved_capabilities.completion = false
       end,
       init_options = {documenFormatting = true, codeAction = true, document_formatting = true},
-      root_dir = lspconfig.util.root_pattern({'.git/', '.'}),
+      root_dir = lspconfig.util.root_pattern({'.git/', 'package.json'}),
 
       filetypes = {
         "javascript",
         "vue",
         "scss",
-        "css"
+        "css",
+        "json",
+        "html",
+        "markdown"
       },
       settings = {
         log_level = 1,
         log_file = '~/efm.log',
         languages = {
-          less = {prettier},
           css = {prettier},
+          scss = {prettier},
           html = {prettier},
           javascript = {eslint},
+          typescript = {eslint},
           vue = {eslint},
           json = {prettier},
           lua = {luaformatter},
           markdown = {prettier},
-          scss = {prettier},
-          typescript = {prettier, eslint},
-          yaml = {prettier},
         }
       }
     }
