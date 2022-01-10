@@ -2,23 +2,31 @@
 {
   environment.systemPackages = with pkgs;
     [
-      nodejs-14_x
-      openssl
-      elixir
-      elixir_ls
-      exercism
-      gcc
-
-      # lsp
-      sumneko-lua-language-server
-      efm-langserver
+      # rust
       rnix-lsp
       rustup
       rustfmt
       cargo
       rust-analyzer
 
+      # elixir
+      elixir
+      elixir_ls
+
+      # node
+      nodejs_latest
+
+      # lua
+      luaformatter
+      sumneko-lua-language-server
+
+      # prettier
+      efm-langserver
+
       # tools
+      exercism
+      gcc
+      openssl
       curlie
       direnv
       lorri
