@@ -4,7 +4,6 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 
 ![screen](https://i.imgur.com/fWKORz4.png)
 ![screen](https://i.imgur.com/fhAtYZY.png)
-![tomb](https://i.imgur.com/XwVKUrm.png)
 
 ## Install
 
@@ -24,15 +23,16 @@ sudo nixos-rebuild switch
 1. Flakes for reproducible builds
 2. Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each host can contain multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users).
 4. Tiling with Xmonad and Polybar
-6. [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix), Spotify, Netflix
+6. [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix), [Spotify](https://open.spotify.com/playlist/1FOoZGP15NMWkGqLDWk3lR?si=a001b656806e46bd), Netflix
 
 ## Linux as IDE
 
-* fish, alacritty, ripgrep, fd, fzf, zoxide, tldr, delta 
+* fish + direnv, mosh, alacritty, ripgrep, rsync, fzf, zoxide, tldr, delta 
 * Neovim with [LSP](https://github.com/ray-x/navigator.lua) for elixir, rust, nix and others.
 
 ## Security
 
+* all hosts connected with [wireguard](https://github.com/ksevelyar/idempotent-desktop/blob/main/hosts/skynet.nix#L67)
 * tomb / LUKS
 * gopass / [browserpass](https://github.com/browserpass/browserpass-extension#available-keyboard-shortcuts) integration
 * uBlock Origin
