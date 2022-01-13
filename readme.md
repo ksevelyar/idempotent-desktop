@@ -28,7 +28,7 @@ sudo nixos-rebuild switch
 ## Linux as IDE
 
 * fish + direnv, mosh, alacritty, ripgrep, rsync, fzf, zoxide, tldr, delta 
-* Neovim with [LSP](https://github.com/ray-x/navigator.lua) for elixir, rust, nix and others.
+* [Neovim with LSP](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/.config/nvim/init.vim) for Elixir, Rust, Nix and others.
 
 ## Security
 
