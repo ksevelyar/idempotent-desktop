@@ -1,4 +1,5 @@
 window:
+  opacity: 0.94
   dynamic_title: true
   padding:
    x: 10
@@ -18,8 +19,6 @@ font:
 
   bold_italic:
     style: Bold
-
-background_opacity: 0.94
 
 cursor:
   style: Underline

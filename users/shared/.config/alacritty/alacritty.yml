@@ -13,9 +13,9 @@ font:
   bold_italic:
     style: Bold
 
-background_opacity: 0.94
 
 window:
+  opacity: 0.94
   dynamic_title: true
 
 cursor:
