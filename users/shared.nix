@@ -102,6 +102,9 @@
       home.file.".config/fish/config.fish".source = ../users/shared/.config/fish/config.fish;
       home.file.".config/fish/functions/fish_prompt.fish".source = ../users/shared/.config/fish/functions/fish_prompt.fish;
       home.file.".config/fish/functions/fish_print_git_action.fish".source = ../users/shared/.config/fish/functions/fish_print_git_action.fish;
+
+
+      home.file.".iex.exs".source = ../users/shared/.iex.exs;
     };
   };
 }
