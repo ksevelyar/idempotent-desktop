@@ -2,20 +2,14 @@ IEx.configure(
   colors: [
     enabled: true,
     eval_result: [:cyan, :bright],
-    eval_error: [:light_magenta]
+    eval_error: [:light_magenta, :bright]
   ],
   default_prompt:
     [
-      # a pale gold
-      "\r\e[38;5;220m",
-      # IEx context
+      IO.ANSI.blue(),
       "%prefix",
-      # forest green expression count
-      "\e[38;5;112m(%counter)",
-      # gold ">"
-      "\e[38;5;220m>",
-      # and reset to default color
-      "\e[0m"
+      IO.ANSI.green() <> " %counter ",
+      IO.ANSI.reset()
     ]
     |> IO.chardata_to_string()
 )
