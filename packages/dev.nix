@@ -34,4 +34,8 @@
       gitg
       gitAndTools.gitui
     ];
+
+  environment.shellAliases = {
+    mt = "mix test --max-failures=1";
+  };
 }
