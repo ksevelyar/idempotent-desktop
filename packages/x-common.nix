@@ -124,7 +124,6 @@
       xorg.xfd
       xorg.xkbcomp
       piper # mouse settings
-      conky
       xdotool
       seturgent
       alacritty

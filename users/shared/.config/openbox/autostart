@@ -9,7 +9,6 @@ lxqt-policykit-agent
 
 # Notification
 twmnd &
-pkill conky; conky -c ~/.config/conky/conky-lyrics.conf
 
 xcape -e 'Super_R=Super_R|X'
 xcape -e 'Super_L=Super_L|X'
