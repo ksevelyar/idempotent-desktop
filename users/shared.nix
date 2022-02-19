@@ -5,8 +5,8 @@
     isNormalUser = true;
     description = name;
 
-    # Enable ‘sudo’ for the user.
     extraGroups = [
+      # Enable sudo
       "wheel"
       "networkmanager"
       "libvirtd"
@@ -14,6 +14,8 @@
       "dialout"
       "docker"
       "jackaudio"
+      "scanner"
+      "lp"
     ];
   };
 

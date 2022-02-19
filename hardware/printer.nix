@@ -1,9 +1,13 @@
 { pkgs, ... }:
 {
-  # Enable CUPS to print documents.
+  # Navigate to http://localhost:631/ to configure
   services.printing = {
     enable = true;
-    #   drivers = [ pkgs.gutenprint pkgs.hplip ];
+    browsing = true;
+    allowFrom = [ "skynet" ]; 
+    defaultShared = true;
   };
-  services.system-config-printer.enable = true;
+
+  networking.firewall.allowedUDPPorts = [ 631 ];
+  networking.firewall.allowedTCPPorts = [ 631 ];
 }
