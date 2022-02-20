@@ -20,33 +20,18 @@
       ccze
       lnav
       nmap
-      wget
-      curl
       aria2
       translate-shell
-      youtube-dl
-      ddgr # cli duckduckgo
-      googler # cli google
-      entr
-      sampler
       taskwarrior # todo & tasks
-      procs
-      hyperfine
       woeusb # write win10.iso to usb drive
-
-      # data
       jq
-      miller
 
       # monitoring
-      bandwhich
-      iperf3
       lm_sensors
       lsof
       hwinfo
       smartmontools
       gotop
-      htop
       iotop
       neofetch
       lshw
@@ -73,7 +58,6 @@
       nnn
       viu
       ncdu
-      du-dust
       exa
       zoxide
       dosfstools

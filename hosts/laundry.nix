@@ -19,10 +19,10 @@
       ../sys/scripts.nix
       ../sys/sysctl.nix
       ../sys/tty.nix
+      ../sys/cache.nix
 
       ../boot/efi.nix
       ../boot/multiboot.nix
-      # ../boot/plymouth.nix
 
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
@@ -35,19 +35,14 @@
       ../packages/pass.nix
       ../packages/tmux.nix
 
-      # ../services/flatpak.nix
       # ../services/mongodb.nix
       ../services/journald.nix
       ../services/postgresql.nix
-      ../services/redis.nix
       ../services/x.nix
       ../services/x/picom.nix
       ../services/x/redshift.nix
 
-      # ../services/net/i2pd.nix
-      # ../services/net/fail2ban.nix
       ../services/net/firewall-desktop.nix
-      # ../services/net/nginx.nix # id-doc
       ../services/net/openvpn.nix
       ../services/net/sshd.nix
       ../services/net/wireguard.nix
@@ -86,11 +81,11 @@
   boot.loader.grub.splashMode = "stretch";
 
   # boot
-  boot.blacklistedKernelModules = [];
+  boot.blacklistedKernelModules = [ ];
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" "amdgpu" ];
-  boot.extraModulePackages = [];
+  boot.extraModulePackages = [ ];
   boot.cleanTmpDir = true;
   boot.tmpOnTmpfs = true;
 
@@ -130,7 +125,7 @@
   };
 
   # fs
-  swapDevices = [];
+  swapDevices = [ ];
 
   # sudo e2label /dev/disk/by-uuid/044a758f-4252-4e42-b68c-a87d2345dc4c nixos
   fileSystems."/" =

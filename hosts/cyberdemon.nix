@@ -11,6 +11,7 @@
       ../sys/sysctl.nix
       ../sys/tty.nix
       ../sys/fonts.nix
+      ../sys/cache.nix
 
       ../boot/efi.nix
       ../boot/multiboot.nix
@@ -20,7 +21,6 @@
       ../services/postgresql.nix
 
       ../packages/x-common.nix
-      # ../packages/x-extra.nix
 
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
@@ -36,11 +36,8 @@
       ../hardware/ssd.nix
 
       ../services/net/firewall-desktop.nix
-      ../services/net/fail2ban.nix
       ../services/net/wireguard.nix
-      # ../services/net/tor.nix
       ../services/net/sshd.nix
-      # (import ../services/net/nginx.nix { email = "ksevelyar@gmail.com"; })
       ../services/net/openvpn.nix
 
       ../services/vm/hypervisor.nix
@@ -50,9 +47,9 @@
   boot.cleanTmpDir = lib.mkDefault true;
   boot.tmpOnTmpfs = lib.mkDefault true;
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [];
+  boot.extraModulePackages = [ ];
   boot.plymouth.enable = true;
 
   networking.firewall.enable = lib.mkForce true;
@@ -93,7 +90,7 @@
       options = [ "noatime" "nodiratime" ]; # ssd
     };
 
-  swapDevices = [];
+  swapDevices = [ ];
 
   hardware = {
     cpu.intel.updateMicrocode = true;

@@ -17,6 +17,7 @@
       ../sys/sysctl.nix
       ../sys/tty.nix
       ../sys/fonts.nix
+      ../sys/cache.nix
 
       ../boot/bios.nix
       ../boot/multiboot.nix
@@ -34,9 +35,8 @@
       # ../packages/games.nix
       ../packages/nvim.nix
       ../packages/pass.nix
-      ../packages/tmux.nix
+      # ../packages/tmux.nix
 
-      ../services/net/fail2ban.nix
       ../services/net/firewall-desktop.nix
       ../services/net/wireguard.nix
       ../services/net/sshd.nix
@@ -49,11 +49,11 @@
 
   # boot
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" "sdhci_pci" ];
-  boot.initrd.kernelModules = [];
+  boot.initrd.kernelModules = [ ];
   boot.cleanTmpDir = true;
   boot.tmpOnTmpfs = true;
   boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [];
+  boot.extraModulePackages = [ ];
 
   networking.hostName = "prism";
   networking.wireguard.interfaces = {
@@ -94,7 +94,7 @@
     };
   };
 
-  swapDevices = [];
+  swapDevices = [ ];
 
   # sudo e2label /dev/disk/by-uuid/32685a01-79cc-4ec0-9d6f-c8708c897a3b nixos
   fileSystems."/" =

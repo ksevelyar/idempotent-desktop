@@ -13,6 +13,7 @@
     ../sys/tty.nix
     ../sys/debug.nix
     ../sys/sysctl.nix
+    ../sys/cache.nix
 
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
@@ -36,15 +37,6 @@
   networking.hostName = lib.mkForce "id-live-min";
   networking.networkmanager.enable = true; # nmtui for wi-fi
   networking.wireless.enable = lib.mkForce false;
-
-  nix = {
-    binaryCaches = [
-      "https://idempotent-desktop.cachix.org"
-    ];
-    binaryCachePublicKeys = [
-      "idempotent-desktop.cachix.org-1:OkWDud90b2/k/k1yIUg1lxZdNRWEvCfv6zSSRQ75lVM="
-    ];
-  };
 
   services.getty.helpLine = lib.mkForce ''
     Type `i' to print system information.

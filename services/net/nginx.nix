@@ -1,7 +1,7 @@
 { email }:
 {
   security.acme.acceptTerms = true;
-  security.acme.email = email;
+  security.acme.defaults.email = email;
 
   services.nginx = {
     enable = true;

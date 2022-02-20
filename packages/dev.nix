@@ -32,7 +32,6 @@
       lorri
       inotify-tools
       gitg
-      gitAndTools.gitui
     ];
 
   environment.shellAliases = {

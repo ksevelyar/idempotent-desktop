@@ -18,6 +18,7 @@ args@{ config, lib, pkgs, ... }:
       ../sys/sysctl.nix
       ../sys/tty.nix
       ../sys/debug.nix
+      ../sys/cache.nix
 
       ../boot/efi.nix
 
@@ -49,7 +50,7 @@ args@{ config, lib, pkgs, ... }:
     "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
   services.xserver.dpi = 180;
   environment.variables = {
-    GDK_SCALE = "2";
+    GDK_SCALE = "1.5";
     GDK_DPI_SCALE = "0.5";
     _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
   };
@@ -100,7 +101,7 @@ args@{ config, lib, pkgs, ... }:
   };
 
   # fs
-  swapDevices = [];
+  swapDevices = [ ];
 
   fileSystems."/" =
     {

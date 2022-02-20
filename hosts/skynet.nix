@@ -11,6 +11,7 @@
       ../sys/scripts.nix
       ../sys/tty.nix
       ../sys/nix.nix
+      ../sys/cache.nix
 
       ../boot/bios.nix
 

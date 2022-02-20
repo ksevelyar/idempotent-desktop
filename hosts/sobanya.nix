@@ -4,7 +4,6 @@ args@{ config, lib, pkgs, ... }:
     [
       ../users/manya.nix
       ../users/ksevelyar.nix
-      ../services/x/openbox.nix
 
       ../hardware/bluetooth.nix
       ../hardware/mouse.nix
@@ -21,6 +20,7 @@ args@{ config, lib, pkgs, ... }:
       ../sys/scripts.nix
       ../sys/sysctl.nix
       ../sys/tty.nix
+      ../sys/cache.nix
 
       ../boot/bios.nix
       ../boot/multiboot.nix
@@ -40,17 +40,14 @@ args@{ config, lib, pkgs, ... }:
 
       ../services/journald.nix
       ../services/postgresql.nix
-      ../services/redis.nix
       ../services/x.nix
       ../services/x/picom.nix
       ../services/x/redshift.nix
 
       ../services/net/firewall-desktop.nix
-      # (import ../services/net/nginx.nix { email = "ksevelyar@gmail.com"; })
       ../services/net/openvpn.nix
       #../services/vpn/vpn.nix
       ../services/net/sshd.nix
-      #../services/net/tor.nix
       ../services/net/wireguard.nix
 
       ../services/vm/hypervisor.nix
@@ -65,8 +62,8 @@ args@{ config, lib, pkgs, ... }:
   boot.loader.grub.splashImage = ../assets/displayManager.png;
   boot.loader.grub.splashMode = "stretch";
 
-  boot.blacklistedKernelModules = [];
-  boot.initrd.kernelModules = [];
+  boot.blacklistedKernelModules = [ ];
+  boot.initrd.kernelModules = [ ];
   boot.cleanTmpDir = true;
   boot.tmpOnTmpfs = true;
 
@@ -109,7 +106,7 @@ args@{ config, lib, pkgs, ... }:
   # hardware
 
   # fs
-  swapDevices = [];
+  swapDevices = [ ];
 
   fileSystems."/" =
     {

@@ -18,13 +18,13 @@ args@{ config, lib, pkgs, ... }:
       ../sys/sysctl.nix
       ../sys/tty.nix
       ../sys/fonts.nix
+      ../sys/cache.nix
 
       ../boot/efi.nix
       ../boot/multiboot.nix
 
       ../services/journald.nix
       ../services/postgresql.nix
-      # ../services/redis.nix
       ../services/x.nix
       ../services/x/picom.nix
       ../services/x/redshift.nix
@@ -40,9 +40,7 @@ args@{ config, lib, pkgs, ... }:
       ../packages/pass.nix
       ../packages/tmux.nix
       ../packages/freelance.nix
-      ../packages/mail.nix
 
-      ../services/net/fail2ban.nix
       ../services/net/firewall-desktop.nix
       ../services/net/wireguard.nix
       ../services/net/sshd.nix

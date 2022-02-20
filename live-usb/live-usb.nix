@@ -14,6 +14,7 @@ args@{ config, pkgs, lib, ... }:
     ../sys/debug.nix
     ../sys/sysctl.nix
     ../sys/fonts.nix
+    ../sys/cache.nix
 
     ../packages/x-common.nix
     ../packages/absolutely-proprietary.nix
@@ -38,15 +39,6 @@ args@{ config, pkgs, lib, ... }:
   networking.hostName = lib.mkForce "id-live";
   networking.networkmanager.enable = true; # nmtui for wi-fi
   networking.wireless.enable = lib.mkForce false;
-
-  nix = {
-    binaryCaches = [
-      "https://idempotent-desktop.cachix.org"
-    ];
-    binaryCachePublicKeys = [
-      "idempotent-desktop.cachix.org-1:OkWDud90b2/k/k1yIUg1lxZdNRWEvCfv6zSSRQ75lVM="
-    ];
-  };
 
   services.xserver = {
     displayManager = {

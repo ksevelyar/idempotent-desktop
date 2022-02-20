@@ -4,7 +4,6 @@ args@{ config, lib, pkgs, ... }:
     [
       ../users/ksevelyar.nix
       ../users/kh.nix
-      ../services/x/openbox.nix
 
       ../sys/aliases.nix
       # ../sys/debug.nix
@@ -13,6 +12,7 @@ args@{ config, lib, pkgs, ... }:
       ../sys/sysctl.nix
       ../sys/tty.nix
       ../sys/fonts.nix
+      ../sys/cache.nix
 
       ../boot/efi.nix
       ../boot/multiboot.nix
@@ -39,18 +39,15 @@ args@{ config, lib, pkgs, ... }:
       ../hardware/intel.nix
       ../hardware/nvidia.nix
       ../hardware/sound.nix
-      (import ../hardware/jack.nix (args // { output = "hw:0,0"; }))
       ../hardware/ssd.nix
 
       ../services/net/firewall-desktop.nix
-      ../services/net/wireguard.nix
-      # ../services/net/tor.nix
       ../services/net/sshd.nix
       ../services/net/openvpn.nix
       ../services/vpn/vpn.nix
       ../services/net/avahi.nix
 
-      ../services/vm/hypervisor.nix
+      # ../services/vm/hypervisor.nix
     ];
 
   boot.loader.grub.splashImage = ../assets/displayManager.png;
@@ -91,9 +88,9 @@ args@{ config, lib, pkgs, ... }:
   boot.cleanTmpDir = true;
   boot.tmpOnTmpfs = true;
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [];
+  boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     {
