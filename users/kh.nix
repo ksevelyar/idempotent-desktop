@@ -8,6 +8,7 @@ in
   imports = [
     (import ./shared.nix (args // { user = user; email = email; name = name; }))
     (import ../services/x/xmonad.nix (args // { user = user; }))
+    (lib.mkIf (config.services.xserver.enable) (import ../services/x/polybar.nix (args // { user = user; })))
     (import ../packages/firefox.nix (args // { user = user; }))
   ];
 
