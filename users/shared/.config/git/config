@@ -4,7 +4,7 @@
 [core]
   excludesfile = ~/.config/git/ignore
   filemode = false
-  pager = "delta --plus-color=\"#16271C\" --minus-color=\"#331F21\" --theme='ansi-dark'\n"
+  pager = delta
   autocrlf = input
 
 [init]
@@ -18,10 +18,22 @@
   recent-branches = "branch --sort=-committerdate"
 
 [interactive]
-  diffFilter = "delta --color-only"
+  diffFilter = delta --color-only
 
 [push]
   default = "current"
 
 [rerere]
   enabled = 1
+
+[delta]
+  navigate = true  # use n and N to move between diff sections
+  plus-style = syntax "#16271C"
+  minus-style = normal "#331F21"
+  syntax-theme = ansi-dark
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
