@@ -34,7 +34,6 @@ args@{ config, lib, pkgs, ... }:
       ../packages/pass.nix
       ../packages/tmux.nix
       ../packages/freelance.nix
-      ../packages/mail.nix
 
       ../services/journald.nix
       ../services/postgresql.nix
@@ -49,7 +48,7 @@ args@{ config, lib, pkgs, ... }:
       ../services/net/wireguard.nix
       ../services/net/avahi.nix
 
-      ../services/vm/hypervisor.nix
+      # ../services/vm/hypervisor.nix
     ];
 
   # boot

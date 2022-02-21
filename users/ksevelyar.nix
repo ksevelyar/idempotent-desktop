@@ -8,7 +8,9 @@ in
   imports = [
     (import ./shared.nix (args // { user = user; email = email; name = name; }))
   ] ++ [
+    (lib.mkIf (config.services.xserver.enable) (import ../services/x/polybar.nix (args // { user = user; })))
     (lib.mkIf (config.services.xserver.enable) (import ../services/x/xmonad.nix (args // { user = user; })))
+    (lib.mkIf (config.services.xserver.enable) (import ../services/x/leftwm.nix (args // { user = user; })))
     (lib.mkIf (config.services.xserver.enable) (import ../packages/firefox.nix (args // { user = user; })))
   ];
 
@@ -21,12 +23,4 @@ in
     [
       "d /vvv 0700 ${user} wheel" # secrets
     ];
-
-  home-manager = {
-    users.${user} = {
-      home.file.".mbsyncrc".source = ./ksevelyar/.mbsyncrc;
-      home.file.".notmuch-config".source = ./ksevelyar/.notmuch-config;
-      home.file.".config/msmtp/msmtp/config".source = ./ksevelyar/.config/msmtp/config;
-    };
-  };
 }
