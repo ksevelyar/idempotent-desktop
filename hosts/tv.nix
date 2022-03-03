@@ -87,7 +87,7 @@ args@{ config, lib, pkgs, ... }:
   };
 
   # x
-  services.xserver.displayManager.defaultSession = "none+xmonad";
+  services.xserver.displayManager.defaultSession = "none+leftwm";
 
   # hardware
   ## J4125

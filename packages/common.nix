@@ -65,7 +65,7 @@
       sshfs
       ntfs3g
       exfat
-      sshfsFuse
+      sshfs-fuse
       rsync
       rclone # rclone mount gdrive: ~/gdrive/
       pigz

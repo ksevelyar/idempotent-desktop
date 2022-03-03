@@ -92,7 +92,7 @@
       # net
       firefox
       google-chrome
-      transmission_gtk
+      transmission-gtk
       x11vnc # vnc-server
       tigervnc # vncviewer
 
@@ -110,7 +110,7 @@
 
       # sec
       qtpass
-      keepassx-community
+      keepassx
       pinentry-gtk2
 
       # im

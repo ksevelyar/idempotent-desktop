@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs;
     [
       # slicers
-      slic3r-prusa3d
+      prusa-slicer
       cura
 
       # programmatic cads
