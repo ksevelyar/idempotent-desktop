@@ -22,7 +22,7 @@ sudo nixos-rebuild switch
 
 1. Flakes for reproducible builds
 2. Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each host can contain multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users).
-4. Tiling with Xmonad and Polybar or [tmux](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/tmux.nix)
+4. Tiling with leftwm and Polybar or [tmux](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/tmux.nix)
 6. [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix), [Spotify](https://open.spotify.com/playlist/1FOoZGP15NMWkGqLDWk3lR?si=a001b656806e46bd), Netflix
 
 ## Linux as IDE
