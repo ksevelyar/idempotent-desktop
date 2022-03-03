@@ -174,12 +174,12 @@ key = "Print"
 command = "Execute"
 value = "pactl set-sink-volume @DEFAULT_SINK@ +2%"
 modifier = []
-key = "XF86AudioRaiseVolume"
+key = "XF86XK_AudioRaiseVolume"
 [[keybind]]
 command = "Execute"
 value = "pactl set-sink-volume @DEFAULT_SINK@ -2%"
 modifier = []
-key = "XF86AudioLowerVolume"
+key = "XF86XK_AudioLowerVolume"
 
 [[keybind]]
 command = "Execute"
@@ -191,17 +191,22 @@ command = "Execute"
 value = "pactl set-sink-volume @DEFAULT_SINK@ -2%"
 modifier = ["modkey"]
 key = "Page_Down"
+[[keybind]]
+command = "Execute"
+value = "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+modifier = ["modkey"]
+key = "XF86XK_AudioMute"
 
 [[keybind]]
 command = "Execute"
 value = "brightnessctl set +10%"
 modifier = []
-key = "XF86MonBrightnessUp"
+key = "XF86XK_MonBrightnessUp"
 [[keybind]]
 command = "Execute"
 value = "brightnessctl set 10%-"
 modifier = []
-key = "XF86MonBrightnessDown"
+key = "XF86XK_MonBrightnessDown"
 
 [[keybind]]
 command = "Execute"
@@ -243,4 +248,35 @@ key = "5"
 command = "GotoTag"
 value = "6"
 modifier = ["modkey"]
+key = "6"
+
+[[keybind]]
+command = "MoveToTag"
+value = "1"
+modifier = ["modkey", "Shift"]
+key = "1"
+[[keybind]]
+command = "MoveToTag"
+value = "2"
+modifier = ["modkey", "Shift"]
+key = "2"
+[[keybind]]
+command = "MoveToTag"
+value = "3"
+modifier = ["modkey", "Shift"]
+key = "3"
+[[keybind]]
+command = "MoveToTag"
+value = "4"
+modifier = ["modkey", "Shift"]
+key = "4"
+[[keybind]]
+command = "MoveToTag"
+value = "5"
+modifier = ["modkey", "Shift"]
+key = "5"
+[[keybind]]
+command = "MoveToTag"
+value = "6"
+modifier = ["modkey", "Shift"]
 key = "6"
