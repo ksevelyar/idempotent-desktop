@@ -97,7 +97,7 @@ args@{ config, lib, pkgs, ... }:
   # x
   services.xserver = {
     displayManager = {
-      defaultSession = "none+xmonad";
+      defaultSession = "none+leftwm";
     };
     videoDrivers = [ "nouveau" "modesetting" ];
   };

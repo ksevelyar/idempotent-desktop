@@ -59,7 +59,6 @@ inherit = bar/base
 bottom = true
 
 modules-left = leftwm
-modules-center = title
 modules-right = weather date
 
 [module/leftwm]

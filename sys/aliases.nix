@@ -80,8 +80,6 @@
     # nix
     e = "sudo nvim /etc/nixos/configuration.nix";
     b = "sudo nixos-rebuild switch --keep-going";
-    br = "b && xmonad --restart";
-    # no = "nixos-option";
     id-wipe-user-packages = "nix-env -e '*'";
 
     id-gc = "sudo nix-collect-garbage --delete-older-than 30d";
