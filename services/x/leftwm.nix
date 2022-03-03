@@ -20,6 +20,11 @@
 
   home-manager = {
     users.${user} = {
+      home.file.".config/leftwm/config.toml".source = ../../users/shared/.config/leftwm/config.toml;
+      home.file.".config/leftwm/themes/current/up".source = ../../users/shared/.config/leftwm/themes/wide-polybar/up;
+      home.file.".config/leftwm/themes/current/down".source = ../../users/shared/.config/leftwm/themes/wide-polybar/down;
+      home.file.".config/leftwm/themes/current/theme.toml".source = ../../users/shared/.config/leftwm/themes/wide-polybar/theme.toml;
+
       home.file.".fehbg".text = lib.mkDefault ''
         #!/bin/sh
         /run/current-system/sw/bin/feh --randomize --bg-fill --no-fehbg ~/Wallpapers/

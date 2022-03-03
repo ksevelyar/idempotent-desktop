@@ -1,20 +1,90 @@
 tags = ["web","ed","im","sh","chill","*"]
 
 [[scratchpad]]
-name = "alacritty-1"
-value = "WINIT_X11_SCALE_FACTOR=1 alacritty -o font.size=14"
-x = 0.5
-y = 0.5
-height = 0.5
-width =  0.5
+name = "spotify"
+value = "spotify"
+x = 0.1
+y = 0.1
+height = 0.8
+width =  0.8
+
+[[scratchpad]]
+name = "bluetooth"
+value = "blueman-manager"
+x = 0.1
+y = 0.1
+height = 0.8
+width =  0.8
+
+[[scratchpad]]
+name = "spacefm"
+value = "spacefm"
+x = 0.1
+y = 0.1
+height = 0.8
+width =  0.8
+
+[[scratchpad]]
+name = "nomacs"
+value = "nomacs"
+x = 0.1
+y = 0.1
+height = 0.8
+width =  0.8
+
+[[scratchpad]]
+name = "pulseaudio"
+value = "pavucontrol"
+x = 0.1
+y = 0.1
+height = 0.8
+width =  0.8
 
 [[scratchpad]]
 name = "alacritty-2"
-value = "WINIT_X11_SCALE_FACTOR=1 alacritty -o font.size=14"
+value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
+x = 0.5
+y = 0.5
+height = 0.45
+width =  0.5
+
+[[scratchpad]]
+name = "alacritty-1"
+value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
 x = 0
 y = 0.5
-height = 0.5
+height = 0.45
 width =  0.5
+
+[[keybind]]
+command = "ToggleScratchPad"
+value = "bluetooth"
+modifier = []
+key = "F7"
+
+[[keybind]]
+command = "ToggleScratchPad"
+value = "pulseaudio"
+modifier = []
+key = "F8"
+
+[[keybind]]
+command = "ToggleScratchPad"
+value = "spotify"
+modifier = []
+key = "F9"
+
+[[keybind]]
+command = "ToggleScratchPad"
+value = "spacefm"
+modifier = ["modkey"]
+key = "s"
+
+[[keybind]]
+command = "ToggleScratchPad"
+value = "nomacs"
+modifier = ["modkey"]
+key = "i"
 
 [[keybind]]
 command = "ToggleScratchPad"
@@ -35,6 +105,18 @@ modifier = ["modkey"]
 key = "x"
 
 [[keybind]]
+command = "Execute"
+value = "telegram-desktop"
+modifier = ["modkey"]
+key = "t"
+
+[[keybind]]
+command = "Execute"
+value = "sleep 0.5; xset dpms force off"
+modifier = ["modkey"]
+key = "o"
+
+[[keybind]]
 command = "CloseWindow"
 modifier = ["modkey"]
 key = "q"
@@ -50,3 +132,115 @@ command = "Execute"
 value = "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
 modifier = ["modkey"]
 key = "c"
+
+[[keybind]]
+command = "Execute"
+value = "firefox -p work"
+modifier = ["modkey"]
+key = "b"
+
+[[keybind]]
+command = "Execute"
+value = "firefox -p chill"
+modifier = ["modkey"]
+key = "y"
+
+[[keybind]]
+command = "Execute"
+value = "alacritty --class nvim -e fish -c nvim"
+modifier = ["modkey"]
+key = "v"
+
+[[keybind]]
+command = "Execute"
+value = "jgmenu --center"
+modifier = ["modkey"]
+key = "m"
+
+[[keybind]]
+command = "Execute"
+value = "maim ~/Screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png"
+modifier = ["modkey"]
+key = "Print"
+
+[[keybind]]
+command = "Execute"
+value = "maim -s ~/Screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png"
+modifier = []
+key = "Print"
+
+
+[[keybind]]
+command = "Execute"
+value = "pactl set-sink-volume @DEFAULT_SINK@ +2%"
+modifier = []
+key = "XF86AudioRaiseVolume"
+[[keybind]]
+command = "Execute"
+value = "pactl set-sink-volume @DEFAULT_SINK@ -2%"
+modifier = []
+key = "XF86AudioLowerVolume"
+
+[[keybind]]
+command = "Execute"
+value = "pactl set-sink-volume @DEFAULT_SINK@ +2%"
+modifier = ["modkey"]
+key = "Page_Up"
+[[keybind]]
+command = "Execute"
+value = "pactl set-sink-volume @DEFAULT_SINK@ -2%"
+modifier = ["modkey"]
+key = "Page_Down"
+
+[[keybind]]
+command = "Execute"
+value = "brightnessctl set +10%"
+modifier = []
+key = "XF86MonBrightnessUp"
+[[keybind]]
+command = "Execute"
+value = "brightnessctl set 10%-"
+modifier = []
+key = "XF86MonBrightnessDown"
+
+[[keybind]]
+command = "Execute"
+value = "id-pick-color"
+modifier = ["modkey"]
+key = "k"
+
+[[keybind]]
+command = "HardReload"
+modifier = ["modkey"]
+key = "r"
+
+[[keybind]]
+command = "GotoTag"
+value = "1"
+modifier = ["modkey"]
+key = "1"
+[[keybind]]
+command = "GotoTag"
+value = "2"
+modifier = ["modkey"]
+key = "2"
+[[keybind]]
+command = "GotoTag"
+value = "3"
+modifier = ["modkey"]
+key = "3"
+[[keybind]]
+command = "GotoTag"
+value = "4"
+modifier = ["modkey"]
+key = "4"
+[[keybind]]
+command = "GotoTag"
+value = "5"
+modifier = ["modkey"]
+key = "5"
+[[keybind]]
+command = "GotoTag"
+value = "6"
+modifier = ["modkey"]
+key = "6"
