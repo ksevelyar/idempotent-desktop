@@ -280,3 +280,33 @@ command = "MoveToTag"
 value = "6"
 modifier = ["modkey", "Shift"]
 key = "6"
+
+[[keybind]]
+command = "FloatingToTile"
+modifier = ["modkey"]
+key = "u"
+
+[[keybind]]
+command = "MoveWindowUp"
+modifier = ["modkey", "Shift"]
+key = "Up"
+
+[[keybind]]
+command = "MoveWindowDown"
+modifier = ["modkey", "Shift"]
+key = "Down"
+
+[[keybind]]
+command = "FocusWindowUp"
+modifier = ["modkey"]
+key = "Left"
+
+[[keybind]]
+command = "FocusWindowDown"
+modifier = ["modkey"]
+key = "Right"
+
+[[keybind]]
+command = "ToggleFullScreen"
+modifier = ["modkey"]
+key = "f"
