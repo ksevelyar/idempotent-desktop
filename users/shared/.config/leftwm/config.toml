@@ -106,6 +106,12 @@ key = "x"
 
 [[keybind]]
 command = "Execute"
+value = "rofi -modi emoji -no-show-match -no-sort -matching normal -show"
+modifier = ["modkey"]
+key = "z"
+
+[[keybind]]
+command = "Execute"
 value = "telegram-desktop"
 modifier = ["modkey"]
 key = "t"

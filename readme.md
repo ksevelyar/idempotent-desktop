@@ -29,6 +29,7 @@ sudo nixos-rebuild switch
 
 * leftwm + polybar, fish + direnv, mosh, alacritty, ripgrep, rsync, fzf, zoxide, tldr, delta 
 * [Neovim with LSP](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/.config/nvim/init.vim) for Elixir, Rust, Nix and others.
+* fuzzy search by apps, emojis and clipboard history wih rofi 
 
 ## Security
 
