@@ -1,0 +1,52 @@
+tags = ["web","ed","im","sh","chill","*"]
+
+[[scratchpad]]
+name = "alacritty-1"
+value = "WINIT_X11_SCALE_FACTOR=1 alacritty -o font.size=14"
+x = 0.5
+y = 0.5
+height = 0.5
+width =  0.5
+
+[[scratchpad]]
+name = "alacritty-2"
+value = "WINIT_X11_SCALE_FACTOR=1 alacritty -o font.size=14"
+x = 0
+y = 0.5
+height = 0.5
+width =  0.5
+
+[[keybind]]
+command = "ToggleScratchPad"
+value = "alacritty-1"
+modifier = []
+key = "F1"
+
+[[keybind]]
+command = "ToggleScratchPad"
+value = "alacritty-2"
+modifier = []
+key = "F2"
+
+[[keybind]]
+command = "Execute"
+value = "rofi -modi drun -matching fuzzy -sorting-method fzf drun -show"
+modifier = ["modkey"]
+key = "x"
+
+[[keybind]]
+command = "CloseWindow"
+modifier = ["modkey"]
+key = "q"
+
+[[keybind]]
+command = "Execute"
+value = "alacritty"
+modifier = ["modkey"]
+key = "Return"
+
+[[keybind]]
+command = "Execute"
+value = "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
+modifier = ["modkey"]
+key = "c"

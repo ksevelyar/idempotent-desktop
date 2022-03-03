@@ -15,10 +15,6 @@
   services.xserver.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
 
   services.xserver = {
-    displayManager = {
-      defaultSession = lib.mkDefault "none+xmonad";
-    };
-
     windowManager.xmonad.enable = true;
     windowManager.xmonad.enableContribAndExtras = true;
   };

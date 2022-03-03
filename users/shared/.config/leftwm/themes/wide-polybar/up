@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+echo "LoadTheme $SCRIPTPATH/theme.toml" > $XDG_RUNTIME_DIR/leftwm/commands.pipe
+
+sh ~/.fehbg
+
+pkill polybar
+
+echo "---" | tee -a ~/.cache/polybar-top.log ~/.cache/polybar-bottom.log
+polybar desktop-top >>~/.cache/polybar-top.log 2>&1 &
+polybar desktop-bottom >>~/.cache/polybar-bottom.log 2>&1 &
