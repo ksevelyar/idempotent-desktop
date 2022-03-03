@@ -58,12 +58,14 @@ modules-right = weather date
 inherit = bar/base
 bottom = true
 
-modules-left = workspaces
+modules-left = leftwm
 modules-center = title
 modules-right = weather date
 
-[module/workspaces]
-type = internal/xworkspaces
+[module/leftwm]
+type = custom/script
+exec = leftwm-state -w 0 -t ~/.config/leftwm/themes/current/template.liquid
+tail = true
 
 [bar/desktop-bottom-openbox]
 inherit = bar/base

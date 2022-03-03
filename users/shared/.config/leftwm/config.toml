@@ -1,4 +1,4 @@
-tags = ["web","ed","im","sh","chill","*"]
+tags = ["web", "ed", "cad", "im", "sh", "chill", "*"]
 
 [[scratchpad]]
 name = "spotify"
@@ -255,6 +255,12 @@ command = "GotoTag"
 value = "6"
 modifier = ["modkey"]
 key = "6"
+[[keybind]]
+command = "GotoTag"
+value = "7"
+modifier = ["modkey"]
+key = "7"
+
 
 [[keybind]]
 command = "MoveToTag"
@@ -286,6 +292,11 @@ command = "MoveToTag"
 value = "6"
 modifier = ["modkey", "Shift"]
 key = "6"
+[[keybind]]
+command = "MoveToTag"
+value = "7"
+modifier = ["modkey", "Shift"]
+key = "7"
 
 [[keybind]]
 command = "FloatingToTile"

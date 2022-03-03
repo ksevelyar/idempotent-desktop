@@ -22,6 +22,8 @@
     users.${user} = {
       home.file.".config/leftwm/config.toml".source = ../../users/shared/.config/leftwm/config.toml;
       home.file.".config/leftwm/themes/current/up".source = ../../users/shared/.config/leftwm/themes/wide-polybar/up;
+      home.file.".config/leftwm/themes/current/change_to_tag".source = ../../users/shared/.config/leftwm/themes/wide-polybar/change_to_tag;
+      home.file.".config/leftwm/themes/current/template.liquid".source = ../../users/shared/.config/leftwm/themes/wide-polybar/template.liquid;
       home.file.".config/leftwm/themes/current/down".source = ../../users/shared/.config/leftwm/themes/wide-polybar/down;
       home.file.".config/leftwm/themes/current/theme.toml".source = ../../users/shared/.config/leftwm/themes/wide-polybar/theme.toml;
 
