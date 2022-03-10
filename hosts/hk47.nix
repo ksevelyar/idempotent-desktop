@@ -47,6 +47,7 @@ args@{ config, lib, pkgs, ... }:
       ../services/net/sshd.nix
       ../services/net/wireguard.nix
       ../services/net/avahi.nix
+      ../services/net/tor.nix
 
       # ../services/vm/hypervisor.nix
     ];
