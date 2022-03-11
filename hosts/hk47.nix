@@ -81,6 +81,19 @@ args@{ config, lib, pkgs, ... }:
     };
   };
 
+  # vpn
+  services.openvpn.servers = {
+    uk-shark = {
+      autoStart = false;
+    };
+    de-shark = {
+      autoStart = true;
+    };
+    us-proton = {
+      autoStart = false;
+    };
+  };
+
   # x
   services.xserver.displayManager.defaultSession = "none+leftwm";
 
