@@ -30,7 +30,7 @@
   navigate = true  # use n and N to move between diff sections
   plus-style = syntax "#16271C"
   minus-style = normal "#331F21"
-  syntax-theme = ansi-dark
+  syntax-theme = ansi
 
 [merge]
   conflictstyle = diff3
