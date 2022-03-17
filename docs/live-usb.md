@@ -1,9 +1,5 @@
 # Live Usb
 
-## Download it
-
-[idempotent-desktop.iso](https://drive.google.com/file/d/1XBa1LUK32A_DbMBge44co_AFfg44Ngqo/view?usp=sharing) ~1.7GB
-
 ## Generate
 
 ```sh
