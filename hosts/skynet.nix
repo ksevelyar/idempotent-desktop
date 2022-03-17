@@ -152,17 +152,11 @@
   };
 
   services.nginx = {
-    # virtualHosts."legacy-intelligence.life" = {
+    # virtualHosts."domain.tld" = {
     #   enableACME = true;
     #   forceSSL = true;
-    #   root = "/var/www/legacy-intelligence/dist/";
+    #   root = "/var/www/rooms-slider";
     # };
-
-    virtualHosts."preview-project.com" = {
-      enableACME = true;
-      forceSSL = true;
-      root = "/var/www/rooms-slider";
-    };
   };
 
   networking.hostName = "skynet";
