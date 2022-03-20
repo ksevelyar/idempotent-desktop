@@ -34,7 +34,7 @@ sudo nixos-rebuild switch
 ## Security
 
 * all hosts connected with [wireguard](https://github.com/ksevelyar/idempotent-desktop/blob/main/hosts/skynet.nix#L67)
-* tomb / LUKS
+* tomb / [LUKS](https://wiki.archlinux.org/title/Data-at-rest_encryption)
 * gopass / [browserpass](https://github.com/browserpass/browserpass-extension#available-keyboard-shortcuts) integration
 * uBlock Origin
 * VPN enabled by default
