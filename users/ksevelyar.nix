@@ -1,7 +1,7 @@
 args@{ config, pkgs, lib, ... }:
 let
   user = "ksevelyar";
-  email = "ksevelyar@gmail.com";
+  email = "ksevelyar@protonmail.com";
   name = "Sergey Zubkov";
 in
 {
