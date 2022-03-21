@@ -1,22 +1,14 @@
-# [Xmonad](https://github.com/ksevelyar/idempotent-desktop/blob/mast../services/x/xmonad.nix)
-
-![screen](https://i.imgur.com/fWKORz4.png)
+# leftwm
 
 ## Launchers
 
-`<Win>` run application
-
-`<Win>+h` show docs
-
 `<Win>m` show jgmenu
 
-`<Win>p` qtpass
+`<Win>` Rofi: apps
 
 `<Win>c` Rofi: clipboard entries
 
 `<Win>z` Rofi: emoji
-
-`<Win>=` Rofi: calc
 
 ## Windows & workspaces
 
@@ -42,27 +34,15 @@
 
 `<Win>t` open or focus Telegram
 
-`<Win>q,w,e` switch to physical screen
-
-`<Win><Shift>q,w,e` move focused window to physical screen
-
 ## Scratchpads
-
-`<Win>j` toggle tmux scratchpad
 
 `<Win>s` toggle SpaceFM
 
 `<Win>i` toggle images browser (Nomacs)
 
-`<Win>g` toggle Google Play Music Desktop Player
-
 `<F1>` toggle first alacritty scratchpad
 
 `<F2>` toggle second alacritty scratchpad
-
-`<F3>` toggle nnn
-
-`<F4>` toggle notes
 
 `<F6>` toggle gotop scratchpad
 
@@ -87,10 +67,6 @@
 `<Win>PageUp` volume up
 
 `<Win>PageDown` volume down
-
-`<Win><Shift>,` set volume to 20%
-
-`<Win><Shift>.` set volume to 40%
 
 `<Win>~` set random wallpaper from `~/Wallpapers`
 
