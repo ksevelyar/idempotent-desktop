@@ -25,13 +25,25 @@ Expire-Date: 0
 gpg --batch --generate-key gpg.template
 ```
 
+You can use this key for pass.
+
 ### Enlist keys
 
 ```fish
 gpg --list-secret-keys
 ```
 
-You can use this key for pass now.
+### Export key
+
+```
+gpg --export-secret-keys YOUR_ID_HERE > private.key
+```
+
+### Import key
+
+```
+gpg --import private.key
+```
 
 ## [gopass](https://woile.github.io/gopass-presentation/)
 
@@ -79,14 +91,3 @@ bash -c 'for key in ~/.ssh/id_*; do ssh-keygen -l -f "${key}"; done | uniq'
 
 `ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519`
 
-## Fail2Ban
-
-Currently integrated with `sshd`.
-
-## hardened kernel
-
-You can switch to the hardened kernel with one line: [sysctl.nix](https://github.com/ksevelyar/idempotent-desktop/blob/504570d52ab79463704e4ddcf908f82c593621../sys/sysctl.nix#L4-L6)
-
-## Monitor
-
-- [email](https://haveibeenpwned.com/)

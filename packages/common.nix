@@ -41,7 +41,6 @@
 
       # sec
       cryptsetup
-      tomb
       pwgen
 
       # fs

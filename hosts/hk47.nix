@@ -25,7 +25,6 @@ args@{ config, lib, pkgs, ... }:
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
       ../packages/x-common.nix
-      # ../packages/office.nix
       ../packages/dev.nix
       ../packages/3d-print.nix
       ../packages/electronics.nix
@@ -52,14 +51,6 @@ args@{ config, lib, pkgs, ... }:
       # ../services/vm/hypervisor.nix
     ];
 
-  # boot
-  boot.loader.grub.splashImage = ../assets/displayManager.png;
-  boot.loader.grub.splashMode = "stretch";
-
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
-  boot.cleanTmpDir = true;
-  boot.tmpOnTmpfs = true;
-
   # net
   networking.hostName = "hk47";
   networking.interfaces.enp4s0.useDHCP = true;
@@ -68,7 +59,7 @@ args@{ config, lib, pkgs, ... }:
   networking.wireguard.interfaces = {
     skynet = {
       ips = [ "192.168.42.47" ];
-      privateKeyFile = "/home/ksevelyar/wireguard-keys/private";
+      privateKeyFile = "/home/ksevelyar/.secrets/wireguard-keys/private";
       peers = [
         {
           publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
@@ -99,7 +90,7 @@ args@{ config, lib, pkgs, ... }:
 
   # hardware
   ## i5-9400F
-  ## PRIME B360M-K
+  ## PRIME B360M-K (F8 for boot menu)
   ## RTX 2060
   ## DIMM DDR4 2133MHz 16GBx2
   hardware = {
@@ -112,29 +103,41 @@ args@{ config, lib, pkgs, ... }:
     };
   };
 
+  # boot
+  boot.loader.grub.splashImage = ../assets/displayManager.png;
+  boot.loader.grub.splashMode = "stretch";
+
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.cleanTmpDir = true;
+  boot.tmpOnTmpfs = true;
+
   # fs
   swapDevices = [ ];
 
-  fileSystems."/" =
-    {
-      device = "/dev/disk/by-label/nixos";
-      fsType = "ext4";
-      options = [ "noatime" "nodiratime" ];
-    };
+  boot.initrd.luks.devices.luksroot = {
+    device = "/dev/disk/by-uuid/cdee4fa1-9a7d-4c78-8212-ffc5b52c35fd";
+    preLVM = true;
+    allowDiscards = true;
+  };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-label/boot";
-      fsType = "vfat";
-      options = [ "noatime" "nodiratime" ]; # ssd
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/nixos";
+    fsType = "ext4";
+    options = [ "noatime" "nodiratime" ];
+  };
 
-  fileSystems."/storage" =
-    {
-      device = "/dev/disk/by-label/storage";
-      fsType = "ext4";
-      options = [ "noatime" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/boot";
+    fsType = "vfat";
+    options = [ "noatime" "nodiratime" ]; # ssd
+  };
+
+  fileSystems."/storage" = {
+    device = "/dev/disk/by-label/storage";
+    fsType = "ext4";
+    options = [ "noatime" ];
+  };
 
   fileSystems."/skynet" = {
     device = "192.168.42.1:/export";

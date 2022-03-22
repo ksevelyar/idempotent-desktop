@@ -37,18 +37,37 @@ mkdir -p /mnt/boot
 mount /dev/disk/by-label/boot /mnt/boot
 ```
 
-## Generate blank config to pick luks/lvm setup from it
-
-```
-sudo nixos-generate-config --root /mnt
-sudo mv /mnt/etc/nixos{,-blank}
-```
-
-## Merge configs and install
+## Clone configs 
 
 ```
 sudo git clone https://github.com/ksevelyar/idempotent-desktop.git /mnt/etc/nixos
 sudo chown -R 1000:users /etc/nixos
+```
 
-nixos-install --root /mnt --flake /mnt/etc/nixos#.
+## Add luksroot to configuration.nix
+
+```
+lsblk -f
+```
+
+```
+nvme0n1
+├─nvme0n1p1    vfat        FAT32    boot    E675-3AA7                           
+├─nvme0n1p2    crypto_LUKS 2                cdee4fa1-9a7d-4c78-8212-ffc5b52c35fd
+│ └─luksroot   LVM2_member LVM2 001         Y7EGJI-Ib8y-62Zh-EKn0-7bdD-Lwtd-OPmUDM
+│   └─vg-nixos ext4        1.0      nixos   1430f940-2f70-4c7d-8161-3e3c10e13d4c    
+```
+
+```
+boot.initrd.luks.devices.luksroot = {
+  device = "/dev/disk/by-uuid/cdee4fa1-9a7d-4c78-8212-ffc5b52c35fd";
+  preLVM = true;
+  allowDiscards = true;
+};
+```
+
+## Install
+
+```
+nixos-install --root /mnt --flake /mnt/etc/nixos#hk47
 ```

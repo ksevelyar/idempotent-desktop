@@ -37,7 +37,6 @@
     # sec
     p = "gopass show";
     pp = "gopass";
-    open-tomb = "tomb open *.tomb -k *.tomb.key && notify-send 'Drains 5 Karma per grave.'";
     tor = "nix-shell -p tor-browser-bundle-bin --run tor-browser";
 
     tm = "id-tm";
