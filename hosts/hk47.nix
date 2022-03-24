@@ -32,7 +32,6 @@ args@{ config, lib, pkgs, ... }:
       ../packages/nvim.nix
       ../packages/pass.nix
       ../packages/tmux.nix
-      ../packages/freelance.nix
 
       ../services/journald.nix
       ../services/postgresql.nix
@@ -46,7 +45,6 @@ args@{ config, lib, pkgs, ... }:
       ../services/net/sshd.nix
       ../services/net/wireguard.nix
       ../services/net/avahi.nix
-      ../services/net/tor.nix
 
       # ../services/vm/hypervisor.nix
     ];
@@ -78,10 +76,10 @@ args@{ config, lib, pkgs, ... }:
       autoStart = false;
     };
     de-shark = {
-      autoStart = true;
+      autoStart = false;
     };
     us-proton = {
-      autoStart = false;
+      autoStart = true;
     };
   };
 
@@ -115,10 +113,11 @@ args@{ config, lib, pkgs, ... }:
   # fs
   swapDevices = [ ];
 
-  boot.initrd.luks.devices.luksroot = {
-    device = "/dev/disk/by-uuid/cdee4fa1-9a7d-4c78-8212-ffc5b52c35fd";
-    preLVM = true;
-    allowDiscards = true;
+  boot.initrd = {
+    luks.devices.nixos = {
+      device = "/dev/disk/by-label/enc-nixos";
+      allowDiscards = true;
+    };
   };
 
   fileSystems."/" = {
@@ -131,12 +130,6 @@ args@{ config, lib, pkgs, ... }:
     device = "/dev/disk/by-label/boot";
     fsType = "vfat";
     options = [ "noatime" "nodiratime" ]; # ssd
-  };
-
-  fileSystems."/storage" = {
-    device = "/dev/disk/by-label/storage";
-    fsType = "ext4";
-    options = [ "noatime" ];
   };
 
   fileSystems."/skynet" = {

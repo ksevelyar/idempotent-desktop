@@ -1,5 +1,3 @@
-# nix build /etc/nixos#nixosConfigurations.live-usb.config.system.build.isoImage    
-
 args@{ config, pkgs, lib, ... }:
 {
   isoImage.volumeID = lib.mkForce "id-live";

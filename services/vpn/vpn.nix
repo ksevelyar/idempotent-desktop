@@ -3,7 +3,7 @@
   services.openvpn.servers = {
     uk-shark = {
       config = '' config /etc/nixos/services/vpn/surfshark/uk-lon.prod.surfshark.com_udp.ovpn '';
-      autoStart = false;
+      autoStart = lib.mkDefault false;
       updateResolvConf = true;
     };
     de-shark = {
@@ -13,12 +13,12 @@
     };
     fr-shark = {
       config = '' config /etc/nixos/services/vpn/surfshark/fr-par.prod.surfshark.com_udp.ovpn '';
-      autoStart = false;
+      autoStart = lib.mkDefault false;
       updateResolvConf = true;
     };
     us-proton = {
       config = '' config /etc/nixos/services/vpn/proton/us-free-01.protonvpn.com.tcp.ovpn '';
-      autoStart = false;
+      autoStart = lib.mkDefault false;
       updateResolvConf = true;
     };
   };
