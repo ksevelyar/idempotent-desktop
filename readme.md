@@ -33,7 +33,7 @@ sudo nixos-rebuild switch
 
 ## Security
 
-* [encrypted root with LUKS2 and LVM](/doc/encrypted-root.md)
+* [encrypted root with LUKS2](/doc/encrypted-root.md)
 * all hosts connected with [wireguard](https://github.com/ksevelyar/idempotent-desktop/blob/main/hosts/skynet.nix#L67)
 * EdDSA for ssh and gpg keys
 * gopass / [browserpass](https://github.com/browserpass/browserpass-extension#available-keyboard-shortcuts) integration
