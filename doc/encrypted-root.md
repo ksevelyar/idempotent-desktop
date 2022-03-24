@@ -1,6 +1,6 @@
 # encrypted root
 
-## Wipe drives
+## Wipe partition for the future /
 
 ```
 sudo lsblk -f
@@ -9,7 +9,7 @@ dd if=/dev/zero    of=/dev/nvme0n1p2 status=progress
 dd if=/dev/urandom of=/dev/nvme0n1p2 status=progress
 ```
 
-## LUKS2 container
+## Create LUKS2 container
 
 ```
 cryptsetup luksFormat --type luks2 /dev/nvme0n1p2
@@ -34,12 +34,18 @@ sudo git clone https://github.com/ksevelyar/idempotent-desktop.git /mnt/etc/nixo
 sudo chown -R 1000:users /etc/nixos
 ```
 
-## Add luks container to configuration.nix
+## Add LUKS2 container to configuration.nix
 
 ```
 boot.initrd.luks.devices.nixos = {
   device = "/dev/disk/by-label/enc-nixos";
   allowDiscards = true;
+};
+
+fileSystems."/" = {
+  device = "/dev/disk/by-label/nixos";
+  fsType = "ext4";
+  options = [ "noatime" "nodiratime" ];
 };
 ```
 
