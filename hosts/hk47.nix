@@ -78,8 +78,11 @@ args@{ config, lib, pkgs, ... }:
     de-shark = {
       autoStart = false;
     };
-    us-proton = {
+    fr-shark = {
       autoStart = true;
+    };
+    us-proton = {
+      autoStart = false;
     };
   };
 
@@ -113,9 +116,14 @@ args@{ config, lib, pkgs, ... }:
   # fs
   swapDevices = [ ];
 
-  boot.initrd = {
-    luks.devices.nixos = {
+  boot.initrd.luks.devices = {
+    nixos = {
       device = "/dev/disk/by-label/enc-nixos";
+      allowDiscards = true;
+    };
+
+    data = {
+      device = "/dev/disk/by-label/enc-data";
       allowDiscards = true;
     };
   };
@@ -130,6 +138,12 @@ args@{ config, lib, pkgs, ... }:
     device = "/dev/disk/by-label/boot";
     fsType = "vfat";
     options = [ "noatime" "nodiratime" ]; # ssd
+  };
+
+  fileSystems."/data" = {
+    device = "/dev/disk/by-label/data";
+    fsType = "ext4";
+    options = [ "noatime" "nodiratime" ];
   };
 
   fileSystems."/skynet" = {
