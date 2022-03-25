@@ -27,8 +27,6 @@
         # unfree Microsoft fonts
         corefonts # Andale Mono, Arial, Comic Sans, Courier New, Georgia, Impact, Times New Roman, Trebuchet, Verdana, Webdings
 
-        # Required for ryanoasis/vim-devicons
-        # https://www.programmingfonts.org/
         # https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/nerdfonts/shas.nix
         (nerdfonts.override { fonts = [ "Iosevka" "IBMPlexMono" ]; })
         fira-code
