@@ -30,7 +30,7 @@ sudo nixos-rebuild switch
 ## Linux as IDE
 
 * Tiling with leftwm and Polybar or [tmux](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/tmux.nix)
-* fish + direnv, mosh, alacritty, ripgrep, rsync, fzf, zoxide, tldr, delta 
+* fish + direnv, mosh, alacritty, ripgrep, rsync, fzf, zoxide, delta 
 * [Neovim with LSP](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/.config/nvim/init.vim) for Elixir, Rust, Nix and others.
 * fuzzy search by apps, emojis and clipboard history wih rofi 
 
