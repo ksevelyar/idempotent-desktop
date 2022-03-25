@@ -20,10 +20,13 @@ sudo nixos-rebuild switch
 
 ## Features
 
-1. Flakes for reproducible builds
-2. Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each host can contain multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users).
-4. [Terminus](http://terminus-font.sourceforge.net/shots.html) and [NerdFonts](/sys/fonts.nix)
-6. [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix), [Spotify](https://open.spotify.com/playlist/1FOoZGP15NMWkGqLDWk3lR?si=a001b656806e46bd), Netflix
+* Flakes for reproducible builds
+* Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each host can contain multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users).
+* Tiling with leftwm and Polybar or [tmux](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/tmux.nix)
+* [Terminus](http://terminus-font.sourceforge.net/shots.html) and [NerdFonts](/sys/fonts.nix)
+* [Brutal Doom](https://github.com/ksevelyar/brutal-doom)
+* [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix), [Spotify](https://open.spotify.com/playlist/1FOoZGP15NMWkGqLDWk3lR?si=a001b656806e46bd), Netflix
+* [tldr](https://github.com/tldr-pages/tldr) aliased to h
 
 ## Linux as IDE
 
