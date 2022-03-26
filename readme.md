@@ -27,6 +27,7 @@ sudo nixos-rebuild switch
 * [Brutal Doom](https://github.com/ksevelyar/brutal-doom), [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
 * [battery optimisation](/hardware/power-management.nix) for laptops
 * [mpd](/services/mpd.nix), [Spotify](https://open.spotify.com/playlist/1FOoZGP15NMWkGqLDWk3lR?si=a001b656806e46bd) 
+* [live-usb](/live-usb/live-usb.nix)
 
 ## Linux as IDE
 
