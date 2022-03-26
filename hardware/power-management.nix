@@ -1,10 +1,7 @@
 { pkgs, battery, ... }:
 {
-  powerManagement = {
-    enable = true;
-  };
+  powerManagement.enable = true;
 
-  # TLP brings you the benefits of advanced power management for Linux without the need to understand every technical detail.
   services.tlp = {
     enable = true;
     settings = {
@@ -16,10 +13,10 @@
   };
 
   environment.systemPackages = with pkgs; [
-      powertop
-      acpi
-      tlp
-    ];
+    powertop
+    acpi
+    tlp
+  ];
 
   systemd.user.timers.notify-on-low-battery = {
     timerConfig.OnBootSec = "2m";
@@ -27,16 +24,16 @@
     timerConfig.Unit = "notify-on-low-battery.service";
     wantedBy = [ "timers.target" ];
   };
-  systemd.user.services.notify-on-low-battery =
-    {
-      serviceConfig.PassEnvironment = "DISPLAY";
-      script = ''
-        export battery_capacity=$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/${battery}/capacity)
-        export battery_status=$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/${battery}/status)
 
-        if [[ $battery_capacity -le 10 && $battery_status = "Discharging" ]]; then
-          ${pkgs.libnotify}/bin/notify-send --urgency=critical "$battery_capacity%: See you, space cowboy..."
-        fi
-      '';
-    };
+  systemd.user.services.notify-on-low-battery = {
+    serviceConfig.PassEnvironment = "DISPLAY";
+    script = ''
+      export battery_capacity=$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/${battery}/capacity)
+      export battery_status=$(${pkgs.coreutils}/bin/cat /sys/class/power_supply/${battery}/status)
+
+      if [[ $battery_capacity -le 10 && $battery_status = "Discharging" ]]; then
+        ${pkgs.libnotify}/bin/notify-send --urgency=critical "$battery_capacity%: See you, space cowboy..."
+      fi
+    '';
+  };
 }
