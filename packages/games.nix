@@ -10,29 +10,28 @@
 
   environment.systemPackages = with pkgs;
     [
-      # gamepads
+      ## gamepads
       # jstest /dev/input/js0
       linuxConsoleTools
 
-      # emulators & platforms
+      ## emulators & platforms
       # wineFull
       # retroarchBare
       # anbox
       # playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
 
-      # text 
+      ## text 
       # dwarf-fortress
       # nethack
       # rogue
 
-      # gui
+      ## gui
       # xonotic
       # wesnoth
       # stepmania
       # opendune
       # yquake2
       # openra
-      # gzdoom
       # quakespasm
     ];
 }

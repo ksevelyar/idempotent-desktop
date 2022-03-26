@@ -35,6 +35,7 @@ args@{ config, lib, pkgs, ... }:
 
       ../services/journald.nix
       ../services/postgresql.nix
+      ../services/mpd.nix
       ../services/x.nix
       ../services/x/picom.nix
       ../services/x/redshift.nix

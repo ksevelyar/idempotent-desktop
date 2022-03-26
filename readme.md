@@ -22,10 +22,12 @@ sudo nixos-rebuild switch
 
 * Flakes for reproducible builds
 * Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each host can contain multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users).
-* [Terminus](http://terminus-font.sourceforge.net/shots.html) and [NerdFonts](/sys/fonts.nix)
-* [Brutal Doom](https://github.com/ksevelyar/brutal-doom)
-* [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix), [Spotify](https://open.spotify.com/playlist/1FOoZGP15NMWkGqLDWk3lR?si=a001b656806e46bd), Netflix
+* Tiling with leftwm and Polybar or [tmux](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/tmux.nix)
 * [tldr](https://github.com/tldr-pages/tldr) aliased to h
+* [Terminus](http://terminus-font.sourceforge.net/shots.html) and [NerdFonts](/sys/fonts.nix)
+* [Brutal Doom](https://github.com/ksevelyar/brutal-doom), [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
+* [battery optimisation](/hardware/power-management.nix) for laptops
+* [mpd](/services/mpd.nix), [Spotify](https://open.spotify.com/playlist/1FOoZGP15NMWkGqLDWk3lR?si=a001b656806e46bd) 
 
 ## Linux as IDE
 

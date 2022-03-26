@@ -15,13 +15,11 @@
     };
   };
 
-  environment = {
-    systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
       powertop
       acpi
       tlp
     ];
-  };
 
   systemd.user.timers.notify-on-low-battery = {
     timerConfig.OnBootSec = "2m";
