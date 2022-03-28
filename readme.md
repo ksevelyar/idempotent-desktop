@@ -36,6 +36,7 @@ sudo nixos-rebuild switch
 * [Neovim with LSP](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/.config/nvim/init.vim) for Elixir, Rust, Nix and others
 * fuzzy search by apps `mod`, emojis `mod + z` and clipboard `mod + c` history wih rofi 
 * [copy color of pixel under mouse cursor](/sys/scripts.nix) to clipboard with `mod + k`
+* [Rust boilerplate](https://github.com/rusty-cluster/rust-boilerplate)
 
 ## Hardware Engineering
 
