@@ -13,13 +13,14 @@ in
     (lib.mkIf (config.services.xserver.enable) (import ../packages/firefox.nix (args // { user = user; })))
   ];
 
+  home-manager = {
+    users.${user} = {
+      home.file."Wallpapers/2b.png".source = ../assets/wallpapers/2b.png;
+    };
+  };
+
   networking.extraHosts =
     ''
       127.0.0.1 dev.lcl
     '';
-
-  systemd.tmpfiles.rules =
-    [
-      "d /vvv 0700 ${user} wheel" # secrets
-    ];
 }
