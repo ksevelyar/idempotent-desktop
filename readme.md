@@ -34,7 +34,7 @@ sudo nixos-rebuild switch
 * Tiling with leftwm and Polybar or [tmux](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/tmux.nix)
 * fish + direnv, mosh, alacritty, ripgrep, rsync, fzf, zoxide, delta 
 * [Neovim with LSP](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/.config/nvim/init.vim) for Elixir, Rust, Nix and others
-* fuzzy search by apps, emojis and clipboard history wih rofi 
+* fuzzy search by apps `mod`, emojis `mod + z` and clipboard `mod + c` history wih rofi 
 * [copy color of pixel under mouse cursor](/sys/scripts.nix) to clipboard with `mod + k`
 
 ## Hardware Engineering
