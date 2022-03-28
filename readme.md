@@ -37,6 +37,13 @@ sudo nixos-rebuild switch
 * fuzzy search by apps, emojis and clipboard history wih rofi 
 * [copy color of pixel under mouse cursor](/sys/scripts.nix) to clipboard with `mod + k`
 
+## Hardware Engineering
+
+* programmatic cads: libfive, openscad
+* slicers for 3d printer: prusa-slicer, cura 
+* circuit diagrams: librepcb, fritzing 
+* [platformio-cli](https://jeelabs.org/2018/getting-started-bp/)
+
 ## Security
 
 * [encrypted root with LUKS2](/doc/encrypted-root.md)
