@@ -2,8 +2,6 @@
 
 This repo is just a bunch of NixOS modules, so you can pick or override anything. 
 
-![screen](https://i.imgur.com/fWKORz4.png)
-![screen](https://i.imgur.com/fhAtYZY.png)
 ![leftwm](/assets/screens/leftwm.png)
 
 ## Install
