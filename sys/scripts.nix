@@ -1,11 +1,6 @@
 { pkgs, ... }:
 
 let
-  id-error = pkgs.writeScriptBin "id-error" ''
-    #!${pkgs.stdenv.shell}
-    echo -e "\n💀\n"
-  '';
-
   # https://stackoverflow.com/a/22102938
   # Get hex rgb color under mouse cursor, put it into clipboard and create a notification.
   id-pick-color = pkgs.writeScriptBin "id-pick-color" ''
@@ -56,53 +51,6 @@ let
     lsmod | rg kvm
   '';
 
-  id-deploy = pkgs.writeScriptBin "id-deploy" ''
-    #!${pkgs.stdenv.shell}
-    set -e
-
-    id-build-iso
-
-    nix flake check
-    nix-du --root /run/current-system/sw/ -s 100MB | tred | dot -Tsvg -Nfontname=Roboto -Efontname=Roboto > nix-store.svg
-
-    iso=$(id-build-iso)
-    du -h $iso/iso/id-live.iso
-    rclone copy $iso/iso/id-live.iso gdrive:
-
-    echo -e "\n🐗\n"
-  '';
-
-  # id-install <hostname>
-  # id-install hk-47
-  id-install = pkgs.writeScriptBin "id-install" ''
-    #!${pkgs.stdenv.shell}
-    set -e
-    echo -e "\n🤖\n"
-    
-    sudo mount /dev/disk/by-label/nixos /mnt
-    sudo mkdir -p /mnt/boot
-    sudo mount /dev/disk/by-label/boot /mnt/boot/
-    echo -e "\n💾"
-    lsblk -f
-    
-    echo
-    sudo git clone https://github.com/ksevelyar/idempotent-desktop.git /mnt/etc/nixos
-    sudo chown -R 1000:1000 /etc/nixos/
-    
-    if [ -z "$1" ]
-      then
-        nixos-generate-config --root /mnt
-        bat /mnt/etc/nixos/*.nix
-      else
-        cd /mnt/etc/nixos && ln -s hosts/$1 configuration.nix
-    fi
-
-    sudo ls -lah /etc/nixos/configuration.nix
-
-    sudo nixos-install
-    echo -e "\n🍈\n"
-  '';
-
   id-random-wallpaper = pkgs.writeScriptBin "id-random-wallpaper" ''
     #!${pkgs.stdenv.shell}
     feh --randomize --bg-fill --no-fehbg ~/Wallpapers  
@@ -122,18 +70,13 @@ let
 in
 {
   environment.systemPackages = [
-    id-error
     id-info
-    id-install
 
     id-build-iso
     id-write-usb
 
     id-pick-color
     pkgs.imagemagick
-
-    id-deploy
-    pkgs.rclone
 
     id-random-wallpaper
     id-tm

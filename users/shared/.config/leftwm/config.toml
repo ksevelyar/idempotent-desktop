@@ -41,20 +41,34 @@ height = 0.8
 width =  0.8
 
 [[scratchpad]]
-name = "alacritty-2"
-value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
-x = 0.5
-y = 0.5
-height = 0.45
-width =  0.5
-
-[[scratchpad]]
 name = "alacritty-1"
 value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
 x = 0
 y = 0.5
 height = 0.45
 width =  0.5
+[[scratchpad]]
+name = "alacritty-2"
+value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
+x = 0.5
+y = 0.5
+height = 0.45
+width =  0.5
+[[scratchpad]]
+name = "alacritty-3"
+value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
+x = 0
+y = 0.05
+height = 0.45
+width =  0.5
+[[scratchpad]]
+name = "alacritty-4"
+value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
+x = 0.5
+y = 0.05
+height = 0.45
+width =  0.5
+
 
 [[keybind]]
 command = "ToggleScratchPad"
@@ -91,12 +105,21 @@ command = "ToggleScratchPad"
 value = "alacritty-1"
 modifier = []
 key = "F1"
-
 [[keybind]]
 command = "ToggleScratchPad"
 value = "alacritty-2"
 modifier = []
 key = "F2"
+[[keybind]]
+command = "ToggleScratchPad"
+value = "alacritty-3"
+modifier = []
+key = "F3"
+[[keybind]]
+command = "ToggleScratchPad"
+value = "alacritty-4"
+modifier = []
+key = "F4"
 
 [[keybind]]
 command = "Execute"
@@ -200,7 +223,7 @@ key = "Page_Down"
 [[keybind]]
 command = "Execute"
 value = "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-modifier = ["modkey"]
+modifier = []
 key = "XF86XK_AudioMute"
 
 [[keybind]]

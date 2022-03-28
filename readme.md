@@ -22,12 +22,13 @@ sudo nixos-rebuild switch
 
 * Flakes for reproducible builds
 * Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each host can contain multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users)
-* [tldr](https://github.com/tldr-pages/tldr) aliased to h
 * [Terminus](http://terminus-font.sourceforge.net/shots.html) and [NerdFonts](/sys/fonts.nix)
 * [Brutal Doom](https://github.com/ksevelyar/brutal-doom), [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
 * [battery optimisation](/hardware/power-management.nix) for laptops
 * [mpd](/services/mpd.nix), [Spotify](https://open.spotify.com/playlist/1FOoZGP15NMWkGqLDWk3lR?si=a001b656806e46bd) 
 * [live-usb](/live-usb/live-usb.nix)
+* [sysrq](https://www.kernel.org/doc/html/latest/admin-guide/sysrq.html#what-are-the-command-keys) 
+* [tldr](https://github.com/tldr-pages/tldr) aliased to h
 
 ## Linux as IDE
 
@@ -35,6 +36,7 @@ sudo nixos-rebuild switch
 * fish + direnv, mosh, alacritty, ripgrep, rsync, fzf, zoxide, delta 
 * [Neovim with LSP](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/.config/nvim/init.vim) for Elixir, Rust, Nix and others
 * fuzzy search by apps, emojis and clipboard history wih rofi 
+* [copy color of pixel under mouse cursor](/sys/scripts.nix) to clipboard with `mod + k`
 
 ## Security
 
