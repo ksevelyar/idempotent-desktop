@@ -36,6 +36,7 @@
 
     # sec
     p = "gopass show";
+    pc = "gopass show -c";
     pp = "gopass";
     tor = "nix-shell -p tor-browser-bundle-bin --run tor-browser";
 
