@@ -245,7 +245,7 @@ key = "k"
 
 [[keybind]]
 command = "SoftReload"
-modifier = ["modkey", "Ctrl"]
+modifier = ["modkey", "Control"]
 key = "r"
 
 [[keybind]]
@@ -338,15 +338,6 @@ modifier = ["modkey", "Shift"]
 key = "Left"
 
 [[keybind]]
-command = "MoveWindowUp"
-modifier = ["modkey", "Ctrl"]
-key = "Right"
-[[keybind]]
-command = "MoveWindowDown"
-modifier = ["modkey", "Ctrl"]
-key = "Left"
-
-[[keybind]]
 command = "FocusWindowUp"
 modifier = ["modkey"]
 key = "Left"
@@ -356,6 +347,15 @@ modifier = ["modkey"]
 key = "Right"
 
 [[keybind]]
+command = "MoveWindowUp"
+modifier = ["modkey", "Control"]
+key = "Right"
+[[keybind]]
+command = "MoveWindowDown"
+modifier = ["modkey", "Control"]
+key = "Left"
+
+[[keybind]]
 command = "ToggleFullScreen"
 modifier = ["modkey"]
 key = "f"
@@ -363,7 +363,7 @@ key = "f"
 [[keybind]]
 command = "NextLayout"
 modifier = ["modkey"]
-key = "Space"
+key = "space"
 
 [[keybind]]
 command = "RotateTag"
