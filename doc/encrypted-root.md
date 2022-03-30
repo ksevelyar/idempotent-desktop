@@ -3,8 +3,11 @@
 ## Wipe partition for the future /
 
 ```
-sudo lsblk -f
+sudo su
+lsblk -f
+```
 
+```
 dd if=/dev/zero    of=/dev/nvme0n1p2 status=progress
 dd if=/dev/urandom of=/dev/nvme0n1p2 status=progress
 ```
@@ -30,8 +33,8 @@ mount /dev/disk/by-label/boot /mnt/boot
 ## Clone configs 
 
 ```
-sudo git clone https://github.com/ksevelyar/idempotent-desktop.git /mnt/etc/nixos
-sudo chown -R 1000:users /etc/nixos
+git clone https://github.com/ksevelyar/idempotent-desktop.git /mnt/etc/nixos
+chown -R 1000:users /etc/nixos
 ```
 
 ## Add LUKS2 container to configuration.nix
