@@ -25,6 +25,7 @@ let
     #!${pkgs.stdenv.shell}
     set -e
 
+    cd /tmp
     iso=$(id-build-iso)
     sudo dd bs=4M if=$iso/iso/id-live.iso of=/dev/disk/by-label/id-live status=progress oflag=sync
     # sudo dd bs=4M if=$img/sd-image/id-live-arm.iso.bz2 of=/dev/disk/by-label/id-live status=progress oflag=sync

@@ -21,6 +21,8 @@ sudo nixos-rebuild switch
 
 * [CI with flakes and Cachix](/.github/workflows/build.yml)
 * Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each host can contain multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users)
+* All hosts connected with [wireguard](https://github.com/ksevelyar/idempotent-desktop/blob/main/hosts/skynet.nix#L67)
+* `vnc-server` and mosh with [polybar indication for host](/assets/screens/polybar-sshd-vnc-server.png)
 * [Terminus](http://terminus-font.sourceforge.net/shots.html) and [NerdFonts](/sys/fonts.nix)
 * [Brutal Doom](https://github.com/ksevelyar/brutal-doom), [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
 * [battery optimisation](/hardware/power-management.nix) for laptops
@@ -32,7 +34,7 @@ sudo nixos-rebuild switch
 ## Linux as IDE
 
 * Tiling with leftwm and Polybar or [tmux](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/tmux.nix)
-* fish + direnv, mosh, alacritty, ripgrep, rsync, fzf, zoxide, delta 
+* fish + direnv, alacritty, ripgrep, rsync, fzf, zoxide, delta 
 * [Neovim with LSP](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/.config/nvim/init.vim) for Elixir, Rust, Nix and others
 * fuzzy search by apps `mod`, emojis `mod + z` and clipboard `mod + c` history wih rofi 
 * [copy color of pixel under mouse cursor](/sys/scripts.nix) to clipboard with `mod + k`
@@ -48,7 +50,6 @@ sudo nixos-rebuild switch
 ## Security
 
 * [encrypted root with LUKS2](/doc/encrypted-root.md)
-* all hosts connected with [wireguard](https://github.com/ksevelyar/idempotent-desktop/blob/main/hosts/skynet.nix#L67)
 * EdDSA for ssh and gpg keys
 * gopass / [browserpass](https://github.com/browserpass/browserpass-extension#available-keyboard-shortcuts) integration
 * uBlock Origin

@@ -13,7 +13,7 @@
       sd
       bat
       gitAndTools.delta # https://github.com/dandavison/delta
-      tealdeer
+      tealdeer # aliased to h
       git
       mkpasswd
       file
@@ -71,9 +71,5 @@
 
       # media
       moc
-
-      # bells and whistles
-      cava
-      cmatrix
     ];
 }
