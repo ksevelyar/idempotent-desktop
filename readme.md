@@ -19,7 +19,7 @@ sudo nixos-rebuild switch
 
 ## Features
 
-* Flakes for reproducible builds
+* [CI with flakes and Cachix](/.github/workflows/build.yml)
 * Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each host can contain multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users)
 * [Terminus](http://terminus-font.sourceforge.net/shots.html) and [NerdFonts](/sys/fonts.nix)
 * [Brutal Doom](https://github.com/ksevelyar/brutal-doom), [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
