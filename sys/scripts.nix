@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 let
   # https://stackoverflow.com/a/22102938
@@ -69,16 +69,15 @@ let
   '';
 in
 {
-  environment.systemPackages = [
-    id-info
-
-    id-build-iso
-    id-write-usb
+  environment.systemPackages = lib.mkIf config.services.xserver.enable ([
+    id-random-wallpaper
 
     id-pick-color
     pkgs.imagemagick
-
-    id-random-wallpaper
+  ] ++ [
+    id-build-iso
+    id-info
     id-tm
-  ];
+    id-write-usb
+  ]); 
 }
