@@ -4,7 +4,6 @@
     [
       # rust
       rnix-lsp
-      rustup
       rustfmt
       cargo
       rust-analyzer
@@ -24,12 +23,10 @@
       efm-langserver
 
       # tools
-      exercism
       gcc
       openssl
       curlie
       direnv
-      lorri
       inotify-tools
       gitg
     ];
