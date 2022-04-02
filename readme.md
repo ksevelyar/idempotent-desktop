@@ -24,7 +24,7 @@ sudo nixos-rebuild switch
 * All hosts connected with [wireguard](https://github.com/ksevelyar/idempotent-desktop/blob/main/hosts/skynet.nix#L67)
 * `vnc-server` and mosh with [polybar indication for host](/assets/screens/polybar-sshd-vnc-server.png)
 * [Terminus](http://terminus-font.sourceforge.net/shots.html) and [NerdFonts](/sys/fonts.nix)
-* [Brutal Doom](https://github.com/ksevelyar/brutal-doom), [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
+* [Brutal Doom](https://github.com/ksevelyar/brutal-doom), [Quake](https://github.com/ksevelyar/quake), [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
 * [battery optimisation](/hardware/power-management.nix) for laptops
 * [mpd](/services/mpd.nix), [Spotify](https://open.spotify.com/playlist/1FOoZGP15NMWkGqLDWk3lR?si=a001b656806e46bd) 
 * [live-usb](/live-usb/live-usb.nix)
