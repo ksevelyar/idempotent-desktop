@@ -38,6 +38,7 @@ sudo nixos-rebuild switch
 * [Neovim with LSP](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/.config/nvim/init.vim) for Elixir, Rust, Nix and others
 * fuzzy search by apps `mod`, emojis `mod + z` and clipboard `mod + c` history wih rofi 
 * [copy color of pixel under mouse cursor](/sys/scripts.nix) to clipboard with `mod + k`
+* [`PrtScn`](https://github.com/ksevelyar/idempotent-desktop/blob/98355b9cb79f1686c3712b3822556b0813de4132/users/shared/.config/leftwm/config.toml#L174) to capture region, `mod + PrtScn` to capture fullscreen, record desktop videos with `vokoscreen`
 * [Rust boilerplate](https://github.com/rusty-cluster/rust-boilerplate)
 
 ## Hardware Engineering
