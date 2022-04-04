@@ -70,6 +70,6 @@
       pigz
 
       # media
-      moc
+      cmus
     ];
 }
