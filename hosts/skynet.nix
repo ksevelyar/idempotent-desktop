@@ -22,15 +22,11 @@
       ../packages/pass.nix
 
       ../services/journald.nix
-      ../services/net/murmur.nix
-      (import ../services/net/nginx.nix { email = "ksevelyar@gmail.com"; })
       ../services/net/wireguard.nix
       ../services/net/nfs.nix
       ../services/net/sshd.nix
       ../services/net/avahi.nix
     ];
-
-
 
   networking.useDHCP = false;
   networking.interfaces = {
@@ -151,14 +147,6 @@
     };
   };
 
-  services.nginx = {
-    # virtualHosts."domain.tld" = {
-    #   enableACME = true;
-    #   forceSSL = true;
-    #   root = "/var/www/rooms-slider";
-    # };
-  };
-
   networking.hostName = "skynet";
   networking.networkmanager.enable = lib.mkForce false;
 
@@ -183,10 +171,4 @@
       fsType = "ext4";
       options = [ "noatime" "nodiratime" ]; # ssd
     };
-
-  # fileSystems."/storage" =
-  #   {
-  #     device = "/dev/disk/by-label/storage";
-  #     fsType = "ext4";
-  #   };
 }
