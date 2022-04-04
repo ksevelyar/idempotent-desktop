@@ -1,40 +1,20 @@
-# [Nvim](https://github.com/ksevelyar/idempotent-desktop/blob/mast../packages/nvim.nix)
+# [Nvim](/packages/nvim.nix)
 
 ![joker.vim](https://i.imgur.com/XFf02K8.png)
 ![goyo](https://i.imgur.com/nSz4Gg5.png)
 
 Integrated with `lsp`, `fzf`, `fd`, `rg`.
 
-## Learn
-
-- You can start with built-in `:Tutor`
-- [Cheatsheet](/vim-cheatsheet-complete.pdf) by [blnd_the-dsgner](https://www.reddit.com/r/vim/comments/czieda/hello_guys_as_promised_here_are_all_cheatsheet)
 
 ## Bindings
 
-### Leader Key
-
-The "Leader key" is a way of extending VIM's shortcuts by using sequences of keys to perform a command. The leader key is `<Space>`.
-
-`<Space>j` navigate down
-
-`<Space>k` navigate up
-
-`<Space>f` find current file in NerdTree
-
-`<Space>g` show changed git files with FZF
-
-`<Space>.` search files in the current dir
+`<Space>f` find current file 
 
 `<Space>r` search files by content in the project
 
 `<Space>m` show most recent files
 
-`<Space>t` toggle NerdTree (file browser)
-
-`<Space>f` find current file in NerdTree
-
-`<Space>p` copy filepath of opened buffer
+`<Space>t` toggle file tree
 
 `<Space>v` vertical split
 
@@ -42,19 +22,9 @@ The "Leader key" is a way of extending VIM's shortcuts by using sequences of key
 
 `<Space>c` Comment/Uncomment Line
 
-`<Space>i` Togle indentation guides
-
 `<Space>w` write current file
 
-`<Space>f` find current file in NerdTree
-
-`<Space>d` cut line
-
-`<Space>u` toggle undo tree
-
 `<Space>o` check orphography
-
-`<Space>y` show clipboard history
 
 ### Git
 
@@ -96,12 +66,3 @@ Select lines with `Shift+V`, then type `:sort<Enter>` to sort lines alphabetical
 ### Goyo
 
 `\`
-
-### Misc
-
-`:Colors` set color theme with fzf
-
-### Links
-
-- [awesome vim](https://vimawesome.com/)
-- [programmingfonts.org](https://www.programmingfonts.org/)
