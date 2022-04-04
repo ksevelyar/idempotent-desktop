@@ -19,8 +19,6 @@ Press `Alt+C`
 
 Type `v <Alt>-t` or `v -o (fzf)`
 
-## [Git aliases](https://github.com/ksevelyar/idempotent-desktop/blob/master/home/.config/fish/functions/git_aliases.fish)
-
 ## Don't use cd
 
 you can run `/code` instead of `cd /code`
