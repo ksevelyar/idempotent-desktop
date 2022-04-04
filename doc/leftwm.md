@@ -68,7 +68,7 @@
 
 `<Win>PageDown` volume down
 
-`<Win>~` set random wallpaper from `~/Wallpapers`
+`<Win>~` set random wallpaper from `~/wallpapers`
 
 `<Win>l` close Tomb and lock display
 

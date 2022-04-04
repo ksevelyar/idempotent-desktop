@@ -26,7 +26,7 @@ in
 
   home-manager = {
     users.${user} = {
-      home.file."Wallpapers/2b.png".source = ../assets/wallpapers/2b.png;
+      home.file."wallpapers/2b.png".source = ../assets/wallpapers/2b.png;
     };
   };
 
