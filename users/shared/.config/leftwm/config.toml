@@ -188,13 +188,13 @@ key = "m"
 
 [[keybind]]
 command = "Execute"
-value = "maim ~/Screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png"
+value = "maim ~/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png"
 modifier = ["modkey"]
 key = "Print"
 
 [[keybind]]
 command = "Execute"
-value = "maim -s ~/Screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png"
+value = "maim -s ~/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png"
 modifier = []
 key = "Print"
 

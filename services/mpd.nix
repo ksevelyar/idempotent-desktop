@@ -10,12 +10,25 @@
         name "pulse"
         server "127.0.0.1"
       }
+
+      audio_output {
+        type "fifo"
+        name "visualization"
+        path "/tmp/mpd.fifo"
+        format "44100:16:2"
+      }
     '';
   };
 
-  environment.systemPackages = with pkgs; [
-    ncmpcpp
-    easytag
-    kid3 # kid3-cli -c 'fromtag "%{artist} - %{title}" 2' **/*.mp3
-  ];
+  environment.systemPackages = with pkgs;
+    let
+      ncmpcpp = pkgs.ncmpcpp.override {
+        visualizerSupport = true;
+      };
+    in
+    [
+      ncmpcpp
+      easytag
+      kid3 # kid3-cli -c 'fromtag "%{artist} - %{title}" 2' **/*.mp3
+    ];
 }

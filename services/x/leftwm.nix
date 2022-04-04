@@ -29,7 +29,7 @@
 
       home.file.".fehbg".text = lib.mkDefault ''
         #!/bin/sh
-        /run/current-system/sw/bin/feh --randomize --bg-fill --no-fehbg ~/Wallpapers/
+        /run/current-system/sw/bin/feh --randomize --bg-fill --no-fehbg ~/wallpapers/
       '';
 
       home.file.".config/rofi/joker.rasi".source = ../../users/shared/.config/rofi/joker.rasi;

@@ -35,11 +35,11 @@
   systemd.tmpfiles.rules =
     [
       "d /home/${user}/.secrets        0700 ${user} 1000"
-      "d /home/${user}/Wallpapers      0700 ${user} 1000"
-      "d /home/${user}/Screenshots     0700 ${user} 1000"
-      "d /home/${user}/Documents       0700 ${user} 1000"
-      "d /home/${user}/Pictures        0700 ${user} 1000"
-      "d /home/${user}/Photos          0700 ${user} 1000"
+      "d /home/${user}/wallpapers      0700 ${user} 1000"
+      "d /home/${user}/screenshots     0700 ${user} 1000"
+      "d /home/${user}/documents       0700 ${user} 1000"
+      "d /home/${user}/pictures        0700 ${user} 1000"
+      "d /home/${user}/photos          0700 ${user} 1000"
     ];
 
   home-manager = {
@@ -81,6 +81,7 @@
       home.file.".config/alacritty/alacritty.yml".source = lib.mkDefault ../users/shared/.config/alacritty/alacritty.yml;
       home.file.".config/alacritty/alacritty-scratchpad.yml".source = lib.mkDefault ../users/shared/.config/alacritty/alacritty-scratchpad.yml;
 
+      home.file.".config/ncmpcpp/config".source = ../users/shared/.config/ncmpcpp/config;
       home.file.".config/mpv/mpv.conf".source = ../users/shared/.config/mpv/mpv.conf;
       home.file.".config/mpv/input.conf".source = ../users/shared/.config/mpv/input.conf;
 

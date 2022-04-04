@@ -54,7 +54,7 @@ let
 
   id-random-wallpaper = pkgs.writeScriptBin "id-random-wallpaper" ''
     #!${pkgs.stdenv.shell}
-    feh --randomize --bg-fill --no-fehbg ~/Wallpapers  
+    feh --randomize --bg-fill --no-fehbg ~/wallpapers  
   '';
 
   id-tm = pkgs.writeScriptBin "id-tm" ''
