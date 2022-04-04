@@ -55,29 +55,19 @@ gpg --import private.key
 
 `gopass generate -s mail/protonmail.com 80`
 
-### Import your passwords to pass
-
-[pass-import](https://github.com/roddhjav/pass-import#pass-import)
-
 ## Opened ports
 
-[firewall-desktop](https://github.com/ksevelyar/idempotent-desktop/blob/mast../services/net/firewall-desktop.nix)
+[firewall-desktop](/services/net/firewall-desktop.nix)
 
 ## Show listening ports
 
 `sudo lsof -Pni | grep -i listen`
 
-## [sshd](https://github.com/ksevelyar/idempotent-desktop/blob/0c25763c040e5a50f393d2c2bb7c6eee616f37../services/common.nix#L9-L16)
+## [sshd]
 
 Autostart disabled, use `sudo systemctl start sshd`
 
 The port is 9922. Use `mosh --ssh="ssh -p 9922" user@host` or `ssh user@host -p 9922` to connect.
-
-In case your sshd is runninng you will see it in polybar with amount of active connects:
-
-![polybar](https://i.imgur.com/zZz3AfZ.png)
-
-The same for x11vnc.
 
 ### Check your ssh keys
 
