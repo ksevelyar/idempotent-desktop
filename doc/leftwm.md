@@ -22,10 +22,6 @@
 
 `<Win><Right>` move focus right
 
-`<Win><Up>` move focus up
-
-`<Win><Down>` move focus down
-
 `<Win>enter` open terminal
 
 `<Win>b` open or focus browser
@@ -40,9 +36,13 @@
 
 `<Win>i` toggle images browser (Nomacs)
 
-`<F1>` toggle first alacritty scratchpad
+`<F1>` toggle 1 alacritty scratchpad
 
-`<F2>` toggle second alacritty scratchpad
+`<F2>` toggle 2 alacritty scratchpad
+
+`<F3>` toggle 3 alacritty scratchpad
+
+`<F4>` toggle 4 alacritty scratchpad
 
 `<F6>` toggle gotop scratchpad
 
@@ -54,9 +54,7 @@
 
 ## Layouts
 
-`<Win><Space>` next layout
-
-`<Win><Shift><Space>` toggle panels
+`<Win>r` rotate layout
 
 `<Win>f` toggle full screen
 
@@ -70,7 +68,7 @@
 
 `<Win>~` set random wallpaper from `~/wallpapers`
 
-`<Win>l` close Tomb and lock display
+`<Win>l` lock display
 
 `<Win>o` off display
 
@@ -83,8 +81,6 @@
 `<Win><Ctrl>h` power off
 
 `<Win><Ctrl>r` reboot
-
-`<Win><Backspace>` recompile and restart xmonad
 
 ## Mouse
 
