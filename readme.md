@@ -21,7 +21,7 @@ sudo nixos-rebuild switch
 
 * [CI with flakes and Cachix](/.github/workflows/build.yml)
 * Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each host can contain multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users)
-* All hosts connected with [wireguard](https://github.com/ksevelyar/idempotent-desktop/blob/main/hosts/skynet.nix#L67)
+* All hosts connected with [wireguard](https://github.com/ksevelyar/idempotent-desktop/blob/c77e6ec3f962aa93cae14542f3d4a060feb02441/hosts/skynet.nix#L64-L147)
 * `vnc-server` and mosh with [polybar indication for host](/assets/screens/polybar-sshd-vnc-server.png)
 * [Terminus](http://terminus-font.sourceforge.net/shots.html) and [NerdFonts](/sys/fonts.nix)
 * [Brutal Doom](https://github.com/ksevelyar/brutal-doom), [Quake](https://github.com/ksevelyar/quake), [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
