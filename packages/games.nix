@@ -32,6 +32,5 @@
       # opendune
       # yquake2
       # openra
-      # quakespasm
     ];
 }

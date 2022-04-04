@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
   services.mpd = {
@@ -15,5 +15,7 @@
 
   environment.systemPackages = with pkgs; [
     ncmpcpp
+    easytag
+    kid3 # kid3-cli -c 'fromtag "%{artist} - %{title}" 2' **/*.mp3
   ];
 }
