@@ -34,10 +34,13 @@
 
   systemd.tmpfiles.rules =
     [
+      "d /home/${user}/code            0700 ${user} 1000"
       "d /home/${user}/.secrets        0700 ${user} 1000"
       "d /home/${user}/wallpapers      0700 ${user} 1000"
       "d /home/${user}/screenshots     0700 ${user} 1000"
       "d /home/${user}/documents       0700 ${user} 1000"
+      "d /home/${user}/downloads       0700 ${user} 1000"
+      "d /home/${user}/notes           0700 ${user} 1000"
       "d /home/${user}/pictures        0700 ${user} 1000"
       "d /home/${user}/photos          0700 ${user} 1000"
     ];
