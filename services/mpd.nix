@@ -14,6 +14,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    cmus
     ncmpcpp
     easytag
     kid3 # kid3-cli -c 'fromtag "%{artist} - %{title}" 2' **/*.mp3
