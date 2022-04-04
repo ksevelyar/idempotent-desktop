@@ -1,5 +1,12 @@
-visualizer_data_source = "/tmp/mpd.fifo"
-visualizer_output_name = "visualization"
-visualizer_in_stereo = "yes"
-visualizer_type = "spectrum"
-visualizer_look = "+|"
+visualizer_data_source = /tmp/mpd.fifo
+visualizer_output_name = visualization
+visualizer_in_stereo = yes
+visualizer_type = spectrum
+visualizer_color = blue
+
+progressbar_elapsed_color = blue
+progressbar_look = ▃▃▃
+ask_before_clearing_playlists = no
+
+user_interface = alternative
+connected_message_on_startup = no
