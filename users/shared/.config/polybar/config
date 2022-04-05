@@ -78,7 +78,7 @@ modules-right = weather date
 inherit = bar/base
 bottom = false
 
-modules-left = volume spotify
+modules-left = volume mpd
 modules-center = filesystem
 modules-right = vpn vnc ssh eth cpu memory
 
@@ -144,6 +144,14 @@ interval = 1
 format-foreground = #6B5A68
 click-left = playerctl -p spotify play-pause spotify &
 click-right = playerctl -p spotify next spotify &
+
+[module/mpd]
+type = custom/script
+exec = mpc current
+interval = 1
+format-foreground = #6B5A68
+click-left = mpc toggle
+click-right = mpc next
 
 [module/filesystem]
 type = internal/fs

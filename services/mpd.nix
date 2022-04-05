@@ -28,6 +28,7 @@
     in
     [
       ncmpcpp # https://pkgbuild.com/~jelle/ncmpcpp/
+      mpc-cli
       easytag
       kid3 # kid3-cli -c 'fromtag "%{artist} - %{title}" 2' **/*.mp3
     ];
