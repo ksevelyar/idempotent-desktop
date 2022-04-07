@@ -3,6 +3,7 @@ args@{ config, lib, pkgs, ... }:
   imports =
     [
       ../users/ksevelyar.nix
+      ../users/root.nix
 
       ../hardware/bluetooth.nix
       ../hardware/mouse.nix

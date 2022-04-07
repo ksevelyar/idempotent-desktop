@@ -7,6 +7,7 @@
 
   imports = [
     ../users/live-usb.nix
+    ../users/root.nix
 
     ../sys/aliases.nix
     ../sys/scripts.nix
