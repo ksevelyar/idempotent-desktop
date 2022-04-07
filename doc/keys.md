@@ -1,4 +1,4 @@
-# Security
+# Keys
 
 ## GPG
 
@@ -36,7 +36,7 @@ gpg --list-secret-keys
 ### Export key
 
 ```
-gpg --export-secret-keys YOUR_ID_HERE > private.key
+gpg --export-secret-keys gpg-id > private.key
 ```
 
 ### Import key
@@ -54,20 +54,6 @@ gpg --import private.key
 ### Generate password with special symbols and copy it to clipboard
 
 `gopass generate -s mail/protonmail.com 80`
-
-## Opened ports
-
-[firewall-desktop](/services/net/firewall-desktop.nix)
-
-## Show listening ports
-
-`sudo lsof -Pni | grep -i listen`
-
-## [sshd](/services/net/sshd.nix)
-
-Autostart disabled, use `sudo systemctl start sshd`
-
-The port is 9922. Use `mosh --ssh="ssh -p 9922" user@host` or `ssh user@host -p 9922` to connect.
 
 ### Check your ssh keys
 
