@@ -4,19 +4,6 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 
 ![leftwm](/assets/screens/leftwm.png)
 
-## Install
-
-```
-sudo git clone https://github.com/ksevelyar/idempotent-desktop.git /etc/nixos
-sudo chown -R 1000:users /etc/nixos
-
-cd /etc/nixos
-mv configuration.nix{,.bak}
-ln -s hosts/hk47.nix configuration.nix
-
-sudo nixos-rebuild switch
-```
-
 ## Features
 
 * [CI with flakes and Cachix](/.github/workflows/build.yml)
