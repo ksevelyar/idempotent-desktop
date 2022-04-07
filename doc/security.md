@@ -63,7 +63,7 @@ gpg --import private.key
 
 `sudo lsof -Pni | grep -i listen`
 
-## [sshd]
+## [sshd](/services/net/sshd.nix)
 
 Autostart disabled, use `sudo systemctl start sshd`
 
