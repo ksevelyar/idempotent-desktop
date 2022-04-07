@@ -1,6 +1,8 @@
 # Run rofi with one key
 
-## Configure rofi to two hotkeys in your tiling wm, `mod + x` in leftwm for example:
+## Configure rofi to run on two keys in your tiling wm
+
+`mod + x` in leftwm for example:
 
 ```
 [[keybind]]
@@ -10,7 +12,9 @@ modifier = ["modkey"]
 key = "x"
 ```
 
-## Add xcape binding to your `up` script:
+## Add xcape binding to your [`up`](/users/shared/.config/leftwm/themes/wide-polybar/up) script:
+
+Xcape will execute `mod + x` when you release `mod`:
 
 ```
 xcape -e 'Super_R=Super_R|X;Super_L=Super_L|X'
