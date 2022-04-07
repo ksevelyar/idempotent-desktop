@@ -2,9 +2,9 @@
 
 💜 Fish is one of the saniest software I've seen.
 
-Almost vanilla [config](/users/shared/.config/fish/), a lot of faster than zsh/zim bundle with the same functionality.
+Almost vanilla [config](/users/shared/.config/fish/config.fish), a lot of faster than zsh/zim bundle with the same functionality.
 
-Minimalistic [prompt](users/shared/.config/fish/functions/fish_prompt.fish) with git support:
+Minimalistic [prompt](/users/shared/.config/fish/functions/fish_prompt.fish) with git integration:
 
 ![](/assets/screens/fish.png)
 
