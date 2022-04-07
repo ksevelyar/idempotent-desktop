@@ -36,7 +36,7 @@ sudo nixos-rebuild switch
 * Tiling with leftwm, polybar, twmnd and [tmux](/main/packages/tmux.nix)
 * [fish](/doc/fish.md) + direnv, alacritty, ripgrep, rsync, fzf, zoxide, delta 
 * [Neovim with LSP](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/.config/nvim/init.vim) for Elixir, Rust, Nix and others
-* fuzzy search by apps `mod`, emojis `mod + z` and clipboard `mod + c` history wih rofi 
+* fuzzy search by apps [`mod`](/doc/run-rofi-with-one-key.md), emojis `mod + z` and clipboard `mod + c` history wih rofi 
 * [copy color of pixel under mouse cursor](/sys/scripts.nix) to clipboard with `mod + k`
 * [`PrtScn`](https://github.com/ksevelyar/idempotent-desktop/blob/6adfa52b3404d4f28f1c1b803b40bc5a86c3fde2/users/shared/.config/leftwm/config.toml#L197) to capture region, `mod + PrtScn` to capture fullscreen, record desktop videos with `vokoscreen`
 * [Rust boilerplate](https://github.com/rusty-cluster/rust-boilerplate)
