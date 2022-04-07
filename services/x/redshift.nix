@@ -1,4 +1,3 @@
-{ lib, ... }:
 {
   services.redshift = {
     enable = true;

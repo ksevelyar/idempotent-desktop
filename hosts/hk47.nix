@@ -39,6 +39,7 @@ args@{ config, lib, pkgs, ... }:
       ../services/x.nix
       ../services/x/picom.nix
       ../services/x/redshift.nix
+      ../services/x/unclutter.nix
 
       ../services/net/firewall-desktop.nix
       ../services/net/openvpn.nix

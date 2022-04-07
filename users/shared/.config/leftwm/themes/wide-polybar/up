@@ -8,6 +8,7 @@ sh ~/.fehbg
 
 xsetroot -cursor_name left_ptr
 xxkb &
+twmnd &
 
 xcape -e 'Super_R=Super_R|X'
 xcape -e 'Super_L=Super_L|X'
