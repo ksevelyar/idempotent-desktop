@@ -34,15 +34,17 @@
 
   systemd.tmpfiles.rules =
     [
-      "d /home/${user}/code            0700 ${user} 1000"
-      "d /home/${user}/.secrets        0700 ${user} 1000"
-      "d /home/${user}/wallpapers      0700 ${user} 1000"
-      "d /home/${user}/screenshots     0700 ${user} 1000"
-      "d /home/${user}/documents       0700 ${user} 1000"
-      "d /home/${user}/downloads       0700 ${user} 1000"
-      "d /home/${user}/notes           0700 ${user} 1000"
-      "d /home/${user}/pictures        0700 ${user} 1000"
-      "d /home/${user}/photos          0700 ${user} 1000"
+      "d /home/${user}/code        0700 ${user} 1000"
+      "d /home/${user}/.secrets    0700 ${user} 1000"
+      "d /home/${user}/wallpapers  0700 ${user} 1000"
+      "d /home/${user}/screenshots 0700 ${user} 1000"
+      "d /home/${user}/documents   0700 ${user} 1000"
+      "d /home/${user}/downloads   0700 ${user} 1000"
+      "d /home/${user}/notes       0700 ${user} 1000"
+      "d /home/${user}/pics        0700 ${user} 1000"
+      "d /home/${user}/photos      0700 ${user} 1000"
+      "d /home/${user}/sshfs       0700 ${user} 1000"
+      "d /home/${user}/learn       0700 ${user} 1000"
     ];
 
     home-manager = {
@@ -50,7 +52,6 @@
       users = {
         root = {
           home.file.".config/nvim/init.vim".source = ../users/shared/.config/nvim/init.vim;
-          home.file.".config/nvim/ginit.vim".source = ../users/shared/.config/nvim/init.vim;
           home.file.".config/nvim/lua/config.lua".source = ../users/shared/.config/nvim/lua/config.lua;
 
           home.file.".config/fish/config.fish".source = ../users/shared/.config/fish/config.fish;
