@@ -1,73 +1,69 @@
 { config, pkgs, lib, ... }:
 {
-
   programs.fish.enable = true;
   programs.mosh.enable = true;
 
   environment.systemPackages = with pkgs;
     [
       # sys
+      aria2
+      bat
       cachix
+      ccze
+      file
       fzf
+      git
+      gitAndTools.delta # https://github.com/dandavison/delta
+      jq
+      lnav
+      mkpasswd
+      nmap
       ripgrep
       sd
-      bat
-      gitAndTools.delta # https://github.com/dandavison/delta
-      tealdeer # aliased to h
-      git
-      mkpasswd
-      file
-      ccze
-      lnav
-      nmap
-      aria2
-      translate-shell
       taskwarrior # todo & tasks
+      tealdeer # aliased to h
+      translate-shell
       woeusb # write win10.iso to usb drive
-      jq
 
       # monitoring
-      lm_sensors
-      lsof
-      hwinfo
-      smartmontools
       gotop
-      iotop
-      neofetch
-      lshw
-      pciutils # lspci
-      usbutils # lsusb
+      hwinfo
       inetutils
+      iotop
+      lm_sensors
+      lshw
+      lsof
+      neofetch
+      pciutils # lspci
+      smartmontools
+      usbutils # lsusb
 
       # sec
       cryptsetup
       pwgen
 
       # fs
-      fd
-      exa
-      zip
-      unzip
-      unrar
       atool
       bind
-      parted
-      gptfdisk
-      ffsend
-      nnn
-      viu
-      ncdu
-      exa
-      zoxide
       dosfstools
-      mtools
-      sshfs
-      ntfs3g
+      exa
       exfat
-      sshfs-fuse
+      fd
+      ffsend
+      gptfdisk
+      mtools
+      ncdu
+      nnn
+      ntfs3g
+      parted
       rsync
-      rclone # rclone mount gdrive: ~/gdrive/
-      pigz
+      sshfs
+      sshfs-fuse
+      unrar
+      unzip
+      viu
+      zip
+      zoxide
 
       # media
       cmus
