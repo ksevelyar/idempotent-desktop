@@ -2,7 +2,11 @@
 
 💜 Fish is one of the saniest software I've seen.
 
-Almost vanilla [config](https://github.com/ksevelyar/idempotent-desktop/blob/master/home/.config/fish/config.fish), a lot of faster than zsh/zim bundle with the same functionality.
+Almost vanilla [config](/users/shared/.config/fish/), a lot of faster than zsh/zim bundle with the same functionality.
+
+Minimalistic [prompt](users/shared/.config/fish/functions/fish_prompt.fish) with git support:
+
+![](/assets/screens/fish.png)
 
 Use `fish-config` to configure it with GUI.
 

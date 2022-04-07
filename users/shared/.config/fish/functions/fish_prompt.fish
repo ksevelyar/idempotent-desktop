@@ -16,7 +16,7 @@ function fish_prompt --description 'Write out the prompt'
   echo -n (prompt_pwd)" "
 
   if test (id -u) -eq 0
-    set color $fish_color_cwd_root
+    set_color brwhite
     echo -n '⚡ '
   end
 
@@ -56,18 +56,6 @@ function fish_right_prompt
     set status_ahead 0
     set status_behind 0
   end
-
-  # Get the stash status.
-  # (git stash list) is very slow. => Avoid using it.
-  # set -l status_stashed 0
-  # if test -f "$git_dir/refs/stash"
-  #     set status_stashed 1
-  # else if test -r "$git_dir/commondir"
-  #     read -l commondir <"$git_dir/commondir"
-  #     if test -f "$commondir/refs/stash"
-  #         set status_stashed 1
-  #     end
-  # end
 
   # git-status' porcelain v1 format starts with 2 letters on each line:
   #   The first letter (X) denotes the index state.
