@@ -50,7 +50,7 @@ args@{ config, lib, pkgs, ... }:
       # ../services/vm/hypervisor.nix
     ];
 
-  boot.loader.grub.splashImage = ../assets/displayManager.png;
+  boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
 
   networking.hostName = "catch-22";

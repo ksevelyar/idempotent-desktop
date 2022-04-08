@@ -108,7 +108,7 @@ args@{ config, lib, pkgs, ... }:
   };
 
   # boot
-  boot.loader.grub.splashImage = ../assets/displayManager.png;
+  boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
