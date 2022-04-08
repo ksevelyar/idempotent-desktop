@@ -17,5 +17,6 @@
   environment.systemPackages = with pkgs;
     lib.mkIf (config.services.xserver.enable) [
       pavucontrol
+      pamixer
     ];
 }

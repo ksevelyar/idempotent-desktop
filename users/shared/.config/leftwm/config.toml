@@ -187,23 +187,23 @@ key = "Print"
 
 [[keybind]]
 command = "Execute"
-value = "pactl set-sink-volume @DEFAULT_SINK@ +2%"
+value = 'pactl set-sink-volume @DEFAULT_SINK@ +2% && notify-send "🎵 $(pamixer --get-volume-human)" -t 900'
 modifier = []
 key = "XF86XK_AudioRaiseVolume"
 [[keybind]]
 command = "Execute"
-value = "pactl set-sink-volume @DEFAULT_SINK@ -2%"
+value = 'pactl set-sink-volume @DEFAULT_SINK@ -2% && notify-send "🎵 $(pamixer --get-volume-human)" -t 900'
 modifier = []
 key = "XF86XK_AudioLowerVolume"
 
 [[keybind]]
 command = "Execute"
-value = "pactl set-sink-volume @DEFAULT_SINK@ +2%"
+value = 'pactl set-sink-volume @DEFAULT_SINK@ +2% && notify-send "🎵 $(pamixer --get-volume-human)" -t 900'
 modifier = ["modkey"]
 key = "Page_Up"
 [[keybind]]
 command = "Execute"
-value = "pactl set-sink-volume @DEFAULT_SINK@ -2%"
+value = 'pactl set-sink-volume @DEFAULT_SINK@ -2% && notify-send "🎵 $(pamixer --get-volume-human)" -t 900'
 modifier = ["modkey"]
 key = "Page_Down"
 [[keybind]]
