@@ -77,7 +77,7 @@
 
 
   # boot.kernelPackages = pkgs.linuxPackages_latest; # fix Cambridge Silicon Radio wi-fi dongles
-  boot.loader.grub.splashImage = ../assets/displayManager.png;
+  boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
 
   # boot

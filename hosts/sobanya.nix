@@ -59,7 +59,7 @@ args@{ config, lib, pkgs, ... }:
   location.longitude = 37.61;
 
   # boot
-  boot.loader.grub.splashImage = ../assets/displayManager.png;
+  boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
 
   boot.blacklistedKernelModules = [ ];

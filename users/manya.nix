@@ -12,7 +12,7 @@ in
     (import ../packages/firefox.nix (args // { user = user; }))
   ];
 
-  boot.loader.grub.splashImage = lib.mkForce ../assets/grub_big.png;
+  boot.loader.grub.splashImage = lib.mkForce ../assets/wallpapers/planet.png;
   boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
 
   home-manager = {

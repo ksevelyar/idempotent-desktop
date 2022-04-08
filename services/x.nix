@@ -36,7 +36,7 @@
 
     displayManager.lightdm = {
       enable = true;
-      background = "/etc/nixos/assets/displayManager.png";
+      background = "/etc/nixos/assets/wallpapers/akira.png";
 
       greeters.enso = {
         enable = true;
