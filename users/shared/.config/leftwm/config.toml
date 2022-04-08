@@ -1,14 +1,6 @@
 tags = ["web", "ed", "cad", "im", "sh", "chill", "*"]
 
 [[scratchpad]]
-name = "spotify"
-value = "spotify"
-x = 0.1
-y = 0.1
-height = 0.8
-width =  0.8
-
-[[scratchpad]]
 name = "bluetooth"
 value = "blueman-manager"
 x = 0.1
@@ -81,12 +73,6 @@ command = "ToggleScratchPad"
 value = "pulseaudio"
 modifier = []
 key = "F8"
-
-[[keybind]]
-command = "ToggleScratchPad"
-value = "spotify"
-modifier = []
-key = "F9"
 
 [[keybind]]
 command = "ToggleScratchPad"
