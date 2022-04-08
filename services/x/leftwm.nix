@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs;
     [
-      twmn
+      dunst
       jgmenu
       xcape
 
@@ -40,7 +40,6 @@
       home.file.".xxkbrc".source = ../../users/shared/.xxkbrc;
 
       home.file.".config/dunst/dunstrc".source = ../../users/shared/.config/dunst/dunstrc;
-      home.file.".config/twmn/twmn.conf".source = ../../users/shared/.config/twmn/twmn.conf;
     };
   };
 }

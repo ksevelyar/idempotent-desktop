@@ -1,50 +1,40 @@
 [global]
-alignment = left
 alignment = center
-bounce_freq = 0
-browser = firefox -new-tab#9C71C7
 corner_radius = 0
-dmenu = rofi -dmenu -p dunst:
 follow = none
 font = Terminus 14
-format = "<b>%s</b>\n%b"
-frame_color = "#9C71C7"
-frame_width = 8
-# geometry [{width}]x{height}][+/-{x}+/-{y}]
-geometry = "0x20-10+30"
+format = "%s %b"
+frame_width = 0
 history_length = 20
-horizontal_padding = 16
-icon_position = right
-idle_threshold = 120
+horizontal_padding = 8
 ignore_newline = no
 indicate_hidden = yes
-line_height = 0
-markup = full
-max_icon_size = 64
 monitor = 0
-padding = 20
+offset = 2x0
+origin = top-left
+padding = 4
 separator_color = auto
 separator_height = 4
 show_age_threshold = 60
 show_indicators = yes
 shrink = no
 sort = yes
-startup_notification = false
-sticky_history = yes
-transparency = 20
+transparency = 10
+width = (50,300)
 word_wrap = yes
+stack_duplicates = false
 
 [urgency_low]
-background = "#1E2029"
+background = "#5b51c9"
+foreground = "#bbc2cf"
+timeout = 3
+
+[urgency_normal]
+background = "#5b51c9"
 foreground = "#bbc2cf"
 timeout = 8
 
-[urgency_normal]
-background = "#1B161F"
-foreground = "#bbc2cf"
-timeout = 14
-
 [urgency_critical]
-background = "#cc6666"
-foreground = "#1E2029"
-timeout = 0
+background = "#ffffff"
+foreground = "#000000"
+timeout = 15
