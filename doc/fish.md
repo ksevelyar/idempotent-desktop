@@ -8,7 +8,7 @@ Minimalistic [prompt](/users/shared/.config/fish/functions/fish_prompt.fish) wit
 
 ![](/assets/screens/fish.png)
 
-Use `fish-config` to configure it with GUI.
+Use `fish_config` to configure it with GUI.
 
 ## Fuzzy change directory with zoxide
 
