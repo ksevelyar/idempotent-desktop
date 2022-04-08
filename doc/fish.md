@@ -10,10 +10,10 @@ Minimalistic [prompt](/users/shared/.config/fish/functions/fish_prompt.fish) wit
 
 Use `fish_config` to configure it with GUI.
 
-## Fuzzy change directory with zoxide
+## Change directory by partial match with [zoxide](https://github.com/ajeetdsouza/zoxide#getting-started)
 
-`j nix` will switch to `/etc/nixos`.
-`j Do` will switch to `/home/ksevelyar/Downloads`.
+`j nix` will switch to `/etc/nixos`\
+`j Do` will switch to `/home/ksevelyar/Downloads`
 
 ## Fuzzy change directory with FZF
 
