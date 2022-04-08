@@ -76,6 +76,7 @@
         name = ${name}
       '';
 
+      home.file.".config/broot/conf.hjson".source = ../users/shared/.config/broot/conf.hjson;
       home.file.".config/zathura/zathurarc".source = ../users/shared/.config/zathura/zathurarc;
 
       home.file.".config/roxterm.sourceforge.net/Colours/joker".source = ../users/shared/.config/roxterm.sourceforge.net/Colours/joker;

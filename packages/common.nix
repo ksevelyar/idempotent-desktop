@@ -43,6 +43,7 @@
       pwgen
 
       # fs
+      broot
       atool
       bind
       dosfstools
@@ -53,7 +54,6 @@
       gptfdisk
       mtools
       ncdu
-      nnn
       ntfs3g
       parted
       rsync

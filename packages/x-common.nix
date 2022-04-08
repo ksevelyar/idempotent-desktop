@@ -118,6 +118,8 @@
       tdesktop
 
       # sys
+      alacritty
+      roxterm
       gparted
       xxkb
       xorg.xev
@@ -126,9 +128,6 @@
       piper # mouse settings
       xdotool
       seturgent
-      alacritty
-      roxterm
-      cool-retro-term
       maim # screenshot region or fullscreen
       vokoscreen # record desktop
       xclip
@@ -145,7 +144,6 @@
       vlc
       kodi
       libva-utils
-      glava
 
       # images
       imv
