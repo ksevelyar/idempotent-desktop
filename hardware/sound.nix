@@ -19,4 +19,13 @@
       pavucontrol
       pamixer
     ];
+
+  environment.shellAliases = {
+    sound-volume-up = ''
+      pactl set-sink-volume @DEFAULT_SINK@ +2% && notify-send -h string:synchronous:volume "$(pamixer --get-volume-human)" -t 1000
+    '';
+    sound-volume-down = ''
+      pactl set-sink-volume @DEFAULT_SINK@ -2% && notify-send -h string:synchronous:volume "$(pamixer --get-volume-human)" -t 1000
+    '';
+  };
 }

@@ -17,7 +17,7 @@ function pgen
   gopass generate -s -c $argv[1] 42 # if you can type your password it's no good
 end
 
-function find_and_replace
+function find-and-replace
   rg $argv[1] -l | xargs sed -i "s/$argv[1]/$argv[2]/g"
 end
 
