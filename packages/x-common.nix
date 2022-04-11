@@ -138,8 +138,6 @@
       # media
       glxinfo
       feh
-      spotify
-      playerctl
       mpv # https://github.com/mpv-player/mpv/blob/master/etc/input.conf
       vlc
       kodi

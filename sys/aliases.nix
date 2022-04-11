@@ -69,7 +69,7 @@
     t = "task"; # https://www.youtube.com/watch?v=zl68asL9jZA
     fd = "fd --hidden --exclude .git";
     # turn screen off and stop music
-    off = "sleep 0.5 && xset dpms force off; pkill -f spotify; xdotool key XF86AudioPause";
+    off = "sleep 0.5 && xset dpms force off; mpc stop";
 
     ssht = "ssh -t skynet 'tmux new -A -s 🦙'";
     m = "mosh";
