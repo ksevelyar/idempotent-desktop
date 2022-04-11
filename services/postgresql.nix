@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  id-pg-backup = pkgs.writeScriptBin "id-pg-backup" ''
+  pg-backup = pkgs.writeScriptBin "pg-backup" ''
     #!${pkgs.stdenv.shell}
     set -e
     
@@ -50,6 +50,6 @@ in
   };
 
   environment.systemPackages = [
-    id-pg-backup
+    pg-backup
   ];
 }

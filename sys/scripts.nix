@@ -3,7 +3,7 @@
 let
   # https://stackoverflow.com/a/22102938
   # Get hex rgb color under mouse cursor, put it into clipboard and create a notification.
-  id-pick-color = pkgs.writeScriptBin "id-pick-color" ''
+  pick-color = pkgs.writeScriptBin "pick-color" ''
     #!${pkgs.stdenv.shell}
     set -e
 
@@ -14,26 +14,25 @@ let
     notify-send "Color under mouse cursor: " $COLOR
   '';
 
-  id-build-iso = pkgs.writeScriptBin "id-build-iso" ''
-    #!${pkgs.stdenv.shell}
-    set -e
-
-    nix build /etc/nixos#nixosConfigurations.live-usb.config.system.build.isoImage
-  '';
-
-  id-write-usb = pkgs.writeScriptBin "id-write-usb" ''
+  build-live-iso = pkgs.writeScriptBin "build-live-iso" ''
     #!${pkgs.stdenv.shell}
     set -e
 
     cd /tmp
-    iso=$(id-build-iso)
+    nix build /etc/nixos#nixosConfigurations.live-usb.config.system.build.isoImage
+  '';
+
+  write-live-usb = pkgs.writeScriptBin "write-live-usb" ''
+    #!${pkgs.stdenv.shell}
+    set -e
+
+    iso=$(build-iso)
     sudo dd bs=4M if=$iso/iso/id-live.iso of=/dev/disk/by-label/id-live status=progress oflag=sync
-    # sudo dd bs=4M if=$img/sd-image/id-live-arm.iso.bz2 of=/dev/disk/by-label/id-live status=progress oflag=sync
 
     echo -e "\n💽\n"
   '';
 
-  id-info = pkgs.writeScriptBin "id-info" ''
+  host-info = pkgs.writeScriptBin "host-info" ''
     #!${pkgs.stdenv.shell}
 
     LOCAL_IP=$(ip -o addr show | grep 'inet ' | grep -v 127.0.0.1 | awk '{print $4}' | cut -d'/' -f 1)
@@ -52,12 +51,12 @@ let
     lsmod | rg kvm
   '';
 
-  id-random-wallpaper = pkgs.writeScriptBin "id-random-wallpaper" ''
+  random-wallpaper = pkgs.writeScriptBin "random-wallpaper" ''
     #!${pkgs.stdenv.shell}
     feh --randomize --bg-fill --no-fehbg ~/wallpapers  
   '';
 
-  id-tm = pkgs.writeScriptBin "id-tm" ''
+  tm = pkgs.writeScriptBin "tm" ''
     #!${pkgs.stdenv.shell}
     set -e
 
@@ -68,17 +67,27 @@ let
         tmux new -A -s $1
     fi
   '';
+
+  turn-off-display-and-music = pkgs.writeScriptBin "turn-off-display-and-music" ''
+    #!${pkgs.stdenv.shell}
+    set -e
+    
+    sleep 0.5
+    xset dpms force off
+    mpc stop
+  '';
 in
 {
   environment.systemPackages = lib.mkIf config.services.xserver.enable ([
-    id-random-wallpaper
+    random-wallpaper
 
-    id-pick-color
+    pick-color
     pkgs.imagemagick
   ] ++ [
-    id-build-iso
-    id-info
-    id-tm
-    id-write-usb
-  ]); 
+    build-live-iso
+    host-info
+    tm
+    write-live-usb
+    turn-off-display-and-music
+  ]);
 }

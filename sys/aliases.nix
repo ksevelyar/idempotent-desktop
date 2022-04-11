@@ -23,7 +23,7 @@
     ports = "sudo lsof -Pni"; # ports | fzf
     pgrep = "pgrep --full";
     pkill = "pkill --full";
-    i = "id-info";
+    i = "host-info";
     l = "ls -lahXF --group-directories-first";
     tree = "exa --tree";
     j = "z"; # autojump alias 
@@ -39,11 +39,6 @@
     pc = "gopass show -c";
     pp = "gopass";
     tor = "nix-shell -p tor-browser-bundle-bin --run tor-browser";
-
-    tm = "id-tm";
-    tm1 = "id-tm 🦙";
-    tm2 = "id-tm 🔮";
-    tm3 = "id-tm 🦹";
 
     g = "git";
     gamend = "git add . && git commit --amend";
@@ -64,12 +59,9 @@
     gl = "git lg";
     gp = "git push";
     gso = "git log -p --all --source -S "; # search string in all branches, gso <string>
-    gdf = "git diff --no-index"; # delta diff for non git files
 
     t = "task"; # https://www.youtube.com/watch?v=zl68asL9jZA
     fd = "fd --hidden --exclude .git";
-    # turn screen off and stop music
-    off = "sleep 0.5 && xset dpms force off; mpc stop";
 
     ssht = "ssh -t skynet 'tmux new -A -s 🦙'";
     m = "mosh";
@@ -80,12 +72,11 @@
     # nix
     e = "nvim /etc/nixos/configuration.nix";
     b = "sudo nixos-rebuild switch --keep-going";
-    id-wipe-user-packages = "nix-env -e '*'";
+    wipe-user-packages = "nix-env -e '*'";
 
-    id-gc = "sudo nix-collect-garbage --delete-older-than 30d";
-    id-gc-force = "sudo rm /nix/var/nix/gc.lock; id-gc";
-    id-inspect-store = "nix path-info -rSh /run/current-system | sort -k2h ";
-    id-push = "sudo nix-store -qR --include-outputs /run/current-system | cachix push idempotent-desktop ";
-    id-store-to-svg = "nix-du --root /run/current-system/sw/ -s 100MB | tred | dot -Tsvg > ./nix-store.svg";
+    nix-gc = "sudo nix-collect-garbage --delete-older-than 30d";
+    inspect-store = "nix path-info -rSh /run/current-system | sort -k2h ";
+    cachix-push = "sudo nix-store -qR --include-outputs /run/current-system | cachix push idempotent-desktop ";
+    store-to-svg = "nix-du --root /run/current-system/sw/ -s 100MB | tred | dot -Tsvg > ./nix-store.svg";
   };
 }

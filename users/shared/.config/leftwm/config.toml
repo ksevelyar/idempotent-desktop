@@ -127,7 +127,7 @@ key = "t"
 
 [[keybind]]
 command = "Execute"
-value = "sleep 0.5; xset dpms force off"
+value = "turn-off-display-and-music"
 modifier = ["modkey"]
 key = "o"
 
@@ -225,7 +225,7 @@ key = "XF86XK_MonBrightnessDown"
 
 [[keybind]]
 command = "Execute"
-value = "id-pick-color"
+value = "pick-color"
 modifier = ["modkey"]
 key = "k"
 
