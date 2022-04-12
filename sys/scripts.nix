@@ -26,8 +26,8 @@ let
     #!${pkgs.stdenv.shell}
     set -e
 
-    iso=$(build-iso)
-    sudo dd bs=4M if=$iso/iso/id-live.iso of=/dev/disk/by-label/id-live status=progress oflag=sync
+    build-live-iso
+    sudo dd bs=4M if=/tmp/result/iso/id-live.iso of=/dev/disk/by-label/id-live status=progress oflag=sync
 
     echo -e "\n💽\n"
   '';
@@ -84,10 +84,11 @@ in
     pick-color
     pkgs.imagemagick
   ] ++ [
+    write-live-usb
     build-live-iso
+
     host-info
     tm
-    write-live-usb
     turn-off-display-and-music
   ]);
 }
