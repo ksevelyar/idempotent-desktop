@@ -34,7 +34,7 @@ mount /dev/disk/by-label/boot /mnt/boot
 
 ```
 git clone https://github.com/ksevelyar/idempotent-desktop.git /mnt/etc/nixos
-chown -R 1000:users /etc/nixos
+chown -R 1000:users /mnt/etc/nixos
 ```
 
 ## Add LUKS2 container to configuration.nix
