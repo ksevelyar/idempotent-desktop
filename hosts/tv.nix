@@ -17,7 +17,7 @@ args@{ config, lib, pkgs, ... }:
       ../sys/scripts.nix
       ../sys/sysctl.nix
       ../sys/tty.nix
-      ../sys/debug.nix
+      # ../sys/debug.nix
       ../sys/cache.nix
 
       ../boot/efi.nix
@@ -33,6 +33,7 @@ args@{ config, lib, pkgs, ... }:
       ../packages/pass.nix
       ../packages/tmux.nix
 
+      ../services/mpd.nix
       ../services/journald.nix
       ../services/x.nix
       ../services/x/picom.nix
@@ -40,7 +41,7 @@ args@{ config, lib, pkgs, ... }:
 
       ../services/net/firewall-desktop.nix
       ../services/net/openvpn.nix
-      # ../services/vpn/vpn.nix
+      ../services/vpn/vpn.nix
       ../services/net/sshd.nix
       ../services/net/wireguard.nix
       ../services/net/avahi.nix
@@ -48,12 +49,6 @@ args@{ config, lib, pkgs, ... }:
 
   console.font =
     "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
-  services.xserver.dpi = 180;
-  environment.variables = {
-    GDK_SCALE = "1.5";
-    GDK_DPI_SCALE = "0.5";
-    _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
-  };
 
   # boot
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
