@@ -1,4 +1,21 @@
 { config, pkgs, lib, ... }:
+let
+  sound-volume-up = pkgs.writeScriptBin "sound-volume-up" ''
+    #!${pkgs.stdenv.shell}
+    set -e
+    
+    pactl set-sink-volume @DEFAULT_SINK@ +2% 
+    notify-send -h string:synchronous:volume "$(pamixer --get-volume-human)" -t 1000
+  '';
+
+  sound-volume-down = pkgs.writeScriptBin "sound-volume-down" ''
+    #!${pkgs.stdenv.shell}
+    set -e
+    
+    pactl set-sink-volume @DEFAULT_SINK@ -2%
+    notify-send -h string:synchronous:volume "$(pamixer --get-volume-human)" -t 1000
+  '';
+in
 {
   sound.enable = true;
 
@@ -14,18 +31,10 @@
     };
   };
 
-  environment.systemPackages = with pkgs;
-    lib.mkIf (config.services.xserver.enable) [
-      pavucontrol
-      pamixer
-    ];
-
-  environment.shellAliases = {
-    sound-volume-up = ''
-      pactl set-sink-volume @DEFAULT_SINK@ +2% && notify-send -h string:synchronous:volume "$(pamixer --get-volume-human)" -t 1000
-    '';
-    sound-volume-down = ''
-      pactl set-sink-volume @DEFAULT_SINK@ -2% && notify-send -h string:synchronous:volume "$(pamixer --get-volume-human)" -t 1000
-    '';
-  };
+  environment.systemPackages = lib.mkIf config.services.xserver.enable [
+    sound-volume-up
+    sound-volume-down
+    pkgs.pavucontrol
+    pkgs.pamixer
+  ];
 }

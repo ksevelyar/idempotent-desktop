@@ -1,5 +1,4 @@
 { pkgs, lib, config, ... }:
-
 let
   # https://stackoverflow.com/a/22102938
   # Get hex rgb color under mouse cursor, put it into clipboard and create a notification.
