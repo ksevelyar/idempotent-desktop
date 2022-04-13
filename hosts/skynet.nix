@@ -3,6 +3,7 @@
   imports =
     [
       ../users/ksevelyar.nix
+      ../users/root.nix
 
       ../hardware/intel.nix
       ../hardware/ssd.nix
@@ -38,19 +39,15 @@
 
     interfaces.enp3s0 = {
       allowedTCPPorts = [
+        # wireguard
         51821
-        # NFS
-        111 # portmapper
-        2049
-        20000
-        20001
-        20002
 
         # http, https
         80
         443
       ];
       allowedUDPPorts = [
+        # wireguard
         51821
       ];
     };
@@ -154,15 +151,17 @@
   boot.cleanTmpDir = true;
   boot.tmpOnTmpfs = true;
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "xhci_pci" "usb_storage" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
 
   boot.kernelModules = [ "kvm-intel" "tcp_bbr" ];
-  boot.extraModulePackages = [];
+  boot.extraModulePackages = [ ];
   boot.kernelPackages = pkgs.linuxPackages_hardened;
-  boot.kernel.sysctl = {
-    "net.ipv4.tcp_congestion_control" = "bbr";
-    "net.core.default_qdisc" = "cake";
-    "net.ipv4.ip_forward" = true;
+
+  boot.initrd.luks.devices = {
+    nixos = {
+      device = "/dev/disk/by-label/enc-nixos";
+      allowDiscards = true;
+    };
   };
 
   fileSystems."/" =

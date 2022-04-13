@@ -117,8 +117,6 @@ args@{ config, lib, pkgs, ... }:
   boot.tmpOnTmpfs = true;
 
   # fs
-  swapDevices = [ ];
-
   boot.initrd.luks.devices = {
     nixos = {
       device = "/dev/disk/by-label/enc-nixos";

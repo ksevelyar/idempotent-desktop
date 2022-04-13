@@ -90,7 +90,7 @@ args@{ config, lib, pkgs, ... }:
   services.xserver.displayManager.defaultSession = "none+leftwm";
 
   # hardware
-  ## J4125
+  ## J4125 (F11 for boot menu)
   ## DIMM DDR4 16GB
   hardware = {
     pulseaudio = {
@@ -101,21 +101,24 @@ args@{ config, lib, pkgs, ... }:
   };
 
   # fs
-  swapDevices = [ ];
-
-  fileSystems."/" =
-    {
-      device = "/dev/disk/by-label/nixos";
-      fsType = "ext4";
-      options = [ "noatime" "nodiratime" ];
+  boot.initrd.luks.devices = {
+    nixos = {
+      device = "/dev/disk/by-label/enc-nixos";
+      allowDiscards = true;
     };
+  };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-label/boot";
-      fsType = "vfat";
-      options = [ "noatime" "nodiratime" ]; # ssd
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/nixos";
+    fsType = "ext4";
+    options = [ "noatime" "nodiratime" ];
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/boot";
+    fsType = "vfat";
+    options = [ "noatime" "nodiratime" ]; # ssd
+  };
 
   fileSystems."/skynet" = {
     device = "192.168.42.1:/export";

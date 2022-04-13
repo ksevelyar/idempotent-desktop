@@ -22,16 +22,6 @@ let
     nix build /etc/nixos#nixosConfigurations.live-usb.config.system.build.isoImage
   '';
 
-  write-live-usb = pkgs.writeScriptBin "write-live-usb" ''
-    #!${pkgs.stdenv.shell}
-    set -e
-
-    build-live-iso
-    sudo dd bs=4M if=/tmp/result/iso/id-live.iso of=/dev/disk/by-label/id-live status=progress oflag=sync
-
-    echo -e "\n💽\n"
-  '';
-
   host-info = pkgs.writeScriptBin "host-info" ''
     #!${pkgs.stdenv.shell}
 
@@ -84,7 +74,6 @@ in
     pick-color
     pkgs.imagemagick
   ] ++ [
-    write-live-usb
     build-live-iso
 
     host-info

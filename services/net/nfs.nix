@@ -1,8 +1,7 @@
 {
-  fileSystems."/export/learn" = { device = "/storage/learn"; options = [ "bind" ]; };
-  fileSystems."/export/work" = { device = "/storage/work"; options = [ "bind" ]; };
-  fileSystems."/export/chill" = { device = "/storage/chill"; options = [ "bind" ]; };
-  fileSystems."/export/vvv" = { device = "/storage/vvv"; options = [ "bind" ]; };
+  fileSystems."/export/learn" = { device = "/data/learn"; options = [ "bind" ]; };
+  fileSystems."/export/work" = { device = "/data/work"; options = [ "bind" ]; };
+  fileSystems."/export/chill" = { device = "/data/chill"; options = [ "bind" ]; };
 
   services.nfs.server = {
     enable = true;
