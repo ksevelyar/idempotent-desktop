@@ -34,4 +34,13 @@
   environment.shellAliases = {
     mt = "mix test --max-failures=1";
   };
+
+  networking.firewall.allowedTCPPorts = [
+    1234
+    1500
+    3000
+    4000
+    8080
+    4040
+  ];
 }

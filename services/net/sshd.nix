@@ -1,4 +1,6 @@
+{ lib, ... }:
 {
+  systemd.services.sshd.wantedBy = lib.mkForce []; # sudo systemctl start sshd
   services.openssh = {
     ports = [ 9922 ];
     enable = true;

@@ -12,5 +12,5 @@
     passwordAuthentication = lib.mkForce true;
   };
 
-  systemd.services.sshd.wantedBy = [ "multi-user.target" ];
+  systemd.services.sshd.wantedBy = lib.mkOverride 40 [ "multi-user.target" ];
 }

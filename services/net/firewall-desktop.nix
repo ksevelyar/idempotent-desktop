@@ -1,7 +1,5 @@
 { lib, ... }:
 {
-  systemd.services.sshd.wantedBy = lib.mkForce []; # sudo systemctl start sshd
-
   networking.firewall.enable = lib.mkForce true;
 
   networking.firewall.allowedTCPPorts = [
@@ -10,14 +8,6 @@
 
     # VNC
     5900
-
-    # Dev
-    1234
-    1500
-    3000
-    4000
-    8080
-    4040
   ];
 
   networking.firewall.allowedUDPPorts = [

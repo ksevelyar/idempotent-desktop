@@ -3,6 +3,7 @@ args@{ config, lib, pkgs, ... }:
   imports =
     [
       ../users/ksevelyar.nix
+      ../users/root.nix
 
       ../hardware/bluetooth.nix
       ../hardware/mouse.nix
@@ -26,8 +27,6 @@ args@{ config, lib, pkgs, ... }:
       ../packages/common.nix
       ../packages/x-common.nix
       ../packages/dev.nix
-      ../packages/3d-print.nix
-      ../packages/electronics.nix
       ../packages/games.nix
       ../packages/nvim.nix
       ../packages/pass.nix
@@ -48,7 +47,7 @@ args@{ config, lib, pkgs, ... }:
     ];
 
   console.font =
-    "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
+    "${pkgs.terminus_font}/share/consolefonts/ter-u24n.psf.gz";
 
   # boot
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
@@ -59,7 +58,7 @@ args@{ config, lib, pkgs, ... }:
   boot.tmpOnTmpfs = true;
 
   # net
-  systemd.services.sshd.wantedBy = [ "multi-user.target" ];
+  systemd.services.sshd.wantedBy = lib.mkOverride 40 [ "multi-user.target" ];
   networking.hostName = "tv";
   networking.interfaces.eno1.useDHCP = true;
   networking.useDHCP = false;
