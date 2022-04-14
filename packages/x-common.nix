@@ -146,7 +146,6 @@
       # images
       imv
       nomacs
-      ahoviewer
 
       # gui for external monitors
       arandr
