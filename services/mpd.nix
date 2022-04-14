@@ -21,15 +21,21 @@
   };
 
   environment.systemPackages = with pkgs;
-    let
-      ncmpcpp = pkgs.ncmpcpp.override {
-        visualizerSupport = true;
-      };
-    in
-    [
-      ncmpcpp # https://pkgbuild.com/~jelle/ncmpcpp/
-      mpc-cli
-      easytag
-      kid3 # kid3-cli -c 'fromtag "%{artist} - %{title}" 2' **/*.mp3
-    ];
+  let
+    ncmpcpp = pkgs.ncmpcpp.override {
+      visualizerSupport = true;
+    };
+  in [
+    ncmpcpp # https://pkgbuild.com/~jelle/ncmpcpp/
+    mpc-cli
+    
+    # fetch missing ID3v2 tags with AcoustID https://musicbrainz.org/doc/AcoustID
+    picard 
+    
+    # rename files to `artist - title.mp3` from ID3v2 tags
+    kid3 # kid3-cli -c 'fromtag "%{artist} - %{title}" 2' **/*.mp3
+
+    # downcase dirs 
+    mmv # mmv '*' '#l1'
+  ];
 }
