@@ -13,7 +13,7 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 * [Terminus](http://terminus-font.sourceforge.net/shots.html) and [NerdFonts](/sys/fonts.nix)
 * [Brutal Doom](https://github.com/ksevelyar/brutal-doom), [Quake](https://github.com/ksevelyar/quake), [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
 * [battery optimisation](/hardware/power-management.nix) for laptops
-* [mpd](/services/mpd.nix), [mpv](users/shared/.config/mpv/mpv.conf) 
+* [mpd](/services/mpd.nix), [mpv](/users/shared/.config/mpv) 
 * [live-usb](/live-usb/live-usb.nix)
 * [sysrq](https://www.kernel.org/doc/html/latest/admin-guide/sysrq.html#what-are-the-command-keys) 
 * [tldr](https://github.com/tldr-pages/tldr) aliased to h
