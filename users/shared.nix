@@ -90,6 +90,7 @@
       home.file.".config/mpv/mpv.conf".source = ../users/shared/.config/mpv/mpv.conf;
       home.file.".config/mpv/input.conf".source = ../users/shared/.config/mpv/input.conf;
       home.file.".config/mpv/scripts/autoload.lua".source = ../users/shared/.config/mpv/scripts/autoload.lua;
+      home.file.".config/mpv/scripts/delete_file.lua".source = ../users/shared/.config/mpv/scripts/delete_file.lua;
 
       home.file.".npmrc".source = ../users/shared/.npmrc;
 
