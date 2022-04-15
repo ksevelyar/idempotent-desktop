@@ -9,11 +9,10 @@
     s = "sudo";
     ss = "sudo systemctl stop";
     sr = "sudo systemctl restart";
-
-    clip = "xclip -selection clipboard";
-
     ssu = "systemctl stop --user";
     sru = "systemctl restart --user";
+
+    clip = "xclip -selection clipboard";
 
     x = "sudo systemctl restart display-manager";
 
@@ -46,11 +45,9 @@
     gsp = "git stash pop";
     gsa = "git stash apply";
     gsl = "git stash list --pretty=format:'%Cblue%gd%C(yellow): %C(brightwhite)%s'";
-
     gco = "git checkout";
     gc = "git commit --message";
     gca = "git commit --all --message";
-
     gs = "git status --short";
     gd = "git diff";
     gdc = "git diff --cached";
@@ -63,7 +60,6 @@
     t = "task"; # https://www.youtube.com/watch?v=zl68asL9jZA
     fd = "fd --hidden --exclude .git";
 
-    ssht = "ssh -t skynet 'tmux new -A -s 🦙'";
     m = "mosh";
     grab-display = "export DISPLAY = ':0.0'";
     vnc-server = "x11vnc -repeat -forever -noxrecord -noxdamage -rfbport 5900";
@@ -77,6 +73,5 @@
     nix-gc = "sudo nix-collect-garbage --delete-older-than 30d";
     inspect-store = "nix path-info -rSh /run/current-system | sort -k2h ";
     cachix-push = "sudo nix-store -qR --include-outputs /run/current-system | cachix push idempotent-desktop ";
-    store-to-svg = "nix-du --root /run/current-system/sw/ -s 100MB | tred | dot -Tsvg > ./nix-store.svg";
   };
 }

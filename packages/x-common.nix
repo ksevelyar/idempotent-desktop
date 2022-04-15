@@ -92,6 +92,7 @@
       # net
       firefox
       google-chrome
+      youtube-dl
       transmission-gtk
       x11vnc # vnc-server
       tigervnc # vncviewer

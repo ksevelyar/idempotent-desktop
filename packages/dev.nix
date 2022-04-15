@@ -5,7 +5,6 @@
       # rust
       rnix-lsp
       rustfmt
-      cargo
       rust-analyzer
 
       # elixir
