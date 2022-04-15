@@ -44,6 +44,7 @@
     "d /home/${user}/photos      0700 ${user} 1000"
     "d /home/${user}/sshfs       0700 ${user} 1000"
     "d /home/${user}/learn       0700 ${user} 1000"
+    "d /home/${user}/todo        0700 ${user} 1000"
   ];
 
   home-manager = {

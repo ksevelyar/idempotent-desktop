@@ -16,7 +16,7 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 * [mpd](/services/mpd.nix), [mpdscribble](services/mpd/mpdscribble.nix), [mpv](/users/shared/.config/mpv) 
 * [live-usb](/live-usb/live-usb.nix)
 * [sysrq](https://www.kernel.org/doc/html/latest/admin-guide/sysrq.html#what-are-the-command-keys) 
-* [tldr](https://github.com/tldr-pages/tldr) aliased to h
+* [tealdeer](https://github.com/dbrgn/tealdeer) aliased to h
 
 ## Linux as IDE
 

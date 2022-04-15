@@ -63,4 +63,8 @@
       xterm.enable = false;
     };
   };
+
+  environment.shellAliases = {
+    x = "sudo systemctl restart display-manager";
+  };
 }
