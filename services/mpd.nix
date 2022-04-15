@@ -26,16 +26,20 @@
       visualizerSupport = true;
     };
   in [
-    ncmpcpp # https://pkgbuild.com/~jelle/ncmpcpp/
+    ncmpcpp # https://cht.sh/ncmpcpp
     mpc-cli
-    
+
     # fetch missing ID3v2 tags with AcoustID https://musicbrainz.org/doc/AcoustID
-    picard 
-    
+    picard
+
     # rename files to `artist - title.mp3` from ID3v2 tags
     kid3 # kid3-cli -c 'fromtag "%{artist} - %{title}" 2' **/*.mp3
 
     # downcase dirs 
     mmv # mmv '*' '#l1'
   ];
+
+  environment.shellAliases = {
+    m = "ncmpcpp";
+  };
 }

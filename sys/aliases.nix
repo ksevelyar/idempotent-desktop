@@ -60,7 +60,7 @@
     t = "task"; # https://www.youtube.com/watch?v=zl68asL9jZA
     fd = "fd --hidden --exclude .git";
 
-    m = "mosh";
+    ms = "mosh";
     grab-display = "export DISPLAY = ':0.0'";
     vnc-server = "x11vnc -repeat -forever -noxrecord -noxdamage -rfbport 5900";
     vnc = "vncviewer −FullscreenSystemKeys -MenuKey F12";

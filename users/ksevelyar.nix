@@ -7,6 +7,7 @@ in
 {
   imports = [
     (import ./shared.nix (args // { user = user; email = email; name = name; }))
+    (import ../services/mpd/mpdscribble.nix (args // { user = user; lastfm_user = user; listenbrainz_user = user; }))
   ] ++ [
     (lib.mkIf (config.services.xserver.enable) (import ../services/x/polybar.nix (args // { user = user; })))
     (lib.mkIf (config.services.xserver.enable) (import ../services/x/leftwm.nix (args // { user = user; })))
@@ -20,6 +21,6 @@ in
   };
 
   networking.extraHosts = ''
-      127.0.0.1 dev.lcl
-    '';
+    127.0.0.1 dev.lcl fitlog.lcl
+  '';
 }
