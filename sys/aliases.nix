@@ -11,6 +11,9 @@
     i = "host-info";
     ms = "mosh";
 
+    # learn
+    tr = "trans"; # https://github.com/soimort/translate-shell
+
     # fs
     r = "rsync -ra --info=progress2";
     l = "ls -lahXF --group-directories-first";
@@ -42,7 +45,7 @@
 
     # vim
     v = "nvim";
-    t = "nvim ~/todo/";
+    t = "nvim ~/todo/backlog.md";
     vv = "nvim -U none"; # vanilla v, don't load plugins & init.vim
 
     # sec
