@@ -20,8 +20,8 @@ width =  0.8
 name = "ncmpcpp"
 value = "alacritty -e ncmpcpp"
 x = 0.1
-y = 0.1
-height = 0.8
+y = 0.15
+height = 0.71
 width =  0.8
 
 [[scratchpad]]
