@@ -2,39 +2,39 @@
 
 ## Launchers
 
-`<Win>m` show jgmenu
+`mod` Rofi: apps
 
-`<Win>` Rofi: apps
+`mod c` Rofi: clipboard entries
 
-`<Win>c` Rofi: clipboard entries
-
-`<Win>z` Rofi: emoji
+`mod z` Rofi: emoji
 
 ## Windows & workspaces
 
-`<Win>1-9` switch workspace
+`mod 1-9` switch workspace
 
-`<Win><Shift>1-9` move focused window to workspace
+`mod <Shift>1-9` move focused window to workspace
 
-`<Win>q` quit focused window
+`mod q` quit focused window
 
-`<Win><Left>` move focus left
+`mod <Left>` move focus left
 
-`<Win><Right>` move focus right
+`mod <Right>` move focus right
 
-`<Win>enter` open terminal
+`mod enter` open terminal
 
-`<Win>b` open or focus browser
+`mod b` open or focus browser
 
-`<Win>v` open or focus Vim
+`mod v` open or focus Vim
 
-`<Win>t` open or focus Telegram
+`mod t` open or focus Telegram
 
 ## Scratchpads
 
-`<Win>s` toggle SpaceFM
+`mod s` toggle SpaceFM
 
-`<Win>i` toggle images browser (Nomacs)
+`mod m` toggle ncmpcpp
+
+`mod i` toggle images browser (Nomacs)
 
 `<F1>` toggle 1 alacritty scratchpad
 
@@ -44,48 +44,44 @@
 
 `<F4>` toggle 4 alacritty scratchpad
 
-`<F6>` toggle gotop scratchpad
-
 `<F7>` toggle bluetooth scratchpad
 
 `<F8>` toggle audio settings scratchpad
 
-`<F9>` toggle Spotify
-
 ## Layouts
 
-`<Win>r` rotate layout
+`mod r` rotate layout
 
-`<Win>f` toggle full screen
+`mod f` toggle full screen
 
 ## Actions
 
-`<Win>Home` toggle sound
+`mod Home` toggle sound
 
-`<Win>PageUp` volume up
+`mod PageUp` volume up
 
-`<Win>PageDown` volume down
+`mod PageDown` volume down
 
-`<Win>~` set random wallpaper from `~/wallpapers`
+`mod w` set random wallpaper from `~/wallpapers`
 
-`<Win>l` lock display
+`mod l` lock display
 
-`<Win>o` off display
+`mod o` off display and pause mpd
 
 `<Print>` screenshot the region
 
-`<Win><Print>` screenshot the whole screen
+`mod <Print>` screenshot the whole screen
 
-`<Win>k` copy color under cursor to the clipboard
+`mod k` copy color under cursor to the clipboard
 
-`<Win><Ctrl>h` power off
+`mod <Ctrl>h` power off
 
-`<Win><Ctrl>r` reboot
+`mod <Ctrl>r` reload left wm
 
 ## Mouse
 
-`<Win>LMB` set the window to floating mode and move by dragging
+`mod LMB` set the window to floating mode and move by dragging
 
-`<Win>MMB` set the window to the top of the stack
+`mod MMB` set the window to the top of the stack
 
-`<Win>RMB` set the window to floating mode and resize by dragging
+`mod RMB` set the window to floating mode and resize by dragging

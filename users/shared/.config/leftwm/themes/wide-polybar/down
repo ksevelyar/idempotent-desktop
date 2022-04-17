@@ -1,3 +1,4 @@
 pkill picom
 pkill polybar
 pkill dunst
+pkill policykit

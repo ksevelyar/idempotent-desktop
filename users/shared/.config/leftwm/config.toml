@@ -17,6 +17,14 @@ height = 0.8
 width =  0.8
 
 [[scratchpad]]
+name = "ncmpcpp"
+value = "alacritty -e ncmpcpp"
+x = 0.1
+y = 0.1
+height = 0.8
+width =  0.8
+
+[[scratchpad]]
 name = "nomacs"
 value = "nomacs"
 x = 0.1
@@ -61,6 +69,11 @@ y = 0.05
 height = 0.45
 width =  0.5
 
+[[keybind]]
+command = "ToggleScratchPad"
+value = "ncmpcpp"
+modifier = ['modkey']
+key = "m"
 
 [[keybind]]
 command = "ToggleScratchPad"
@@ -168,12 +181,6 @@ key = "v"
 
 [[keybind]]
 command = "Execute"
-value = "jgmenu --center"
-modifier = ["modkey"]
-key = "m"
-
-[[keybind]]
-command = "Execute"
 value = "maim ~/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-full.png"
 modifier = ["modkey"]
 key = "Print"
@@ -228,6 +235,18 @@ command = "Execute"
 value = "pick-color"
 modifier = ["modkey"]
 key = "k"
+
+[[keybind]]
+command = "Execute"
+value = "random-wallpaper"
+modifier = ["modkey"]
+key = "w"
+
+[[keybind]]
+command = "Execute"
+value = "poweroff"
+modifier = ["modkey", "Control"]
+key = "h"
 
 [[keybind]]
 command = "SoftReload"
