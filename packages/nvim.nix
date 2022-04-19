@@ -1,8 +1,7 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    # TODO: declarative deps for vim
-    nodejs_latest # npm i -g eslint typescript typescript-language-server vls vscode-langservers-extracted
+    nodejs_latest
     (
       neovim.override {
         vimAlias = true;
@@ -13,4 +12,9 @@
       }
     )
   ];
+
+  # TODO: declarative deps for vim
+  environment.shellAliases = {
+    install-vim-deps = "npm i -g vim-language-server eslint typescript typescript-language-server vls vscode-langservers-extracted";
+  };
 }

@@ -158,7 +158,7 @@ require'lualine'.setup {
     extensions = {}
 }
 
-g.nvim_tree_show_icons = {git = 1, folders = 0, files = 0, folder_arrows = 0}
+g.nvim_tree_show_icons = {git = 1, folders = 0, files = 0, folder_arrows = 1}
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 local list = {
@@ -202,3 +202,4 @@ require'nvim-tree'.setup {
     }
 }
 
+require'telescope'.setup {pickers = {find_files = {hidden = true}}}
