@@ -54,7 +54,7 @@
 
   systemd.services.sshd.wantedBy = lib.mkForce [ "multi-user.target" ];
 
-  # mkdir -p ~/wireguard-keys && cd ~/wireguard-keys && umask 077
+  # mkdir -p ~/.secrets/wireguard && cd ~/.secrets/wireguard && umask 077
   # wg genkey | tee private | wg pubkey > public
   networking.wireguard.interfaces.skynet = {
     ips = [ "192.168.42.1" ];
@@ -101,7 +101,7 @@
       }
       ## pepes
       {
-        publicKey = "dKznTEMMN4xKXuP8UDo92G14pzwrJNGTISeSXoMcTxQ=";
+        publicKey = "TJPvhSwUdTo07ppYI/o9AhBupHey4mti0cZXxjWMhmk=";
         allowedIPs = [ "192.168.42.11" ];
       }
 
