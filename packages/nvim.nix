@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    rnix-lsp
     nodejs_latest
     (
       neovim.override {

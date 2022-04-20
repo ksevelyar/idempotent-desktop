@@ -16,11 +16,11 @@ in
 
   users.users = {
     root = {
-      initialHashedPassword = lib.mkForce "";
+      initialPassword = lib.mkForce "id";
     };
 
     ${user} = {
-      initialHashedPassword = "";
+      initialPassword = "id";
     };
   };
 
@@ -30,6 +30,6 @@ in
     };
   };
 
-  services.getty.autologinUser = lib.mkForce user;
+  services.getty.autologinUser = lib.mkForce "root";
   services.getty.greetingLine = lib.mkForce ''\l'';
 }

@@ -52,7 +52,7 @@
     };
   };
 
-  systemd.services.sshd.wantedBy = [ "multi-user.target" ];
+  systemd.services.sshd.wantedBy = lib.mkForce [ "multi-user.target" ];
 
   # mkdir -p ~/wireguard-keys && cd ~/wireguard-keys && umask 077
   # wg genkey | tee private | wg pubkey > public
@@ -60,7 +60,7 @@
     ips = [ "192.168.42.1" ];
     listenPort = 51821;
 
-    privateKeyFile = "/home/ksevelyar/wireguard-keys/private";
+    privateKeyFile = "/home/ksevelyar/.secrets/wireguard/private";
 
     peers = [
       # ksevelyar 42-52
@@ -161,7 +161,7 @@
     };
   };
 
-  # F11 for boot menu
+  # F10 for boot menu
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/boot";
     fsType = "vfat";

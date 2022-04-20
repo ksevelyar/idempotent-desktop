@@ -3,7 +3,6 @@
   environment.systemPackages = with pkgs;
     [
       # rust
-      rnix-lsp
       rustfmt
       rust-analyzer
 
