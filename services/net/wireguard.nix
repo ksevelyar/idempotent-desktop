@@ -2,6 +2,6 @@
 {
   environment.systemPackages = with pkgs;
     [
-      wireguard-tools
+      wireguard-tools # sudo wg show
     ];
 }

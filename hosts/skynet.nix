@@ -28,43 +28,45 @@
     ../services/net/avahi.nix
   ];
 
-  networking.useDHCP = false;
-  networking.interfaces = {
-    eno0.useDHCP = true;
-  };
+  systemd.services.sshd.wantedBy = lib.mkForce [ "multi-user.target" ];
+  networking = {
+    hostName = "skynet";
+    networkmanager.enable = lib.mkForce false;
 
-  networking.firewall = {
-    enable = lib.mkForce true;
+    useDHCP = false;
+    interfaces = {
+      eno0.useDHCP = true;
+    };
 
-    interfaces.eno0 = {
-      allowedTCPPorts = [
-        # wireguard
-        51821
+    firewall = {
+      enable = lib.mkForce true;
 
-        # http, https
-        80
-        443
-      ];
-      allowedUDPPorts = [
-        # wireguard
-        51821
-      ];
+      interfaces.eno0 = {
+        allowedTCPPorts = [
+          # wireguard
+          51821
+
+          # http, https
+          80
+          443
+        ];
+        allowedUDPPorts = [
+          # wireguard
+          51821
+        ];
+      };
     };
   };
-
-  systemd.services.sshd.wantedBy = lib.mkForce [ "multi-user.target" ];
 
   # mkdir -p ~/.secrets/wireguard && cd ~/.secrets/wireguard && umask 077
   # wg genkey | tee private | wg pubkey > public
   networking.wireguard.interfaces.skynet = {
     ips = [ "192.168.42.1" ];
     listenPort = 51821;
-
     privateKeyFile = "/home/ksevelyar/.secrets/wireguard/private";
 
     peers = [
       # ksevelyar 42-52
-
       ## tv 
       {
         publicKey = "9VERcnVTfy/hudaCyE/ULhA7KmOOnYGm+VxkFrS9T3k=";
@@ -74,11 +76,6 @@
       {
         publicKey = "Ql36tqX82moc8k5Yx4McF2zxF4QG3jeoXoj8AxSUNRU=";
         allowedIPs = [ "192.168.42.47" ];
-      }
-      ## laundry 
-      {
-        publicKey = "ywV4e4436z6mqKCGF2cJdmuYOTeSY2u+GxrZntneNRw=";
-        allowedIPs = [ "192.168.42.46" ];
       }
       ## phone
       {
@@ -122,18 +119,20 @@
         allowedIPs = [ "192.168.42.6" ];
       }
 
-      # macbook anya
+      # anya
+      ## macbook
       {
         publicKey = "xrw8dXQlFEt+PuRRZ8uov+6PCpsCW+0nkBk06Erzu0E=";
         allowedIPs = [ "192.168.42.7" ];
       }
 
-      # prism
+      # obstinatekate
+      ## prism
       {
         publicKey = "FLCkV96NM5ortoqDNiF4eswK1vnLSa04gTnDMmLuaAg=";
         allowedIPs = [ "192.168.42.50" ];
       }
-      # bubaleh
+      ## bubaleh
       {
         publicKey = "4uOtdM7jlN/JgJIZnz8faCPRoFmBDm1MvPio3woIYCg=";
         allowedIPs = [ "192.168.42.51" ];
@@ -141,19 +140,17 @@
     ];
   };
 
-  networking.hostName = "skynet";
-  networking.networkmanager.enable = lib.mkForce false;
-
   boot.loader.grub.splashImage = lib.mkForce ../assets/wallpapers/fractal.png;
   boot.cleanTmpDir = true;
   boot.tmpOnTmpfs = true;
+  boot.kernelModules = [ "kvm-intel" "tcp_bbr" ];
+  boot.kernelPackages = pkgs.linuxPackages_hardened;
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "xhci_pci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
 
-  boot.kernelModules = [ "kvm-intel" "tcp_bbr" ];
-  boot.extraModulePackages = [ ];
-  boot.kernelPackages = pkgs.linuxPackages_hardened;
-
+  # hardware
+  # Intel Atom D2700 (F10 for boot menu)
+  # 4GB DDR2
   boot.initrd.luks.devices = {
     nixos = {
       device = "/dev/disk/by-label/enc-nixos";
@@ -161,16 +158,15 @@
     };
   };
 
-  # F10 for boot menu
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/boot";
     fsType = "vfat";
-    options = [ "noatime" "nodiratime" ]; # ssd
+    options = [ "noatime" "nodiratime" ];
   };
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
-    options = [ "noatime" "nodiratime" ]; # ssd
+    options = [ "noatime" "nodiratime" ];
   };
 }
