@@ -36,7 +36,7 @@
   networking.firewall = {
     enable = lib.mkForce true;
 
-    interfaces.enp3s0 = {
+    interfaces.eno0 = {
       allowedTCPPorts = [
         # wireguard
         51821
