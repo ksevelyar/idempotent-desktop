@@ -13,7 +13,7 @@
     ../sys/nix.nix
     ../sys/cache.nix
 
-    ../boot/bios.nix
+    ../boot/efi.nix
 
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
@@ -30,7 +30,7 @@
 
   networking.useDHCP = false;
   networking.interfaces = {
-    enp3s0.useDHCP = true;
+    eno0.useDHCP = true;
   };
 
   networking.firewall = {
@@ -159,6 +159,13 @@
       device = "/dev/disk/by-label/enc-nixos";
       allowDiscards = true;
     };
+  };
+
+  # F11 for boot menu
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/boot";
+    fsType = "vfat";
+    options = [ "noatime" "nodiratime" ]; # ssd
   };
 
   fileSystems."/" = {

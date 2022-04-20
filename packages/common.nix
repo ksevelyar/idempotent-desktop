@@ -26,6 +26,7 @@
 
       # monitoring
       gotop
+      inxi # inxi -Mxxxa
       hwinfo
       inetutils
       iotop
