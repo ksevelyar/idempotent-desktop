@@ -47,6 +47,9 @@ mount /dev/disk/by-label/boot /mnt/boot
 ```
 git clone https://github.com/ksevelyar/idempotent-desktop.git /mnt/etc/nixos
 chown -R 1000:users /mnt/etc/nixos
+
+cd /mnt/etc/nixos/
+ln -s hosts/hk47.nix configuration.nix
 ```
 
 ## Add LUKS2 container to configuration.nix
@@ -57,10 +60,16 @@ boot.initrd.luks.devices.nixos = {
   allowDiscards = true;
 };
 
+fileSystems."/boot" = {
+  device = "/dev/disk/by-label/boot";
+  fsType = "vfat";
+  options = [ "noatime" "nodiratime" ]; 
+};
+
 fileSystems."/" = {
   device = "/dev/disk/by-label/nixos";
   fsType = "ext4";
-  options = [ "noatime" "nodiratime" ];
+  options = [ "noatime" "nodiratime" ]; 
 };
 ```
 
