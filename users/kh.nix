@@ -7,6 +7,7 @@ in
 {
   imports = [
     (import ./shared.nix (args // { user = user; email = email; name = name; }))
+    (import ../services/mpd/mpdscribble.nix (args // { user = user; listenbrainz_user = "fractalvoid"; }))
     (import ../services/x/leftwm.nix (args // { user = user; }))
     (lib.mkIf (config.services.xserver.enable) (import ../services/x/polybar.nix (args // { user = user; })))
     (import ../packages/firefox.nix (args // { user = user; }))
@@ -17,4 +18,8 @@ in
       home.file."wallpapers/season-01-gas-station-by-dutchtide.png".source = ../assets/wallpapers/season-01-gas-station-by-dutchtide.png;
     };
   };
+
+  networking.extraHosts = ''
+    127.0.0.1 dev.lcl
+  '';
 }

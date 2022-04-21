@@ -28,6 +28,7 @@
     ../services/x.nix
     ../services/x/picom.nix
     ../services/x/redshift.nix
+    ../services/x/unclutter.nix
 
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
@@ -47,10 +48,12 @@
     ../services/net/openvpn.nix
     ../services/vpn.nix
     ../services/net/avahi.nix
+    ../services/mpd.nix
 
     # ../services/vm/hypervisor.nix
   ];
 
+  console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u24n.psf.gz";
   networking.hostName = "pepes";
   networking.firewall.enable = lib.mkForce true;
   networking.networkmanager.enable = true; # run nmtui for wi-fi
@@ -131,6 +134,6 @@
     device = "192.168.42.1:/export";
     fsType = "nfs";
     # don't freeze system if mount point not available on boot
-    options = [ "x-systemd.automount" "noauto" ];
+    options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=300" ];
   };
 }
