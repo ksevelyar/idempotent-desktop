@@ -134,6 +134,8 @@
     ];
   };
 
+  # Intel Atom D2700 (F10 for boot menu)
+  # DDR2 4GB 
   boot.loader.grub.splashImage = lib.mkForce ../assets/wallpapers/fractal.png;
   boot.cleanTmpDir = true;
   boot.tmpOnTmpfs = true;
@@ -141,10 +143,6 @@
   boot.kernelPackages = pkgs.linuxPackages_hardened;
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "xhci_pci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
-
-  # hardware
-  # Intel Atom D2700 (F10 for boot menu)
-  # 4GB DDR2
   boot.initrd.luks.devices = {
     nixos = {
       device = "/dev/disk/by-label/enc-nixos";

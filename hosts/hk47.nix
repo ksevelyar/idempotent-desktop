@@ -95,15 +95,12 @@ args@{ config, lib, pkgs, ... }:
     };
   };
 
-  # boot
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.cleanTmpDir = true;
   boot.tmpOnTmpfs = true;
-
-  # fs
   boot.initrd.luks.devices = {
     nixos = {
       device = "/dev/disk/by-label/enc-nixos";
