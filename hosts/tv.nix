@@ -53,7 +53,7 @@ args@{ config, lib, pkgs, ... }:
   networking.wireguard.interfaces = {
     skynet = {
       ips = [ "192.168.42.42" ];
-      privateKeyFile = "/home/ksevelyar/wireguard-keys/private";
+      privateKeyFile = "/home/ksevelyar/.secrets/wireguard/private";
       peers = [{
         publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
         allowedIPs = [ "192.168.42.0/24" ];

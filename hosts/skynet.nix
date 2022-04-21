@@ -63,7 +63,7 @@
       # ksevelyar 42-52
       ## tv 
       {
-        publicKey = "9VERcnVTfy/hudaCyE/ULhA7KmOOnYGm+VxkFrS9T3k=";
+        publicKey = "XlnWVku8KBnHACykwjFL78IDNTBtiwUtwkLFrEyjAiY=";
         allowedIPs = [ "192.168.42.42" ];
       }
       ## hk-47 
