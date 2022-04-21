@@ -1,18 +1,5 @@
 { pkgs, lib, config, ... }:
 let
-  # https://stackoverflow.com/a/22102938
-  # Get hex rgb color under mouse cursor, put it into clipboard and create a notification.
-  pick-color = pkgs.writeScriptBin "pick-color" ''
-    #!${pkgs.stdenv.shell}
-    set -e
-
-    eval $(xdotool getmouselocation --shell)
-    IMAGE=`import -window root -depth 8 -crop 1x1+$X+$Y txt:-`
-    COLOR=`echo $IMAGE | grep -om1 '#\w\+'`
-    echo -n $COLOR | xclip -i -selection CLIPBOARD
-    notify-send "Color under mouse cursor: " $COLOR
-  '';
-
   build-live-iso = pkgs.writeScriptBin "build-live-iso" ''
     #!${pkgs.stdenv.shell}
     set -e
@@ -40,11 +27,6 @@ let
     lsmod | rg kvm
   '';
 
-  random-wallpaper = pkgs.writeScriptBin "random-wallpaper" ''
-    #!${pkgs.stdenv.shell}
-    feh --randomize --bg-fill --no-fehbg ~/wallpapers  
-  '';
-
   tm = pkgs.writeScriptBin "tm" ''
     #!${pkgs.stdenv.shell}
     set -e
@@ -56,27 +38,11 @@ let
         tmux new -A -s $1
     fi
   '';
-
-  turn-off-display-and-music = pkgs.writeScriptBin "turn-off-display-and-music" ''
-    #!${pkgs.stdenv.shell}
-    set -e
-    
-    sleep 0.5
-    xset dpms force off
-    mpc stop
-  '';
 in
 {
-  environment.systemPackages = lib.mkIf config.services.xserver.enable ([
-    random-wallpaper
-
-    pick-color
-    pkgs.imagemagick
-  ] ++ [
+  environment.systemPackages = [
     build-live-iso
-
     host-info
     tm
-    turn-off-display-and-music
-  ]);
+  ];
 }

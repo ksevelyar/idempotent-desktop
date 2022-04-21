@@ -1,51 +1,57 @@
 { config, lib, pkgs, ... }:
 {
-  imports =
-    [
-      ../users/manya.nix
+  imports = [
+    ../users/manya.nix
+    ../users/root.nix
 
-      ../sys/aliases.nix
-      # ../sys/debug.nix
-      ../sys/nix.nix
-      ../sys/scripts.nix
-      ../sys/sysctl.nix
-      ../sys/tty.nix
-      ../sys/fonts.nix
-      ../sys/cache.nix
+    ../hardware/efi.nix
+    ../hardware/multiboot.nix
+    ../hardware/power-management.nix
+    ../hardware/bluetooth.nix
+    ../hardware/pulseaudio.nix
+    ../hardware/mouse.nix
+    ../hardware/ssd.nix
+    ../hardware/intel-cpu.nix
+    ../hardware/intel-gpu.nix
 
-      ../boot/efi.nix
-      ../boot/multiboot.nix
+    # ../sys/debug.nix
+    ../sys/aliases.nix
+    ../sys/nix.nix
+    ../sys/scripts.nix
+    ../sys/sysctl.nix
+    ../sys/tty.nix
+    ../sys/fonts.nix
+    ../sys/cache.nix
 
-      ../services/journald.nix
-      ../services/x.nix
-      ../services/postgresql.nix
+    ../services/journald.nix
+    ../services/x.nix
+    ../services/x/picom.nix
+    ../services/x/redshift.nix
+    ../services/x/unclutter.nix
+    ../services/postgresql.nix
 
-      ../packages/x-common.nix
+    ../packages/absolutely-proprietary.nix
+    ../packages/common.nix
+    ../packages/dev.nix
+    ../packages/games.nix
+    ../packages/nvim.nix
+    ../packages/tmux.nix
+    ../packages/x-common.nix
 
-      ../packages/absolutely-proprietary.nix
-      ../packages/common.nix
-      ../packages/dev.nix
-      ../packages/games.nix
-      ../packages/nvim.nix
-      ../packages/tmux.nix
+    ../services/net/firewall-desktop.nix
+    ../services/net/wireguard.nix
+    ../services/net/avahi.nix
+    ../services/net/sshd.nix
+    ../services/net/openvpn.nix
 
-      ../hardware/power-management.nix
-      ../hardware/bluetooth.nix
-      ../hardware/sound.nix
-      ../hardware/mouse.nix
-      ../hardware/ssd.nix
+    # ../services/vm/hypervisor.nix
+    # ../services/vm/docker.nix
+  ];
 
-      ../services/net/firewall-desktop.nix
-      ../services/net/wireguard.nix
-      ../services/net/sshd.nix
-      ../services/net/openvpn.nix
-
-      ../services/vm/hypervisor.nix
-      # ../services/vm/docker.nix
-    ];
-
-  boot.cleanTmpDir = lib.mkDefault true;
-  boot.tmpOnTmpfs = lib.mkDefault true;
+  # boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
+  # boot.loader.grub.splashMode = "stretch";
+  boot.cleanTmpDir = true;
+  boot.tmpOnTmpfs = true;
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
@@ -62,38 +68,33 @@
     skynet = {
       ips = [ "192.168.42.4" ];
       privateKeyFile = "/home/manya/wireguard-keys/private";
-
-      peers = [
-        {
-          publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
-          allowedIPs = [ "192.168.42.0/24" ];
-          # Set this to the server IP and port.
-          endpoint = "77.37.166.17:51820";
-          # Send keepalives every 25 seconds. Important to keep NAT tables alive.
-          persistentKeepalive = 25;
-        }
-      ];
+      peers = [{
+        publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
+        allowedIPs = [ "192.168.42.0/24" ];
+        endpoint = "95.165.99.133:51821";
+        # Send keepalives every 25 seconds. Important to keep NAT tables alive.
+        persistentKeepalive = 25;
+      }];
     };
   };
 
-  fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/df8dcd09-38bd-4632-8041-8219ebdc5571";
-      fsType = "ext4";
-      options = [ "noatime" "nodiratime" ]; # ssd
-    };
+  # vpn
+  # services.openvpn.servers = {
+  #   uk-shark.autoStart = true;
+  #   de-shark.autoStart = false;
+  #   fr-shark.autoStart = false;
+  #   us-proton.autoStart = false;
+  # };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/8CCE-4F4F";
-      fsType = "vfat";
-      options = [ "noatime" "nodiratime" ]; # ssd
-    };
-
-  swapDevices = [ ];
-
-  hardware = {
-    cpu.intel.updateMicrocode = true;
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/df8dcd09-38bd-4632-8041-8219ebdc5571";
+    fsType = "ext4";
+    options = [ "noatime" "nodiratime" ];
   };
-  services.xserver.videoDrivers = [ "intel" ];
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/8CCE-4F4F";
+    fsType = "vfat";
+    options = [ "noatime" "nodiratime" ];
+  };
 }

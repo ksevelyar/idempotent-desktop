@@ -5,11 +5,12 @@ args@{ config, lib, pkgs, ... }:
       ../users/ksevelyar.nix
       ../users/root.nix
 
+      ../hardware/efi.nix
       ../hardware/bluetooth.nix
       ../hardware/mouse.nix
-      ../hardware/intel.nix
+      ../hardware/intel-cpu.nix
       ../hardware/intel-gpu.nix
-      ../hardware/sound.nix
+      ../hardware/pulseaudio.nix
       ../hardware/ssd.nix
 
       ../sys/aliases.nix
@@ -21,7 +22,6 @@ args@{ config, lib, pkgs, ... }:
       # ../sys/debug.nix
       ../sys/cache.nix
 
-      ../boot/efi.nix
 
       ../packages/absolutely-proprietary.nix
       ../packages/common.nix
@@ -40,7 +40,7 @@ args@{ config, lib, pkgs, ... }:
 
       ../services/net/firewall-desktop.nix
       ../services/net/openvpn.nix
-      ../services/vpn/vpn.nix
+      ../services/vpn.nix
       ../services/net/sshd.nix
       ../services/net/wireguard.nix
       ../services/net/avahi.nix

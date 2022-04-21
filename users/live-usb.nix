@@ -31,5 +31,4 @@ in
   };
 
   services.getty.autologinUser = lib.mkForce "root";
-  services.getty.greetingLine = lib.mkForce ''\l'';
 }

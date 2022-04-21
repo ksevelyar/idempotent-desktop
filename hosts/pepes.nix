@@ -1,59 +1,81 @@
 { config, lib, pkgs, ... }:
 {
-  imports =
-    [
-      ../users/kh.nix
+  imports = [
+    ../users/kh.nix
+    ../users/root.nix
 
-      ../sys/aliases.nix
-      # ../sys/debug.nix
-      ../sys/nix.nix
-      ../sys/scripts.nix
-      ../sys/sysctl.nix
-      ../sys/tty.nix
-      ../sys/fonts.nix
-      ../sys/cache.nix
+    ../hardware/efi.nix
+    ../hardware/multiboot.nix
+    ../hardware/bluetooth.nix
+    ../hardware/mouse.nix
+    ../hardware/amd-gpu.nix
+    ../hardware/amd-cpu.nix
+    ../hardware/pulseaudio.nix
+    ../hardware/ssd.nix
+    (import ../hardware/power-management.nix ({ pkgs = pkgs; battery = "BATT"; }))
 
-      ../boot/efi.nix
-      ../boot/multiboot.nix
+    # ../sys/debug.nix
+    ../sys/aliases.nix
+    ../sys/nix.nix
+    ../sys/scripts.nix
+    ../sys/sysctl.nix
+    ../sys/tty.nix
+    ../sys/fonts.nix
+    ../sys/cache.nix
 
-      ../services/journald.nix
-      ../services/postgresql.nix
-      ../services/x.nix
-      ../services/x/picom.nix
-      ../services/x/redshift.nix
+    ../services/journald.nix
+    ../services/postgresql.nix
+    ../services/x.nix
+    ../services/x/picom.nix
+    ../services/x/redshift.nix
 
-      ../packages/absolutely-proprietary.nix
-      ../packages/common.nix
-      ../packages/dev.nix
-      ../packages/3d-print.nix
-      ../packages/electronics.nix
-      ../packages/games.nix
-      ../packages/nvim.nix
-      ../packages/pass.nix
-      ../packages/tmux.nix
-      ../packages/x-common.nix
-      ../packages/freelance.nix
+    ../packages/absolutely-proprietary.nix
+    ../packages/common.nix
+    ../packages/dev.nix
+    ../packages/3d-print.nix
+    ../packages/electronics.nix
+    ../packages/games.nix
+    ../packages/nvim.nix
+    ../packages/pass.nix
+    ../packages/tmux.nix
+    ../packages/x-common.nix
+    # ../packages/freelance.nix
 
-      ../hardware/bluetooth.nix
-      ../hardware/mouse.nix
-      ../hardware/amd-gpu.nix
-      ../hardware/amd-cpu.nix
-      ../hardware/sound.nix
-      ../hardware/ssd.nix
-      (import ../hardware/power-management.nix ({ pkgs = pkgs; battery = "BATT"; }))
+    ../services/net/firewall-desktop.nix
+    ../services/net/wireguard.nix
+    ../services/net/sshd.nix
+    ../services/net/openvpn.nix
+    ../services/vpn.nix
+    ../services/net/avahi.nix
 
-      ../services/net/firewall-desktop.nix
-      ../services/net/wireguard.nix
-      ../services/net/sshd.nix
-      ../services/net/openvpn.nix
-      ../services/vpn/vpn.nix
-      ../services/net/avahi.nix
+    # ../services/vm/hypervisor.nix
+  ];
 
-      # ../services/vm/hypervisor.nix
-    ];
+  networking.hostName = "pepes";
+  networking.firewall.enable = lib.mkForce true;
+  networking.networkmanager.enable = true; # run nmtui for wi-fi
+  networking.useDHCP = false;
+  networking.interfaces.wlp1s0.useDHCP = true;
+  networking.wireguard.interfaces = {
+    skynet = {
+      ips = [ "192.168.42.11" ];
+      privateKeyFile = "/home/kh/.secrets/wireguard/private";
+      peers = [{
+        publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
+        allowedIPs = [ "192.168.42.0/24" ];
+        endpoint = "95.165.99.133:51821";
+        persistentKeepalive = 25;
+      }];
+    };
+  };
 
-  boot.loader.grub.splashImage = lib.mkForce ../assets/wallpapers/planet.png;
-  boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
+  # vpn
+  services.openvpn.servers = {
+    uk-shark.autoStart = true;
+    de-shark.autoStart = false;
+    fr-shark.autoStart = false;
+    us-proton.autoStart = false;
+  };
 
   home-manager = {
     users.kh = {
@@ -77,57 +99,38 @@
     };
   };
 
-  networking.hostName = "pepes";
-  networking.firewall.enable = lib.mkForce true;
-  networking.networkmanager.enable = true; # run nmtui for wi-fi
-  networking.useDHCP = false;
-  networking.interfaces.wlp1s0.useDHCP = true;
-  networking.wireguard.interfaces = {
-    skynet = {
-      ips = [ "192.168.42.11" ];
-      privateKeyFile = "/home/kh/wireguard-keys/private";
-
-      peers = [
-        {
-          publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
-          allowedIPs = [ "192.168.42.0/24" ];
-          endpoint = "95.165.99.133:51821";
-          persistentKeepalive = 25;
-        }
-      ];
-    };
-  };
-
+  boot.loader.grub.splashImage = lib.mkForce ../assets/wallpapers/akira.png;
+  boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
   boot.cleanTmpDir = true;
   boot.tmpOnTmpfs = true;
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-amd" "amdgpu" ];
-  boot.extraModulePackages = [];
+
+  boot.initrd.luks.devices = {
+    nixos = {
+      device = "/dev/disk/by-label/enc-nixos";
+      allowDiscards = true;
+    };
+  };
 
   # fs
-  fileSystems."/" =
-    {
-      device = "/dev/disk/by-label/nixos";
-      fsType = "ext4";
-      options = [ "noatime" "nodiratime" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/nixos";
+    fsType = "ext4";
+    options = [ "noatime" "nodiratime" ];
+  };
 
-  # sudo fatlabel /dev/disk/by-uuid/3A05-EA05 boot
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-label/boot";
-      fsType = "vfat";
-      options = [ "noatime" "nodiratime" ]; # ssd
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/boot";
+    fsType = "vfat";
+    options = [ "noatime" "nodiratime" ]; # ssd
+  };
 
   fileSystems."/skynet" = {
     device = "192.168.42.1:/export";
     fsType = "nfs";
-
     # don't freeze system if mount point not available on boot
     options = [ "x-systemd.automount" "noauto" ];
   };
-
-  swapDevices = [];
 }

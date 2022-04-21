@@ -1,3 +1,0 @@
-# Hardware
-
-Hardware specific stuff

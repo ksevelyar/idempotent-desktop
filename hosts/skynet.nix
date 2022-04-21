@@ -4,7 +4,8 @@
     ../users/ksevelyar.nix
     ../users/root.nix
 
-    ../hardware/intel.nix
+    ../hardware/efi.nix
+    ../hardware/intel-cpu.nix
     ../hardware/ssd.nix
 
     ../sys/aliases.nix
@@ -12,8 +13,6 @@
     ../sys/tty.nix
     ../sys/nix.nix
     ../sys/cache.nix
-
-    ../boot/efi.nix
 
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
@@ -32,11 +31,8 @@
   networking = {
     hostName = "skynet";
     networkmanager.enable = lib.mkForce false;
-
     useDHCP = false;
-    interfaces = {
-      eno0.useDHCP = true;
-    };
+    interfaces.eno0.useDHCP = true;
 
     firewall = {
       enable = lib.mkForce true;
@@ -58,8 +54,6 @@
     };
   };
 
-  # mkdir -p ~/.secrets/wireguard && cd ~/.secrets/wireguard && umask 077
-  # wg genkey | tee private | wg pubkey > public
   networking.wireguard.interfaces.skynet = {
     ips = [ "192.168.42.1" ];
     listenPort = 51821;

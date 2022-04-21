@@ -1,8 +1,6 @@
+# nix build /etc/nixos#nixosConfigurations.live-usb.config.system.build.isoImage    
 args@{ config, pkgs, lib, ... }:
 {
-  isoImage.volumeID = lib.mkForce "id-live";
-  isoImage.isoName = lib.mkForce "id-live.iso";
-
   imports = [
     ../users/live-usb.nix
     ../users/root.nix
@@ -25,15 +23,19 @@ args@{ config, pkgs, lib, ... }:
 
     ../hardware/broadcom-wifi.nix
     ../hardware/bluetooth.nix
-    ../hardware/sound.nix
+    ../hardware/pulseaudio.nix
 
     ../services/x.nix
     ../services/x/picom.nix
     ../services/x/redshift.nix
     ../services/net/wireguard.nix
-    ../services/net/openvpn.nix
     ../services/net/sshd.nix
+    ../services/net/avahi.nix # ssh -p 9922 root@id-live.local
+    ../services/net/openvpn.nix
   ];
+
+  isoImage.volumeID = lib.mkForce "id-live";
+  isoImage.isoName = lib.mkForce "id-live.iso";
 
   networking.hostName = lib.mkForce "id-live";
   networking.networkmanager.enable = true; # nmtui for wi-fi
@@ -45,34 +47,4 @@ args@{ config, pkgs, lib, ... }:
     };
     videoDrivers = [ "nvidia" "nouveau" "amdgpu" "vesa" "modesetting" ];
   };
-
-  services.getty.helpLine = lib.mkForce ''
-    Type `i' to print system information.
-
-    .     .       .  .   . .   .   . .    +  .
-      .     .  :     .    .. :. .___---------___.
-           .  .   .    .  :.:. _".^ .^ ^.  '.. :"-_. .
-        .  :       .  .  .:../:            . .^  :.:\.
-            .   . :: +. :.:/: .   .    .        . . .:\
-     .  :    .     . _ :::/:               .  ^ .  . .:\
-      .. . .   . - : :.:./.                        .  .:\
-      .      .     . :..|:                    .  .  ^. .:|
-        .       . : : ..||        .                . . !:|
-      .     . . . ::. ::\(                           . :)/
-     .   .     : . : .:.|. ######              .#######::|
-      :.. .  :-  : .:  ::|.#######           ..########:|
-     .  .  .  ..  .  .. :\ ########          :######## :/
-      .        .+ :: : -.:\ ########       . ########.:/
-        .  .+   . . . . :.:\. #######       #######..:/
-          :: . . . . ::.:..:.\           .   .   ..:/
-       .   .   .  .. :  -::::.\.       | |     . .:/
-          .  :  .  .  .-:.":.::.\             ..:/
-     .      -.   . . . .: .:::.:.\.           .:/
-    .   .   .  :      : ....::_:..:\   ___.  :/
-       .   .  .   .:. .. .  .: :.:.:\       :/
-         +   .   .   : . ::. :.:. .:.|\  .:/|
-         .         +   .  .  ...:: ..|  --.:|
-    .      . . .   .  .  . ... :..:.."(  ..)"
-     .   .       .      :  .   .: ::/  .  .::\
-  '';
 }
