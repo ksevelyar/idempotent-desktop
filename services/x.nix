@@ -62,6 +62,7 @@ in
       Option "OffTime" "0"
     '';
 
+    displayManager.defaultSession = lib.mkDefault "none+leftwm";
     displayManager.lightdm = {
       enable = true;
       greeters.enso = {

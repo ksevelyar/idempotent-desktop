@@ -61,7 +61,7 @@
       ips = [ "192.168.42.11" ];
       privateKeyFile = "/home/kh/.secrets/wireguard/private";
       peers = [{
-        publicKey = "YruKx4tFhi+LfPgkhSp4IeHZD0lszSMxANGvzyJW4jY=";
+        publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
         allowedIPs = [ "192.168.42.0/24" ];
         endpoint = "95.165.99.133:51821";
         persistentKeepalive = 25;
