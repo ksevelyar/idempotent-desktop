@@ -80,10 +80,6 @@
       home.file.".config/broot/conf.hjson".source = ../users/shared/.config/broot/conf.hjson;
       home.file.".config/zathura/zathurarc".source = ../users/shared/.config/zathura/zathurarc;
 
-      home.file.".config/roxterm.sourceforge.net/Colours/joker".source = ../users/shared/.config/roxterm.sourceforge.net/Colours/joker;
-      home.file.".config/roxterm.sourceforge.net/Profiles/Default".source = ../users/shared/.config/roxterm.sourceforge.net/Profiles/Default;
-      home.file.".config/roxterm.sourceforge.net/Global".source = ../users/shared/.config/roxterm.sourceforge.net/Global;
-
       home.file.".config/alacritty/alacritty.yml".source = lib.mkDefault ../users/shared/.config/alacritty/alacritty.yml;
       home.file.".config/alacritty/alacritty-scratchpad.yml".source = lib.mkDefault ../users/shared/.config/alacritty/alacritty-scratchpad.yml;
 

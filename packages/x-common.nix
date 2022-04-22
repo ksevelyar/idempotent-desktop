@@ -120,7 +120,7 @@
 
       # sys
       alacritty
-      roxterm
+      st # alacritty fallback
       gparted
       xxkb
       xorg.xev
