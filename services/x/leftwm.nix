@@ -25,8 +25,8 @@
       home.file.".config/leftwm/themes/current/template.liquid".source = ../../users/shared/.config/leftwm/themes/wide-polybar/template.liquid;
       home.file.".config/leftwm/themes/current/theme.toml".source = ../../users/shared/.config/leftwm/themes/wide-polybar/theme.toml;
 
-      home.file.".config/rofi/joker.rasi".source = ../../users/shared/.config/rofi/joker.rasi;
-      home.file.".config/rofi/config.rasi".source = ../../users/shared/.config/rofi/config.rasi;
+      home.file.".config/rofi/grey.rasi".source = ../../users/shared/.config/rofi/grey.rasi;
+      home.file.".config/rofi/config.rasi".source = lib.mkDefault ../../users/shared/.config/rofi/config.rasi;
 
       home.file.".xxkbrc".source = ../../users/shared/.xxkbrc;
 
