@@ -6,6 +6,7 @@ visualizer_color = blue
 
 ask_before_clearing_playlists = no
 
+autocenter_mode = yes
 progressbar_look = ▃▃▃
 progressbar_elapsed_color = blue
 main_window_color = white
