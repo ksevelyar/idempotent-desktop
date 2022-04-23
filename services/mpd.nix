@@ -31,12 +31,11 @@
       mpc-cli
 
       # fetch metadata
-      # https://picard-docs.musicbrainz.org/en/tutorials/acoustid.html
+      ## https://picard-docs.musicbrainz.org/en/tutorials/acoustid.html
+      # rename files with picard name script `%artist% - %title%` 
+      ## https://picard-docs.musicbrainz.org/en/config/options_filerenaming_editor.html
       picard
       flac # metaflac --list (fzf)
-
-      # rename files to `artist - title.flac` from metadata
-      kid3 # kid3-cli -c 'fromtag "%{artist} - %{title}" 2' **/*.flac
 
       # downcase dirs 
       mmv # mmv '*' '#l1'
