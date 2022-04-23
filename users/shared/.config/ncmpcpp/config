@@ -5,13 +5,13 @@ visualizer_type = spectrum
 visualizer_color = blue
 
 ask_before_clearing_playlists = no
-
+follow_now_playing_lyrics = yes
 autocenter_mode = yes
+connected_message_on_startup = no
+
 progressbar_look = ▃▃▃
 progressbar_elapsed_color = blue
 main_window_color = white
-connected_message_on_startup = no
 statusbar_visibility = no
 titles_visibility = no
-
 song_columns_list_format = "(2f)[]{} (35)[blue]{a} (3f)[white]{n}(35)[blue]{t} (30)[white]{b}(6f)[white]{l}"
