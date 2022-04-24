@@ -25,14 +25,6 @@ height = 0.71
 width =  0.8
 
 [[scratchpad]]
-name = "nomacs"
-value = "nomacs"
-x = 0.1
-y = 0.1
-height = 0.8
-width =  0.8
-
-[[scratchpad]]
 name = "pulseaudio"
 value = "pavucontrol"
 x = 0.1
@@ -92,12 +84,6 @@ command = "ToggleScratchPad"
 value = "spacefm"
 modifier = ["modkey"]
 key = "s"
-
-[[keybind]]
-command = "ToggleScratchPad"
-value = "nomacs"
-modifier = ["modkey"]
-key = "i"
 
 [[keybind]]
 command = "ToggleScratchPad"

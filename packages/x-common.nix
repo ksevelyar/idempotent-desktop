@@ -17,61 +17,24 @@
       '';
     };
 
-    # run xfce4-mime-settings to change with gui
+    # override with the ~/.config/mimeapps.list that can be edited with xfce4-mime-settings 
     etc."xdg/mimeapps.list" = {
       text = ''
         [Default Applications]
-        application/javascript=nvim.desktop;
-        application/json=nvim.desktop;
-        text/plain=nvim.desktop;
         inode/directory=spacefm.desktop
+
         x-scheme-handler/http=firefox.desktop
         x-scheme-handler/https=firefox.desktop
-        x-scheme-handler/ftp=firefox.desktop
-        x-scheme-handler/chrome=firefox.desktop
         text/html=firefox.desktop
-        application/x-extension-htm=firefox.desktop
-        application/x-extension-html=firefox.desktop
-        application/x-extension-shtml=firefox.desktop
-        application/xhtml+xml=firefox.desktop
-        application/x-extension-xhtml=firefox.desktop
-        application/x-extension-xht=firefox.desktop
-        x-scheme-handler/magnet=userapp-transmission-gtk-DXP9G0.desktop
-        x-scheme-handler/about=firefox.desktop
-        x-scheme-handler/unknown=firefox.desktop
+        
         video/x-matroska=mpv.desktop;
         video/mpeg=mpv.desktop;
-        image/gif=nomacs.desktop;
-        image/png=nomacs.desktop;
-        image/jpeg=nomacs.desktop;imv.desktop;
-        image/jpeg=nomacs.desktop;imv.desktop;
-        image/png=nomacs.desktop;imv.desktop;
 
-        [Added Associations]
-        application/javascript=nvim.desktop;
-        application/json=nvim.desktop;
-        text/markdown=nvim.desktop;
-        text/plain=nvim.desktop;
-        x-scheme-handler/http=firefox.desktop;
-        x-scheme-handler/https=firefox.desktop;
-        x-scheme-handler/ftp=firefox.desktop;
-        x-scheme-handler/chrome=firefox.desktop;
-        text/html=firefox.desktop;
-        application/x-extension-htm=firefox.desktop;
-        application/x-extension-html=firefox.desktop;
-        application/x-extension-shtml=firefox.desktop;
-        application/xhtml+xml=firefox.desktop;
-        application/x-extension-xhtml=firefox.desktop;
-        application/x-extension-xht=firefox.desktop;
-        x-scheme-handler/magnet=userapp-transmission-gtk-DXP9G0.desktop;
-        application/pdf=org.gnome.Evince.desktop;
-        image/jpeg=nomacs.desktop;imv.desktop;
-        image/jpeg=nomacs.desktop;imv.desktop;
-        image/png=nomacs.desktop;imv.desktop;
-        image/png=nomacs.desktop;
-        video/x-matroska=mpv.desktop;
-        video/mpeg=mpv.desktop;
-        image/gif=nomacs.desktop;      
+        image/gif=imv.desktop;
+        image/png=imv.desktop;
+        image/jpeg=imv.desktop;
+        image/jpeg=imv.desktop;
+        image/png=imv.desktop;
       '';
     };
 
@@ -139,14 +102,13 @@
       # media
       glxinfo
       feh
-      mpv # https://github.com/mpv-player/mpv/blob/master/etc/input.conf
+      mpv 
       vlc
       kodi
       libva-utils
 
       # images
-      imv
-      nomacs
+      imv # fd -e jpg -e png -e gif . ~/wallpapers/ | shuf | imv
 
       # gui for external monitors
       arandr

@@ -13,7 +13,7 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 * [Terminus](http://terminus-font.sourceforge.net/shots.html) and [NerdFonts](/sys/fonts.nix)
 * [Brutal Doom](https://github.com/ksevelyar/brutal-doom), [Quake](https://github.com/ksevelyar/quake), [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
 * [battery optimisation](/hardware/power-management.nix) for laptops
-* [mpd](/services/mpd.nix), [mpdscribble](https://listenbrainz.org/user/ksevelyar/), [mpv](/users/shared/.config/mpv) 
+* [mpd](/services/mpd.nix), [mpdscribble](https://listenbrainz.org/user/ksevelyar/), [mpv](/users/shared/.config/mpv), [imv][imv] 
 * [live-usb](/live-usb/live-usb.nix)
 * [sysrq](https://www.kernel.org/doc/html/latest/admin-guide/sysrq.html#what-are-the-command-keys) 
 * [tealdeer](https://github.com/dbrgn/tealdeer) aliased to h
@@ -43,3 +43,5 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 * [uBlock](https://github.com/gorhill/uBlock)
 * [VPN](https://github.com/ksevelyar/idempotent-desktop/blob/main/services/vpn.nix) enabled by default
 * [element-desktop](https://matrix.org/)
+
+[imv]: /users/shared/.config/imv/config

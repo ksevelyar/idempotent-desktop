@@ -20,7 +20,6 @@ suppress_default_binds = true
 [binds]
 # Define some key bindings
 q = quit
-# y = exec echo working!
 
 # Image navigation
 <Left> = prev
@@ -38,18 +37,16 @@ l = pan -50 0
 
 # Zooming
 <Up> = zoom 1
-<Shift+plus> = zoom 1
-i = zoom 1
 <Down> = zoom -1
+<plus> = zoom 1
 <minus> = zoom -1
-o = zoom -1
 
 # Other commands
 x = close
-<Shift+X> = exec rm "$imv_current_file"; close
+<Ctrl+x> = exec rm "$imv_current_file"; close
 
 f = fullscreen
-d = overlay
+o = overlay
 p = exec echo $imv_current_file
 c = center
 s = scaling next
