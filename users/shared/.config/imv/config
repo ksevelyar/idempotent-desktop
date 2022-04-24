@@ -1,24 +1,16 @@
-# Default config for imv
-
 [options]
 background = 1B161F
 fullscreen = true
-loop_input = true
+loop_input = false
 overlay_font = Terminus:18
 scaling_mode = shrink
-
-
-# Suppress built-in key bindings, and specify them explicitly in this
-# config file.
 suppress_default_binds = true
 
 [aliases]
-# Define aliases here. Any arguments passed to an alias are appended to the
-# command.
+# Define aliases here. Any arguments passed to an alias are appended to the command.
 # alias = command to run
 
 [binds]
-# Define some key bindings
 q = quit
 
 # Image navigation
