@@ -3,6 +3,7 @@ background = 1B161F
 fullscreen = true
 loop_input = false
 overlay_font = Terminus:18
+overlay_text_color = #c3beba
 scaling_mode = shrink
 suppress_default_binds = true
 
