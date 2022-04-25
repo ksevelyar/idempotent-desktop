@@ -9,6 +9,6 @@
 
       # programmatic cads
       openscad
-      libfive
+      # libfive
     ];
 }

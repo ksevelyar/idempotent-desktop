@@ -25,7 +25,6 @@ in
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull; # JACK support, Bluetooth
-      extraModules = [ pkgs.pulseaudio-modules-bt ];
       # auto-switch to bluetooth headset
       extraConfig = lib.mkDefault "load-module module-switch-on-connect";
     };
