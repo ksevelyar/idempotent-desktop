@@ -36,7 +36,8 @@
 
     # nix
     e = "nvim /etc/nixos/configuration.nix";
-    b = "sudo nixos-rebuild switch --keep-going";
+    # hack for https://github.com/NixOS/nixpkgs/issues/169193
+    b = "nixos-rebuild switch --use-remote-sudo";
     search = "nix search nixpkgs";
     wipe-user-packages = "nix-env -e '*'";
     nix-gc = "sudo nix-collect-garbage --delete-older-than 30d";
