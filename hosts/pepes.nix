@@ -33,6 +33,7 @@
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
     ../packages/dev.nix
+    ../packages/2d-graphics.nix
     ../packages/3d-print.nix
     ../packages/electronics.nix
     ../packages/games.nix
@@ -102,6 +103,7 @@
     };
   };
 
+  services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashImage = lib.mkForce ../assets/wallpapers/akira.png;
   boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
   boot.cleanTmpDir = true;

@@ -89,7 +89,6 @@
       xorg.xev
       xorg.xfd
       xorg.xkbcomp
-      piper # mouse settings
       xdotool
       seturgent
       maim # screenshot region or fullscreen
@@ -98,24 +97,13 @@
       (rofi.override { plugins = [ rofi-emoji ]; })
       libnotify
       brightnessctl
+      arandr # gui for external monitors
 
       # media
       glxinfo
       feh
-      mpv 
-      vlc
-      kodi
+      mpv
       libva-utils
-
-      # images
       imv # fd -e jpg -e png -e gif . ~/wallpapers/ | shuf | imv
-
-      # gui for external monitors
-      arandr
-
-      # gfx
-      gimp
-      inkscape
-      # blender
     ];
 }

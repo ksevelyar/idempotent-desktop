@@ -25,6 +25,7 @@ args@{ config, lib, pkgs, ... }:
     ../packages/common.nix
     ../packages/x-common.nix
     ../packages/dev.nix
+    ../packages/2d-graphics.nix
     ../packages/3d-print.nix
     ../packages/electronics.nix
     ../packages/games.nix
@@ -95,6 +96,7 @@ args@{ config, lib, pkgs, ... }:
     };
   };
 
+  services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
@@ -111,6 +113,7 @@ args@{ config, lib, pkgs, ... }:
       allowDiscards = true;
     };
   };
+
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
