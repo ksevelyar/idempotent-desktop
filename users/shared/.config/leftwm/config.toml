@@ -173,10 +173,9 @@ key = "Print"
 
 [[keybind]]
 command = "Execute"
-value = "maim -s ~/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png"
+value = "maim --capturebackground --select ~/screenshots/$(date +%Y-%m-%d-%H-%M-%S)-region.png"
 modifier = []
 key = "Print"
-
 
 [[keybind]]
 command = "Execute"
