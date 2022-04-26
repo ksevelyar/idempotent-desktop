@@ -63,7 +63,9 @@
       # text    
       zathura
       calibre
-      anki
+
+      # spaced repetition https://docs.ankiweb.net/background.html#spaced-repetition
+      anki # https://ankiweb.net/shared/info/110667962
 
       # themes
       lxappearance

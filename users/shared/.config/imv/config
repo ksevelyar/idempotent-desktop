@@ -1,7 +1,7 @@
 [options]
 background = 1B161F
 fullscreen = true
-loop_input = false
+loop_input = true
 overlay_font = Terminus:18
 overlay_text_color = #c3beba
 scaling_mode = shrink
