@@ -2,6 +2,15 @@
 {
   programs.fish.enable = true;
   programs.mosh.enable = true;
+  programs.ssh = {
+    pubkeyAcceptedKeyTypes = [ "ssh-ed25519" ];
+    startAgent = true;
+    extraConfig = ''
+    Host *.local
+      Port 9922
+    '';
+  };
+
 
   environment.systemPackages = with pkgs;
     [

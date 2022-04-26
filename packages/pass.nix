@@ -4,14 +4,12 @@
 {
   programs.gnupg.agent = {
     enable = true;
-    enableSSHSupport = true;
   };
 
   environment = {
     systemPackages = with pkgs; [
       pinentry-curses
       gopass
-      # ripasso-cursive
     ];
   };
 }
