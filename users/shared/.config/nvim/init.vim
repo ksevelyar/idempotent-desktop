@@ -8,64 +8,64 @@ endif
 " Plugins
 call plug#begin()
 
+" Behaviour
 Plug 'rbgrouleff/bclose.vim'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
-
-Plug 'easymotion/vim-easymotion'
-
-Plug 'junegunn/vim-easy-align'
-
 Plug 'tpope/vim-endwise'
 Plug 'valloric/MatchTagAlways'
-
 Plug 'janko-m/vim-test'
-
-Plug 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled=1
-
 Plug 'airblade/vim-rooter'
 let g:rooter_silent_chdir = 1
 
-Plug 'brooth/far.vim'
-let g:far#source = 'rg'
+Plug 'ruanyl/vim-gh-line' " :GH
+
+Plug 'tomtom/tcomment_vim'
+let g:tcomment_maps = 0
+
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" Syntax 
+Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
+
+Plug 'LnL7/vim-nix'
+Plug 'dag/vim-fish'
+
+Plug 'elixir-editors/vim-elixir'
+
+Plug 'cakebaker/scss-syntax.vim' " TODO: replace with sugarss
+Plug 'pangloss/vim-javascript'
+Plug 'posva/vim-vue'
+Plug 'digitaltoad/vim-pug'
+
+Plug 'elzr/vim-json'
+let g:vim_json_syntax_conceal = 0
+
+Plug 'chr4/nginx.vim'
+
+Plug 'sirtaj/vim-openscad'
 
 " Navigation 
 Plug 'kyazdani42/nvim-tree.lua'
 
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-function! s:goyo_enter()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status off
-    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  endif
-  set noshowmode
-  set noshowcmd
-  set scrolloff=999
-  Limelight
-endfunction
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
-function! s:goyo_leave()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status on
-    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-  endif
-  set showmode
-  set showcmd
-  set scrolloff=5
-  Limelight!
-endfunction
+" UI
+Plug 'Yggdroot/indentLine'
+let g:indentLine_fileType = ['nix', 'html', 'vue']
+let g:indentLine_char = '┊'
+let g:indentLine_color_gui = "#3f3b52"
 
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
+Plug 'nvim-lualine/lualine.nvim'
 
 " Color Themes 
 Plug 'ksevelyar/joker.vim'
+" Plug '/c/joker.vim'
 Plug 'shaunsingh/nord.nvim'
 Plug 'folke/tokyonight.nvim'
-" Plug '/c/joker.vim'
-
 Plug 'rafalbromirski/vim-aurora'
 Plug 'dracula/vim'
 Plug 'whatyouhide/vim-gotham'
@@ -75,42 +75,7 @@ Plug 'cocopon/iceberg.vim'
 Plug 'luochen1990/rainbow'
 Plug 'tpope/vim-scriptease'
 
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-
-Plug 'nvim-lualine/lualine.nvim'
-
-" Dev
-Plug 'ruanyl/vim-gh-line'
-Plug 'tomtom/tcomment_vim'
-let g:tcomment_maps = 0
-
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'slashmili/alchemist.vim'
-Plug 'LnL7/vim-nix'
-Plug 'elixir-editors/vim-elixir'
-Plug 'neovimhaskell/haskell-vim'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'dag/vim-fish'
-Plug 'pangloss/vim-javascript'
-Plug 'othree/yajs.vim'
-
-Plug 'elzr/vim-json'
-let g:vim_json_syntax_conceal = 0
-
-Plug 'chr4/nginx.vim'
-
-Plug 'sirtaj/vim-openscad'
-
-Plug 'Yggdroot/indentLine'
-let g:indentLine_fileType = ['nix', 'html', 'vue']
-let g:indentLine_char = '┊'
-let g:indentLine_color_gui = "#3f3b52"
-
-Plug 'digitaltoad/vim-pug'
-
-" LSP
+" IDE 
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -133,17 +98,7 @@ lua require('config')
 
 set completeopt=menu,menuone,noselect
 
-" -------------------------------------------------------------------------------------------------
-" Autocommands
-" -------------------------------------------------------------------------------------------------
-
-" sane terminal
-au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
-au TermOpen * setlocal nonumber
-
-" -------------------------------------------------------------------------------------------------
 " Core Settings
-" -------------------------------------------------------------------------------------------------
 set conceallevel=0
 
 set splitbelow
@@ -180,21 +135,12 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-" neovim-qt
-if exists('g:GuiLoaded')
-  GuiTabline 0
-  GuiPopupmenu 0
-  GuiLinespace 2
-  GuiFont! Terminus:h16
-endif
-
 " :Colors to change theme
 silent! colorscheme joker
 
 " Tree view for netrw
 let g:netrw_liststyle = 3
 
-" Clipboard ---------------------------------------------------------------------------------------
 set noshowmode " cause the shape of cursor indicates the mode already
 set clipboard=unnamedplus " sync vim clipboard with linux clipboard
 
@@ -243,11 +189,6 @@ set incsearch
 set inccommand=split
 set gdefault
 
-
-" Switch between the last two files:
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_smartcase = 1
-
 " JK motions: Line motions
 set so=2 " Set 2 lines to the cursor - when moving vertically using j/k
 
@@ -255,9 +196,6 @@ set so=2 " Set 2 lines to the cursor - when moving vertically using j/k
 " Key Mappings
 " -------------------------------------------------------------------------------------------------
 let g:mapleader = " "
-
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
 
 nnoremap <C-J> <C-W><C-J> " navigate down
 nnoremap <C-K> <C-W><C-K> " navigate up
@@ -280,11 +218,7 @@ nnoremap <leader>t :NvimTreeToggle<cr>
 nnoremap <leader>f :NvimTreeFindFile<cr>
 nnoremap <silent><leader>w :w<cr>
 
-nnoremap <silent>\ :Goyo<cr>
-
 nnoremap <leader>y :%y+<cr>
-
-cmap w!! w !sudo tee % >/dev/null<Up>
 
 set spelllang=en_us
 nnoremap <leader>o :set spell!<cr>
