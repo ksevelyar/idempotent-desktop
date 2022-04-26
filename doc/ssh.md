@@ -28,6 +28,6 @@ programs.ssh = {
 ```
 ssh user@host.local 
 mosh user@host.local
-sshfs skynet:/home/ksevelyar ~/sshfs
+sshfs skynet.local:/home/ksevelyar ~/sshfs
 rsync -ra --info=progress2 ~/learn tv.local:learn
 ```
