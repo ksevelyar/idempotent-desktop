@@ -6,7 +6,7 @@
 
     ../hardware/efi.nix
     ../hardware/multiboot.nix
-    ../hardware/power-management.nix
+    (import ../hardware/power-management.nix ({ pkgs = pkgs; battery = "BATT"; }))
     ../hardware/bluetooth.nix
     ../hardware/pulseaudio.nix
     ../hardware/mouse.nix
@@ -14,7 +14,6 @@
     ../hardware/intel-cpu.nix
     ../hardware/intel-gpu.nix
 
-    # ../sys/debug.nix
     ../sys/aliases.nix
     ../sys/nix.nix
     ../sys/scripts.nix
@@ -43,13 +42,9 @@
     ../services/net/avahi.nix
     ../services/net/sshd.nix
     ../services/net/openvpn.nix
-
-    # ../services/vm/hypervisor.nix
-    # ../services/vm/docker.nix
+    ../services/vpn.nix
   ];
 
-  # boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
-  # boot.loader.grub.splashMode = "stretch";
   boot.cleanTmpDir = true;
   boot.tmpOnTmpfs = true;
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
@@ -78,13 +73,13 @@
     };
   };
 
-  # vpn
-  # services.openvpn.servers = {
-  #   uk-shark.autoStart = true;
-  #   de-shark.autoStart = false;
-  #   fr-shark.autoStart = false;
-  #   us-proton.autoStart = false;
-  # };
+  #vpn
+  services.openvpn.servers = {
+    uk-shark.autoStart = true;
+    de-shark.autoStart = false;
+    fr-shark.autoStart = false;
+    us-proton.autoStart = false;
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/df8dcd09-38bd-4632-8041-8219ebdc5571";
@@ -96,5 +91,12 @@
     device = "/dev/disk/by-uuid/8CCE-4F4F";
     fsType = "vfat";
     options = [ "noatime" "nodiratime" ];
+  };
+
+  fileSystems."/skynet" = {
+    device = "192.168.42.1:/export";
+    fsType = "nfs";
+    # don't freeze system if mount point not available on boot
+    options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=300" ];
   };
 }
