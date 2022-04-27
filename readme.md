@@ -39,7 +39,7 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 ## Security
 
 * [encrypted root with LUKS2](/doc/encrypted-root.md)
-* EdDSA for ssh and gpg keys
+* [EdDSA for ssh and gpg keys](/doc/keys.md)
 * gopass / [browserpass](https://github.com/browserpass/browserpass-extension#available-keyboard-shortcuts) integration
 * [uBlock](https://github.com/gorhill/uBlock)
 * [VPN](https://github.com/ksevelyar/idempotent-desktop/blob/main/services/vpn.nix) enabled by default
