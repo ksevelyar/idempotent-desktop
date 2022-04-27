@@ -65,7 +65,10 @@
       calibre
 
       # spaced repetition https://docs.ankiweb.net/background.html#spaced-repetition
-      anki # https://ankiweb.net/shared/info/110667962
+      # https://ankiweb.net/shared/info/110667962 irregular verbs
+      # https://ankiweb.net/shared/info/1708037740 400 words for toefl
+      # https://ankiweb.net/shared/info/715945745 english grammar in use
+      anki
 
       # themes
       lxappearance
