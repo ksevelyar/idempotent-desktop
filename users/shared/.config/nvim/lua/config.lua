@@ -181,7 +181,6 @@ require'nvim-tree'.setup {
   view = {
     hide_root_folder = false,
     side = 'left',
-    auto_resize = false,
     number = false,
     relativenumber = false,
     signcolumn = "yes",
