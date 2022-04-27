@@ -31,8 +31,6 @@
         video/mpeg=mpv.desktop;
 
         image/gif=imv.desktop;
-        image/png=imv.desktop;
-        image/jpeg=imv.desktop;
         image/jpeg=imv.desktop;
         image/png=imv.desktop;
       '';
