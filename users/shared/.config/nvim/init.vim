@@ -170,6 +170,14 @@ set display+=lastline
 set nojoinspaces
 
 " Behaviour ------------------------------------------------------------------------------------------
+autocmd VimEnter * nested
+      \  if argc() == 0
+      \|   let last = filter(filter(copy(v:oldfiles), 'match(v:val, getcwd()) == 0'), 'filereadable(v:val)')
+      \|   if !empty(last)
+      \|     execute 'edit' fnameescape(last[0])
+      \|   endif
+      \| endif
+
 " :help last-position-jump
 autocmd BufReadPost *
       \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
