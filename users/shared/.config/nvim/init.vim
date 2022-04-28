@@ -107,6 +107,7 @@ set splitright
 syntax on
 filetype plugin on " to use filetype plugin
 filetype indent on " to use filetype indent
+
 set updatetime=100
 set laststatus=2
 set signcolumn=yes
@@ -162,14 +163,20 @@ set writebackup "Make backup before overwriting the current buffer
 set backupcopy=yes "Overwrite the original backup file
 
 " Meaningful backup name, ex: filename@2015-04-05.14
-au BufWritePre * let &bex = 'gh' . '@' . strftime("%F.%H") . '.bac'
+autocmd BufWritePre * let &bex = 'gh' . '@' . strftime("%F.%H") . '.bac'
 
 set undofile
 set undolevels=999
 set display+=lastline
 set nojoinspaces
 
-" Format ------------------------------------------------------------------------------------------
+" Behaviour ------------------------------------------------------------------------------------------
+" :help last-position-jump
+autocmd BufReadPost *
+      \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+      \ |   exe "normal! g`\""
+      \ | endif
+
 " Do not automatically insert a comment leader after an enter
 autocmd FileType * setlocal formatoptions-=ro
 

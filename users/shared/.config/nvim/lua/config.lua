@@ -1,15 +1,10 @@
-local lspconfig = require('lspconfig')
 local g = vim.g
 
-local prettier = {
-  formatCommand = 'prettier --stdin-filepath ${INPUT}',
-  formatStdin = true
-}
+local lspconfig = require('lspconfig')
 local luaformatter = {
   formatCommand = 'lua-format -i --indent-width=2',
   formatStdin = true
 }
-
 require'navigator'.setup({
   treesitter_analysis = true,
   icons = {
@@ -28,9 +23,7 @@ require'navigator'.setup({
       on_attach = function(client)
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.range_formatting = false
-      end,
-
-      handlers = {['textDocument/publishDiagnostics'] = function(...) end}
+      end
     },
     efm = {
       on_attach = function(client)
@@ -39,24 +32,13 @@ require'navigator'.setup({
       init_options = {codeAction = true, document_formatting = true},
       root_dir = lspconfig.util.root_pattern({'.git/', 'package.json'}),
 
-      filetypes = {"css", "html", "json", "lua", "markdown"},
-      settings = {
-        log_level = 1,
-        log_file = '~/efm.log',
-        languages = {
-          css = {prettier},
-          html = {prettier},
-          json = {prettier},
-          lua = {luaformatter},
-          markdown = {prettier}
-        }
-      }
+      filetypes = {"lua"},
+      settings = {languages = {lua = {luaformatter}}}
     }
   }
 })
 
 local cmp = require 'cmp'
-
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
@@ -65,8 +47,12 @@ cmp.setup({
     end
   },
   mapping = {
-    ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), {'i'}),
-    ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), {'i'}),
+    ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({
+      behavior = cmp.SelectBehavior.Select
+    }), {'i'}),
+    ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({
+      behavior = cmp.SelectBehavior.Select
+    }), {'i'}),
     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
