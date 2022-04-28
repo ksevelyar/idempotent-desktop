@@ -22,7 +22,7 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 ## Linux as IDE
 
 * Tiling with leftwm, polybar, dunst and [tmux](/main/packages/tmux.nix)
-* [fish](/doc/fish.md), direnv, alacritty, ripgrep, rsync, fzf, [zoxide](zoxide), [delta](delta), gitg, bat, exa 
+* [fish](/doc/fish.md), direnv, alacritty, ripgrep, rsync, fzf, [zoxide][zoxide], [delta][delta], gitg, bat, exa 
 * [Neovim with LSP](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/.config/nvim/init.vim) for Elixir, Rust, Nix and others
 * fuzzy search by apps [`mod`](/doc/run-rofi-with-one-key.md), emojis `mod + z` and clipboard history `mod + c` wih [rofi](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/.config/rofi/grey.rasi) 
 * [copy color of pixel under mouse cursor](/sys/scripts.nix) to clipboard with `mod + k`
