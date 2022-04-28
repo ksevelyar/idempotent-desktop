@@ -13,6 +13,7 @@
   environment.systemPackages = with pkgs;
     [
       # sys
+      direnv
       aria2
       bat
       cachix

@@ -13,7 +13,6 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-endwise'
-Plug 'valloric/MatchTagAlways'
 Plug 'janko-m/vim-test'
 Plug 'airblade/vim-rooter'
 let g:rooter_silent_chdir = 1
