@@ -22,12 +22,11 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 ## Linux as IDE
 
 * Tiling with leftwm, polybar, dunst and [tmux](/main/packages/tmux.nix)
-* [fish](/doc/fish.md) + direnv, alacritty, ripgrep, rsync, fzf, zoxide, delta 
+* [fish](/doc/fish.md), direnv, alacritty, ripgrep, rsync, fzf, [zoxide](zoxide), [delta](delta), gitg, bat, exa 
 * [Neovim with LSP](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/.config/nvim/init.vim) for Elixir, Rust, Nix and others
 * fuzzy search by apps [`mod`](/doc/run-rofi-with-one-key.md), emojis `mod + z` and clipboard history `mod + c` wih [rofi](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/.config/rofi/grey.rasi) 
 * [copy color of pixel under mouse cursor](/sys/scripts.nix) to clipboard with `mod + k`
 * [`PrtScn`](https://github.com/ksevelyar/idempotent-desktop/blob/6adfa52b3404d4f28f1c1b803b40bc5a86c3fde2/users/shared/.config/leftwm/config.toml#L197) to capture region, `mod + PrtScn` to capture fullscreen, record desktop videos with `vokoscreen`
-* [Rust boilerplate](https://github.com/rusty-cluster/rust-boilerplate)
 
 ## Hardware Engineering
 
@@ -48,3 +47,5 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 [picard]: https://picard.musicbrainz.org/quick-start/    
 [imv]: /users/shared/.config/imv/config
 [ncmpcpp]: /assets/screens/ncmpcpp.png
+[delta]: https://github.com/dandavison/delta
+[zoxide]: https://github.com/ajeetdsouza/zoxide
