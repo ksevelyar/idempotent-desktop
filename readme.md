@@ -2,6 +2,7 @@
 
 This repo is just a bunch of NixOS modules, so you can pick or override anything. 
 
+![neovim](/assets/screens/neovim.png)
 ![leftwm](/assets/screens/leftwm.png)
 
 ## Features
