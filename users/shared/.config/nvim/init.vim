@@ -53,10 +53,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " UI
-Plug 'Yggdroot/indentLine'
-let g:indentLine_fileType = ['nix', 'html', 'vue']
-let g:indentLine_char = '┊'
-let g:indentLine_color_gui = "#3f3b52"
+Plug 'lukas-reineke/indent-blankline.nvim'
+let g:indent_blankline_char = '┊'
 
 Plug 'nvim-lualine/lualine.nvim'
 
@@ -170,6 +168,7 @@ set display+=lastline
 set nojoinspaces
 
 " Behaviour ------------------------------------------------------------------------------------------
+" go to last file on startup
 autocmd VimEnter * nested
       \  if argc() == 0
       \|   let last = filter(filter(copy(v:oldfiles), 'match(v:val, getcwd()) == 0'), 'filereadable(v:val)')
@@ -178,7 +177,7 @@ autocmd VimEnter * nested
       \|   endif
       \| endif
 
-" :help last-position-jump
+" go to last position in file on sttartup
 autocmd BufReadPost *
       \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
       \ |   exe "normal! g`\""
