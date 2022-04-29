@@ -2,7 +2,7 @@ local g = vim.g
 
 local lspconfig = require('lspconfig')
 local luaformatter = {
-  formatCommand = 'lua-format -i --indent-width=2',
+  formatCommand = 'lua-format -i --indent-width=2 --column-limit=100',
   formatStdin = true
 }
 require'navigator'.setup({
@@ -77,9 +77,7 @@ require'lspconfig'.elixirls.setup {
   capabilities = capabilities
 }
 
-vim.api.nvim_command(
-    "au BufWritePost *.ex,*.exs,*.nix lua vim.lsp.buf.formatting_sync(nil, 200)")
-
+vim.api.nvim_command("au BufWritePost *.nix lua vim.lsp.buf.formatting_sync(nil, 200)")
 vim.api.nvim_command("au BufWritePre *.js,*.vue EslintFixAll")
 
 require'lspconfig'.rnix.setup {capabilities = capabilities}
