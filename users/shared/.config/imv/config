@@ -15,10 +15,13 @@ suppress_default_binds = true
 q = quit
 
 # Image navigation
-<Left> = prev
+<Up> = prev 10
+<Down> = next 10
 <bracketleft> = prev
-<Right> = next
 <bracketright> = next
+<Left> = prev
+<Right> = next
+
 gg = goto 0
 <Shift+G> = goto -1
 
@@ -29,8 +32,6 @@ h = pan 50 0
 l = pan -50 0
 
 # Zooming
-<Up> = zoom 1
-<Down> = zoom -1
 <plus> = zoom 1
 <minus> = zoom -1
 
