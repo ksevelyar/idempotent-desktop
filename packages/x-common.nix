@@ -107,6 +107,9 @@
       feh
       mpv
       libva-utils
-      imv # fd -e jpg -e png -e gif . ~/wallpapers/ | shuf | imv
+
+      # fd . ~/wallpapers/ | shuf | imv
+      # ls -t ~/wallpapers/* | imv
+      imv
     ];
 }
