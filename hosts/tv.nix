@@ -26,7 +26,7 @@ args@{ config, lib, pkgs, ... }:
     ../packages/x-common.nix
     ../packages/dev.nix
     ../packages/games.nix
-    ../packages/nvim.nix
+    ../packages/neovim.nix
     ../packages/pass.nix
     ../packages/tmux.nix
 

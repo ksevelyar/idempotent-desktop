@@ -29,6 +29,6 @@
 
   # TODO: declarative deps for vim
   environment.shellAliases = {
-    install-vim-deps = "npm i -g vim-language-server typescript typescript-language-server eslint vscode-langservers-extracted";
+    install-neovim-deps = "npm i -g vim-language-server typescript typescript-language-server eslint vscode-langservers-extracted";
   };
 }

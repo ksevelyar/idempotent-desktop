@@ -33,7 +33,7 @@
     ../packages/common.nix
     ../packages/dev.nix
     ../packages/games.nix
-    ../packages/nvim.nix
+    ../packages/neovim.nix
     ../packages/tmux.nix
     ../packages/x-common.nix
 

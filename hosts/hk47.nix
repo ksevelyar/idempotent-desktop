@@ -29,7 +29,7 @@ args@{ config, lib, pkgs, ... }:
     ../packages/3d-print.nix
     ../packages/electronics.nix
     ../packages/games.nix
-    ../packages/nvim.nix
+    ../packages/neovim.nix
     ../packages/pass.nix
     ../packages/tmux.nix
 

@@ -1,0 +1,25 @@
+# [Nvim](/packages/neovim.nix)
+
+## Dev deps
+
+`install-neovim-deps`
+
+## Custom bindings
+
+`<Space>f` find current file
+
+`<Space>r` search files by content in the project
+
+`<Space>m` show most recent files
+
+`<Space>t` toggle file tree
+
+`<Space>v` vertical split
+
+`<Space>h` horizontal split
+
+`<Space>c` Comment/Uncomment Line
+
+`<Space>w` write current file
+
+`<Space>o` check orphography

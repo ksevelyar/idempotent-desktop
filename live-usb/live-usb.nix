@@ -17,7 +17,7 @@ args@{ config, pkgs, lib, ... }:
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
     ../packages/dev.nix
-    ../packages/nvim.nix
+    ../packages/neovim.nix
     ../packages/tmux.nix
     ../packages/pass.nix
 

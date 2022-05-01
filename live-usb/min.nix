@@ -14,7 +14,7 @@
 
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
-    ../packages/nvim.nix
+    ../packages/neovim.nix
     ../packages/tmux.nix
     ../packages/pass.nix
 
