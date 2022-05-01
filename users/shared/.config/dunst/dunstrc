@@ -20,7 +20,7 @@ show_indicators = yes
 shrink = no
 sort = yes
 transparency = 10
-width = (50,300)
+width = (50,1000)
 word_wrap = yes
 stack_duplicates = false
 

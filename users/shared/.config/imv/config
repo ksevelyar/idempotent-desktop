@@ -13,6 +13,7 @@ suppress_default_binds = true
 
 [binds]
 q = quit
+i = exec notify-send "$imv_current_index $imv_current_file"
 
 # Image navigation
 <Up> = prev 10
