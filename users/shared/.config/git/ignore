@@ -9,7 +9,3 @@
 
 # Os X
 .DS_Store
-
-# Dev
-tags
-.tern-port
