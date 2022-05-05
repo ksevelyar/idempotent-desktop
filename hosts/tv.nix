@@ -76,6 +76,7 @@ args@{ config, lib, pkgs, ... }:
 
   # J4125 (F11 for boot menu)
   # DIMM DDR4 16GB
+  services.xserver.displayManager.lightdm.background = ../assets/wallpapers/d-sparil.png;
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];

@@ -78,9 +78,6 @@ args@{ config, lib, pkgs, ... }:
     us-proton.autoStart = false;
   };
 
-  # x
-  services.xserver.displayManager.defaultSession = "none+leftwm";
-
   # hardware
   ## PRIME B360M-K (F8 for boot menu)
   ## i5-9400F

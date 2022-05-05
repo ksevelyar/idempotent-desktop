@@ -108,6 +108,12 @@ key = "F4"
 
 [[keybind]]
 command = "Execute"
+value = "dm-tool lock"
+modifier = ["modkey"]
+key = "l"
+
+[[keybind]]
+command = "Execute"
 value = "rofi -modi drun -matching fuzzy -sorting-method fzf drun -show"
 modifier = ["modkey"]
 key = "x"

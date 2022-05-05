@@ -94,7 +94,11 @@
       xorg.xkbcomp
       xdotool
       seturgent
-      maim # screenshot region or fullscreen
+      
+      # screenshot region or fullscreen
+      # watch -n2 'maim ~/screenshots/doom2/$(date +%Y-%m-%d-%H-%M-%S).png'
+      maim
+
       vokoscreen # record desktop
       xclip
       (rofi.override { plugins = [ rofi-emoji ]; })
@@ -106,6 +110,7 @@
       glxinfo
       feh
       mpv
+      vlc
       libva-utils
 
       # fd . ~/wallpapers/ | shuf | imv
