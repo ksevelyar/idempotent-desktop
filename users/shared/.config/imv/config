@@ -54,5 +54,5 @@ r = reset
 <space> = toggle_playing
 
 # Slideshow control
-t = slideshow +2
+t = slideshow +3
 <Shift+T> = slideshow 0
