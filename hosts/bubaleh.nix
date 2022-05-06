@@ -24,7 +24,7 @@ args@{ config, lib, pkgs, ... }:
       ../sys/cache.nix
 
       ../services/journald.nix
-      # ../services/postgresql.nix
+      # ../services/databases/postgresql.nix
       ../services/x.nix
       ../services/x/picom.nix
       ../services/x/redshift.nix

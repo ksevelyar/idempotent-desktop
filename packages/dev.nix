@@ -7,6 +7,7 @@
 
       # elixir
       elixir
+      gnumake # argon2
 
       # node
       nodejs_latest

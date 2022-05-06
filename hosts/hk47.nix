@@ -34,7 +34,8 @@ args@{ config, lib, pkgs, ... }:
     ../packages/tmux.nix
 
     ../services/journald.nix
-    ../services/postgresql.nix
+    ../services/databases/postgresql.nix
+    ../services/databases/redis.nix
     ../services/mpd.nix
     ../services/x.nix
     ../services/x/picom.nix
@@ -110,7 +111,6 @@ args@{ config, lib, pkgs, ... }:
       allowDiscards = true;
     };
   };
-
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";

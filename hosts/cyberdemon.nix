@@ -27,7 +27,7 @@
     ../services/x/picom.nix
     ../services/x/redshift.nix
     ../services/x/unclutter.nix
-    ../services/postgresql.nix
+    ../services/databases/postgresql.nix
 
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
