@@ -1,8 +1,8 @@
 [options]
-background = 1B161F
+background = 111111
 fullscreen = true
 loop_input = true
-overlay_font = Terminus:18
+overlay_font = Terminus:20
 overlay_text_color = #c3beba
 scaling_mode = shrink
 suppress_default_binds = true
@@ -44,6 +44,7 @@ f = fullscreen
 o = overlay
 p = exec echo $imv_current_file
 c = exec cp "$imv_current_file" ~/pics; exec notify-send "💜"
+e = exec gimp "$imv_current_file" &
 s = scaling next
 <Shift+S> = upscaling next
 a = zoom actual
@@ -51,8 +52,8 @@ r = reset
 
 # Gif playback
 <period> = next_frame
-<space> = toggle_playing
+t = toggle_playing
 
 # Slideshow control
-t = slideshow +3
-<Shift+T> = slideshow 0
+<space> = slideshow +3
+<Shift+space> = slideshow 0

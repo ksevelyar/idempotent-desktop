@@ -50,21 +50,8 @@
   home-manager = {
     useGlobalPkgs = true;
     users.${user} = {
-      home.file.".icons/default/index.theme".text = ''
-        [Icon Theme]
-        Name=Default
-        Comment=Default Cursor Theme
-        Inherits=Vanilla-DMZ
-      '';
-      home.file.".config/qt5ct/qt5ct.conf".text = ''
-        [Appearance]
-        icon_theme=Papirus-Dark
-        style=gtk2
+      home.file.".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
 
-        [Fonts]
-        fixed="@Variant(\0\0\0@\0\0\0\x10\0T\0\x65\0r\0m\0i\0n\0u\0s@,\0\0\0\0\0\0\xff\xff\xff\xff\x5\x1\0\x32\x10)"
-        general="@Variant(\0\0\0@\0\0\0\x10\0T\0\x65\0r\0m\0i\0n\0u\0s@,\0\0\0\0\0\0\xff\xff\xff\xff\x5\x1\0\x32\x10)"
-      '';
       home.file.".config/nixpkgs/config.nix".text = ''
         { allowUnfree = true; }
       '';

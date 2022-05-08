@@ -5,7 +5,6 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 echo "LoadTheme $SCRIPTPATH/theme.toml" > $XDG_RUNTIME_DIR/leftwm/commands.pipe
 
 random-wallpaper
-xsetroot -cursor_name left_ptr
 xxkb &
 dunst &
 lxqt-policykit-agent &
