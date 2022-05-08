@@ -12,7 +12,7 @@ modifier = ["modkey"]
 key = "x"
 ```
 
-## Add xcape binding to your [`up`](/users/shared/.config/leftwm/themes/wide-polybar/up) script:
+## Add xcape binding to your [`up`](/users/shared/leftwm/themes/wide-polybar/up) script:
 
 Xcape will execute `mod + x` when you release `mod`:
 

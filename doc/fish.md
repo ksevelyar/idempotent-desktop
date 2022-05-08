@@ -2,9 +2,9 @@
 
 💜 Fish is one of the saniest software I've seen.
 
-Almost vanilla [config](/users/shared/.config/fish/config.fish), a lot of faster than zsh/zim bundle with the same functionality.
+Almost vanilla [config](/users/shared/fish/config.fish), a lot of faster than zsh/zim bundle with the same functionality.
 
-Minimalistic [prompt](/users/shared/.config/fish/functions/fish_prompt.fish) with git integration:
+Minimalistic [prompt](/users/shared/fish/functions/fish_prompt.fish) with git integration:
 
 ![](/assets/screens/fish.png)
 
@@ -13,7 +13,7 @@ Use `fish_config` to configure it with GUI.
 ## Change directory by partial match with [zoxide](https://github.com/ajeetdsouza/zoxide#getting-started)
 
 `j nix` will switch to `/etc/nixos`\
-`j Do` will switch to `/home/ksevelyar/Downloads`
+`j do` will switch to `/home/ksevelyar/downloads`
 
 ## Fuzzy change directory with FZF
 
@@ -22,7 +22,3 @@ Press `Alt+C`
 ## Fuzzy find file
 
 Type `v <Alt>-t` or `v -o (fzf)`
-
-## Don't use cd
-
-you can run `/code` instead of `cd /code`

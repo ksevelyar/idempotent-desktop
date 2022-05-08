@@ -1,0 +1,55 @@
+window:
+  dynamic_title: true
+  opacity: 0.94
+  padding:
+   x: 10
+   y: 10
+
+font:
+  size: 11.0
+  normal:
+    family: Terminus
+    style: Regular
+
+  bold:
+    style: Bold
+
+  italic:
+    style: Regular
+
+  bold_italic:
+    style: Bold
+
+cursor:
+  style: Underline
+
+colors:
+  primary:
+    background: '#1b161f'
+    foreground: '#f8f8f2'
+
+  cursor:
+    text: '#44475a'
+    cursor: '#ffce50'
+
+  normal:
+    black:   '#000000'
+    red:     '#ff5555'
+    green:   '#54c6b5'
+    yellow:  '#d5aa2a'
+    blue:    '#bd93f9'
+    magenta: '#ff79c6'
+    cyan:    '#8be9fd'
+    white:   '#bfbfbf'
+
+  bright:
+    black:   '#1b161f'
+    red:     '#ff6e67'
+    green:   '#5af78e'
+    yellow:  '#ffce50'
+    blue:    '#caa9fa'
+    magenta: '#ff92d0'
+    cyan:    '#9aedfe'
+    white:   '#e6e6e6'
+
+draw_bold_text_with_bright_colors: true

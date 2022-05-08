@@ -55,6 +55,7 @@ in
       EndSection
     '';
 
+    # inspect with xset q
     serverFlagsSection = lib.mkDefault ''
       Option "BlankTime" "120"
       Option "StandbyTime" "0"

@@ -30,7 +30,7 @@
     sru = "systemctl restart --user";
 
     # vnc
-    grab-display = "export DISPLAY = ':0.0'";
+    grab-display = "set DISPLAY ':0.0'";
     vnc-server = "x11vnc -repeat -forever -noxrecord -noxdamage -rfbport 5900";
     vnc = "vncviewer −FullscreenSystemKeys -MenuKey F12";
 

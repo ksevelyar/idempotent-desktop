@@ -62,34 +62,34 @@
         { allowUnfree = true; }
       '';
 
-      home.file.".config/git/config".source = ../users/shared/.config/git/config;
-      home.file.".config/git/ignore".source = ../users/shared/.config/git/ignore;
+      home.file.".config/git/config".source = ../users/shared/git/config;
+      home.file.".config/git/ignore".source = ../users/shared/git/ignore;
       home.file.".config/git/user".text = ''
         [user]
         email = ${email}
         name = ${name}
       '';
 
-      home.file.".config/broot/conf.hjson".source = ../users/shared/.config/broot/conf.hjson;
-      home.file.".config/zathura/zathurarc".source = ../users/shared/.config/zathura/zathurarc;
+      home.file.".config/broot/conf.hjson".source = ../users/shared/broot/conf.hjson;
+      home.file.".config/zathura/zathurarc".source = ../users/shared/zathura/zathurarc;
 
-      home.file.".config/alacritty/alacritty.yml".source = lib.mkDefault ../users/shared/.config/alacritty/alacritty.yml;
-      home.file.".config/alacritty/alacritty-scratchpad.yml".source = lib.mkDefault ../users/shared/.config/alacritty/alacritty-scratchpad.yml;
+      home.file.".config/alacritty/alacritty.yml".source = lib.mkDefault ../users/shared/alacritty/alacritty.yml;
+      home.file.".config/alacritty/alacritty-scratchpad.yml".source = lib.mkDefault ../users/shared/alacritty/alacritty-scratchpad.yml;
 
-      home.file.".config/ncmpcpp/config".source = ../users/shared/.config/ncmpcpp/config;
-      home.file.".config/mpv/mpv.conf".source = ../users/shared/.config/mpv/mpv.conf;
-      home.file.".config/mpv/input.conf".source = ../users/shared/.config/mpv/input.conf;
-      home.file.".config/mpv/scripts/autoload.lua".source = ../users/shared/.config/mpv/scripts/autoload.lua;
-      home.file.".config/mpv/scripts/delete_file.lua".source = ../users/shared/.config/mpv/scripts/delete_file.lua;
+      home.file.".config/ncmpcpp/config".source = ../users/shared/ncmpcpp/config;
+      home.file.".config/mpv/mpv.conf".source = ../users/shared/mpv/mpv.conf;
+      home.file.".config/mpv/input.conf".source = ../users/shared/mpv/input.conf;
+      home.file.".config/mpv/scripts/autoload.lua".source = ../users/shared/mpv/scripts/autoload.lua;
+      home.file.".config/mpv/scripts/delete_file.lua".source = ../users/shared/mpv/scripts/delete_file.lua;
 
       home.file.".npmrc".source = ../users/shared/.npmrc;
 
-      home.file.".config/nvim/init.vim".source = ../users/shared/.config/nvim/init.vim;
-      home.file.".config/nvim/lua/config.lua".source = ../users/shared/.config/nvim/lua/config.lua;
+      home.file.".config/nvim/init.vim".source = ../users/shared/nvim/init.vim;
+      home.file.".config/nvim/lua/config.lua".source = ../users/shared/nvim/lua/config.lua;
 
-      home.file.".config/fish/config.fish".source = ../users/shared/.config/fish/config.fish;
-      home.file.".config/fish/functions/fish_prompt.fish".source = ../users/shared/.config/fish/functions/fish_prompt.fish;
-      home.file.".config/fish/functions/fish_print_git_action.fish".source = ../users/shared/.config/fish/functions/fish_print_git_action.fish;
+      home.file.".config/fish/config.fish".source = ../users/shared/fish/config.fish;
+      home.file.".config/fish/functions/fish_prompt.fish".source = ../users/shared/fish/functions/fish_prompt.fish;
+      home.file.".config/fish/functions/fish_print_git_action.fish".source = ../users/shared/fish/functions/fish_print_git_action.fish;
 
       home.file.".iex.exs".source = ../users/shared/.iex.exs;
     };

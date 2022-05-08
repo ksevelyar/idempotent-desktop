@@ -2,6 +2,7 @@ args@{ config, lib, pkgs, ... }:
 {
   imports = [
     ../users/ksevelyar.nix
+    (import ../services/x/polybar-big.nix (args // { user = "ksevelyar"; }))
     ../users/root.nix
 
     ../hardware/efi.nix
@@ -64,11 +65,16 @@ args@{ config, lib, pkgs, ... }:
     };
   };
 
-  home-manager.users.ksevelyar.home.pointerCursor = {
-    x11.enable = true;
-    name = "Vanilla-DMZ";
-    package = pkgs.vanilla-dmz;
-    size = 64;
+  home-manager.users.ksevelyar = {
+    home.pointerCursor = {
+      x11.enable = true;
+      name = "Vanilla-DMZ";
+      package = pkgs.vanilla-dmz;
+      size = 64;
+    };
+
+    home.file.".config/alacritty/alacritty.yml".source = ../users/ksevelyar/alacritty-tv/alacritty.yml;
+    home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../users/ksevelyar/alacritty-tv/alacritty-scratchpad.yml;
   };
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u24n.psf.gz";
   services.xserver.serverFlagsSection = ''

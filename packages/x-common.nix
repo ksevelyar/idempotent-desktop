@@ -17,7 +17,7 @@
       '';
     };
 
-    # override with the ~/.config/mimeapps.list that can be edited with xfce4-mime-settings 
+    # override with the ~/mimeapps.list that can be edited with xfce4-mime-settings
     etc."xdg/mimeapps.list" = {
       text = ''
         [Default Applications]
@@ -26,7 +26,7 @@
         x-scheme-handler/http=firefox.desktop
         x-scheme-handler/https=firefox.desktop
         text/html=firefox.desktop
-        
+ 
         video/x-matroska=mpv.desktop;
         video/mpeg=mpv.desktop;
 
@@ -36,7 +36,7 @@
       '';
     };
 
-    etc."imv_config".source = ../users/shared/.config/imv/config;
+    etc."imv_config".source = ../users/shared/imv/config;
   };
 
   programs.browserpass.enable = true;
@@ -45,7 +45,7 @@
 
   programs.spacefm = {
     enable = true;
-    settings.source = ../users/shared/.config/spacefm/spacefm.conf;
+    settings.source = ../users/shared/spacefm/spacefm.conf;
   };
 
   environment.systemPackages = with pkgs;
@@ -58,7 +58,7 @@
       x11vnc # vnc-server
       tigervnc # vncviewer
 
-      # text    
+      # text
       zathura
       calibre
 
@@ -94,7 +94,7 @@
       xorg.xkbcomp
       xdotool
       seturgent
-      
+
       # screenshot region or fullscreen
       # watch -n2 'maim ~/screenshots/doom2/$(date +%Y-%m-%d-%H-%M-%S).png'
       maim

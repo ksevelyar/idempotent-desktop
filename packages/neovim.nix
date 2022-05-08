@@ -5,7 +5,7 @@
     withRuby = false;
     withPython3 = false;
     configure = {
-      customRC = builtins.readFile ../users/shared/.config/nvim/init.vim;
+      customRC = builtins.readFile ../users/shared/nvim/init.vim;
     };
   };
 

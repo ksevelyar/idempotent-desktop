@@ -81,11 +81,9 @@
     us-proton.autoStart = false;
   };
 
-  home-manager = {
-    users.kh = {
-      home.file.".config/alacritty/alacritty.yml".source = ../users/ksevelyar/.config/alacritty-laptop/alacritty.yml;
-      home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../users/ksevelyar/.config/alacritty-laptop/alacritty-scratchpad.yml;
-    };
+  home-manager.users.kh = {
+      home.file.".config/alacritty/alacritty.yml".source = ../users/kh/alacritty-laptop/alacritty.yml;
+      home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../users/kh/alacritty-laptop/alacritty-scratchpad.yml;
   };
 
   services.xserver = {
