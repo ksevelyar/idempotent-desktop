@@ -50,7 +50,13 @@
   home-manager = {
     useGlobalPkgs = true;
     users.${user} = {
-      home.file.".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
+      home.pointerCursor = lib.mkDefault {
+        x11.enable = true;
+        gtk.enable = true;
+        name = "Vanilla-DMZ";
+        package = pkgs.vanilla-dmz;
+        size = 16;
+      };
 
       home.file.".config/nixpkgs/config.nix".text = ''
         { allowUnfree = true; }

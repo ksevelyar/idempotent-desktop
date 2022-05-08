@@ -64,7 +64,19 @@ args@{ config, lib, pkgs, ... }:
     };
   };
 
+  home-manager.users.ksevelyar.home.pointerCursor = {
+    x11.enable = true;
+    name = "Vanilla-DMZ";
+    package = pkgs.vanilla-dmz;
+    size = 64;
+  };
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u24n.psf.gz";
+  services.xserver.serverFlagsSection = ''
+    Option "BlankTime" "0"
+    Option "StandbyTime" "0"
+    Option "SuspendTime" "0"
+    Option "OffTime" "0"
+  '';
 
   hardware = {
     pulseaudio = {

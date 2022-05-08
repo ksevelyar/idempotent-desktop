@@ -55,7 +55,7 @@ in
       EndSection
     '';
 
-    serverFlagsSection = ''
+    serverFlagsSection = lib.mkDefault ''
       Option "BlankTime" "120"
       Option "StandbyTime" "0"
       Option "SuspendTime" "0"
