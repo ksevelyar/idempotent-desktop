@@ -37,6 +37,7 @@ args@{ config, lib, pkgs, ... }:
     ../services/x/picom.nix
     ../services/x/redshift.nix
     ../services/x/unclutter.nix
+    ../services/x/random-wallpaper.nix
 
     ../services/net/firewall-desktop.nix
     ../services/net/openvpn.nix
