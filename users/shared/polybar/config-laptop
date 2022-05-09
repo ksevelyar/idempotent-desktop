@@ -15,10 +15,10 @@ foreground-alt = #c1c2c3
 violet = #5b51c9
 
 [bar/base]
-font-0 = Terminus:size=24;0
-font-1 = Siji:size=24;1
+font-0 = Terminus:size=14;0
+font-1 = Siji:size=14;1
 width = 100%
-height = 40
+height = 24
 offset-x = 0
 offset-y = 0
 fixed-center = true
@@ -45,9 +45,13 @@ padding-right = 1
 
 [bar/bottom]
 inherit = bar/base
+font-0 = Terminus:size=16;5
+font-1 = Siji:size=16;4
 bottom = true
+height = 22
 
-modules-left = leftwm
+modules-left = workspaces
+modules-center = title-short
 modules-right = weather date
 
 [module/leftwm]
@@ -57,15 +61,18 @@ tail = true
 
 [bar/top]
 inherit = bar/base
+font-0 = Terminus:size=16;2
+font-1 = Siji:size=16;1
 bottom = false
+height = 22
 
 modules-left = volume mpd
 modules-center = filesystem
-modules-right = vpn vnc ssh eth cpu memory
+modules-right = vnc ssh wifi vpn cpu memory battery
 
 [module/title]
 type = internal/xwindow
-label-maxlen = 160
+label-maxlen = 170
 
 [module/title-short]
 type = internal/xwindow

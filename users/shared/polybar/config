@@ -43,18 +43,7 @@ tray-position = none
 padding-left = 1
 padding-right = 1
 
-[bar/laptop-bottom]
-inherit = bar/base
-font-0 = Terminus:size=16;5
-font-1 = Siji:size=16;4
-bottom = true
-height = 22
-
-modules-left = workspaces
-modules-center = title-short
-modules-right = weather date
-
-[bar/desktop-bottom]
+[bar/bottom]
 inherit = bar/base
 bottom = true
 
@@ -66,15 +55,7 @@ type = custom/script
 exec = leftwm-state -w 0 -t ~/.config/leftwm/themes/current/template.liquid
 tail = true
 
-[bar/desktop-bottom-openbox]
-inherit = bar/base
-bottom = true
-
-modules-left = workspaces
-modules-center = title
-modules-right = weather date
-
-[bar/desktop-top]
+[bar/top]
 inherit = bar/base
 bottom = false
 
@@ -82,31 +63,9 @@ modules-left = volume mpd
 modules-center = filesystem
 modules-right = vpn vnc ssh eth cpu memory
 
-[bar/laptop-top]
-inherit = bar/base
-font-0 = Terminus:size=16;2
-font-1 = Siji:size=16;1
-bottom = false
-height = 22
-
-modules-left = volume spotify
-modules-center = filesystem
-modules-right = vnc ssh vpn cpu memory battery
-
 [module/title]
 type = internal/xwindow
-label-maxlen = 170
-
-[module/title-short]
-type = internal/xwindow
-label-maxlen = 70
-
-[module/workspaces-xmonad]
-type = custom/script
-exec = tail -F ~/.cache/.xmonad-workspace-log
-exec-if = [ -p ~/.cache/.xmonad-workspace-log ]
-tail = true
-click-right = jgmenu_run >/dev/null 2>&1 &
+label-maxlen = 160
 
 [module/vnc]
 type = custom/script
@@ -165,18 +124,6 @@ label-mounted = %{F#9c71C7}%mountpoint%%{F-} %free%
 label-unmounted =
 label-unmounted-foreground = ${colors.foreground}
 
-# ls -l /sys/class/power_supply
-[module/battery]
-type = internal/battery
-battery = BATT
-adapter = AC
-full-at = 98
-format-charging = %{F#9c71C7}%{F-} <label-charging>
-format-full = %{F#9c71C7}%{F-} <label-full>
-time-format = %H:%M
-label-discharging = %{F#9c71C7}%{F-} %percentage%% %{F#6B5A68}%time%%{F-}
-format-discharging = <label-discharging>
-
 [module/cpu]
 type = internal/cpu
 interval = 1
@@ -196,20 +143,6 @@ type = internal/network
 interface = enp4s0
 interval = 1.0
 label-connected = %{A1:sh ~/.config/polybar/local_and_public_ips.sh:} %{F#9c71C7}%{F-}%downspeed:8%   %{F#9c71C7}%{F-}%upspeed:8%%{A}
-
-[module/wifi]
-type = internal/network
-interface = wlp1s0
-interval = 1.0
-label-connected = %essid% %{A1:sh ~/.config/polybar/local_and_public_ips.sh:} %{F#9c71C7}%{F-}%downspeed:8%   %{F#9c71C7}%{F-}%upspeed:8%%{A}
-format-connected = <label-connected>
-
-[module/wlp2s0]
-type = internal/network
-interface = wlp2s0
-interval = 1.0
-label-connected = %essid% %{A1:sh ~/.config/polybar/local_and_public_ips.sh:} %{F#9c71C7}%{F-}%downspeed:8%   %{F#9c71C7}%{F-}%upspeed:8%%{A}
-format-connected = <label-connected>
 
 [module/date]
 type = internal/date

@@ -12,5 +12,5 @@ xcape -e 'Super_R=Super_R|X;Super_L=Super_L|X'
 
 pkill polybar
 echo "---" | tee -a ~/.cache/polybar-top.log ~/.cache/polybar-bottom.log
-polybar desktop-top >>~/.cache/polybar-top.log 2>&1 &
-polybar desktop-bottom >>~/.cache/polybar-bottom.log 2>&1 &
+polybar top >>~/.cache/polybar-top.log 2>&1 &
+polybar bottom >>~/.cache/polybar-bottom.log 2>&1 &

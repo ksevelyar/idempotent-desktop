@@ -2,7 +2,6 @@ args@{ config, lib, pkgs, ... }:
 {
   imports = [
     ../users/ksevelyar.nix
-    (import ../services/x/polybar-big.nix (args // { user = "ksevelyar"; }))
     ../users/root.nix
 
     ../hardware/efi.nix
@@ -74,6 +73,7 @@ args@{ config, lib, pkgs, ... }:
       size = 64;
     };
 
+    home.file.".config/polybar/config".source = ../users/shared/polybar/config-big;
     home.file.".config/alacritty/alacritty.yml".source = ../users/ksevelyar/alacritty-tv/alacritty.yml;
     home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../users/ksevelyar/alacritty-tv/alacritty-scratchpad.yml;
   };
