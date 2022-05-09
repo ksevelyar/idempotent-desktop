@@ -46,7 +46,7 @@ tray-background = ${root.background}
 padding-left = 1
 padding-right = 1
 
-[bar/desktop-bottom]
+[bar/bottom]
 inherit = bar/base
 bottom = true
 
@@ -54,7 +54,7 @@ modules-left = leftwm
 modules-center = title
 modules-right = weather date
 
-[bar/desktop-top]
+[bar/top]
 inherit = bar/base
 bottom = false
 
