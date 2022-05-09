@@ -50,7 +50,7 @@ font-1 = Siji:size=16;4
 bottom = true
 height = 22
 
-modules-left = workspaces
+modules-left = leftwm
 modules-center = title-short
 modules-right = weather date
 
