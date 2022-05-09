@@ -15,10 +15,10 @@ foreground-alt = #c1c2c3
 violet = #5b51c9
 
 [bar/base]
-font-0 = Terminus:size=24;0
+font-0 = Terminus:size=32;0
 font-1 = Siji:size=24;1
 width = 100%
-height = 40
+height = 50
 offset-x = 0
 offset-y = 0
 fixed-center = true
