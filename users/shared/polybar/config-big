@@ -48,6 +48,7 @@ inherit = bar/base
 bottom = true
 
 modules-left = leftwm
+modules-center = title
 modules-right = weather date
 
 [module/leftwm]
@@ -64,10 +65,6 @@ modules-center = filesystem
 modules-right = vpn vnc ssh eth cpu memory
 
 [module/title]
-type = internal/xwindow
-label-maxlen = 160
-
-[module/title-short]
 type = internal/xwindow
 label-maxlen = 70
 
