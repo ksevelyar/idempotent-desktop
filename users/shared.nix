@@ -58,6 +58,17 @@
         size = 16;
       };
 
+      home.file.".config/qt5ct/qt5ct.conf".text = ''
+        [Appearance]
+        icon_theme=ePapirus-Dark
+        standard_dialogs=gtk3
+        style=Adwaita-Dark
+
+        [Fonts]
+        fixed=@Variant(\0\0\0@\0\0\0\x1e\0S\0o\0u\0r\0\x63\0\x65\0 \0\x43\0o\0\x64\0\x65\0 \0P\0r\0o@(\0\0\0\0\0\0\xff\xff\xff\xff\x5\x1\0\x32\x10)
+        general=@Variant(\0\0\0@\0\0\0\x1e\0S\0o\0u\0r\0\x63\0\x65\0 \0\x43\0o\0\x64\0\x65\0 \0P\0r\0o@(\0\0\0\0\0\0\xff\xff\xff\xff\x5\x1\0\x32\x10)
+      '';
+
       home.file.".config/nixpkgs/config.nix".text = ''
         { allowUnfree = true; }
       '';

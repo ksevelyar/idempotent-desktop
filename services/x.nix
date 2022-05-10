@@ -15,13 +15,13 @@ let
 
   random-wallpaper = pkgs.writeScriptBin "random-wallpaper" ''
     #!${pkgs.stdenv.shell}
-    feh --randomize --bg-fill --no-fehbg ~/wallpapers  
+    feh --randomize --bg-fill --no-fehbg ~/wallpapers
   '';
 
   turn-off-display-and-music = pkgs.writeScriptBin "turn-off-display-and-music" ''
     #!${pkgs.stdenv.shell}
     set -e
-    
+ 
     sleep 0.5
     xset dpms force off
     mpc stop
