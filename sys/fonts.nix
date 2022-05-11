@@ -19,20 +19,16 @@
     fonts = with pkgs;
       [
         terminus_font
-        # Icons for polybar
-        siji # https://github.com/stark/siji
-        cozette
-
-        noto-fonts-emoji
-
-        # https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/nerdfonts/shas.nix
-        # (nerdfonts.override { fonts = [ "Iosevka" "IBMPlexMono" ]; })
         source-sans-pro
-        source-code-pro
-
         roboto
-        roboto-slab
-        roboto-mono
+        cozette
+        # https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/nerdfonts/shas.nix
+        (nerdfonts.override { fonts = [ "Iosevka" "IBMPlexMono" ]; })
+        
+        siji # https://github.com/stark/siji
+        ipafont # display jap symbols like シートベルツ in polybar
+        noto-fonts-emoji # emoji
+        source-code-pro
       ];
   };
 
