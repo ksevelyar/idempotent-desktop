@@ -73,6 +73,9 @@ args@{ config, lib, pkgs, ... }:
       size = 64;
     };
 
+    home.file.".config/leftwm/config.toml".source = ../users/ksevelyar/leftwm-tv/config.toml;
+    home.file.".config/leftwm/themes/current/theme.toml".source = ../users/ksevelyar/leftwm-tv/theme.toml;
+
     home.file.".config/polybar/config".source = ../users/shared/polybar/config-big;
     home.file.".config/alacritty/alacritty.yml".source = ../users/ksevelyar/alacritty-tv/alacritty.yml;
     home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../users/ksevelyar/alacritty-tv/alacritty-scratchpad.yml;

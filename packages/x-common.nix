@@ -53,6 +53,7 @@
       # net
       firefox
       google-chrome
+      # yt-dlp -f 'bv[height<=1080]+ba' 'https://www.youtube.com/playlist?list=PLRnZ3k_L91GmDn2eWpvJ6-SLXpNlLAihu'
       yt-dlp
       transmission-gtk
       x11vnc # vnc-server

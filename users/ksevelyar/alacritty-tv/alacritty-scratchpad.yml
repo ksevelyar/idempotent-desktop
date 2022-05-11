@@ -6,7 +6,7 @@ window:
    y: 10
 
 font:
-  size: 18.0
+  size: 22.0
   normal:
     family: Terminus
     style: Regular
