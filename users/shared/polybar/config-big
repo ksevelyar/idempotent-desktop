@@ -15,9 +15,9 @@ foreground-alt = #c1c2c3
 violet = #5b51c9
 
 [bar/base]
-font-0 = Source Code Pro:size=32;0
+font-0 = Terminus:size=34;0
 width = 100%
-height = 50
+height = 46
 offset-x = 0
 offset-y = 0
 fixed-center = true
@@ -107,7 +107,6 @@ interval = 2
 mount-0 = /
 ; mount-1 = /storage
 
-; format-prefix = " "
 label-mounted = %{F#9c71C7}%mountpoint%%{F-} %free%
 label-unmounted =
 label-unmounted-foreground = ${colors.foreground}
