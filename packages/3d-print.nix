@@ -5,7 +5,7 @@
     [
       # slicers
       prusa-slicer
-      cura
+      # cura
 
       # programmatic cads
       openscad
