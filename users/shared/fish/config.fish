@@ -17,8 +17,8 @@ function pgen
   gopass generate -s -c $argv[1] 42 # if you can type your password it's no good
 end
 
-function timer # timer 12m pizza
-  fish -c "sleep $argv[1] && notify-send -u critical -t 0 $argv[2]" &
+function t # t 12m
+  fish -c "sleep $argv[1] && notify-send -u critical -t 0 ▓▓▓" &
 end
 
 function find-and-replace
