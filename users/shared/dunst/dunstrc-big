@@ -1,0 +1,40 @@
+[global]
+alignment = center
+corner_radius = 0
+follow = none
+font = Terminus 34
+format = "%s %b"
+frame_width = 0
+history_length = 20
+horizontal_padding = 8
+ignore_newline = no
+indicate_hidden = yes
+monitor = 0
+offset = 2x0
+origin = top-left
+padding = 4
+separator_color = auto
+separator_height = 4
+show_age_threshold = 60
+show_indicators = yes
+shrink = no
+sort = yes
+transparency = 10
+width = (50,1000)
+word_wrap = yes
+stack_duplicates = false
+
+[urgency_low]
+background = "#5b51c9"
+foreground = "#bbc2cf"
+timeout = 3
+
+[urgency_normal]
+background = "#5b51c9"
+foreground = "#bbc2cf"
+timeout = 8
+
+[urgency_critical]
+background = "#ffffff"
+foreground = "#000000"
+timeout = 15

@@ -79,6 +79,8 @@ args@{ config, lib, pkgs, ... }:
     home.file.".config/polybar/config".source = ../users/shared/polybar/config-big;
     home.file.".config/alacritty/alacritty.yml".source = ../users/ksevelyar/alacritty-tv/alacritty.yml;
     home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../users/ksevelyar/alacritty-tv/alacritty-scratchpad.yml;
+
+    home.file.".config/dunst/dunstrc".source = ../users/shared/dunst/dunstrc-big;
   };
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u24n.psf.gz";
   services.xserver.serverFlagsSection = ''

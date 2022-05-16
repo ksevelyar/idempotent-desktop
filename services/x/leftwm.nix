@@ -30,7 +30,7 @@
 
       home.file.".xxkbrc".source = ../../users/shared/.xxkbrc;
 
-      home.file.".config/dunst/dunstrc".source = ../../users/shared/dunst/dunstrc;
+      home.file.".config/dunst/dunstrc".source = lib.mkDefault ../../users/shared/dunst/dunstrc;
     };
   };
 }
