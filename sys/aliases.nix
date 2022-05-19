@@ -10,6 +10,8 @@
     pkill = "pkill --full";
     i = "host-info";
     ms = "mosh";
+    cat = "bat --paging=never --plain";
+    bat = "bat --paging=never -n";
 
     # learn
     tr = "trans"; # https://github.com/soimort/translate-shell
