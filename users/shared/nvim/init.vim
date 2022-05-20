@@ -124,7 +124,11 @@ set novisualbell
 
 " UI ----------------------------------------------------------------------------------------------
 set mouse=a
-set shortmess=AI
+
+" T truncate other messages in the middle if they are too long
+" A don't give the "ATTENTION" message when an existing swap file is found
+" I don't give the intro message when starting Vim |:intro|
+set shortmess=AIT
 
 set wildmenu
 set wildmode=list:longest,full
