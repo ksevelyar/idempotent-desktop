@@ -15,3 +15,5 @@ main_window_color = white
 statusbar_visibility = no
 titles_visibility = no
 song_columns_list_format = "(2f)[]{} (35)[blue]{a} (3f)[white]{n}(35)[blue]{t} (30)[white]{b}(6f)[blue]{l}"
+
+allow_for_physical_item_deletion = yes
