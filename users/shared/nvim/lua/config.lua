@@ -116,8 +116,6 @@ require'lualine'.setup {
   extensions = {}
 }
 
-g.nvim_tree_show_icons = {git = 1, folders = 1, files = 0, folder_arrows = 0}
-
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 local list = {
   {key = {"<CR>", "o", "<2-LeftMouse>"}, cb = tree_cb("edit")}, {key = {"g"}, cb = tree_cb("cd")},
@@ -146,6 +144,9 @@ require'nvim-tree'.setup {
     relativenumber = false,
     signcolumn = "yes",
     mappings = {custom_only = false, list = list}
+  },
+  renderer = {
+    icons = {show = {file = false, folder = true, folder_arrow = false, git = true}}
   },
   actions = {
     open_file = {quit_on_open = false, resize_window = false, window_picker = {enable = false}}
