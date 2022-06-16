@@ -10,19 +10,19 @@ set -gx FZF_ALT_C_COMMAND 'fd --type d .'
 zoxide init fish | source
 
 function ssht
-  ssh -t $argv[1] 'tmux new -A -s 🦙'
+    ssh -t $argv[1] 'tmux new -A -s 🦙'
 end
 
 function pgen
-  gopass generate -s -c $argv[1] 42 # if you can type your password it's no good
+    gopass generate -s -c $argv[1] 42 # if you can type your password it's no good
 end
 
 function t # t 12m
-  fish -c "sleep $argv[1] && notify-send -u critical -t 0 ▓▓▓" &
+    fish -c "sleep $argv[1] && notify-send -u critical -t 0 ▓▓▓" &
 end
 
 function find-and-replace
-  rg $argv[1] -l | xargs sed -i "s/$argv[1]/$argv[2]/g"
+    rg $argv[1] -l | xargs sed -i "s/$argv[1]/$argv[2]/g"
 end
 
 set -u DEFAULT_USER (whoami)

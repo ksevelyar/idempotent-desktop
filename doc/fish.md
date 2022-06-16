@@ -1,14 +1,10 @@
-# [Fish](https://fishshell.com/)
+# [Fish](https://fishshell.com/docs/current/tutorial.html#tutorial)
 
-💜 Fish is one of the saniest software I've seen.
-
-Almost vanilla [config](/users/shared/fish/config.fish), a lot of faster than zsh/zim bundle with the same functionality.
-
-Minimalistic [prompt](/users/shared/fish/functions/fish_prompt.fish) with git integration:
+[config](/users/shared/fish/config.fish), [prompt](/users/shared/fish/functions/fish_prompt.fish)
 
 ![](/assets/screens/fish.png)
 
-Use `fish_config` to configure it with GUI.
+Use `fish_indent` to format scripts
 
 ## Change directory by partial match with [zoxide](https://github.com/ajeetdsouza/zoxide#getting-started)
 
@@ -17,8 +13,8 @@ Use `fish_config` to configure it with GUI.
 
 ## Fuzzy change directory with FZF
 
-Press `Alt+C`
+Press `Alt+c`
 
 ## Fuzzy find file
 
-Type `v <Alt>-t` or `v -o (fzf)`
+Type `v Alt+t`

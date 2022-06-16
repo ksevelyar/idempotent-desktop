@@ -13,11 +13,11 @@ function fish_print_git_action --argument-names git_dir
     for action_dir in "$git_dir/rebase-apply" "$git_dir/rebase"
         if test -d "$action_dir"
             if test -f "$action_dir/rebasing"
-                echo -n 'rebase'
+                echo -n rebase
             else if test -f "$action_dir/applying"
-                echo -n 'apply'
+                echo -n apply
             else
-                echo -n 'rebase/apply'
+                echo -n rebase/apply
             end
             return 0
         end
@@ -25,45 +25,45 @@ function fish_print_git_action --argument-names git_dir
 
     for action_dir in "$git_dir/rebase-merge/interactive" "$git_dir/.dotest-merge/interactive"
         if test -f "$action_dir"
-            echo -n 'rebase-interactive'
+            echo -n rebase-interactive
             return 0
         end
     end
 
     for action_dir in "$git_dir/rebase-merge" "$git_dir/.dotest-merge"
         if test -d "$action_dir"
-            echo -n 'rebase-merge'
+            echo -n rebase-merge
             return 0
         end
     end
 
     if test -f "$git_dir/MERGE_HEAD"
-        echo -n 'merge'
+        echo -n merge
         return 0
     end
 
     if test -f "$git_dir/CHERRY_PICK_HEAD"
         if test -d "$git_dir/sequencer"
-            set cherry_pick_sequence_formatted 'cherry-pick-sequence'
-            echo -n 'cherry-pick-sequence'
+            set cherry_pick_sequence_formatted cherry-pick-sequence
+            echo -n cherry-pick-sequence
         else
-            set cherry_pick_formatted 'cherry-pick'
-            echo -n 'cherry-pick'
+            set cherry_pick_formatted cherry-pick
+            echo -n cherry-pick
         end
         return 0
     end
 
     if test -f "$git_dir/REVERT_HEAD"
         if test -d "$git_dir/sequencer"
-            echo -n 'revert-sequence'
+            echo -n revert-sequence
         else
-            echo -n 'revert'
+            echo -n revert
         end
         return 0
     end
 
     if test -f "$git_dir/BISECT_LOG"
-        echo -n 'bisect'
+        echo -n bisect
         return 0
     end
 
