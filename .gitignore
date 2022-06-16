@@ -1,5 +1,4 @@
 # ln -s hosts/your-host.nix configuration.nix
 configuration.nix
-node_modules
 
 auth.txt

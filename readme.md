@@ -26,7 +26,7 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 * [Neovim with LSP](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/nvim/init.vim) for Elixir, Rust, Nix, Lua and others
 * fuzzy search by apps [`mod`](/doc/run-rofi-with-one-key.md), emojis `mod + z` and clipboard history `mod + c` wih [rofi](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/rofi/grey.rasi)
 * [copy color of pixel under mouse cursor](/services/x.nix#L5-L14) to clipboard with `mod + k`
-* [`PrtScn`](https://github.com/ksevelyar/idempotent-desktop/blob/6adfa52b3404d4f28f1c1b803b40bc5a86c3fde2/users/shared/leftwm/config.toml#L197) to capture region, `mod + PrtScn` to capture fullscreen, record desktop videos with `vokoscreen`
+* [`PrtScn`](https://github.com/ksevelyar/idempotent-desktop/blob/ea28dfc28596d8edb3b88683e9960b4a32cc9c46/users/shared/leftwm/config.toml#L180-L184) to capture region, `mod + PrtScn` to capture fullscreen, record desktop videos with `vokoscreen`
 
 ## Hardware Engineering
 

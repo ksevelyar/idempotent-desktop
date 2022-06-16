@@ -153,6 +153,13 @@ require'nvim-tree'.setup {
   }
 }
 
-require'telescope'.setup {pickers = {find_files = {hidden = true}}}
+require'telescope'.setup {
+  defaults = { file_ignore_patterns= {"^./.git/"} },
+  pickers = {
+    find_files = {
+      hidden = true
+    }
+  }
+}
 
 require("indent_blankline").setup {}
