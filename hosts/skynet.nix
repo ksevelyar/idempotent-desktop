@@ -14,7 +14,6 @@
     ../sys/nix.nix
     ../sys/cache.nix
 
-    ../packages/absolutely-proprietary.nix
     ../packages/common.nix
     ../packages/neovim.nix
     ../packages/tmux.nix
@@ -61,12 +60,12 @@
 
     peers = [
       # ksevelyar 42-52
-      ## tv 
+      ## tv
       {
         publicKey = "XlnWVku8KBnHACykwjFL78IDNTBtiwUtwkLFrEyjAiY=";
         allowedIPs = [ "192.168.42.42" ];
       }
-      ## hk-47 
+      ## hk-47
       {
         publicKey = "Ql36tqX82moc8k5Yx4McF2zxF4QG3jeoXoj8AxSUNRU=";
         allowedIPs = [ "192.168.42.47" ];

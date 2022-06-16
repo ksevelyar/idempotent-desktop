@@ -67,7 +67,7 @@
       rsync
       sshfs
       sshfs-fuse
-      unrar
+      unar
       unzip
       viu
       zip
