@@ -113,7 +113,7 @@ key = "x"
 
 [[keybind]]
 command = "Execute"
-value = "rofi -modi emoji -no-show-match -no-sort -matching normal -show"
+value = "rofimoji"
 modifier = ["modkey"]
 key = "z"
 

@@ -102,7 +102,8 @@
 
       vokoscreen # record desktop
       xclip
-      (rofi.override { plugins = [ rofi-emoji ]; })
+      rofi
+      rofimoji
       libnotify
       brightnessctl
       arandr # gui for external monitors
