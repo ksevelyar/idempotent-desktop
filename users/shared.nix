@@ -50,6 +50,8 @@
   home-manager = {
     useGlobalPkgs = true;
     users.${user} = {
+      home.stateVersion = "22.11";
+
       home.pointerCursor = lib.mkDefault {
         x11.enable = true;
         gtk.enable = true;
