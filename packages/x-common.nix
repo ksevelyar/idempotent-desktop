@@ -40,7 +40,11 @@
   };
 
   programs.browserpass.enable = true;
-  programs.qt5ct.enable = true;
+  qt5 = {
+    enable = true;
+    platformTheme = "gtk2";
+    style = "gtk2";
+  };
   console.useXkbConfig = true;
 
   programs.spacefm = {
