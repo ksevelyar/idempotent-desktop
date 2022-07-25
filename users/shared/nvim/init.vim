@@ -46,7 +46,7 @@ Plug 'chr4/nginx.vim'
 
 Plug 'sirtaj/vim-openscad'
 
-" Navigation 
+" Navigation
 Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'nvim-lua/plenary.nvim'
@@ -54,7 +54,7 @@ Plug 'nvim-telescope/telescope.nvim'
 
 " UI
 Plug 'lukas-reineke/indent-blankline.nvim'
-let g:indent_blankline_char = '┊'
+let g:indent_blankline_char = '|'
 
 Plug 'nvim-lualine/lualine.nvim'
 

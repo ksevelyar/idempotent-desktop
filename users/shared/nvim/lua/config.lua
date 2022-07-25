@@ -1,5 +1,3 @@
-local g = vim.g
-
 local lspconfig = require('lspconfig')
 local luaformatter = {
   formatCommand = 'lua-format -i --indent-width=2 --column-limit=100',
@@ -59,9 +57,6 @@ cmp.setup({
     {name = 'nvim_lsp'}, {name = 'vsnip'} -- For vsnip users.
   }, {{name = 'buffer'}})
 })
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})})
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol
                                                                      .make_client_capabilities())
