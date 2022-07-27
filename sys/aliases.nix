@@ -47,7 +47,6 @@
 
     # vim
     v = "nvim";
-    todo = "cd ~/todo && nvim backlog.md";
     vv = "nvim -U none"; # vanilla v, don't load plugins & init.vim
 
     # sec

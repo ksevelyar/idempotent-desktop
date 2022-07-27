@@ -25,6 +25,14 @@ height = 0.71
 width =  0.8
 
 [[scratchpad]]
+name = "notes"
+value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.yml -e nvim ~/notes/to-do.md"
+x = 0.5
+y = 0.05
+height = 0.9
+width =  0.5
+
+[[scratchpad]]
 name = "pulseaudio"
 value = "pavucontrol"
 x = 0.1
@@ -60,6 +68,12 @@ x = 0.5
 y = 0.05
 height = 0.45
 width =  0.5
+
+[[keybind]]
+command = "ToggleScratchPad"
+value = "notes"
+modifier = ['modkey']
+key = "n"
 
 [[keybind]]
 command = "ToggleScratchPad"
