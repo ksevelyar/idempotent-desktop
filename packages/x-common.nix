@@ -63,15 +63,15 @@
       x11vnc # vnc-server
       tigervnc # vncviewer
 
-      # text
-      zathura
-      calibre
+      # readers
+      evince
+      okular
 
       # spaced repetition https://docs.ankiweb.net/background.html#spaced-repetition
       # https://ankiweb.net/shared/info/110667962 irregular verbs
       # https://ankiweb.net/shared/info/1708037740 400 words for toefl
       # https://ankiweb.net/shared/info/715945745 english grammar in use
-      anki
+      anki-bin
 
       # themes
       lxappearance
@@ -103,8 +103,8 @@
       # screenshot region or fullscreen
       # watch -n2 'maim ~/screenshots/doom2/$(date +%Y-%m-%d-%H-%M-%S).png'
       maim
-
       vokoscreen # record desktop
+
       xclip
       rofi
       rofimoji
@@ -114,13 +114,14 @@
 
       # media
       glxinfo
-      feh
+      libva-utils
+
       mpv
       vlc
-      libva-utils
 
       # fd . ~/wallpapers/ | shuf | imv
       # ls -t ~/wallpapers/* | imv
       imv
+      nomacs
     ];
 }
