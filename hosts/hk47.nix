@@ -1,3 +1,9 @@
+# hardware
+## PRIME B360M-K (F8 for boot menu)
+## i5-9400F
+## RTX 2060
+## DIMM DDR4 2133MHz 16GBx2
+
 args@{ config, lib, pkgs, ... }:
 {
   imports = [
@@ -70,32 +76,17 @@ args@{ config, lib, pkgs, ... }:
 
   # vpn
   services.openvpn.servers = {
-    uk-shark.autoStart = true;
-    de-shark.autoStart = false;
+    uk-shark.autoStart = false;
+    de-shark.autoStart = true;
     fr-shark.autoStart = false;
     us-proton.autoStart = false;
-  };
-
-  # hardware
-  ## PRIME B360M-K (F8 for boot menu)
-  ## i5-9400F
-  ## RTX 2060
-  ## DIMM DDR4 2133MHz 16GBx2
-  hardware = {
-    pulseaudio = {
-      configFile = ../users/shared/disable-hdmi.pa;
-      extraConfig = ''
-        load-module module-switch-on-connect
-        set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo
-      '';
-    };
   };
 
   services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.initrd.kernelModules = [ ];
   boot.cleanTmpDir = true;
   boot.tmpOnTmpfs = true;
   boot.initrd.luks.devices = {
