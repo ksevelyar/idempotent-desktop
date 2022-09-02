@@ -8,11 +8,16 @@
     };
     de-shark = {
       config = '' config /etc/nixos/services/vpn/surfshark/de-ber.prod.surfshark.com_udp.ovpn '';
-      autoStart = lib.mkDefault true;
+      autoStart = lib.mkDefault false;
       updateResolvConf = true;
     };
     fr-shark = {
-      config = '' config /etc/nixos/services/vpn/surfshark/fr-par.prod.surfshark.com_udp.ovpn '';
+      config = '' config /etc/nixos/services/vpn/surfshark/fr-mrs.prod.surfshark.com_udp.ovpn '';
+      autoStart = lib.mkDefault false;
+      updateResolvConf = true;
+    };
+    es-shark = {
+      config = '' config /etc/nixos/services/vpn/surfshark/es-mad.prod.surfshark.com_udp.ovpn '';
       autoStart = lib.mkDefault false;
       updateResolvConf = true;
     };

@@ -31,9 +31,9 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 ## Hardware Engineering
 
 * programmatic cads: openscad
-* slicers for 3d printer: prusa-slicer, cura 
-* circuit diagrams: librepcb, fritzing 
-* [platformio-cli](https://jeelabs.org/2018/getting-started-bp/)
+* slicers for 3d printer: prusa-slicer, cura
+* circuit diagrams: librepcb, fritzing
+* [bluepill-boilerplate](https://github.com/rusty-cluster/bluepill-boilerplate)
 
 ## Security
 

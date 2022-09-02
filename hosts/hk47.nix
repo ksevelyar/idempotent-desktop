@@ -78,7 +78,8 @@ args@{ config, lib, pkgs, ... }:
   services.openvpn.servers = {
     uk-shark.autoStart = false;
     de-shark.autoStart = false;
-    fr-shark.autoStart = true;
+    fr-shark.autoStart = false;
+    es-shark.autoStart = true;
     us-proton.autoStart = false;
   };
 
