@@ -2,7 +2,7 @@
 {
   virtualisation.docker = {
     enable = true;
-    enableOnBoot = lib.mkDefault false;
+    enableOnBoot = lib.mkDefault true;
   };
 
   environment.systemPackages = with pkgs; [

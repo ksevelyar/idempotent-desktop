@@ -53,6 +53,8 @@ args@{ config, lib, pkgs, ... }:
     ../services/net/sshd.nix
     ../services/net/wireguard.nix
     ../services/net/avahi.nix
+    
+    ../services/vm/docker.nix
   ];
 
   # net
@@ -76,10 +78,10 @@ args@{ config, lib, pkgs, ... }:
 
   # vpn
   services.openvpn.servers = {
-    uk-shark.autoStart = false;
+    uk-shark.autoStart = true;
     de-shark.autoStart = false;
     fr-shark.autoStart = false;
-    es-shark.autoStart = true;
+    es-shark.autoStart = false;
     us-proton.autoStart = false;
   };
 
