@@ -41,6 +41,7 @@ args@{ config, lib, pkgs, ... }:
 
     ../services/journald.nix
     ../services/databases/postgresql.nix
+    ../services/databases/redis.nix
     ../services/mpd.nix
     ../services/x.nix
     ../services/x/picom.nix
@@ -53,7 +54,7 @@ args@{ config, lib, pkgs, ... }:
     ../services/net/sshd.nix
     ../services/net/wireguard.nix
     ../services/net/avahi.nix
-    
+
     ../services/vm/docker.nix
   ];
 
@@ -78,11 +79,8 @@ args@{ config, lib, pkgs, ... }:
 
   # vpn
   services.openvpn.servers = {
-    uk-shark.autoStart = true;
-    de-shark.autoStart = false;
-    fr-shark.autoStart = false;
-    es-shark.autoStart = false;
-    us-proton.autoStart = false;
+    uk-shark.autoStart = false;
+    express.autoStart = false;
   };
 
   services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
