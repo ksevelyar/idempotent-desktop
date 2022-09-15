@@ -14,6 +14,7 @@ require'navigator'.setup({
     diagnostic_virtual_text = ''
   },
   lsp = {
+    format_on_save = false,
     diagnostic_scrollbar_sign = false,
     disable_format_cap = {"tsserver", "sumneko_lua"},
     disable_lsp = {"flow", "vuels", "denols"},

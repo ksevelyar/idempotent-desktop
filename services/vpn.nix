@@ -26,6 +26,11 @@
       autoStart = lib.mkDefault false;
       updateResolvConf = true;
     };
+    express = {
+      config = '' config /etc/nixos/services/vpn/express/express.tcp.ovpn '';
+      autoStart = false;
+      updateResolvConf = true;
+    };
   };
 
   security.sudo.extraRules = [
