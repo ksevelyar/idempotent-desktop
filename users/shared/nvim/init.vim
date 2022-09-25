@@ -58,7 +58,7 @@ let g:indent_blankline_char = '|'
 
 Plug 'nvim-lualine/lualine.nvim'
 
-" Color Themes 
+" Color Themes
 Plug 'ksevelyar/joker.vim'
 " Plug '/c/joker.vim'
 Plug 'shaunsingh/nord.nvim'
@@ -72,7 +72,7 @@ Plug 'cocopon/iceberg.vim'
 Plug 'luochen1990/rainbow'
 Plug 'tpope/vim-scriptease'
 
-" IDE 
+" IDE
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -84,16 +84,12 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
-Plug 'ray-x/navigator.lua'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
 lua require('config')
-
-set completeopt=menu,menuone,noselect
 
 " Core Settings
 set conceallevel=0

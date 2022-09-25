@@ -38,6 +38,7 @@ args@{ config, lib, pkgs, ... }:
     ../packages/neovim.nix
     ../packages/pass.nix
     ../packages/tmux.nix
+    ../packages/office.nix
 
     ../services/journald.nix
     ../services/databases/postgresql.nix
