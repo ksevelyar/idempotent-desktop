@@ -66,7 +66,6 @@ lspconfig.elixirls.setup {
   capabilities = capabilities
 }
 
-vim.api.nvim_command("au BufWritePost *.nix vim.lsp.buf.formatting_sync(nil, 200)")
 lspconfig.rnix.setup {
   on_attach = on_attach,
   capabilities = capabilities

@@ -5,7 +5,7 @@
   system.stateVersion = "9000";
 
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     settings = {
       sandbox = true;
     };
