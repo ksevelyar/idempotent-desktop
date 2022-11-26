@@ -54,6 +54,12 @@
     # ../services/vm/hypervisor.nix
   ];
 
+  environment.systemPackages = with pkgs;
+    [
+      foliate
+    ];
+
+
   networking.hostName = "pepes";
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u24n.psf.gz";
   networking.firewall.enable = lib.mkForce true;
