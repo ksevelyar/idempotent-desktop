@@ -6,7 +6,7 @@
       rust-analyzer
 
       # elixir
-      elixir
+      beam.packages.erlang.elixir_1_14
       gnumake # argon2
 
       # node
@@ -22,6 +22,7 @@
 
   environment.shellAliases = {
     mt = "mix test --max-failures=1";
+    c = "cargo --quiet";
   };
 
   networking.firewall.allowedTCPPorts = [

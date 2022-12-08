@@ -13,9 +13,6 @@
     # nix
     rnix-lsp
 
-    # elixir
-    elixir_ls
-
     # rust
     rustfmt
 

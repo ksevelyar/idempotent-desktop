@@ -62,7 +62,8 @@ lspconfig.rust_analyzer.setup{
 
 lspconfig.elixirls.setup {
   on_attach = on_attach,
-  cmd = {"/run/current-system/sw/bin/elixir-ls"},
+  cmd = {"/home/ksevelyar/work/elixir-ls/release/language_server.sh"},
+  -- cmd = {"/run/current-system/sw/bin/elixir-ls"},
   capabilities = capabilities
 }
 
