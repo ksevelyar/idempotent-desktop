@@ -50,6 +50,11 @@ args@{ config, lib, pkgs, ... }:
       # ../services/vm/hypervisor.nix
     ];
 
+  environment.systemPackages = with pkgs;
+    [
+      foliate
+    ];
+
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
   boot.cleanTmpDir = true;
@@ -85,6 +90,14 @@ args@{ config, lib, pkgs, ... }:
   #   # don't freeze system if mount point not available on boot
   #   options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=300" ];
   # };
+
+  home-manager.users.kh = {
+    home.file.".config/polybar/config".source = lib.mkForce ../users/kh/polybar/polybar-catch22;
+    home.file.".config/leftwm/config.toml".source = ../users/kh/leftwm/config-catch22.toml;
+
+    home.file.".config/alacritty/alacritty.yml".source = ../users/kh/alacritty/alacritty-catch22.yml;
+    home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../users/kh/alacritty/alacritty-scratchpad-catch22.yml;
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
