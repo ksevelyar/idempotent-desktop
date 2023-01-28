@@ -47,8 +47,7 @@ Plug 'chr4/nginx.vim'
 Plug 'sirtaj/vim-openscad'
 
 " Navigation
-Plug 'kyazdani42/nvim-tree.lua'
-
+Plug 'kyazdani42/nvim-tree.lua', { 'commit': '949913f1860eb85024fa1967dbd89ac797777b0d' }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
