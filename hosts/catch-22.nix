@@ -84,19 +84,23 @@ args@{ config, lib, pkgs, ... }:
     };
   };
 
-  # fileSystems."/skynet" = {
-  #   device = "192.168.42.1:/export";
-  #   fsType = "nfs";
-  #   # don't freeze system if mount point not available on boot
-  #   options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=300" ];
-  # };
-
   home-manager.users.kh = {
     home.file.".config/polybar/config".source = lib.mkForce ../users/kh/polybar/polybar-catch22;
     home.file.".config/leftwm/config.toml".source = ../users/kh/leftwm/config-catch22.toml;
 
     home.file.".config/alacritty/alacritty.yml".source = ../users/kh/alacritty/alacritty-catch22.yml;
     home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../users/kh/alacritty/alacritty-scratchpad-catch22.yml;
+  };
+
+  boot.initrd.luks.devices = {
+    nixos = {
+      device = "/dev/disk/by-label/enc-nixos";
+      allowDiscards = true;
+    };
+    data = {
+      device = "/dev/disk/by-label/enc-data";
+      allowDiscards = true;
+    };
   };
 
   fileSystems."/" = {
@@ -111,8 +115,9 @@ args@{ config, lib, pkgs, ... }:
     options = [ "noatime" "nodiratime" ];
   };
 
-  fileSystems."/storage" = {
-    device = "/dev/disk/by-label/storage";
-    fsType = "ntfs";
+  fileSystems."/data" = {
+    device = "/dev/disk/by-label/data";
+    fsType = "ext4";
+    options = [ "noatime" "nodiratime" ];
   };
 }

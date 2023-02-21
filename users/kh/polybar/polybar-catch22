@@ -120,7 +120,7 @@ type = internal/fs
 interval = 2
 
 mount-0 = /
-; mount-1 = /storage
+mount-1 = /data
 
 ; format-prefix = " "
 label-mounted = %{F#9c71C7}%mountpoint%%{F-} %free%
