@@ -34,12 +34,6 @@
     interfaces.enp5s0 = {
       allowedTCPPorts = [
         41414
-        # NFS
-        111 # portmapper
-        2049
-        20000
-        20001
-        20002
         # http, https
         80
         443

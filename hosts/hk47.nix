@@ -84,6 +84,11 @@ args@{ config, lib, pkgs, ... }:
     express.autoStart = false;
   };
 
+  # microbit v2
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", ATTR{idProduct}=="0204", MODE:="666"
+  '';
+
   services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
@@ -118,12 +123,5 @@ args@{ config, lib, pkgs, ... }:
     device = "/dev/disk/by-label/data";
     fsType = "ext4";
     options = [ "noatime" "nodiratime" ];
-  };
-
-  fileSystems."/skynet" = {
-    device = "192.168.42.1:/export";
-    fsType = "nfs";
-    # don't freeze system if mount point not available on boot
-    options = [ "x-systemd.automount" "noauto" ];
   };
 }

@@ -78,16 +78,6 @@
   # vpn
   services.openvpn.servers = {
     uk-shark.autoStart = true;
-    de-shark.autoStart = false;
-    fr-shark.autoStart = false;
-    us-proton.autoStart = false;
-  };
-
-  fileSystems."/skynet" = {
-    device = "192.168.42.1:/export";
-    fsType = "nfs";
-    # don't freeze system if mount point not available on boot
-    options = [ "x-systemd.automount" "noauto" ];
   };
 
   services.xserver = {

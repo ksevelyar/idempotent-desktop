@@ -135,11 +135,4 @@
     fsType = "vfat";
     options = [ "noatime" "nodiratime" ]; # ssd
   };
-
-  # fileSystems."/skynet" = {
-  #   device = "192.168.42.1:/export";
-  #   fsType = "nfs";
-  #   # don't freeze system if mount point not available on boot
-  #   options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=300" ];
-  # };
 }

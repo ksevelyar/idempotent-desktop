@@ -21,7 +21,6 @@
 
     ../services/journald.nix
     ../services/net/wireguard.nix
-    ../services/net/nfs.nix
     ../services/net/sshd.nix
     ../services/net/avahi.nix
   ];

@@ -21,6 +21,11 @@
       autoStart = lib.mkDefault false;
       updateResolvConf = true;
     };
+    br-shark = {
+      config = '' config /etc/nixos/services/vpn/surfshark/br-sao.prod.surfshark.com_udp.ovpn '';
+      autoStart = lib.mkDefault false;
+      updateResolvConf = true;
+    };
     us-proton = {
       config = '' config /etc/nixos/services/vpn/proton/us-free-01.protonvpn.com.tcp.ovpn '';
       autoStart = lib.mkDefault false;
@@ -51,6 +56,16 @@
         { command = "/run/current-system/sw/bin/systemctl stop openvpn-fr-shark.service"; options = [ "SETENV" "NOPASSWD" ]; }
         { command = "/run/current-system/sw/bin/systemctl restart openvpn-fr-shark.service"; options = [ "SETENV" "NOPASSWD" ]; }
         { command = "/run/current-system/sw/bin/systemctl status openvpn-fr-shark.service"; options = [ "SETENV" "NOPASSWD" ]; }
+
+        { command = "/run/current-system/sw/bin/systemctl start openvpn-de-shark.service"; options = [ "SETENV" "NOPASSWD" ]; }
+        { command = "/run/current-system/sw/bin/systemctl stop openvpn-de-shark.service"; options = [ "SETENV" "NOPASSWD" ]; }
+        { command = "/run/current-system/sw/bin/systemctl restart openvpn-de-shark.service"; options = [ "SETENV" "NOPASSWD" ]; }
+        { command = "/run/current-system/sw/bin/systemctl status openvpn-de-shark.service"; options = [ "SETENV" "NOPASSWD" ]; }
+
+        { command = "/run/current-system/sw/bin/systemctl start openvpn-br-shark.service"; options = [ "SETENV" "NOPASSWD" ]; }
+        { command = "/run/current-system/sw/bin/systemctl stop openvpn-br-shark.service"; options = [ "SETENV" "NOPASSWD" ]; }
+        { command = "/run/current-system/sw/bin/systemctl restart openvpn-br-shark.service"; options = [ "SETENV" "NOPASSWD" ]; }
+        { command = "/run/current-system/sw/bin/systemctl status openvpn-br-shark.service"; options = [ "SETENV" "NOPASSWD" ]; }
       ];
     }
   ];
