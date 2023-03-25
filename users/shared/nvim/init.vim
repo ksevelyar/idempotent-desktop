@@ -25,7 +25,7 @@ let g:tcomment_maps = 0
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" Syntax 
+" Syntax
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 
@@ -47,7 +47,7 @@ Plug 'chr4/nginx.vim'
 Plug 'sirtaj/vim-openscad'
 
 " Navigation
-Plug 'kyazdani42/nvim-tree.lua', { 'commit': '949913f1860eb85024fa1967dbd89ac797777b0d' }
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
