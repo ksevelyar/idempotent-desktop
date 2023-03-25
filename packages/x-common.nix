@@ -40,7 +40,7 @@
   };
 
   programs.browserpass.enable = true;
-  qt5 = {
+  qt = {
     enable = true;
     platformTheme = "gtk2";
     style = "gtk2";
@@ -81,8 +81,7 @@
       papirus-maia-icon-theme
 
       # sec
-      qtpass
-      keepassx
+      keepassxc
       pinentry-gtk2
 
       # im

@@ -6,7 +6,8 @@
       rust-analyzer
 
       # elixir
-      beam.packages.erlang.elixir_1_14
+      elixir
+      elixir_ls
       gnumake # argon2
 
       # node
