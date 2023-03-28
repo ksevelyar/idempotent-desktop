@@ -88,7 +88,7 @@
   };
 
   home-manager.users.kh = {
-    home.file.".config/polybar/config".source = ../users/shared/polybar/config-laptop;
+    home.file.".config/polybar/config".source = ../users/kh/polybar/polybar-pepes;
     home.file.".config/alacritty/alacritty.yml".source = ../users/kh/alacritty-laptop/alacritty.yml;
     home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../users/kh/alacritty-laptop/alacritty-scratchpad.yml;
   };
