@@ -59,6 +59,11 @@ args@{ config, lib, pkgs, ... }:
     ../services/vm/docker.nix
   ];
 
+
+  home-manager.users.ksevelyar = {
+    home.file.".config/leftwm/themes/current/up".source = ../users/ksevelyar/leftwm-hk47/up;
+  };
+
   # net
   networking.hostName = "hk47";
   networking.interfaces.enp4s0.useDHCP = true;
