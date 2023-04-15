@@ -46,6 +46,9 @@
       smartmontools
       usbutils # lsusb
 
+      # gtd
+      bartib
+
       # sec
       cryptsetup
       pwgen
