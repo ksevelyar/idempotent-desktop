@@ -5,6 +5,7 @@ let
   name = "Maria Elizarova";
 in
 {
+  time.timeZone = lib.mkForce "Asia/Tbilisi";
   imports = [
     (lib.mkIf (config.services.xserver.enable) (import ../services/x/polybar.nix (args // { user = user; })))
     (import ./shared.nix (args // { user = user; email = email; name = name; }))
