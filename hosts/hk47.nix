@@ -66,9 +66,9 @@ args@{ config, lib, pkgs, ... }:
 
   # net
   networking.hostName = "hk47";
-  networking.interfaces.enp4s0.useDHCP = true;
+  networking.interfaces.enp5s0.useDHCP = true;
   networking.useDHCP = false;
-  networking.networkmanager.enable = false; # run nmtui for wi-fi
+  networking.networkmanager.enable = true; # run nmtui for wi-fi
   networking.wireguard.interfaces = {
     skynet = {
       ips = [ "192.168.42.47" ];
