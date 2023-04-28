@@ -33,7 +33,6 @@ args@{ config, lib, pkgs, ... }:
     ../services/mpd.nix
     ../services/journald.nix
     ../services/x.nix
-    ../services/x/picom.nix
     ../services/x/redshift.nix
     ../services/x/unclutter.nix
     ../services/x/random-wallpaper.nix
@@ -51,6 +50,7 @@ args@{ config, lib, pkgs, ... }:
   networking.hostName = "tv";
   networking.interfaces.eno1.useDHCP = true;
   networking.useDHCP = false;
+  networking.networkmanager.enable = true; # run nmtui for wi-fi
   networking.wireguard.interfaces = {
     skynet = {
       ips = [ "192.168.42.42" ];
@@ -96,6 +96,9 @@ args@{ config, lib, pkgs, ... }:
         load-module module-switch-on-connect
       '';
     };
+  };
+  environment.variables = {
+    GDK_SCALE = "2";
   };
 
   # J4125 (F11 for boot menu)
