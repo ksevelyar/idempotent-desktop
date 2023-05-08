@@ -67,6 +67,7 @@ args@{ config, lib, pkgs, ... }:
   # net
   networking.hostName = "hk47";
   networking.interfaces.enp5s0.useDHCP = true;
+  networking.interfaces.wlp4s0.useDHCP = true;
   networking.useDHCP = false;
   networking.networkmanager.enable = true; # run nmtui for wi-fi
   networking.wireguard.interfaces = {
