@@ -9,7 +9,6 @@
       efiSupport = true;
       device = "nodev";
 
-      version = 2;
       backgroundColor = "#21202D";
       configurationLimit = 30;
 

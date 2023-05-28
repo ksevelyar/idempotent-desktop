@@ -9,7 +9,6 @@
       efiSupport = false;
       device = lib.mkDefault "/dev/sda"; # MBR/BIOS
 
-      version = 2;
       backgroundColor = "#21202D";
       configurationLimit = 30;
 

@@ -71,8 +71,8 @@
   boot.loader.grub.splashImage = ../assets/wallpapers/fractal.png;
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.cleanTmpDir = true;
-  boot.tmpOnTmpfs = true;
+  boot.tmp.cleanOnBoot = true;
+  boot.tmp.useTmpfs = true;
   boot.kernelModules = [ "kvm-intel" ];
 
   # vpn

@@ -5,10 +5,10 @@
   services.openssh = {
     enable = true;
     ports = [ 9922 ];
-  };
-
-  services.openssh.settings = {
-    permitRootLogin = "no";
-    passwordAuthentication = false; # temporarily override in your host config in order to use ssh-copy-id
+    extraConfig = ''
+      permitRootLogin = no
+      # temporarily override in your host config in order to use ssh-copy-id
+      passwordAuthentication = no
+    '';
   };
 }

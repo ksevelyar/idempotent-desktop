@@ -108,8 +108,8 @@ args@{ config, lib, pkgs, ... }:
   boot.loader.grub.splashMode = "stretch";
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.rtl88x2bu ]; # tp-link archer t3u
-  boot.cleanTmpDir = true;
-  boot.tmpOnTmpfs = true;
+  boot.tmp.cleanOnBoot = true;
+  boot.tmp.useTmpfs = true;
   boot.initrd.luks.devices = {
     nixos = {
       device = "/dev/disk/by-label/enc-nixos";
