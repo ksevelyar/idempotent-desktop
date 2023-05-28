@@ -110,8 +110,8 @@
   boot.loader.grub.splashImage = lib.mkForce ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
   boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
-  boot.cleanTmpDir = true;
-  boot.tmpOnTmpfs = true;
+  boot.tmp.cleanOnBoot = true;
+  boot.tmp.useTmpfs = true;
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-amd" "amdgpu" ];

@@ -76,8 +76,8 @@ args@{ config, lib, pkgs, ... }:
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  boot.cleanTmpDir = true;
-  boot.tmpOnTmpfs = true;
+  boot.tmp.cleanOnBoot = true;
+  boot.tmp.useTmpfs = true;
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
