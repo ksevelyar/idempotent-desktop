@@ -3,6 +3,8 @@
 ## i5-9400F
 ## RTX 2060
 ## DIMM DDR4 2133MHz 16GBx2
+## RTL8812A: set bssid with nmtui to fix disconnects: deauthenticating (Reason: DEAUTH_LEAVING)
+## RTL8812A: nmcli -f in-use,ssid,bssid,signal,rate,bars dev wifi
 
 args@{ config, lib, pkgs, ... }:
 {
