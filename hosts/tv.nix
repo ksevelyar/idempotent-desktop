@@ -101,7 +101,7 @@ args@{ config, lib, pkgs, ... }:
     GDK_SCALE = "2";
   };
 
-  # J4125 (F11 for boot menu)
+  # N5105 H
   # DIMM DDR4 16GB
   services.xserver.displayManager.lightdm.background = ../assets/wallpapers/d-sparil.png;
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;

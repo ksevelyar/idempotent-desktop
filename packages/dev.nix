@@ -6,6 +6,7 @@
       rust-analyzer
 
       # elixir
+      # mix archive.install hex phx_new
       elixir
       elixir_ls
       gnumake # argon2

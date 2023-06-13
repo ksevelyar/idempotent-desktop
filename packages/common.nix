@@ -72,6 +72,7 @@
       sshfs-fuse
       unar
       unzip
+      p7zip
       viu
       zip
       zoxide
