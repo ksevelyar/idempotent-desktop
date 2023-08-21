@@ -2,8 +2,8 @@ window:
   opacity: 0.94
   dynamic_title: true
   padding:
-   x: 10
-   y: 10
+   x: 5
+   y: 5
 
 font:
   size: 12.0
@@ -52,4 +52,4 @@ colors:
     cyan:    '#9aedfe'
     white:   '#e6e6e6'
 
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false

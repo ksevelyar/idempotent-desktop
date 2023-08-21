@@ -14,13 +14,7 @@
       # jstest /dev/input/js0
       linuxConsoleTools
 
-      ## emulators & platforms
-      # wineFull
-      # retroarchBare
-      # anbox
-      # playonlinux # https://www.playonlinux.com/en/supported_apps-1-0.html
-
-      ## text 
+      ## text
       # dwarf-fortress
       # nethack
       # rogue
@@ -29,7 +23,6 @@
       # xonotic
       # wesnoth
       # stepmania
-      # opendune
       # yquake2
       # openra
     ];

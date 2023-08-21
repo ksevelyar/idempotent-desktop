@@ -1,5 +1,4 @@
-# 53013PEW
-## F12 for boot menu, F2 for quick boot
+# 53013PEW, F12 for UEFI, F2 for quick boot
 args@{ config, lib, pkgs, ... }:
 {
   imports = [
@@ -37,7 +36,7 @@ args@{ config, lib, pkgs, ... }:
 
     ../services/journald.nix
     ../services/databases/postgresql.nix
-    # ../services/databases/redis.nix
+    ../services/databases/redis.nix
     ../services/mpd.nix
     ../services/x.nix
     ../services/x/picom.nix
@@ -60,6 +59,7 @@ args@{ config, lib, pkgs, ... }:
   networking.networkmanager.enable = true;
 
   home-manager.users.ksevelyar = {
+    home.file.".config/leftwm/config.ron".source = ../users/ksevelyar/laundry/leftwm.ron;
     home.file.".config/polybar/config".source = ../users/ksevelyar/laundry/polybar;
     home.file.".config/alacritty/alacritty.yml".source = ../users/ksevelyar/laundry/alacritty.yml;
     home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../users/ksevelyar/laundry/alacritty-scratchpad.yml;
@@ -84,6 +84,7 @@ args@{ config, lib, pkgs, ... }:
   boot.extraModprobeConfig = ''
     options snd-intel-dspcfg dsp_driver=1
   '';
+  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
   boot.initrd.kernelModules = [ ];
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;

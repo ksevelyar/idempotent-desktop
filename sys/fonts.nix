@@ -2,7 +2,7 @@
 { pkgs, lib, ... }:
 {
   fonts = {
-    enableDefaultFonts = true;
+    enableDefaultPackages = true;
     fontDir.enable = true; # ls /run/current-system/sw/share/X11/fonts/
     fontconfig = {
       enable = true;
@@ -16,7 +16,7 @@
       };
     };
 
-    fonts = with pkgs;
+    packages = with pkgs;
       [
         terminus_font
         source-sans-pro

@@ -19,7 +19,7 @@
 
   home-manager = {
     users.${user} = {
-      home.file.".config/leftwm/config.toml".source = lib.mkDefault ../../users/shared/leftwm/config.toml;
+      home.file.".config/leftwm/config.ron".source = lib.mkDefault ../../users/shared/leftwm/config.ron;
       home.file.".config/leftwm/themes/current/up".source = lib.mkDefault ../../users/shared/leftwm/themes/wide-polybar/up;
       home.file.".config/leftwm/themes/current/down".source = lib.mkDefault ../../users/shared/leftwm/themes/wide-polybar/down;
       home.file.".config/leftwm/themes/current/change_to_tag".source = ../../users/shared/leftwm/themes/wide-polybar/change_to_tag;

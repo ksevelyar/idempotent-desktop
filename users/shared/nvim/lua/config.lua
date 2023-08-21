@@ -68,12 +68,17 @@ lspconfig.elixirls.setup {
   capabilities = capabilities
 }
 
+-- npm install -g typescript typescript-language-server
+lspconfig.tsserver.setup{
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
 lspconfig.rnix.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
 
-vim.api.nvim_command("au BufWritePre *.js,*.vue EslintFixAll")
 lspconfig.eslint.setup {
   on_attach = function(client)
     client.resolved_capabilities.completion = false

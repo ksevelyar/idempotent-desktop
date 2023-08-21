@@ -46,9 +46,6 @@
       smartmontools
       usbutils # lsusb
 
-      # gtd
-      bartib
-
       # sec
       cryptsetup
       pwgen
@@ -58,7 +55,7 @@
       atool
       bind
       dosfstools
-      exa
+      eza
       exfat
       fd
       ffsend

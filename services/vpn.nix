@@ -26,6 +26,11 @@
       autoStart = lib.mkDefault false;
       updateResolvConf = true;
     };
+    kaz-shark = {
+      config = '' config /etc/nixos/services/vpn/surfshark/kz-ura.prod.surfshark.com_tcp.ovpn '';
+      autoStart = lib.mkDefault false;
+      updateResolvConf = true;
+    };
     us-proton = {
       config = '' config /etc/nixos/services/vpn/proton/us-free-01.protonvpn.com.tcp.ovpn '';
       autoStart = lib.mkDefault false;
