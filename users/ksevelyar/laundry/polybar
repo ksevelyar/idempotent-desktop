@@ -83,7 +83,7 @@ format-discharging = <label-discharging>
 
 [module/title]
 type = internal/xwindow
-label-maxlen = 170
+label-maxlen = 140
 
 [module/vnc]
 type = custom/script

@@ -1,9 +1,15 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 {
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;
-  hardware = {
-    nvidia.modesetting.enable = true;
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   services.picom = {
