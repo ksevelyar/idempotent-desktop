@@ -2,27 +2,27 @@
 {
   services.openvpn.servers = {
     uk-shark = {
-      config = '' config /etc/nixos/services/vpn/surfshark/uk-lon.prod.surfshark.com_udp.ovpn '';
+      config = '' config /etc/nixos/services/vpn/surfshark/uk-lon.prod.surfshark.com_tcp.ovpn '';
       autoStart = lib.mkDefault false;
       updateResolvConf = true;
     };
     de-shark = {
-      config = '' config /etc/nixos/services/vpn/surfshark/de-ber.prod.surfshark.com_udp.ovpn '';
+      config = '' config /etc/nixos/services/vpn/surfshark/de-ber.prod.surfshark.com_tcp.ovpn '';
       autoStart = lib.mkDefault false;
       updateResolvConf = true;
     };
     fr-shark = {
-      config = '' config /etc/nixos/services/vpn/surfshark/fr-mrs.prod.surfshark.com_udp.ovpn '';
+      config = '' config /etc/nixos/services/vpn/surfshark/fr-mrs.prod.surfshark.com_tcp.ovpn '';
       autoStart = lib.mkDefault false;
       updateResolvConf = true;
     };
     es-shark = {
-      config = '' config /etc/nixos/services/vpn/surfshark/es-mad.prod.surfshark.com_udp.ovpn '';
+      config = '' config /etc/nixos/services/vpn/surfshark/es-mad.prod.surfshark.com_tcp.ovpn '';
       autoStart = lib.mkDefault false;
       updateResolvConf = true;
     };
     br-shark = {
-      config = '' config /etc/nixos/services/vpn/surfshark/br-sao.prod.surfshark.com_udp.ovpn '';
+      config = '' config /etc/nixos/services/vpn/surfshark/br-sao.prod.surfshark.com_tcp.ovpn '';
       autoStart = lib.mkDefault false;
       updateResolvConf = true;
     };
