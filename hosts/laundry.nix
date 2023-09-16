@@ -1,4 +1,4 @@
-# hardware
+# 53013PEW
 ## F12 for boot menu, F2 for quick boot
 args@{ config, lib, pkgs, ... }:
 {
@@ -58,21 +58,13 @@ args@{ config, lib, pkgs, ... }:
     # home.file.".config/leftwm/themes/current/up".source = ../users/ksevelyar/leftwm-hk47/up;
   };
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
-
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   # net
   networking.hostName = "laundry";
-  networking.interfaces.enp5s0.useDHCP = true;
-  networking.interfaces.wlp4s0.useDHCP = true;
   networking.useDHCP = false;
+  networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
   networking.networkmanager.enable = true; # run nmtui for wi-fi
 
   # vpn
