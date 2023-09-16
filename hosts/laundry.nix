@@ -58,6 +58,16 @@ args@{ config, lib, pkgs, ... }:
     # home.file.".config/leftwm/themes/current/up".source = ../users/ksevelyar/leftwm-hk47/up;
   };
 
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+
   # net
   networking.hostName = "laundry";
   networking.interfaces.enp5s0.useDHCP = true;
@@ -77,9 +87,12 @@ args@{ config, lib, pkgs, ... }:
   '';
 
   services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
+
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;
@@ -90,6 +103,8 @@ args@{ config, lib, pkgs, ... }:
     };
   };
 
+  # boot.initrd.luks.devices."nixos".device = "/dev/disk/by-uuid/ad804193-1aaf-483f-804c-da5d7030d1c4";
+
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
@@ -97,7 +112,7 @@ args@{ config, lib, pkgs, ... }:
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-label/boot";
+    device = "/dev/disk/by-label/SYSTEM";
     fsType = "vfat";
     options = [ "noatime" "nodiratime" ];
   };
