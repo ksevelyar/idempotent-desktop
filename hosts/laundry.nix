@@ -13,6 +13,7 @@ args@{ config, lib, pkgs, ... }:
     ../hardware/intel-cpu.nix
     ../hardware/pulseaudio.nix
     ../hardware/ssd.nix
+    (import ../hardware/power-management.nix ({ pkgs = pkgs; battery = "BAT1"; }))
 
     ../sys/aliases.nix
     ../sys/fonts.nix
@@ -53,21 +54,11 @@ args@{ config, lib, pkgs, ... }:
     ../services/vm/docker.nix
   ];
 
-
-  home-manager.users.ksevelyar = {
-    # home.file.".config/leftwm/themes/current/up".source = ../users/ksevelyar/leftwm-hk47/up;
-  };
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-
-  # net
   networking.hostName = "laundry";
   networking.useDHCP = false;
   networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
-  networking.networkmanager.enable = true; # run nmtui for wi-fi
+  networking.networkmanager.enable = true;
 
-  # vpn
   services.openvpn.servers = {
     uk-shark.autoStart = false;
     express.autoStart = false;
@@ -77,8 +68,6 @@ args@{ config, lib, pkgs, ... }:
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", ATTR{idProduct}=="0204", MODE:="666"
   '';
-
-  services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
 
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
@@ -95,7 +84,9 @@ args@{ config, lib, pkgs, ... }:
     };
   };
 
-  # boot.initrd.luks.devices."nixos".device = "/dev/disk/by-uuid/ad804193-1aaf-483f-804c-da5d7030d1c4";
+  services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
+  console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u24n.psf.gz";
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";

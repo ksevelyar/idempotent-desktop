@@ -60,10 +60,8 @@
       obsidian
     ];
 
-
   networking.hostName = "pepes";
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u24n.psf.gz";
-  networking.firewall.enable = lib.mkForce true;
   networking.networkmanager.enable = true; # run nmtui for wi-fi
   networking.useDHCP = false;
   networking.interfaces.wlp1s0.useDHCP = true;
