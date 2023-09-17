@@ -73,7 +73,11 @@ args@{ config, lib, pkgs, ... }:
   boot.extraModulePackages = [ ];
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
+  boot.loader.grub.configurationLimit = 3;
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
+  boot.extraModprobeConfig = ''
+    options snd-intel-dspcfg dsp_driver=1
+  '';
   boot.initrd.kernelModules = [ ];
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;

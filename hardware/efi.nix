@@ -10,7 +10,7 @@
       device = "nodev";
 
       backgroundColor = "#21202D";
-      configurationLimit = 30;
+      configurationLimit = lib.mkDefault 30;
 
       extraConfig = ''
         set menu_color_normal=light-blue/black
