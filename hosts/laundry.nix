@@ -59,6 +59,12 @@ args@{ config, lib, pkgs, ... }:
   networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
   networking.networkmanager.enable = true;
 
+  home-manager.users.ksevelyar = {
+    home.file.".config/polybar/config".source = ../users/ksevelyar/laundry/polybar;
+    home.file.".config/alacritty/alacritty.yml".source = ../users/ksevelyar/laundry/alacritty.yml;
+    home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../users/ksevelyar/laundry/alacritty-scratchpad.yml;
+  };
+
   services.openvpn.servers = {
     uk-shark.autoStart = false;
     express.autoStart = false;
@@ -89,7 +95,7 @@ args@{ config, lib, pkgs, ... }:
   };
 
   services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
-  console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u24n.psf.gz";
+  # console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u24n.psf.gz";
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   fileSystems."/" = {
