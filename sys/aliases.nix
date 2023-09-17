@@ -17,7 +17,7 @@
     tr = "trans"; # https://github.com/soimort/translate-shell
 
     # fs
-    r = "rsync -ra --info=progress2";
+    r = "rsync -ra --no-links --info=progress2";
     l = "ls -lahXF --group-directories-first";
     tree = "exa --tree";
     u = "aunpack"; # one tool to unpack them all
