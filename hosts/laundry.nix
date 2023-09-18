@@ -37,7 +37,7 @@ args@{ config, lib, pkgs, ... }:
 
     ../services/journald.nix
     ../services/databases/postgresql.nix
-    ../services/databases/redis.nix
+    # ../services/databases/redis.nix
     ../services/mpd.nix
     ../services/x.nix
     ../services/x/picom.nix
@@ -94,6 +94,18 @@ args@{ config, lib, pkgs, ... }:
     };
   };
 
+  services.xserver = {
+    libinput = {
+      enable = true;
+      touchpad = {
+        accelProfile = "adaptive"; # flat profile for touchpads
+        naturalScrolling = false;
+        accelSpeed = "0.3";
+        disableWhileTyping = true;
+        scrollMethod = "twofinger";
+      };
+    };
+  };
   services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
   # console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u24n.psf.gz";
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
