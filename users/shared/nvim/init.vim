@@ -53,8 +53,6 @@ Plug 'nvim-telescope/telescope.nvim'
 
 " UI
 Plug 'lukas-reineke/indent-blankline.nvim'
-let g:indent_blankline_char = '|'
-
 Plug 'nvim-lualine/lualine.nvim'
 
 " Color Themes

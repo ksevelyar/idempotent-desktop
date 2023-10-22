@@ -222,7 +222,6 @@ end
 require'nvim-tree'.setup {
   on_attach = on_nvim_tree_attach,
   view = {
-    hide_root_folder = false,
     side = 'left',
     number = false,
     relativenumber = false,
@@ -247,4 +246,4 @@ require'telescope'.setup {
 }
 
 -- # indent_blankline
-require("indent_blankline").setup {}
+require("ibl").setup { indent = { char = "|" } }
