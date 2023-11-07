@@ -10,6 +10,7 @@ args@{ config, lib, pkgs, ... }:
     ../hardware/bluetooth.nix
     ../hardware/mouse.nix
     ../hardware/intel-cpu.nix
+    # ../hardware/pipeware.nix
     ../hardware/pulseaudio.nix
     ../hardware/ssd.nix
     (import ../hardware/power-management.nix ({ pkgs = pkgs; battery = "BAT1"; }))
@@ -69,6 +70,12 @@ args@{ config, lib, pkgs, ... }:
     uk-shark.autoStart = false;
     express.autoStart = false;
   };
+
+  # environment.systemPackages = with pkgs; [
+  #   vmpk
+  #   qsynth
+  #   qjackctl
+  # ];
 
   # microbit v2
   services.udev.extraRules = ''
