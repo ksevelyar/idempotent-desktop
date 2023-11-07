@@ -33,7 +33,7 @@ colors:
     cursor: '#ffce50'
 
   normal:
-    black:   '#000000'
+    black:   '#7C7C7C'
     red:     '#ff5555'
     green:   '#54c6b5'
     yellow:  '#d5aa2a'

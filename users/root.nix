@@ -2,7 +2,7 @@
   home-manager = {
     useGlobalPkgs = true;
     users.root = {
-      home.stateVersion = "22.11";
+      home.stateVersion = "23.11";
       home.file.".config/nvim/init.vim".source = ../users/shared/nvim/init.vim;
       home.file.".config/nvim/lua/config.lua".source = ../users/shared/nvim/lua/config.lua;
 
