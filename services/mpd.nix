@@ -1,13 +1,19 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
-  hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
+  services.mpd.user = user;
+  systemd.services.mpd.environment = {
+    # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
+    # User-id 1000 must match above user. MPD will look inside this directory for the PipeWire socket.
+    XDG_RUNTIME_DIR = "/run/user/1000";
+  };
+
   services.mpd = {
     enable = true;
-    musicDirectory = "/data/music"; # https://www.off-the-beat.com/flac-vs-mp3/
+    musicDirectory = "/data/music";
     extraConfig = ''
       audio_output {
-        type "pulse"
-        name "pulse"
+        type "pipewire"
+        name "pipewire"
         server "127.0.0.1"
       }
 
@@ -32,12 +38,12 @@
 
       # fetch metadata
       ## https://picard-docs.musicbrainz.org/en/tutorials/acoustid.html
-      # rename files with picard name script `%artist% - %title%` 
+      # rename files with picard name script `%artist% - %title%`
       ## https://picard-docs.musicbrainz.org/en/config/options_filerenaming_editor.html
       picard
       flac # metaflac --list (fzf)
 
-      # downcase dirs 
+      # downcase dirs
       mmv # mmv '*' '#l1'
     ];
 

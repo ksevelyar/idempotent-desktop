@@ -10,8 +10,8 @@ args@{ config, lib, pkgs, ... }:
     ../hardware/bluetooth.nix
     ../hardware/mouse.nix
     ../hardware/intel-cpu.nix
-    # ../hardware/pipeware.nix
-    ../hardware/pulseaudio.nix
+    ../hardware/pipeware.nix
+    # ../hardware/pulseaudio.nix
     ../hardware/ssd.nix
     (import ../hardware/power-management.nix ({ pkgs = pkgs; battery = "BAT1"; }))
 
@@ -38,7 +38,6 @@ args@{ config, lib, pkgs, ... }:
     ../services/journald.nix
     ../services/databases/postgresql.nix
     ../services/databases/redis.nix
-    ../services/mpd.nix
     ../services/x.nix
     ../services/x/picom.nix
     ../services/x/redshift.nix
@@ -71,12 +70,11 @@ args@{ config, lib, pkgs, ... }:
     express.autoStart = false;
   };
 
-  # environment.systemPackages = with pkgs; [
-  #   vmpk
-  #   qsynth
-  #   qjackctl
-  # ];
-
+  environment.systemPackages = with pkgs; [
+    vmpk
+    qsynth
+    qjackctl
+  ];
   # microbit v2
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", ATTR{idProduct}=="0204", MODE:="666"

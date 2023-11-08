@@ -30,7 +30,6 @@ args@{ config, lib, pkgs, ... }:
     ../packages/pass.nix
     ../packages/tmux.nix
 
-    ../services/mpd.nix
     ../services/journald.nix
     ../services/x.nix
     ../services/x/redshift.nix

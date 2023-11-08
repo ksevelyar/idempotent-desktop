@@ -50,7 +50,6 @@
     ../services/vpn.nix
     ../services/net/avahi.nix
 
-    # ../services/mpd.nix
     # ../services/vm/hypervisor.nix
   ];
 
