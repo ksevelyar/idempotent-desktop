@@ -10,7 +10,7 @@ args@{ config, lib, pkgs, ... }:
     ../hardware/bluetooth.nix
     ../hardware/mouse.nix
     ../hardware/intel-cpu.nix
-    ../hardware/pipeware.nix
+    ../hardware/pipewire.nix
     # ../hardware/pulseaudio.nix
     ../hardware/ssd.nix
     (import ../hardware/power-management.nix ({ pkgs = pkgs; battery = "BAT1"; }))
