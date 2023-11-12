@@ -28,7 +28,7 @@
   isoImage.volumeID = lib.mkForce "id-live-min";
   isoImage.isoName = lib.mkForce "id-live-min.iso";
 
-  fonts.fonts = with pkgs; [ terminus_font ];
+  fonts.packages = with pkgs; [ terminus_font ];
 
   networking.hostName = lib.mkForce "id-live-min";
   networking.networkmanager.enable = true; # nmtui for wi-fi
