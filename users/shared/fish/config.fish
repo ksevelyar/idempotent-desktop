@@ -21,7 +21,7 @@ function t # t 12m or t 9m pizza
     set label $argv[2]
     test -z "$label"; and set label "▓▓▓"
 
-    fish -c "sleep $argv[1] && notify-send -u critical -t 0 $label && paplay /etc/nixos/assets/audio/timer.wav" &
+    fish -c "sleep $argv[1] && notify-send -u critical -t 0 $label && cvlc --play-and-exit /etc/nixos/assets/audio/timer.wav" &> /dev/null
 end
 
 function find-and-replace
