@@ -237,7 +237,13 @@ require'nvim-tree'.setup {
 
 -- # telescope
 require'telescope'.setup {
-  defaults = { file_ignore_patterns= {"^./.git/"} },
+  defaults = {
+    file_ignore_patterns= {"^./.git/"},
+    layout_config = {
+      width = 0.98,
+      height = 0.98
+    },
+  },
   pickers = {
     find_files = {
       hidden = true
