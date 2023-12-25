@@ -46,7 +46,7 @@ args@{ config, lib, pkgs, ... }:
   systemd.services.sshd.wantedBy = lib.mkForce [ "multi-user.target" ];
 
   networking.hostName = "tv";
-  networking.interfaces.eno1.useDHCP = true;
+  networking.interfaces.enp2s0.useDHCP = true;
   networking.useDHCP = false;
   networking.networkmanager.enable = true; # run nmtui for wi-fi
   networking.wireguard.interfaces = {
