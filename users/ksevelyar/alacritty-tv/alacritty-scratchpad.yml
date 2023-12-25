@@ -6,7 +6,7 @@ window:
    y: 10
 
 font:
-  size: 22.0
+  size: 32.0
   normal:
     family: Terminus
     style: Regular
@@ -42,14 +42,4 @@ colors:
     cyan:    '#8be9fd'
     white:   '#bfbfbf'
 
-  bright:
-    black:   '#1b161f'
-    red:     '#ff6e67'
-    green:   '#5af78e'
-    yellow:  '#ffce50'
-    blue:    '#caa9fa'
-    magenta: '#ff92d0'
-    cyan:    '#9aedfe'
-    white:   '#e6e6e6'
-
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false

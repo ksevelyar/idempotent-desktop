@@ -9,7 +9,7 @@ args@{ config, lib, pkgs, ... }:
     ../hardware/mouse.nix
     ../hardware/intel-cpu.nix
     ../hardware/intel-gpu.nix
-    ../hardware/pulseaudio.nix
+    ../hardware/pipewire.nix
     ../hardware/ssd.nix
 
     ../sys/aliases.nix
@@ -19,7 +19,6 @@ args@{ config, lib, pkgs, ... }:
     ../sys/sysctl.nix
     ../sys/tty.nix
     ../sys/cache.nix
-
 
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
