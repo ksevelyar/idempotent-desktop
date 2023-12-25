@@ -23,8 +23,8 @@ args@{ config, lib, pkgs, ... }:
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
     ../packages/x-common.nix
-    ../packages/dev.nix
-    ../packages/games.nix
+    # ../packages/dev.nix
+    # ../packages/games.nix
     ../packages/neovim.nix
     ../packages/pass.nix
     ../packages/tmux.nix
@@ -39,7 +39,7 @@ args@{ config, lib, pkgs, ... }:
     ../services/net/openvpn.nix
     ../services/vpn.nix
     ../services/net/sshd.nix
-    ../services/net/wireguard.nix
+    # ../services/net/wireguard.nix
     ../services/net/avahi.nix
   ];
 
@@ -49,19 +49,6 @@ args@{ config, lib, pkgs, ... }:
   networking.interfaces.enp2s0.useDHCP = true;
   networking.useDHCP = false;
   networking.networkmanager.enable = true; # run nmtui for wi-fi
-  networking.wireguard.interfaces = {
-    skynet = {
-      ips = [ "192.168.42.42" ];
-      privateKeyFile = "/home/ksevelyar/.secrets/wireguard/private";
-      peers = [{
-        publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
-        allowedIPs = [ "192.168.42.0/24" ];
-        endpoint = "95.165.99.133:51821";
-        # Send keepalives every 25 seconds. Important to keep NAT tables alive.
-        persistentKeepalive = 25;
-      }];
-    };
-  };
 
   home-manager.users.ksevelyar = {
     home.pointerCursor = {
@@ -80,7 +67,7 @@ args@{ config, lib, pkgs, ... }:
 
     home.file.".config/dunst/dunstrc".source = ../users/shared/dunst/dunstrc-big;
   };
-  console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u24n.psf.gz";
+  console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u32n.psf.gz";
   services.xserver.serverFlagsSection = ''
     Option "BlankTime" "0"
     Option "StandbyTime" "0"
@@ -88,13 +75,6 @@ args@{ config, lib, pkgs, ... }:
     Option "OffTime" "0"
   '';
 
-  hardware = {
-    pulseaudio = {
-      extraConfig = ''
-        load-module module-switch-on-connect
-      '';
-    };
-  };
   environment.variables = {
     GDK_SCALE = "2";
   };

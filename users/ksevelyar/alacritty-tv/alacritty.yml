@@ -1,7 +1,7 @@
 font:
   size: 32.0
   normal:
-    family: Terminus
+    family: Iosevka Nerd Font
     style: Regular
 
   bold:
@@ -13,9 +13,7 @@ font:
   bold_italic:
     style: Bold
 
-
 window:
-  opacity: 0.94
   dynamic_title: true
 
 cursor:

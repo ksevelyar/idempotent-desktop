@@ -1,14 +1,13 @@
 window:
   dynamic_title: true
-  opacity: 0.94
   padding:
-   x: 10
-   y: 10
+   x: 20
+   y: 20
 
 font:
   size: 32.0
   normal:
-    family: Terminus
+    family: Iosevka Nerd Font
     style: Regular
 
   bold:
