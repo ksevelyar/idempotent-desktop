@@ -10,9 +10,6 @@ dunst &
 lxqt-policykit-agent &
 xcape -e 'Super_R=Super_R|X;Super_L=Super_L|X'
 
-alacritty -e fish -c "cd ~/code/fitlog-phoenix/ && mix phx.server" &
-alacritty -e fish -c "cd ~/code/fitlog-vue/ && npm run dev" &
-
 pkill polybar
 echo "---" | tee -a ~/.cache/polybar-top.log ~/.cache/polybar-bottom.log
 polybar top >>~/.cache/polybar-top.log 2>&1 &

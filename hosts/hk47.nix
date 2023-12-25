@@ -18,7 +18,7 @@ args@{ config, lib, pkgs, ... }:
     ../hardware/mouse.nix
     ../hardware/intel-cpu.nix
     ../hardware/nvidia.nix
-    ../hardware/pulseaudio.nix
+    ../hardware/pipewire.nix
     ../hardware/ssd.nix
 
     ../sys/aliases.nix

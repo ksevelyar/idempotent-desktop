@@ -3,6 +3,7 @@
   programs.fish.enable = true;
   programs.mosh.enable = true;
   programs.ssh = {
+    askPassword = "";
     startAgent = true;
     extraConfig = ''
     Host *.local
