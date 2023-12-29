@@ -4,7 +4,7 @@ let
     #!${pkgs.stdenv.shell}
     set -e
 
-    pactl set-sink-volume @DEFAULT_SINK@ +2% 
+    pactl set-sink-volume @DEFAULT_SINK@ +2%
     notify-send -h string:synchronous:volume "$(pamixer --get-volume-human)" -t 1000
   '';
 
@@ -22,6 +22,7 @@ in
     sound-volume-down
     pkgs.pavucontrol
     pkgs.pamixer
+    pkgs.pulseaudio # pactl
   ];
 
   hardware.pulseaudio.enable = false;

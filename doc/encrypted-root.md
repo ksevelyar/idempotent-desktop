@@ -32,7 +32,7 @@ cryptsetup config /dev/nvme0n1p2 --label enc-nixos
 cryptsetup luksOpen /dev/nvme0n1p2 nixos
 ```
 
-## Mount 
+## Mount
 
 ```
 mkfs.ext4 -L nixos /dev/mapper/nixos
@@ -42,7 +42,7 @@ mkdir -p /mnt/boot
 mount /dev/disk/by-label/boot /mnt/boot
 ```
 
-## Clone configs 
+## Clone configs
 
 ```
 git clone https://github.com/ksevelyar/idempotent-desktop.git /mnt/etc/nixos
@@ -63,13 +63,13 @@ boot.initrd.luks.devices.nixos = {
 fileSystems."/boot" = {
   device = "/dev/disk/by-label/boot";
   fsType = "vfat";
-  options = [ "noatime" "nodiratime" ]; 
+  options = [ "noatime" "nodiratime" ];
 };
 
 fileSystems."/" = {
   device = "/dev/disk/by-label/nixos";
   fsType = "ext4";
-  options = [ "noatime" "nodiratime" ]; 
+  options = [ "noatime" "nodiratime" ];
 };
 ```
 

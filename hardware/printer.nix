@@ -4,7 +4,7 @@
   services.printing = {
     enable = true;
     browsing = true;
-    allowFrom = [ "skynet" ]; 
+    allowFrom = [ "skynet" ];
     defaultShared = true;
   };
 

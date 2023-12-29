@@ -3,7 +3,7 @@ let
   sound-volume-up = pkgs.writeScriptBin "sound-volume-up" ''
     #!${pkgs.stdenv.shell}
     set -e
-    
+
     pactl set-sink-volume @DEFAULT_SINK@ +2% 
     notify-send -h string:synchronous:volume "$(pamixer --get-volume-human)" -t 1000
   '';
@@ -11,7 +11,7 @@ let
   sound-volume-down = pkgs.writeScriptBin "sound-volume-down" ''
     #!${pkgs.stdenv.shell}
     set -e
-    
+
     pactl set-sink-volume @DEFAULT_SINK@ -2%
     notify-send -h string:synchronous:volume "$(pamixer --get-volume-human)" -t 1000
   '';
