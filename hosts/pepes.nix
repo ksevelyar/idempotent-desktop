@@ -26,7 +26,6 @@
     ../services/journald.nix
     ../services/databases/postgresql.nix
     ../services/x.nix
-    ../services/x/picom.nix
     ../services/x/redshift.nix
     ../services/x/unclutter.nix
 
@@ -57,6 +56,7 @@
     [
       foliate
       obsidian
+      mattermost
     ];
 
   networking.hostName = "pepes";
