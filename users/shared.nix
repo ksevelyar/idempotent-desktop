@@ -80,8 +80,8 @@
       home.file.".config/broot/conf.hjson".source = ../users/shared/broot/conf.hjson;
       home.file.".config/zathura/zathurarc".source = ../users/shared/zathura/zathurarc;
 
-      home.file.".config/alacritty/alacritty.yml".source = lib.mkDefault ../users/shared/alacritty/alacritty.yml;
-      home.file.".config/alacritty/alacritty-scratchpad.yml".source = lib.mkDefault ../users/shared/alacritty/alacritty-scratchpad.yml;
+      home.file.".config/alacritty/alacritty.toml".source = lib.mkDefault ../users/shared/alacritty/alacritty.toml;
+      home.file.".config/alacritty/alacritty-scratchpad.toml".source = lib.mkDefault ../users/shared/alacritty/alacritty-scratchpad.toml;
 
       home.file.".config/ncmpcpp/config".source = ../users/shared/ncmpcpp/config;
       home.file.".config/mpv/mpv.conf".source = ../users/shared/mpv/mpv.conf;

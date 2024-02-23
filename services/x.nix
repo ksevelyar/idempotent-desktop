@@ -84,9 +84,9 @@ in
       };
     };
 
-    layout = "us,ru";
+    xkb.layout = "us,ru";
     # use Caps Lock to toggle layouts and turn on Caps Look's led for ru layout
-    xkbOptions = "grp:caps_toggle,grp:alt_shift_toggle,grp_led:caps";
+    xkb.options = "grp:caps_toggle,grp:alt_shift_toggle,grp_led:caps";
     desktopManager.xterm.enable = false;
   };
 
