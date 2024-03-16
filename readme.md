@@ -5,7 +5,6 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 ![leftwm](/assets/screens/leftwm.png)
 
 ## Features
-
 * [CI with flakes and Cachix](/.github/workflows/build.yml)
 * Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each host can contain multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users)
 * All hosts connected with [wireguard](https://github.com/ksevelyar/idempotent-desktop/blob/198d0192d958e871d184f85338c35440ae033c25/hosts/skynet.nix#L57-L135)
@@ -16,11 +15,9 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 * [picard][picard], [mpd](/services/mpd.nix), [ncmpcpp][ncmpcpp], [mpdscribble](https://listenbrainz.org/user/ksevelyar/)  
 * [mpv](/users/shared/mpv), [imv][imv]
 * [live-usb](/live-usb/live-usb.nix)
-* [sysrq](https://www.kernel.org/doc/html/latest/admin-guide/sysrq.html#what-are-the-command-keys) 
 * [tealdeer](https://github.com/dbrgn/tealdeer) aliased to h
 
 ## Linux as IDE
-
 * Tiling with [leftwm](/users/shared/leftwm/config.toml), polybar, dunst and [tmux](/packages/tmux.nix)
 * [fish](/doc/fish.md), direnv, alacritty, ripgrep, rsync, fzf, [zoxide][zoxide], [delta][delta], gitg, bat, exa 
 * [Neovim with LSP](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/nvim/init.vim) for Elixir, Rust, Nix, Lua and others
@@ -28,21 +25,12 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 * [copy color of pixel under mouse cursor](/services/x.nix#L5-L14) to clipboard with `mod + k`
 * [`PrtScn`](https://github.com/ksevelyar/idempotent-desktop/blob/ea28dfc28596d8edb3b88683e9960b4a32cc9c46/users/shared/leftwm/config.toml#L180-L184) to capture region, `mod + PrtScn` to capture fullscreen, record desktop videos with `vokoscreen`
 
-## Hardware Engineering
-
-* programmatic cads: openscad
-* slicers for 3d printer: prusa-slicer, cura
-* circuit diagrams: librepcb, fritzing
-* [bluepill-boilerplate](https://github.com/rusty-cluster/bluepill-boilerplate)
-
 ## Security
-
 * [encrypted root with LUKS2](/doc/encrypted-root.md)
 * [EdDSA for ssh and gpg keys](/doc/keys.md)
 * gopass / [browserpass](https://github.com/browserpass/browserpass-extension#available-keyboard-shortcuts) integration
 * [uBlock](https://github.com/gorhill/uBlock)
-* [VPN](https://github.com/ksevelyar/idempotent-desktop/blob/main/services/vpn.nix) enabled by default
-* [element-desktop](https://matrix.org/)
+* [VPN](https://github.com/ksevelyar/idempotent-desktop/blob/main/services/vpn.nix)
 
 [picard]: https://picard.musicbrainz.org/quick-start/
 [imv]: /users/shared/imv/config
