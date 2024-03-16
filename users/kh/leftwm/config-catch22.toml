@@ -26,7 +26,7 @@ width =  0.8
 
 [[scratchpad]]
 name = "notes"
-value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.yml -e nvim ~/notes/to-do.md"
+value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.toml -e nvim ~/notes/to-do.md"
 x = 0.5
 y = 0.05
 height = 0.9
@@ -42,28 +42,28 @@ width =  0.8
 
 [[scratchpad]]
 name = "alacritty-1"
-value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
+value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.toml"
 x = 0
 y = 0.5
 height = 0.45
 width =  0.5
 [[scratchpad]]
 name = "alacritty-2"
-value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
+value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.toml"
 x = 0.5
 y = 0.5
 height = 0.45
 width =  0.5
 [[scratchpad]]
 name = "alacritty-3"
-value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
+value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.toml"
 x = 0
 y = 0.05
 height = 0.45
 width =  0.5
 [[scratchpad]]
 name = "alacritty-4"
-value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
+value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.toml"
 x = 0.5
 y = 0.05
 height = 0.45

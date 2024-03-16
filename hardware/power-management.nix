@@ -7,7 +7,7 @@
     settings = {
       # Disable too aggressive power-management autosuspend for USB receiver for wireless mouse
       USB_AUTOSUSPEND = 0;
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_AC = "powersave";
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
     };
   };

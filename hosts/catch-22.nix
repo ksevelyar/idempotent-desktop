@@ -88,8 +88,8 @@ args@{ config, lib, pkgs, ... }:
     home.file.".config/polybar/config".source = lib.mkForce ../users/kh/polybar/polybar-catch22;
     home.file.".config/leftwm/config.toml".source = ../users/kh/leftwm/config-catch22.toml;
 
-    home.file.".config/alacritty/alacritty.yml".source = ../users/kh/alacritty/alacritty-catch22.yml;
-    home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../users/kh/alacritty/alacritty-scratchpad-catch22.yml;
+    # home.file.".config/alacritty/alacritty.toml".source = ../users/kh/alacritty/alacritty-catch22.toml;
+    # home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/kh/alacritty/alacritty-scratchpad-catch22.toml;
   };
 
   boot.initrd.luks.devices = {

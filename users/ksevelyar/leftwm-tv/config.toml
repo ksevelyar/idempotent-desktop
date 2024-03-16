@@ -34,28 +34,28 @@ width =  0.8
 
 [[scratchpad]]
 name = "alacritty-1"
-value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
+value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.toml"
 x = 0.2
 y = 0.2
 height = 0.6
 width =  0.6
 [[scratchpad]]
 name = "alacritty-2"
-value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
+value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.toml"
 x = 0.2
 y = 0.2
 height = 0.6
 width =  0.6
 [[scratchpad]]
 name = "alacritty-3"
-value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
+value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.toml"
 x = 0.2
 y = 0.2
 height = 0.6
 width =  0.6
 [[scratchpad]]
 name = "alacritty-4"
-value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.yml"
+value = "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.toml"
 x = 0.2
 y = 0.2
 height = 0.6

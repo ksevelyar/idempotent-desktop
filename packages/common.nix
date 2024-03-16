@@ -35,6 +35,7 @@
 
       # monitoring
       gotop
+      bottom
       inxi # inxi -Mxxxa
       hwinfo
       inetutils
@@ -53,6 +54,7 @@
 
       # fs
       broot
+      yazi
       atool
       bind
       dosfstools

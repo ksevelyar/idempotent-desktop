@@ -24,7 +24,7 @@
         cozette
         # https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/nerdfonts/shas.nix
         (nerdfonts.override { fonts = [ "Iosevka" "IBMPlexMono" ]; })
-        
+
         siji # https://github.com/stark/siji
         ipafont # display jap symbols like シートベルツ in polybar
         noto-fonts-emoji # emoji

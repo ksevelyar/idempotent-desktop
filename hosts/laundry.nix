@@ -39,7 +39,6 @@ args@{ config, lib, pkgs, ... }:
     ../services/databases/postgresql.nix
     ../services/databases/redis.nix
     ../services/x.nix
-    ../services/x/picom.nix
     ../services/x/redshift.nix
     ../services/x/unclutter.nix
 
@@ -47,7 +46,6 @@ args@{ config, lib, pkgs, ... }:
     ../services/net/openvpn.nix
     ../services/vpn.nix
     ../services/net/sshd.nix
-    # ../services/net/wireguard.nix
     ../services/net/avahi.nix
 
     ../services/vm/docker.nix
@@ -61,13 +59,17 @@ args@{ config, lib, pkgs, ... }:
   home-manager.users.ksevelyar = {
     home.file.".config/leftwm/config.ron".source = ../users/ksevelyar/laundry/leftwm.ron;
     home.file.".config/polybar/config".source = ../users/ksevelyar/laundry/polybar;
-    home.file.".config/alacritty/alacritty.yml".source = ../users/ksevelyar/laundry/alacritty.yml;
-    home.file.".config/alacritty/alacritty-scratchpad.yml".source = ../users/ksevelyar/laundry/alacritty-scratchpad.yml;
+    home.file.".config/alacritty/alacritty.toml".source = ../users/ksevelyar/laundry/alacritty.toml;
+    home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/ksevelyar/laundry/alacritty-scratchpad.toml;
   };
 
-  services.openvpn.servers = {
-    uk-shark.autoStart = false;
-    express.autoStart = false;
+  services = {
+    syncthing = {
+      enable = true;
+      user = "ksevelyar";
+      dataDir = "/home/ksevelyar/syncthing"; # Default folder for new synced folders
+      configDir = "/home/ksevelyar/.config/syncthing";
+    };
   };
 
   environment.systemPackages = with pkgs; [
