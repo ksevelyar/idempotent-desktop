@@ -12,7 +12,7 @@
 
   home-manager = {
     users.${user} = {
-      home.file.".config/polybar/config".source = lib.mkDefault ../../users/shared/polybar/config;
+      home.file.".config/polybar/config.ini".source = lib.mkDefault ../../users/shared/polybar/config.ini;
       home.file.".config/polybar/weather.sh".source = ../../users/shared/polybar/weather.sh;
       home.file.".config/polybar/vpn.fish".source = ../../users/shared/polybar/vpn.fish;
       home.file.".config/polybar/local_and_public_ips.sh".source = ../../users/shared/polybar/local_and_public_ips.sh;

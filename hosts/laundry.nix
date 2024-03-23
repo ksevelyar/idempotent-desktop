@@ -58,7 +58,7 @@ args@{ config, lib, pkgs, ... }:
 
   home-manager.users.ksevelyar = {
     home.file.".config/leftwm/config.ron".source = ../users/ksevelyar/laundry/leftwm.ron;
-    home.file.".config/polybar/config".source = ../users/ksevelyar/laundry/polybar;
+    home.file.".config/polybar/config.ini".source = ../users/ksevelyar/laundry/polybar.ini;
     home.file.".config/alacritty/alacritty.toml".source = ../users/ksevelyar/laundry/alacritty.toml;
     home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/ksevelyar/laundry/alacritty-scratchpad.toml;
   };
