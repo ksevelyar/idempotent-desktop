@@ -76,10 +76,10 @@ args@{ config, lib, pkgs, ... }:
       ips = [ "192.168.42.10" ];
       privateKeyFile = "/home/kh/wireguard-keys/private";
       peers = [{
-          publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
-          allowedIPs = [ "192.168.42.0/24" ];
-          endpoint = "95.165.99.133:51821";
-          persistentKeepalive = 25;
+        publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
+        allowedIPs = [ "192.168.42.0/24" ];
+        endpoint = "95.165.99.133:51821";
+        persistentKeepalive = 25;
       }];
     };
   };

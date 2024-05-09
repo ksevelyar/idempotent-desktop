@@ -6,7 +6,6 @@
     wheelNeedsPassword = lib.mkForce false;
   };
 
-
   systemd.services.sshd.wantedBy = lib.mkOverride 40 [ "multi-user.target" ];
 
   services.openssh = {

@@ -3,6 +3,12 @@
 #![enable(implicit_some)]
 (
     modkey: "Mod4",
+    layouts: [
+        "MainAndVertStack",
+        "MainAndHorizontalStack",
+        "Grid",
+        "Monocle",
+    ],
     mousekey: "Mod4",
     workspaces: [],
     tags: [

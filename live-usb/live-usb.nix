@@ -1,4 +1,4 @@
-# nix build /etc/nixos#nixosConfigurations.live-usb.config.system.build.isoImage    
+# nix build /etc/nixos#nixosConfigurations.live-usb.config.system.build.isoImage
 args@{ config, pkgs, lib, ... }:
 {
   imports = [
@@ -41,10 +41,10 @@ args@{ config, pkgs, lib, ... }:
   networking.networkmanager.enable = true; # nmtui for wi-fi
   networking.wireless.enable = lib.mkForce false;
 
+  services.displayManager = {
+    autoLogin = { enable = true; user = "mrpoppybutthole"; };
+  };
   services.xserver = {
-    displayManager = {
-      autoLogin = { enable = true; user = "mrpoppybutthole"; };
-    };
     videoDrivers = [ "nvidia" "nouveau" "amdgpu" "vesa" "modesetting" ];
   };
 }

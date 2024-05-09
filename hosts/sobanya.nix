@@ -81,11 +81,12 @@ args@{ config, lib, pkgs, ... }:
     };
   };
 
+  services.displayManager = {
+    defaultSession = "none+leftwm";
+  };
+
   # x
   services.xserver = {
-    displayManager = {
-      defaultSession = "none+leftwm";
-    };
     videoDrivers = [ "nouveau" "modesetting" ];
   };
 

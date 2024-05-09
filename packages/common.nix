@@ -6,8 +6,8 @@
     askPassword = "";
     startAgent = true;
     extraConfig = ''
-    Host *.local
-      Port 9922
+      Host *.local
+        Port 9922
     '';
   };
 

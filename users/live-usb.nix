@@ -16,6 +16,7 @@ in
 
   users.users = {
     root = {
+      initialHashedPassword = lib.mkForce null;
       initialPassword = lib.mkForce "id";
     };
 

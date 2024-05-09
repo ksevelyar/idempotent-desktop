@@ -62,9 +62,6 @@ args@{ config, lib, pkgs, ... }:
     home.file.".config/leftwm/themes/current/theme.toml".source = ../users/ksevelyar/leftwm-tv/theme.toml;
 
     home.file.".config/polybar/config".source = ../users/shared/polybar/config-big;
-    # home.file.".config/alacritty/alacritty.toml".source = ../users/ksevelyar/alacritty-tv/alacritty.toml;
-    # home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/ksevelyar/alacritty-tv/alacritty-scratchpad.toml;
-
     home.file.".config/dunst/dunstrc".source = ../users/shared/dunst/dunstrc-big;
   };
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u32n.psf.gz";

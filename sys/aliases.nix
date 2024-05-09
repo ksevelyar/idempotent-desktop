@@ -38,7 +38,7 @@
 
     # nix
     e = "nvim /etc/nixos/configuration.nix";
-    b = "sudo nixos-rebuild switch && tldr --update";
+    b = "sudo nixos-rebuild switch";
     search = "nix search nixpkgs";
     wipe-user-packages = "nix-env -e '*'";
     nix-gc = "sudo nix-collect-garbage --delete-older-than 30d";

@@ -131,4 +131,10 @@ args@{ config, lib, pkgs, ... }:
     fsType = "ext4";
     options = [ "noatime" "nodiratime" ];
   };
+
+  fileSystems."/win" = {
+    device = "/dev/disk/by-label/win10";
+    fsType = "ntfs-3g";
+    options = [ "rw" "uid=1000" ];
+  };
 }
