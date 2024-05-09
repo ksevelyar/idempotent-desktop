@@ -58,11 +58,14 @@ args@{ config, lib, pkgs, ... }:
       size = 64;
     };
 
-    home.file.".config/leftwm/config.toml".source = ../users/ksevelyar/leftwm-tv/config.toml;
-    home.file.".config/leftwm/themes/current/theme.toml".source = ../users/ksevelyar/leftwm-tv/theme.toml;
+    home.file.".config/leftwm/config.toml".source = ../users/ksevelyar/tv/leftwm/config.toml;
+    home.file.".config/leftwm/themes/current/theme.toml".source = ../users/ksevelyar/tv/leftwm/theme.toml;
+    home.file.".config/mpv/mpv.conf".source = ../users/ksevelyar/tv/mpv/mpv.conf;
 
     home.file.".config/polybar/config".source = ../users/shared/polybar/config-big;
     home.file.".config/dunst/dunstrc".source = ../users/shared/dunst/dunstrc-big;
+    home.file.".config/alacritty/alacritty.toml".source = ../users/ksevelyar/tv/alacritty.toml;
+    home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/ksevelyar/tv/alacritty-scratchpad.toml;
   };
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u32n.psf.gz";
   services.xserver.serverFlagsSection = ''

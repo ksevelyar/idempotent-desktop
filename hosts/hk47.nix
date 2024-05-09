@@ -62,7 +62,7 @@ args@{ config, lib, pkgs, ... }:
 
 
   home-manager.users.ksevelyar = {
-    home.file.".config/leftwm/themes/current/up".source = ../users/ksevelyar/leftwm-hk47/up;
+    home.file.".config/leftwm/themes/current/up".source = ../users/ksevelyar/hk47/leftwm/up;
   };
 
   # net

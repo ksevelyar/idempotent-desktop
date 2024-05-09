@@ -84,7 +84,7 @@
       home.file.".config/alacritty/alacritty-scratchpad.toml".source = lib.mkDefault ../users/shared/alacritty/alacritty-scratchpad.toml;
 
       home.file.".config/ncmpcpp/config".source = ../users/shared/ncmpcpp/config;
-      home.file.".config/mpv/mpv.conf".source = ../users/shared/mpv/mpv.conf;
+      home.file.".config/mpv/mpv.conf".source = lib.mkDefault ../users/shared/mpv/mpv.conf;
       home.file.".config/mpv/input.conf".source = ../users/shared/mpv/input.conf;
       home.file.".config/mpv/scripts/autoload.lua".source = ../users/shared/mpv/scripts/autoload.lua;
       home.file.".config/mpv/scripts/delete_file.lua".source = ../users/shared/mpv/scripts/delete_file.lua;
