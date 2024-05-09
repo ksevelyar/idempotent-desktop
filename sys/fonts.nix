@@ -1,5 +1,5 @@
 # https://www.programmingfonts.org/
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   fonts = {
     enableDefaultPackages = true;

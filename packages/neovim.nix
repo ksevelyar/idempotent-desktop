@@ -11,7 +11,8 @@
 
   environment.systemPackages = with pkgs; [
     # nix
-    rnix-lsp
+    nil
+    nixpkgs-fmt
 
     # rust
     rustfmt

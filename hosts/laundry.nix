@@ -102,7 +102,7 @@ args@{ config, lib, pkgs, ... }:
     };
   };
 
-  services.xserver = {
+  services = {
     libinput = {
       enable = true;
       touchpad = {

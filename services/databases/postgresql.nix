@@ -3,7 +3,7 @@ let
   pg-backup = pkgs.writeScriptBin "pg-backup" ''
     #!${pkgs.stdenv.shell}
     set -e
-    
+
     backup_dir="~/.backup/pg"
     excludes='template1 template0'
 
@@ -39,14 +39,6 @@ in
       local all all trust
       host all all localhost trust
     '';
-    ensureUsers = [
-      {
-        name = "postgres";
-        ensurePermissions = {
-          "ALL TABLES IN SCHEMA public" = "ALL PRIVILEGES";
-        };
-      }
-    ];
   };
 
   environment.systemPackages = [

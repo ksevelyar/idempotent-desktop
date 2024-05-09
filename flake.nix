@@ -64,17 +64,17 @@
         };
       };
     in
-      {
-        nixosConfigurations = builtins.listToAttrs (
-          pkgs.lib.flatten (
-            map
-              (
-                host: [
-                  (build-target host)
-                ]
-              )
-              hosts ++ [ live-usb live-usb-min ]
-          )
-        );
-      };
+    {
+      nixosConfigurations = builtins.listToAttrs (
+        pkgs.lib.flatten (
+          map
+            (
+              host: [
+                (build-target host)
+              ]
+            )
+            hosts ++ [ live-usb live-usb-min ]
+        )
+      );
+    };
 }

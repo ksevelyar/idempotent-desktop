@@ -92,7 +92,7 @@
     # home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/kh/alacritty-laptop/alacritty-scratchpad.toml;
   };
 
-  services.xserver = {
+  services = {
     libinput = {
       enable = true;
       touchpad = {

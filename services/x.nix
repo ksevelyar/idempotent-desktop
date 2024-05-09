@@ -32,19 +32,21 @@ in
   services.greenclip.enable = true;
   services.gvfs.enable = lib.mkForce false;
 
+  services.libinput = {
+    enable = true;
+    touchpad = {
+      accelProfile = lib.mkDefault "adaptive";
+      disableWhileTyping = true;
+      clickMethod = "buttonareas";
+      scrollMethod = lib.mkDefault "edge";
+      naturalScrolling = false;
+    };
+  };
+
+  services.displayManager.defaultSession = lib.mkDefault "none+leftwm";
+
   services.xserver = {
     enable = true;
-
-    libinput = {
-      enable = true;
-      touchpad = {
-        accelProfile = lib.mkDefault "adaptive";
-        disableWhileTyping = true;
-        clickMethod = "buttonareas";
-        scrollMethod = lib.mkDefault "edge";
-        naturalScrolling = false;
-      };
-    };
 
     config = ''
       Section "InputClass"
@@ -63,24 +65,27 @@ in
       Option "OffTime" "0"
     '';
 
-    displayManager.defaultSession = lib.mkDefault "none+leftwm";
     displayManager.lightdm = {
       enable = true;
-      greeters.enso = {
+      greeters.slick = {
         enable = true;
-        blur = false;
         theme = {
           name = "Dracula";
           package = pkgs.dracula-theme;
-        };
-        iconTheme = {
-          name = "ePapirus";
-          package = pkgs.papirus-icon-theme;
         };
         cursorTheme = {
           name = "Vanilla-DMZ";
           package = pkgs.vanilla-dmz;
         };
+
+        extraConfig = ''
+          show-hostname=false
+          show-a11y=false
+          show-power=false
+          show-keyboard=false
+          show-clock=false
+          show-quit=false
+        '';
       };
     };
 
