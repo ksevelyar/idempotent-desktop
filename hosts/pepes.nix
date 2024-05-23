@@ -31,7 +31,6 @@
 
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
-    ../packages/dev.nix
     ../packages/2d-graphics.nix
     ../packages/3d-print.nix
     ../packages/electronics.nix

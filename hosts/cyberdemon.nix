@@ -31,7 +31,6 @@
 
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
-    ../packages/dev.nix
     ../packages/games.nix
     ../packages/neovim.nix
     ../packages/tmux.nix

@@ -23,7 +23,6 @@ args@{ config, lib, pkgs, ... }:
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
     ../packages/x-common.nix
-    # ../packages/dev.nix
     # ../packages/games.nix
     ../packages/neovim.nix
     ../packages/pass.nix

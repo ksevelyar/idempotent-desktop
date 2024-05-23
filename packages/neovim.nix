@@ -14,9 +14,6 @@
     nil
     nixpkgs-fmt
 
-    # rust
-    rustfmt
-
     # lua
     efm-langserver
     luaformatter

@@ -14,8 +14,8 @@
   environment.systemPackages = with pkgs;
     [
       # sys
+      nix-tree
       direnv
-      aria2
       bat
       cachix
       ccze
@@ -26,12 +26,15 @@
       jq
       lnav
       mkpasswd
-      nmap
       ripgrep
       sd
       tealdeer # aliased to h
       translate-shell
       woeusb # write win10.iso to usb drive
+
+      # net
+      nmap
+      sing-box
 
       # monitoring
       gotop

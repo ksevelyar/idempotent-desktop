@@ -26,7 +26,6 @@ args@{ config, lib, pkgs, ... }:
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
     ../packages/x-common.nix
-    ../packages/dev.nix
     ../packages/3d-print.nix
     ../packages/electronics.nix
     ../packages/games.nix
@@ -77,6 +76,7 @@ args@{ config, lib, pkgs, ... }:
     qsynth
     qjackctl
   ];
+
   # microbit v2
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", ATTR{idProduct}=="0204", MODE:="666"

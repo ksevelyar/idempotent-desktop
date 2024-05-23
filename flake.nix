@@ -6,7 +6,7 @@
 
     home-manager = {
       url = "github:rycee/home-manager/master";
-      inputs.nixpkgs.follows = "/nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

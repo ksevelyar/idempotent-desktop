@@ -32,7 +32,6 @@ args@{ config, lib, pkgs, ... }:
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
     ../packages/x-common.nix
-    ../packages/dev.nix
     ../packages/2d-graphics.nix
     ../packages/3d-print.nix
     ../packages/electronics.nix
@@ -60,7 +59,6 @@ args@{ config, lib, pkgs, ... }:
     ../services/vm/docker.nix
   ];
 
-
   home-manager.users.ksevelyar = {
     home.file.".config/leftwm/themes/current/up".source = ../users/ksevelyar/hk47/leftwm/up;
   };
@@ -85,10 +83,14 @@ args@{ config, lib, pkgs, ... }:
     };
   };
 
-  # vpn
-  services.openvpn.servers = {
-    uk-shark.autoStart = false;
-    express.autoStart = false;
+  # http://localhost:8384/
+  services = {
+    syncthing = {
+      enable = true;
+      user = "ksevelyar";
+      dataDir = "/home/ksevelyar/syncthing"; # Default folder for new synced folders
+      configDir = "/home/ksevelyar/.config/syncthing";
+    };
   };
 
   # microbit v2
