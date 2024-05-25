@@ -1,6 +1,9 @@
-{ pkgs, lib, ... }:
 {
-  boot.kernelModules = [ "tcp_bbr" ];
+  pkgs,
+  lib,
+  ...
+}: {
+  boot.kernelModules = ["tcp_bbr"];
   boot.kernel.sysctl = {
     # https://www.kernel.org/doc/html/latest/admin-guide/sysrq.html
     "kernel.sysrq" = 1;

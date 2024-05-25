@@ -1,7 +1,10 @@
 # https://github.com/gopasspw/gopass#features
 # https://woile.github.io/gopass-cheat-sheet/
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   programs.gnupg.agent = {
     enable = true;
   };

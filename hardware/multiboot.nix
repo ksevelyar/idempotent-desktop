@@ -1,9 +1,7 @@
 # Dual boot with win10 https://github.com/ksevelyar/carbicide
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   boot.loader = {
     grub.useOSProber = true;
   };
-  environment.systemPackages = with pkgs;
-    [ os-prober ];
+  environment.systemPackages = with pkgs; [os-prober];
 }

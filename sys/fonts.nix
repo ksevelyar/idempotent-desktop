@@ -1,6 +1,5 @@
 # https://www.programmingfonts.org/
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   fonts = {
     enableDefaultPackages = true;
     fontDir.enable = true; # ls /run/current-system/sw/share/X11/fonts/
@@ -10,27 +9,26 @@
       hinting.enable = true;
       antialias = true;
       defaultFonts = {
-        monospace = [ "Source Code Pro" ];
-        sansSerif = [ "Roboto" ];
-        serif = [ "Roboto Slab" ];
+        monospace = ["Source Code Pro"];
+        sansSerif = ["Roboto"];
+        serif = ["Roboto Slab"];
       };
     };
 
-    packages = with pkgs;
-      [
-        terminus_font
-        source-sans-pro
-        roboto
-        cozette
-        # https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/nerdfonts/shas.nix
-        (nerdfonts.override { fonts = [ "Iosevka" "IBMPlexMono" ]; })
+    packages = with pkgs; [
+      terminus_font
+      source-sans-pro
+      roboto
+      cozette
+      # https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/nerdfonts/shas.nix
+      (nerdfonts.override {fonts = ["Iosevka" "IBMPlexMono"];})
 
-        siji # https://github.com/stark/siji
-        ipafont # display jap symbols like シートベルツ in polybar
-        noto-fonts-emoji # emoji
-        source-code-pro
-      ];
+      siji # https://github.com/stark/siji
+      ipafont # display jap symbols like シートベルツ in polybar
+      noto-fonts-emoji # emoji
+      source-code-pro
+    ];
   };
 
-  environment.systemPackages = with pkgs;[ font-manager ];
+  environment.systemPackages = with pkgs; [font-manager];
 }

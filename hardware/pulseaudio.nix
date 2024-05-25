@@ -1,10 +1,14 @@
-{ config, pkgs, lib, ... }:
-let
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
   sound-volume-up = pkgs.writeScriptBin "sound-volume-up" ''
     #!${pkgs.stdenv.shell}
     set -e
 
-    pactl set-sink-volume @DEFAULT_SINK@ +2% 
+    pactl set-sink-volume @DEFAULT_SINK@ +2%
     notify-send -h string:synchronous:volume "$(pamixer --get-volume-human)" -t 1000
   '';
 
@@ -15,8 +19,7 @@ let
     pactl set-sink-volume @DEFAULT_SINK@ -2%
     notify-send -h string:synchronous:volume "$(pamixer --get-volume-human)" -t 1000
   '';
-in
-{
+in {
   sound.enable = true;
 
   hardware = {

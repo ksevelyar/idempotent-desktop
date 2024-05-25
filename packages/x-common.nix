@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment = {
     variables = {
       VISUAL = "nvim";
@@ -26,7 +25,7 @@
         x-scheme-handler/http=firefox.desktop
         x-scheme-handler/https=firefox.desktop
         text/html=firefox.desktop
- 
+
         video/x-matroska=mpv.desktop;
         video/mpeg=mpv.desktop;
 
@@ -52,71 +51,70 @@
     settings.source = ../users/shared/spacefm/spacefm.conf;
   };
 
-  environment.systemPackages = with pkgs;
-    [
-      # net
-      firefox
-      google-chrome
-      # yt-dlp -f 'bv[height<=1080]+ba' 'https://www.youtube.com/playlist?list=PLRnZ3k_L91GmDn2eWpvJ6-SLXpNlLAihu'
-      yt-dlp
-      transmission-gtk
-      x11vnc # vnc-server
-      tigervnc # vncviewer
+  environment.systemPackages = with pkgs; [
+    # net
+    firefox
+    google-chrome
+    # yt-dlp -f 'bv[height<=1080]+ba' 'https://www.youtube.com/playlist?list=PLRnZ3k_L91GmDn2eWpvJ6-SLXpNlLAihu'
+    yt-dlp
+    transmission-gtk
+    x11vnc # vnc-server
+    tigervnc # vncviewer
 
-      # readers
-      evince
+    # readers
+    evince
 
-      anki
+    anki
 
-      # themes
-      lxappearance
-      vanilla-dmz
-      dracula-theme
-      adwaita-qt
-      papirus-maia-icon-theme
+    # themes
+    lxappearance
+    vanilla-dmz
+    dracula-theme
+    adwaita-qt
+    papirus-maia-icon-theme
 
-      # sec
-      pinentry-gtk2
+    # sec
+    pinentry-gtk2
 
-      # im
-      tdesktop
+    # im
+    tdesktop
 
-      # sys
-      alacritty
-      st # alacritty fallback
-      gparted
-      xxkb
-      xorg.xev
-      xorg.xfd
-      xorg.xkbcomp
-      xdotool
-      seturgent
+    # sys
+    alacritty
+    st # alacritty fallback
+    gparted
+    xxkb
+    xorg.xev
+    xorg.xfd
+    xorg.xkbcomp
+    xdotool
+    seturgent
 
-      # screenshot region or fullscreen
-      # watch -n2 'maim ~/screenshots/doom2/$(date +%Y-%m-%d-%H-%M-%S).png'
-      maim
-      vokoscreen # record desktop
+    # screenshot region or fullscreen
+    # watch -n2 'maim ~/screenshots/doom2/$(date +%Y-%m-%d-%H-%M-%S).png'
+    maim
+    vokoscreen # record desktop
 
-      xclip
-      rofi
-      rofimoji
-      libnotify
-      brightnessctl
-      arandr # gui for external monitors
+    xclip
+    rofi
+    rofimoji
+    libnotify
+    brightnessctl
+    arandr # gui for external monitors
 
-      # media
-      glxinfo
-      libva-utils
-      mpv
-      vlc
+    # media
+    glxinfo
+    libva-utils
+    mpv
+    vlc
 
-      # fd . ~/wallpapers/ | shuf | imv
-      # ls -t ~/wallpapers/* | imv
-      imv
-      nomacs
-      ueberzugpp
+    # fd . ~/wallpapers/ | shuf | imv
+    # ls -t ~/wallpapers/* | imv
+    imv
+    nomacs
+    ueberzugpp
 
-      # xray
-      nekoray
-    ];
+    # xray
+    nekoray
+  ];
 }

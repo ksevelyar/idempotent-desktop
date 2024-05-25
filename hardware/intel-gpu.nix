@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  services.xserver.videoDrivers = [ "intel" ];
+{pkgs, ...}: {
+  services.xserver.videoDrivers = ["intel"];
 
   hardware.enableRedistributableFirmware = true;
   hardware.opengl.enable = true;

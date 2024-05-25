@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   # hide 'warning: system.stateVersion is not set'
   # doesn't affect anything because of flakes
   system.stateVersion = "9000";

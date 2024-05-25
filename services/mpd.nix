@@ -1,5 +1,8 @@
-{ pkgs, user, ... }:
 {
+  pkgs,
+  user,
+  ...
+}: {
   services.mpd.user = user;
   systemd.services.mpd.environment = {
     # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
@@ -26,26 +29,24 @@
     '';
   };
 
-  environment.systemPackages = with pkgs;
-    let
-      ncmpcpp = pkgs.ncmpcpp.override {
-        visualizerSupport = true;
-      };
-    in
-    [
-      ncmpcpp # https://cht.sh/ncmpcpp
-      mpc-cli
+  environment.systemPackages = with pkgs; let
+    ncmpcpp = pkgs.ncmpcpp.override {
+      visualizerSupport = true;
+    };
+  in [
+    ncmpcpp # https://cht.sh/ncmpcpp
+    mpc-cli
 
-      # fetch metadata
-      ## https://picard-docs.musicbrainz.org/en/tutorials/acoustid.html
-      # rename files with picard name script `%artist% - %title%`
-      ## https://picard-docs.musicbrainz.org/en/config/options_filerenaming_editor.html
-      picard
-      flac # metaflac --list (fzf)
+    # fetch metadata
+    ## https://picard-docs.musicbrainz.org/en/tutorials/acoustid.html
+    # rename files with picard name script `%artist% - %title%`
+    ## https://picard-docs.musicbrainz.org/en/config/options_filerenaming_editor.html
+    picard
+    flac # metaflac --list (fzf)
 
-      # downcase dirs
-      mmv # mmv '*' '#l1'
-    ];
+    # downcase dirs
+    mmv # mmv '*' '#l1'
+  ];
 
   environment.shellAliases = {
     m = "ncmpcpp";

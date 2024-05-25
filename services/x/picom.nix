@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   services.picom = {
     enable = lib.mkDefault true;
     fade = lib.mkDefault true;

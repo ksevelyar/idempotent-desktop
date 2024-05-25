@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.tmux = {
     enable = true;
     clock24 = true;
@@ -29,7 +32,7 @@
 
       set -g pane-border-style fg=white,bg=white
       set -g pane-active-border-style fg=colour105,bg=colour105
-      
+
       set -g window-status-format " #I #{pane_current_command} #{?window_zoomed_flag,🔍 ,}#{?pane_synchronized,🏊🏊 ,}"
       set -g window-status-current-format "#[fg=black,bg=colour105] #I #{pane_current_command} #{?window_zoomed_flag,🔍 ,}#{?pane_synchronized,🏊🏊 ,}#[default]"
 
@@ -45,20 +48,20 @@
       # More friendly split pane
       bind-key h split-window -v
       bind-key v split-window -h
-      
+
       # create (h)orizontal and (v)ertical panes without prefix
       bind -n C-M-s split-window -v
       bind -n C-M-v split-window -h
-       
+
       # Resize panes without prefix
       bind -n C-M-Down resize-pane -D
       bind -n C-M-Up resize-pane -U
       bind -n C-M-Left resize-pane -L
       bind -n C-M-Right resize-pane -R
-       
+
       # zoom into pane
       bind -n C-M-f resize-pane -Z
-       
+
       # Use Alt-hjkl without prefix key to switch panes
       bind -n C-M-h select-pane -L
       bind -n C-M-l select-pane -R
@@ -101,12 +104,11 @@
     '';
   };
 
-  environment.systemPackages = with pkgs;
-    [
-      tmuxPlugins.sensible
-      tmuxPlugins.continuum
-      tmuxPlugins.resurrect
-      tmuxPlugins.open
-      tmuxPlugins.yank
-    ];
+  environment.systemPackages = with pkgs; [
+    tmuxPlugins.sensible
+    tmuxPlugins.continuum
+    tmuxPlugins.resurrect
+    tmuxPlugins.open
+    tmuxPlugins.yank
+  ];
 }

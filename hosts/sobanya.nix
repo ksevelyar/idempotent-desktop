@@ -1,5 +1,9 @@
-args@{ config, lib, pkgs, ... }:
-{
+args @ {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ../users/manya.nix
     ../users/ksevelyar.nix
@@ -53,13 +57,13 @@ args@{ config, lib, pkgs, ... }:
 
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
-  boot.blacklistedKernelModules = [ ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.blacklistedKernelModules = [];
+  boot.initrd.kernelModules = ["dm-snapshot"];
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
-  boot.kernelModules = [ "kvm-intel" "wl" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+  boot.initrd.availableKernelModules = ["xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod"];
+  boot.kernelModules = ["kvm-intel" "wl"];
+  boot.extraModulePackages = [config.boot.kernelPackages.broadcom_sta];
 
   # net
   networking.hostName = "sobanya";
@@ -68,15 +72,17 @@ args@{ config, lib, pkgs, ... }:
   networking.networkmanager.enable = true; # run nmtui for wi-fi
   networking.wireguard.interfaces = {
     skynet = {
-      ips = [ "192.168.42.6" ];
+      ips = ["192.168.42.6"];
       privateKeyFile = "/home/manya/wireguard-keys/private";
-      peers = [{
-        publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
-        allowedIPs = [ "192.168.42.0/24" ];
-        endpoint = "95.165.99.133:51821";
-        # Send keepalives every 25 seconds. Important to keep NAT tables alive.
-        persistentKeepalive = 25;
-      }];
+      peers = [
+        {
+          publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
+          allowedIPs = ["192.168.42.0/24"];
+          endpoint = "95.165.99.133:51821";
+          # Send keepalives every 25 seconds. Important to keep NAT tables alive.
+          persistentKeepalive = 25;
+        }
+      ];
     };
   };
 
@@ -86,12 +92,12 @@ args@{ config, lib, pkgs, ... }:
 
   # x
   services.xserver = {
-    videoDrivers = [ "nouveau" "modesetting" ];
+    videoDrivers = ["nouveau" "modesetting"];
   };
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
-    options = [ "noatime" "nodiratime" ];
+    options = ["noatime" "nodiratime"];
   };
 }

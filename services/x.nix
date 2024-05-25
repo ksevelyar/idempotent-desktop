@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
-let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   # https://stackoverflow.com/a/22102938
   # Get hex rgb color under mouse cursor, put it into clipboard and create a notification.
   pick-color = pkgs.writeScriptBin "pick-color" ''
@@ -21,13 +24,12 @@ let
   turn-off-display-and-music = pkgs.writeScriptBin "turn-off-display-and-music" ''
     #!${pkgs.stdenv.shell}
     set -e
- 
+
     sleep 0.5
     xset dpms force off
     mpc stop
   '';
-in
-{
+in {
   services.udisks2.enable = true;
   services.greenclip.enable = true;
   services.gvfs.enable = lib.mkForce false;

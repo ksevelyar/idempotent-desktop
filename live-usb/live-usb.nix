@@ -1,6 +1,10 @@
 # nix build /etc/nixos#nixosConfigurations.live-usb.config.system.build.isoImage
-args@{ config, pkgs, lib, ... }:
-{
+args @ {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ../users/live-usb.nix
     ../users/root.nix
@@ -41,9 +45,12 @@ args@{ config, pkgs, lib, ... }:
   networking.wireless.enable = lib.mkForce false;
 
   services.displayManager = {
-    autoLogin = { enable = true; user = "mrpoppybutthole"; };
+    autoLogin = {
+      enable = true;
+      user = "mrpoppybutthole";
+    };
   };
   services.xserver = {
-    videoDrivers = [ "nvidia" "nouveau" "amdgpu" "vesa" "modesetting" ];
+    videoDrivers = ["nvidia" "nouveau" "amdgpu" "vesa" "modesetting"];
   };
 }

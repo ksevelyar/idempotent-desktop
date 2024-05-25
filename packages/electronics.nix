@@ -1,18 +1,20 @@
-{ config, pkgs, ... }:
 {
-  services.udev.packages = [ pkgs.stlink ];
+  config,
+  pkgs,
+  ...
+}: {
+  services.udev.packages = [pkgs.stlink];
 
-  environment.systemPackages = with pkgs;
-    [
-      fritzing
-      librepcb
-      # xoscope
+  environment.systemPackages = with pkgs; [
+    fritzing
+    librepcb
+    # xoscope
 
-      # stm32
-      # stlink
-      # openocd
-      # gcc-arm-embedded
-      # stm32cubemx
-      # gnumake
-    ];
+    # stm32
+    # stlink
+    # openocd
+    # gcc-arm-embedded
+    # stm32cubemx
+    # gnumake
+  ];
 }

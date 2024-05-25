@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   # Required for Steam
   hardware = {
     pulseaudio.support32Bit = true;
@@ -8,22 +7,21 @@
 
   programs.steam.enable = true;
 
-  environment.systemPackages = with pkgs;
-    [
-      ## gamepads
-      # jstest /dev/input/js0
-      linuxConsoleTools
+  environment.systemPackages = with pkgs; [
+    ## gamepads
+    # jstest /dev/input/js0
+    linuxConsoleTools
 
-      ## text
-      # dwarf-fortress
-      # nethack
-      # rogue
+    ## text
+    # dwarf-fortress
+    # nethack
+    # rogue
 
-      ## gui
-      # xonotic
-      # wesnoth
-      # stepmania
-      # yquake2
-      # openra
-    ];
+    ## gui
+    # xonotic
+    # wesnoth
+    # stepmania
+    # yquake2
+    # openra
+  ];
 }

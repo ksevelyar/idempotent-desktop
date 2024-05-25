@@ -1,5 +1,8 @@
-{ pkgs, vars, ... }:
 {
+  pkgs,
+  vars,
+  ...
+}: {
   services.mongodb = {
     enable = true;
   };

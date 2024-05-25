@@ -1,5 +1,9 @@
-args@{ config, lib, pkgs, ... }:
-{
+args @ {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ../users/ksevelyar.nix
     ../users/root.nix
@@ -42,7 +46,7 @@ args@{ config, lib, pkgs, ... }:
     ../services/net/avahi.nix
   ];
 
-  systemd.services.sshd.wantedBy = lib.mkForce [ "multi-user.target" ];
+  systemd.services.sshd.wantedBy = lib.mkForce ["multi-user.target"];
 
   networking.hostName = "tv";
   networking.interfaces.enp2s0.useDHCP = true;
@@ -88,8 +92,8 @@ args@{ config, lib, pkgs, ... }:
   services.xserver.displayManager.lightdm.background = ../assets/wallpapers/d-sparil.png;
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.rtl88x2bu ]; # tp-link archer t3u
+  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
+  boot.extraModulePackages = [config.boot.kernelPackages.rtl88x2bu]; # tp-link archer t3u
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;
   boot.initrd.luks.devices = {
@@ -102,12 +106,12 @@ args@{ config, lib, pkgs, ... }:
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
-    options = [ "noatime" "nodiratime" ];
+    options = ["noatime" "nodiratime"];
   };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/boot";
     fsType = "vfat";
-    options = [ "noatime" "nodiratime" ];
+    options = ["noatime" "nodiratime"];
   };
 }

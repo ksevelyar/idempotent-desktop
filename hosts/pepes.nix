@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ../users/kh.nix
     ../users/root.nix
@@ -12,7 +16,10 @@
     ../hardware/amd-cpu.nix
     ../hardware/pulseaudio.nix
     ../hardware/ssd.nix
-    (import ../hardware/power-management.nix ({ pkgs = pkgs; battery = "BATT"; }))
+    (import ../hardware/power-management.nix {
+      pkgs = pkgs;
+      battery = "BATT";
+    })
 
     # ../sys/debug.nix
     ../sys/aliases.nix
@@ -51,12 +58,11 @@
     # ../services/vm/hypervisor.nix
   ];
 
-  environment.systemPackages = with pkgs;
-    [
-      foliate
-      obsidian
-      mattermost
-    ];
+  environment.systemPackages = with pkgs; [
+    foliate
+    obsidian
+    mattermost
+  ];
 
   networking.hostName = "pepes";
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u24n.psf.gz";
@@ -65,14 +71,16 @@
   networking.interfaces.wlp1s0.useDHCP = true;
   networking.wireguard.interfaces = {
     skynet = {
-      ips = [ "192.168.42.11" ];
+      ips = ["192.168.42.11"];
       privateKeyFile = "/home/kh/.secrets/wireguard/private";
-      peers = [{
-        publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
-        allowedIPs = [ "192.168.42.0/24" ];
-        endpoint = "95.165.99.133:51821";
-        persistentKeepalive = 25;
-      }];
+      peers = [
+        {
+          publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
+          allowedIPs = ["192.168.42.0/24"];
+          endpoint = "95.165.99.133:51821";
+          persistentKeepalive = 25;
+        }
+      ];
     };
   };
 
@@ -110,9 +118,9 @@
   boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ "kvm-amd" "amdgpu" ];
+  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usbhid" "sd_mod"];
+  boot.initrd.kernelModules = ["dm-snapshot"];
+  boot.kernelModules = ["kvm-amd" "amdgpu"];
 
   boot.initrd.luks.devices = {
     nixos = {
@@ -125,12 +133,12 @@
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
-    options = [ "noatime" "nodiratime" ];
+    options = ["noatime" "nodiratime"];
   };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/boot";
     fsType = "vfat";
-    options = [ "noatime" "nodiratime" ]; # ssd
+    options = ["noatime" "nodiratime"]; # ssd
   };
 }

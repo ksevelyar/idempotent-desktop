@@ -1,6 +1,10 @@
-# nix build /etc/nixos#nixosConfigurations.live-usb-min.config.system.build.isoImage    
-{ config, pkgs, lib, ... }:
+# nix build /etc/nixos#nixosConfigurations.live-usb-min.config.system.build.isoImage
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ../users/live-usb.nix
     ../users/root.nix
@@ -28,7 +32,7 @@
   isoImage.volumeID = lib.mkForce "id-live-min";
   isoImage.isoName = lib.mkForce "id-live-min.iso";
 
-  fonts.packages = with pkgs; [ terminus_font ];
+  fonts.packages = with pkgs; [terminus_font];
 
   networking.hostName = lib.mkForce "id-live-min";
   networking.networkmanager.enable = true; # nmtui for wi-fi

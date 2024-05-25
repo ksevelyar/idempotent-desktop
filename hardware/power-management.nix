@@ -1,5 +1,8 @@
-{ pkgs, battery, ... }:
 {
+  pkgs,
+  battery,
+  ...
+}: {
   powerManagement.enable = true;
 
   services.tlp = {
@@ -22,7 +25,7 @@
     timerConfig.OnBootSec = "2m";
     timerConfig.OnUnitInactiveSec = "2m";
     timerConfig.Unit = "notify-on-low-battery.service";
-    wantedBy = [ "timers.target" ];
+    wantedBy = ["timers.target"];
   };
 
   systemd.user.services.notify-on-low-battery = {

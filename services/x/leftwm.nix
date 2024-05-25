@@ -1,17 +1,20 @@
-{ user, pkgs, lib, ... }:
 {
-  environment.systemPackages = with pkgs;
-    [
-      feh
-      libnotify
-      dunst
-      xcape
-      lxqt.lxqt-policykit
-      xfce.xfce4-settings # xfce4-mime-settings
-    ];
+  user,
+  pkgs,
+  lib,
+  ...
+}: {
+  environment.systemPackages = with pkgs; [
+    feh
+    libnotify
+    dunst
+    xcape
+    lxqt.lxqt-policykit
+    xfce.xfce4-settings # xfce4-mime-settings
+  ];
 
   console.useXkbConfig = true;
-  services.xserver.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
+  services.xserver.gdk-pixbuf.modulePackages = [pkgs.librsvg];
 
   services.xserver = {
     windowManager.leftwm.enable = true;

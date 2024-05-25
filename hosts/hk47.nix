@@ -5,9 +5,12 @@
 ## DIMM DDR4 2133MHz 16GBx2
 ## RTL8812A: set bssid with nmtui to fix disconnects: deauthenticating (Reason: DEAUTH_LEAVING)
 ## RTL8812A: nmcli -f in-use,ssid,bssid,signal,rate,bars dev wifi
-
-args@{ config, lib, pkgs, ... }:
-{
+args @ {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ../users/ksevelyar.nix
     ../users/root.nix
@@ -71,15 +74,17 @@ args@{ config, lib, pkgs, ... }:
   networking.networkmanager.enable = true; # run nmtui for wi-fi
   networking.wireguard.interfaces = {
     skynet = {
-      ips = [ "192.168.42.47" ];
+      ips = ["192.168.42.47"];
       privateKeyFile = "/home/ksevelyar/.secrets/wireguard-keys/private";
-      peers = [{
-        publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
-        allowedIPs = [ "192.168.42.0/24" ];
-        endpoint = "95.165.99.133:51821";
-        # Send keepalives every 25 seconds. Important to keep NAT tables alive.
-        persistentKeepalive = 25;
-      }];
+      peers = [
+        {
+          publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
+          allowedIPs = ["192.168.42.0/24"];
+          endpoint = "95.165.99.133:51821";
+          # Send keepalives every 25 seconds. Important to keep NAT tables alive.
+          persistentKeepalive = 25;
+        }
+      ];
     };
   };
 
@@ -101,8 +106,8 @@ args@{ config, lib, pkgs, ... }:
   services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
+  boot.initrd.kernelModules = [];
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;
   boot.initrd.luks.devices = {
@@ -119,24 +124,24 @@ args@{ config, lib, pkgs, ... }:
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
-    options = [ "noatime" "nodiratime" ];
+    options = ["noatime" "nodiratime"];
   };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/boot";
     fsType = "vfat";
-    options = [ "noatime" "nodiratime" ];
+    options = ["noatime" "nodiratime"];
   };
 
   fileSystems."/data" = {
     device = "/dev/disk/by-label/data";
     fsType = "ext4";
-    options = [ "noatime" "nodiratime" ];
+    options = ["noatime" "nodiratime"];
   };
 
   fileSystems."/win" = {
     device = "/dev/disk/by-label/win10";
     fsType = "ntfs-3g";
-    options = [ "rw" "uid=1000" ];
+    options = ["rw" "uid=1000"];
   };
 }

@@ -1,5 +1,9 @@
-{ pkgs, lib, config, ... }:
-let
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
   build-live-iso = pkgs.writeScriptBin "build-live-iso" ''
     #!${pkgs.stdenv.shell}
     set -e
@@ -22,7 +26,7 @@ let
 
     echo -e "\n"
     lsblk -f
-    
+
     echo -e "\n"
     lsmod | rg kvm
   '';
@@ -38,8 +42,7 @@ let
         tmux new -A -s $1
     fi
   '';
-in
-{
+in {
   environment.systemPackages = [
     build-live-iso
     host-info

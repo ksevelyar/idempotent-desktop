@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.neovim = {
     enable = true;
     withRuby = false;
@@ -12,7 +15,7 @@
   environment.systemPackages = with pkgs; [
     # nix
     nil
-    nixpkgs-fmt
+    alejandra
 
     # lua
     efm-langserver

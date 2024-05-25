@@ -1,14 +1,16 @@
-{ user, pkgs, lib, ... }:
 {
-  environment.systemPackages = with pkgs;
-    let
-      polybar = pkgs.polybar.override {
-        pulseSupport = true;
-      };
-    in
-    [
-      polybar
-    ];
+  user,
+  pkgs,
+  lib,
+  ...
+}: {
+  environment.systemPackages = with pkgs; let
+    polybar = pkgs.polybar.override {
+      pulseSupport = true;
+    };
+  in [
+    polybar
+  ];
 
   home-manager = {
     users.${user} = {

@@ -1,8 +1,6 @@
-{ pkgs, ... }:
-{
-  environment.systemPackages = with pkgs;
-    [
-      gimp
-      inkscape
-    ];
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    gimp
+    inkscape
+  ];
 }

@@ -1,6 +1,10 @@
 # 53013PEW, F12 for UEFI, F2 for quick boot
-args@{ config, lib, pkgs, ... }:
-{
+args @ {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ../users/ksevelyar.nix
     ../users/root.nix
@@ -13,7 +17,10 @@ args@{ config, lib, pkgs, ... }:
     ../hardware/intel-gpu.nix
     ../hardware/pipewire.nix
     ../hardware/ssd.nix
-    (import ../hardware/power-management.nix ({ pkgs = pkgs; battery = "BAT1"; }))
+    (import ../hardware/power-management.nix {
+      pkgs = pkgs;
+      battery = "BAT1";
+    })
 
     ../sys/aliases.nix
     ../sys/fonts.nix
@@ -82,17 +89,17 @@ args@{ config, lib, pkgs, ... }:
     SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", ATTR{idProduct}=="0204", MODE:="666"
   '';
 
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot.kernelModules = ["kvm-intel"];
+  boot.extraModulePackages = [];
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
   boot.loader.grub.configurationLimit = 3;
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = ["xhci_pci" "nvme" "usb_storage" "sd_mod"];
   boot.extraModprobeConfig = ''
     options snd-intel-dspcfg dsp_driver=1
   '';
   boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [];
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;
   boot.initrd.luks.devices = {
@@ -121,12 +128,12 @@ args@{ config, lib, pkgs, ... }:
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
-    options = [ "noatime" "nodiratime" ];
+    options = ["noatime" "nodiratime"];
   };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/SYSTEM";
     fsType = "vfat";
-    options = [ "noatime" "nodiratime" ];
+    options = ["noatime" "nodiratime"];
   };
 }

@@ -1,10 +1,9 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   systemd.user.timers.random-wallpaper = {
     timerConfig.OnBootSec = "5m";
     timerConfig.OnUnitInactiveSec = "5m";
     timerConfig.Unit = "random-wallpaper.service";
-    wantedBy = [ "timers.target" ];
+    wantedBy = ["timers.target"];
   };
 
   systemd.user.services.random-wallpaper = {

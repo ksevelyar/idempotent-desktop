@@ -1,16 +1,24 @@
-args@{ config, pkgs, lib, ... }:
-let
+args @ {
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
   user = "manya";
   email = "porosenie@gmail.com";
   name = "Maria Elizarova";
-in
-{
+in {
   time.timeZone = lib.mkForce "Asia/Tbilisi";
   imports = [
-    (lib.mkIf (config.services.xserver.enable) (import ../services/x/polybar.nix (args // { user = user; })))
-    (import ./shared.nix (args // { user = user; email = email; name = name; }))
-    (import ../services/x/leftwm.nix (args // { user = user; }))
-    (import ../packages/firefox.nix (args // { user = user; }))
+    (lib.mkIf (config.services.xserver.enable) (import ../services/x/polybar.nix (args // {user = user;})))
+    (import ./shared.nix (args
+      // {
+        user = user;
+        email = email;
+        name = name;
+      }))
+    (import ../services/x/leftwm.nix (args // {user = user;}))
+    (import ../packages/firefox.nix (args // {user = user;}))
   ];
 
   boot.loader.grub.splashImage = lib.mkForce ../assets/wallpapers/planet.png;

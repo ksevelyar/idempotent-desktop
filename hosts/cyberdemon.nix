@@ -1,12 +1,19 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ../users/manya.nix
     ../users/root.nix
 
     ../hardware/efi.nix
     ../hardware/multiboot.nix
-    (import ../hardware/power-management.nix ({ pkgs = pkgs; battery = "BATT"; }))
+    (import ../hardware/power-management.nix {
+      pkgs = pkgs;
+      battery = "BATT";
+    })
     ../hardware/bluetooth.nix
     ../hardware/pulseaudio.nix
     ../hardware/mouse.nix
@@ -46,10 +53,10 @@
 
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.availableKernelModules = ["xhci_pci" "nvme" "usb_storage" "sd_mod"];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = ["kvm-intel"];
+  boot.extraModulePackages = [];
   boot.plymouth.enable = true;
 
   networking.firewall.enable = lib.mkForce true;
@@ -60,15 +67,17 @@
   networking.interfaces.wlp61s0.useDHCP = true;
   networking.wireguard.interfaces = {
     skynet = {
-      ips = [ "192.168.42.4" ];
+      ips = ["192.168.42.4"];
       privateKeyFile = "/home/manya/wireguard-keys/private";
-      peers = [{
-        publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
-        allowedIPs = [ "192.168.42.0/24" ];
-        endpoint = "95.165.99.133:51821";
-        # Send keepalives every 25 seconds. Important to keep NAT tables alive.
-        persistentKeepalive = 25;
-      }];
+      peers = [
+        {
+          publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
+          allowedIPs = ["192.168.42.0/24"];
+          endpoint = "95.165.99.133:51821";
+          # Send keepalives every 25 seconds. Important to keep NAT tables alive.
+          persistentKeepalive = 25;
+        }
+      ];
     };
   };
 
@@ -83,12 +92,12 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/df8dcd09-38bd-4632-8041-8219ebdc5571";
     fsType = "ext4";
-    options = [ "noatime" "nodiratime" ];
+    options = ["noatime" "nodiratime"];
   };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/8CCE-4F4F";
     fsType = "vfat";
-    options = [ "noatime" "nodiratime" ];
+    options = ["noatime" "nodiratime"];
   };
 }

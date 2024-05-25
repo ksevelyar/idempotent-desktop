@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   boot.loader = {
     efi = {
       canTouchEfiVariables = false;

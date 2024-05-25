@@ -1,5 +1,9 @@
-{ user, listenbrainz_user, config, ... }:
 {
+  user,
+  listenbrainz_user,
+  config,
+  ...
+}: {
   services.mpdscribble = {
     enable = config.services.mpd.enable;
     endpoints = {

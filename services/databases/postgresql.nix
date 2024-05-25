@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   pg-backup = pkgs.writeScriptBin "pg-backup" ''
     #!${pkgs.stdenv.shell}
     set -e
@@ -28,10 +27,9 @@ let
               $database
     done
 
-    du -h --max-depth=1 $backup_dir 
+    du -h --max-depth=1 $backup_dir
   '';
-in
-{
+in {
   services.postgresql = {
     package = pkgs.postgresql_13;
     enable = true;

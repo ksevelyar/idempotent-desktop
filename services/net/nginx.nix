@@ -1,5 +1,4 @@
-{ email }:
-{
+{email}: {
   security.acme.acceptTerms = true;
   security.acme.defaults.email = email;
 
@@ -21,8 +20,7 @@
     };
   };
 
-  networking.extraHosts =
-    ''
-      127.0.0.1 docs.lcl
-    '';
+  networking.extraHosts = ''
+    127.0.0.1 docs.lcl
+  '';
 }
