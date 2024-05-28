@@ -48,7 +48,7 @@ args @ {
     ../services/databases/postgresql.nix
     ../services/databases/redis.nix
     ../services/x.nix
-    ../services/x/picom.nix
+    # ../services/x/picom.nix
     ../services/x/redshift.nix
     ../services/x/unclutter.nix
 
