@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   ...
 }: {
@@ -19,8 +18,6 @@
 
     # lua
     gcc
-    efm-langserver
-    luaformatter
     sumneko-lua-language-server
 
     nodejs_latest
@@ -28,6 +25,6 @@
 
   # TODO: declarative deps for vim
   environment.shellAliases = {
-    install-neovim-deps = "npm i -g vim-language-server typescript typescript-language-server eslint vscode-langservers-extracted";
+    install-neovim-deps = "npm i -g typescript typescript-language-server eslint vscode-langservers-extracted";
   };
 }

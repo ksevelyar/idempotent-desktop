@@ -1,4 +1,7 @@
 {pkgs, ...}: {
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
   programs.steam = {
     enable = true;
     extraCompatPackages = [pkgs.proton-ge-bin];

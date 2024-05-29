@@ -35,8 +35,6 @@ Plug 'dag/vim-fish'
 Plug 'elixir-editors/vim-elixir'
 
 Plug 'cakebaker/scss-syntax.vim' " TODO: replace with sugarss
-Plug 'pangloss/vim-javascript'
-Plug 'posva/vim-vue'
 Plug 'digitaltoad/vim-pug'
 
 Plug 'elzr/vim-json'
