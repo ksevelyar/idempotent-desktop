@@ -18,6 +18,7 @@
     alejandra
 
     # lua
+    gcc
     efm-langserver
     luaformatter
     sumneko-lua-language-server

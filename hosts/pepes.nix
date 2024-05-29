@@ -62,6 +62,7 @@
     foliate
     obsidian
     mattermost
+    asciinema
   ];
 
   networking.hostName = "pepes";
@@ -69,24 +70,24 @@
   networking.networkmanager.enable = true; # run nmtui for wi-fi
   networking.useDHCP = false;
   networking.interfaces.wlp1s0.useDHCP = true;
-  networking.wireguard.interfaces = {
-    skynet = {
-      ips = ["192.168.42.11"];
-      privateKeyFile = "/home/kh/.secrets/wireguard/private";
-      peers = [
-        {
-          publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
-          allowedIPs = ["192.168.42.0/24"];
-          endpoint = "95.165.99.133:51821";
-          persistentKeepalive = 25;
-        }
-      ];
-    };
-  };
+  # networking.wireguard.interfaces = {
+  #   skynet = {
+  #     ips = ["192.168.42.11"];
+  #     privateKeyFile = "/home/kh/.secrets/wireguard/private";
+  #     peers = [
+  #       {
+  #         publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
+  #         allowedIPs = ["192.168.42.0/24"];
+  #         endpoint = "95.165.99.133:51821";
+  #         persistentKeepalive = 25;
+  #       }
+  #     ];
+  #   };
+  # };
 
   # vpn
   services.openvpn.servers = {
-    uk-shark.autoStart = true;
+    uk-shark.autoStart = false;
     de-shark.autoStart = false;
     fr-shark.autoStart = false;
     us-proton.autoStart = false;
