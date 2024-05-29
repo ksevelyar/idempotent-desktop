@@ -89,8 +89,6 @@ args @ {
     SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", ATTR{idProduct}=="0204", MODE:="666"
   '';
 
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
   boot.loader.grub.configurationLimit = 3;
@@ -99,7 +97,6 @@ args @ {
     options snd-intel-dspcfg dsp_driver=1
   '';
   boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
-  boot.initrd.kernelModules = [];
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;
   boot.initrd.luks.devices = {
@@ -122,7 +119,6 @@ args @ {
     };
   };
   services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
-  # console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u24n.psf.gz";
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   fileSystems."/" = {

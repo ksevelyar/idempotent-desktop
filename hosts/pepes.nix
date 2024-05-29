@@ -21,7 +21,6 @@
       battery = "BATT";
     })
 
-    # ../sys/debug.nix
     ../sys/aliases.nix
     ../sys/nix.nix
     ../sys/scripts.nix
@@ -46,7 +45,6 @@
     ../packages/pass.nix
     ../packages/tmux.nix
     ../packages/x-common.nix
-    # ../packages/freelance.nix
 
     ../services/net/firewall-desktop.nix
     ../services/net/wireguard.nix
@@ -54,8 +52,6 @@
     ../services/net/openvpn.nix
     ../services/vpn.nix
     ../services/net/avahi.nix
-
-    # ../services/vm/hypervisor.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -70,28 +66,6 @@
   networking.networkmanager.enable = true; # run nmtui for wi-fi
   networking.useDHCP = false;
   networking.interfaces.wlp1s0.useDHCP = true;
-  # networking.wireguard.interfaces = {
-  #   skynet = {
-  #     ips = ["192.168.42.11"];
-  #     privateKeyFile = "/home/kh/.secrets/wireguard/private";
-  #     peers = [
-  #       {
-  #         publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
-  #         allowedIPs = ["192.168.42.0/24"];
-  #         endpoint = "95.165.99.133:51821";
-  #         persistentKeepalive = 25;
-  #       }
-  #     ];
-  #   };
-  # };
-
-  # vpn
-  services.openvpn.servers = {
-    uk-shark.autoStart = false;
-    de-shark.autoStart = false;
-    fr-shark.autoStart = false;
-    us-proton.autoStart = false;
-  };
 
   home-manager.users.kh = {
     home.file.".config/leftwm/config.ron".source = ../users/kh/pepes/leftwm.ron;
@@ -117,11 +91,10 @@
   boot.loader.grub.splashImage = lib.mkForce ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
   boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
+
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usbhid" "sd_mod"];
-  boot.initrd.kernelModules = ["dm-snapshot"];
-  boot.kernelModules = ["kvm-amd" "amdgpu"];
 
   boot.initrd.luks.devices = {
     nixos = {
@@ -130,7 +103,6 @@
     };
   };
 
-  # fs
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";

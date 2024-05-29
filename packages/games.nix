@@ -1,6 +1,6 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_zen;
 
   programs.steam = {
     enable = true;

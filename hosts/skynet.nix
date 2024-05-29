@@ -143,8 +143,6 @@
   boot.tmp.useTmpfs = true;
   boot.kernelModules = ["kvm-intel" "tcp_bbr"];
   boot.kernelPackages = pkgs.linuxPackages_hardened;
-  boot.initrd.availableKernelModules = ["ehci_pci" "ahci" "xhci_pci" "usb_storage" "usbhid" "sd_mod"];
-  boot.initrd.kernelModules = ["dm-snapshot"];
   boot.initrd.luks.devices = {
     nixos = {
       device = "/dev/disk/by-label/enc-nixos";

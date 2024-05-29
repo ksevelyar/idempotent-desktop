@@ -48,8 +48,6 @@ args @ {
     ../services/net/openvpn.nix
     ../services/vpn.nix
     ../services/net/avahi.nix
-
-    # ../services/vm/hypervisor.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -61,9 +59,6 @@ args @ {
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
 
   networking.hostName = "catch-22";
   networking.networkmanager.enable = true; # run nmtui for wi-fi
@@ -71,21 +66,6 @@ args @ {
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.enp4s0.useDHCP = true;
   networking.interfaces.wlp2s0.useDHCP = true;
-
-  networking.wireguard.interfaces = {
-    skynet = {
-      ips = ["192.168.42.10"];
-      privateKeyFile = "/home/kh/wireguard-keys/private";
-      peers = [
-        {
-          publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
-          allowedIPs = ["192.168.42.0/24"];
-          endpoint = "95.165.99.133:51821";
-          persistentKeepalive = 25;
-        }
-      ];
-    };
-  };
 
   home-manager.users.kh = {
     home.file.".config/polybar/config".source = lib.mkForce ../users/kh/polybar/polybar-catch22;
