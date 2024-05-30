@@ -63,7 +63,6 @@ args @ {
 
     home.file.".config/leftwm/config.toml".source = ../users/ksevelyar/tv/leftwm/config.toml;
     home.file.".config/leftwm/themes/current/theme.toml".source = ../users/ksevelyar/tv/leftwm/theme.toml;
-    home.file.".config/mpv/mpv.conf".source = ../users/ksevelyar/tv/mpv/mpv.conf;
 
     home.file.".config/polybar/config".source = ../users/shared/polybar/config-big;
     home.file.".config/dunst/dunstrc".source = ../users/shared/dunst/dunstrc-big;
@@ -82,10 +81,6 @@ args @ {
   systemd.targets.suspend.enable = false;
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
-
-  environment.variables = {
-    GDK_SCALE = "2";
-  };
 
   # N5105 H
   # DIMM DDR4 16GB
