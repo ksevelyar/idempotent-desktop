@@ -4,6 +4,7 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 leftwm command "LoadTheme $SCRIPTPATH/theme.toml"
 
+xrandr --output DP-4 --mode 2560x1080 -r 144
 random-wallpaper
 xxkb &
 dunst &

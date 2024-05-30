@@ -48,7 +48,7 @@ args @ {
     ../services/databases/postgresql.nix
     ../services/databases/redis.nix
     ../services/x.nix
-    # ../services/x/picom.nix
+    ../services/x/picom.nix
     ../services/x/redshift.nix
     ../services/x/unclutter.nix
 
@@ -72,21 +72,6 @@ args @ {
   networking.interfaces.wlp4s0.useDHCP = true;
   networking.useDHCP = false;
   networking.networkmanager.enable = true; # run nmtui for wi-fi
-  networking.wireguard.interfaces = {
-    skynet = {
-      ips = ["192.168.42.47"];
-      privateKeyFile = "/home/ksevelyar/.secrets/wireguard-keys/private";
-      peers = [
-        {
-          publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
-          allowedIPs = ["192.168.42.0/24"];
-          endpoint = "95.165.99.133:51821";
-          # Send keepalives every 25 seconds. Important to keep NAT tables alive.
-          persistentKeepalive = 25;
-        }
-      ];
-    };
-  };
 
   # http://localhost:8384/
   services = {
