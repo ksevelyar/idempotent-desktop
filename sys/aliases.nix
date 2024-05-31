@@ -9,7 +9,6 @@
     pgrep = "pgrep --full";
     pkill = "pkill --full";
     i = "host-info";
-    ms = "mosh";
     cat = "bat --paging=never --plain";
     bat = "bat --paging=never -n";
 
@@ -47,7 +46,6 @@
 
     # vim
     v = "nvim";
-    vv = "nvim -U none"; # vanilla v, don't load plugins & init.vim
 
     # sec
     p = "gopass";
