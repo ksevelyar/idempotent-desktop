@@ -2,9 +2,8 @@
   home-manager = {
     useGlobalPkgs = true;
     users.root = {
-      home.stateVersion = "23.11";
-      home.file.".config/nvim/init.vim".source = ../users/shared/nvim/init.vim;
-      home.file.".config/nvim/lua/config.lua".source = ../users/shared/nvim/lua/config.lua;
+      home.stateVersion = "24.05";
+      home.file.".config/nvim/init.lua".source = ../users/shared/nvim/init.lua;
 
       home.file.".config/fish/config.fish".source = ../users/shared/fish/config.fish;
       home.file.".config/fish/functions/fish_prompt.fish".source = ../users/shared/fish/functions/fish_prompt.fish;

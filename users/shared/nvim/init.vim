@@ -1,88 +1,76 @@
 " TODO: rewrite to lua modules
-
-if empty(glob('~/.config/nvim' . '/autoload/plug.vim'))
-  silent execute '!curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 " Plugins
-call plug#begin()
-
-" Behaviour
-Plug 'rbgrouleff/bclose.vim'
-Plug 'tpope/vim-surround'
-Plug 'alvan/vim-closetag'
-Plug 'tpope/vim-endwise'
-Plug 'janko-m/vim-test'
-Plug 'airblade/vim-rooter'
-let g:rooter_silent_chdir = 1
-
-Plug 'ruanyl/vim-gh-line' " :GH
-
-Plug 'tomtom/tcomment_vim'
-let g:tcomment_maps = 0
-
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
-" Syntax
-Plug 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled=1
-
-Plug 'LnL7/vim-nix'
-Plug 'dag/vim-fish'
-
-Plug 'elixir-editors/vim-elixir'
-
-Plug 'cakebaker/scss-syntax.vim' " TODO: replace with sugarss
-Plug 'digitaltoad/vim-pug'
-
-Plug 'elzr/vim-json'
-let g:vim_json_syntax_conceal = 0
-
-Plug 'chr4/nginx.vim'
-
-Plug 'sirtaj/vim-openscad'
-
-" Navigation
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-
-" UI
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'nvim-lualine/lualine.nvim'
-
-" Color Themes
-Plug 'ksevelyar/joker.vim'
-" Plug '/c/joker.vim'
-Plug 'shaunsingh/nord.nvim'
-Plug 'folke/tokyonight.nvim'
-Plug 'rafalbromirski/vim-aurora'
-Plug 'dracula/vim'
-Plug 'whatyouhide/vim-gotham'
-Plug 'arcticicestudio/nord-vim'
-Plug 'cocopon/iceberg.vim'
-
-Plug 'luochen1990/rainbow'
-Plug 'tpope/vim-scriptease'
-
-" IDE
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-
-" For vsnip users.
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
-
-Plug 'neovim/nvim-lspconfig'
-
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-call plug#end()
+" call plug#begin()
+"
+" " Behaviour
+" Plug 'rbgrouleff/bclose.vim'
+" Plug 'tpope/vim-surround'
+" Plug 'alvan/vim-closetag'
+" Plug 'tpope/vim-endwise'
+" Plug 'janko-m/vim-test'
+" Plug 'airblade/vim-rooter'
+" let g:rooter_silent_chdir = 1
+"
+" Plug 'ruanyl/vim-gh-line' " :GH
+"
+" Plug 'tomtom/tcomment_vim'
+" let g:tcomment_maps = 0
+"
+" Plug 'tpope/vim-fugitive'
+" Plug 'airblade/vim-gitgutter'
+"
+" " Syntax
+" Plug 'plasticboy/vim-markdown'
+" let g:vim_markdown_folding_disabled=1
+"
+" Plug 'LnL7/vim-nix'
+" Plug 'dag/vim-fish'
+"
+" Plug 'elixir-editors/vim-elixir'
+"
+" Plug 'cakebaker/scss-syntax.vim' " TODO: replace with sugarss
+" Plug 'digitaltoad/vim-pug'
+"
+" Plug 'elzr/vim-json'
+" let g:vim_json_syntax_conceal = 0
+"
+" Plug 'chr4/nginx.vim'
+"
+" Plug 'sirtaj/vim-openscad'
+"
+" " Navigation
+" Plug 'kyazdani42/nvim-tree.lua'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
+"
+" " UI
+" Plug 'lukas-reineke/indent-blankline.nvim'
+" Plug 'nvim-lualine/lualine.nvim'
+"
+" " Color Themes
+" Plug 'ksevelyar/joker.vim'
+" " Plug '/c/joker.vim'
+" Plug 'shmerl/neogotham'
+"
+" Plug 'luochen1990/rainbow'
+" Plug 'tpope/vim-scriptease'
+"
+" " IDE
+" Plug 'hrsh7th/cmp-nvim-lsp'
+" Plug 'hrsh7th/cmp-buffer'
+" Plug 'hrsh7th/cmp-path'
+" Plug 'hrsh7th/cmp-cmdline'
+" Plug 'hrsh7th/nvim-cmp'
+"
+" " For vsnip users.
+" Plug 'hrsh7th/cmp-vsnip'
+" Plug 'hrsh7th/vim-vsnip'
+"
+" Plug 'neovim/nvim-lspconfig'
+"
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+"
+" call plug#end()
 
 lua require('config')
 
@@ -129,7 +117,7 @@ if (has("termguicolors"))
 endif
 
 " :Colors to change theme
-silent! colorscheme joker
+" silent! colorscheme joker
 
 " Tree view for netrw
 let g:netrw_liststyle = 3
@@ -203,8 +191,6 @@ set so=2 " Set 2 lines to the cursor - when moving vertically using j/k
 " -------------------------------------------------------------------------------------------------
 " Key Mappings
 " -------------------------------------------------------------------------------------------------
-let g:mapleader = " "
-
 nnoremap <C-J> <C-W><C-J> " navigate down
 nnoremap <C-K> <C-W><C-K> " navigate up
 nnoremap <C-L> <C-W><C-L> " navigate right

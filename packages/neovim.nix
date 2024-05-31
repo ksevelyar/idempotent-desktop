@@ -2,16 +2,8 @@
   pkgs,
   ...
 }: {
-  programs.neovim = {
-    enable = true;
-    withRuby = false;
-    withPython3 = false;
-    configure = {
-      customRC = builtins.readFile ../users/shared/nvim/init.vim;
-    };
-  };
-
   environment.systemPackages = with pkgs; [
+    neovim
     # nix
     nil
     alejandra

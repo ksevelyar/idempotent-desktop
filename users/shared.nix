@@ -55,7 +55,7 @@
   home-manager = {
     useGlobalPkgs = true;
     users.${user} = {
-      home.stateVersion = "23.11";
+      home.stateVersion = "24.05";
 
       home.pointerCursor = lib.mkDefault {
         x11.enable = true;
@@ -97,8 +97,7 @@
 
       home.file.".npmrc".source = ../users/shared/.npmrc;
 
-      home.file.".config/nvim/init.vim".source = ../users/shared/nvim/init.vim;
-      home.file.".config/nvim/lua/config.lua".source = ../users/shared/nvim/lua/config.lua;
+      home.file.".config/nvim/init.lua".source = ../users/shared/nvim/init.lua;
 
       home.file.".config/fish/config.fish".source = ../users/shared/fish/config.fish;
       home.file.".config/fish/functions/fish_prompt.fish".source = ../users/shared/fish/functions/fish_prompt.fish;
