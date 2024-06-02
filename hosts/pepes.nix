@@ -59,6 +59,7 @@
     obsidian
     mattermost
     asciinema
+    gnumake
   ];
 
   networking.hostName = "pepes";
