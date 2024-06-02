@@ -63,6 +63,7 @@ vim.keymap.set('n', '<leader>t', ":NvimTreeToggle<cr>")
 vim.keymap.set('n', '<leader>f', ":NvimTreeFindFile<cr>")
 
 vim.keymap.set('n', '<leader>c', ':normal gcc<CR>', { desc = 'Toggle comment line' })
+vim.keymap.set('v', '<leader>c', '<Esc>:normal gvgc<CR>', { desc = 'Toggle comment block' })
 
 require("lazy").setup({
   "airblade/vim-rooter",
@@ -221,7 +222,14 @@ lspconfig.tsserver.setup {
 
 lspconfig.nil_ls.setup {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
+  settings = {
+    ['nil'] = {
+      formatting = {
+        command = { "alejandra" }
+      }
+    }
+  }
 }
 
 lspconfig.eslint.setup {
