@@ -5,7 +5,6 @@ args @ {
   ...
 }: {
   imports = [
-    ../users/ksevelyar.nix
     ../users/kh.nix
     ../users/root.nix
 
@@ -71,10 +70,7 @@ args @ {
 
   home-manager.users.kh = {
     home.file.".config/polybar/config".source = lib.mkForce ../users/kh/polybar/polybar-catch22;
-    home.file.".config/leftwm/config.toml".source = ../users/kh/leftwm/config-catch22.toml;
-
-    # home.file.".config/alacritty/alacritty.toml".source = ../users/kh/alacritty/alacritty-catch22.toml;
-    # home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/kh/alacritty/alacritty-scratchpad-catch22.toml;
+    home.file.".config/leftwm/config.ron".source = ../users/kh/catch-22/leftwm.ron;
   };
 
   boot.initrd.luks.devices = {
