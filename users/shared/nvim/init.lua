@@ -1,5 +1,46 @@
 -- https://neovim.io/doc/user/lua-guide.html#lua-guide
 
+local root_names = { '.git', '.envrc' }
+
+-- Cache to use for speed up (at cost of possibly outdated results)
+local root_cache = {}
+
+local set_root = function()
+  -- Get directory path to start search from
+  local path = vim.api.nvim_buf_get_name(0)
+  if path == '' then return end
+  path = vim.fs.dirname(path)
+
+  -- Try cache and resort to searching upward for root directory
+  local root = root_cache[path]
+  if root == nil then
+    local root_file = vim.fs.find(root_names, { path = path, upward = true })[1]
+    if root_file == nil then return end
+    root = vim.fs.dirname(root_file)
+    root_cache[path] = root
+  end
+
+  -- Set current directory
+  vim.fn.chdir(root)
+  vim.cmd('DirenvExport')
+end
+
+local root_augroup = vim.api.nvim_create_augroup('MyAutoRoot', {})
+vim.api.nvim_create_autocmd('BufEnter', { group = root_augroup, callback = set_root })
+
+-- Function to go to the last known cursor position
+local function goto_last_position()
+  if vim.fn.line("'\"") >= 1 and vim.fn.line("'\"") <= vim.fn.line("$") and not vim.bo.filetype:match('commit') then
+    vim.cmd('normal! g`"')
+  end
+end
+
+-- Set an autocommand to go to the last known cursor position on BufReadPost event
+vim.api.nvim_create_autocmd('BufReadPost', {
+  callback = goto_last_position
+})
+
+
 -- deps
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -13,6 +54,14 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  desc = "Disable automatic comment insertion",
+  group = vim.api.nvim_create_augroup("AutoComment", {}),
+  callback = function()
+    vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+  end,
+})
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
@@ -66,19 +115,12 @@ vim.keymap.set('n', '<leader>c', ':normal gcc<CR>', { desc = 'Toggle comment lin
 vim.keymap.set('v', '<leader>c', '<Esc>:normal gvgc<CR>', { desc = 'Toggle comment block' })
 
 require("lazy").setup({
-  "airblade/vim-rooter",
   "tpope/vim-fugitive",
   {
     "lewis6991/gitsigns.nvim",
     config = function()
       require("gitsigns").setup()
     end
-  },
-  {
-    'ethanholz/nvim-lastplace',
-    config = function()
-      require('nvim-lastplace').setup {}
-    end,
   },
   "sirtaj/vim-openscad",
   "nvim-tree/nvim-tree.lua",
@@ -88,6 +130,24 @@ require("lazy").setup({
   },
   "lukas-reineke/indent-blankline.nvim",
   "nvim-lualine/lualine.nvim",
+  -- direnv
+  {
+    "direnv/direnv.vim",
+    init = function()
+      vim.g.direnv_silent_load = true
+
+      local group = vim.api.nvim_create_augroup("DirenvLoaded", { clear = true })
+      vim.api.nvim_create_autocmd({ "User" }, {
+        group = group,
+        pattern = "DirenvLoaded",
+        callback = function()
+          if vim.cmd.LspRestart ~= nil then
+            vim.cmd.LspStart()
+          end
+        end
+      })
+    end
+  },
   -- lsp
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-buffer",
@@ -135,12 +195,8 @@ require("lazy").setup({
     config = function()
       vim.cmd.colorscheme("joker")
     end
-  },
-  {
-    "rebelot/kanagawa.nvim",
   }
 })
-
 -- # LSP
 local lspconfig = require('lspconfig')
 
@@ -204,11 +260,13 @@ local on_attach = function(_, bufnr)
 end
 
 lspconfig.rust_analyzer.setup {
+  autostart = { false },
   on_attach = on_attach,
   capabilities = capabilities
 }
 
 lspconfig.elixirls.setup {
+  autostart = { false },
   on_attach = on_attach,
   cmd = { "elixir-ls" },
   capabilities = capabilities
