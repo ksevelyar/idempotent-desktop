@@ -1,28 +1,27 @@
 -- https://neovim.io/doc/user/lua-guide.html#lua-guide
 
 local root_names = { '.git', '.envrc' }
-
--- Cache to use for speed up (at cost of possibly outdated results)
 local root_cache = {}
 
-local set_root = function()
-  -- Get directory path to start search from
+local function get_buffer_path()
   local path = vim.api.nvim_buf_get_name(0)
-  if path == '' then return end
-  path = vim.fs.dirname(path)
+  return path ~= '' and vim.fs.dirname(path) or nil
+end
 
-  -- Try cache and resort to searching upward for root directory
-  local root = root_cache[path]
-  if root == nil then
-    local root_file = vim.fs.find(root_names, { path = path, upward = true })[1]
-    if root_file == nil then return end
-    root = vim.fs.dirname(root_file)
+local function find_root_directory(path)
+  return vim.fs.find(root_names, { path = path, upward = true })[1]
+end
+
+local function set_root()
+  local path = get_buffer_path()
+  if not path then return end
+
+  local root = root_cache[path] or vim.fs.dirname(find_root_directory(path))
+  if root then
     root_cache[path] = root
+    vim.fn.chdir(root)
+    vim.cmd('DirenvExport')
   end
-
-  -- Set current directory
-  vim.fn.chdir(root)
-  vim.cmd('DirenvExport')
 end
 
 local root_augroup = vim.api.nvim_create_augroup('MyAutoRoot', {})
@@ -39,7 +38,6 @@ end
 vim.api.nvim_create_autocmd('BufReadPost', {
   callback = goto_last_position
 })
-
 
 -- deps
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -84,7 +82,7 @@ vim.opt.expandtab = true
 
 -- delays
 vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 400
 
 -- search
 vim.opt.ignorecase = true
@@ -115,6 +113,13 @@ vim.keymap.set('n', '<leader>c', ':normal gcc<CR>', { desc = 'Toggle comment lin
 vim.keymap.set('v', '<leader>c', '<Esc>:normal gvgc<CR>', { desc = 'Toggle comment block' })
 
 require("lazy").setup({
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      vim.opt.termguicolors = true
+      require 'colorizer'.setup()
+    end,
+  },
   "tpope/vim-fugitive",
   {
     "lewis6991/gitsigns.nvim",
@@ -148,15 +153,23 @@ require("lazy").setup({
       })
     end
   },
+  {
+    "ggandor/leap.nvim",
+    config = function() require("leap").create_default_mappings() end,
+  },
   -- lsp
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-buffer",
-  "hrsh7th/cmp-path",
-  "hrsh7th/cmp-cmdline",
-  "hrsh7th/nvim-cmp",
-  "hrsh7th/cmp-vsnip",
-  "hrsh7th/vim-vsnip",
   "neovim/nvim-lspconfig",
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-vsnip",
+      "hrsh7th/vim-vsnip",
+    }
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -177,9 +190,7 @@ require("lazy").setup({
         "nix"
       },
       auto_install = true,
-      highlight = {
-        enable = true
-      },
+      highlight = { enable = true },
       indent = { enable = true }
     },
     config = function(_, opts)
@@ -190,12 +201,14 @@ require("lazy").setup({
   -- themes
   {
     "ksevelyar/joker.vim",
-    lazy = false,    -- to make sure it's loaded on startup
-    priority = 1000, -- to load before other plugins
+    -- dir = "~/code/joker.vim",
+    lazy = false,
+    priority = 1000,
     config = function()
       vim.cmd.colorscheme("joker")
-    end
-  }
+    end,
+  },
+  "rebelot/kanagawa.nvim"
 })
 -- # LSP
 local lspconfig = require('lspconfig')
@@ -205,27 +218,16 @@ vim.opt.completeopt = { 'menu', 'menuone', 'noselect' } -- cmp integration
 local cmp = require 'cmp'
 cmp.setup({
   snippet = {
-    -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      vim.fn["vsnip#anonymous"](args.body)
     end
   },
   mapping = {
-    ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-      { 'i' }),
-    ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-      { 'i' }),
-    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<C-e>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
-    ['<CR>'] = cmp.mapping.confirm({ select = true })
+    ['<Down>'] = cmp.mapping.select_next_item(),
+    ['<Up>'] = cmp.mapping.select_prev_item(),
+    ['<CR>'] = cmp.mapping.confirm()
   },
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'vsnip' }
-  }, {
-    { name = 'buffer' } })
+  sources = cmp.config.sources({ { name = 'nvim_lsp' }, { name = 'vsnip' } }, { { name = 'buffer' } })
 })
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
@@ -247,12 +249,10 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufsilent)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufsilent)
   vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufsilent)
-  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufsilent)
-  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufsilent)
+  vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, bufsilent)
+  vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, bufsilent)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufsilent)
-  vim.keymap.set('n', '<space>=', function()
-    vim.lsp.buf.format { async = true }
-  end, silent)
+  vim.keymap.set('n', '<space>=', function() vim.lsp.buf.format { async = true } end, bufsilent)
 
   vim.keymap.set('n', '<leader>h', function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
