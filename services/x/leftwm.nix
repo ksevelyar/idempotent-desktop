@@ -14,7 +14,6 @@
   ];
 
   console.useXkbConfig = true;
-  services.xserver.gdk-pixbuf.modulePackages = [pkgs.librsvg];
 
   services.xserver = {
     windowManager.leftwm.enable = true;
