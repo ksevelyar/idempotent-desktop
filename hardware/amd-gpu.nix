@@ -4,6 +4,5 @@
   services.xserver.videoDrivers = ["amdgpu"];
 
   hardware.enableRedistributableFirmware = true;
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport = true;
+  hardware.graphics.enable = true;
 }
