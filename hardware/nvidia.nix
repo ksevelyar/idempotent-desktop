@@ -12,4 +12,7 @@
   };
 
   services.xserver.videoDriver = "nvidia";
+  services.picom = {
+    backend = "xrender";
+  };
 }
