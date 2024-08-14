@@ -13,7 +13,7 @@ args @ {
     ../hardware/bluetooth.nix
     ../hardware/intel-cpu.nix
     ../hardware/nvidia.nix
-    ../hardware/pulseaudio.nix
+    ../hardware/pipewire.nix
     ../hardware/ssd.nix
 
     # ../sys/debug.nix
@@ -71,6 +71,8 @@ args @ {
   home-manager.users.kh = {
     home.file.".config/polybar/config".source = lib.mkForce ../users/kh/polybar/polybar-catch22;
     home.file.".config/leftwm/config.ron".source = ../users/kh/catch-22/leftwm.ron;
+    home.file.".config/alacritty/alacritty.toml".source = ../users/kh/catch-22/alacritty.toml;
+    home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/kh/catch-22/alacritty-scratchpad.toml;
   };
 
   boot.initrd.luks.devices = {
