@@ -1,0 +1,47 @@
+[colors]
+draw_bold_text_with_bright_colors = false
+
+[colors.cursor]
+cursor = "#ffce50"
+text = "#44475a"
+
+[colors.normal]
+black = "#9A9A9A"
+blue = "#bd93f9"
+cyan = "#8be9fd"
+green = "#54c6b5"
+magenta = "#ff79c6"
+red = "#ff5555"
+white = "#bfbfbf"
+yellow = "#d5aa2a"
+
+[colors.primary]
+background = "#1b161f"
+foreground = "#f8f8f2"
+
+[cursor]
+style = "Underline"
+
+[font]
+size = 16.0
+
+[font.bold]
+style = "Bold"
+
+[font.bold_italic]
+style = "Bold"
+
+[font.italic]
+style = "Regular"
+
+[font.normal]
+family = "Iosevka Nerd Font"
+style = "Regular"
+
+[window]
+dynamic_title = true
+opacity = 0.94
+
+[window.padding]
+x = 10
+y = 10

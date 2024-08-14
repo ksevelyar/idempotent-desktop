@@ -20,8 +20,6 @@
     notify-send -h string:synchronous:volume "$(pamixer --get-volume-human)" -t 1000
   '';
 in {
-  sound.enable = true;
-
   hardware = {
     # pa-info to debug
     # pacmd list-sinks | grep -e 'name:' -e 'index:'

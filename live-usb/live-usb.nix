@@ -26,7 +26,7 @@ args @ {
 
     ../hardware/broadcom-wifi.nix
     ../hardware/bluetooth.nix
-    ../hardware/pulseaudio.nix
+    ../hardware/pipewire.nix
 
     ../services/x.nix
     ../services/x/picom.nix
