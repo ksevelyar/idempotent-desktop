@@ -15,6 +15,9 @@
     mangohud
     gamemode
 
+    wine
+    lutris
+
     # gamepads
     ## jstest /dev/input/js0
     linuxConsoleTools

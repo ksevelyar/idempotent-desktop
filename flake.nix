@@ -8,12 +8,18 @@
       url = "github:rycee/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    flake-programs-sqlite = {
+      url = "github:wamserma/flake-programs-sqlite";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     home-manager,
     nixpkgs,
+    flake-programs-sqlite
   }: let
     pkgs = (import nixpkgs) {
       system = "x86_64-linux";
@@ -36,6 +42,7 @@
         modules = [
           nixpkgs.nixosModules.notDetected
           home-manager.nixosModules.home-manager
+          flake-programs-sqlite.nixosModules.programs-sqlite
           (import (./hosts + "/${host}.nix"))
         ];
       };
