@@ -10,7 +10,7 @@ args @ {
   ...
 }: {
   imports = [
-    ../users/ksevelyar.nix
+    ../users/ksevelyar-wayland.nix
     ../users/root.nix
 
     ../hardware/efi.nix
@@ -45,10 +45,10 @@ args @ {
     ../services/journald.nix
     ../services/databases/postgresql.nix
     ../services/databases/redis.nix
-    ../services/x.nix
-    ../services/x/picom.nix
-    ../services/x/redshift.nix
-    ../services/x/unclutter.nix
+    # ../services/x.nix
+    # ../services/x/picom.nix
+    # ../services/x/redshift.nix
+    # ../services/x/unclutter.nix
 
     ../services/net/firewall-desktop.nix
     ../services/net/openvpn.nix
