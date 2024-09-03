@@ -4,13 +4,13 @@
 sudo su
 ```
 
-## [Create partitions](https://nixos.org/manual/nixos/stable/index.html#sec-installation-partitioning-UEFI) 
+## [Create partitions](https://nixos.org/manual/nixos/stable/index.html#sec-installation-partitioning-UEFI)
 
 ```
 parted /dev/nvme0n1 -- mklabel gpt
-parted /dev/nvme0n1 -- mkpart primary 512MiB 100%
-parted /dev/nvme0n1 -- mkpart ESP fat32 1MiB 512MiB
-parted /dev/nvme0n1 -- set 2 esp on
+parted /dev/nvme0n1 -- mkpart ESP fat32 0% 1024MiB
+parted /dev/nvme0n1 -- mkpart primary ext4 1024MiB 100%
+parted /dev/nvme0n1 -- set 1 esp on
 ```
 
 ## Wipe partition for the future /
@@ -20,8 +20,8 @@ lsblk -f
 ```
 
 ```
-dd if=/dev/zero    of=/dev/nvme0n1p2 status=progress
-dd if=/dev/urandom of=/dev/nvme0n1p2 status=progress
+dd if=/dev/zero of=/dev/nvme0n1p2 bs=4M status=progress
+dd if=/dev/urandom of=/dev/nvme0n1p2 bs=4M status=progress
 ```
 
 ## Create LUKS2 container
@@ -38,6 +38,7 @@ cryptsetup luksOpen /dev/nvme0n1p2 nixos
 mkfs.ext4 -L nixos /dev/mapper/nixos
 mount /dev/mapper/nixos /mnt
 
+mkfs.vfat -F 32 -n boot /dev/sda1
 mkdir -p /mnt/boot
 mount /dev/disk/by-label/boot /mnt/boot
 ```
