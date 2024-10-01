@@ -273,7 +273,7 @@ lspconfig.elixirls.setup {
 }
 
 -- npm install -g typescript typescript-language-server
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
