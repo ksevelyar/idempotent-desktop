@@ -53,4 +53,6 @@ args @ {
   services.xserver = {
     videoDrivers = ["nvidia" "nouveau" "amdgpu" "vesa" "modesetting"];
   };
+
+  hardware.nvidia.open = false;
 }

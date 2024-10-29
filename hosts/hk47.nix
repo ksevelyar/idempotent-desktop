@@ -35,12 +35,11 @@ args @ {
     ../packages/x-common.nix
     ../packages/2d-graphics.nix
     ../packages/3d-print.nix
-    ../packages/electronics.nix
     ../packages/games.nix
     ../packages/neovim.nix
     ../packages/pass.nix
     ../packages/tmux.nix
-    ../packages/office.nix
+    ../packages/spotify.nix
 
     ../services/journald.nix
     ../services/databases/postgresql.nix
@@ -53,11 +52,13 @@ args @ {
     ../services/net/firewall-desktop.nix
     ../services/net/openvpn.nix
     ../services/vpn.nix
+    # ../services/vpn/sing-box.nix
     ../services/net/sshd.nix
     ../services/net/wireguard.nix
     ../services/net/avahi.nix
 
     ../services/vm/docker.nix
+    ../services/vm/hypervisor.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -80,7 +81,7 @@ args @ {
     syncthing = {
       enable = true;
       user = "ksevelyar";
-      dataDir = "/home/ksevelyar/syncthing"; # Default folder for new synced folders
+      dataDir = "/home/ksevelyar/syncthing";
       configDir = "/home/ksevelyar/.config/syncthing";
     };
   };
