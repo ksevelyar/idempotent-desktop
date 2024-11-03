@@ -5,8 +5,6 @@
 }: {
   services.getty.greetingLine = lib.mkForce ''\l'';
   services.getty.helpLine = lib.mkForce ''
-    Type `i' to print system information.
-
     .     .       .  .   . .   .   . .    +  .
       .     .  :     .    .. :. .___---------___.
            .  .   .    .  :.:. _".^ .^ ^.  '.. :"-_. .
