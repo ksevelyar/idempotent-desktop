@@ -9,8 +9,7 @@
     pgrep = "pgrep --full";
     pkill = "pkill --full";
     i = "host-info";
-    cat = "bat --paging=never --plain";
-    bat = "bat --paging=never -n";
+    cat = "bat --style plain --pager never";
 
     # learn
     tr = "trans"; # https://github.com/soimort/translate-shell
