@@ -112,6 +112,7 @@
     # ls -t ~/wallpapers/* | imv
     imv
     nomacs
+    qview
     ueberzugpp
 
     # xray
