@@ -7,6 +7,7 @@ args @ {
   config,
   lib,
   pkgs,
+  agenix,
   ...
 }: {
   imports = [
@@ -58,12 +59,16 @@ args @ {
     ../services/net/avahi.nix
 
     ../services/vm/docker.nix
-    ../services/vm/hypervisor.nix
+    # ../services/vm/hypervisor.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    termusic
-  ];
+  age.secrets.idempotent-desktop.file = ../secrets/idempotent-desktop.age;
+  age.secrets.ksevelyar = {
+    file = ../secrets/ksevelyar.age;
+    owner = "ksevelyar";
+  };
+
+  services.xserver.dpi = 100;
 
   home-manager.users.ksevelyar = {
     home.file.".config/leftwm/themes/current/up".source = ../users/ksevelyar/hk47/leftwm/up;

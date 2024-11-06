@@ -13,13 +13,20 @@
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.agenix.inputs.darwin.follows = "";
+    };
   };
 
   outputs = {
     self,
     home-manager,
     nixpkgs,
-    flake-programs-sqlite
+    flake-programs-sqlite,
+    agenix,
   }: let
     pkgs = (import nixpkgs) {
       system = "x86_64-linux";
@@ -43,6 +50,8 @@
           nixpkgs.nixosModules.notDetected
           home-manager.nixosModules.home-manager
           flake-programs-sqlite.nixosModules.programs-sqlite
+          agenix.nixosModules.default
+
           (import (./hosts + "/${host}.nix"))
         ];
       };
