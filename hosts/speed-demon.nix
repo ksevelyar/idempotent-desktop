@@ -52,9 +52,9 @@ args @ {
     ../services/vm/docker.nix
   ];
 
+  programs.java = { enable = true; package = pkgs.jdk17; };
   environment.systemPackages = with pkgs; [
     jetbrains.idea-community
-    jdk17
   ];
 
   home-manager.users.kavarkon = {
