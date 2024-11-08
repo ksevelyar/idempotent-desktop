@@ -19,7 +19,7 @@ args @ {
     ../hardware/ssd.nix
     (import ../hardware/power-management.nix {
       pkgs = pkgs;
-      battery = "BAT1";
+      battery = "BAT0";
     })
 
     ../sys/aliases.nix
@@ -59,16 +59,23 @@ args @ {
 
   networking.hostName = "baton";
   networking.useDHCP = false;
-  # FIXME
-  networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
+  networking.interfaces.wlp1s0.useDHCP = lib.mkDefault true;
   networking.networkmanager.enable = true;
 
-  # home-manager.users.kavarkon = {
-  #   home.file.".config/leftwm/config.ron".source = ../users/kavarkon/laundry/leftwm.ron;
-  #   home.file.".config/polybar/config.ini".source = ../users/kavarkon/laundry/polybar.ini;
-  #   home.file.".config/alacritty/alacritty.toml".source = ../users/kavarkon/laundry/alacritty.toml;
-  #   home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/kavarkon/laundry/alacritty-scratchpad.toml;
-  # };
+  # networking.proxy.default = "127.0.0.1:2080";
+
+  home-manager.users.kavarkon = {
+    # home.file.".config/leftwm/config.ron".source = ../users/kavarkon/baton/leftwm.ron;
+    home.file.".config/polybar/config.ini".source = ../users/kavarkon/baton/polybar.ini;
+    #   home.file.".config/alacritty/alacritty.toml".source = ../users/kavarkon/baton/alacritty.toml;
+    #   home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/kavarkon/baton/alacritty-scratchpad.toml;
+  };
+
+  programs.java = { enable = true; package = pkgs.jdk17; };
+  environment.systemPackages = with pkgs; [
+    jetbrains.idea-community
+    gradle
+  ];
 
   services = {
     syncthing = {
@@ -82,7 +89,7 @@ args @ {
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
   boot.loader.grub.configurationLimit = 3;
-  boot.initrd.availableKernelModules = ["xhci_pci" "nvme" "usb_storage" "sd_mod"];
+  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "sd_mod"];
   boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;
