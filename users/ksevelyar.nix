@@ -36,6 +36,6 @@ in {
   };
 
   networking.extraHosts = ''
-    127.0.0.1 dev.lcl habits.lcl market.lcl
+    127.0.0.1 dev.lcl habits.lcl market.lcl buzz.lcl
   '';
 }

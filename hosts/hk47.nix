@@ -46,14 +46,14 @@ args @ {
     ../services/databases/postgresql.nix
     ../services/databases/redis.nix
     ../services/x.nix
-    ../services/x/picom.nix
+    # ../services/x/picom.nix
     ../services/x/redshift.nix
     ../services/x/unclutter.nix
 
     ../services/net/firewall-desktop.nix
     ../services/net/openvpn.nix
     ../services/vpn.nix
-    # ../services/vpn/sing-box.nix
+    # ../services/net/sing-box.nix
     ../services/net/sshd.nix
     ../services/net/wireguard.nix
     ../services/net/avahi.nix
@@ -61,12 +61,6 @@ args @ {
     ../services/vm/docker.nix
     # ../services/vm/hypervisor.nix
   ];
-
-  age.secrets.idempotent-desktop.file = ../secrets/idempotent-desktop.age;
-  age.secrets.ksevelyar = {
-    file = ../secrets/ksevelyar.age;
-    owner = "ksevelyar";
-  };
 
   services.xserver.dpi = 100;
 
@@ -91,9 +85,12 @@ args @ {
     };
   };
 
-  # microbit v2
   services.udev.extraRules = ''
-    SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", ATTR{idProduct}=="0204", MODE:="666"
+    # microbit v2
+    ATTR{idVendor}=="0d28", ATTR{idProduct}=="0204", MODE="660", GROUP="dialout"
+
+    # STMicroelectronics ST-LINK/V2
+    ATTR{idVendor}=="0483", ATTR{idProduct}=="3748", MODE="660", GROUP="dialout"
   '';
 
   services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;

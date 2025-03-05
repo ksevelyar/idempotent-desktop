@@ -208,7 +208,7 @@ require("lazy").setup({
       vim.cmd.colorscheme("joker")
     end,
   },
-  "rebelot/kanagawa.nvim"
+  "nyoom-engineering/oxocarbon.nvim"
 })
 -- # LSP
 local lspconfig = require('lspconfig')
