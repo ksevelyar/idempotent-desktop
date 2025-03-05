@@ -10,11 +10,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1723293904,
-        "narHash": "sha256-b+uqzj+Wa6xgMS9aNbX4I+sXeb5biPDi39VgvSFqFvU=",
+        "lastModified": 1736955230,
+        "narHash": "sha256-uenf8fv2eG5bKM8C/UvFaiJMZ4IpUFaQxk9OH5t/1gA=",
         "owner": "ryantm",
         "repo": "agenix",
-        "rev": "f6291c5935fdc4e0bef208cfc0dcab7e3f7a1c41",
+        "rev": "e600439ec4c273cf11e06fe4d9d906fb98fa097c",
         "type": "github"
       },
       "original": {
@@ -53,11 +53,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1730256149,
-        "narHash": "sha256-UT57wRSvXfUwLFZFE7hPaCgukr4dFDPooXxpqfWWvlE=",
+        "lastModified": 1741246973,
+        "narHash": "sha256-Aad1QZzEQTKz+ATuyv0SxE52Fc7M/NhSTuujE0Ze9ik=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "2562e0954b51413ce562011a97db997ad5d61484",
+        "rev": "b1ed79e412332c174fcf07a1113b502f77473517",
         "type": "github"
       },
       "original": {
@@ -94,11 +94,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1730016908,
-        "narHash": "sha256-bFCxJco7d8IgmjfNExNz9knP8wvwbXU4s/d53KOK6U0=",
+        "lastModified": 1741217763,
+        "narHash": "sha256-g/TrltIjFHIjtzKY5CJpoPANfHQWDD43G5U1a/v5oVg=",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "e83414058edd339148dc142a8437edb9450574c8",
+        "rev": "486b066025dccd8af7fbe5dd2cc79e46b88c80da",
         "type": "github"
       },
       "original": {
@@ -110,17 +110,18 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1729880355,
-        "narHash": "sha256-RP+OQ6koQQLX5nw0NmcDrzvGL8HDLnyXt/jHhL1jwjM=",
-        "owner": "NixOS",
+        "lastModified": 1739550635,
+        "narHash": "sha256-FGtPE8CKX4+wsiGKm3xpjPXEQ/r5eI3v9ewNbcwT+XU=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "18536bf04cd71abd345f9579158841376fdd0c5a",
+        "rev": "b58df7fc9d5f02c269091f2b0b81a6e06fc859bb",
         "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
-        "ref": "nixos-unstable",
-        "type": "indirect"
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "b58df7fc9d5f02c269091f2b0b81a6e06fc859bb",
+        "type": "github"
       }
     },
     "root": {

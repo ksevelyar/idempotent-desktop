@@ -20,8 +20,10 @@
       source-sans-pro
       roboto
       cozette
-      # https://github.com/NixOS/nixpkgs/blob/master/pkgs/data/fonts/nerdfonts/shas.nix
-      (nerdfonts.override {fonts = ["Iosevka" "IBMPlexMono"];})
+      # https://search.nixos.org/packages?channel=unstable&query=nerdfonts+iosevka
+      nerd-fonts.iosevka
+      nerd-fonts.blex-mono
+      nerd-fonts.caskaydia-mono
 
       siji # https://github.com/stark/siji
       ipafont # display jap symbols like シートベルツ in polybar

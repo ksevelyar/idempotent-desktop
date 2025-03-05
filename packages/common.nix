@@ -34,6 +34,7 @@
     tealdeer # aliased to h
     translate-shell
     woeusb # write win10.iso to usb drive
+    procs
 
     # net
     nmap
