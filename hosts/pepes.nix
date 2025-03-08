@@ -14,7 +14,7 @@
     ../hardware/mouse.nix
     ../hardware/amd-gpu.nix
     ../hardware/amd-cpu.nix
-    ../hardware/pulseaudio.nix
+    ../hardware/pipewire.nix
     ../hardware/ssd.nix
     (import ../hardware/power-management.nix {
       pkgs = pkgs;

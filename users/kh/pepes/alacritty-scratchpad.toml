@@ -23,7 +23,7 @@ foreground = "#f8f8f2"
 style = "Underline"
 
 [font]
-size = 16.0
+size = 12.0
 
 [font.bold]
 style = "Bold"
@@ -35,7 +35,7 @@ style = "Bold"
 style = "Regular"
 
 [font.normal]
-family = "Iosevka Nerd Font"
+family = "Source Code Pro"
 style = "Regular"
 
 [window]
