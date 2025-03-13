@@ -38,14 +38,13 @@ args @ {
     ../packages/games.nix
     ../packages/neovim.nix
     ../packages/pass.nix
-    ../packages/tmux.nix
-    ../packages/office.nix
 
     ../services/journald.nix
     ../services/databases/postgresql.nix
     ../services/databases/redis.nix
     ../services/x.nix
     ../services/x/redshift.nix
+    ../services/x/picom.nix
     ../services/x/unclutter.nix
 
     ../services/net/firewall-desktop.nix
@@ -83,11 +82,7 @@ args @ {
     qsynth
     qjackctl
   ];
-
-  # microbit v2
-  services.udev.extraRules = ''
-    SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", ATTR{idProduct}=="0204", MODE:="666"
-  '';
+  services.xserver.dpi = 130;
 
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";

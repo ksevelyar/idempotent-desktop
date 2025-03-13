@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  services.xserver.videoDrivers = ["intel"];
+  services.xserver.videoDrivers = ["modesetting"];
 
   hardware.enableRedistributableFirmware = true;
   hardware.graphics.enable = true;
