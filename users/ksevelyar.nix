@@ -17,11 +17,6 @@ in {
           name = name;
         }))
       (import ../services/mpd.nix (args // {user = user;}))
-      (import ../services/mpd/mpdscribble.nix (args
-        // {
-          user = user;
-          listenbrainz_user = user;
-        }))
     ]
     ++ [
       (lib.mkIf (config.services.xserver.enable) (import ../services/x/polybar.nix (args // {user = user;})))

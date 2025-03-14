@@ -34,12 +34,12 @@ args @ {
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
     ../packages/x-common.nix
-    ../packages/2d-graphics.nix
+    # ../packages/2d-graphics.nix
     ../packages/3d-print.nix
     ../packages/games.nix
     ../packages/neovim.nix
     ../packages/pass.nix
-    ../packages/tmux.nix
+    # ../packages/tmux.nix
     ../packages/spotify.nix
 
     ../services/journald.nix

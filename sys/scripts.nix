@@ -42,10 +42,20 @@
         tmux new -A -s $1
     fi
   '';
+
+  collect-garbage = pkgs.writeScriptBin "collect-garbage" ''
+    #!${pkgs.stdenv.shell}
+    set -e
+
+    rm -rf ~/.local/state/nix/profiles/
+
+    sudo nix-collect-garbage --delete-older-than 3d
+  '';
 in {
   environment.systemPackages = [
     build-live-iso
     host-info
+    collect-garbage
     tm
   ];
 }

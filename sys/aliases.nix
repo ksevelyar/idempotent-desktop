@@ -39,7 +39,6 @@
     b = "sudo nixos-rebuild switch";
     search = "nix search nixpkgs";
     wipe-user-packages = "nix-env -e '*'";
-    nix-gc = "sudo nix-collect-garbage --delete-older-than 30d";
     inspect-store = "nix path-info -rSh /run/current-system | sort -k2h ";
     cachix-push = "sudo nix-store -qR --include-outputs /run/current-system | cachix push idempotent-desktop ";
 

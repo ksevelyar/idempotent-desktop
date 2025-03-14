@@ -12,7 +12,7 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 * [Terminus](http://terminus-font.sourceforge.net/shots.html) and [NerdFonts](/sys/fonts.nix)
 * [Brutal Doom](https://github.com/ksevelyar/brutal-doom), [Quake](https://github.com/ksevelyar/quake), [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
 * [battery optimisation](/hardware/power-management.nix) for laptops
-* [picard][picard], [mpd](/services/mpd.nix), [ncmpcpp][ncmpcpp], [mpdscribble](https://listenbrainz.org/user/ksevelyar/)
+* [picard][picard], [mpd](/services/mpd.nix), [ncmpcpp][ncmpcpp],
 * [mpv](/users/shared/mpv), [imv][imv]
 * [live-usb](/live-usb/live-usb.nix)
 * [tealdeer](https://github.com/dbrgn/tealdeer) aliased to h
