@@ -332,6 +332,12 @@ lspconfig.lua_ls.setup {
   }
 }
 
+lspconfig.openscad_lsp.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "openscad-lsp", "--stdio", "--fmt-exe", "/run/current-system/sw/bin/clang-format", "--fmt-style", "Chromium" }
+}
+
 -- # lualine
 require 'lualine'.setup {
   options = {

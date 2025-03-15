@@ -11,6 +11,9 @@
 
     # programmatic cads
     openscad
+    openscad-lsp
+    # required for openscad formatter
+    clang-tools
     # libfive
   ];
 }

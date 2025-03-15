@@ -5,6 +5,8 @@
 }: {
   system.stateVersion = "25.05";
 
+  documentation.man.generateCaches = false;
+
   nix = {
     package = pkgs.nixVersions.stable;
     settings = {

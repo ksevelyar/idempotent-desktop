@@ -34,12 +34,10 @@ args @ {
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
     ../packages/x-common.nix
-    # ../packages/2d-graphics.nix
     ../packages/3d-print.nix
     ../packages/games.nix
     ../packages/neovim.nix
     ../packages/pass.nix
-    # ../packages/tmux.nix
     ../packages/spotify.nix
 
     ../services/journald.nix
@@ -53,13 +51,15 @@ args @ {
     ../services/net/firewall-desktop.nix
     ../services/net/openvpn.nix
     ../services/vpn.nix
-    # ../services/net/sing-box.nix
     ../services/net/sshd.nix
     ../services/net/wireguard.nix
     ../services/net/avahi.nix
 
     ../services/vm/docker.nix
     # ../services/vm/hypervisor.nix
+  ];
+
+  environment.systemPackages = with pkgs; [
   ];
 
   services.xserver.dpi = 100;
