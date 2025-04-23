@@ -44,7 +44,7 @@ args @ {
     ../services/databases/postgresql.nix
     ../services/databases/redis.nix
     ../services/x.nix
-    # ../services/x/picom.nix
+    ../services/x/picom.nix
     ../services/x/redshift.nix
     ../services/x/unclutter.nix
 
@@ -60,7 +60,10 @@ args @ {
   ];
 
   environment.systemPackages = with pkgs; [
+    nemo
   ];
+
+  # programs.hyprland.enable = true;
 
   services.xserver.dpi = 100;
 
