@@ -52,7 +52,14 @@ args @ {
   environment.systemPackages = with pkgs; [
     foliate
     obsidian
+    asciinema
     gnumake
+
+    vmpk
+    qsynth
+    qjackctl
+
+    lutris
   ];
 
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
