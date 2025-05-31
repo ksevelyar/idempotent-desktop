@@ -20,7 +20,7 @@
     etc."xdg/mimeapps.list" = {
       text = ''
         [Default Applications]
-        inode/directory=spacefm.desktop
+        inode/directory=nemo.desktop
 
         x-scheme-handler/http=firefox.desktop
         x-scheme-handler/https=firefox.desktop
@@ -46,12 +46,9 @@
   };
   console.useXkbConfig = true;
 
-  programs.spacefm = {
-    enable = true;
-    settings.source = ../users/shared/spacefm/spacefm.conf;
-  };
-
   environment.systemPackages = with pkgs; [
+    nemo
+
     # net
     firefox
     google-chrome

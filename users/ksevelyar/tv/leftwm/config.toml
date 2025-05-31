@@ -9,8 +9,8 @@ height = 0.8
 width =  0.8
 
 [[scratchpad]]
-name = "spacefm"
-value = "spacefm"
+name = "nemo"
+value = "nemo"
 x = 0.1
 y = 0.1
 height = 0.8
@@ -81,7 +81,7 @@ key = "F8"
 
 [[keybind]]
 command = "ToggleScratchPad"
-value = "spacefm"
+value = "nemo"
 modifier = ["modkey"]
 key = "s"
 

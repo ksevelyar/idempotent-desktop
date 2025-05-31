@@ -104,6 +104,17 @@
       home.file.".config/fish/functions/fish_print_git_action.fish".source = ../users/shared/fish/functions/fish_print_git_action.fish;
 
       home.file.".iex.exs".source = ../users/shared/.iex.exs;
+
+      home.file.".local/share/nemo/actions/aunpack.nemo_action".text = ''
+      [Nemo Action]
+      Name=Extract here
+      Comment=Extract the selected archive(s) using aunpack
+      Exec=aunpack -X %P %F
+      Icon=package-x-generic
+      Selection=Any
+      Extensions=zip;tar;gz;bz2;7z;rar;
+      Quote=double
+      '';
     };
   };
 }

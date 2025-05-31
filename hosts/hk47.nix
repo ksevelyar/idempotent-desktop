@@ -59,10 +59,7 @@ args @ {
     # ../services/vm/hypervisor.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    nemo
-  ];
-
+  environment.systemPackages = with pkgs; [];
   # programs.hyprland.enable = true;
 
   services.xserver.dpi = 100;

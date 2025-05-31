@@ -21,7 +21,7 @@
     insert_behavior: Bottom,
     scratchpad: [
         (name: "bluetooth", value: "blueman-manager", x: 0.1, y: 0.1, height: 0.8, width: 0.8),
-        (name: "spacefm", value: "spacefm", x: 0.1, y: 0.1, height: 0.8, width: 0.8),
+        (name: "nemo", value: "nemo", x: 0.1, y: 0.1, height: 0.8, width: 0.8),
         (name: "ncmpcpp", value: "alacritty -e ncmpcpp", x: 0.1, y: 0.15, height: 0.71, width: 0.8),
         (name: "notes", value: "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.toml -e nvim ~/notes/log.md", x: 0.5, y: 0.05, height: 0.9, width: 0.5),
         (name: "pulseaudio", value: "pavucontrol", x: 0.1, y: 0.1, height: 0.8, width: 0.8),
@@ -44,7 +44,7 @@
         (command: ToggleScratchPad, value: "ncmpcpp", modifier: ["modkey"], key: "m"),
         (command: ToggleScratchPad, value: "bluetooth", modifier: [], key: "F7"),
         (command: ToggleScratchPad, value: "pulseaudio", modifier: [], key: "F8"),
-        (command: ToggleScratchPad, value: "spacefm", modifier: ["modkey"], key: "s"),
+        (command: ToggleScratchPad, value: "nemo", modifier: ["modkey"], key: "s"),
         (command: ToggleScratchPad, value: "alacritty-1", modifier: [], key: "F1"),
         (command: ToggleScratchPad, value: "alacritty-2", modifier: [], key: "F2"),
         (command: ToggleScratchPad, value: "alacritty-3", modifier: [], key: "F3"),
