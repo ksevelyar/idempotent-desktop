@@ -15,7 +15,7 @@
       battery = "BATT";
     })
     ../hardware/bluetooth.nix
-    ../hardware/pulseaudio.nix
+    ../hardware/pipewire.nix
     ../hardware/mouse.nix
     ../hardware/ssd.nix
     ../hardware/intel-cpu.nix

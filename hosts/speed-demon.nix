@@ -62,7 +62,8 @@ args @ {
   };
 
   networking.hostName = "speed-demon";
-  networking.useDHCP = true;
+  networking.useDHCP = lib.mkForce true;
+  networking.networkmanager.enable = true; # run nmtui for wi-fi
 
   services = {
     syncthing = {
