@@ -28,10 +28,9 @@
     scratchpad: [
         (name: "bluetooth", value: "blueman-manager", x: 0.1, y: 0.1, height: 0.8, width: 0.8),
         (name: "nemo", value: "nemo", x: 0.1, y: 0.1, height: 0.8, width: 0.8),
-        (name: "ncmpcpp",
-          value: "sh",
-          args: ["-c", "alacritty -e ncmpcpp"],
-          x: 0.1, y: 0.15, height: 0.71, width: 0.8),
+        (name: "spotify",
+          value: "spotify",
+          x: 0.05, y: 0.05, height: 0.9, width: 0.9),
         (name: "notes",
           value: "sh",
           args: ["-c", "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.toml -e nvim ~/notes/log.md"],
@@ -69,7 +68,7 @@
     auto_derive_workspaces: true,
     keybind: [
         (command: ToggleScratchPad, value: "notes", modifier: ["modkey"], key: "n"),
-        (command: ToggleScratchPad, value: "ncmpcpp", modifier: ["modkey"], key: "m"),
+        (command: ToggleScratchPad, value: "spotify", modifier: ["modkey"], key: "m"),
         (command: ToggleScratchPad, value: "bluetooth", modifier: [], key: "F7"),
         (command: ToggleScratchPad, value: "pulseaudio", modifier: [], key: "F8"),
         (command: ToggleScratchPad, value: "nemo", modifier: ["modkey"], key: "s"),

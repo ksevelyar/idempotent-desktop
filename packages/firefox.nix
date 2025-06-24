@@ -34,6 +34,7 @@
         };
       in {
         work = {
+          isDefault = true;
           id = 0;
           settings =
             defaultSettings
@@ -43,6 +44,7 @@
         };
 
         chill = {
+          isDefault = false;
           id = 1;
           settings =
             defaultSettings
