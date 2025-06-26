@@ -36,7 +36,7 @@
 
     # nix
     e = "nvim /etc/nixos/configuration.nix";
-    b = "sudo nixos-rebuild switch";
+    b = "sudo nixos-rebuild switch --show-trace";
     search = "nix search nixpkgs";
     wipe-user-packages = "nix-env -e '*'";
     inspect-store = "nix path-info -rSh /run/current-system | sort -k2h ";

@@ -208,7 +208,11 @@ require("lazy").setup({
       vim.cmd.colorscheme("joker")
     end,
   },
-  "nyoom-engineering/oxocarbon.nvim"
+  "nyoom-engineering/oxocarbon.nvim",
+  {
+    "mfussenegger/nvim-jdtls",
+    ft = { "java" },
+  }
 })
 -- # LSP
 local lspconfig = require('lspconfig')
@@ -337,6 +341,39 @@ lspconfig.openscad_lsp.setup {
   capabilities = capabilities,
   cmd = { "openscad-lsp", "--stdio", "--fmt-exe", "/run/current-system/sw/bin/clang-format", "--fmt-style", "Chromium" }
 }
+
+local function find_executable(name)
+  local handle = io.popen("which " .. name)
+  if not handle then return nil end
+  local result = handle:read("*a"):gsub("%s+$", "")
+  handle:close()
+  if result == "" then return nil end
+  return result
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "java",
+  callback = function()
+    local jdtls_path = find_executable("jdtls")
+    if not jdtls_path then
+      vim.notify("jdtls executable not found in PATH", vim.log.levels.ERROR)
+      return
+    end
+
+    local root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1])
+    if not root_dir then
+      vim.notify("Could not find project root for jdtls", vim.log.levels.ERROR)
+      return
+    end
+
+    local config = {
+      cmd = { jdtls_path },
+      root_dir = root_dir,
+    }
+
+    require('jdtls').start_or_attach(config)
+  end,
+})
 
 -- # lualine
 require 'lualine'.setup {

@@ -60,7 +60,6 @@ args @ {
   ];
 
   environment.systemPackages = with pkgs; [];
-  # programs.hyprland.enable = true;
 
   services.xserver.dpi = 100;
 
