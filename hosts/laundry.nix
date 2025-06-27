@@ -7,6 +7,7 @@ args @ {
 }: {
   imports = [
     ../users/ksevelyar.nix
+    ../users/kavarkon.nix
     ../users/root.nix
 
     ../hardware/efi.nix
@@ -77,7 +78,11 @@ args @ {
     };
   };
 
+
+  programs.java = { enable = true; package = pkgs.jdk17; };
   environment.systemPackages = with pkgs; [
+    jetbrains.idea-community
+
     vmpk
     qsynth
     qjackctl
