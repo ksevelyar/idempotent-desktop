@@ -53,6 +53,8 @@ args @ {
     foliate
     obsidian
     gnumake
+    lutris
+    spaceFM
   ];
 
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
