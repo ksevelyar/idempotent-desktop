@@ -55,7 +55,19 @@ args @ {
   programs.java = { enable = true; package = pkgs.jdk17; };
   environment.systemPackages = with pkgs; [
     jetbrains.idea-community
+    jdk17
+    lact
   ];
+
+  systemd.services.lact = {
+    description = "AMDGPU Control Daemon";
+    after = ["multi-user.target"];
+    wantedBy = ["multi-user.target"];
+    serviceConfig = {
+      ExecStart = "${pkgs.lact}/bin/lact daemon";
+    };
+    enable = true;
+  };
 
   home-manager.users.kavarkon = {
     home.file.".config/polybar/config.ini".source = ../users/kavarkon/speed-demon/polybar.ini;
@@ -78,7 +90,7 @@ args @ {
   boot.loader.grub.splashMode = "stretch";
   boot.loader.grub.configurationLimit = 3;
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
-  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
+#  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;
 
