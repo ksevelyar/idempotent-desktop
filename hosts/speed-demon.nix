@@ -90,7 +90,7 @@ args @ {
   boot.loader.grub.splashMode = "stretch";
   boot.loader.grub.configurationLimit = 3;
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
-#  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
+  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;
 
