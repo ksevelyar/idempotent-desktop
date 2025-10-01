@@ -25,7 +25,7 @@
     file
     fzf
     git
-    gitAndTools.delta # https://github.com/dandavison/delta
+    delta # https://github.com/dandavison/delta
     jq
     lnav
     mkpasswd

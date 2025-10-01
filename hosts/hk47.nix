@@ -39,6 +39,7 @@ args @ {
     ../packages/neovim.nix
     ../packages/pass.nix
     ../packages/spotify.nix
+    ../packages/electronics.nix
 
     ../services/journald.nix
     ../services/databases/postgresql.nix
@@ -59,9 +60,15 @@ args @ {
     # ../services/vm/hypervisor.nix
   ];
 
-  environment.systemPackages = with pkgs; [];
+  environment.systemPackages = with pkgs; [
+    aria2
+  ];
 
   services.xserver.dpi = 100;
+  services.udisks2.enable = true;
+  services.devmon.enable = true;
+  # http://localhost:2017/
+  services.v2raya.enable = true;
 
   home-manager.users.ksevelyar = {
     home.file.".config/leftwm/themes/current/up".source = ../users/ksevelyar/hk47/leftwm/up;

@@ -27,7 +27,7 @@
 
       siji # https://github.com/stark/siji
       ipafont # display jap symbols like シートベルツ in polybar
-      noto-fonts-emoji # emoji
+      noto-fonts-color-emoji
       source-code-pro
     ];
   };

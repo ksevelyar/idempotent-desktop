@@ -10,10 +10,9 @@
     # cura
 
     # programmatic cads
-    openscad
+    openscad-unstable
     openscad-lsp
     # required for openscad formatter
     clang-tools
-    # libfive
   ];
 }

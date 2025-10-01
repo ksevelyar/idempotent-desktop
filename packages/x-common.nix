@@ -74,7 +74,7 @@
     pinentry-gtk2
 
     # im
-    tdesktop
+    telegram-desktop
 
     # sys
     alacritty
@@ -100,7 +100,7 @@
     arandr # gui for external monitors
 
     # media
-    glxinfo
+    mesa-demos
     libva-utils
     mpv
     vlc
@@ -114,5 +114,6 @@
 
     # xray
     nekoray
+    v2rayn
   ];
 }

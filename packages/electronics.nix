@@ -6,7 +6,7 @@
   services.udev.packages = [pkgs.stlink];
 
   environment.systemPackages = with pkgs; [
-    fritzing
+    # fritzing
     librepcb
     # xoscope
 

@@ -146,16 +146,14 @@ require("lazy").setup({
         group = group,
         pattern = "DirenvLoaded",
         callback = function()
-          if vim.cmd.LspRestart ~= nil then
-            vim.cmd.LspStart()
-          end
+          vim.cmd("LspRestart")
         end
       })
     end
   },
   {
     "ggandor/leap.nvim",
-    config = function() require("leap").create_default_mappings() end,
+    config = function() require("leap") end,
   },
   -- lsp
   "neovim/nvim-lspconfig",
@@ -175,19 +173,16 @@ require("lazy").setup({
     build = ":TSUpdate",
     opts = {
       ensure_installed = {
-        "lua",
-        "html",
-        "markdown",
-        "elixir",
-        "eex",
-        "heex",
-        "rust",
-        "javascript",
         "css",
         "dockerfile",
-        "css",
+        "elixir",
+        "html",
+        "javascript",
         "json",
-        "nix"
+        "lua",
+        "markdown",
+        "nix",
+        "rust"
       },
       auto_install = true,
       highlight = { enable = true },
@@ -214,11 +209,99 @@ require("lazy").setup({
     ft = { "java" },
   }
 })
+
 -- # LSP
-local lspconfig = require('lspconfig')
+-- See :help lspconfig-nvim-0.11
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+local on_attach = function(_, bufnr)
+  local bufsilent = { noremap = true, silent = true, buffer = bufnr }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufsilent)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufsilent)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufsilent)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufsilent)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufsilent)
+  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufsilent)
+  vim.keymap.set('n', '<space>re', vim.lsp.buf.rename, bufsilent)
+  vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, bufsilent)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufsilent)
+  vim.keymap.set('n', '<space>=', function() vim.lsp.buf.format { async = true } end, bufsilent)
+  vim.keymap.set('n', '<leader>h', function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+  end)
+end
+
+vim.lsp.config('rust_analyzer', {
+  cmd = { "rust-analyzer" },
+  on_attach = on_attach,
+  capabilities = capabilities
+})
+vim.lsp.enable('rust_analyzer')
+
+vim.lsp.config('elixirls', {
+  on_attach = on_attach,
+  cmd = { "elixir-ls" },
+  capabilities = capabilities
+})
+vim.lsp.enable('elixirls')
+
+vim.lsp.config('ts_ls', {
+  on_attach = on_attach,
+  capabilities = capabilities
+})
+vim.lsp.enable('ts_ls')
+
+vim.lsp.config('nil_ls', {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    ['nil'] = {
+      formatting = {
+        command = { "alejandra" }
+      }
+    }
+  }
+})
+vim.lsp.enable('nil_ls')
+
+vim.lsp.config('eslint', {
+  on_attach = function(client)
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+    client.server_capabilities.completion = false
+  end
+})
+vim.lsp.enable('eslint')
+
+vim.lsp.config('lua_ls', {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  on_init = function(client)
+    local path = client.workspace_folders[1].name
+    if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
+      return
+    end
+    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+      runtime = { version = 'LuaJIT' },
+      workspace = {
+        checkThirdParty = false,
+        library = { vim.env.VIMRUNTIME }
+      }
+    })
+  end,
+  settings = { Lua = {} }
+})
+vim.lsp.enable('lua_ls')
+
+vim.lsp.config('openscad_lsp', {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "openscad-lsp", "--stdio", "--fmt-exe", "/run/current-system/sw/bin/clang-format", "--fmt-style", "Chromium" }
+})
+vim.lsp.enable('openscad_lsp')
 
 -- ## CMP
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect' } -- cmp integration
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 local cmp = require 'cmp'
 cmp.setup({
   snippet = {
@@ -233,114 +316,12 @@ cmp.setup({
   },
   sources = cmp.config.sources({ { name = 'nvim_lsp' }, { name = 'vsnip' } }, { { name = 'buffer' } })
 })
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local silent = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, silent)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, silent)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, silent)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, silent)
-
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(_, bufnr)
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufsilent = { noremap = true, silent = true, buffer = bufnr }
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufsilent)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufsilent)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufsilent)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufsilent)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufsilent)
-  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufsilent)
-  vim.keymap.set('n', '<space>re', vim.lsp.buf.rename, bufsilent)
-  vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, bufsilent)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufsilent)
-  vim.keymap.set('n', '<space>=', function() vim.lsp.buf.format { async = true } end, bufsilent)
-
-  vim.keymap.set('n', '<leader>h', function()
-    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-  end)
-end
-
-lspconfig.rust_analyzer.setup {
-  autostart = { false },
-  on_attach = on_attach,
-  capabilities = capabilities
-}
-
-lspconfig.elixirls.setup {
-  autostart = { false },
-  on_attach = on_attach,
-  cmd = { "elixir-ls" },
-  capabilities = capabilities
-}
-
--- npm install -g typescript typescript-language-server
-lspconfig.ts_ls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
-
-lspconfig.nil_ls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    ['nil'] = {
-      formatting = {
-        command = { "alejandra" }
-      }
-    }
-  }
-}
-
-lspconfig.eslint.setup {
-  on_attach = function(client)
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
-    client.server_capabilities.completion = false
-  end
-}
-
-lspconfig.lua_ls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  on_init = function(client)
-    local path = client.workspace_folders[1].name
-    if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
-      return
-    end
-
-    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-      runtime = {
-        -- Tell the language server which version of Lua you're using
-        -- (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT'
-      },
-      -- Make the server aware of Neovim runtime files
-      workspace = {
-        checkThirdParty = false,
-        library = {
-          vim.env.VIMRUNTIME
-          -- Depending on the usage, you might want to add additional paths here.
-          -- "${3rd}/luv/library"
-          -- "${3rd}/busted/library",
-        }
-        -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-        -- library = vim.api.nvim_get_runtime_file("", true)
-      }
-    })
-  end,
-  settings = {
-    Lua = {}
-  }
-}
-
-lspconfig.openscad_lsp.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = { "openscad-lsp", "--stdio", "--fmt-exe", "/run/current-system/sw/bin/clang-format", "--fmt-style", "Chromium" }
-}
 
 local function find_executable(name)
   local handle = io.popen("which " .. name)
@@ -360,7 +341,7 @@ vim.api.nvim_create_autocmd("FileType", {
       return
     end
 
-    local root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1])
+    local root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1])
     if not root_dir then
       vim.notify("Could not find project root for jdtls", vim.log.levels.ERROR)
       return
