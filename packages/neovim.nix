@@ -7,7 +7,7 @@
 
     # lua
     gcc
-    sumneko-lua-language-server
+    lua-language-server
 
     nodejs_latest
   ];

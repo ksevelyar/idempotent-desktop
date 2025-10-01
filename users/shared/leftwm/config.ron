@@ -79,7 +79,7 @@
         (command: Execute, value: "dm-tool lock", modifier: ["modkey"], key: "l"),
         (command: Execute, value: "rofi -modi drun -matching fuzzy -sorting-method fzf drun -show", modifier: ["modkey"], key: "x"),
         (command: Execute, value: "rofimoji", modifier: ["modkey"], key: "z"),
-        (command: Execute, value: "telegram-desktop", modifier: ["modkey"], key: "t"),
+        (command: Execute, value: "Telegram", modifier: ["modkey"], key: "t"),
         (command: Execute, value: "turn-off-display-and-music", modifier: ["modkey"], key: "o"),
         (command: CloseWindow, value: "", modifier: ["modkey"], key: "q"),
         (command: Execute, value: "alacritty", modifier: ["modkey"], key: "Return"),

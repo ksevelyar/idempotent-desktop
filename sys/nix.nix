@@ -6,6 +6,7 @@
   system.stateVersion = "25.05";
 
   documentation.man.generateCaches = false;
+  programs.command-not-found.enable = true;
 
   nix = {
     package = pkgs.nixVersions.stable;

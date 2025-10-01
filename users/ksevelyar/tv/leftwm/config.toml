@@ -126,7 +126,7 @@ key = "z"
 
 [[keybind]]
 command = "Execute"
-value = "telegram-desktop"
+value = "Telegram"
 modifier = ["modkey"]
 key = "t"
 
