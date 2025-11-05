@@ -22,15 +22,12 @@
     ../packages/tmux.nix
     ../packages/pass.nix
 
-    ../hardware/broadcom-wifi.nix
-    ../hardware/bluetooth.nix
-
     ../services/net/sshd.nix
     ../services/net/avahi.nix # ssh -p 9922 root@id-live-min.local
   ];
 
   isoImage.volumeID = lib.mkForce "id-live-min";
-  isoImage.isoName = lib.mkForce "id-live-min.iso";
+  image.fileName = lib.mkForce "id-live-min.iso";
 
   fonts.packages = with pkgs; [terminus_font];
 

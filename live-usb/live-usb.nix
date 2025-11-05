@@ -24,7 +24,6 @@ args @ {
     ../packages/tmux.nix
     ../packages/pass.nix
 
-    ../hardware/broadcom-wifi.nix
     ../hardware/bluetooth.nix
     ../hardware/pipewire.nix
 
@@ -38,7 +37,7 @@ args @ {
   ];
 
   isoImage.volumeID = lib.mkForce "id-live";
-  isoImage.isoName = lib.mkForce "id-live.iso";
+  image.fileName = lib.mkForce "id-live.iso";
 
   networking.hostName = lib.mkForce "id-live";
   networking.networkmanager.enable = true; # nmtui for wi-fi
