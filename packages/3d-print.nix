@@ -12,7 +12,5 @@
     # programmatic cads
     openscad-unstable
     openscad-lsp
-    # required for openscad formatter
-    clang-tools
   ];
 }

@@ -82,6 +82,7 @@ args @ {
   programs.java = { enable = true; package = pkgs.jdk17; };
   environment.systemPackages = with pkgs; [
     jetbrains.idea-community
+    curlie
 
     vmpk
     qsynth
@@ -98,7 +99,7 @@ args @ {
   '';
   boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
   boot.tmp.cleanOnBoot = true;
-  boot.tmp.useTmpfs = true;
+  boot.tmp.useTmpfs = false;
   boot.initrd.luks.devices = {
     nixos = {
       device = "/dev/disk/by-label/enc-nixos";
