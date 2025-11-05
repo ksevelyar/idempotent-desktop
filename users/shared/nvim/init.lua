@@ -296,7 +296,8 @@ vim.lsp.enable('lua_ls')
 vim.lsp.config('openscad_lsp', {
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd = { "openscad-lsp", "--stdio", "--fmt-exe", "/run/current-system/sw/bin/clang-format", "--fmt-style", "Chromium" }
+  filetypes = "openscad",
+  cmd = { "openscad-lsp", "--stdio" }
 })
 vim.lsp.enable('openscad_lsp')
 
