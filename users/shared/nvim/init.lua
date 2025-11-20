@@ -203,11 +203,7 @@ require("lazy").setup({
       vim.cmd.colorscheme("joker")
     end,
   },
-  "nyoom-engineering/oxocarbon.nvim",
-  {
-    "mfussenegger/nvim-jdtls",
-    ft = { "java" },
-  }
+  "nyoom-engineering/oxocarbon.nvim"
 })
 
 -- # LSP
@@ -274,6 +270,22 @@ vim.lsp.config('eslint', {
 })
 vim.lsp.enable('eslint')
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "java", "kotlin" },
+  callback = function()
+    local o = vim.opt_local
+    o.shiftwidth = 4
+    o.tabstop = 4
+    o.softtabstop = 4
+  end,
+})
+
+vim.lsp.config("jdtls", {
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+vim.lsp.enable("jdtls")
+
 vim.lsp.config('lua_ls', {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -324,39 +336,6 @@ vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, silent)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, silent)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, silent)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, silent)
-
-local function find_executable(name)
-  local handle = io.popen("which " .. name)
-  if not handle then return nil end
-  local result = handle:read("*a"):gsub("%s+$", "")
-  handle:close()
-  if result == "" then return nil end
-  return result
-end
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "java",
-  callback = function()
-    local jdtls_path = find_executable("jdtls")
-    if not jdtls_path then
-      vim.notify("jdtls executable not found in PATH", vim.log.levels.ERROR)
-      return
-    end
-
-    local root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1])
-    if not root_dir then
-      vim.notify("Could not find project root for jdtls", vim.log.levels.ERROR)
-      return
-    end
-
-    local config = {
-      cmd = { jdtls_path },
-      root_dir = root_dir,
-    }
-
-    require('jdtls').start_or_attach(config)
-  end,
-})
 
 -- # lualine
 require 'lualine'.setup {
