@@ -212,6 +212,7 @@ require("lazy").setup({
 
 -- # LSP
 -- See :help lspconfig-nvim-0.11
+vim.diagnostic.config({ virtual_lines = true })
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local on_attach = function(_, bufnr)

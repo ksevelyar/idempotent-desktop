@@ -11,6 +11,7 @@
   environment.systemPackages = with pkgs; [
     mangohud
 
+    cabextract
     heroic
 
     # wine

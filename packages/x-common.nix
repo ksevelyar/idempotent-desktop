@@ -113,7 +113,7 @@
     ueberzugpp
 
     # xray
-    nekoray
+    throne
     v2rayn
   ];
 }
