@@ -15,7 +15,6 @@ args @ {
     ../users/root.nix
 
     ../hardware/efi.nix
-    ../hardware/multiboot.nix
     ../hardware/bluetooth.nix
     ../hardware/mouse.nix
     ../hardware/intel-cpu.nix
@@ -133,11 +132,5 @@ args @ {
     device = "/dev/disk/by-label/data";
     fsType = "ext4";
     options = ["noatime" "nodiratime"];
-  };
-
-  fileSystems."/win" = {
-    device = "/dev/disk/by-label/win10";
-    fsType = "ntfs-3g";
-    options = ["rw" "uid=1000"];
   };
 }
