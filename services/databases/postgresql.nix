@@ -31,7 +31,7 @@
   '';
 in {
   services.postgresql = {
-    package = pkgs.postgresql_13;
+    package = pkgs.postgresql_17;
     enable = true;
     authentication = ''
       local all all trust

@@ -61,6 +61,13 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "openscad", "scad" },
+  callback = function()
+    vim.bo.commentstring = "// %s"
+  end,
+})
+
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -309,7 +316,6 @@ vim.lsp.enable('lua_ls')
 vim.lsp.config('openscad_lsp', {
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = "openscad",
   cmd = { "openscad-lsp", "--stdio" }
 })
 vim.lsp.enable('openscad_lsp')
