@@ -1,8 +1,8 @@
 {
-  description = "Unstable + HM";
+  description = "25.11";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
     home-manager = {
       url = "github:rycee/home-manager/master";
