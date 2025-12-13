@@ -54,20 +54,11 @@ args @ {
 
   programs.java = { enable = true; package = pkgs.jdk17; };
   environment.systemPackages = with pkgs; [
-    jetbrains.idea-community
     jdk17
-    lact
+    discord-ptb
+    qdirstat
+    vscode
   ];
-
-  systemd.services.lact = {
-    description = "AMDGPU Control Daemon";
-    after = ["multi-user.target"];
-    wantedBy = ["multi-user.target"];
-    serviceConfig = {
-      ExecStart = "${pkgs.lact}/bin/lact daemon";
-    };
-    enable = true;
-  };
 
   home-manager.users.kavarkon = {
     home.file.".config/polybar/config.ini".source = ../users/kavarkon/speed-demon/polybar.ini;
@@ -76,6 +67,7 @@ args @ {
   networking.hostName = "speed-demon";
   networking.useDHCP = lib.mkForce true;
   networking.networkmanager.enable = true; # run nmtui for wi-fi
+  # networking.proxy.default = "127.0.0.1:2080";
 
   services = {
     syncthing = {

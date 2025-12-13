@@ -29,10 +29,8 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 * [EdDSA for ssh and gpg keys](/doc/keys.md)
 * gopass / [browserpass](https://github.com/browserpass/browserpass-extension#available-keyboard-shortcuts) integration
 * [uBlock](https://github.com/gorhill/uBlock)
-* [nekoray](https://github.com/MatsuriDayo/nekoray)
+* [throne](https://github.com/throneproj/Throne)
 
-[picard]: https://picard.musicbrainz.org/quick-start/
 [imv]: /users/shared/imv/config
-[ncmpcpp]: /assets/screens/ncmpcpp.png
 [delta]: https://github.com/dandavison/delta
 [zoxide]: https://github.com/ajeetdsouza/zoxide

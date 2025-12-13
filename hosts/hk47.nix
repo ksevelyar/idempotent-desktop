@@ -1,7 +1,7 @@
 # hardware
 ## PRIME B360M-K (F8 for boot menu)
 ## i5-9400F
-## RTX 2060
+## RX 9060 XT 16GB
 ## DIMM DDR4 2133MHz 16GBx2
 args @ {
   config,
@@ -18,7 +18,7 @@ args @ {
     ../hardware/bluetooth.nix
     ../hardware/mouse.nix
     ../hardware/intel-cpu.nix
-    ../hardware/nvidia.nix
+    ../hardware/amd-gpu.nix
     ../hardware/pipewire.nix
     ../hardware/ssd.nix
 
@@ -44,7 +44,6 @@ args @ {
     ../services/databases/postgresql.nix
     ../services/databases/redis.nix
     ../services/x.nix
-    ../services/x/picom.nix
     ../services/x/redshift.nix
     ../services/x/unclutter.nix
 
@@ -75,8 +74,8 @@ args @ {
 
   # net
   networking.hostName = "hk47";
-  networking.interfaces.enp5s0.useDHCP = true;
-  networking.interfaces.wlp4s0.useDHCP = true;
+  networking.interfaces.enp7s0.useDHCP = true;
+  networking.interfaces.wlp6s0.useDHCP = true;
   networking.useDHCP = false;
   networking.networkmanager.enable = true; # run nmtui for wi-fi
 
