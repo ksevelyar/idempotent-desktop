@@ -1,5 +1,6 @@
 {
   user,
+  config,
   pkgs,
   lib,
   ...
@@ -17,6 +18,11 @@
         lockFile = ../../services/x/polybar-weather/Cargo.lock;
       };
       doCheck = false;
+
+      env = {
+        LATITUDE = toString config.location.latitude;
+        LONGITUDE = toString config.location.longitude;
+      };
     };
   in [
     polybar

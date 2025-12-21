@@ -28,9 +28,9 @@
   users.defaultUserShell = pkgs.fish;
   i18n.defaultLocale = "en_US.UTF-8";
 
-  time.timeZone = "Europe/Moscow";
-  location.latitude = 55.75;
-  location.longitude = 37.61;
+  time.timeZone = lib.mkDefault "Europe/Moscow";
+  location.latitude = lib.mkDefault 55.75;
+  location.longitude = lib.mkDefault 37.61;
 
   environment = {
     variables = {
@@ -49,7 +49,6 @@
     "d /home/${user}/pics        0700 ${user} 1000"
     "d /home/${user}/photos      0700 ${user} 1000"
     "d /home/${user}/sshfs       0700 ${user} 1000"
-    "d /home/${user}/learn       0700 ${user} 1000"
   ];
 
   home-manager = {

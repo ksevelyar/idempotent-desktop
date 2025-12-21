@@ -4,6 +4,8 @@ use std::{error::Error, fmt, time::Duration};
 const COLOR_TAG: &str = "#6B5A68";
 const USER_AGENT: &str = "polybar-weather-rust/1.0";
 const WEATHER_ICON: &str = "";
+const LATITUDE: &str = env!("LATITUDE");
+const LONGITUDE: &str = env!("LONGITUDE");
 
 #[derive(Debug, Clone, Copy)]
 struct Weather {
@@ -103,8 +105,8 @@ fn fallback_output() -> String {
 }
 
 fn run() -> Result<String, Box<dyn Error>> {
-    let latitude = 55.7558;
-    let longitude = 37.6173;
+    let latitude: f64 = LATITUDE.parse()?;
+    let longitude: f64 = LONGITUDE.parse()?;
 
     let weather = fetch_weather(latitude, longitude)?;
     Ok(format_output(weather))
