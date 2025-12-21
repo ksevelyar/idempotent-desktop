@@ -93,7 +93,7 @@ interval = 2
 
 [module/weather]
 type = custom/script
-exec = ~/.config/polybar/weather.sh
+exec = polybar-weather
 
 [module/battery]
 type = internal/battery

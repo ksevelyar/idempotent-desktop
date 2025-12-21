@@ -95,8 +95,8 @@ interval = 1
 
 [module/weather]
 type = custom/script
-exec = ~/.config/polybar/weather.sh
-interval = 300
+exec = polybar-weather
+interval = 60
 
 [module/spotify]
 type = custom/script
