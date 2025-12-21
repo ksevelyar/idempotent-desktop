@@ -16,6 +16,7 @@ args @ {
     ../hardware/amd-gpu.nix
     ../hardware/pipewire.nix
     ../hardware/ssd.nix
+    ../hardware/multiboot.nix
 
     ../sys/aliases.nix
     ../sys/fonts.nix
@@ -55,7 +56,7 @@ args @ {
   programs.java = { enable = true; package = pkgs.jdk17; };
   environment.systemPackages = with pkgs; [
     jdk17
-    discord-ptb
+    # discord-ptb
     qdirstat
     vscode
   ];
