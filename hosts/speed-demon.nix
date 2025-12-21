@@ -92,10 +92,6 @@ args @ {
       device = "/dev/disk/by-label/enc-nixos";
       allowDiscards = true;
     };
-    data = {
-      device = "/dev/disk/by-label/enc-data";
-      allowDiscards = true;
-    };
   };
 
   services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
@@ -110,12 +106,6 @@ args @ {
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/boot";
     fsType = "vfat";
-    options = ["noatime" "nodiratime"];
-  };
-
-  fileSystems."/data" = {
-    device = "/dev/disk/by-label/data";
-    fsType = "ext4";
     options = ["noatime" "nodiratime"];
   };
 }
