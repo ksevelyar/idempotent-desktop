@@ -1,0 +1,20 @@
+#! /usr/bin/env bash
+
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+leftwm command "LoadTheme $SCRIPTPATH/theme.toml"
+
+xrandr \
+  --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal \
+  --output DisplayPort-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal
+
+random-wallpaper
+xxkb &
+dunst &
+lxqt-policykit-agent &
+xcape -e 'Super_R=Super_R|X;Super_L=Super_L|X'
+
+pkill polybar
+echo "---" | tee -a ~/.cache/polybar-top.log ~/.cache/polybar-bottom.log
+polybar top >>~/.cache/polybar-top.log 2>&1 &
+polybar bottom >>~/.cache/polybar-bottom.log 2>&1 &

@@ -63,6 +63,7 @@ args @ {
 
   home-manager.users.kavarkon = {
     home.file.".config/polybar/config.ini".source = ../users/kavarkon/speed-demon/polybar.ini;
+    home.file.".config/leftwm/themes/current/up".source = ../users/kavarkon/speed-demon/leftwm/up;
   };
 
   networking.hostName = "speed-demon";
