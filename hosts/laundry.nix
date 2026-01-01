@@ -69,6 +69,10 @@ args @ {
     home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/ksevelyar/laundry/alacritty-scratchpad.toml;
   };
 
+  home-manager.users.kavarkon = {
+    home.file.".config/polybar/config.ini".source = ../users/ksevelyar/laundry/polybar.ini;
+  };
+
   services = {
     syncthing = {
       enable = true;
