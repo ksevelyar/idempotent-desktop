@@ -10,6 +10,7 @@
     pkill = "pkill --full";
     i = "host-info";
     cat = "bat --style plain --pager never";
+    y = "yt-dlp --proxy localhost:2080";
 
     # learn
     tr = "trans"; # https://github.com/soimort/translate-shell

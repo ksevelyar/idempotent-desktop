@@ -9,6 +9,7 @@
     gcc
     lua-language-server
 
+    superhtml
     nodejs_latest
   ];
 

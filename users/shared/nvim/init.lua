@@ -277,6 +277,18 @@ vim.lsp.config('eslint', {
 })
 vim.lsp.enable('eslint')
 
+vim.lsp.config('superhtml', {
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+vim.lsp.enable('superhtml')
+
+vim.lsp.config('cssls', {
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+vim.lsp.enable('cssls')
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "java", "kotlin" },
   callback = function()
