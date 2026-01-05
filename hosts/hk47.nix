@@ -1,8 +1,8 @@
 # hardware
-## PRIME B360M-K (F8 for boot menu)
-## i5-9400F
+## MSI PRO B650M-B (F11 for boot menu)
+## AMD Ryzen 7 7700
 ## RX 9060 XT 16GB
-## DIMM DDR4 2133MHz 16GBx2
+## DGMAD55600016S DDR5 5600MHz 16GBx2
 args @ {
   config,
   lib,
@@ -17,7 +17,7 @@ args @ {
     ../hardware/efi.nix
     ../hardware/bluetooth.nix
     ../hardware/mouse.nix
-    ../hardware/intel-cpu.nix
+    ../hardware/amd-cpu.nix
     ../hardware/amd-gpu.nix
     ../hardware/pipewire.nix
     ../hardware/ssd.nix
@@ -74,8 +74,8 @@ args @ {
 
   # net
   networking.hostName = "hk47";
-  networking.interfaces.enp7s0.useDHCP = true;
-  networking.interfaces.wlp6s0.useDHCP = true;
+  networking.interfaces.enp8s0.useDHCP = true;
+  networking.interfaces.wlp7s0.useDHCP = true;
   networking.useDHCP = false;
   networking.networkmanager.enable = true; # run nmtui for wi-fi
 
@@ -118,18 +118,15 @@ args @ {
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
-    options = ["noatime" "nodiratime"];
   };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/boot";
     fsType = "vfat";
-    options = ["noatime" "nodiratime"];
   };
 
   fileSystems."/data" = {
     device = "/dev/disk/by-label/data";
     fsType = "ext4";
-    options = ["noatime" "nodiratime"];
   };
 }

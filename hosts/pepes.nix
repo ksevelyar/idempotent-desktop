@@ -107,12 +107,10 @@
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
-    options = ["noatime" "nodiratime"];
   };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/boot";
     fsType = "vfat";
-    options = ["noatime" "nodiratime"]; # ssd
   };
 }

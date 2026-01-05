@@ -98,6 +98,5 @@ args @ {
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
     fsType = "ext4";
-    options = ["noatime" "nodiratime"];
   };
 }

@@ -92,12 +92,10 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/df8dcd09-38bd-4632-8041-8219ebdc5571";
     fsType = "ext4";
-    options = ["noatime" "nodiratime"];
   };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/8CCE-4F4F";
     fsType = "vfat";
-    options = ["noatime" "nodiratime"];
   };
 }
