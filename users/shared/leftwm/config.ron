@@ -33,7 +33,7 @@
           x: 0.05, y: 0.05, height: 0.9, width: 0.9),
         (name: "notes",
           value: "sh",
-          args: ["-c", "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.toml -e nvim ~/notes/log.md"],
+          args: ["-c", "alacritty --config-file ~/.config/alacritty/alacritty-scratchpad.toml -e nvim ~/notes/tmp.md"],
           x: 0.5, y: 0.05, height: 0.9, width: 0.5),
         (name: "pulseaudio", value: "pavucontrol", x: 0.1, y: 0.1, height: 0.8, width: 0.8),
         (

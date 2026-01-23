@@ -30,7 +30,6 @@
     mpc stop
   '';
 in {
-  services.udisks2.enable = true;
   services.greenclip.enable = true;
   services.gvfs.enable = lib.mkForce false;
 

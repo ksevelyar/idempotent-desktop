@@ -23,7 +23,7 @@ foreground = "#f8f8f2"
 style = "Underline"
 
 [font]
-size = 14.0
+size = 15.0
 
 [font.bold]
 style = "Bold"

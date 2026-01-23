@@ -11,6 +11,9 @@
 
     superhtml
     nodejs_latest
+
+    # llm
+    codex-acp
   ];
 
   # TODO: declarative deps for vim

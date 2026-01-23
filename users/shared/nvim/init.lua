@@ -200,6 +200,16 @@ require("lazy").setup({
       require('nvim-treesitter.configs').setup(opts)
     end
   },
+  -- llm
+  {
+    "olimorris/codecompanion.nvim",
+    version = "^18.0.0",
+    opts = {},
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
   -- themes
   {
     "ksevelyar/joker.vim",
@@ -527,3 +537,43 @@ vim.keymap.set('n', '<leader>m', builtin.oldfiles, {})
 
 -- # indent_blankline
 require("ibl").setup { indent = { char = "|" } }
+
+-- llm
+require("codecompanion").setup({
+  adapters = {
+    acp = {
+      codex = function()
+        return require("codecompanion.adapters").extend("codex", {
+          defaults = {
+            auth_method = "chatgpt", -- "openai-api-key"|"codex-api-key"|"chatgpt"
+          },
+          -- Ensure Codex can reach the internet through your local HTTP proxy
+          env = {
+            HTTP_PROXY  = "http://127.0.0.1:2080",
+            HTTPS_PROXY = "http://127.0.0.1:2080",
+            NO_PROXY    = "127.0.0.1,localhost",
+          },
+        })
+      end,
+    },
+    http = {
+      ollama = function()
+        return require("codecompanion.adapters").extend("ollama", {
+          env = {
+            url = "http://127.0.0.1:11434",
+          },
+          schema = {
+            model = { default = "deepseek-r1:latest" },
+            num_ctx = { default = 16384 },
+          },
+        })
+      end,
+    },
+  },
+
+  interactions = {
+    chat = { adapter = "codex" },
+    inline = { adapter = "ollama" },
+    cmd = { adapter = "ollama" },
+  },
+})

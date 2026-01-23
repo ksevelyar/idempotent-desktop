@@ -4,9 +4,10 @@
   lib,
   ...
 }: {
-  virtualisation.docker = {
+  virtualisation.podman = {
     enable = true;
-    enableOnBoot = lib.mkDefault true;
+    dockerCompat = true;
+    dockerSocket.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

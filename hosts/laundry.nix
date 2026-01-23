@@ -40,6 +40,7 @@ args @ {
     ../packages/neovim.nix
     ../packages/pass.nix
 
+    ../services/auto-mount.nix
     ../services/journald.nix
     ../services/databases/postgresql.nix
     ../services/databases/redis.nix

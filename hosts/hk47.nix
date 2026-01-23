@@ -40,6 +40,7 @@ args @ {
     ../packages/spotify.nix
     ../packages/electronics.nix
 
+    ../services/auto-mount.nix
     ../services/journald.nix
     ../services/databases/postgresql.nix
     ../services/databases/redis.nix
@@ -62,13 +63,19 @@ args @ {
     aria2
   ];
 
-  services.xserver.dpi = 100;
-  services.udisks2.enable = true;
-  services.devmon.enable = true;
+  nixpkgs.config.rocmSupport = true;
+  boot.kernelParams = [
+    "amdgpu.cwsr_enable=0"
+    "amd_iommu=off"
+  ];
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
+
+  services.xserver.dpi = 120;
   # http://localhost:2017/
   services.v2raya.enable = true;
 
   home-manager.users.ksevelyar = {
+    home.file.".config/polybar/config.ini".source = ../users/ksevelyar/hk47/polybar.ini;
     home.file.".config/leftwm/themes/current/up".source = ../users/ksevelyar/hk47/leftwm/up;
   };
 
