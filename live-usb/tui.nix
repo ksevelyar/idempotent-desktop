@@ -1,14 +1,9 @@
-# nix build /etc/nixos#nixosConfigurations.live-usb-min.config.system.build.isoImage
 {
-  config,
-  modulesPath,
   pkgs,
   lib,
   ...
 }: {
   imports = [
-    ../users/root.nix
-
     ../sys/aliases.nix
     ../sys/tty.nix
     ../sys/debug.nix
@@ -17,7 +12,7 @@
 
     ../packages/absolutely-proprietary.nix
 
-    ../services/net/avahi.nix # ssh -p 9922 root@id-live-min.local
+    ../services/net/avahi.nix # ssh -p 9922 root@tui.local
   ];
 
   programs.fish.enable = true;
@@ -64,15 +59,9 @@
   ]);
 
   boot.supportedFilesystems = lib.mkForce {
-    auto = true;
     btrfs = false;
     cifs = false;
     f2fs = false;
-    ntfs = true;
-    overlay = true;
-    squashfs = true;
-    tmpfs = true;
-    vfat = true;
     xfs = false;
     zfs = false;
   };
@@ -80,12 +69,12 @@
   documentation.enable = lib.mkForce false;
   documentation.man.generateCaches = lib.mkForce false;
 
-  isoImage.volumeID = lib.mkForce "id-live-min";
-  image.fileName = lib.mkForce "id-live-min.iso";
+  isoImage.volumeID = lib.mkForce "tui";
+  image.fileName = lib.mkForce "tui.iso";
 
   fonts.packages = with pkgs; [terminus_font];
 
-  networking.hostName = lib.mkForce "id-live-min";
+  networking.hostName = lib.mkForce "tui";
   networking.networkmanager.enable = true; # nmtui for wi-fi
   networking.wireless.enable = lib.mkForce false;
 }

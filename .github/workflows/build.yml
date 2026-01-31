@@ -15,4 +15,4 @@ jobs:
         name: idempotent-desktop
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
     - run: nix flake check
-    - run: nix build .#nixosConfigurations.live-usb-min.config.system.build.toplevel
+    - run: nix build .#nixosConfigurations.live-usb-x.config.system.build.toplevel

@@ -56,28 +56,27 @@
       };
     };
 
-    live-usb = {
-      name = "live-usb";
+    live-usb-x = {
+      name = "live-usb-x";
       value = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix"
           nixpkgs.nixosModules.notDetected
           home-manager.nixosModules.home-manager
-          (import ./live-usb/live-usb.nix)
+          (import ./live-usb/x.nix)
         ];
       };
     };
 
-    live-usb-min = {
-      name = "live-usb-min";
+    live-usb-tui = {
+      name = "live-usb-tui";
       value = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
           nixpkgs.nixosModules.notDetected
-          home-manager.nixosModules.home-manager
-          (import ./live-usb/min.nix)
+          (import ./live-usb/tui.nix)
         ];
       };
     };
@@ -91,7 +90,7 @@
           ]
         )
         hosts
-        ++ [live-usb live-usb-min]
+        ++ [live-usb-x live-usb-tui]
       )
     );
   };
