@@ -55,6 +55,8 @@
     # yt-dlp -f 'bv[height<=1080]+ba' 'https://www.youtube.com/playlist?list=PLRnZ3k_L91GmDn2eWpvJ6-SLXpNlLAihu'
     yt-dlp
     transmission_4-gtk
+
+    # vnc
     x11vnc # vnc-server
     tigervnc # vncviewer
 
@@ -90,7 +92,7 @@
     # screenshot region or fullscreen
     # watch -n2 'maim ~/screenshots/doom2/$(date +%Y-%m-%d-%H-%M-%S).png'
     maim
-    vokoscreen # record desktop
+    vokoscreen-ng # record desktop
 
     xclip
     rofi
@@ -100,10 +102,8 @@
     arandr # gui for external monitors
 
     # media
-    mesa-demos
     libva-utils
     mpv
-    vlc
 
     # fd . ~/wallpapers/ | shuf | imv
     # ls -t ~/wallpapers/* | imv
@@ -114,6 +114,5 @@
 
     # xray
     throne
-    v2rayn
   ];
 }

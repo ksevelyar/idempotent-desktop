@@ -14,15 +14,12 @@ args @ {
     ../hardware/bluetooth.nix
     ../hardware/mouse.nix
     ../hardware/intel-cpu.nix
-    #../hardware/nvidia.nix
     ../hardware/pipewire.nix
     ../hardware/ssd.nix
 
     ../sys/aliases.nix
-    # ../sys/debug.nix
     ../sys/fonts.nix
     ../sys/nix.nix
-    ../sys/scripts.nix
     ../sys/sysctl.nix
     ../sys/tty.nix
     ../sys/cache.nix

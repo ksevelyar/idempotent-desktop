@@ -25,7 +25,6 @@ args @ {
     ../sys/aliases.nix
     ../sys/fonts.nix
     ../sys/nix.nix
-    ../sys/scripts.nix
     ../sys/sysctl.nix
     ../sys/tty.nix
     ../sys/cache.nix

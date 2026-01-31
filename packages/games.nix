@@ -16,7 +16,6 @@
 
     # wine
     wineWowPackages.stable
-    # wineWowPackages.unstable
     winetricks
 
     # drm_info

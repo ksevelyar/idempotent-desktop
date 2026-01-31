@@ -16,10 +16,8 @@ args @ {
     ../hardware/pipewire.nix
     ../hardware/ssd.nix
 
-    # ../sys/debug.nix
     ../sys/aliases.nix
     ../sys/nix.nix
-    ../sys/scripts.nix
     ../sys/sysctl.nix
     ../sys/tty.nix
     ../sys/fonts.nix

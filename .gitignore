@@ -1,5 +1,6 @@
 # ln -s hosts/your-host.nix configuration.nix
 configuration.nix
 .idea
+result
 
 auth.txt

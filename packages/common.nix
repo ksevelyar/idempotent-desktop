@@ -15,8 +15,9 @@
     '';
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.defaultPackages = with pkgs; [
     # sys
+    strace
     nix-tree
     direnv
     bat
@@ -33,7 +34,6 @@
     sd
     tealdeer # aliased to h
     translate-shell
-    woeusb # write win10.iso to usb drive
     procs
 
     # net
@@ -50,7 +50,7 @@
     lm_sensors
     lshw
     lsof
-    neofetch
+    macchina
     pciutils # lspci
     smartmontools
     usbutils # lsusb
@@ -61,7 +61,6 @@
 
     # fs
     broot
-    yazi
     atool
     bind
     dosfstools
@@ -83,8 +82,5 @@
     viu
     zip
     zoxide
-
-    # media
-    cmus
   ];
 }

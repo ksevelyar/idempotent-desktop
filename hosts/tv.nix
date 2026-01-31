@@ -1,3 +1,5 @@
+# N5105 H
+# DIMM DDR4 16GB
 args @ {
   config,
   lib,
@@ -19,7 +21,6 @@ args @ {
     ../sys/aliases.nix
     ../sys/fonts.nix
     ../sys/nix.nix
-    ../sys/scripts.nix
     ../sys/sysctl.nix
     ../sys/tty.nix
     ../sys/cache.nix
@@ -27,7 +28,6 @@ args @ {
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
     ../packages/x-common.nix
-    # ../packages/games.nix
     ../packages/neovim.nix
     ../packages/pass.nix
     ../packages/tmux.nix
@@ -42,7 +42,6 @@ args @ {
     ../services/net/openvpn.nix
     ../services/vpn.nix
     ../services/net/sshd.nix
-    # ../services/net/wireguard.nix
     ../services/net/avahi.nix
   ];
 
@@ -82,8 +81,6 @@ args @ {
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
 
-  # N5105 H
-  # DIMM DDR4 16GB
   services.xserver.displayManager.lightdm.background = ../assets/wallpapers/d-sparil.png;
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";

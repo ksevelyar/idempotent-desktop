@@ -265,18 +265,18 @@ vim.lsp.config('ts_ls', {
 })
 vim.lsp.enable('ts_ls')
 
-vim.lsp.config('nil_ls', {
+vim.lsp.config('nixd', {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
-    ['nil'] = {
+    nixd = {
       formatting = {
         command = { "alejandra" }
       }
     }
   }
 })
-vim.lsp.enable('nil_ls')
+vim.lsp.enable('nixd')
 
 vim.lsp.config('eslint', {
   on_attach = function(client)

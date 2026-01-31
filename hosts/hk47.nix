@@ -25,7 +25,6 @@ args @ {
     ../sys/aliases.nix
     ../sys/fonts.nix
     ../sys/nix.nix
-    ../sys/scripts.nix
     ../sys/sysctl.nix
     ../sys/tty.nix
     ../sys/cache.nix
@@ -61,12 +60,13 @@ args @ {
 
   environment.systemPackages = with pkgs; [
     aria2
+    yazi
   ];
 
-  nixpkgs.config.rocmSupport = true;
+  # nixpkgs.config.rocmSupport = true;
+  services.earlyoom.enable = true;
   boot.kernelParams = [
     "amdgpu.cwsr_enable=0"
-    "amd_iommu=off"
   ];
   boot.kernelPackages = pkgs.linuxPackages_6_18;
 
@@ -105,6 +105,7 @@ args @ {
   '';
 
   services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
+  boot.loader.grub.memtest86.enable = true;
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];

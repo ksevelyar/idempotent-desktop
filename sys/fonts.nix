@@ -21,7 +21,7 @@
       roboto
       cozette
       # https://search.nixos.org/packages?channel=unstable&query=nerdfonts+iosevka
-      nerd-fonts.iosevka
+      nerd-fonts.fira-code
       nerd-fonts.blex-mono
       nerd-fonts.caskaydia-mono
 

@@ -30,6 +30,7 @@
     mpc stop
   '';
 in {
+  services.speechd.enable = false;
   services.greenclip.enable = true;
   services.gvfs.enable = lib.mkForce false;
 

@@ -1,6 +1,5 @@
 {
   nixpkgs.config.allowUnfree = true;
-  hardware = {
-    enableAllFirmware = true;
-  };
+  hardware.enableRedistributableFirmware = true;
+  hardware.wirelessRegulatoryDatabase = true;
 }

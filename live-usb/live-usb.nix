@@ -10,7 +10,6 @@ args @ {
     ../users/root.nix
 
     ../sys/aliases.nix
-    ../sys/scripts.nix
     ../sys/tty.nix
     ../sys/debug.nix
     ../sys/sysctl.nix

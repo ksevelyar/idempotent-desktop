@@ -1,10 +1,12 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   system.stateVersion = "25.05";
 
+  documentation.enable = false;
   documentation.man.generateCaches = false;
   programs.command-not-found.enable = true;
 
