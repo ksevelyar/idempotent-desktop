@@ -50,7 +50,7 @@
     lm_sensors
     lshw
     lsof
-    macchina
+    neofetch
     pciutils # lspci
     smartmontools
     usbutils # lsusb

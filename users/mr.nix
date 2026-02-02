@@ -1,11 +1,10 @@
-# https://github.com/ksevelyar/idempotent-desktop/blob/master/docs/live-usb.md
 args @ {
-  config,
   pkgs,
+  config,
   lib,
   ...
 }: let
-  user = "mrpoppybutthole";
+  user = "mr";
   email = "";
   name = "Mr Poppy Butthole";
 in {
@@ -25,11 +24,6 @@ in {
     ];
 
   users.users = {
-    root = {
-      initialHashedPassword = lib.mkForce null;
-      initialPassword = lib.mkForce "id";
-    };
-
     ${user} = {
       initialPassword = "id";
     };
@@ -40,6 +34,4 @@ in {
       home.file."wallpapers/2b.png".source = ../assets/wallpapers/2b.png;
     };
   };
-
-  services.getty.autologinUser = lib.mkForce "root";
 }

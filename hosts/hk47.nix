@@ -55,7 +55,7 @@ args @ {
     ../services/net/avahi.nix
 
     ../services/vm/docker.nix
-    # ../services/vm/hypervisor.nix
+    ../services/vm/hypervisor.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -68,7 +68,7 @@ args @ {
   boot.kernelParams = [
     "amdgpu.cwsr_enable=0"
   ];
-  boot.kernelPackages = pkgs.linuxPackages_6_18;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   services.xserver.dpi = 120;
   # http://localhost:2017/

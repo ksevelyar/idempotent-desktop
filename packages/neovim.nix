@@ -2,7 +2,7 @@
   environment.systemPackages = with pkgs; [
     neovim
     # nix
-    nixd
+    nil
     alejandra
 
     # lua

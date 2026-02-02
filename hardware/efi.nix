@@ -13,12 +13,8 @@
       device = "nodev";
 
       backgroundColor = "#21202D";
-      configurationLimit = lib.mkDefault 30;
+      configurationLimit = lib.mkDefault 10;
 
-      extraConfig = ''
-        set menu_color_normal=light-blue/black
-        set menu_color_highlight=black/light-blue
-      '';
       splashMode = lib.mkDefault "normal";
       splashImage = lib.mkDefault null;
     };

@@ -18,6 +18,9 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    disko.url = "github:nix-community/disko/latest";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -26,6 +29,7 @@
     nixpkgs,
     flake-programs-sqlite,
     agenix,
+    disko
   }: let
     pkgs = (import nixpkgs) {
       system = "x86_64-linux";
@@ -56,27 +60,39 @@
       };
     };
 
-    live-usb-x = {
-      name = "live-usb-x";
-      value = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-base.nix"
-          nixpkgs.nixosModules.notDetected
-          home-manager.nixosModules.home-manager
-          (import ./live-usb/x.nix)
-        ];
-      };
-    };
-
-    live-usb-tui = {
-      name = "live-usb-tui";
+    usb-image = {
+      name = "usb-image";
       value = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
           nixpkgs.nixosModules.notDetected
-          (import ./live-usb/tui.nix)
+          (import ./usb/image.nix)
+        ];
+      };
+    };
+
+    usb = {
+      name = "usb";
+      value = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          nixpkgs.nixosModules.notDetected
+          disko.nixosModules.disko
+          (import ./usb/persistent-tui.nix)
+        ];
+      };
+    };
+
+    usb-x = {
+      name = "usb-x";
+      value = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          nixpkgs.nixosModules.notDetected
+          disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
+          (import ./usb/persistent.nix)
         ];
       };
     };
@@ -90,7 +106,7 @@
           ]
         )
         hosts
-        ++ [live-usb-x live-usb-tui]
+        ++ [usb-image usb usb-x]
       )
     );
   };
