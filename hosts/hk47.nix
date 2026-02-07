@@ -63,6 +63,34 @@ args @ {
     yazi
   ];
 
+  services.xray = {
+    enable = true;
+    settingsFile = config.age.secrets.xray-json.path;
+  };
+
+  services.zapret = {
+    enable = false;
+    whitelist = [
+      "youtube.com"
+      "googlevideo.com"
+      "ytimg.com"
+      "youtu.be"
+      "discord.com"
+      "discord-attachments-uploads-prd.storage.googleapis.com"
+      "googleapis.com"
+      "rutracker.org"
+      "www.rutracker.org"
+      "static.rutracker.cc"
+    ];
+    params = [
+      "--dpi-desync=fake"
+      "--dpi-desync-fooling=badseq"
+      "--dpi-desync-fake-tls=0x00000000"
+      "--dpi-desync-fake-tls=!"
+      "--dpi-desync-fake-tls-mod=rnd,rndsni,dupsid"
+    ];
+  };
+
   # nixpkgs.config.rocmSupport = true;
   services.earlyoom.enable = true;
   boot.kernelParams = [

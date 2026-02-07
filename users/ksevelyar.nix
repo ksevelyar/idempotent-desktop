@@ -32,4 +32,20 @@ in {
   networking.extraHosts = ''
     127.0.0.1 dev.lcl habits.lcl market.lcl buzz.lcl
   '';
+
+  age.identityPaths = [ "/home/ksevelyar/.ssh/id_ed25519" ];
+  age.secrets.xray-json = {
+    file = ../secrets/xray-1.ksevelyar.age;
+    owner = "xray";
+    group = "xray";
+  };
+  systemd.services.xray.serviceConfig = {
+    DynamicUser = lib.mkForce false;
+    User = "xray";
+  };
+  users.users.xray = {
+    isSystemUser = true;
+    group = "xray";
+  };
+  users.groups.xray = {};
 }
