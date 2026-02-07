@@ -111,8 +111,5 @@
     nomacs
     qview
     ueberzugpp
-
-    # xray
-    throne
   ];
 }

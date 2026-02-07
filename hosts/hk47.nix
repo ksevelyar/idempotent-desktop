@@ -69,7 +69,7 @@ args @ {
   };
 
   services.zapret = {
-    enable = false;
+    enable = true;
     whitelist = [
       "youtube.com"
       "googlevideo.com"
@@ -78,9 +78,6 @@ args @ {
       "discord.com"
       "discord-attachments-uploads-prd.storage.googleapis.com"
       "googleapis.com"
-      "rutracker.org"
-      "www.rutracker.org"
-      "static.rutracker.cc"
     ];
     params = [
       "--dpi-desync=fake"
@@ -91,7 +88,6 @@ args @ {
     ];
   };
 
-  # nixpkgs.config.rocmSupport = true;
   services.earlyoom.enable = true;
   boot.kernelParams = [
     "amdgpu.cwsr_enable=0"
