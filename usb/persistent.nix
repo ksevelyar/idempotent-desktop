@@ -51,6 +51,7 @@ args @ {
     packages = with pkgs; [
       dejavu_fonts
       terminus_font
+      nerd-fonts.symbols-only
     ];
   };
 

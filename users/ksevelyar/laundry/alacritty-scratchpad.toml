@@ -35,7 +35,7 @@ style = "Bold"
 style = "Regular"
 
 [font.normal]
-family = "Iosevka Nerd Font"
+family = "Terminus"
 style = "Regular"
 
 [window]

@@ -82,8 +82,30 @@ args @ {
     };
   };
 
+  services.zapret = {
+    enable = true;
+    configureFirewall = true;
 
-  programs.java = { enable = true; package = pkgs.jdk17; };
+    whitelist = [
+      "youtube.com"
+      "googlevideo.com"
+      "ytimg.com"
+      "youtu.be"
+    ];
+
+    params = [
+      "--dpi-desync=fake"
+      "--dpi-desync-fooling=badseq"
+      "--dpi-desync-fake-tls=0x00000000"
+      "--dpi-desync-fake-tls=!"
+      "--dpi-desync-fake-tls-mod=rnd,rndsni,dupsid"
+    ];
+  };
+
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk17;
+  };
   environment.systemPackages = with pkgs; [
     jetbrains.idea-community
     curlie
