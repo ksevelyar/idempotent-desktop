@@ -23,8 +23,7 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 * [`PrtScn`](https://github.com/ksevelyar/idempotent-desktop/blob/ea28dfc28596d8edb3b88683e9960b4a32cc9c46/users/shared/leftwm/config.toml#L180-L184) to capture region, `mod + PrtScn` to capture fullscreen, record desktop videos with `vokoscreen`
 
 ## Security
-* declarative xray config with agenix
-* [zapret](/doc/zapret.md) for youtube
+* declarative xray config with [agenix](/doc/agenix.md)
 * [encrypted root with LUKS2](/doc/encrypted-root.md)
 * [EdDSA for ssh and gpg keys](/doc/keys.md)
 * gopass / [browserpass](https://github.com/browserpass/browserpass-extension#available-keyboard-shortcuts) integration

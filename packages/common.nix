@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   lib,
   ...
@@ -17,6 +18,7 @@
 
   environment.defaultPackages = with pkgs; [
     # sys
+    inputs.disko.packages.${pkgs.system}.disko
     strace
     nix-tree
     direnv
@@ -56,6 +58,7 @@
     usbutils # lsusb
 
     # sec
+    inputs.agenix.packages.${pkgs.system}.default
     cryptsetup
     pwgen
 

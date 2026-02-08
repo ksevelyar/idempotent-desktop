@@ -29,8 +29,8 @@
     nixpkgs,
     flake-programs-sqlite,
     agenix,
-    disko
-  }: let
+    disko,
+  } @ inputs: let
     pkgs = (import nixpkgs) {
       system = "x86_64-linux";
     };
@@ -57,6 +57,7 @@
 
           (import (./hosts + "/${host}.nix"))
         ];
+        specialArgs.inputs = inputs;
       };
     };
 

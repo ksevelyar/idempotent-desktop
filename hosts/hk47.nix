@@ -69,7 +69,7 @@ args @ {
   };
 
   services.zapret = {
-    enable = true;
+    enable = false;
     whitelist = [
       "youtube.com"
       "googlevideo.com"
@@ -96,7 +96,6 @@ args @ {
 
   services.xserver.dpi = 120;
   # http://localhost:2017/
-  services.v2raya.enable = true;
 
   home-manager.users.ksevelyar = {
     home.file.".config/polybar/config.ini".source = ../users/ksevelyar/hk47/polybar.ini;
