@@ -35,7 +35,7 @@ args @ {
     ../packages/x-common.nix
     ../packages/3d-print.nix
     ../packages/electronics.nix
-    ../packages/games.nix
+    # ../packages/games.nix
     ../packages/neovim.nix
     ../packages/pass.nix
 
@@ -53,6 +53,7 @@ args @ {
     ../services/vpn.nix
     ../services/net/sshd.nix
     ../services/net/avahi.nix
+    ../services/net/wireguard.nix
 
     ../services/vm/docker.nix
   ];
@@ -61,6 +62,21 @@ args @ {
   networking.useDHCP = false;
   networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
   networking.networkmanager.enable = true;
+
+  networking.wireguard.interfaces.skynet = {
+    ips = ["10.10.10.3/24"];
+    privateKeyFile = config.age.secrets.wg-laundry.path;
+    peers = [
+      {
+        publicKey = "U5Yho/fX8/b8ZepkpB16ye0JOweRbMO6CHmvu/+v7Gk=";
+        endpoint = "212.109.193.139:51821";
+        allowedIPs = [
+          "10.10.10.0/24"
+        ];
+        persistentKeepalive = 25;
+      }
+    ];
+  };
 
   home-manager.users.ksevelyar = {
     home.file.".config/leftwm/config.ron".source = ../users/ksevelyar/laundry/leftwm.ron;

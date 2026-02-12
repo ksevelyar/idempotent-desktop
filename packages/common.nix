@@ -11,8 +11,13 @@
     askPassword = "";
     startAgent = true;
     extraConfig = ''
-      Host *.local
-        Port 9922
+      Host 192.168.0.*
+        StrictHostKeyChecking no
+        UserKnownHostsFile=/dev/null
+
+      Host *
+        ServerAliveInterval 20
+        ServerAliveCountMax 5
     '';
   };
 
