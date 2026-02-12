@@ -102,12 +102,17 @@ args @ {
     ];
   };
 
+  services.xray = {
+    enable = true;
+    settingsFile = config.age.secrets.xray-json.path;
+  };
+
   programs.java = {
     enable = true;
     package = pkgs.jdk17;
   };
   environment.systemPackages = with pkgs; [
-    jetbrains.idea-community
+    jetbrains.idea-oss
     curlie
 
     vmpk
