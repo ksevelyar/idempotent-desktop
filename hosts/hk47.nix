@@ -69,15 +69,12 @@ args @ {
   };
 
   services.zapret = {
-    enable = false;
+    enable = true;
     whitelist = [
       "youtube.com"
       "googlevideo.com"
       "ytimg.com"
       "youtu.be"
-      "discord.com"
-      "discord-attachments-uploads-prd.storage.googleapis.com"
-      "googleapis.com"
     ];
     params = [
       "--dpi-desync=fake"
@@ -108,6 +105,22 @@ args @ {
   networking.interfaces.wlp7s0.useDHCP = true;
   networking.useDHCP = false;
   networking.networkmanager.enable = true; # run nmtui for wi-fi
+
+  # wg
+  networking.wireguard.interfaces.skynet = {
+    ips = ["10.10.10.2/24"];
+    privateKeyFile = config.age.secrets.wg-hk47.path;
+    peers = [
+      {
+        publicKey = "U5Yho/fX8/b8ZepkpB16ye0JOweRbMO6CHmvu/+v7Gk=";
+        endpoint = "212.109.193.139:51821";
+        allowedIPs = [
+          "10.10.10.0/24"
+        ];
+        persistentKeepalive = 25;
+      }
+    ];
+  };
 
   # http://localhost:8384/
   services = {

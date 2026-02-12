@@ -3,12 +3,12 @@ let
   users = [ksevelyar];
 
   hk47 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH8XPb9wJhtMJF8DL9hR3UGqVUT0Bbt0I1N3Jy1009of root@hk47";
-
   systems = [hk47];
 in {
+  "secrets/idempotent-desktop.age".publicKeys = users ++ systems;
+
   "secrets/ksevelyar.age".publicKeys = [ksevelyar hk47];
   "secrets/xray-1.ksevelyar.age".publicKeys = [ksevelyar hk47];
   "secrets/xray-2.ksevelyar.age".publicKeys = [ksevelyar hk47];
-  "secrets/xray-3.ksevelyar.age".publicKeys = [ksevelyar hk47];
-  "secrets/idempotent-desktop.age".publicKeys = users ++ systems;
+  "secrets/wg-hk47.age".publicKeys = [ksevelyar hk47];
 }

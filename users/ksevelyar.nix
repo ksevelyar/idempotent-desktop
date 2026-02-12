@@ -39,6 +39,10 @@ in {
     owner = "xray";
     group = "xray";
   };
+  age.secrets.wg-hk47 = {
+    file = ../secrets/wg-hk47.age;
+  };
+
   systemd.services.xray.serviceConfig = {
     DynamicUser = lib.mkForce false;
     User = "xray";
