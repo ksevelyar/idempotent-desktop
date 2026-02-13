@@ -34,16 +34,17 @@ in {
   '';
 
   age.identityPaths = ["/home/ksevelyar/.ssh/id_ed25519"];
-  age.secrets.xray-json = {
-    file = ../secrets/xray-1.ksevelyar.age;
-    owner = "xray";
-    group = "xray";
-  };
   age.secrets.wg-hk47 = {
     file = ../secrets/wg-hk47.age;
   };
   age.secrets.wg-laundry = {
     file = ../secrets/wg-hk47.age;
+  };
+
+  age.secrets.xray-json = {
+    file = ../secrets/xray-xhttp.ksevelyar.age;
+    owner = "xray";
+    group = "xray";
   };
 
   systemd.services.xray.serviceConfig = {

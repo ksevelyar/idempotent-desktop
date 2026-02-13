@@ -53,6 +53,11 @@
     ../services/net/avahi.nix
   ];
 
+  services.xray = {
+    enable = true;
+    settingsFile = config.age.secrets.xray-json.path;
+  };
+
   environment.systemPackages = with pkgs; [
     foliate
     obsidian

@@ -159,7 +159,7 @@ require("lazy").setup({
     end
   },
   {
-    "ggandor/leap.nvim",
+    url = "https://codeberg.org/andyg/leap.nvim",
     config = function() require("leap") end,
   },
   -- lsp
