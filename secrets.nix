@@ -9,8 +9,7 @@ in {
   "secrets/idempotent-desktop.age".publicKeys = users ++ systems;
 
   "secrets/ksevelyar.age".publicKeys = [ksevelyar hk47];
-  "secrets/xray-1.ksevelyar.age".publicKeys = [ksevelyar hk47];
-  "secrets/xray-2.ksevelyar.age".publicKeys = [ksevelyar hk47];
+  "secrets/xray-xhttp.ksevelyar.age".publicKeys = [ksevelyar hk47];
   "secrets/wg-hk47.age".publicKeys = [ksevelyar hk47];
   "secrets/wg-laundry.age".publicKeys = [ksevelyar laundry];
 }

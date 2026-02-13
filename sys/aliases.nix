@@ -5,7 +5,7 @@
     h = "tldr";
     s = "sudo";
     clip = "xclip -selection clipboard";
-    ports = "sudo lsof -Pni"; # ports | fzf
+    ports = "sudo ss -ntpl";
     pgrep = "pgrep --full";
     pkill = "pkill --full";
     i = "host-info";

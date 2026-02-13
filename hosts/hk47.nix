@@ -68,6 +68,39 @@ args @ {
     settingsFile = config.age.secrets.xray-json.path;
   };
 
+  services.earlyoom.enable = true;
+  boot.kernelParams = [
+    "amdgpu.cwsr_enable=0"
+  ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  home-manager.users.ksevelyar = {
+    home.file.".config/polybar/config.ini".source = ../users/ksevelyar/hk47/polybar.ini;
+    home.file.".config/leftwm/themes/current/up".source = ../users/ksevelyar/hk47/leftwm/up;
+  };
+
+  # net
+  networking.hostName = "hk47";
+  networking.interfaces.enp8s0.useDHCP = true;
+  networking.interfaces.wlp7s0.useDHCP = true;
+  networking.useDHCP = false;
+  networking.networkmanager.enable = true; # run nmtui for wi-fi
+
+  networking.wireguard.interfaces.skynet = {
+    ips = ["10.10.10.2/24"];
+    privateKeyFile = config.age.secrets.wg-hk47.path;
+    peers = [
+      {
+        publicKey = "U5Yho/fX8/b8ZepkpB16ye0JOweRbMO6CHmvu/+v7Gk=";
+        endpoint = "212.109.193.139:51821";
+        allowedIPs = [
+          "10.10.10.0/24"
+        ];
+        persistentKeepalive = 25;
+      }
+    ];
+  };
+
   services.zapret = {
     enable = true;
     whitelist = [
@@ -82,43 +115,6 @@ args @ {
       "--dpi-desync-fake-tls=0x00000000"
       "--dpi-desync-fake-tls=!"
       "--dpi-desync-fake-tls-mod=rnd,rndsni,dupsid"
-    ];
-  };
-
-  services.earlyoom.enable = true;
-  boot.kernelParams = [
-    "amdgpu.cwsr_enable=0"
-  ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  services.xserver.dpi = 120;
-  # http://localhost:2017/
-
-  home-manager.users.ksevelyar = {
-    home.file.".config/polybar/config.ini".source = ../users/ksevelyar/hk47/polybar.ini;
-    home.file.".config/leftwm/themes/current/up".source = ../users/ksevelyar/hk47/leftwm/up;
-  };
-
-  # net
-  networking.hostName = "hk47";
-  networking.interfaces.enp8s0.useDHCP = true;
-  networking.interfaces.wlp7s0.useDHCP = true;
-  networking.useDHCP = false;
-  networking.networkmanager.enable = true; # run nmtui for wi-fi
-
-  # wg
-  networking.wireguard.interfaces.skynet = {
-    ips = ["10.10.10.2/24"];
-    privateKeyFile = config.age.secrets.wg-hk47.path;
-    peers = [
-      {
-        publicKey = "U5Yho/fX8/b8ZepkpB16ye0JOweRbMO6CHmvu/+v7Gk=";
-        endpoint = "212.109.193.139:51821";
-        allowedIPs = [
-          "10.10.10.0/24"
-        ];
-        persistentKeepalive = 25;
-      }
     ];
   };
 
@@ -140,9 +136,11 @@ args @ {
     ATTR{idVendor}=="0483", ATTR{idProduct}=="3748", MODE="660", GROUP="dialout"
   '';
 
-  services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
+  services.xserver.dpi = 120;
+  services.xserver.displayManager.lightdm.background = ../assets/wallpapers/johnny.jpg;
+
   boot.loader.grub.memtest86.enable = true;
-  boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
+  boot.loader.grub.splashImage = ../assets/wallpapers/johnny.jpg;
   boot.loader.grub.splashMode = "stretch";
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
   boot.initrd.kernelModules = [];
