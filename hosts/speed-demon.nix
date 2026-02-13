@@ -55,9 +55,8 @@ args @ {
   programs.java = { enable = true; package = pkgs.jdk17; };
   environment.systemPackages = with pkgs; [
     jdk17
-    discord-ptb
-    qdirstat
-    vscode
+    # discord-ptb
+    inkscape
   ];
 
   home-manager.users.kavarkon = {
