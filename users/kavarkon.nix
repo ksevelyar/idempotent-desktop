@@ -26,4 +26,22 @@ in {
   networking.extraHosts = ''
     127.0.0.1 dev.lcl
   '';
+
+  age.identityPaths = ["/home/kavarkon/.ssh/id_ed25519"];
+
+  age.secrets.xray-json = {
+    file = ../secrets/xray-xhttp.kavarkon.age;
+    owner = "xray";
+    group = "xray";
+  };
+
+  systemd.services.xray.serviceConfig = {
+    DynamicUser = lib.mkForce false;
+    User = "xray";
+  };
+  users.users.xray = {
+    isSystemUser = true;
+    group = "xray";
+  };
+  users.groups.xray = {};
 }

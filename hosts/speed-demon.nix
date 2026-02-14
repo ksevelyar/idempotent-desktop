@@ -55,7 +55,7 @@ args @ {
   programs.java = { enable = true; package = pkgs.jdk17; };
   environment.systemPackages = with pkgs; [
     jdk17
-    # discord-ptb
+    discord-ptb
     inkscape
   ];
 
@@ -68,6 +68,10 @@ args @ {
   networking.useDHCP = lib.mkForce true;
   networking.networkmanager.enable = true; # run nmtui for wi-fi
   # networking.proxy.default = "127.0.0.1:2080";
+  services.xray = {
+    enable = true;
+    settingsFile = config.age.secrets.xray-json.path;
+  };
 
   services = {
     syncthing = {
