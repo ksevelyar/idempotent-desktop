@@ -41,7 +41,7 @@ in {
     file = ../secrets/wg-hk47.age;
   };
 
-  age.secrets.xray-json = {
+  age.secrets.ksevelyar-xray-json = {
     file = ../secrets/xray-xhttp.ksevelyar.age;
     owner = "xray";
     group = "xray";

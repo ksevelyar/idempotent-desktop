@@ -8,6 +8,7 @@ args @ {
 }: {
   imports = [
     ../users/ksevelyar.nix
+    ../users/kavarkon.nix
     ../users/root.nix
 
     ../hardware/efi.nix
@@ -32,6 +33,7 @@ args @ {
     ../packages/pass.nix
     ../packages/tmux.nix
 
+    ../services/auto-mount.nix
     ../services/journald.nix
     ../services/x.nix
     ../services/x/redshift.nix
@@ -39,8 +41,8 @@ args @ {
     ../services/x/random-wallpaper.nix
 
     ../services/net/firewall-desktop.nix
-    ../services/net/openvpn.nix
-    ../services/vpn.nix
+    # ../services/net/openvpn.nix
+    # ../services/vpn.nix
     ../services/net/sshd.nix
     ../services/net/avahi.nix
   ];
@@ -51,6 +53,16 @@ args @ {
   networking.interfaces.enp2s0.useDHCP = true;
   networking.useDHCP = false;
   networking.networkmanager.enable = true; # run nmtui for wi-fi
+
+  # http://localhost:8384/
+  services = {
+    syncthing = {
+      enable = true;
+      user = "kavarkon";
+      dataDir = "/home/kavarkon/syncthing"; # Default folder for new synced folders
+      configDir = "/home/kavarkon/.config/syncthing";
+    };
+  };
 
   home-manager.users.ksevelyar = {
     home.pointerCursor = {
@@ -93,6 +105,11 @@ args @ {
       device = "/dev/disk/by-label/enc-nixos";
       allowDiscards = true;
     };
+  };
+
+  services.xray = {
+    enable = true;
+    settingsFile = config.age.secrets.kavarkon-xray-json.path;
   };
 
   fileSystems."/" = {

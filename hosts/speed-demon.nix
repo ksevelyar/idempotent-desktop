@@ -36,6 +36,7 @@ args @ {
     ../packages/tmux.nix
     ../packages/office.nix
 
+    ../services/auto-mount.nix
     ../services/journald.nix
     ../services/databases/postgresql.nix
     ../services/databases/redis.nix
@@ -70,7 +71,7 @@ args @ {
   # networking.proxy.default = "127.0.0.1:2080";
   services.xray = {
     enable = true;
-    settingsFile = config.age.secrets.xray-json.path;
+    settingsFile = config.age.secrets.kavarkon-xray-json.path;
   };
 
   services = {
