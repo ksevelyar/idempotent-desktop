@@ -96,7 +96,7 @@ args @ {
         allowedIPs = [
           "10.10.10.0/24"
         ];
-        persistentKeepalive = 25;
+        persistentKeepalive = 10;
       }
     ];
   };

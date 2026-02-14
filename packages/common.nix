@@ -45,7 +45,7 @@
 
     # net
     nmap
-    sing-box
+    tcpdump
 
     # monitoring
     gotop
