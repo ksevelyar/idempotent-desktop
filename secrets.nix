@@ -11,16 +11,17 @@ let
   speedDemon = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOo37j6LXdgclRzEDzIZSfrf9tgjITe1QixUxSIzFKNc root@speed-demon";
   systems = [hk47 laundry pepes speedDemon];
 in {
+  # shared
   "secrets/idempotent-desktop.age".publicKeys = users ++ systems;
 
-  "secrets/ksevelyar.age".publicKeys = [ksevelyar hk47];
-  "secrets/xray-xhttp.ksevelyar.age".publicKeys = [ksevelyar hk47];
-  "secrets/wg-hk47.age".publicKeys = [ksevelyar hk47];
-  "secrets/wg-laundry.age".publicKeys = [ksevelyar laundry];
+  # ksevelyar
+  "secrets/ksevelyar/xray-xhttp.age".publicKeys = [ksevelyar hk47 laundry];
+  "secrets/ksevelyar/wg-hk47.age".publicKeys = [ksevelyar hk47];
+  "secrets/ksevelyar/wg-laundry.age".publicKeys = [ksevelyar laundry];
 
   # kh
-  "secrets/xray-xhttp.kh.age".publicKeys = [kh pepes];
+  "secrets/kh/xray-xhttp.age".publicKeys = [kh pepes];
 
   # kavarkon
-  "secrets/xray-xhttp.kavarkon.age".publicKeys = [kavarkon speedDemon];
+  "secrets/kavarkon/xray-xhttp.age".publicKeys = [kavarkon speedDemon];
 }

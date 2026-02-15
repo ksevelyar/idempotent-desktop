@@ -35,14 +35,14 @@ in {
 
   age.identityPaths = ["/home/ksevelyar/.ssh/id_ed25519"];
   age.secrets.wg-hk47 = {
-    file = ../secrets/wg-hk47.age;
+    file = ../secrets/ksevelyar/wg-hk47.age;
   };
   age.secrets.wg-laundry = {
-    file = ../secrets/wg-hk47.age;
+    file = ../secrets/ksevelyar/wg-hk47.age;
   };
 
   age.secrets.ksevelyar-xray-json = {
-    file = ../secrets/xray-xhttp.ksevelyar.age;
+    file = ../secrets/ksevelyar/xray-xhttp.ksevelyar.age;
     owner = "xray";
     group = "xray";
   };

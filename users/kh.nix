@@ -31,8 +31,8 @@ in {
   '';
 
   age.identityPaths = ["/home/kh/.ssh/id_ed25519"];
-  age.secrets.xray-json = {
-    file = ../secrets/xray-xhttp.kh.age;
+  age.secrets.kh-xray-json = {
+    file = ../secrets/kh/xray-xhttp.kh.age;
     owner = "xray";
     group = "xray";
   };

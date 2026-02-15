@@ -40,6 +40,7 @@ args @ {
     ../packages/tmux.nix
     ../packages/office.nix
 
+    ../services/auto-mount.nix
     ../services/journald.nix
     ../services/databases/postgresql.nix
     ../services/databases/redis.nix
@@ -60,14 +61,10 @@ args @ {
   networking.useDHCP = false;
   networking.interfaces.wlp1s0.useDHCP = lib.mkDefault true;
   networking.networkmanager.enable = true;
-
   # networking.proxy.default = "127.0.0.1:2080";
 
   home-manager.users.kavarkon = {
-    # home.file.".config/leftwm/config.ron".source = ../users/kavarkon/baton/leftwm.ron;
     home.file.".config/polybar/config.ini".source = ../users/kavarkon/baton/polybar.ini;
-    #   home.file.".config/alacritty/alacritty.toml".source = ../users/kavarkon/baton/alacritty.toml;
-    #   home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/kavarkon/baton/alacritty-scratchpad.toml;
   };
 
   programs.java = { enable = true; package = pkgs.jdk17; };
@@ -79,7 +76,7 @@ args @ {
     syncthing = {
       enable = true;
       user = "kavarkon";
-      dataDir = "/home/kavarkon/syncthing"; # Default folder for new synced folders
+      dataDir = "/home/kavarkon/syncthing";
       configDir = "/home/kavarkon/.config/syncthing";
     };
   };
