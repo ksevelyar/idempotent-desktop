@@ -18,6 +18,12 @@ function pgen # pgen learn/edx.org
     gopass generate -s -c $argv[1] 42 # if you can type your password it's no good
 end
 
+function git_pull_all
+    for dir in ./*/.git
+        git -C (dirname $dir) pull origin main:main --rebase
+    end
+end
+
 function t # t 12m or t 9m pizza
     set label $argv[2]
     test -z "$label"; and set label "▓▓▓"

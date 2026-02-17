@@ -7,7 +7,7 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 ## Features
 * [CI with flakes and Cachix](/.github/workflows/build.yml)
 * Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each host can contain multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users)
-* All hosts connected with [wireguard](https://github.com/ksevelyar/idempotent-desktop/blob/198d0192d958e871d184f85338c35440ae033c25/hosts/skynet.nix#L57-L135)
+* All hosts connected with [wireguard](https://github.com/ksevelyar/idempotent-server/blob/main/services/net/wireguard.nix)
 * [Terminus](http://terminus-font.sourceforge.net/shots.html) and [NerdFonts](/sys/fonts.nix)
 * [Brutal Doom](https://github.com/ksevelyar/brutal-doom), [Quake](https://github.com/ksevelyar/quake), [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
 * [battery optimisation](/hardware/power-management.nix) for laptops

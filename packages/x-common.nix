@@ -77,6 +77,7 @@
 
     # im
     telegram-desktop
+    mumble
 
     # sys
     alacritty

@@ -30,7 +30,7 @@ in {
   age.identityPaths = ["/home/kavarkon/.ssh/id_ed25519"];
 
   age.secrets.kavarkon-xray-json = {
-    file = ../secrets/kavarkon/xray-xhttp.kavarkon.age;
+    file = ../secrets/kavarkon/xray-xhttp.age;
     owner = "xray";
     group = "xray";
   };
