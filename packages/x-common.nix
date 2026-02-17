@@ -77,6 +77,7 @@
 
     # im
     telegram-desktop
+    rustdesk-flutter
     mumble
 
     # sys
