@@ -63,16 +63,15 @@ args @ {
   networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
   networking.networkmanager.enable = true;
 
+  networking.firewall.trustedInterfaces = [ "skynet" ];
   networking.wireguard.interfaces.skynet = {
     ips = ["10.10.10.3/24"];
     privateKeyFile = config.age.secrets.wg-laundry.path;
     peers = [
       {
         publicKey = "U5Yho/fX8/b8ZepkpB16ye0JOweRbMO6CHmvu/+v7Gk=";
-        endpoint = "212.109.193.139:51821";
-        allowedIPs = [
-          "10.10.10.0/24"
-        ];
+        endpoint = "212.109.193.139:444";
+        allowedIPs = ["10.10.10.0/24"];
         persistentKeepalive = 25;
       }
     ];

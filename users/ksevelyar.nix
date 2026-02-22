@@ -38,7 +38,7 @@ in {
     file = ../secrets/ksevelyar/wg-hk47.age;
   };
   age.secrets.wg-laundry = {
-    file = ../secrets/ksevelyar/wg-hk47.age;
+    file = ../secrets/ksevelyar/wg-laundry.age;
   };
 
   age.secrets.ksevelyar-xray-json = {

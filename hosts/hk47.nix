@@ -92,10 +92,8 @@ args @ {
     peers = [
       {
         publicKey = "U5Yho/fX8/b8ZepkpB16ye0JOweRbMO6CHmvu/+v7Gk=";
-        endpoint = "212.109.193.139:51821";
-        allowedIPs = [
-          "10.10.10.0/24"
-        ];
+        endpoint = "212.109.193.139:444";
+        allowedIPs = ["10.10.10.0/24"];
         persistentKeepalive = 10;
       }
     ];
