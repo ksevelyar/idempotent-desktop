@@ -45,8 +45,6 @@ args @ {
     ../services/x/unclutter.nix
 
     ../services/net/firewall-desktop.nix
-    ../services/net/openvpn.nix
-    ../services/vpn.nix
     ../services/net/sshd.nix
     ../services/net/avahi.nix
 

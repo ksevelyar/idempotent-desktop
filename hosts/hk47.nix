@@ -48,14 +48,11 @@ args @ {
     ../services/x/unclutter.nix
 
     ../services/net/firewall-desktop.nix
-    ../services/net/openvpn.nix
-    ../services/vpn.nix
     ../services/net/sshd.nix
     ../services/net/wireguard.nix
     ../services/net/avahi.nix
 
-    ../services/vm/docker.nix
-    ../services/vm/hypervisor.nix
+    # ../services/vm/hypervisor.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -125,14 +122,6 @@ args @ {
       configDir = "/home/ksevelyar/.config/syncthing";
     };
   };
-
-  services.udev.extraRules = ''
-    # microbit v2
-    ATTR{idVendor}=="0d28", ATTR{idProduct}=="0204", MODE="660", GROUP="dialout"
-
-    # STMicroelectronics ST-LINK/V2
-    ATTR{idVendor}=="0483", ATTR{idProduct}=="3748", MODE="660", GROUP="dialout"
-  '';
 
   services.xserver.dpi = 120;
   services.xserver.displayManager.lightdm.background = ../assets/wallpapers/johnny.jpg;

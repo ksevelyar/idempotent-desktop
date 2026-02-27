@@ -20,8 +20,6 @@ args @ {
     ../services/x.nix
     ../services/x/unclutter.nix
     ../services/x/redshift.nix
-    ../services/vpn.nix
-    ../services/net/openvpn.nix
     ../services/net/wireguard.nix
     ../services/net/sshd-debug.nix
     ../services/net/avahi.nix

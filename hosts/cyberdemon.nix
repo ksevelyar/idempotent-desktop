@@ -46,8 +46,6 @@
     ../services/net/wireguard.nix
     ../services/net/avahi.nix
     ../services/net/sshd.nix
-    ../services/net/openvpn.nix
-    ../services/vpn.nix
   ];
 
   boot.tmp.cleanOnBoot = true;
@@ -78,14 +76,6 @@
         }
       ];
     };
-  };
-
-  #vpn
-  services.openvpn.servers = {
-    uk-shark.autoStart = true;
-    de-shark.autoStart = false;
-    fr-shark.autoStart = false;
-    us-proton.autoStart = false;
   };
 
   fileSystems."/" = {

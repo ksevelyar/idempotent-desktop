@@ -43,8 +43,6 @@ args @ {
     ../services/x/unclutter.nix
 
     ../services/net/firewall-desktop.nix
-    ../services/net/openvpn.nix
-    #../services/vpn/vpn.nix
     ../services/net/sshd.nix
     ../services/net/wireguard.nix
 
