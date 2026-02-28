@@ -53,9 +53,6 @@ args @ {
     # ../services/vm/hypervisor.nix
   ];
 
-  # debug
-  services.getty.autologinUser = "ksevelyar";
-
   environment.systemPackages = with pkgs; [
     aria2
     yazi

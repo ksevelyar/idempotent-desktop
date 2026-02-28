@@ -5,6 +5,7 @@
   ...
 }: {
   services.speechd.enable = false;
+  services.displayManager.ly.enable = true;
 
   # xdg
   xdg.autostart.enable = true;
