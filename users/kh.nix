@@ -33,17 +33,5 @@ in {
   age.identityPaths = ["/home/kh/.ssh/id_ed25519"];
   age.secrets.kh-xray-json = {
     file = ../secrets/kh/xray-xhttp.age;
-    owner = "xray";
-    group = "xray";
   };
-
-  systemd.services.xray.serviceConfig = {
-    DynamicUser = lib.mkForce false;
-    User = "xray";
-  };
-  users.users.xray = {
-    isSystemUser = true;
-    group = "xray";
-  };
-  users.groups.xray = {};
 }

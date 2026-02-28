@@ -31,17 +31,5 @@ in {
 
   age.secrets.kavarkon-xray-json = {
     file = ../secrets/kavarkon/xray-xhttp.age;
-    owner = "xray";
-    group = "xray";
   };
-
-  systemd.services.xray.serviceConfig = {
-    DynamicUser = lib.mkForce false;
-    User = "xray";
-  };
-  users.users.xray = {
-    isSystemUser = true;
-    group = "xray";
-  };
-  users.groups.xray = {};
 }

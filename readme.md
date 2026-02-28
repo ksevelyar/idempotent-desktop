@@ -9,7 +9,7 @@ This repo is just a bunch of NixOS modules, so you can pick or override anything
 * Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each host can contain multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users)
 * All hosts connected with [wireguard](https://github.com/ksevelyar/idempotent-server/blob/main/services/net/wireguard.nix)
 * [Terminus](http://terminus-font.sourceforge.net/shots.html) and [NerdFonts](/sys/fonts.nix)
-* [Brutal Doom](https://github.com/ksevelyar/brutal-doom), [Quake](https://github.com/ksevelyar/quake), [Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
+* [Heroic and Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
 * [battery optimisation](/hardware/power-management.nix) for laptops
 * [mpv](/users/shared/mpv), [imv][imv]
 * [persistent-usb](/usb/persistent.nix)

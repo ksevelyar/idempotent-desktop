@@ -67,7 +67,6 @@
       home.file.".gtkrc-2.0".text = ''
         gtk-theme-name="Dracula"
         gtk-icon-theme-name="Papirus-Dark-Maia"
-        gtk-font-name="Terminus 16"
       '';
 
       home.file.".config/nixpkgs/config.nix".text = ''

@@ -18,8 +18,6 @@ agenix -e secrets/xray-3.ksevelyar.age
 ```nix
 age.secrets.xray-json = {
   file = ../secrets/xray-1.ksevelyar.age;
-  owner = "xray";
-  group = "xray";
 };
 
 services.xray = {
@@ -28,13 +26,4 @@ services.xray = {
 };
 
 age.identityPaths = [ "/home/ksevelyar/.ssh/id_ed25519" ];
-systemd.services.xray.serviceConfig = {
-  DynamicUser = lib.mkForce false;
-  User = "xray";
-};
-users.users.xray = {
-  isSystemUser = true;
-  group = "xray";
-};
-users.groups.xray = {};
 ```
