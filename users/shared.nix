@@ -100,6 +100,10 @@
         name = ${name}
       '';
 
+      home.file.".config/rofi/grey.rasi".source = ../users/shared/rofi/grey.rasi;
+      home.file.".config/rofi/config.rasi".source = lib.mkDefault ../users/shared/rofi/config.rasi;
+      home.file.".config/rofimoji.rc".source = lib.mkDefault ../users/shared/rofi/rofimoji.rc;
+
       home.file.".config/broot/conf.hjson".source = ../users/shared/broot/conf.hjson;
       home.file.".config/zathura/zathurarc".source = ../users/shared/zathura/zathurarc;
 

@@ -25,7 +25,7 @@ listview {
 
 window {
   width: 70ch;
-  font: "Terminus 22";
+  font: "CaskaydiaMono Nerd Font 15";
 }
 
 inputbar {

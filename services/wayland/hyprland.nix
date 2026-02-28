@@ -49,7 +49,10 @@
     firefox
     grim
     slurp
+
+    cliphist
     wl-clipboard
+
     brightnessctl
   ];
 }
