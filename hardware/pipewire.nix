@@ -20,7 +20,7 @@
     notify-send -h string:synchronous:volume "$(pamixer --get-volume-human)" -t 1000
   '';
 in {
-  environment.systemPackages = lib.mkIf config.services.xserver.enable [
+  environment.systemPackages = lib.mkIf (config.services.xserver.enable || config.programs.hyprland.enable) [
     sound-volume-up
     sound-volume-down
     pkgs.pavucontrol

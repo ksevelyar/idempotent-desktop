@@ -39,11 +39,6 @@
   };
 
   programs.browserpass.enable = true;
-  qt = {
-    enable = true;
-    platformTheme = "gtk2";
-    style = "gtk2";
-  };
   console.useXkbConfig = true;
 
   environment.systemPackages = with pkgs; [
