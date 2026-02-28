@@ -4,6 +4,7 @@
   user,
   email,
   name,
+  config,
   ...
 }: {
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -56,6 +57,14 @@
     users.${user} = {
       home.stateVersion = "24.05";
 
+      services.wlsunset = {
+        enable = config.programs.hyprland.enable;
+        latitude = config.location.latitude;
+        longitude = config.location.longitude;
+        temperature.day = 6500;
+        temperature.night = 4000;
+      };
+
       home.pointerCursor = lib.mkDefault {
         x11.enable = true;
         gtk.enable = true;
@@ -82,11 +91,6 @@
           package = pkgs.dracula-icon-theme;
         };
       };
-
-      # home.file.".gtkrc-2.0".text = ''
-      #   gtk-theme-name="Dracula"
-      #   gtk-icon-theme-name="Papirus-Dark-Maia"
-      # '';
 
       home.file.".config/nixpkgs/config.nix".text = ''
         { allowUnfree = true; }
@@ -126,14 +130,14 @@
       home.file.".iex.exs".source = ../users/shared/.iex.exs;
 
       home.file.".local/share/nemo/actions/aunpack.nemo_action".text = ''
-      [Nemo Action]
-      Name=Extract here
-      Comment=Extract the selected archive(s) using aunpack
-      Exec=aunpack -X %P %F
-      Icon=package-x-generic
-      Selection=Any
-      Extensions=zip;tar;gz;bz2;7z;rar;
-      Quote=double
+        [Nemo Action]
+        Name=Extract here
+        Comment=Extract the selected archive(s) using aunpack
+        Exec=aunpack -X %P %F
+        Icon=package-x-generic
+        Selection=Any
+        Extensions=zip;tar;gz;bz2;7z;rar;
+        Quote=double
       '';
     };
   };
