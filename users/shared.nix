@@ -61,13 +61,32 @@
         gtk.enable = true;
         name = "Vanilla-DMZ";
         package = pkgs.vanilla-dmz;
-        size = 16;
+        size = lib.mkDefault 16;
       };
 
-      home.file.".gtkrc-2.0".text = ''
-        gtk-theme-name="Dracula"
-        gtk-icon-theme-name="Papirus-Dark-Maia"
-      '';
+      gtk = {
+        enable = true;
+
+        theme = {
+          name = "Dracula";
+          package = pkgs.dracula-theme;
+        };
+
+        font = {
+          name = "CaskaydiaMono Nerd Font";
+          size = 15;
+        };
+
+        iconTheme = {
+          name = "Dracula";
+          package = pkgs.dracula-icon-theme;
+        };
+      };
+
+      # home.file.".gtkrc-2.0".text = ''
+      #   gtk-theme-name="Dracula"
+      #   gtk-icon-theme-name="Papirus-Dark-Maia"
+      # '';
 
       home.file.".config/nixpkgs/config.nix".text = ''
         { allowUnfree = true; }

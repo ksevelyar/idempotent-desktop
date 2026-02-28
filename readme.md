@@ -1,33 +1,32 @@
 # Idempotent Desktop [![build](https://github.com/ksevelyar/idempotent-desktop/actions/workflows/build.yml/badge.svg)](https://github.com/ksevelyar/idempotent-desktop/actions/workflows/build.yml)
 
-This repo is just a bunch of NixOS modules, so you can pick or override anything.
-
-![leftwm](/assets/screens/leftwm.png)
-
-## Features
-* [CI with flakes and Cachix](/.github/workflows/build.yml)
+## Overview
 * Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each host can contain multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users)
-* All hosts connected with [wireguard](https://github.com/ksevelyar/idempotent-server/blob/main/services/net/wireguard.nix)
-* [Terminus](http://terminus-font.sourceforge.net/shots.html) and [NerdFonts](/sys/fonts.nix)
-* [Heroic and Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
-* [battery optimisation](/hardware/power-management.nix) for laptops
-* [mpv](/users/shared/mpv), [imv][imv]
-* [persistent-usb](/usb/persistent.nix)
+* Cachix: build custom packages once, like Rust binaries, and share between all nodes
+* All hosts connected with [wireguard](https://github.com/ksevelyar/idempotent-server/blob/main/services/net/wireguard.nix) and rustdesk
+* [Persistent USB](/usb/persistent.nix) for quick setup and maintenance of workstations
 
 ## Linux as IDE
-* Tiling with [leftwm](/users/shared/leftwm/config.ron) and polybar
+* Tiling with hyprland
 * [fish](/doc/fish.md), direnv, alacritty, ripgrep, rsync, fzf, [zoxide][zoxide], [delta][delta], bat, exa
 * [Neovim with LSP and TS](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/nvim/init.lua)
-* fuzzy search by apps [`mod`](/doc/run-rofi-with-one-key.md), emojis `mod + z` and clipboard history `mod + c` wih [rofi](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/rofi/grey.rasi)
-* [copy color of pixel under mouse cursor](/services/x.nix#L5-L14) to clipboard with `mod + k`
-* [`PrtScn`](https://github.com/ksevelyar/idempotent-desktop/blob/ea28dfc28596d8edb3b88683e9960b4a32cc9c46/users/shared/leftwm/config.toml#L180-L184) to capture region, `mod + PrtScn` to capture fullscreen, record desktop videos with `vokoscreen`
+* Pixel color picker
+* Screenshot & screen recording
 
 ## Security
-* declarative xray config with [agenix](/doc/agenix.md)
+* declarative secrets with [agenix](/doc/agenix.md)
 * [encrypted root with LUKS2](/doc/encrypted-root.md)
 * [EdDSA for ssh and gpg keys](/doc/keys.md)
 * gopass / [browserpass](https://github.com/browserpass/browserpass-extension#available-keyboard-shortcuts) integration
 * [uBlock](https://github.com/gorhill/uBlock)
+
+## Inference
+* [ollama & comfy](https://github.com/ksevelyar/playground-inference)
+* declarative agent: WIP
+
+## Chill
+* [Heroic and Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
+* [mpv](mpv), [imv](imv), spotify
 
 [imv]: /users/shared/imv/config
 [delta]: https://github.com/dandavison/delta
