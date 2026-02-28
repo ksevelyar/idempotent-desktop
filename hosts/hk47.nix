@@ -29,9 +29,9 @@ args @ {
     ../sys/tty.nix
     ../sys/cache.nix
 
+    ../packages/wayland-common.nix
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
-    ../packages/x-common.nix
     ../packages/3d-print.nix
     ../packages/games.nix
     ../packages/neovim.nix
@@ -39,13 +39,11 @@ args @ {
     ../packages/spotify.nix
     ../packages/electronics.nix
 
+    ../services/wayland/hyprland.nix
     ../services/auto-mount.nix
     ../services/journald.nix
     ../services/databases/postgresql.nix
-    ../services/databases/redis.nix
-    ../services/x.nix
-    ../services/x/redshift.nix
-    ../services/x/unclutter.nix
+    # ../services/databases/redis.nix
 
     ../services/net/firewall-desktop.nix
     ../services/net/sshd.nix
@@ -54,6 +52,9 @@ args @ {
 
     # ../services/vm/hypervisor.nix
   ];
+
+  # debug
+  services.getty.autologinUser = "ksevelyar";
 
   environment.systemPackages = with pkgs; [
     aria2
@@ -72,8 +73,10 @@ args @ {
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   home-manager.users.ksevelyar = {
-    home.file.".config/polybar/config.ini".source = ../users/ksevelyar/hk47/polybar.ini;
-    home.file.".config/leftwm/themes/current/up".source = ../users/ksevelyar/hk47/leftwm/up;
+    home.file.".config/waybar/config".source = ../users/ksevelyar/hk47/waybar/waybar.json;
+    home.file.".config/waybar/style.css".source = ../users/ksevelyar/hk47/waybar/waybar.css;
+    home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/hk47/hypr/hyprland.conf;
+    home.file.".config/hypr/hyprpaper.conf".source = ../users/ksevelyar/hk47/hypr/hyprpaper.conf;
   };
 
   # net
@@ -122,9 +125,6 @@ args @ {
       configDir = "/home/ksevelyar/.config/syncthing";
     };
   };
-
-  services.xserver.dpi = 120;
-  services.xserver.displayManager.lightdm.background = ../assets/wallpapers/johnny.jpg;
 
   boot.loader.grub.memtest86.enable = true;
   boot.loader.grub.splashImage = ../assets/wallpapers/johnny.jpg;

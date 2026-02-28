@@ -4,3 +4,6 @@ configuration.nix
 result
 
 auth.txt
+
+# nix run .#nixosConfigurations.hk47.config.system.build.vm
+*.qcow2
