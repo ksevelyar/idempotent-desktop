@@ -6,17 +6,16 @@
 
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/workspaces",
         "custom/sep",
-        "hyprland/window",
-        "custom/sep"
+        "wireplumber",
+        "custom/sep",
+        "hyprland/workspaces",
     ],
     "modules-center": [
+        "hyprland/window",
     ],
 
     "modules-right": [
-        "custom/sep",
-        "network",
         "custom/sep",
         "cpu",
         "custom/sep",
@@ -35,21 +34,19 @@
         "all-outputs": true,
         "warp-on-scroll": false,
         "format": "{name}",
-        "persistent-workspaces": {
-            "*" : 9
-        }
     },
     "hyprland/window" : {
-        "max-length": 40,
+        "max-length": 120,
         "seperate-outputs": false
     },
     "tray": {
-        // "icon-size": 21,
         "spacing": 10
-        // "icons": {
-        //   "blueman": "bluetooth",
-        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-        // }
+    },
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "on-click": "helvum",
+        "format-icons": ["", "", ""]
     },
     "clock": {
         "format-alt": "{:%Y-%m-%d}"
@@ -59,7 +56,7 @@
         "tooltip": false
     },
     "memory": {
-        "format": "Mem: {used}GiB"
+        "format": "Mem: {used}%"
     },
     "disk": {
         "interval": 60,
@@ -77,10 +74,6 @@
         "format-alt": "Bat {capacity}%",
         "format-time": "{H}:{M}",
         "format-icons": ["", "", "", "", ""]
-    },
-    "network": {
-        "format": "Online",
-        "format-disconnected": "Disconnected ⚠"
     },
     "custom/sep": {
         "format" : "|",

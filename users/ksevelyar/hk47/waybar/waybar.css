@@ -12,8 +12,7 @@
 
 * {
     font-family: "CaskaydiaMono Nerd Font", monospace;
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 16px;
 }
 
 window#waybar {
@@ -29,7 +28,7 @@ window#waybar {
 }
 #workspaces button.active {
     color: @cyn;
-    border-bottom: 3px solid @mag;
+    border: 1px solid @mag;
 }
 #workspaces button.empty {
     color: @white;
@@ -62,42 +61,4 @@ button:hover {
 
 #custom-sep {
     color: @brblk;
-}
-
-#clock {
-    color: @cyn;
-    border-bottom: 4px solid @cyn;
-}
-
-#battery {
-    color: @mag;
-    border-bottom: 4px solid @mag;
-}
-
-#disk {
-    color: @ylw;
-    border-bottom: 4px solid @ylw;
-}
-
-#memory {
-    color: @mag;
-    border-bottom: 4px solid @mag;
-}
-
-#cpu {
-    color: @grn;
-    border-bottom: 4px solid @grn;
-}
-
-#network {
-    color: @blu;
-    border-bottom: 4px solid @blu;
-}
-
-#network.disconnected {
-    background-color: @red;
-}
-
-#tray {
-    background-color: #2980b9;
 }

@@ -2,7 +2,7 @@
 
 ## Overview
 * Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each host can contain multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users)
-* Cachix: build custom packages once, like Rust binaries, and share between all nodes
+* Cachix: build custom packages once and share between all nodes
 * All hosts connected with [wireguard](https://github.com/ksevelyar/idempotent-server/blob/main/services/net/wireguard.nix) and rustdesk
 * [Persistent USB](/usb/persistent.nix) for quick setup and maintenance of workstations
 
