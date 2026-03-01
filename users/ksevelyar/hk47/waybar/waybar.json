@@ -34,9 +34,6 @@
     "max-length": 120,
     "seperate-outputs": false
   },
-  "tray": {
-    "spacing": 10
-  },
   "wireplumber": {
     "format": " {icon} {volume:3}%",
     "format-muted": "      ",
@@ -93,7 +90,7 @@
   },
   "custom/weather": {
     "exec": "waybar-weather",
-    "interval": 600,
+    "interval": 300,
     "format": "{}",
     "tooltip": true,
     "return-type": "json"
