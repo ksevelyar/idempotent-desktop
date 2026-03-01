@@ -14,10 +14,6 @@
     cabextract
     heroic
 
-    # wine
-    wineWowPackages.stable
-    winetricks
-
     # drm_info
     vulkan-tools
 

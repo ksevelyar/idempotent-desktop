@@ -24,7 +24,6 @@ window#waybar {
     padding: 0 6px;
     color: @fg;
     background: transparent;
-    border-bottom: 3px solid @bg;
 }
 #workspaces button.active {
     color: @white;
@@ -37,7 +36,8 @@ window#waybar {
 }
 
 #workspaces button.urgent {
-    background-color: @brblk;
+    color: @bg;
+    background-color: @white;
 }
 
 button:hover {
