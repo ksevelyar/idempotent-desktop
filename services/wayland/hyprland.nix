@@ -45,6 +45,7 @@
     dracula-icon-theme
     # papirus-maia-icon-theme
 
+    wev
     hyprlock
     hyprpaper
     hyprpicker
