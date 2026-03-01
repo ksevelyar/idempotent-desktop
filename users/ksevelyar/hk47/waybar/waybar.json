@@ -1,66 +1,75 @@
 {
-    "layer": "top",
-    "position": "top",
-    "height": 30,
-    "spacing": 4,
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "spacing": 4,
 
-    // Choose the order of the modules
-    "modules-left": [
-        "wireplumber",
-        "custom/sep",
-        "hyprland/workspaces",
-    ],
-    "modules-center": [
-        "hyprland/window",
-    ],
+  // Choose the order of the modules
+  "modules-left": [
+    "wireplumber",
+    "custom/sep",
+    "hyprland/workspaces",
+    "custom/sep",
+    "custom/spotify"
+  ],
+  "modules-center": [
+    "hyprland/window",
+  ],
 
-    "modules-right": [
-        "cpu",
-        "custom/sep",
-        "memory",
-        "custom/sep",
-        "disk",
-        "custom/sep",
-        "clock"
-    ],
+  "modules-right": [
+    "cpu",
+    "custom/sep",
+    "memory",
+    "custom/sep",
+    "disk",
+    "custom/sep",
+    "clock"
+  ],
 
-    // Modules configuration
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "warp-on-scroll": false,
-        "format": "{name}",
-    },
-    "hyprland/window" : {
-        "max-length": 120,
-        "seperate-outputs": false
-    },
-    "tray": {
-        "spacing": 10
-    },
-    "wireplumber": {
-        "format": " {icon}  {volume}%",
-        "format-muted": "",
-        "on-click": "helvum",
-        "format-icons": ["", "", ""]
-    },
-    "clock": {
-        "format-alt": "{:%Y-%m-%d}"
-    },
-    "cpu": {
-        "format": "CPU: {usage}%",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "Mem: {used}%"
-    },
-    "disk": {
-        "interval": 60,
-        "path": "/",
-        "format": "/: {free}"
-    },
-    "custom/sep": {
-        "format" : " ",
-        "interval" : 0
-    }
+  // Modules configuration
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{name}",
+  },
+  "hyprland/window" : {
+    "max-length": 120,
+    "seperate-outputs": false
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "wireplumber": {
+    "format": " {icon}  {volume}%",
+    "format-muted": "",
+    "on-click": "helvum",
+    "format-icons": ["", "", ""]
+  },
+  "clock": {
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "cpu": {
+    "format": "CPU: {usage}%",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "Mem: {used}%"
+  },
+  "disk": {
+    "interval": 60,
+    "path": "/",
+    "format": "/: {free}"
+  },
+  "custom/sep": {
+    "format" : " ",
+    "interval" : 0
+  },
+  "custom/spotify": {
+    "exec": "playerctl --player=spotify metadata --format '  {{ artist }} - {{ title }}' 2>/dev/null || echo ''",
+    "interval": 5,
+    "exec-if": "pgrep -f spotify",
+    "on-click": "playerctl --player=spotify play-pause",
+    "on-click-right": "playerctl --player=spotify next"
+  }
 }

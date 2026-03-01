@@ -13,13 +13,12 @@ args @ {
     ../sys/cache.nix
     ../sys/nix.nix
 
+    ../packages/wayland-common.nix
     ../packages/neovim.nix
     ../packages/absolutely-proprietary.nix
     ../packages/pass.nix
 
-    ../services/x.nix
-    ../services/x/unclutter.nix
-    ../services/x/redshift.nix
+    ../services/wayland/hyprland.nix
     ../services/net/wireguard.nix
     ../services/net/sshd-debug.nix
     ../services/net/avahi.nix
@@ -48,17 +47,14 @@ args @ {
 
     packages = with pkgs; [
       dejavu_fonts
+      nerd-fonts.caskaydia-mono
       terminus_font
-      nerd-fonts.symbols-only
     ];
   };
 
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 
-  services.displayManager = {
-    defaultSession = lib.mkDefault "none+leftwm";
-  };
   services.getty.autologinUser = "mr";
   users.users = {
     root = {
@@ -107,17 +103,9 @@ args @ {
     zip
     unzip
 
-    # X
-    xxkb
     firefox
     alacritty
     gparted
-    xclip
-    rofi
-    rofimoji
-    libnotify
     brightnessctl
-    arandr # gui for external monitors
-    throne
   ];
 }

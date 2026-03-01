@@ -74,7 +74,7 @@
     };
 
     usb = {
-      name = "usb";
+      name = "usb-tui";
       value = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -86,7 +86,7 @@
     };
 
     usb-x = {
-      name = "usb-x";
+      name = "usb";
       value = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
