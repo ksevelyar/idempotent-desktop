@@ -1,12 +1,11 @@
 {
-    "layer": "top", 
-    "position": "top", 
-    "height": 30, 
-    "spacing": 4, 
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 4,
 
     // Choose the order of the modules
     "modules-left": [
-        "custom/sep",
         "wireplumber",
         "custom/sep",
         "hyprland/workspaces",
@@ -16,7 +15,6 @@
     ],
 
     "modules-right": [
-        "custom/sep",
         "cpu",
         "custom/sep",
         "memory",
@@ -41,7 +39,7 @@
         "spacing": 10
     },
     "wireplumber": {
-        "format": "{icon} {volume}%",
+        "format": " {icon}  {volume}%",
         "format-muted": "",
         "on-click": "helvum",
         "format-icons": ["", "", ""]
@@ -59,22 +57,10 @@
     "disk": {
         "interval": 60,
         "path": "/",
-        "format": "Disk: {free}"
-    },
-    "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "Bat: {capacity}% {icon} {time}",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "Bat {capacity}%",
-        "format-time": "{H}:{M}",
-        "format-icons": ["", "", "", "", ""]
+        "format": "/: {free}"
     },
     "custom/sep": {
-        "format" : "|",
+        "format" : " ",
         "interval" : 0
     }
 }

@@ -9,12 +9,13 @@
         "wireplumber",
         "custom/sep",
         "hyprland/workspaces",
+        "hyprland/window",
     ],
     "modules-center": [
-        "hyprland/window",
     ],
 
     "modules-right": [
+        "battery",
         "custom/sep",
         "cpu",
         "custom/sep",
@@ -40,7 +41,7 @@
         "spacing": 10
     },
     "wireplumber": {
-        "format": "{icon} {volume}%",
+        "format": " {icon}  {volume}%",
         "format-muted": "",
         "on-click": "helvum",
         "format-icons": ["", "", ""]
@@ -73,7 +74,7 @@
         "format-icons": ["", "", "", "", ""]
     },
     "custom/sep": {
-        "format" : "|",
+        "format" : " ",
         "interval" : 0
     }
 }

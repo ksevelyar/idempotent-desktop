@@ -8,7 +8,7 @@
 
 ## Linux as IDE
 * Tiling with hyprland
-* [fish](/doc/fish.md), direnv, alacritty, ripgrep, rsync, fzf, [zoxide][zoxide], [delta][delta], bat, exa
+* [fish](/doc/fish.md), direnv, alacritty, ripgrep, fd, fzf, [zoxide][zoxide], [delta][delta]
 * [Neovim with LSP and TS](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/nvim/init.lua)
 * Pixel color picker
 * Screenshot & screen recording
@@ -26,7 +26,7 @@
 
 ## Chill
 * [Heroic and Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
-* [mpv](mpv), [imv](imv), spotify
+* mpv, [imv][imv], spotify
 
 [imv]: /users/shared/imv/config
 [delta]: https://github.com/dandavison/delta

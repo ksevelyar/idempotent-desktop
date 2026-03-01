@@ -5,11 +5,14 @@
   ...
 }: {
   services.speechd.enable = false;
-  services.displayManager.ly = {
-    enable = true;
-    settings = {
-      hide_version_string = true;
-      hide_key_hints = true;
+  services.displayManager = {
+    defaultSession = "hyprland";
+    ly = {
+      enable = true;
+      settings = {
+        hide_version_string = true;
+        hide_key_hints = true;
+      };
     };
   };
 
