@@ -64,6 +64,26 @@
         temperature.day = 6500;
         temperature.night = 4000;
       };
+      services.mako = {
+        enable = config.programs.hyprland.enable;
+        settings = {
+          font = "CaskaydiaMono Nerd Font 15";
+          default-timeout = 4000;
+          background-color = "#16161E";
+          text-color = "#d0d0d0";
+          border-color = "#3a3a45";
+          border-size = 2;
+          padding = "12";
+          outer-margin = "8";
+          border-radius = 8;
+          anchor = "top-right";
+
+          width = 350;
+          height = 100;
+          max-visible = 5;
+          max-history = 20;
+        };
+      };
 
       home.pointerCursor = lib.mkDefault {
         x11.enable = true;
