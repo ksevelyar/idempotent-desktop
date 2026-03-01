@@ -19,7 +19,6 @@
 
     ../packages/common.nix
     ../packages/neovim.nix
-    ../packages/tmux.nix
     ../packages/pass.nix
 
     ../services/journald.nix

@@ -159,6 +159,12 @@
         Extensions=zip;tar;gz;bz2;7z;rar;
         Quote=double
       '';
+
+      home.file.".config/zellij/config.kdl".text = ''
+        theme "gruvbox-dark"
+        show_startup_tips false
+        show_release_notes false
+      '';
     };
   };
 }

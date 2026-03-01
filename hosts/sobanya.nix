@@ -32,7 +32,6 @@ args @ {
     ../packages/games.nix
     ../packages/neovim.nix
     ../packages/pass.nix
-    ../packages/tmux.nix
     ../packages/freelance.nix
 
     ../services/journald.nix

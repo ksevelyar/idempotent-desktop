@@ -10,10 +10,6 @@ set -gx FZF_ALT_C_COMMAND 'fd --type d .'
 fzf --fish | source
 zoxide init fish | source
 
-function ssht # ssht skynet.local
-    ssh -t $argv[1] 'tmux new -A -s 🦙'
-end
-
 function pgen # pgen learn/edx.org
     gopass generate -s -c $argv[1] 42 # if you can type your password it's no good
 end

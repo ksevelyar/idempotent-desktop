@@ -42,7 +42,6 @@
     ../packages/games.nix
     ../packages/neovim.nix
     ../packages/pass.nix
-    ../packages/tmux.nix
     ../packages/x-common.nix
 
     ../services/net/firewall-desktop.nix

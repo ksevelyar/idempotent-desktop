@@ -33,7 +33,6 @@ args @ {
     ../packages/games.nix
     ../packages/neovim.nix
     ../packages/pass.nix
-    ../packages/tmux.nix
     ../packages/office.nix
 
     ../services/auto-mount.nix

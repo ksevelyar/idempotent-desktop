@@ -38,7 +38,6 @@ args @ {
     ../packages/games.nix
     ../packages/neovim.nix
     ../packages/pass.nix
-    ../packages/tmux.nix
 
     ../services/net/firewall-desktop.nix
     ../services/net/sshd.nix

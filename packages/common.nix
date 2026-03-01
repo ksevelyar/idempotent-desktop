@@ -42,6 +42,7 @@
     tealdeer # aliased to h
     translate-shell
     procs
+    zellij
 
     # net
     nmap

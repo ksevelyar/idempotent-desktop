@@ -43,24 +43,17 @@
     vanilla-dmz
     dracula-theme
     dracula-icon-theme
-    # papirus-maia-icon-theme
 
-    wev
     hyprlock
     hyprpaper
     hyprpicker
     rofi
     wofi
     waybar
-    alacritty
-    foot
-    firefox
     grim
     slurp
 
     cliphist
     wl-clipboard
-
-    brightnessctl
   ];
 }

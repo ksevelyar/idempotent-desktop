@@ -31,7 +31,6 @@ args @ {
     ../packages/x-common.nix
     ../packages/neovim.nix
     ../packages/pass.nix
-    ../packages/tmux.nix
 
     ../services/auto-mount.nix
     ../services/journald.nix
