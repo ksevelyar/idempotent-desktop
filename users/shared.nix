@@ -77,9 +77,7 @@
           outer-margin = "8";
           border-radius = 8;
           anchor = "top-right";
-
-          width = 350;
-          height = 100;
+          text-alignment = "center";
           max-visible = 5;
           max-history = 20;
         };

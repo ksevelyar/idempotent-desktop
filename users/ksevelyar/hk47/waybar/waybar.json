@@ -4,7 +4,6 @@
   "height": 30,
   "spacing": 4,
 
-  // Choose the order of the modules
   "modules-left": [
     "wireplumber",
     "custom/sep",
@@ -13,29 +12,25 @@
     "custom/spotify"
   ],
   "modules-center": [
-    "hyprland/window",
+    "hyprland/window"
   ],
-
   "modules-right": [
     "custom/weather",
     "custom/sep",
     "cpu",
-    "custom/sep",
     "memory",
-    "custom/sep",
     "disk",
     "custom/sep",
     "clock"
   ],
 
-  // Modules configuration
   "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
     "warp-on-scroll": false,
-    "format": "{name}",
+    "format": "{name}"
   },
-  "hyprland/window" : {
+  "hyprland/window": {
     "max-length": 120,
     "seperate-outputs": false
   },
@@ -43,29 +38,32 @@
     "spacing": 10
   },
   "wireplumber": {
-    "format": " {icon}  {volume}%",
-    "format-muted": "",
-    "on-click": "helvum",
-    "format-icons": ["", "", ""]
+    "format": " {icon} {volume:3}%",
+    "format-muted": "      ",
+    "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+    "format-icons": ["", ""]
   },
   "clock": {
-    "format-alt": "{:%Y-%m-%d}"
+    "format": "<span color='#888888'></span>  {:%H:%M}",
+    "format-alt": "<span color='#888888'></span>  {:%Y-%m-%d}",
+    "tooltip": false
   },
   "cpu": {
-    "format": "CPU: {usage}%",
+    "format": "<span color='#888888'></span>  {usage}%",
     "tooltip": false
   },
   "memory": {
-    "format": "Mem: {used}%"
+    "format": "<span color='#888888'></span>  {used:.0f}%"
   },
   "disk": {
     "interval": 60,
     "path": "/",
-    "format": "/: {free}"
+    "format": "<span color='#888888'></span>  {specific_free:.0f} GB",
+    "unit": "GB"
   },
   "custom/sep": {
-    "format" : " ",
-    "interval" : 0
+    "format": " ",
+    "interval": 0
   },
   "custom/spotify": {
     "exec": "playerctl --player=spotify metadata --format '  {{ artist }} - {{ title }}' 2>/dev/null || echo ''",

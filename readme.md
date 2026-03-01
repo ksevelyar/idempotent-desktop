@@ -1,5 +1,7 @@
 # Idempotent Desktop [![build](https://github.com/ksevelyar/idempotent-desktop/actions/workflows/build.yml/badge.svg)](https://github.com/ksevelyar/idempotent-desktop/actions/workflows/build.yml)
 
+![hyprland](/assets/screens/hyprland.png)
+
 ## Overview
 * Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each host can contain multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users)
 * Cachix: build custom packages once and share between all nodes
