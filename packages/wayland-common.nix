@@ -21,7 +21,6 @@
     evince
     mpv
     imv
-    nomacs
     qview
 
     # Productivity
