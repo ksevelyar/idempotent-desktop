@@ -1,0 +1,61 @@
+@define-color bg    #16161e;
+@define-color fg    #9a9a9f;
+@define-color blk   #2a2a30;
+@define-color red   #d66478;
+@define-color grn   #86b85a;
+@define-color ylw   #c49652;
+@define-color blu   #5a7a9e;
+@define-color mag   #8a6eb8;
+@define-color cyn   #0a9ab8;
+@define-color brblk #3a3a45;
+@define-color white #d0d0d0;
+
+* {
+    font-family: "CaskaydiaMono Nerd Font", monospace;
+    font-size: 16px;
+}
+
+window#waybar {
+    background-color: @bg;
+    color: @fg;
+}
+
+#workspaces button {
+    padding: 0 6px;
+    color: @fg;
+    background: transparent;
+}
+#workspaces button.active {
+    color: @white;
+}
+#workspaces button.empty {
+    color: @brblk;
+}
+#workspaces button.empty.active {
+    color: @fg;
+}
+
+#workspaces button.urgent {
+    color: @bg;
+    background-color: @white;
+}
+
+button:hover {
+    color: @red;
+}
+
+#clock,
+#custom-sep,
+#battery,
+#cpu,
+#memory,
+#disk,
+#network,
+#tray {
+    padding: 0 8px;
+    color: @white;
+}
+
+#custom-sep {
+    color: @blk;
+}

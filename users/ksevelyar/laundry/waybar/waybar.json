@@ -1,0 +1,79 @@
+{
+    "layer": "top", 
+    "position": "top", 
+    "height": 30, 
+    "spacing": 4, 
+
+    // Choose the order of the modules
+    "modules-left": [
+        "wireplumber",
+        "custom/sep",
+        "hyprland/workspaces",
+    ],
+    "modules-center": [
+        "hyprland/window",
+    ],
+
+    "modules-right": [
+        "custom/sep",
+        "cpu",
+        "custom/sep",
+        "memory",
+        "custom/sep",
+        "disk",
+        "custom/sep",
+        "clock"
+    ],
+
+    // Modules configuration
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}",
+    },
+    "hyprland/window" : {
+        "max-length": 120,
+        "seperate-outputs": false
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "on-click": "helvum",
+        "format-icons": ["", "", ""]
+    },
+    "clock": {
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        "format": "CPU: {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "Mem: {used}%"
+    },
+    "disk": {
+        "interval": 60,
+        "path": "/",
+        "format": "Disk: {free}"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "Bat: {capacity}% {icon} {time}",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "Bat {capacity}%",
+        "format-time": "{H}:{M}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "custom/sep": {
+        "format" : "|",
+        "interval" : 0
+    }
+}

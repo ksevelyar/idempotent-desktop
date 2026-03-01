@@ -18,10 +18,7 @@ args @ {
     ../hardware/intel-gpu.nix
     ../hardware/pipewire.nix
     ../hardware/ssd.nix
-    (import ../hardware/power-management.nix {
-      pkgs = pkgs;
-      battery = "BAT1";
-    })
+    (import ../hardware/power-management.nix {pkgs = pkgs; battery = "BAT1";})
 
     ../sys/aliases.nix
     ../sys/fonts.nix
@@ -32,21 +29,18 @@ args @ {
 
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
-    ../packages/x-common.nix
+    ../packages/wayland-common.nix
     ../packages/3d-print.nix
     ../packages/electronics.nix
-    # ../packages/games.nix
+    ../packages/games.nix
     ../packages/neovim.nix
     ../packages/pass.nix
 
+    ../services/wayland/hyprland.nix
     ../services/auto-mount.nix
     ../services/journald.nix
     ../services/databases/postgresql.nix
-    ../services/databases/redis.nix
-    ../services/x.nix
-    ../services/x/redshift.nix
-    ../services/x/picom.nix
-    ../services/x/unclutter.nix
+    # ../services/databases/redis.nix
 
     ../services/net/firewall-desktop.nix
     ../services/net/sshd.nix
@@ -76,14 +70,10 @@ args @ {
   };
 
   home-manager.users.ksevelyar = {
-    home.file.".config/leftwm/config.ron".source = ../users/ksevelyar/laundry/leftwm.ron;
-    home.file.".config/polybar/config.ini".source = ../users/ksevelyar/laundry/polybar.ini;
-    home.file.".config/alacritty/alacritty.toml".source = ../users/ksevelyar/laundry/alacritty.toml;
-    home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/ksevelyar/laundry/alacritty-scratchpad.toml;
-  };
-
-  home-manager.users.kavarkon = {
-    home.file.".config/polybar/config.ini".source = ../users/ksevelyar/laundry/polybar.ini;
+    home.file.".config/waybar/config".source = ../users/ksevelyar/laundry/waybar/waybar.json;
+    home.file.".config/waybar/style.css".source = ../users/ksevelyar/laundry/waybar/waybar.css;
+    home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/laundry/hypr/hyprland.conf;
+    home.file.".config/hypr/hyprpaper.conf".source = ../users/ksevelyar/laundry/hypr/hyprpaper.conf;
   };
 
   services = {
@@ -132,7 +122,6 @@ args @ {
     qsynth
     qjackctl
   ];
-  services.xserver.dpi = 130;
 
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
@@ -163,7 +152,6 @@ args @ {
       };
     };
   };
-  services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   fileSystems."/" = {
