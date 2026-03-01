@@ -17,16 +17,17 @@
   };
 
   # xdg
+
   xdg.autostart.enable = true;
-  xdg.portal.enable = true;
-  xdg.portal.wlr.enable = true;
-  xdg.portal.extraPortals = [
-    pkgs.xdg-desktop-portal-gtk
-    pkgs.xdg-desktop-portal-hyprland
-  ];
-  xdg.portal.config = {
-    hyprland = {
-      default = ["hyprland"];
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
+    config = {
+      common.default = ["gtk"];
+      hyprland.default = ["hyprland" "gtk"];
     };
   };
 
@@ -35,11 +36,8 @@
   };
 
   environment.sessionVariables = {
-    MOZ_ENABLE_WAYLAND = "1";
+    QT_QPA_PLATFORMTHEME = "xdgdesktopportal";
     NIXOS_OZONE_WL = "1";
-    QT_QPA_PLATFORM = "wayland";
-    QT_STYLE_OVERRIDE = "kvantum";
-    QT_QPA_PLATFORMTHEME = "qt6ct";
   };
 
   environment.systemPackages = let

@@ -109,6 +109,10 @@
           package = pkgs.dracula-icon-theme;
         };
       };
+      qt = {
+        enable = true;
+        platformTheme.name = "gtk3";
+      };
 
       home.file.".config/nixpkgs/config.nix".text = ''
         { allowUnfree = true; }
