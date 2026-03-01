@@ -27,7 +27,7 @@
   };
 
   users.defaultUserShell = pkgs.fish;
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_GB.UTF-8";
 
   time.timeZone = lib.mkDefault "Europe/Moscow";
   location.latitude = lib.mkDefault 55.75;

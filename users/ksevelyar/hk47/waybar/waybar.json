@@ -44,9 +44,27 @@
     "format-icons": ["", ""]
   },
   "clock": {
+    "locale": "en_GB.UTF-8",
     "format": "<span color='#888888'></span>  {:%H:%M}",
-    "format-alt": "<span color='#888888'></span>  {:%Y-%m-%d}",
-    "tooltip": false
+    "format-alt": "<span color='#888888'></span>  {:%a %d-%m-%y %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "iso8601": true,
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "",
+      "on-scroll": 1,
+      "format": {
+        "months":     "<span color='#ffead3'><b>{}</b></span>",
+        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+        "today":      "<span color='#ff6699'><b>{}</b></span>"
+      }
+    },
+    "actions":  {
+      "on-click-right": "mode"
+    }
   },
   "cpu": {
     "format": "<span color='#888888'></span>  {usage}%",
@@ -66,11 +84,12 @@
     "interval": 0
   },
   "custom/spotify": {
-    "exec": "playerctl --player=spotify metadata --format '  {{ artist }} - {{ title }}' 2>/dev/null || echo ''",
+    "exec": "playerctl --player=spotify metadata --format '  {{ artist }} - {{ title }}' 2>/dev/null | sed 's/&/\\&amp;/g'",
+    "tooltip": false,
     "interval": 5,
     "exec-if": "pgrep -f spotify",
     "on-click": "playerctl --player=spotify play-pause",
-    "on-click-right": "playerctl --player=spotify next"
+    "on-click-right": "playerctl --player=spotify next",
   },
   "custom/weather": {
     "exec": "waybar-weather",
