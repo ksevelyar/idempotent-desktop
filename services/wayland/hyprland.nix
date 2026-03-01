@@ -42,21 +42,39 @@
     QT_QPA_PLATFORMTHEME = "qt6ct";
   };
 
-  environment.systemPackages = with pkgs; [
-    vanilla-dmz
-    dracula-theme
-    dracula-icon-theme
+  environment.systemPackages = let
+    waybar-weather = pkgs.rustPlatform.buildRustPackage {
+      pname = "waybar-weather";
+      version = "0.1.0";
+      src = pkgs.lib.cleanSource ../../services/wayland/waybar-weather;
+      cargoLock = {
+        lockFile = ../../services/wayland/waybar-weather/Cargo.lock;
+      };
+      doCheck = false;
 
-    hyprlock
-    hyprpaper
-    hyprpicker
-    rofi
-    wofi
-    waybar
-    grim
-    slurp
+      env = {
+        LATITUDE = toString config.location.latitude;
+        LONGITUDE = toString config.location.longitude;
+      };
+    };
+  in
+    with pkgs; [
+      vanilla-dmz
+      dracula-theme
+      dracula-icon-theme
 
-    cliphist
-    wl-clipboard
-  ];
+      hyprlock
+      hyprpaper
+      hyprpicker
+      rofi
+      wofi
+      waybar
+      grim
+      slurp
+
+      cliphist
+      wl-clipboard
+
+      waybar-weather
+    ];
 }

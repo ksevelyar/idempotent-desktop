@@ -17,6 +17,8 @@
   ],
 
   "modules-right": [
+    "custom/weather",
+    "custom/sep",
     "cpu",
     "custom/sep",
     "memory",
@@ -71,5 +73,12 @@
     "exec-if": "pgrep -f spotify",
     "on-click": "playerctl --player=spotify play-pause",
     "on-click-right": "playerctl --player=spotify next"
+  },
+  "custom/weather": {
+    "exec": "waybar-weather",
+    "interval": 600,
+    "format": "{}",
+    "tooltip": true,
+    "return-type": "json"
   }
 }
