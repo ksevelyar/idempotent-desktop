@@ -28,6 +28,7 @@
     ../sys/fonts.nix
     ../sys/cache.nix
 
+    ../services/auto-mount.nix
     ../services/journald.nix
     ../services/databases/postgresql.nix
     ../services/x.nix
