@@ -61,21 +61,6 @@
   networking.useDHCP = false;
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp61s0.useDHCP = true;
-  networking.wireguard.interfaces = {
-    skynet = {
-      ips = ["192.168.42.4"];
-      privateKeyFile = "/home/manya/wireguard-keys/private";
-      peers = [
-        {
-          publicKey = "dguI+imiz4FYOoxt9D/eN4Chj8wWSNlEjxKuiO9ZaAI=";
-          allowedIPs = ["192.168.42.0/24"];
-          endpoint = "95.165.99.133:51821";
-          # Send keepalives every 25 seconds. Important to keep NAT tables alive.
-          persistentKeepalive = 25;
-        }
-      ];
-    };
-  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/df8dcd09-38bd-4632-8041-8219ebdc5571";

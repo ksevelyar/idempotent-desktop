@@ -1,23 +1,9 @@
 {
   config,
   pkgs,
-  lib,
   ...
 }: {
-  services.speechd.enable = false;
-  services.displayManager = {
-    defaultSession = "hyprland";
-    ly = {
-      enable = true;
-      settings = {
-        hide_version_string = true;
-        hide_key_hints = true;
-      };
-    };
-  };
-
-  # xdg
-
+  # NOTE: use gtk file dialogs in qt apps like telegram
   xdg.autostart.enable = true;
   xdg.portal = {
     enable = true;
@@ -30,14 +16,25 @@
       hyprland.default = ["hyprland" "gtk"];
     };
   };
+  environment.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "xdgdesktopportal";
+    NIXOS_OZONE_WL = "1";
+  };
 
   programs.hyprland = {
     enable = true;
   };
 
-  environment.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "xdgdesktopportal";
-    NIXOS_OZONE_WL = "1";
+  services.speechd.enable = false;
+  services.displayManager = {
+    defaultSession = "hyprland";
+    ly = {
+      enable = true;
+      settings = {
+        hide_version_string = true;
+        hide_key_hints = true;
+      };
+    };
   };
 
   environment.systemPackages = let
@@ -66,13 +63,9 @@
       hyprpaper
       hyprpicker
       rofi
-      wofi
       waybar
       grim
       slurp
-
-      cliphist
-      wl-clipboard
 
       waybar-weather
     ];

@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    neovim
+    neovim-unwrapped
     # nix
     nil
     alejandra
@@ -10,10 +10,10 @@
     lua-language-server
 
     superhtml
-    nodejs_latest
+    # nodejs_latest
 
     # llm
-    codex-acp
+    # codex-acp
   ];
 
   # TODO: declarative deps for vim

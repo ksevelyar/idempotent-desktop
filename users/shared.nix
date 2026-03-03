@@ -57,6 +57,46 @@
     users.${user} = {
       home.stateVersion = "24.05";
 
+      xdg.mimeApps = {
+        enable = true;
+
+        defaultApplications = lib.mkDefault {
+          "inode/directory" = "nemo.desktop";
+
+          "x-scheme-handler/http" = "firefox.desktop";
+          "x-scheme-handler/https" = "firefox.desktop";
+          "text/html" = "firefox.desktop";
+
+          "video/*" = "mpv.desktop";
+          "video/x-matroska" = "mpv.desktop";
+          "video/mpeg" = "mpv.desktop";
+
+          "image/*" = "com.interversehq.qView.desktop";
+          "image/png" = "com.interversehq.qView.desktop";
+          "image/jpg" = "com.interversehq.qView.desktop";
+
+          "text/plain" = "nvim.desktop";
+          "text/markdown" = "nvim.desktop";
+          "text/x-markdown" = "nvim.desktop";
+        };
+      };
+
+      xdg.desktopEntries = {
+        "nvim" = {
+          name = "Neovim";
+          exec = "alacritty -e nvim %F";
+          terminal = false;
+          mimeType = [
+            "text/plain"
+            "text/markdown"
+            "text/x-markdown"
+            "text/html"
+          ];
+          icon = "nvim";
+          categories = ["Utility" "TextEditor"];
+        };
+      };
+
       services.wlsunset = {
         enable = config.programs.hyprland.enable;
         latitude = config.location.latitude;
@@ -88,7 +128,7 @@
         gtk.enable = true;
         name = "Vanilla-DMZ";
         package = pkgs.vanilla-dmz;
-        size = lib.mkDefault 16;
+        size = lib.mkDefault 24;
       };
 
       gtk = {

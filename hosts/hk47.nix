@@ -63,6 +63,7 @@ args @ {
   };
 
   services.earlyoom.enable = true;
+  # NOTE: fix ollama crashes
   boot.kernelParams = [
     "amdgpu.cwsr_enable=0"
   ];

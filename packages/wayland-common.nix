@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   environment.variables = {
     VISUAL = "nvim";
     BROWSER = "firefox";

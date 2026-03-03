@@ -6,16 +6,6 @@
       TERMINAL = "alacritty";
     };
 
-    etc."xdg/gtk-3.0/settings.ini" = {
-      text = ''
-        [Settings]
-        gtk-theme-name=Dracula
-        gtk-icon-theme-name=Papirus-Dark-Maia
-        gtk-font-name=Terminus 16
-        gtk-cursor-theme-name=Vanilla-DMZ
-      '';
-    };
-
     # override with the ~/mimeapps.list that can be edited with xfce4-mime-settings
     etc."xdg/mimeapps.list" = {
       text = ''
