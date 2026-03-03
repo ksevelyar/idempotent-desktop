@@ -34,17 +34,6 @@ in {
   services.greenclip.enable = true;
   services.gvfs.enable = lib.mkForce false;
 
-  services.libinput = {
-    enable = true;
-    touchpad = {
-      accelProfile = lib.mkDefault "adaptive";
-      disableWhileTyping = true;
-      clickMethod = "buttonareas";
-      scrollMethod = lib.mkDefault "edge";
-      naturalScrolling = false;
-    };
-  };
-
   services.displayManager.defaultSession = lib.mkDefault "none+leftwm";
 
   services.xserver = {

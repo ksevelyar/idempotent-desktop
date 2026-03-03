@@ -7,6 +7,8 @@ args @ {
     ../users/mr.nix
     ../users/root.nix
 
+    ../hardware/touchpad.nix
+
     ../sys/aliases.nix
     ../sys/tty.nix
     ../sys/sysctl.nix

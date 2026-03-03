@@ -39,20 +39,6 @@ vim.api.nvim_create_autocmd('BufReadPost', {
   callback = goto_last_position
 })
 
--- deps
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
 vim.api.nvim_create_autocmd("BufEnter", {
   desc = "Disable automatic comment insertion",
   group = vim.api.nvim_create_augroup("AutoComment", {}),
@@ -66,6 +52,30 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     vim.bo.commentstring = "// %s"
   end,
+})
+
+vim.opt.termguicolors = true
+require 'colorizer'.setup()
+require("gitsigns").setup()
+require("leap")
+vim.cmd.colorscheme("joker")
+
+require('nvim-treesitter.configs').setup({
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+  indent = {
+    enable = true,
+  },
+  refactor = {
+    highlight_definitions = {
+      enable = true,
+    },
+    highlight_current_scope = {
+      enable = true,
+    },
+  },
 })
 
 -- disable netrw at the very start of your init.lua
@@ -118,110 +128,6 @@ vim.keymap.set('n', '<leader>f', ":NvimTreeFindFile<cr>")
 
 vim.keymap.set('n', '<leader>c', ':normal gcc<CR>', { desc = 'Toggle comment line' })
 vim.keymap.set('v', '<leader>c', '<Esc>:normal gvgc<CR>', { desc = 'Toggle comment block' })
-
-require("lazy").setup({
-  {
-    "norcalli/nvim-colorizer.lua",
-    config = function()
-      vim.opt.termguicolors = true
-      require 'colorizer'.setup()
-    end,
-  },
-  "tpope/vim-fugitive",
-  {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup()
-    end
-  },
-  "sirtaj/vim-openscad",
-  "nvim-tree/nvim-tree.lua",
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = { 'nvim-lua/plenary.nvim' }
-  },
-  "lukas-reineke/indent-blankline.nvim",
-  "nvim-lualine/lualine.nvim",
-  -- direnv
-  {
-    "direnv/direnv.vim",
-    init = function()
-      vim.g.direnv_silent_load = true
-
-      local group = vim.api.nvim_create_augroup("DirenvLoaded", { clear = true })
-      vim.api.nvim_create_autocmd({ "User" }, {
-        group = group,
-        pattern = "DirenvLoaded",
-        callback = function()
-          vim.cmd("LspRestart")
-        end
-      })
-    end
-  },
-  {
-    url = "https://codeberg.org/andyg/leap.nvim",
-    config = function() require("leap") end,
-  },
-  -- lsp
-  "neovim/nvim-lspconfig",
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
-      "hrsh7th/cmp-vsnip",
-      "hrsh7th/vim-vsnip",
-    }
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    opts = {
-      ensure_installed = {
-        "css",
-        "dockerfile",
-        "elixir",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "nix",
-        "rust"
-      },
-      auto_install = true,
-      highlight = { enable = true },
-      indent = { enable = true }
-    },
-    config = function(_, opts)
-      require('nvim-treesitter.install').prefer_git = true
-      require('nvim-treesitter.configs').setup(opts)
-    end
-  },
-  -- llm
-  {
-    "olimorris/codecompanion.nvim",
-    version = "^18.0.0",
-    opts = {},
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-  },
-  -- themes
-  {
-    "ksevelyar/joker.vim",
-    -- dir = "~/code/joker.vim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("joker")
-    end,
-  },
-  "nyoom-engineering/oxocarbon.nvim"
-})
 
 -- # LSP
 -- See :help lspconfig-nvim-0.11

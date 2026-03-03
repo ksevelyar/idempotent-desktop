@@ -6,7 +6,20 @@
   name,
   config,
   ...
-}: {
+
+}:
+let
+  joker-vim = pkgs.vimUtils.buildVimPlugin {
+    name = "joker-vim";
+    src = pkgs.fetchFromGitHub {
+      owner = "ksevelyar";
+      repo = "joker.vim";
+      rev = "main";
+      sha256 = "sha256-f5g9sa+2c9IFmicCHaIvIuoTUe7OUN1/1HshQbcfuyc=";
+    };
+  };
+
+in {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user} = {
     isNormalUser = true;
@@ -32,12 +45,6 @@
   time.timeZone = lib.mkDefault "Europe/Moscow";
   location.latitude = lib.mkDefault 55.75;
   location.longitude = lib.mkDefault 37.61;
-
-  environment = {
-    variables = {
-      EDITOR = "nvim";
-    };
-  };
 
   systemd.tmpfiles.rules = [
     "d /home/${user}/code        0700 ${user} 1000"
@@ -97,13 +104,64 @@
         };
       };
 
+      programs.neovim = {
+        enable = true;
+        defaultEditor = true;
+
+        plugins = with pkgs.vimPlugins; [
+          # UI & Status Line
+          lualine-nvim
+          nvim-web-devicons
+
+          # File Explorer
+          nvim-tree-lua
+
+          # Search & Navigation
+          telescope-nvim
+          plenary-nvim
+          leap-nvim
+
+          # Git Integration
+          vim-fugitive
+          gitsigns-nvim
+
+          # LSP & Completion
+          nvim-lspconfig
+          nvim-cmp
+          cmp-nvim-lsp
+          cmp-buffer
+          cmp-path
+          cmp-cmdline
+          cmp-vsnip
+          vim-vsnip
+
+          # Syntax & Highlighting
+          nvim-treesitter.withAllGrammars
+          nvim-colorizer-lua
+
+          # Utilities
+          indent-blankline-nvim
+          direnv-vim
+          vim-openscad
+
+          # Themes
+          joker-vim
+          oxocarbon-nvim
+
+          # LLM/AI
+          codecompanion-nvim
+        ];
+      };
+
       services.wlsunset = {
         enable = config.programs.hyprland.enable;
-        latitude = config.location.latitude;
-        longitude = config.location.longitude;
-        temperature.day = 6500;
-        temperature.night = 4000;
+
+        sunrise = lib.mkDefault "06:00";
+        sunset = lib.mkDefault "18:00";
+        temperature.day = lib.mkDefault 6500;
+        temperature.night = lib.mkDefault 4000;
       };
+
       services.mako = {
         enable = config.programs.hyprland.enable;
         settings = {

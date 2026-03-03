@@ -18,6 +18,7 @@ args @ {
     ../hardware/intel-gpu.nix
     ../hardware/pipewire.nix
     ../hardware/ssd.nix
+    ../hardware/touchpad.nix
     (import ../hardware/power-management.nix {pkgs = pkgs; battery = "BAT1";})
 
     ../sys/aliases.nix
@@ -52,7 +53,7 @@ args @ {
 
   networking.hostName = "laundry";
   networking.useDHCP = false;
-  networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
+  networking.interfaces.wlp0s20f3.useDHCP = true;
   networking.networkmanager.enable = true;
 
   networking.firewall.trustedInterfaces = [ "skynet" ];
@@ -76,13 +77,11 @@ args @ {
     home.file.".config/hypr/hyprpaper.conf".source = ../users/ksevelyar/laundry/hypr/hyprpaper.conf;
   };
 
-  services = {
-    syncthing = {
-      enable = true;
-      user = "ksevelyar";
-      dataDir = "/home/ksevelyar/syncthing"; # Default folder for new synced folders
-      configDir = "/home/ksevelyar/.config/syncthing";
-    };
+  services.syncthing = {
+    enable = true;
+    user = "ksevelyar";
+    dataDir = "/home/ksevelyar/syncthing";
+    configDir = "/home/ksevelyar/.config/syncthing";
   };
 
   services.zapret = {
@@ -114,6 +113,7 @@ args @ {
     enable = true;
     package = pkgs.jdk17;
   };
+
   environment.systemPackages = with pkgs; [
     jetbrains.idea-oss
     curlie
@@ -140,19 +140,7 @@ args @ {
     };
   };
 
-  services = {
-    libinput = {
-      enable = true;
-      touchpad = {
-        accelProfile = "adaptive"; # flat profile for touchpads
-        naturalScrolling = false;
-        accelSpeed = "0.3";
-        disableWhileTyping = true;
-        scrollMethod = "twofinger";
-      };
-    };
-  };
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  nixpkgs.hostPlatform = "x86_64-linux";
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
