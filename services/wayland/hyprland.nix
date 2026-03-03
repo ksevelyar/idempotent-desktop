@@ -62,6 +62,7 @@
       dracula-icon-theme
 
       hyprlock
+      hypridle
       hyprpaper
       hyprpicker
       rofi

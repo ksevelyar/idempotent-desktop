@@ -24,7 +24,7 @@
 
 ## Inference
 * [ollama & comfy](https://github.com/ksevelyar/playground-inference)
-* declarative agent: WIP
+* opencode
 
 ## Chill
 * [Heroic and Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)

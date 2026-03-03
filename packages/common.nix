@@ -43,6 +43,7 @@
     translate-shell
     procs
     zellij
+    opencode
 
     # net
     nmap

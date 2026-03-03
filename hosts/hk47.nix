@@ -43,7 +43,6 @@ args @ {
     ../services/auto-mount.nix
     ../services/journald.nix
     ../services/databases/postgresql.nix
-    # ../services/databases/redis.nix
 
     ../services/net/firewall-desktop.nix
     ../services/net/sshd.nix
@@ -73,6 +72,7 @@ args @ {
     home.file.".config/waybar/config".source = ../users/ksevelyar/hk47/waybar/waybar.json;
     home.file.".config/waybar/style.css".source = ../users/ksevelyar/hk47/waybar/waybar.css;
     home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/hk47/hypr/hyprland.conf;
+    home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/hk47/hypr/hypridle.conf;
     home.file.".config/hypr/hyprpaper.conf".source = ../users/ksevelyar/hk47/hypr/hyprpaper.conf;
   };
 
