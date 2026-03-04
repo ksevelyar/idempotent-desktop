@@ -26,7 +26,6 @@
 
     evince
     mpv
-    imv
     qview
 
     anki

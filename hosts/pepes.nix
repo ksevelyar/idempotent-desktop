@@ -16,10 +16,7 @@
     ../hardware/amd-cpu.nix
     ../hardware/pipewire.nix
     ../hardware/ssd.nix
-    (import ../hardware/power-management.nix {
-      pkgs = pkgs;
-      battery = "BATT";
-    })
+    (import ../hardware/power-management.nix {pkgs = pkgs; battery = "BATT";})
 
     ../sys/aliases.nix
     ../sys/nix.nix
@@ -28,23 +25,18 @@
     ../sys/fonts.nix
     ../sys/cache.nix
 
-    ../services/auto-mount.nix
-    ../services/journald.nix
-    ../services/databases/postgresql.nix
-    ../services/x.nix
-    ../services/x/redshift.nix
-    ../services/x/unclutter.nix
-
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
-    ../packages/2d-graphics.nix
+    ../packages/wayland-common.nix
     ../packages/3d-print.nix
-    ../packages/electronics.nix
     ../packages/games.nix
     ../packages/neovim.nix
     ../packages/pass.nix
-    ../packages/x-common.nix
 
+    ../services/wayland/hyprland.nix
+    ../services/auto-mount.nix
+    ../services/journald.nix
+    ../services/databases/postgresql.nix
     ../services/net/firewall-desktop.nix
     ../services/net/wireguard.nix
     ../services/net/sshd.nix
@@ -71,27 +63,17 @@
   networking.interfaces.wlp1s0.useDHCP = true;
 
   home-manager.users.kh = {
-    home.file.".config/leftwm/config.ron".source = ../users/kh/pepes/leftwm.ron;
-    home.file.".config/polybar/config".source = ../users/kh/polybar/polybar-pepes;
+    home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/laundry/hypr/hypridle.conf;
+    home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/laundry/hypr/hyprland.conf;
+    home.file.".config/hypr/hyprpaper.conf".source = ../users/ksevelyar/laundry/hypr/hyprpaper.conf;
+    home.file.".config/waybar/config".source = ../users/ksevelyar/laundry/waybar/waybar.json;
+    home.file.".config/waybar/style.css".source = ../users/ksevelyar/laundry/waybar/waybar.css;
+
     home.file.".config/alacritty/alacritty.toml".source = ../users/kh/pepes/alacritty.toml;
     home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/kh/pepes/alacritty-scratchpad.toml;
   };
 
-  services = {
-    libinput = {
-      enable = true;
-      touchpad = {
-        accelProfile = "adaptive"; # flat profile for touchpads
-        naturalScrolling = false;
-        accelSpeed = "0.2";
-        disableWhileTyping = true;
-        scrollMethod = "twofinger";
-      };
-    };
-  };
-
-  services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
-  boot.loader.grub.splashImage = lib.mkForce ../assets/wallpapers/akira.png;
+  boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
   boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
 

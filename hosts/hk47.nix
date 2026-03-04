@@ -125,7 +125,7 @@ args @ {
   };
 
   boot.loader.grub.memtest86.enable = true;
-  boot.loader.grub.splashImage = ../assets/wallpapers/johnny.jpg;
+  boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
   boot.initrd.kernelModules = [];
