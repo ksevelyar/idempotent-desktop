@@ -1,12 +1,14 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 28,
+  "height": 26,
   "spacing": 4,
 
   "modules-left": [
     "wireplumber",
+    "custom/sep",
     "hyprland/workspaces",
+    "custom/sep",
     "hyprland/window"
   ],
   "modules-center": [
@@ -19,39 +21,37 @@
     "battery",
     "clock"
   ],
-
-  "hyprland/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "warp-on-scroll": false,
-    "format": "{name}"
-  },
   "battery": {
     "states": {
       "good": 95,
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon} {time}",
-    "format-plugged": " {capacity}%",
+    "format": "<span color='#6a6a7a'>{icon}</span> {time}",
     "tooltip-format": "{capacity}%",
     "format-time": "{H}:{M}",
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    "format-icons": ["", "", "", "", ""],
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{name}"
   },
   "hyprland/window": {
     "max-length": 120,
     "seperate-outputs": false
   },
   "wireplumber": {
-    "format": " {icon} {volume:3}%",
-    "format-muted": "      ",
+    "format": " <span color='#6a6a7a'>{icon}</span>{volume:3}%",
+    "format-muted": " <span color='#6a6a7a'></span>    ",
     "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
-    "format-icons": ["", ""]
+    "format-icons": [""]
   },
   "clock": {
     "locale": "en_GB.UTF-8",
-    "format": "<span color='#888888'></span> {:%H:%M}",
-    "format-alt": "<span color='#888888'></span> {:%a %d-%m-%y %H:%M}",
+    "format": "<span color='#6a6a7a'></span> {:%H:%M}",
+    "format-alt": "<span color='#6a6a7a'></span> {:%a %d-%m-%y %H:%M}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
       "iso8601": true,
@@ -60,11 +60,8 @@
       "weeks-pos": "",
       "on-scroll": 1,
       "format": {
-        "months":     "<span color='#ffead3'><b>{}</b></span>",
-        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-        "today":      "<span color='#ff6699'><b>{}</b></span>"
+        "days": "<span color='#6a6a7a'><b>{}</b></span>",
+        "today": "<span color='#fff'><b>{}</b></span>"
       }
     },
     "actions":  {
@@ -72,16 +69,15 @@
     }
   },
   "cpu": {
-    "format": "<span color='#888888'></span> {usage}%",
-    "tooltip": false
+    "format": "<span color='#6a6a7a'></span> {usage}%"
   },
   "memory": {
-    "format": "<span color='#888888'></span> {used:.0f}%"
+    "format": "<span color='#6a6a7a'> </span>{used:.0f}%"
   },
   "disk": {
     "interval": 60,
     "path": "/",
-    "format": "<span color='#888888'></span> {specific_free:.0f} GB",
+    "format": "<span color='#6a6a7a'></span> {specific_free:.0f} GB",
     "unit": "GB"
   },
   "custom/sep": {
@@ -89,7 +85,7 @@
     "interval": 0
   },
   "custom/spotify": {
-    "exec": "playerctl --player=spotify metadata --format '  {{ artist }} - {{ title }}' 2>/dev/null | sed 's/&/\\&amp;/g'",
+    "exec": "playerctl --player=spotify metadata --format '<span color=\"#6a6a7a\"></span> {{ artist }} - {{ title }}' 2>/dev/null | sed 's/&/\\&amp;/g'",
     "tooltip": false,
     "interval": 5,
     "exec-if": "pgrep -f spotify",

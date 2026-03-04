@@ -105,8 +105,8 @@ fn format_output(weather: Weather) -> String {
 
 fn fallback_output() -> String {
     json!({
-        "text": "<span color='#888888'></span> N/A <span color='#888888'></span> N/A <span color='#888888'></span> N/A",
-        "tooltip": "Failed to fetch weather data"
+        "text": "",
+        "tooltip": ""
     })
     .to_string()
 }
