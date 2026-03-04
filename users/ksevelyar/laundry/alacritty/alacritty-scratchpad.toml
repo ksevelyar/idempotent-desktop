@@ -23,7 +23,7 @@ foreground = "#f8f8f2"
 style = "Underline"
 
 [font]
-size = 15.0
+size = 14.0
 
 [font.bold]
 style = "Bold"
@@ -35,7 +35,7 @@ style = "Bold"
 style = "Regular"
 
 [font.normal]
-family = "Terminus"
+family = "CaskaydiaMono Nerd Font"
 style = "Regular"
 
 [window]

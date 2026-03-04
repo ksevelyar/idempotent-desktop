@@ -1,80 +1,106 @@
 {
-    "layer": "top", 
-    "position": "top", 
-    "height": 30, 
-    "spacing": 4, 
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+  "spacing": 4,
 
-    // Choose the order of the modules
-    "modules-left": [
-        "wireplumber",
-        "custom/sep",
-        "hyprland/workspaces",
-        "hyprland/window",
-    ],
-    "modules-center": [
-    ],
+  "modules-left": [
+    "wireplumber",
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+  ],
+  "modules-right": [
+    "custom/sep",
+    "custom/weather",
+    "custom/sep",
+    "disk",
+    "battery",
+    "clock"
+  ],
 
-    "modules-right": [
-        "battery",
-        "custom/sep",
-        "cpu",
-        "custom/sep",
-        "memory",
-        "custom/sep",
-        "disk",
-        "custom/sep",
-        "clock"
-    ],
-
-    // Modules configuration
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "warp-on-scroll": false,
-        "format": "{name}",
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{name}"
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
     },
-    "hyprland/window" : {
-        "max-length": 120,
-        "seperate-outputs": false
+    "format": "{icon} {time}",
+    "format-plugged": " {capacity}%",
+    "tooltip-format": "{capacity}%",
+    "format-time": "{H}:{M}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+  "hyprland/window": {
+    "max-length": 120,
+    "seperate-outputs": false
+  },
+  "wireplumber": {
+    "format": " {icon} {volume:3}%",
+    "format-muted": "      ",
+    "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+    "format-icons": ["", ""]
+  },
+  "clock": {
+    "locale": "en_GB.UTF-8",
+    "format": "<span color='#888888'></span> {:%H:%M}",
+    "format-alt": "<span color='#888888'></span> {:%a %d-%m-%y %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "iso8601": true,
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "",
+      "on-scroll": 1,
+      "format": {
+        "months":     "<span color='#ffead3'><b>{}</b></span>",
+        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+        "today":      "<span color='#ff6699'><b>{}</b></span>"
+      }
     },
-    "tray": {
-        "spacing": 10
-    },
-    "wireplumber": {
-        "format": " {icon}  {volume}%",
-        "format-muted": "",
-        "on-click": "helvum",
-        "format-icons": ["", "", ""]
-    },
-    "clock": {
-        "format-alt": "{:%Y-%m-%d}"
-    },
-    "cpu": {
-        "format": "CPU: {usage}%",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "Mem: {used}%"
-    },
-    "disk": {
-        "interval": 60,
-        "path": "/",
-        "format": "Disk: {free}"
-    },
-    "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "Bat: {capacity}% {icon} {time}",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "Bat {capacity}%",
-        "format-time": "{H}:{M}",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "custom/sep": {
-        "format" : " ",
-        "interval" : 0
+    "actions":  {
+      "on-click-right": "mode"
     }
+  },
+  "cpu": {
+    "format": "<span color='#888888'></span> {usage}%",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "<span color='#888888'></span> {used:.0f}%"
+  },
+  "disk": {
+    "interval": 60,
+    "path": "/",
+    "format": "<span color='#888888'></span> {specific_free:.0f} GB",
+    "unit": "GB"
+  },
+  "custom/sep": {
+    "format": " ",
+    "interval": 0
+  },
+  "custom/spotify": {
+    "exec": "playerctl --player=spotify metadata --format '  {{ artist }} - {{ title }}' 2>/dev/null | sed 's/&/\\&amp;/g'",
+    "tooltip": false,
+    "interval": 5,
+    "exec-if": "pgrep -f spotify",
+    "on-click": "playerctl --player=spotify play-pause",
+    "on-click-right": "playerctl --player=spotify next",
+  },
+  "custom/weather": {
+    "exec": "waybar-weather",
+    "interval": 300,
+    "format": "{}",
+    "tooltip": true,
+    "return-type": "json"
+  }
 }
