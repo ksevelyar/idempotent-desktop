@@ -136,7 +136,7 @@ args @ {
     qjackctl
   ];
 
-  console.font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
+  console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u32n.psf.gz";
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
   boot.loader.grub.configurationLimit = 3;

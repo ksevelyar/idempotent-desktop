@@ -53,5 +53,6 @@
       "9aedfe"
       "e6e6e6"
     ];
+    packages = with pkgs; [terminus_font];
   };
 }
