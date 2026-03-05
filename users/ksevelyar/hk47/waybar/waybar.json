@@ -9,7 +9,8 @@
     "custom/sep",
     "hyprland/workspaces",
     "custom/sep",
-    "custom/spotify"
+    "custom/spotify",
+    "custom/sep"
   ],
   "modules-center": [
     "hyprland/window"

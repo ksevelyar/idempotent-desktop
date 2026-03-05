@@ -16,7 +16,7 @@
     ../hardware/amd-cpu.nix
     ../hardware/pipewire.nix
     ../hardware/ssd.nix
-    (import ../hardware/power-management.nix {pkgs = pkgs; battery = "BATT";})
+    ../hardware/power-management.nix
 
     ../sys/aliases.nix
     ../sys/nix.nix

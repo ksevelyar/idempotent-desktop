@@ -147,9 +147,6 @@ in {
           # Themes
           joker-vim
           oxocarbon-nvim
-
-          # LLM/AI
-          codecompanion-nvim
         ];
       };
 

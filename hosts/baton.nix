@@ -17,7 +17,7 @@ args @ {
     ../hardware/intel-gpu.nix
     ../hardware/pipewire.nix
     ../hardware/ssd.nix
-    (import ../hardware/power-management.nix {pkgs = pkgs; battery = "BAT0";})
+    ../hardware/power-management.nix
 
     ../sys/aliases.nix
     ../sys/fonts.nix

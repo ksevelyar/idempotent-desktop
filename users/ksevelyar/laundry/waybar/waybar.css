@@ -35,6 +35,15 @@ window#waybar {
     background-color: @fg3;
 }
 
+#battery.warning {
+    color: @bg;
+    background-color: @fg3;
+}
+#battery.critical {
+    color: @bg;
+    background-color: @white;
+}
+
 #clock,
 #custom-sep,
 #battery,

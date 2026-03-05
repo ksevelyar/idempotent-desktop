@@ -18,6 +18,7 @@ args @ {
     ../hardware/intel-gpu.nix
     ../hardware/pipewire.nix
     ../hardware/ssd.nix
+    ../hardware/power-management.nix
 
     ../sys/aliases.nix
     ../sys/fonts.nix

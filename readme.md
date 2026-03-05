@@ -22,10 +22,6 @@
 * gopass / [browserpass](https://github.com/browserpass/browserpass-extension#available-keyboard-shortcuts) integration
 * [uBlock](https://github.com/gorhill/uBlock)
 
-## Inference
-* [ollama & comfy](https://github.com/ksevelyar/playground-inference)
-* opencode
-
 ## Chill
 * [Heroic and Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
 * mpv, [imv][imv], spotify
