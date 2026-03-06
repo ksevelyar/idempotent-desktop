@@ -3,7 +3,16 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+let
+  dsdtOverlay = pkgs.runCommand "dsdt-override" {} ''
+    mkdir -p $out/kernel/firmware/acpi
+    cp ${../users/kh/pepes/dsdt.aml} $out/kernel/firmware/acpi/DSDT.aml
+    cd $out
+    find kernel | ${pkgs.cpio}/bin/cpio -H newc --create > $out/dsdt.cpio
+  '';
+in
+{
   imports = [
     ../users/kh.nix
     ../users/root.nix
@@ -54,6 +63,7 @@
     mattermost
     asciinema
     gnumake
+    lutris
   ];
 
   networking.hostName = "pepes";
@@ -80,7 +90,8 @@
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usbhid" "sd_mod"];
-
+  boot.kernelParams = [ "mem_sleep_default=deep" ];
+  boot.initrd.prepend = [ "${dsdtOverlay}/dsdt.cpio" ];
   boot.initrd.luks.devices = {
     nixos = {
       device = "/dev/disk/by-label/enc-nixos";
