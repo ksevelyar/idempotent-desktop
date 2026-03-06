@@ -51,13 +51,10 @@ args @ {
   networking.networkmanager.enable = true;
   # networking.proxy.default = "127.0.0.1:2080";
 
-  home-manager.users.kavarkon = {
-    home.file.".config/polybar/config.ini".source = ../users/kavarkon/baton/polybar.ini;
-  };
-
   programs.java = { enable = true; package = pkgs.jdk17; };
   environment.systemPackages = with pkgs; [
     gradle
+    discord-canary
   ];
 
   services = {
@@ -92,6 +89,11 @@ args @ {
       device = "/dev/disk/by-label/enc-nixos";
       allowDiscards = true;
     };
+  };
+
+  services.xray = {
+    enable = true;
+    settingsFile = config.age.secrets.kavarkon-xray-json.path;
   };
 
   services = {
