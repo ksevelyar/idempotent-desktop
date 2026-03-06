@@ -71,11 +71,6 @@ args @ {
   networking.networkmanager.enable = true; # nmtui for wi-fi
   networking.wireless.enable = lib.mkForce false;
 
-  services.xserver = {
-    videoDrivers = ["nvidia" "amdgpu" "vesa" "modesetting"];
-  };
-  hardware.nvidia.open = false;
-
   environment.systemPackages = with pkgs; [
     neovim
     zoxide

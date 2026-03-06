@@ -68,6 +68,7 @@
         modules = [
           "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
           nixpkgs.nixosModules.notDetected
+          agenix.nixosModules.default
           (import ./usb/image.nix)
         ];
       };
@@ -79,6 +80,7 @@
         system = "x86_64-linux";
         modules = [
           nixpkgs.nixosModules.notDetected
+          agenix.nixosModules.default
           disko.nixosModules.disko
           (import ./usb/persistent-tui.nix)
         ];
@@ -93,6 +95,7 @@
           nixpkgs.nixosModules.notDetected
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
+          agenix.nixosModules.default
           (import ./usb/persistent.nix)
         ];
       };
