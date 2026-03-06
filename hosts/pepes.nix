@@ -63,7 +63,9 @@ in
     mattermost
     asciinema
     gnumake
+
     lutris
+    wineWowPackages.stable
   ];
 
   networking.hostName = "pepes";
