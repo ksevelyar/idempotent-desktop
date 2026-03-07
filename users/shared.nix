@@ -221,6 +221,8 @@ in {
 
         night_temp = 3500
         day_temp = 6500
+        night_gamma = 100
+        day_gamma = 100
         update_interval = 60
       '';
 
