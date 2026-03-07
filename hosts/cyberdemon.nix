@@ -10,10 +10,7 @@
 
     ../hardware/efi.nix
     ../hardware/multiboot.nix
-    (import ../hardware/power-management.nix {
-      pkgs = pkgs;
-      battery = "BATT";
-    })
+    ../hardware/power-management.nix
     ../hardware/bluetooth.nix
     ../hardware/pipewire.nix
     ../hardware/mouse.nix
@@ -28,24 +25,30 @@
     ../sys/fonts.nix
     ../sys/cache.nix
 
-    ../services/journald.nix
-    ../services/x.nix
-    ../services/x/picom.nix
-    ../services/x/redshift.nix
-    ../services/x/unclutter.nix
-    ../services/databases/postgresql.nix
-
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
     ../packages/games.nix
     ../packages/neovim.nix
-    ../packages/x-common.nix
+    ../packages/wayland-common.nix
 
+    ../services/journald.nix
+    ../services/wayland/hyprland.nix
+    ../services/databases/postgresql.nix
     ../services/net/firewall-desktop.nix
     ../services/net/wireguard.nix
     ../services/net/avahi.nix
     ../services/net/sshd.nix
   ];
+
+  home-manager.users.manya = {
+    home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/laundry/hypr/hypridle.conf;
+    home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/laundry/hypr/hyprland.conf;
+    home.file.".config/waybar/config".source = ../users/ksevelyar/laundry/waybar/waybar.json;
+    home.file.".config/waybar/style.css".source = ../users/ksevelyar/laundry/waybar/waybar.css;
+
+    home.file.".config/alacritty/alacritty.toml".source = ../users/ksevelyar/laundry/alacritty/alacritty.toml;
+    home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/ksevelyar/laundry/alacritty/alacritty-scratchpad.toml;
+  };
 
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;
