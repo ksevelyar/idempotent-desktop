@@ -83,6 +83,8 @@ in {
           "image/*" = "com.interversehq.qView.desktop";
           "image/png" = "com.interversehq.qView.desktop";
           "image/jpg" = "com.interversehq.qView.desktop";
+          "image/jpeg" = "com.interversehq.qView.desktop";
+          "image/webp" = "com.interversehq.qView.desktop";
 
           "text/plain" = "nvim.desktop";
           "text/markdown" = "nvim.desktop";
@@ -196,15 +198,35 @@ in {
           name = "Dracula";
           package = pkgs.dracula-icon-theme;
         };
+
+        gtk3.extraConfig = {
+          gtk-application-prefer-dark-theme = 1;
+        };
+
+        gtk4.extraConfig = {
+          gtk-application-prefer-dark-theme = 1;
+        };
       };
       qt = {
         enable = true;
-        platformTheme.name = "gtk3";
+        platformTheme.name = "kvantum";
+        style.name = "kvantum";
       };
+
+      xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
+      [General]
+      theme=Dracula
+      '';
 
       home.file.".config/nixpkgs/config.nix".text = ''
         { allowUnfree = true; }
       '';
+
+      dconf.settings = {
+        "org/gnome/desktop/interface" = {
+          color-scheme = "prefer-dark";
+        };
+      };
 
       xdg.configFile."wpaperd/config.toml".text = lib.mkDefault ''
         [default]

@@ -18,6 +18,10 @@
   };
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "xdgdesktopportal";
+    GDK_SCALE = "1";              # Let Wayland handle physical scaling
+    GDK_DPI_SCALE = "1";          # Disable double-scaling
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    QT_SCALE = "1";
     NIXOS_OZONE_WL = "1";
   };
 
@@ -57,6 +61,8 @@
       vanilla-dmz
       dracula-theme
       dracula-icon-theme
+      # kvantum
+      libsForQt5.qtstyleplugin-kvantum
 
       sunsetr
       hyprlock
