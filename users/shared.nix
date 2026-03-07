@@ -161,13 +161,13 @@ in {
           text-color = "#d0d0d0";
           border-color = "#3a3a45";
           border-size = 1;
-          padding = "12";
-          outer-margin = "8";
+          padding = "4";
+          outer-margin = "4";
           border-radius = 4;
-          anchor = "top-right";
+          anchor = "bottom-center";
           text-alignment = "center";
           max-visible = 1;
-          max-history = 20;
+          max-history = 1;
         };
       };
 

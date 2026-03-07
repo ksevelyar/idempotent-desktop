@@ -9,7 +9,7 @@
     set -e
 
     pactl set-sink-volume @DEFAULT_SINK@ +2%
-    notify-send -h string:synchronous:volume " $(pamixer --get-volume-human)" -t 1000
+    notify-send -h string:x-canonical-private-synchronous:volume " $(pamixer --get-volume-human)" -t 1000
   '';
 
   sound-volume-down = pkgs.writeScriptBin "sound-volume-down" ''
@@ -17,7 +17,7 @@
     set -e
 
     pactl set-sink-volume @DEFAULT_SINK@ -2%
-    notify-send -h string:synchronous:volume " $(pamixer --get-volume-human)" -t 1000
+    notify-send -h string:x-canonical-private-synchronous:volume " $(pamixer --get-volume-human)" -t 1000
   '';
 in {
   environment.systemPackages = lib.mkIf (config.services.xserver.enable || config.programs.hyprland.enable) [
