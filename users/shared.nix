@@ -6,9 +6,7 @@
   name,
   config,
   ...
-
-}:
-let
+}: let
   joker-vim = pkgs.vimUtils.buildVimPlugin {
     name = "joker-vim";
     src = pkgs.fetchFromGitHub {
@@ -18,7 +16,6 @@ let
       sha256 = "sha256-f5g9sa+2c9IFmicCHaIvIuoTUe7OUN1/1HshQbcfuyc=";
     };
   };
-
 in {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user} = {
@@ -155,15 +152,6 @@ in {
         ];
       };
 
-      services.wlsunset = {
-        enable = config.programs.hyprland.enable;
-
-        sunrise = lib.mkDefault "06:00";
-        sunset = lib.mkDefault "18:00";
-        temperature.day = lib.mkDefault 6500;
-        temperature.night = lib.mkDefault 4000;
-      };
-
       services.mako = {
         enable = config.programs.hyprland.enable;
         settings = {
@@ -172,13 +160,13 @@ in {
           background-color = "#16161E";
           text-color = "#d0d0d0";
           border-color = "#3a3a45";
-          border-size = 2;
+          border-size = 1;
           padding = "12";
           outer-margin = "8";
-          border-radius = 8;
+          border-radius = 4;
           anchor = "top-right";
           text-alignment = "center";
-          max-visible = 5;
+          max-visible = 1;
           max-history = 20;
         };
       };
@@ -216,6 +204,24 @@ in {
 
       home.file.".config/nixpkgs/config.nix".text = ''
         { allowUnfree = true; }
+      '';
+
+      xdg.configFile."wpaperd/config.toml".text = lib.mkDefault ''
+        [default]
+        path = "~/wallpapers"
+        duration = "24h"
+        mode = "center"
+        sorting = "random"
+      '';
+      xdg.configFile."sunsetr/sunsetr.toml".text = lib.mkDefault ''
+        transition_mode = "finish_by"
+        sunrise = "07:00:00"
+        sunset = "19:00:00"
+        transition_duration = 60
+
+        night_temp = 3500
+        day_temp = 6500
+        update_interval = 60
       '';
 
       home.file.".config/git/config".source = ../users/shared/git/config;

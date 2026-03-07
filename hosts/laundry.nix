@@ -71,7 +71,6 @@ args @ {
   home-manager.users.ksevelyar = {
     home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/laundry/hypr/hypridle.conf;
     home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/laundry/hypr/hyprland.conf;
-    home.file.".config/hypr/hyprpaper.conf".source = ../users/ksevelyar/laundry/hypr/hyprpaper.conf;
     home.file.".config/waybar/config".source = ../users/ksevelyar/laundry/waybar/waybar.json;
     home.file.".config/waybar/style.css".source = ../users/ksevelyar/laundry/waybar/waybar.css;
 
@@ -82,7 +81,6 @@ args @ {
   home-manager.users.kavarkon = {
     home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/laundry/hypr/hypridle.conf;
     home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/laundry/hypr/hyprland.conf;
-    home.file.".config/hypr/hyprpaper.conf".source = ../users/ksevelyar/laundry/hypr/hyprpaper.conf;
     home.file.".config/waybar/config".source = ../users/ksevelyar/laundry/waybar/waybar.json;
     home.file.".config/waybar/style.css".source = ../users/ksevelyar/laundry/waybar/waybar.css;
 

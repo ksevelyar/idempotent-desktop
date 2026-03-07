@@ -58,9 +58,10 @@
       dracula-theme
       dracula-icon-theme
 
+      sunsetr
       hyprlock
       hypridle
-      hyprpaper
+      wpaperd
       hyprpicker
       rofi
       waybar

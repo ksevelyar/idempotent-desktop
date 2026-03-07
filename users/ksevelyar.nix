@@ -23,7 +23,7 @@ in {
 
   home-manager = {
     users.${user} = {
-      home.file."wallpapers/2b.png".source = ../assets/wallpapers/2b.png;
+      home.file."wallpapers/johnny.jpg".source = ../assets/wallpapers/johnny.jpg;
     };
   };
 
