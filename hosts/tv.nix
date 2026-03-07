@@ -29,19 +29,17 @@ args @ {
 
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
-    ../packages/x-common.nix
+    ../packages/wayland-common.nix
     ../packages/neovim.nix
     ../packages/pass.nix
 
     ../services/auto-mount.nix
     ../services/journald.nix
-    ../services/x.nix
-    ../services/x/redshift.nix
-    ../services/x/unclutter.nix
-    ../services/x/random-wallpaper.nix
+    ../services/wayland/hyprland.nix
 
     ../services/net/firewall-desktop.nix
     ../services/net/sshd.nix
+    ../services/net/wireguard.nix
     ../services/net/avahi.nix
   ];
 
@@ -62,6 +60,20 @@ args @ {
     };
   };
 
+  home-manager.users.kavarkon = {
+    home.pointerCursor = {
+      x11.enable = true;
+      name = "Vanilla-DMZ";
+      package = pkgs.vanilla-dmz;
+      size = 64;
+    };
+
+    home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/hk47/hypr/hypridle.conf;
+    home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/hk47/hypr/hyprland.conf;
+    home.file.".config/waybar/config".source = ../users/ksevelyar/hk47/waybar/waybar.json;
+    home.file.".config/waybar/style.css".source = ../users/ksevelyar/hk47/waybar/waybar.css;
+  };
+
   home-manager.users.ksevelyar = {
     home.pointerCursor = {
       x11.enable = true;
@@ -70,28 +82,13 @@ args @ {
       size = 64;
     };
 
-    home.file.".config/leftwm/config.toml".source = ../users/ksevelyar/tv/leftwm/config.toml;
-    home.file.".config/leftwm/themes/current/theme.toml".source = ../users/ksevelyar/tv/leftwm/theme.toml;
-
-    home.file.".config/polybar/config".source = ../users/shared/polybar/config-big;
-    home.file.".config/dunst/dunstrc".source = ../users/shared/dunst/dunstrc-big;
-    home.file.".config/alacritty/alacritty.toml".source = ../users/ksevelyar/tv/alacritty.toml;
-    home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/ksevelyar/tv/alacritty-scratchpad.toml;
+    home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/hk47/hypr/hypridle.conf;
+    home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/hk47/hypr/hyprland.conf;
+    home.file.".config/waybar/config".source = ../users/ksevelyar/hk47/waybar/waybar.json;
+    home.file.".config/waybar/style.css".source = ../users/ksevelyar/hk47/waybar/waybar.css;
   };
   console.font = "${pkgs.terminus_font}/share/consolefonts/ter-u32n.psf.gz";
-  services.xserver.serverFlagsSection = ''
-    Option "BlankTime" "0"
-    Option "StandbyTime" "0"
-    Option "SuspendTime" "0"
-    Option "OffTime" "0"
-  '';
 
-  systemd.targets.sleep.enable = false;
-  systemd.targets.suspend.enable = false;
-  systemd.targets.hibernate.enable = false;
-  systemd.targets.hybrid-sleep.enable = false;
-
-  services.xserver.displayManager.lightdm.background = ../assets/wallpapers/d-sparil.png;
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
