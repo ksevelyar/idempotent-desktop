@@ -1,3 +1,4 @@
+# RedmiBook 14 II TM1951-28953 (F12 for boot menu)
 {
   config,
   lib,
