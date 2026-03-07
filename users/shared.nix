@@ -202,6 +202,13 @@ in {
         platformTheme.name = "gtk3";
       };
 
+      # NOTE: set dark theme in firefox
+      dconf.settings = {
+        "org/gnome/desktop/interface" = {
+          color-scheme = "prefer-dark";
+        };
+      };
+
       home.file.".config/nixpkgs/config.nix".text = ''
         { allowUnfree = true; }
       '';
