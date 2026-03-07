@@ -88,6 +88,7 @@ in
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
   boot.loader.grub.backgroundColor = lib.mkForce "#09090B";
+  boot.loader.systemd-boot.configurationLimit = 2;
 
   boot.tmp.cleanOnBoot = true;
   boot.tmp.useTmpfs = true;

@@ -28,6 +28,17 @@ args @ {
     ./persistent-disko.nix
   ];
 
+  home-manager.users.mr = {
+    home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/laundry/hypr/hypridle.conf;
+    home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/laundry/hypr/hyprland.conf;
+    home.file.".config/hypr/hyprpaper.conf".source = ../users/ksevelyar/laundry/hypr/hyprpaper.conf;
+    home.file.".config/waybar/config".source = ../users/ksevelyar/laundry/waybar/waybar.json;
+    home.file.".config/waybar/style.css".source = ../users/ksevelyar/laundry/waybar/waybar.css;
+
+    home.file.".config/alacritty/alacritty.toml".source = ../users/ksevelyar/laundry/alacritty/alacritty.toml;
+    home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/ksevelyar/laundry/alacritty/alacritty-scratchpad.toml;
+  };
+
   security.sudo = {
     enable = true;
     wheelNeedsPassword = lib.mkForce false;

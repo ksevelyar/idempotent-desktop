@@ -5,7 +5,6 @@
     TERMINAL = "alacritty";
   };
 
-  environment.etc."imv_config".source = ../users/shared/imv/config;
   programs.browserpass.enable = true;
 
   environment.systemPackages = with pkgs; [

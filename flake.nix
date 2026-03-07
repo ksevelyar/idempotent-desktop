@@ -74,7 +74,7 @@
       };
     };
 
-    usb = {
+    usb-tui = {
       name = "usb-tui";
       value = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -87,8 +87,8 @@
       };
     };
 
-    usb-x = {
-      name = "usb";
+    usb-hyprland = {
+      name = "usb-hyprland";
       value = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -110,7 +110,7 @@
           ]
         )
         hosts
-        ++ [usb-image usb usb-x]
+        ++ [usb-image usb-tui usb-hyprland]
       )
     );
   };

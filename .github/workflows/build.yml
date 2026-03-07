@@ -15,4 +15,4 @@ jobs:
         name: idempotent-desktop
         authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
     - run: nix flake check
-    - run: nix build .#nixosConfigurations.usb-image.config.system.build.toplevel
+    - run: nix build .#nixosConfigurations.usb-hyprland.config.system.build.toplevel
