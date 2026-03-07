@@ -27,7 +27,7 @@ args @ {
 
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
-    ../packages/x-common.nix
+    ../packages/wayland-common.nix
     ../packages/3d-print.nix
     ../packages/electronics.nix
     ../packages/games.nix
@@ -38,10 +38,7 @@ args @ {
     ../services/auto-mount.nix
     ../services/journald.nix
     ../services/databases/postgresql.nix
-    ../services/databases/redis.nix
-    ../services/x.nix
-    ../services/x/redshift.nix
-    ../services/x/unclutter.nix
+    ../services/wayland/hyprland.nix
 
     ../services/net/firewall-desktop.nix
     ../services/net/sshd.nix
@@ -53,24 +50,27 @@ args @ {
   programs.java = { enable = true; package = pkgs.jdk17; };
   environment.systemPackages = with pkgs; [
     jdk17
-    discord-ptb
+    # discord-canary
     inkscape
   ];
 
   home-manager.users.kavarkon = {
-    home.file.".config/polybar/config.ini".source = ../users/kavarkon/speed-demon/polybar.ini;
-    home.file.".config/leftwm/themes/current/up".source = ../users/kavarkon/speed-demon/leftwm/up;
+    home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/hk47/hypr/hypridle.conf;
+    home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/hk47/hypr/hyprland.conf;
+    home.file.".config/waybar/config".source = ../users/ksevelyar/hk47/waybar/waybar.json;
+    home.file.".config/waybar/style.css".source = ../users/ksevelyar/hk47/waybar/waybar.css;
   };
 
   networking.hostName = "speed-demon";
   networking.useDHCP = lib.mkForce true;
   networking.networkmanager.enable = true; # run nmtui for wi-fi
-  # networking.proxy.default = "127.0.0.1:2080";
+
   services.xray = {
     enable = true;
     settingsFile = config.age.secrets.kavarkon-xray-json.path;
   };
 
+  # http://localhost:8384/
   services = {
     syncthing = {
       enable = true;
@@ -95,7 +95,6 @@ args @ {
     };
   };
 
-  services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   fileSystems."/" = {

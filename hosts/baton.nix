@@ -57,6 +57,7 @@ args @ {
     discord-canary
   ];
 
+  # http://localhost:8384/
   services = {
     syncthing = {
       enable = true;
@@ -95,19 +96,6 @@ args @ {
     settingsFile = config.age.secrets.kavarkon-xray-json.path;
   };
 
-  services = {
-    libinput = {
-      enable = true;
-      touchpad = {
-        accelProfile = "adaptive"; # flat profile for touchpads
-        naturalScrolling = false;
-        accelSpeed = "0.3";
-        disableWhileTyping = true;
-        scrollMethod = "twofinger";
-      };
-    };
-  };
-  services.xserver.displayManager.lightdm.background = ../assets/wallpapers/akira.png;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   fileSystems."/" = {
