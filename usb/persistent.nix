@@ -92,7 +92,7 @@ args @ {
     bottom
     ncdu
     rsync
-    neofetch
+    fastfetch
 
     parted
     gptfdisk

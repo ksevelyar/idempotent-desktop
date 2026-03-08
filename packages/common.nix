@@ -59,7 +59,7 @@
     lm_sensors
     lshw
     lsof
-    neofetch
+    fastfetch
     pciutils # lspci
     smartmontools
     usbutils # lsusb

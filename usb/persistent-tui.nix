@@ -70,7 +70,7 @@
     bottom
     ncdu
     rsync
-    neofetch
+    fastfetch
 
     parted
     gptfdisk
