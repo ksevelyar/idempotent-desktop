@@ -1,23 +1,17 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    neovim-unwrapped
-    # nix
+    # lsp
+    ## nix
     nil
     alejandra
 
-    # lua
+    ## lua
     gcc
     lua-language-server
 
+    ## css + html + js
+    vscode-langservers-extracted
     superhtml
-    # nodejs_latest
-
-    # llm
-    # codex-acp
+    typescript-language-server
   ];
-
-  # TODO: declarative deps for vim
-  environment.shellAliases = {
-    install-neovim-deps = "npm i -g typescript typescript-language-server eslint vscode-langservers-extracted";
-  };
 }
