@@ -54,7 +54,6 @@ args @ {
 
   environment.systemPackages = with pkgs; [
     aria2
-    yazi
   ];
 
   services.xray = {

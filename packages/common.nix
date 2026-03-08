@@ -70,7 +70,7 @@
     pwgen
 
     # fs
-    broot
+    yazi
     atool
     bind
     dosfstools
