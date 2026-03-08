@@ -80,9 +80,11 @@ in {
           "video/x-matroska" = "mpv.desktop";
           "video/mpeg" = "mpv.desktop";
 
-          "image/*" = "com.interversehq.qView.desktop";
-          "image/png" = "com.interversehq.qView.desktop";
-          "image/jpg" = "com.interversehq.qView.desktop";
+          "image/*" = "swayimg.desktop";
+          "image/png" = "swayimg.desktop";
+          "image/webp" = "swayimg.desktop";
+          "image/gif" = "swayimg.desktop";
+          "image/jpeg" = "swayimg.desktop";
 
           "text/plain" = "nvim.desktop";
           "text/markdown" = "nvim.desktop";

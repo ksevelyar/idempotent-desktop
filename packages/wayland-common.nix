@@ -25,6 +25,7 @@
 
     evince
     mpv
+    swayimg
     qview
 
     anki

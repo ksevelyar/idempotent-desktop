@@ -24,8 +24,7 @@
 
 ## Chill
 * [Heroic and Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
-* mpv, [imv][imv], spotify
+* mpv, swayimg, spotify
 
-[imv]: /users/shared/imv/config
 [delta]: https://github.com/dandavison/delta
 [zoxide]: https://github.com/ajeetdsouza/zoxide
