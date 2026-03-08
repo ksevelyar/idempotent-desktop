@@ -82,7 +82,6 @@ in
     home.file.".config/waybar/style.css".source = ../users/ksevelyar/laundry/waybar/waybar.css;
 
     home.file.".config/alacritty/alacritty.toml".source = ../users/kh/pepes/alacritty.toml;
-    home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/kh/pepes/alacritty-scratchpad.toml;
   };
 
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;

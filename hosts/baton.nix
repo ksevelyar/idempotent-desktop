@@ -74,7 +74,6 @@ args @ {
     home.file.".config/waybar/style.css".source = ../users/ksevelyar/laundry/waybar/waybar.css;
 
     home.file.".config/alacritty/alacritty.toml".source = ../users/ksevelyar/laundry/alacritty/alacritty.toml;
-    home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/ksevelyar/laundry/alacritty/alacritty-scratchpad.toml;
   };
 
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
