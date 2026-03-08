@@ -44,7 +44,7 @@
   "clock": {
     "locale": "en_GB.UTF-8",
     "format": "<span color='#6a6a7a'></span> {:%H:%M}",
-    "format-alt": "<span color='#6a6a7a'></span> {:%a %d-%m-%y %H:%M}",
+    "format-alt": "<span color='#6a6a7a'></span> {:%a %d.%m.%y %H:%M}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
       "iso8601": true,
