@@ -62,6 +62,7 @@ in {
   ];
 
   home-manager = {
+    backupFileExtension = "backup";
     useGlobalPkgs = true;
     users.${user} = {
       home.stateVersion = "24.05";

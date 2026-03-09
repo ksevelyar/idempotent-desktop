@@ -113,7 +113,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.opt.list = true
-vim.opt.listchars = { nbsp = "¬", tab = ">•", extends = "»", precedes = "«", trail = "¶" }
+vim.opt.listchars = { nbsp = "␣", tab = "> ", extends = "»", precedes = "«", trail = "•" }
 vim.opt.clipboard = "unnamedplus"
 
 vim.g.mapleader = " "
