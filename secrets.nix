@@ -12,7 +12,8 @@ let
   systems = [hk47 laundry pepes speedDemon];
 in {
   # shared
-  "secrets/idempotent-desktop.age".publicKeys = users ++ systems;
+  "secrets/shared/idempotent-desktop.age".publicKeys = users ++ systems;
+  "secrets/shared/wifi.age".publicKeys = users ++ systems;
 
   # ksevelyar
   "secrets/ksevelyar/xray-xhttp.age".publicKeys = [ksevelyar hk47 laundry];

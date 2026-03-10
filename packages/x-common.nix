@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   environment = {
     variables = {
-      VISUAL = "nvim";
+      EDITOR = "nvim";
       BROWSER = "firefox";
       TERMINAL = "alacritty";
     };

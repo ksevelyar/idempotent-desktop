@@ -45,6 +45,7 @@ args @ {
     ../services/net/sshd.nix
     ../services/net/avahi.nix
     ../services/net/wireguard.nix
+    ../services/net/network-manager.nix
 
     ../services/vm/docker.nix
   ];
@@ -52,7 +53,11 @@ args @ {
   networking.hostName = "laundry";
   networking.useDHCP = false;
   networking.interfaces.wlp0s20f3.useDHCP = true;
-  networking.networkmanager.enable = true;
+
+  networking.networkmanager.ensureProfiles.profiles = {
+    wifi1.connection.autoconnect-priority = 2;
+    wifi2.connection.autoconnect-priority = 1;
+  };
 
   networking.firewall.trustedInterfaces = [ "skynet" ];
   networking.wireguard.interfaces.skynet = {

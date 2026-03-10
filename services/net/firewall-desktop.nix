@@ -4,9 +4,6 @@
   networking.firewall.allowedTCPPorts = [
     # Transmission
     41414
-
-    # VNC
-    5900
   ];
 
   networking.firewall.allowedUDPPorts = [

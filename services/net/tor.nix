@@ -8,8 +8,7 @@
     client.enable = true;
   };
 
-  environment.systemPackages = with pkgs;
-    lib.mkIf (config.services.xserver.enable) [
-      tor-browser-bundle-bin
-    ];
+  environment.systemPackages = with pkgs; [
+    tor-browser-bundle-bin
+  ];
 }

@@ -48,25 +48,12 @@ args @ {
     ../services/net/sshd.nix
     ../services/net/wireguard.nix
     ../services/net/avahi.nix
-
-    # ../services/vm/hypervisor.nix
+    ../services/net/network-manager.nix
   ];
 
   environment.systemPackages = with pkgs; [
     aria2
   ];
-
-  services.xray = {
-    enable = true;
-    settingsFile = config.age.secrets.ksevelyar-xray-json.path;
-  };
-
-  services.earlyoom.enable = true;
-  # NOTE: fix ollama crashes
-  boot.kernelParams = [
-    "amdgpu.cwsr_enable=0"
-  ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   home-manager.users.ksevelyar = {
     home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/hk47/hypr/hypridle.conf;
@@ -76,11 +63,20 @@ args @ {
   };
 
   # net
+  services.xray = {
+    enable = true;
+    settingsFile = config.age.secrets.ksevelyar-xray-json.path;
+  };
+
   networking.hostName = "hk47";
   networking.interfaces.enp8s0.useDHCP = true;
   networking.interfaces.wlp7s0.useDHCP = true;
   networking.useDHCP = false;
-  networking.networkmanager.enable = true; # run nmtui for wi-fi
+
+  networking.networkmanager.ensureProfiles.profiles = {
+    wifi1.connection.autoconnect-priority = 2;
+    wifi2.connection.autoconnect-priority = 1;
+  };
 
   networking.wireguard.interfaces.skynet = {
     ips = ["10.10.10.2/24"];
@@ -122,6 +118,11 @@ args @ {
     };
   };
 
+  # NOTE: fix ollama crashes
+  boot.kernelParams = [
+    "amdgpu.cwsr_enable=0"
+  ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.grub.memtest86.enable = true;
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";
