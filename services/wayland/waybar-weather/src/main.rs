@@ -85,9 +85,9 @@ fn format_output(weather: Weather) -> String {
     let rain = weather.rain_probability_next_hour_percent;
 
     let text = format!(
-        "<span color='#888888'></span> {}° \
-         <span color='#888888'></span> {}m/s \
-         <span color='#888888'></span> {}%",
+        "<span color='#888888'></span> {}°  \
+         <span color='#888888'></span> {}m/s  \
+         <span color='#888888'>󰖖</span> {}%",
         temp, wind, rain
     );
 
