@@ -78,12 +78,12 @@
     "interval": 0
   },
   "custom/spotify": {
-    "exec": "playerctl --player=spotify metadata --format '<span color=\"#6a6a7a\"></span> {{ artist }} - {{ title }}' 2>/dev/null | sed 's/&/\\&amp;/g'",
+    "exec": "playerctl --player=chromium metadata --format '<span color=\"#6a6a7a\"></span> {{ artist }} - {{ title }}' 2>/dev/null | sed 's/&/\\&amp;/g'",
     "tooltip": false,
     "interval": 5,
     "exec-if": "pgrep -f spotify",
-    "on-click": "playerctl --player=spotify play-pause",
-    "on-click-right": "playerctl --player=spotify next",
+    "on-click": "playerctl --player=chromium play-pause",
+    "on-click-right": "playerctl --player=chromium next",
   },
   "custom/weather": {
     "exec": "waybar-weather",
