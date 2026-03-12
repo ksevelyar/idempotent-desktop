@@ -9,7 +9,7 @@
       pkgs.which
     ];
 
-    serviceConfig.ExecStart = "${pkgs.udevil}/bin/devmon --ignore-label nixos-usb --ignore-label boot-usb";
+    serviceConfig.ExecStart = "${pkgs.udevil}/bin/devmon --ignore-label nixos-usb --ignore-label boot-usb --ignore-label NIXOS_SD --ignore-label FIRMWARE";
   };
 
   services.udisks2.enable = true;
