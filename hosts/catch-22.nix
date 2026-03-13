@@ -23,15 +23,7 @@ args @ {
     ../sys/fonts.nix
     ../sys/cache.nix
 
-    ../services/auto-mount.nix
-    ../services/journald.nix
-    ../services/databases/postgresql.nix
-    ../services/x.nix
-    ../services/x/picom.nix
-    ../services/x/redshift.nix
-    ../services/x/unclutter.nix
-
-    ../packages/x-common.nix
+    ../packages/wayland-common.nix
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
     ../packages/3d-print.nix
@@ -39,7 +31,12 @@ args @ {
     ../packages/games.nix
     ../packages/neovim.nix
     ../packages/pass.nix
+    ../packages/spotify.nix
 
+    ../services/auto-mount.nix
+    ../services/journald.nix
+    ../services/databases/postgresql.nix
+    ../services/wayland/hyprland.nix
     ../services/net/firewall-desktop.nix
     ../services/net/sshd.nix
     ../services/net/avahi.nix
@@ -67,10 +64,11 @@ args @ {
   networking.interfaces.wlp2s0.useDHCP = true;
 
   home-manager.users.kh = {
-    home.file.".config/polybar/config".source = lib.mkForce ../users/kh/polybar/polybar-catch22;
-    home.file.".config/leftwm/config.ron".source = ../users/kh/catch-22/leftwm.ron;
+    home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/hk47/hypr/hypridle.conf;
+    home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/hk47/hypr/hyprland.conf;
+    home.file.".config/waybar/config".source = ../users/ksevelyar/hk47/waybar/waybar.json;
+    home.file.".config/waybar/style.css".source = ../users/ksevelyar/hk47/waybar/waybar.css;
     home.file.".config/alacritty/alacritty.toml".source = ../users/kh/catch-22/alacritty.toml;
-    home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/kh/catch-22/alacritty-scratchpad.toml;
   };
 
   boot.initrd.luks.devices = {
