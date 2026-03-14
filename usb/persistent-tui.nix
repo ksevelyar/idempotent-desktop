@@ -60,7 +60,7 @@
 
   environment.defaultPackages = [];
   environment.systemPackages = with pkgs; [
-    neovim
+    neovim-unwrapped
     zoxide
     bat
     fd

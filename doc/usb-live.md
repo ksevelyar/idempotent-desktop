@@ -10,7 +10,7 @@ nix build .#nixosConfigurations.usb-image.config.system.build.isoImage
 ```
 lsblk -f
 
-sudo dd bs=4M if=result/iso/nixos-minimal-25.11.20260128.fa83fd8-x86_64-linux.iso of=/dev/sdx status=progress conv=fsync
+sudo dd bs=4M if=result/iso/nixos-minimal-25.11.20260128.fa83fd8-x86_64-linux.iso of=/dev/sdx status=progress oflag=sync
 ```
 
 ## Analyze

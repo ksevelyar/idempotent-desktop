@@ -7,8 +7,6 @@ args @ {
     ../users/mr.nix
     ../users/root.nix
 
-    ../hardware/touchpad.nix
-
     ../sys/aliases.nix
     ../sys/tty.nix
     ../sys/sysctl.nix
@@ -35,7 +33,6 @@ args @ {
     home.file.".config/waybar/style.css".source = ../users/ksevelyar/laundry/waybar/waybar.css;
 
     home.file.".config/alacritty/alacritty.toml".source = ../users/ksevelyar/laundry/alacritty/alacritty.toml;
-    home.file.".config/alacritty/alacritty-scratchpad.toml".source = ../users/ksevelyar/laundry/alacritty/alacritty-scratchpad.toml;
   };
 
   security.sudo = {
@@ -67,6 +64,7 @@ args @ {
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 
+  programs.fish.interactiveShellInit = "ip -br addr";
   services.getty.autologinUser = "mr";
   users.users = {
     root = {
