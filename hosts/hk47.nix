@@ -34,6 +34,7 @@ args @ {
     ../packages/common.nix
     ../packages/3d-print.nix
     ../packages/games.nix
+    ../packages/games-retro.nix
     ../packages/neovim.nix
     ../packages/pass.nix
     ../packages/spotify.nix
