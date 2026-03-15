@@ -25,6 +25,7 @@
 
 ## Chill
 * [Heroic and Steam](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games.nix)
+* [retroarch](https://github.com/ksevelyar/idempotent-desktop/blob/main/packages/games-retro.conf) for nes, snes, genesis
 * mpv, swayimg, spotify
 
 [delta]: https://github.com/dandavison/delta
