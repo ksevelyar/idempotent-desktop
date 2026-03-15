@@ -113,46 +113,45 @@ in {
         enable = true;
         defaultEditor = true;
 
-        plugins = with pkgs.vimPlugins; [
-          # UI & Status Line
-          lualine-nvim
-          nvim-web-devicons
+        plugins = with pkgs.vimPlugins;
+          lib.mkDefault [
+            # auto load nix flakes
+            direnv-vim
 
-          # File Explorer
-          nvim-tree-lua
+            # UI
+            indent-blankline-nvim
+            lualine-nvim
+            nvim-web-devicons
 
-          # Search & Navigation
-          telescope-nvim
-          plenary-nvim
-          leap-nvim
+            # Navigation
+            telescope-nvim
+            plenary-nvim
+            nvim-tree-lua
+            leap-nvim
 
-          # Git Integration
-          vim-fugitive
-          gitsigns-nvim
+            # Git
+            vim-fugitive
+            gitsigns-nvim
 
-          # LSP & Completion
-          nvim-lspconfig
-          nvim-cmp
-          cmp-nvim-lsp
-          cmp-buffer
-          cmp-path
-          cmp-cmdline
-          cmp-vsnip
-          vim-vsnip
+            # LSP & Completion
+            nvim-lspconfig
+            nvim-cmp
+            cmp-nvim-lsp
+            cmp-buffer
+            cmp-path
+            cmp-cmdline
+            cmp-vsnip
+            vim-vsnip
 
-          # Syntax & Highlighting
-          nvim-treesitter.withAllGrammars
-          nvim-colorizer-lua
+            # Syntax & Highlighting
+            nvim-treesitter.withAllGrammars
+            nvim-colorizer-lua
+            vim-openscad
 
-          # Utilities
-          indent-blankline-nvim
-          direnv-vim
-          vim-openscad
-
-          # Themes
-          joker-vim
-          oxocarbon-nvim
-        ];
+            # Themes
+            joker-vim
+            oxocarbon-nvim
+          ];
       };
 
       services.mako = {
