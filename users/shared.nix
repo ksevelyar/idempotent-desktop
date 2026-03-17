@@ -253,7 +253,6 @@ in {
       home.file.".config/zathura/zathurarc".source = ../users/shared/zathura/zathurarc;
 
       home.file.".config/alacritty/alacritty.toml".source = lib.mkDefault ../users/shared/alacritty/alacritty.toml;
-      home.file.".config/alacritty/alacritty-scratchpad.toml".source = lib.mkDefault ../users/shared/alacritty/alacritty-scratchpad.toml;
 
       home.file.".config/mpv/mpv.conf".source = lib.mkDefault ../users/shared/mpv/mpv.conf;
       home.file.".config/mpv/input.conf".source = ../users/shared/mpv/input.conf;

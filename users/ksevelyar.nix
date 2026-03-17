@@ -18,7 +18,7 @@ in {
         }))
     ]
     ++ [
-      (lib.mkIf (config.programs.hyprland.enable) (import ../packages/firefox.nix (args // {user = user;})))
+      (import ../packages/firefox.nix (args // {user = user;}))
     ];
 
   home-manager = {
