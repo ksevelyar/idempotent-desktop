@@ -28,6 +28,7 @@ args @ {
     ../packages/3d-print.nix
     ../packages/electronics.nix
     ../packages/games.nix
+    ../packages/games-retro.nix
     ../packages/neovim.nix
     ../packages/pass.nix
     ../packages/spotify.nix
@@ -41,12 +42,17 @@ args @ {
     ../services/net/avahi.nix
   ];
 
+  services.xray = {
+    enable = true;
+    settingsFile = config.age.secrets.kh-xray-json.path;
+  };
+
   environment.systemPackages = with pkgs; [
     foliate
     obsidian
     gnumake
-    lutris
     spaceFM
+    google-chrome
   ];
 
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
@@ -62,9 +68,14 @@ args @ {
   networking.interfaces.enp4s0.useDHCP = true;
   networking.interfaces.wlp2s0.useDHCP = true;
 
+  # NOTE: enable F keys on startup
+  boot.extraModprobeConfig = ''
+    options hid_apple fnmode=2
+  '';
+
   home-manager.users.kh = {
-    home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/hk47/hypr/hypridle.conf;
-    home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/hk47/hypr/hyprland.conf;
+    home.file.".config/hypr/hypridle.conf".source = ../users/kh/catch-22/hypr/hypridle.conf;
+    home.file.".config/hypr/hyprland.conf".source = ../users/kh/catch-22/hypr/hyprland.conf;
     home.file.".config/waybar/config".source = ../users/ksevelyar/hk47/waybar/waybar.json;
     home.file.".config/waybar/style.css".source = ../users/ksevelyar/hk47/waybar/waybar.css;
     home.file.".config/alacritty/alacritty.toml".source = ../users/kh/catch-22/alacritty.toml;

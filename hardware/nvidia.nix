@@ -5,10 +5,9 @@
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
-    forceFullCompositionPipeline = true;
   };
 
-  services.xserver.videoDriver = "nvidia";
+  services.xserver.videoDrivers = ["nvidia"];
   services.picom = {
     backend = "xrender";
   };
