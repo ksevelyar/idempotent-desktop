@@ -21,7 +21,6 @@ args @ {
     ../sys/sysctl.nix
     ../sys/tty.nix
     ../sys/fonts.nix
-    ../sys/cache.nix
 
     ../packages/wayland-common.nix
     ../packages/absolutely-proprietary.nix

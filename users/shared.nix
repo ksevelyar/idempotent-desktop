@@ -61,6 +61,8 @@ in {
     "/etc/ssh/ssh_host_ed25519_key"
   ];
 
+  programs.command-not-found.enable = true;
+
   home-manager = {
     backupFileExtension = "backup";
     useGlobalPkgs = true;

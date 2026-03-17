@@ -7,7 +7,7 @@
     ../sys/aliases.nix
     ../sys/tty.nix
     ../sys/sysctl.nix
-    ../sys/cache.nix
+    ../sys/nix.nix
 
     ../packages/absolutely-proprietary.nix
 

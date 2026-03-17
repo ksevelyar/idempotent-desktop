@@ -1,28 +1,29 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   system.stateVersion = "25.05";
 
   documentation.enable = false;
   documentation.man.generateCaches = false;
-  programs.command-not-found.enable = true;
 
   nix = {
     package = pkgs.nixVersions.stable;
-    settings = {
-      sandbox = true;
-    };
+    settings.sandbox = true;
 
-    # 🍑 smooth rebuilds
+    # NOTE: 🍑 smooth rebuilds
     daemonCPUSchedPolicy = "idle";
-    daemonIOSchedPriority = 4; # 7 max
+    daemonIOSchedPriority = 7;
 
     extraOptions = ''
       experimental-features = nix-command flakes
       connect-timeout = 5
     '';
+
+    settings = {
+      substituters = [
+        "https://idempotent-desktop.cachix.org"
+      ];
+      trusted-public-keys = [
+        "idempotent-desktop.cachix.org-1:21i2Mb/mrJ9XcfmksWpaYMr78ZPbwxhX/BwSS1X+PRw="
+      ];
+    };
   };
 }

@@ -23,7 +23,6 @@
     ../sys/sysctl.nix
     ../sys/tty.nix
     ../sys/fonts.nix
-    ../sys/cache.nix
 
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix

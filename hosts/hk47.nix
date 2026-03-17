@@ -27,7 +27,6 @@ args @ {
     ../sys/nix.nix
     ../sys/sysctl.nix
     ../sys/tty.nix
-    ../sys/cache.nix
 
     ../packages/wayland-common.nix
     ../packages/absolutely-proprietary.nix

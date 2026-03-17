@@ -10,7 +10,6 @@ args @ {
     ../sys/aliases.nix
     ../sys/tty.nix
     ../sys/sysctl.nix
-    ../sys/cache.nix
     ../sys/nix.nix
 
     ../packages/wayland-common.nix

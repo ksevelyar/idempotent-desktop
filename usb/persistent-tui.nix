@@ -8,7 +8,7 @@
     ../sys/aliases.nix
     ../sys/tty.nix
     ../sys/sysctl.nix
-    ../sys/cache.nix
+    ../sys/nix.nix
 
     ../packages/absolutely-proprietary.nix
 
@@ -25,10 +25,6 @@
     RateLimitIntervalSec=30s
     RateLimitBurst=2000
   '';
-
-  system.stateVersion = "25.11";
-  documentation.enable = false;
-  documentation.man.generateCaches = false;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = lib.mkForce {
