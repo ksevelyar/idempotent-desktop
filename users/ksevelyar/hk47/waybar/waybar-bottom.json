@@ -1,0 +1,23 @@
+{
+  "layer": "bottom",
+  "position": "bottom",
+  "height": 30,
+  "spacing": 4,
+  "exclusive": false,
+  "passthrough": false,
+
+  "modules-left": [
+  ],
+  "modules-center": [
+    "custom/wallpaper"
+  ],
+  "modules-right": [
+  ],
+
+  "custom/wallpaper": {
+    "format": "<span color='#6a6a7a'></span>",
+    "on-click": "wpaperctl next",
+    "on-click-right": "wpaperctl previous",
+    "tooltip": false,
+  },
+}

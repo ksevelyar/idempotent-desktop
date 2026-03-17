@@ -27,7 +27,6 @@ in {
       "wheel"
       "networkmanager"
       "libvirtd"
-      "nginx"
       "dialout"
       "docker"
       "jackaudio"
@@ -43,7 +42,7 @@ in {
   location.latitude = lib.mkDefault 55.75;
   location.longitude = lib.mkDefault 37.61;
 
-  systemd.tmpfiles.rules = [
+  systemd.tmpfiles.rules = lib.mkDefault [
     "d /home/${user}/code        0700 ${user} 1000"
     "d /home/${user}/.secrets    0700 ${user} 1000"
     "d /home/${user}/wallpapers  0700 ${user} 1000"

@@ -65,7 +65,7 @@
     "format": "<span color='#6a6a7a'></span> {usage}%"
   },
   "memory": {
-    "format": "<span color='#6a6a7a'> </span>{used:.0f}%"
+    "format": "<span color='#6a6a7a'> </span>{percentage}%"
   },
   "disk": {
     "interval": 60,
