@@ -52,6 +52,28 @@
         LONGITUDE = toString config.location.longitude;
       };
     };
+
+    toggle-scratchpad = pkgs.writeScriptBin "toggle-scratchpad" ''
+      #!${pkgs.fish}/bin/fish
+        set CLASS_NAME $argv[1]
+        set LAUNCH_CMD $argv[2]
+        set LAUNCH_ARGS $argv[3..-1]
+        set HIDDEN_WORKSPACE "special:scratchpads"
+        set CURRENT_WORKSPACE (hyprctl activeworkspace -j | jq '.id')
+        set WINDOW_ADDR (hyprctl clients -j | jq -r --arg class "$CLASS_NAME" '.[] | select(.class | test("^" + $class + "$")) | .address' | head -n 1)
+
+        if [ -z "$WINDOW_ADDR" ]
+          $LAUNCH_CMD --class $CLASS_NAME $LAUNCH_ARGS &
+        else
+          set WINDOW_WORKSPACE (hyprctl clients -j | jq -r --arg addr "$WINDOW_ADDR" '.[] | select(.address == $addr) | .workspace.id')
+
+          if [ "$WINDOW_WORKSPACE" = "$CURRENT_WORKSPACE" ]
+            hyprctl dispatch movetoworkspacesilent "$HIDDEN_WORKSPACE,address:$WINDOW_ADDR"
+          else
+            hyprctl dispatch movetoworkspace "$CURRENT_WORKSPACE,address:$WINDOW_ADDR"
+          end
+        end
+    '';
   in
     with pkgs; [
       vanilla-dmz
@@ -67,7 +89,9 @@
       waybar
       grim
       slurp
+      jq
 
       waybar-weather
+      toggle-scratchpad
     ];
 }
