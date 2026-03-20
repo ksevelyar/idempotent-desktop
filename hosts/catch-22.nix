@@ -76,8 +76,8 @@ args @ {
   home-manager.users.kh = {
     home.file.".config/hypr/hypridle.conf".source = ../users/kh/catch-22/hypr/hypridle.conf;
     home.file.".config/hypr/hyprland.conf".source = ../users/kh/catch-22/hypr/hyprland.conf;
-    home.file.".config/waybar/config".source = ../users/ksevelyar/hk47/waybar/waybar.json;
     home.file.".config/waybar/config-bottom".source = ../users/ksevelyar/hk47/waybar/waybar-bottom.json;
+    home.file.".config/waybar/config-top".source = ../users/ksevelyar/hk47/waybar/waybar-top.json;
     home.file.".config/waybar/style.css".source = ../users/ksevelyar/hk47/waybar/waybar.css;
     home.file.".config/alacritty/alacritty.toml".source = ../users/kh/catch-22/alacritty.toml;
   };

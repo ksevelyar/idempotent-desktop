@@ -11,7 +11,8 @@
 }
 
 window#waybar>box {
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 window#waybar {
@@ -46,15 +47,4 @@ window#waybar {
 #battery.critical {
     color: @bg;
     background-color: @white;
-}
-
-#clock,
-#custom-sep,
-#battery,
-#cpu,
-#memory,
-#disk,
-#network,
-#tray {
-    padding: 0 8px;
 }

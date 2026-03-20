@@ -1,28 +1,35 @@
 {
   "layer": "top",
-  "position": "top",
-  "height": 20,
+  "position": "bottom",
+  "height": 24,
   "spacing": 4,
-  "fixed-center": true,
+
   "modules-left": [
     "wireplumber",
     "custom/sep",
     "hyprland/workspaces",
     "custom/sep",
-    "custom/spotify",
-    "custom/sep"
   ],
   "modules-center": [
     "hyprland/window"
   ],
   "modules-right": [
-    "custom/weather",
     "custom/sep",
-    "cpu",
-    "memory",
+    "battery",
     "custom/sep",
     "clock"
   ],
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<span color='#6a6a7a'>{icon}</span> {time}",
+    "tooltip-format": "{capacity}%",
+    "format-time": "{H}:{M}",
+    "format-icons": ["", "", "", "", ""],
+  },
   "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
@@ -53,7 +60,7 @@
         "days": "<span color='#6a6a7a'><b>{}</b></span>",
         "today": "<span color='#fff'><b>{}</b></span>"
       }
-    },
+    }
   },
   "cpu": {
     "format": "<span color='#6a6a7a'></span> {usage}%"
@@ -62,22 +69,15 @@
     "format": "<span color='#6a6a7a'> </span>{percentage}%"
   },
   "custom/sep": {
-    "format": " ",
+    "format": "  ",
     "interval": 0
   },
   "custom/spotify": {
-    "exec": "playerctl --player=chromium metadata --format '<span color=\"#6a6a7a\"></span> {{ artist }} - {{ title }}' 2>/dev/null | sed 's/&/\\&amp;/g'",
+    "exec": "playerctl --player=spotify metadata --format '<span color=\"#6a6a7a\"></span> {{ artist }} - {{ title }}' 2>/dev/null | sed 's/&/\\&amp;/g'",
     "tooltip": false,
     "interval": 5,
     "exec-if": "pgrep -f spotify",
-    "on-click": "playerctl --player=chromium play-pause",
-    "on-click-right": "playerctl --player=chromium next",
+    "on-click": "playerctl --player=spotify play-pause",
+    "on-click-right": "playerctl --player=spotify next",
   },
-  "custom/weather": {
-    "exec": "waybar-weather",
-    "interval": 300,
-    "format": "{}",
-    "tooltip": true,
-    "return-type": "json"
-  }
 }

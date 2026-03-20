@@ -43,13 +43,6 @@ window#waybar {
   background-color: @fg3;
 }
 
-#clock,
-#custom-sep,
-#battery,
-#cpu,
-#memory,
-#disk,
-#network,
-#tray {
-  padding: 0 8px;
+#memory {
+  padding-left: 8px;
 }

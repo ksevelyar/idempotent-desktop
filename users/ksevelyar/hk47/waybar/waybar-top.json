@@ -1,0 +1,42 @@
+{
+  "layer": "bottom",
+  "position": "top",
+  "height": 24,
+  "spacing": 4,
+  "fixed-center": true,
+
+  "exclusive": false,
+  "passthrough": false,
+  "modules-left": [
+    "custom/wallpaper",
+  ],
+  "modules-center": [
+    "idle_inhibitor"
+  ],
+  "modules-right": [
+    "disk",
+  ],
+  "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+          "activated": "",
+          "deactivated": ""
+      }
+  },
+  "disk": {
+    "interval": 60,
+    "path": "/",
+    "format": "<span color='#6a6a7a'></span> {specific_free:.0f} GB",
+    "tooltip": false,
+    "unit": "GB"
+  },
+  "custom/wallpaper": {
+    "format": "<span color='#6a6a7a'></span>",
+    "on-click": "wpaperctl next",
+    "on-click-right": "wpaperctl previous",
+  },
+  "custom/sep": {
+    "format": "  ",
+    "interval": 0
+  },
+}

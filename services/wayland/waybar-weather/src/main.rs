@@ -97,7 +97,6 @@ fn extract_daily_forecasts(daily: &serde_json::Value) -> Result<Vec<DailyForecas
     for i in 0..limit {
         let date = time[i].as_str().unwrap_or("N/A");
         let date_short = format_date_short(date);
-        
         let tmax = temp_max.get(i).and_then(serde_json::Value::as_f64).unwrap_or(0.0);
         let tmin = temp_min.get(i).and_then(serde_json::Value::as_f64).unwrap_or(0.0);
         let rain = precip_prob.get(i).and_then(serde_json::Value::as_i64).unwrap_or(0).clamp(0, 100);
@@ -171,13 +170,12 @@ fn format_output(weather: Weather) -> String {
     let rain = weather.rain_probability_next_hour_percent;
 
     let text = format!(
-        "<span color='#888888'></span> {}°  \
-         <span color='#888888'></span> {}m/s  \
+        "<span color='#888888'></span> {}° \
+         <span color='#888888'></span> {}m/s \
          <span color='#888888'>󰖖</span> {}%",
         temp, wind, rain
     );
 
-    // Functional approach: map each day to a line, then join with newlines
     let tooltip = weather.daily_forecasts
         .iter()
         .map(|day| {
@@ -187,7 +185,7 @@ fn format_output(weather: Weather) -> String {
             let wind_max = day.wind_max.round() as i64;
 
             format!(
-                "{} <span color='#888888'></span> {:2}°/{:2}°  <span color='#888888'></span> {}m/s  <span color='#888888'>󰖖</span> {:2}%",
+                "{} <span color='#888888'></span> {:2}°/{:2}° <span color='#888888'></span> {}m/s  <span color='#888888'>󰖖</span> {:2}%",
                 day.date, tmax, tmin, wind_max, rain_prob
             )
         })

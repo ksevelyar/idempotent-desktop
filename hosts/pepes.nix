@@ -77,7 +77,8 @@ in
   home-manager.users.kh = {
     home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/laundry/hypr/hypridle.conf;
     home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/laundry/hypr/hyprland.conf;
-    home.file.".config/waybar/config".source = ../users/ksevelyar/laundry/waybar/waybar.json;
+    home.file.".config/waybar/config-top".source = ../users/ksevelyar/laundry/waybar/waybar-top.json;
+    home.file.".config/waybar/config-bottom".source = ../users/ksevelyar/laundry/waybar/waybar-bottom.json;
     home.file.".config/waybar/style.css".source = ../users/ksevelyar/laundry/waybar/waybar.css;
 
     home.file.".config/alacritty/alacritty.toml".source = ../users/kh/pepes/alacritty.toml;

@@ -1,38 +1,83 @@
 {
-  "layer": "bottom",
+  "layer": "top",
   "position": "bottom",
-  "height": 30,
+  "height": 24,
   "spacing": 4,
   "fixed-center": true,
-
-  "exclusive": false,
-  "passthrough": false,
   "modules-left": [
-    "custom/wallpaper",
+    "wireplumber",
+    "custom/sep",
+    "hyprland/workspaces",
+    "custom/sep",
+    "custom/spotify",
+    "custom/sep"
   ],
   "modules-center": [
-    "idle_inhibitor"
+    "hyprland/window"
   ],
   "modules-right": [
-    "disk",
+    "custom/weather",
+    "custom/sep",
+    "cpu",
+    "memory",
+    "custom/sep",
+    "clock"
   ],
-  "idle_inhibitor": {
-      "format": "{icon}",
-      "format-icons": {
-          "activated": "",
-          "deactivated": ""
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{name}"
+  },
+  "hyprland/window": {
+    "max-length": 120,
+    "seperate-outputs": false
+  },
+  "wireplumber": {
+    "format": "<span color='#6a6a7a'>{icon}</span>{volume:3}%",
+    "format-muted": "<span color='#6a6a7a'></span>    ",
+    "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+    "format-icons": [""]
+  },
+  "clock": {
+    "locale": "en_GB.UTF-8",
+    "format": "<span color='#6a6a7a'></span> {:%a %d.%m <span color='#6a6a7a'></span> %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "iso8601": true,
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "",
+      "on-scroll": 1,
+      "format": {
+        "days": "<span color='#6a6a7a'><b>{}</b></span>",
+        "today": "<span color='#fff'><b>{}</b></span>"
       }
+    },
   },
-  "disk": {
-    "interval": 60,
-    "path": "/",
-    "format": "<span color='#6a6a7a'></span> {specific_free:.0f} GB",
-    "unit": "GB"
+  "cpu": {
+    "format": "<span color='#6a6a7a'></span> {usage}%"
   },
-  "custom/wallpaper": {
-    "format": "<span color='#6a6a7a'></span>",
-    "on-click": "wpaperctl next",
-    "on-click-right": "wpaperctl previous",
+  "memory": {
+    "format": "<span color='#6a6a7a'> </span>{percentage}%"
+  },
+  "custom/sep": {
+    "format": "  ",
+    "interval": 0
+  },
+  "custom/spotify": {
+    "exec": "playerctl --player=chromium metadata --format '<span color=\"#6a6a7a\"></span> {{ artist }} - {{ title }}' 2>/dev/null | sed 's/&/\\&amp;/g'",
     "tooltip": false,
+    "interval": 5,
+    "exec-if": "pgrep -f spotify",
+    "on-click": "playerctl --player=chromium play-pause",
+    "on-click-right": "playerctl --player=chromium next",
   },
+  "custom/weather": {
+    "exec": "waybar-weather",
+    "interval": 300,
+    "format": "{}",
+    "tooltip": true,
+    "return-type": "json"
+  }
 }
