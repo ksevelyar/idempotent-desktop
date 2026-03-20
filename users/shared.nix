@@ -175,11 +175,10 @@ in {
       };
 
       home.pointerCursor = lib.mkDefault {
-        x11.enable = true;
         gtk.enable = true;
         name = "Vanilla-DMZ";
         package = pkgs.vanilla-dmz;
-        size = lib.mkDefault 24;
+        size = lib.mkDefault 32;
       };
 
       gtk = {

@@ -3,17 +3,32 @@
   "position": "bottom",
   "height": 30,
   "spacing": 4,
+  "fixed-center": true,
+
   "exclusive": false,
   "passthrough": false,
-
   "modules-left": [
+    "custom/wallpaper",
   ],
   "modules-center": [
-    "custom/wallpaper"
+    "idle_inhibitor"
   ],
   "modules-right": [
+    "disk",
   ],
-
+  "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+          "activated": "",
+          "deactivated": ""
+      }
+  },
+  "disk": {
+    "interval": 60,
+    "path": "/",
+    "format": "<span color='#6a6a7a'></span> {specific_free:.0f} GB",
+    "unit": "GB"
+  },
   "custom/wallpaper": {
     "format": "<span color='#6a6a7a'></span>",
     "on-click": "wpaperctl next",

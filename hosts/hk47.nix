@@ -55,12 +55,30 @@ args @ {
     aria2
   ];
 
+  boot.binfmt.emulatedSystems = [
+    "aarch64-linux"
+    "armv7l-linux"
+  ];
+  nix.settings.system-features = [
+    "gccarch-armv7-a"
+  ];
+
   home-manager.users.ksevelyar = {
     home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/hk47/hypr/hypridle.conf;
     home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/hk47/hypr/hyprland.conf;
     home.file.".config/waybar/config".source = ../users/ksevelyar/hk47/waybar/waybar.json;
     home.file.".config/waybar/config-bottom".source = ../users/ksevelyar/hk47/waybar/waybar-bottom.json;
     home.file.".config/waybar/style.css".source = ../users/ksevelyar/hk47/waybar/waybar.css;
+
+    home.pointerCursor = {
+      # name = "Simp1e";
+      # package = pkgs.simp1e-cursors;
+      # name = "Posy_Cursor";
+      # package = pkgs.posy-cursors;
+      package = pkgs.openzone-cursors;
+      name = "OpenZone_White_Slim";
+      size = 32;
+    };
   };
 
   # net

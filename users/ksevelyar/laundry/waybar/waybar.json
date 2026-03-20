@@ -43,15 +43,14 @@
     "seperate-outputs": false
   },
   "wireplumber": {
-    "format": " <span color='#6a6a7a'>{icon}</span>{volume:3}%",
-    "format-muted": " <span color='#6a6a7a'></span>    ",
+    "format": "<span color='#6a6a7a'>{icon}</span>{volume:3}%",
+    "format-muted": "<span color='#6a6a7a'></span>    ",
     "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
     "format-icons": [""]
   },
   "clock": {
     "locale": "en_GB.UTF-8",
-    "format": "<span color='#6a6a7a'></span> {:%H:%M}",
-    "format-alt": "<span color='#6a6a7a'></span> {:%a %d-%m-%y %H:%M}",
+    "format": "<span color='#6a6a7a'></span> {:%a %d.%m <span color='#6a6a7a'></span> %H:%M}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
       "iso8601": true,
@@ -63,9 +62,6 @@
         "days": "<span color='#6a6a7a'><b>{}</b></span>",
         "today": "<span color='#fff'><b>{}</b></span>"
       }
-    },
-    "actions":  {
-      "on-click-right": "mode"
     }
   },
   "cpu": {

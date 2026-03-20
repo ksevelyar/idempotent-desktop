@@ -1,38 +1,46 @@
-@define-color bg    #16161e;
-@define-color fg1   #3a3a45;
-@define-color fg2   #6a6a7a;
-@define-color fg3   #d0d0d0;
+@define-color bg #16161e;
+@define-color fg1 #3a3a45;
+@define-color fg2 #6a6a7a;
+@define-color fg3 #d0d0d0;
 
 @define-color white #fff;
 
 * {
-    font-family: "CaskaydiaMono Nerd Font Propo", monospace;
-    font-size: 16px;
+  font-family: "CaskaydiaMono Nerd Font Propo", monospace;
+  font-size: 16px;
+}
+
+window#waybar>box {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 window#waybar {
-    background-color: @bg;
-    color: @fg3;
+  background-color: @bg;
+  color: @fg3;
 }
 
 #workspaces button {
-    color: @fg2;
-    padding: 0 6px;
-    background: transparent;
+  color: @fg2;
+  padding: 0 6px;
+  background: transparent;
 }
+
 #workspaces button.active {
-    color: @white;
+  color: @white;
 }
+
 #workspaces button.empty.active {
-    color: @white;
+  color: @white;
 }
+
 #workspaces button.empty {
-    color: @fg1;
+  color: @fg1;
 }
 
 #workspaces button.urgent {
-    color: @bg;
-    background-color: @fg3;
+  color: @bg;
+  background-color: @fg3;
 }
 
 #clock,
@@ -43,5 +51,5 @@ window#waybar {
 #disk,
 #network,
 #tray {
-    padding: 0 8px;
+  padding: 0 8px;
 }

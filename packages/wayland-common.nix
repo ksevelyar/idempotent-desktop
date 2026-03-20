@@ -8,7 +8,6 @@
   programs.browserpass.enable = true;
 
   environment.systemPackages = with pkgs; [
-    vanilla-dmz
     dracula-theme
     dracula-icon-theme
 
