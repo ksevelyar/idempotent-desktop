@@ -33,6 +33,7 @@ args @ {
     ../packages/neovim.nix
     ../packages/pass.nix
     ../packages/office.nix
+    ../packages/obs-studio.nix
 
     ../services/auto-mount.nix
     ../services/journald.nix
