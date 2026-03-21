@@ -41,7 +41,10 @@
 
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = "set fish_greeting";
+  };
   users.defaultUserShell = pkgs.fish;
 
   services.getty.autologinUser = "root";

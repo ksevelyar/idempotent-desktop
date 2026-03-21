@@ -71,9 +71,6 @@ args @ {
     home.file.".config/waybar/style.css".source = ../users/ksevelyar/hk47/waybar/waybar.css;
   };
 
-  environment.sessionVariables = {
-    XCURSOR_SIZE = "64";
-  };
   home-manager.users.ksevelyar = {
     home.pointerCursor = {
       size = 64;

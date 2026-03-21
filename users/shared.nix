@@ -62,17 +62,18 @@ in {
 
   programs.command-not-found.enable = true;
 
-  # FIXME: https://github.com/nix-community/home-manager/issues/3100
-  environment.sessionVariables = {
-    XCURSOR_SIZE = lib.mkDefault "32";
-  };
-
   home-manager = {
     backupFileExtension = "hm-backup";
     useGlobalPkgs = true;
     users.${user} = {
-      # FIXME: fix fish integration to load ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-      # programs.fish.enable = true;
+      programs.fish = {
+        enable = true;
+        interactiveShellInit = builtins.readFile ../users/shared/fish/config.fish;
+      };
+      home.file.".config/fish/functions/fish_prompt.fish".source = ../users/shared/fish/functions/fish_prompt.fish;
+      home.file.".config/fish/functions/fish_print_git_action.fish".source = ../users/shared/fish/functions/fish_print_git_action.fish;
+
+      programs.browserpass.enable = true;
       home.stateVersion = "24.05";
 
       xdg.mimeApps = {
@@ -270,10 +271,6 @@ in {
       home.file.".npmrc".source = ../users/shared/.npmrc;
 
       home.file.".config/nvim/init.lua".source = ../users/shared/nvim/init.lua;
-
-      home.file.".config/fish/config.fish".source = ../users/shared/fish/config.fish;
-      home.file.".config/fish/functions/fish_prompt.fish".source = ../users/shared/fish/functions/fish_prompt.fish;
-      home.file.".config/fish/functions/fish_print_git_action.fish".source = ../users/shared/fish/functions/fish_print_git_action.fish;
 
       home.file.".iex.exs".source = ../users/shared/.iex.exs;
 

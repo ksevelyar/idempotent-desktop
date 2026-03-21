@@ -6,7 +6,6 @@
   home-manager = {
     useGlobalPkgs = true;
     users.${user} = {
-      programs.browserpass.enable = true;
       programs.firefox.enable = true;
       programs.firefox.profiles = let
         defaultSettings = {

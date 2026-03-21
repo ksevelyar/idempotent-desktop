@@ -16,3 +16,8 @@ nix repl
 
 outputs.nixosConfigurations.hk47.config.fonts.fontconfig
 ```
+
+## env
+```
+env | rg -i cursor
+```

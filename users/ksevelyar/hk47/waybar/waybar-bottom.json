@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "bottom",
-  "height": 24,
+  "height": 26,
   "spacing": 4,
   "fixed-center": true,
   "modules-left": [
