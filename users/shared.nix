@@ -62,10 +62,17 @@ in {
 
   programs.command-not-found.enable = true;
 
+  # FIXME: https://github.com/nix-community/home-manager/issues/3100
+  environment.sessionVariables = {
+    XCURSOR_SIZE = lib.mkDefault "32";
+  };
+
   home-manager = {
     backupFileExtension = "backup";
     useGlobalPkgs = true;
     users.${user} = {
+      # FIXME: fix fish integration to load ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+      # programs.fish.enable = true;
       home.stateVersion = "24.05";
 
       xdg.mimeApps = {
@@ -174,10 +181,13 @@ in {
         };
       };
 
-      home.pointerCursor = lib.mkDefault {
+      home.pointerCursor = {
+        enable = true;
+        x11.enable = true;
+        hyprcursor.enable = true;
         gtk.enable = true;
-        name = "Vanilla-DMZ";
-        package = pkgs.vanilla-dmz;
+        name = lib.mkDefault "Posy_Cursor";
+        package = lib.mkDefault pkgs.posy-cursors;
         size = lib.mkDefault 32;
       };
 

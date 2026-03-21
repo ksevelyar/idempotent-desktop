@@ -61,9 +61,6 @@ args @ {
 
   home-manager.users.kavarkon = {
     home.pointerCursor = {
-      x11.enable = true;
-      name = "Vanilla-DMZ";
-      package = pkgs.vanilla-dmz;
       size = 64;
     };
 
@@ -74,11 +71,11 @@ args @ {
     home.file.".config/waybar/style.css".source = ../users/ksevelyar/hk47/waybar/waybar.css;
   };
 
+  environment.sessionVariables = {
+    XCURSOR_SIZE = "64";
+  };
   home-manager.users.ksevelyar = {
     home.pointerCursor = {
-      x11.enable = true;
-      name = "Vanilla-DMZ";
-      package = pkgs.vanilla-dmz;
       size = 64;
     };
 

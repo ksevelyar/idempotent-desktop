@@ -69,16 +69,6 @@ args @ {
     home.file.".config/waybar/config-bottom".source = ../users/ksevelyar/hk47/waybar/waybar-bottom.json;
     home.file.".config/waybar/config-top".source = ../users/ksevelyar/hk47/waybar/waybar-top.json;
     home.file.".config/waybar/style.css".source = ../users/ksevelyar/hk47/waybar/waybar.css;
-
-    home.pointerCursor = {
-      # name = "Simp1e";
-      # package = pkgs.simp1e-cursors;
-      # name = "Posy_Cursor";
-      # package = pkgs.posy-cursors;
-      package = pkgs.openzone-cursors;
-      name = "OpenZone_White_Slim";
-      size = 32;
-    };
   };
 
   # net
