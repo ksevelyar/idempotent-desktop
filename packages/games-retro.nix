@@ -119,6 +119,9 @@ in {
     input_audio_mute = "null";
     input_load_state = "f9";
 
+    savestate_auto_load = "true"
+    savestate_auto_save = "true"
+
     input_menu_toggle = "f12";
   '';
 }
