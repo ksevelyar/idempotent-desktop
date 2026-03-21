@@ -55,14 +55,6 @@ args @ {
     aria2
   ];
 
-  boot.binfmt.emulatedSystems = [
-    "aarch64-linux"
-    "armv7l-linux"
-  ];
-  nix.settings.system-features = [
-    "gccarch-armv7-a"
-  ];
-
   home-manager.users.ksevelyar = {
     home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/hk47/hypr/hypridle.conf;
     home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/hk47/hypr/hyprland.conf;

@@ -5,7 +5,7 @@
 }: let
   platforms = {
     nes = {
-      core = "${pkgs.retroarch}/bin/retroarch -f -L ${pkgs.libretro.mesen}/lib/retroarch/cores/mesen_libretro.so";
+      core = "${pkgs.retroarch}/bin/retroarch -f -L ${pkgs.libretro.mesen}/lib/retroarch/cores/mesen_libretro.so --appendconfig /etc/retroarch-global.cfg";
       roms = [
         "Battle City.nes"
         "Battletoads.nes"
@@ -29,7 +29,7 @@
     };
 
     snes = {
-      core = "${pkgs.retroarch}/bin/retroarch -f -L ${pkgs.libretro.snes9x}/lib/retroarch/cores/snes9x_libretro.so";
+      core = "${pkgs.retroarch}/bin/retroarch -f -L ${pkgs.libretro.snes9x}/lib/retroarch/cores/snes9x_libretro.so --appendconfig /etc/retroarch-global.cfg";
       roms = [
         "Contra 3 - The Alien Wars.smc"
         "Donkey Kong Country.smc"
@@ -56,7 +56,7 @@
     };
 
     genesis = {
-      core = "${pkgs.retroarch}/bin/retroarch -f -L ${pkgs.libretro.genesis-plus-gx}/lib/retroarch/cores/genesis_plus_gx_libretro.so";
+      core = "${pkgs.retroarch}/bin/retroarch -f -L ${pkgs.libretro.genesis-plus-gx}/lib/retroarch/cores/genesis_plus_gx_libretro.so --appendconfig /etc/retroarch-global.cfg";
       roms = [
         "Castlevania - Bloodlines.bin"
         "Golden Axe 2.bin"
@@ -111,4 +111,14 @@ in {
       (pkgs.retroarch.withCores (cores: with cores; [mesen snes9x genesis-plus-gx]))
     ]
     ++ lib.mapAttrsToList mkDesktop allGames;
+
+  environment.etc."retroarch-global.cfg".text = ''
+    input_save_state = "f6";
+    input_state_slot_decrease = "null";
+
+    input_audio_mute = "null";
+    input_load_state = "f9";
+
+    input_menu_toggle = "f12";
+  '';
 }

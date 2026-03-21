@@ -68,7 +68,7 @@ in {
   };
 
   home-manager = {
-    backupFileExtension = "backup";
+    backupFileExtension = "hm-backup";
     useGlobalPkgs = true;
     users.${user} = {
       # FIXME: fix fish integration to load ~/.nix-profile/etc/profile.d/hm-session-vars.sh

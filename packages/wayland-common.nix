@@ -8,9 +8,6 @@
   programs.browserpass.enable = true;
 
   environment.systemPackages = with pkgs; [
-    dracula-theme
-    dracula-icon-theme
-
     cliphist
     wl-clipboard
     wev
@@ -29,6 +26,7 @@
 
     anki
     telegram-desktop
+    deltachat-desktop
     rustdesk-flutter
     mumble
 
