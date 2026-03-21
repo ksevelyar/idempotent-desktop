@@ -114,14 +114,14 @@ in {
 
   environment.etc."retroarch-global.cfg".text = ''
     input_save_state = "f6";
-    input_state_slot_decrease = "null";
-
-    input_audio_mute = "null";
     input_load_state = "f9";
+    input_state_slot_decrease = "minus";
+    input_state_slot_increase = "equals";
+
+    input_menu_toggle = "f12";
+    input_audio_mute = "null";
 
     savestate_auto_load = "true"
     savestate_auto_save = "true"
-
-    input_menu_toggle = "f12";
   '';
 }
