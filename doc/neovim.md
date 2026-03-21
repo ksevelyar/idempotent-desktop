@@ -1,9 +1,5 @@
 # [Neovim](/packages/neovim.nix)
 
-## Dev deps
-
-`install-neovim-deps`
-
 ## Custom bindings
 
 `<Space> f` find current file in the project's file tree\
