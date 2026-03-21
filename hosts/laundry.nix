@@ -92,11 +92,38 @@ args @ {
     home.file.".config/alacritty/alacritty.toml".source = ../users/ksevelyar/laundry/alacritty/alacritty.toml;
   };
 
-  services.syncthing = {
-    enable = true;
-    user = "ksevelyar";
-    dataDir = "/home/ksevelyar/syncthing";
-    configDir = "/home/ksevelyar/.config/syncthing";
+  home-manager.users.ksevelyar = {
+    services.syncthing = {
+      enable = true;
+      guiAddress = "127.0.0.1:7777";
+
+      settings = {
+        devices = {
+          phone = {
+            id = "NLZI2AJ-3TAXAME-VXMNYUD-LEEDHMT-T2DT5UD-JS63KY5-H3NXS2N-Q4OQXQK";
+            name = "phone";
+          };
+          tablet = {
+            id = "Q4ZLGMS-VDQ3OT7-5JGCRMY-YVCRRWS-XMMWK4K-4ID2PWW-SRO3QRK-HA6WXQJ";
+            name = "tablet";
+          };
+          hk47 = {
+            id = "VP4EUM6-QW5JKXZ-HQFJKE3-FPLE4TV-5ZJHNRY-XVHAZAM-KSW5CHU-XBQAMQD";
+            name = "hk47";
+          };
+        };
+
+        folders = {
+          sync = {
+            path = "~/sync";
+            id = "sync";
+            label = "sync";
+            type = "sendreceive";
+            devices = ["phone" "tablet" "hk47"];
+          };
+        };
+      };
+    };
   };
 
   services.zapret = {

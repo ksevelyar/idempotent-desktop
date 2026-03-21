@@ -109,13 +109,37 @@ args @ {
     ];
   };
 
-  # http://localhost:8384/
-  services = {
-    syncthing = {
+  home-manager.users.ksevelyar = {
+    services.syncthing = {
       enable = true;
-      user = "ksevelyar";
-      dataDir = "/home/ksevelyar/syncthing";
-      configDir = "/home/ksevelyar/.config/syncthing";
+      guiAddress = "127.0.0.1:7777";
+
+      settings = {
+        devices = {
+          phone = {
+            id = "NLZI2AJ-3TAXAME-VXMNYUD-LEEDHMT-T2DT5UD-JS63KY5-H3NXS2N-Q4OQXQK";
+            name = "phone";
+          };
+          tablet = {
+            id = "Q4ZLGMS-VDQ3OT7-5JGCRMY-YVCRRWS-XMMWK4K-4ID2PWW-SRO3QRK-HA6WXQJ";
+            name = "tablet";
+          };
+          laundry = {
+            id = "DVNSUNC-HMHKNMY-MASHHYU-7LYBLHP-4KPS2BJ-EA7BLEV-CAXKMEK-3RSD2QA";
+            name = "laundry";
+          };
+        };
+
+        folders = {
+          sync = {
+            path = "~/sync";
+            id = "sync";
+            label = "sync";
+            type = "sendreceive";
+            devices = ["phone" "tablet" "laundry"];
+          };
+        };
+      };
     };
   };
 
