@@ -5,16 +5,13 @@
   lib,
   ...
 }: {
+  programs.command-not-found.enable = true;
   programs.fish.enable = true;
   programs.mosh.enable = true;
   programs.ssh = {
     askPassword = "";
     startAgent = true;
     extraConfig = ''
-      Host 192.168.0.*
-        StrictHostKeyChecking no
-        UserKnownHostsFile=/dev/null
-
       Host *
         ServerAliveInterval 20
         ServerAliveCountMax 5
@@ -65,6 +62,7 @@
     usbutils # lsusb
 
     # sec
+    # FIXME: evaluation warning: 'system' has been renamed to/replaced by 'stdenv.hostPlatform.system'
     inputs.agenix.packages.${pkgs.system}.default
     cryptsetup
     pwgen

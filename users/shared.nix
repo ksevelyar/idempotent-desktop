@@ -60,8 +60,6 @@ in {
     "/etc/ssh/ssh_host_ed25519_key"
   ];
 
-  programs.command-not-found.enable = true;
-
   home-manager = {
     backupFileExtension = "hm-backup";
     useGlobalPkgs = true;
@@ -289,6 +287,11 @@ in {
         theme "gruvbox-dark"
         show_startup_tips false
         show_release_notes false
+      '';
+
+      home.file.".config/tealdeer/config.toml".text = ''
+        [updates]
+        auto_update = true
       '';
     };
   };
