@@ -40,6 +40,7 @@ args @ {
     ../services/net/sshd.nix
     ../services/net/wireguard.nix
     ../services/net/avahi.nix
+    ../services/net/dns.nix
   ];
 
   systemd.services.sshd.wantedBy = lib.mkForce ["multi-user.target"];

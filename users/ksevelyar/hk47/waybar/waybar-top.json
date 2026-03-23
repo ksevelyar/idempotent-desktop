@@ -20,7 +20,7 @@
       "format": "{icon}",
       "format-icons": {
           "activated": "",
-          "deactivated": ""
+          "deactivated": "<span color='#6a6a7a'></span>"
       }
   },
   "disk": {

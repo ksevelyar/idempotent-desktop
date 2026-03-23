@@ -50,6 +50,7 @@ in
     ../services/net/wireguard.nix
     ../services/net/sshd.nix
     ../services/net/avahi.nix
+    ../services/net/dns.nix
   ];
 
   services.xray = {

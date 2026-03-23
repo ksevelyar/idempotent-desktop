@@ -40,6 +40,7 @@ args @ {
     ../services/net/firewall-desktop.nix
     ../services/net/sshd.nix
     ../services/net/avahi.nix
+    ../services/net/dns.nix
 
     ../services/vm/docker.nix
   ];

@@ -45,6 +45,7 @@ args @ {
     ../services/net/avahi.nix
     ../services/net/wireguard.nix
     ../services/net/network-manager.nix
+    ../services/net/dns.nix
 
     ../services/vm/docker.nix
   ];
