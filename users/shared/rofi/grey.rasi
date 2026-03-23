@@ -24,12 +24,23 @@ listview {
 }
 
 window {
-  width: 70ch;
+  width: 64ch;
   font: "CaskaydiaMono Nerd Font 15";
+  border-radius: 4px;
 }
 
 inputbar {
   children: [entry];
+}
+
+message {
+  background-color: @light-grey;
+}
+
+textbox {
+  padding: 8px;
+  text-color: @dark-grey;
+  background-color: transparent;
 }
 
 entry {

@@ -7,12 +7,11 @@
 }: {
   programs.gnupg.agent = {
     enable = true;
-    pinentryPackage = pkgs.pinentry-gtk2;
+    pinentryPackage = pkgs.pinentry-rofi;
   };
 
   environment = {
     systemPackages = with pkgs; [
-      pinentry-curses
       gopass
     ];
   };
