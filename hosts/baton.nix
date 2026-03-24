@@ -45,13 +45,22 @@ args @ {
     ../services/vm/docker.nix
   ];
 
+  nix.settings.max-jobs = 2;
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+  };
+
   networking.hostName = "baton";
   networking.useDHCP = false;
   networking.interfaces.wlp1s0.useDHCP = lib.mkDefault true;
   networking.networkmanager.enable = true;
   # networking.proxy.default = "127.0.0.1:2080";
 
-  programs.java = { enable = true; package = pkgs.jdk17; };
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk17;
+  };
   environment.systemPackages = with pkgs; [
     gradle
     discord-canary
