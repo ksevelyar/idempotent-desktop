@@ -5,6 +5,8 @@
     TERMINAL = "alacritty";
   };
 
+  # NOTE: required for element
+  services.passSecretService.enable = true;
   programs.browserpass.enable = true;
 
   environment.systemPackages = with pkgs; [
