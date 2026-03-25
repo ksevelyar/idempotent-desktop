@@ -61,6 +61,7 @@ args @ {
   environment.systemPackages = with pkgs; [
     gradle
     discord-canary
+    nodejs
   ];
 
   # http://localhost:8384/
