@@ -45,6 +45,12 @@ args @ {
     ../services/vm/docker.nix
   ];
 
+  nix.settings.max-jobs = 2;
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+  };
+
   networking.hostName = "baton";
   networking.useDHCP = false;
   networking.interfaces.wlp1s0.useDHCP = lib.mkDefault true;
