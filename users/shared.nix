@@ -13,7 +13,7 @@
       owner = "ksevelyar";
       repo = "joker.vim";
       rev = "main";
-      sha256 = "sha256-f5g9sa+2c9IFmicCHaIvIuoTUe7OUN1/1HshQbcfuyc=";
+      sha256 = "sha256-T7r8iDHr8hcVRNnozEqdq9Sl6VFXbQ8IWpRMWGEZBE4=";
     };
   };
 in {
@@ -64,6 +64,8 @@ in {
     backupFileExtension = "hm-backup";
     useGlobalPkgs = true;
     users.${user} = {
+      home.stateVersion = "26.05";
+
       programs.fish = {
         enable = true;
         interactiveShellInit = builtins.readFile ../users/shared/fish/config.fish;
@@ -72,7 +74,6 @@ in {
       home.file.".config/fish/functions/fish_print_git_action.fish".source = ../users/shared/fish/functions/fish_print_git_action.fish;
 
       programs.browserpass.enable = true;
-      home.stateVersion = "24.05";
 
       xdg.mimeApps = {
         enable = true;
@@ -119,6 +120,7 @@ in {
       programs.neovim = {
         enable = true;
         defaultEditor = true;
+        initLua = builtins.readFile ../users/shared/nvim/init.lua;
 
         plugins = with pkgs.vimPlugins;
           lib.mkDefault [
@@ -256,9 +258,6 @@ in {
       home.file.".config/rofi/config.rasi".source = lib.mkDefault ../users/shared/rofi/config.rasi;
       home.file.".config/rofimoji.rc".source = lib.mkDefault ../users/shared/rofi/rofimoji.rc;
 
-      home.file.".config/broot/conf.hjson".source = ../users/shared/broot/conf.hjson;
-      home.file.".config/zathura/zathurarc".source = ../users/shared/zathura/zathurarc;
-
       home.file.".config/alacritty/alacritty.toml".source = lib.mkDefault ../users/shared/alacritty/alacritty.toml;
 
       home.file.".config/mpv/mpv.conf".source = lib.mkDefault ../users/shared/mpv/mpv.conf;
@@ -268,7 +267,8 @@ in {
 
       home.file.".npmrc".source = ../users/shared/.npmrc;
 
-      home.file.".config/nvim/init.lua".source = ../users/shared/nvim/init.lua;
+      # FIXME: lua config requires 5.0
+      home.file.".config/swayimg/init.lua".source = ../users/shared/nvim/init.lua;
 
       home.file.".iex.exs".source = ../users/shared/.iex.exs;
 

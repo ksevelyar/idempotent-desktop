@@ -1,9 +1,0 @@
-set default-bg   "#19151D"
-set statusbar-bg "#231E27"
-set statusbar-fg "#8178a6"
-
-set statusbar-v-padding 15
-set statusbar-h-padding 75
-set font "Terminus 14"
-set statusbar-basename true
-set page-padding 1

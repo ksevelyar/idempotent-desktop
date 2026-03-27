@@ -11,8 +11,7 @@
   '';
 
   environment.systemPackages = with pkgs; [
-    # fritzing
-    librepcb
-    # xoscope
+    # FIXME: 26.05
+    # librepc
   ];
 }
