@@ -53,6 +53,7 @@ args @ {
     jdk17
     discord-canary
     inkscape
+    nodejs
   ];
 
   home-manager.users.kavarkon = {
