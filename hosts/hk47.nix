@@ -21,6 +21,7 @@ args @ {
     ../hardware/amd-gpu.nix
     ../hardware/pipewire.nix
     ../hardware/ssd.nix
+    ../hardware/disable-sleep.nix
 
     ../sys/aliases.nix
     ../sys/fonts.nix
@@ -56,8 +57,9 @@ args @ {
     aria2
   ];
 
+  # NOTE: bpi m2 zero
   boot.binfmt.emulatedSystems = ["armv7l-linux"];
-  nix.settings.system-features = [ "gccarch-armv7-a" ];
+  nix.settings.system-features = ["gccarch-armv7-a"];
 
   home-manager.users.ksevelyar = {
     home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/hk47/hypr/hypridle.conf;
@@ -147,8 +149,8 @@ args @ {
     };
   };
 
-  # NOTE: fix ollama crashes
   boot.kernelParams = [
+    # NOTE: fix ollama crashes
     "amdgpu.cwsr_enable=0"
   ];
   boot.kernelPackages = pkgs.linuxPackages_latest;

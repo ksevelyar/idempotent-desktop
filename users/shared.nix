@@ -13,7 +13,7 @@
       owner = "ksevelyar";
       repo = "joker.vim";
       rev = "main";
-      sha256 = "sha256-f5g9sa+2c9IFmicCHaIvIuoTUe7OUN1/1HshQbcfuyc=";
+      sha256 = "sha256-T7r8iDHr8hcVRNnozEqdq9Sl6VFXbQ8IWpRMWGEZBE4=";
     };
   };
 in {
