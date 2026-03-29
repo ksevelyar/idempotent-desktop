@@ -24,7 +24,7 @@
     evince
     mpv
     swayimg
-    qview
+    imv
 
     anki
     telegram-desktop

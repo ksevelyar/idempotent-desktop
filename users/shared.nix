@@ -261,6 +261,7 @@ in {
 
       home.file.".config/alacritty/alacritty.toml".source = lib.mkDefault ../users/shared/alacritty/alacritty.toml;
 
+      home.file.".config/imv/config".source = lib.mkDefault ../users/shared/imv/config;
       home.file.".config/mpv/mpv.conf".source = lib.mkDefault ../users/shared/mpv/mpv.conf;
       home.file.".config/mpv/input.conf".source = ../users/shared/mpv/input.conf;
       home.file.".config/mpv/scripts/autoload.lua".source = ../users/shared/mpv/scripts/autoload.lua;
