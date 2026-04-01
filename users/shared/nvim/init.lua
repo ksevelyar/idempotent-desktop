@@ -60,22 +60,17 @@ require("gitsigns").setup()
 require("leap")
 vim.cmd.colorscheme("joker")
 
-require('nvim-treesitter.configs').setup({
+require('nvim-treesitter').setup({
+  ensure_installed = {},
+  auto_install = false,
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
-  indent = {
+  indent = { enable = true, },
+  incremental_selection = {
     enable = true,
-  },
-  refactor = {
-    highlight_definitions = {
-      enable = true,
-    },
-    highlight_current_scope = {
-      enable = true,
-    },
-  },
+  }
 })
 
 -- disable netrw at the very start of your init.lua
