@@ -2,13 +2,11 @@
   system.stateVersion = "25.05";
 
   documentation.enable = false;
-  documentation.man.generateCaches = false;
+  documentation.man.cache.enable = false;
 
   nix = {
     package = pkgs.nixVersions.stable;
-    settings.sandbox = true;
 
-    # NOTE: 🍑 smooth rebuilds
     daemonCPUSchedPolicy = "idle";
     daemonIOSchedPriority = 7;
 

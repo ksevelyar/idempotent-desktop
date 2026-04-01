@@ -57,7 +57,10 @@ args @ {
   networking.networkmanager.enable = true;
   # networking.proxy.default = "127.0.0.1:2080";
 
-  programs.java = { enable = true; package = pkgs.jdk17; };
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk17;
+  };
   environment.systemPackages = with pkgs; [
     gradle
     discord-canary

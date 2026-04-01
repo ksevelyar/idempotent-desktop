@@ -52,7 +52,6 @@ args @ {
     foliate
     obsidian
     gnumake
-    spaceFM
     google-chrome
   ];
 

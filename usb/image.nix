@@ -70,9 +70,6 @@
     zfs = false;
   };
 
-  documentation.enable = lib.mkForce false;
-  documentation.man.generateCaches = lib.mkForce false;
-
   isoImage.volumeID = lib.mkForce "nixos-usb";
 
   networking.hostName = lib.mkForce "id";
