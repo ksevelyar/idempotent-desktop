@@ -21,7 +21,6 @@ args @ {
     ../hardware/amd-gpu.nix
     ../hardware/pipewire.nix
     ../hardware/ssd.nix
-    # ../hardware/disable-sleep.nix
 
     ../sys/aliases.nix
     ../sys/fonts.nix
@@ -56,6 +55,7 @@ args @ {
 
   environment.systemPackages = with pkgs; [
     aria2
+    android-tools
   ];
 
   # NOTE: bpi m2 zero
@@ -148,6 +148,7 @@ args @ {
       guiAddress = "127.0.0.1:7777";
 
       settings = {
+        urAccepted = -1;
         devices = {
           phone = {
             id = "NLZI2AJ-3TAXAME-VXMNYUD-LEEDHMT-T2DT5UD-JS63KY5-H3NXS2N-Q4OQXQK";
