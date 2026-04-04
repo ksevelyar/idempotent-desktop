@@ -16,6 +16,15 @@
       sha256 = "sha256-T7r8iDHr8hcVRNnozEqdq9Sl6VFXbQ8IWpRMWGEZBE4=";
     };
   };
+  direnv-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "direnv-nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "NotAShelf";
+      repo = "direnv.nvim";
+      rev = "main";
+      sha256 = "sha256-JbnGoZMApLtq4lSdGolcpKdsneolSOrzIi+O5yR2NDQ=";
+    };
+  };
 in {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user} = {
@@ -125,7 +134,7 @@ in {
         plugins = with pkgs.vimPlugins;
           lib.mkDefault [
             # auto load nix flakes
-            direnv-vim
+            direnv-nvim
 
             # UI
             indent-blankline-nvim

@@ -99,6 +99,7 @@ args @ {
       guiAddress = "127.0.0.1:7777";
 
       settings = {
+        urAccepted = -1;
         devices = {
           phone = {
             id = "NLZI2AJ-3TAXAME-VXMNYUD-LEEDHMT-T2DT5UD-JS63KY5-H3NXS2N-Q4OQXQK";

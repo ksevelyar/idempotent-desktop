@@ -1,38 +1,17 @@
 -- https://neovim.io/doc/user/lua-guide.html#lua-guide
 
-local root_names = { '.git', '.envrc' }
-local root_cache = {}
-
-local function get_buffer_path()
-  local path = vim.api.nvim_buf_get_name(0)
-  return path ~= '' and vim.fs.dirname(path) or nil
-end
-
-local function find_root_directory(path)
-  return vim.fs.find(root_names, { path = path, upward = true })[1]
-end
-
-local function set_root()
-  local path = get_buffer_path()
-  if not path then return end
-
-  local root = root_cache[path] or vim.fs.dirname(find_root_directory(path))
-  if root then
-    root_cache[path] = root
-    vim.fn.chdir(root)
-    vim.cmd('DirenvExport')
-  end
-end
-
-local root_augroup = vim.api.nvim_create_augroup('MyAutoRoot', {})
-vim.api.nvim_create_autocmd('BufEnter', { group = root_augroup, callback = set_root })
-
 -- Function to go to the last known cursor position
 local function goto_last_position()
   if vim.fn.line("'\"") >= 1 and vim.fn.line("'\"") <= vim.fn.line("$") and not vim.bo.filetype:match('commit') then
     vim.cmd('normal! g`"')
   end
 end
+
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function()
+    pcall(vim.treesitter.start)
+  end,
+})
 
 -- Set an autocommand to go to the last known cursor position on BufReadPost event
 vim.api.nvim_create_autocmd('BufReadPost', {
@@ -59,19 +38,6 @@ require 'colorizer'.setup()
 require("gitsigns").setup()
 require("leap")
 vim.cmd.colorscheme("joker")
-
-require('nvim-treesitter').setup({
-  ensure_installed = {},
-  auto_install = false,
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-  indent = { enable = true, },
-  incremental_selection = {
-    enable = true,
-  }
-})
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
@@ -153,12 +119,11 @@ vim.lsp.config('rust_analyzer', {
 })
 vim.lsp.enable('rust_analyzer')
 
-vim.lsp.config('elixirls', {
+vim.lsp.config('expert', {
   on_attach = on_attach,
-  cmd = { "elixir-ls" },
   capabilities = capabilities
 })
-vim.lsp.enable('elixirls')
+vim.lsp.enable('expert')
 
 vim.lsp.config('ts_ls', {
   on_attach = on_attach,
