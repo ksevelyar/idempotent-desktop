@@ -99,32 +99,6 @@ args @ {
     ];
   };
 
-  age.secrets.awg-hk47.file = ../secrets/ksevelyar/awg-hk47.age;
-  networking.wireguard.interfaces.amnezia = {
-    type = "amneziawg";
-
-    ips = ["10.0.0.2/24"];
-    privateKeyFile = config.age.secrets.awg-hk47.path;
-
-    extraOptions = {
-      Jc = 5;
-      Jmin = 10;
-      Jmax = 42;
-      S1 = 60;
-      S2 = 90;
-      H4 = 12345;
-    };
-
-    peers = [
-      {
-        publicKey = "SERVER_PUBLIC_KEY_HERE";
-        endpoint = "194.154.28.217:1984";
-        allowedIPs = ["0.0.0.0/0"];
-        persistentKeepalive = 25;
-      }
-    ];
-  };
-
   services.zapret = {
     enable = true;
     whitelist = [
@@ -172,6 +146,14 @@ args @ {
             type = "sendreceive";
             devices = ["phone" "tablet" "laundry"];
           };
+
+          phone-camera = {
+            path = "~/phone-camera";
+            id = "phone-camera";
+            label = "phone-camera";
+            type = "sendreceive";
+            devices = ["phone" "laundry"];
+          };
         };
       };
     };
@@ -181,7 +163,7 @@ args @ {
     # NOTE: fix ollama crashes
     "amdgpu.cwsr_enable=0"
   ];
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.grub.memtest86.enable = true;
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;
   boot.loader.grub.splashMode = "stretch";

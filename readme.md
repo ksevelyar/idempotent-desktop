@@ -10,7 +10,7 @@
 * [Persistent USB](/usb/persistent.nix) for quick setup and maintenance of workstations
 
 ## Linux as IDE
-* [Neovim with LSP and TS](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/nvim/init.lua) that auto-loads nix flakes with direnv
+* [Neovim with LSP and TS](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/nvim/init.lua) that auto-loads nix flakes
 * Tiling with [hyprland](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/ksevelyar/hk47/hypr/hyprland.conf)
 * [fish](/doc/fish.md), direnv, alacritty, ripgrep, fd, fzf, [zoxide][zoxide], [delta][delta]
 * Pixel color picker
