@@ -64,10 +64,7 @@ in {
     "d /home/${user}/sshfs       0700 ${user} 1000"
   ];
 
-  age.identityPaths = lib.mkDefault [
-    "/home/${user}/.ssh/id_ed25519"
-    "/etc/ssh/ssh_host_ed25519_key"
-  ];
+  age.identityPaths = lib.mkDefault ["/home/${user}/.ssh/id_ed25519"];
 
   home-manager = {
     backupFileExtension = "hm-backup";

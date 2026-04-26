@@ -90,5 +90,6 @@
     viu
     zip
     zoxide
+    termusic
   ];
 }

@@ -39,7 +39,7 @@
 
   environment.systemPackages = let
     waybar-weather = pkgs.rustPlatform.buildRustPackage {
-      pname = "waybar-weather";
+      name = "waybar-weather";
       version = "0.1.0";
       src = pkgs.lib.cleanSource ../../services/wayland/waybar-weather;
       cargoLock = {
