@@ -54,6 +54,7 @@ args @ {
     discord-canary
     inkscape
     nodejs
+    ffmpeg
   ];
 
   home-manager.users.kavarkon = {
