@@ -88,11 +88,11 @@ in {
           "video/x-matroska" = "mpv.desktop";
           "video/mpeg" = "mpv.desktop";
 
-          "image/*" = "swayimg.desktop";
-          "image/png" = "swayimg.desktop";
-          "image/webp" = "swayimg.desktop";
-          "image/gif" = "swayimg.desktop";
-          "image/jpeg" = "swayimg.desktop";
+          "image/*" = "imv-dir.desktop";
+          "image/png" = "imv-dir.desktop";
+          "image/webp" = "imv-dir.desktop";
+          "image/gif" = "imv-dir.desktop";
+          "image/jpeg" = "imv-dir.desktop";
 
           "text/plain" = "nvim.desktop";
           "text/markdown" = "nvim.desktop";
