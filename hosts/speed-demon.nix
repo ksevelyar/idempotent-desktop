@@ -81,6 +81,7 @@ args @ {
       user = "kavarkon";
       dataDir = "/home/kavarkon/syncthing";
       configDir = "/home/kavarkon/.config/syncthing";
+      openDefaultPorts = true;
     };
   };
 
