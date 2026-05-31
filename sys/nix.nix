@@ -15,7 +15,7 @@
 
       # NOTE: fail curl after 5 seconds, rebuild from source if fetching cache fails
       connect-timeout = 5;
-      stalled-download-timeout = 5;
+      stalled-download-timeout = 10;
       fallback = true;
     };
   };
