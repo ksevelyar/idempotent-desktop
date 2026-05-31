@@ -63,7 +63,8 @@
   },
   "custom/sep": {
     "format": "  ",
-    "interval": 0
+    "interval": "once",
+    "tooltip": false
   },
   "custom/spotify": {
     "exec": "playerctl --player=chromium metadata --format '<span color=\"#6a6a7a\"></span> {{ artist }} - {{ title }}' 2>/dev/null | sed 's/&/\\&amp;/g'",

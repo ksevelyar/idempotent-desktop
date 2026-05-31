@@ -37,6 +37,6 @@
   },
   "custom/sep": {
     "format": "  ",
-    "interval": 0
+    "interval": "once"
   },
 }

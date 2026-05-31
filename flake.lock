@@ -74,25 +74,11 @@
         "utils": "utils"
       },
       "locked": {
-<<<<<<< HEAD
-        "lastModified": 1780171648,
-        "narHash": "sha256-Kjtxnl2cpu2knOjqBGf+hNmuCIb+y9BXWvkD/ub3qy4=",
-||||||| parent of e70d3b1 (swayimg -> imv)
-        "lastModified": 1775283135,
-        "narHash": "sha256-Zlngpi3J0yXlgzllNkSd2bVgJTKoNguuYiWqXazGsJs=",
-=======
-        "lastModified": 1775910937,
-        "narHash": "sha256-NJ+whBKPdu6xTWiHhIizAhfdxBphBbABp6sPYJFVn1Q=",
->>>>>>> e70d3b1 (swayimg -> imv)
+        "lastModified": 1780231382,
+        "narHash": "sha256-WuLU+u//u6P1rFgMtofZ1LpfvHRywUz4f+V+2K4Enhg=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-<<<<<<< HEAD
-        "rev": "dd1027824f96519e5c6c77119f9dfc0aca0a52e1",
-||||||| parent of e70d3b1 (swayimg -> imv)
-        "rev": "71f8cbba927ccde13a31ed6f498845dbaa89d759",
-=======
-        "rev": "1b4bf14b3c4564a8fdd8a8a17fa06531b0044228",
->>>>>>> e70d3b1 (swayimg -> imv)
+        "rev": "6cc2b6c8ddd2f3a530ea3736701b98a877f20357",
         "type": "github"
       },
       "original": {
@@ -129,62 +115,32 @@
         ]
       },
       "locked": {
-<<<<<<< HEAD
-        "lastModified": 1779506708,
-        "narHash": "sha256-QOD/CNm196nCJRheux/URi4/HE66fthdOMqCJoPP1Y0=",
-        "owner": "rycee",
-||||||| parent of e70d3b1 (swayimg -> imv)
-        "lastModified": 1775268934,
-        "narHash": "sha256-Sa5tW5kYPJornQEkFVD43F/0d4/WP+/GLTNktTFe2qU=",
+        "lastModified": 1779726825,
+        "narHash": "sha256-RUkMrREjKDQrA+dA9+xZviGAxM5W1aVdyOr/bSYpHrE=",
         "owner": "nix-community",
-=======
-        "lastModified": 1775983377,
-        "narHash": "sha256-ZeRjipGQnVtQ/6batI+yVOrL853FZsL0m9A63OaSfgM=",
-        "owner": "nix-community",
->>>>>>> e70d3b1 (swayimg -> imv)
         "repo": "home-manager",
-<<<<<<< HEAD
-        "rev": "3ee51fbdac8c8bdfe1e7e1fcaba6520a563f394f",
-||||||| parent of e70d3b1 (swayimg -> imv)
-        "rev": "9dc93220c1c9a410ef6277d6dc55c571d9e592d0",
-=======
-        "rev": "e0ca734ffc85d25297715e98010b93303fa165c4",
->>>>>>> e70d3b1 (swayimg -> imv)
+        "rev": "b179bde238977f7d4454fc770b1a727eaf55111c",
         "type": "github"
       },
       "original": {
-        "owner": "rycee",
-        "ref": "release-25.11",
+        "owner": "nix-community",
+        "ref": "release-26.05",
         "repo": "home-manager",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-<<<<<<< HEAD
-        "lastModified": 1779796641,
-        "narHash": "sha256-ZsIrKmhp4vbBXoXXmR/tBXA/UCsAQiJL9vsgZEduhVY=",
-||||||| parent of e70d3b1 (swayimg -> imv)
-        "lastModified": 1775036866,
-        "narHash": "sha256-ZojAnPuCdy657PbTq5V0Y+AHKhZAIwSIT2cb8UgAz/U=",
-=======
-        "lastModified": 1775710090,
-        "narHash": "sha256-ar3rofg+awPB8QXDaFJhJ2jJhu+KqN/PRCXeyuXR76E=",
->>>>>>> e70d3b1 (swayimg -> imv)
+        "lastModified": 1780051219,
+        "narHash": "sha256-WnxzG4x47uCgjz+uD+vOzbF+Qid+hKyYdJWbduA9w7g=",
         "owner": "nixos",
         "repo": "nixpkgs",
-<<<<<<< HEAD
-        "rev": "25f538306313eae3927264466c70d7001dcea1df",
-||||||| parent of e70d3b1 (swayimg -> imv)
-        "rev": "6201e203d09599479a3b3450ed24fa81537ebc4e",
-=======
-        "rev": "4c1018dae018162ec878d42fec712642d214fdfa",
->>>>>>> e70d3b1 (swayimg -> imv)
+        "rev": "e8e446a361172fe838243958325845d0b845c5e5",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-25.11",
+        "ref": "nixos-26.05",
         "repo": "nixpkgs",
         "type": "github"
       }

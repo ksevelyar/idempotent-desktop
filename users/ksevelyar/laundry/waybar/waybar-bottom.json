@@ -70,7 +70,7 @@
   },
   "custom/sep": {
     "format": "  ",
-    "interval": 0
+    "interval": "once"
   },
   "custom/spotify": {
     "exec": "playerctl --player=spotify metadata --format '<span color=\"#6a6a7a\"></span> {{ artist }} - {{ title }}' 2>/dev/null | sed 's/&/\\&amp;/g'",

@@ -55,6 +55,7 @@ args @ {
 
   environment.systemPackages = with pkgs; [
     # ksevelyar
+    ffmpeg
     aria2
     android-tools
 
@@ -64,9 +65,6 @@ args @ {
     mattermost
     asciinema
     gnumake
-
-    lutris
-    wineWowPackages.stable
   ];
 
   # NOTE: bpi m2 zero, rpi zero 2w
@@ -98,24 +96,15 @@ args @ {
   networking.hostName = "hk47";
   networking.interfaces.enp8s0.useDHCP = true;
   networking.interfaces.wlp7s0.useDHCP = true;
+  networking.interfaces.wlp21s0f4u1.useDHCP = true;
   networking.useDHCP = false;
+  networking.firewall = {
+    allowedTCPPorts = [ 3003 ];
+  };
 
   networking.networkmanager.ensureProfiles.profiles = {
     wifi1.connection.autoconnect-priority = 2;
     wifi2.connection.autoconnect-priority = 1;
-  };
-
-  networking.wireguard.interfaces.skynet = {
-    ips = ["10.10.10.2/24"];
-    privateKeyFile = config.age.secrets.wg-hk47.path;
-    peers = [
-      {
-        publicKey = "U5Yho/fX8/b8ZepkpB16ye0JOweRbMO6CHmvu/+v7Gk=";
-        endpoint = "212.109.193.139:444";
-        allowedIPs = ["10.10.10.0/24"];
-        persistentKeepalive = 10;
-      }
-    ];
   };
 
   services.zapret = {
@@ -178,10 +167,7 @@ args @ {
     };
   };
 
-  boot.kernelParams = [
-    # NOTE: fix ollama crashes
-    "amdgpu.cwsr_enable=0"
-  ];
+  boot.extraModulePackages = [config.boot.kernelPackages.rtl88x2bu]; # tp-link archer t3u
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.grub.memtest86.enable = true;
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;

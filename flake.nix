@@ -1,10 +1,10 @@
 {
-  description = "25.11";
+  description = "26.05";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-programs-sqlite.url = "github:wamserma/flake-programs-sqlite";
