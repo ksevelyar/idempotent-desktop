@@ -14,8 +14,8 @@
       experimental-features = ["nix-command" "flakes"];
 
       # NOTE: fail curl after 5 seconds, rebuild from source if fetching cache fails
-      connect-timeout = 5;
-      stalled-download-timeout = 10;
+      connect-timeout = 10;
+      stalled-download-timeout = 30;
       fallback = true;
     };
   };
