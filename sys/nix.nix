@@ -18,12 +18,13 @@
       stalled-download-timeout = 20;
       fallback = true;
 
-      extra-substituters = [
-        "https://idempotent-desktop.cachix.org"
-      ];
-      extra-trusted-public-keys = [
-        "idempotent-desktop.cachix.org-1:21i2Mb/mrJ9XcfmksWpaYMr78ZPbwxhX/BwSS1X+PRw="
-      ];
+      # FIXME: blocked
+      # extra-substituters = [
+      #   "https://idempotent-desktop.cachix.org"
+      # ];
+      # extra-trusted-public-keys = [
+      #   "idempotent-desktop.cachix.org-1:21i2Mb/mrJ9XcfmksWpaYMr78ZPbwxhX/BwSS1X+PRw="
+      # ];
     };
   };
 }

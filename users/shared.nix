@@ -22,7 +22,7 @@
       owner = "NotAShelf";
       repo = "direnv.nvim";
       rev = "main";
-      sha256 = "sha256-JbnGoZMApLtq4lSdGolcpKdsneolSOrzIi+O5yR2NDQ=";
+      sha256 = "sha256-S2AuTMOCiglrvB1mJWEDlSke130GWpnDvMuIapjMyFk=";
     };
   };
 in {
