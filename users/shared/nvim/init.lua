@@ -128,6 +128,12 @@ vim.lsp.config('expert', {
 })
 vim.lsp.enable('expert')
 
+vim.lsp.config('postgres_lsp', {
+  on_attach = on_attach,
+  capabilities = capabilities
+})
+vim.lsp.enable('postgres_lsp')
+
 vim.lsp.config('ts_ls', {
   on_attach = on_attach,
   capabilities = capabilities
