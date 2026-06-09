@@ -1,5 +1,6 @@
 {config, ...}: {
   networking.networkmanager = {
+    wifi.powersave = false;
     enable = true;
 
     ensureProfiles = {

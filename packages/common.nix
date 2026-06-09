@@ -41,6 +41,7 @@
     procs
     zellij
     opencode
+    iw
 
     # net
     nmap

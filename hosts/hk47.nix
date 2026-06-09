@@ -67,10 +67,6 @@ args @ {
     gnumake
   ];
 
-  # NOTE: bpi m2 zero, rpi zero 2w
-  boot.binfmt.emulatedSystems = ["armv7l-linux" "aarch64-linux"];
-  nix.settings.system-features = ["gccarch-armv7-a"];
-
   home-manager.users.ksevelyar = {
     home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/hk47/hypr/hypridle.conf;
     home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/hk47/hypr/hyprland.conf;
@@ -99,7 +95,7 @@ args @ {
   networking.interfaces.wlp21s0f4u1.useDHCP = true;
   networking.useDHCP = false;
   networking.firewall = {
-    allowedTCPPorts = [ 3003 ];
+    allowedTCPPorts = [3003];
   };
 
   networking.networkmanager.ensureProfiles.profiles = {
@@ -166,6 +162,10 @@ args @ {
       };
     };
   };
+
+  # NOTE: bpi m2 zero, rpi zero 2w
+  boot.binfmt.emulatedSystems = ["armv7l-linux" "aarch64-linux"];
+  nix.settings.system-features = ["gccarch-armv7-a"];
 
   boot.extraModulePackages = [config.boot.kernelPackages.rtl88x2bu]; # tp-link archer t3u
   boot.kernelPackages = pkgs.linuxPackages_latest;
