@@ -22,7 +22,7 @@
       owner = "NotAShelf";
       repo = "direnv.nvim";
       rev = "main";
-      sha256 = "sha256-S2AuTMOCiglrvB1mJWEDlSke130GWpnDvMuIapjMyFk=";
+      sha256 = "sha256-Bwdkf1ZHPsR3BUxdsGBNNNbzJ/CPOIlqb5EcQUUPuAk=";
     };
   };
 in {
@@ -64,7 +64,10 @@ in {
     "d /home/${user}/sshfs       0700 ${user} 1000"
   ];
 
-  age.identityPaths = lib.mkDefault ["/home/${user}/.ssh/id_ed25519"];
+  age.identityPaths = lib.mkDefault [
+    "/home/${user}/.ssh/id_ed25519"
+    "/etc/ssh/ssh_host_ed25519_key"
+  ];
 
   home-manager = {
     backupFileExtension = "hm-backup";
