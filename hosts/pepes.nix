@@ -65,7 +65,6 @@ in
     asciinema
     gnumake
 
-    lutris
     wineWowPackages.stable
   ];
 
