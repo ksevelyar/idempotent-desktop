@@ -12,7 +12,6 @@ args @ {
 }: {
   imports = [
     ../users/ksevelyar.nix
-    ../users/kh.nix
     ../users/root.nix
 
     ../hardware/efi.nix
@@ -39,6 +38,8 @@ args @ {
     ../packages/pass.nix
     ../packages/spotify.nix
     ../packages/electronics.nix
+    ../packages/inference.nix
+    ../packages/office.nix
 
     ../services/wayland/hyprland.nix
     ../services/auto-mount.nix
@@ -51,31 +52,17 @@ args @ {
     ../services/net/avahi.nix
     ../services/net/network-manager.nix
     # ../services/net/dns.nix
+
+    ../services/vm/docker.nix
   ];
 
   environment.systemPackages = with pkgs; [
-    # ksevelyar
     ffmpeg
     aria2
     android-tools
-
-    # kh
-    foliate
-    obsidian
-    mattermost
-    asciinema
-    gnumake
   ];
 
   home-manager.users.ksevelyar = {
-    home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/hk47/hypr/hypridle.conf;
-    home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/hk47/hypr/hyprland.conf;
-    home.file.".config/waybar/config-bottom".source = ../users/ksevelyar/hk47/waybar/waybar-bottom.json;
-    home.file.".config/waybar/config-top".source = ../users/ksevelyar/hk47/waybar/waybar-top.json;
-    home.file.".config/waybar/style.css".source = ../users/ksevelyar/hk47/waybar/waybar.css;
-  };
-
-  home-manager.users.kh = {
     home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/hk47/hypr/hypridle.conf;
     home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/hk47/hypr/hyprland.conf;
     home.file.".config/waybar/config-bottom".source = ../users/ksevelyar/hk47/waybar/waybar-bottom.json;
@@ -167,7 +154,6 @@ args @ {
   boot.binfmt.emulatedSystems = ["armv7l-linux" "aarch64-linux"];
   nix.settings.system-features = ["gccarch-armv7-a"];
 
-  boot.extraModulePackages = [config.boot.kernelPackages.rtl88x2bu]; # tp-link archer t3u
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.grub.memtest86.enable = true;
   boot.loader.grub.splashImage = ../assets/wallpapers/akira.png;

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "plan",
+  "provider": {
+    "llama.cpp": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "llama.cpp",
+      "options": {
+        "baseURL": "http://127.0.0.1:8080/v1"
+      },
+      // NOTE: llama.cpp server loads one model per process (via --model flag).
+      // The model field in your API request is ignored; it always serves whatever it was started with.
+      "models": {
+        "local": {
+          "name": "local"
+        }
+      }
+    }
+  },
+  // NOTE: keep free cloud provider as default
+  "model": "opencode/big-pickle"
+}

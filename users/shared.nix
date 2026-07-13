@@ -22,7 +22,7 @@
       owner = "NotAShelf";
       repo = "direnv.nvim";
       rev = "main";
-      sha256 = "sha256-Bwdkf1ZHPsR3BUxdsGBNNNbzJ/CPOIlqb5EcQUUPuAk=";
+      sha256 = "sha256-b5PpmkYWaDGLNcu+36tRR5ycATHYBjs9WrV8/jfmooQ=";
     };
   };
 in {
@@ -303,6 +303,8 @@ in {
         [updates]
         auto_update = true
       '';
+
+      home.file.".config/opencode/opencode.jsonc".source = lib.mkDefault ../users/shared/opencode.jsonc;
     };
   };
 }

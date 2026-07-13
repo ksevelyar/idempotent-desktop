@@ -41,9 +41,9 @@
     procs
     zellij
     opencode
-    iw
 
     # net
+    iw
     nmap
     tcpdump
 

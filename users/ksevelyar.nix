@@ -28,7 +28,7 @@ in {
   };
 
   networking.extraHosts = ''
-    127.0.0.1 dev.lcl habits.lcl market.lcl buzz.lcl
+    127.0.0.1 dev.lcl habits.lcl market.lcl buzz.lcl bs.local fr.local clinic.local api.localhost
   '';
 
   age.secrets.wg-hk47.file = ../secrets/ksevelyar/wg-hk47.age;

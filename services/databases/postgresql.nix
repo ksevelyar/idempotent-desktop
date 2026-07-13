@@ -1,34 +1,24 @@
 {pkgs, ...}: let
-  pg-backup = pkgs.writeScriptBin "pg-backup" ''
-    #!${pkgs.stdenv.shell}
-    set -e
+  hunspell_ru_ru = pkgs.postgresql_17.pkgs.callPackage (
+    {
+      postgresqlBuildExtension,
+      fetchgit,
+      postgresql,
+    }:
+      postgresqlBuildExtension {
+        pname = "hunspell_ru_ru";
+        version = "unstable-2019";
 
-    backup_dir="~/.backup/pg"
-    excludes='template1 template0'
+        src = fetchgit {
+          url = "https://github.com/postgrespro/hunspell_dicts";
+          rev = "918f8d093b1b6cd5f7e4c6b4874f559d7210b207";
+          hash = "sha256-ht7tpDtYEJMrQh2yBmWVbFFFQkInALBtuqRmcVaRbFw=";
+        };
 
-    # list of all dbs
-    databases="$(psql -U postgres -At -c 'select datname from pg_database postgres' postgres)"
-
-    # clean list from excludes
-    for exclude in $excludes; do
-      databases=$(echo $databases | sed "s/\b$exclude\b//g")
-    done
-
-    # backup
-    mkdir -p $backup_dir
-
-    for database in $databases; do
-      dump_name=$backup_dir/$database/$database-$(date +%Y-%m-%d-%H-%M).sql
-      echo $dump_name
-
-      mkdir -p $backup_dir/$database
-      pg_dump -U postgres --format=custom --compress=9 --clean --no-privileges --no-owner \
-              --file=$backup_dir/$database/$database-$(date +%Y-%m-%d-%H-%M).sql \
-              $database
-    done
-
-    du -h --max-depth=1 $backup_dir
-  '';
+        sourceRoot = "hunspell_dicts-918f8d0/hunspell_ru_ru";
+        makeFlags = ["USE_PGXS=1"];
+      }
+  ) {};
 in {
   services.postgresql = {
     package = pkgs.postgresql_17;
@@ -37,9 +27,11 @@ in {
       local all all trust
       host all all localhost trust
     '';
-  };
 
-  environment.systemPackages = [
-    pg-backup
-  ];
+    extensions = with pkgs.postgresql17Packages; [
+      hunspell_ru_ru
+      rum
+      postgis
+    ];
+  };
 }
