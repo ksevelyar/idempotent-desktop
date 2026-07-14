@@ -15,6 +15,7 @@
     wev
     nemo
     wdisplays
+    wf-recorder
 
     firefox
     ungoogled-chromium
