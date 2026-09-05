@@ -19,6 +19,7 @@
 
     firefox
     ungoogled-chromium
+    google-chrome
     yt-dlp
     transmission_4-gtk
 
