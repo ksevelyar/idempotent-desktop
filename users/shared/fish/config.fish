@@ -7,6 +7,16 @@ set -gx FZF_DEFAULT_COMMAND 'fd --type f --hidden --exclude .git'
 set -gx FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 set -gx FZF_ALT_C_COMMAND 'fd --type d .'
 
+set -l environment_file /run/agenix/$USER-environment-variables
+if test -r $environment_file
+    while read -l line
+        if string match -rq '^[A-Za-z_][A-Za-z0-9_]*=' -- $line
+            set -l pair (string split -m1 = -- $line)
+            set -gx $pair[1] $pair[2]
+        end
+    end < $environment_file
+end
+
 fzf --fish | source
 zoxide init fish | source
 

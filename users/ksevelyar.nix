@@ -10,6 +10,7 @@ args @ {
 in {
   imports =
     [
+      (args.inputs.pi.nixosModules.forUser user)
       (import ./shared.nix (args
         // {
           user = user;
@@ -35,4 +36,8 @@ in {
   age.secrets.wg-laundry.file = ../secrets/ksevelyar/wg-laundry.age;
   age.secrets.ksevelyar-xray-json.file = ../secrets/ksevelyar/xray.age;
   age.secrets.shared-network-manager.file = ../secrets/shared/network-manager.age;
+  age.secrets.ksevelyar-environment-variables = {
+    file = ../secrets/ksevelyar/environment-variables.age;
+    owner = user;
+  };
 }

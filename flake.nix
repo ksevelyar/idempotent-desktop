@@ -15,6 +15,9 @@
 
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    pi.url = "github:ksevelyar/pi";
+    pi.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -24,6 +27,7 @@
     flake-programs-sqlite,
     agenix,
     disko,
+    pi,
   } @ inputs: let
     pkgs = (import nixpkgs) {
       system = "x86_64-linux";

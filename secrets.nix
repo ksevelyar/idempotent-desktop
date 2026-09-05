@@ -21,6 +21,7 @@ in {
   "secrets/ksevelyar/wg-hk47.age".publicKeys = [ksevelyar hk47];
   "secrets/ksevelyar/awg-hk47.age".publicKeys = [ksevelyar hk47];
   "secrets/ksevelyar/wg-laundry.age".publicKeys = [ksevelyar laundry];
+  "secrets/ksevelyar/environment-variables.age".publicKeys = [ksevelyar hk47];
 
   # kh
   "secrets/kh/xray-xhttp.age".publicKeys = [kh pepes];
