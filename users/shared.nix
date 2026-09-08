@@ -1,4 +1,4 @@
-{
+args @ {
   lib,
   pkgs,
   user,
@@ -26,7 +26,10 @@
     };
   };
 in {
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  imports = [
+    (args.inputs.pi.nixosModules.forUser user)
+  ];
+
   users.users.${user} = {
     isNormalUser = true;
     description = name;

@@ -10,7 +10,6 @@ args @ {
 in {
   imports =
     [
-      (args.inputs.pi.nixosModules.forUser user)
       (import ./shared.nix (args
         // {
           user = user;
