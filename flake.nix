@@ -69,6 +69,7 @@
           agenix.nixosModules.default
           (import ./usb/image.nix)
         ];
+        specialArgs.inputs = inputs;
       };
     };
 
@@ -82,6 +83,7 @@
           disko.nixosModules.disko
           (import ./usb/persistent-tui.nix)
         ];
+        specialArgs.inputs = inputs;
       };
     };
 
@@ -96,6 +98,7 @@
           agenix.nixosModules.default
           (import ./usb/persistent.nix)
         ];
+        specialArgs.inputs = inputs;
       };
     };
   in {
