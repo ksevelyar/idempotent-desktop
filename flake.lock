@@ -145,6 +145,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1789006805,
+        "narHash": "sha256-xB8mKMOx1IA9vTDNLmJZ6n4wCMq/cuWBBOzGCRnqxrU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "8ce4ef6cb6f871616146b9fe26d2a5ae594e94fe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "pi": {
       "inputs": {
         "nixpkgs": [
@@ -153,11 +169,11 @@
         "pi-src": "pi-src"
       },
       "locked": {
-        "lastModified": 1788994405,
-        "narHash": "sha256-SjU07c97mQ20CZk03qC8aLjvOrNMRTSYBZleGxppgek=",
+        "lastModified": 1789007273,
+        "narHash": "sha256-cUXhCXEygTT/faNO0ih2ebgzxRfupzmDevqUp9Jld9c=",
         "owner": "ksevelyar",
         "repo": "pi",
-        "rev": "0b7bd62b3555ddd21ac09eec56e91669bb814ea9",
+        "rev": "109168e2ebfc853a82eb4af2844cc1093f884ee2",
         "type": "github"
       },
       "original": {
@@ -190,6 +206,7 @@
         "flake-programs-sqlite": "flake-programs-sqlite",
         "home-manager": "home-manager_2",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-unstable": "nixpkgs-unstable",
         "pi": "pi"
       }
     },
