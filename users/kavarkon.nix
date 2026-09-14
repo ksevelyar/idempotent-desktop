@@ -18,7 +18,7 @@ in {
   ];
 
   networking.extraHosts = ''
-    127.0.0.1 dev.lcl
+    127.0.0.1 dev.lcl api.templebar.local
   '';
 
   age.secrets.kavarkon-xray-json = {
