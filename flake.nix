@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -26,7 +25,6 @@
     self,
     home-manager,
     nixpkgs,
-    nixpkgs-unstable,
     flake-programs-sqlite,
     agenix,
     disko,

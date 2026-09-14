@@ -1,16 +1,8 @@
 {
-  inputs,
   config,
   pkgs,
   ...
 }: {
-  # NOTE: hypridle 0.1.7 skips on-resume when on-timeout fired (screen stays black after idle); remove overlay once nixos-26.05 ships hypridle >= 0.1.8
-  nixpkgs.overlays = [
-    (_: prev: {
-      hypridle = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.hypridle;
-    })
-  ];
-
   # NOTE: use gtk file dialogs in qt apps like telegram
   xdg.autostart.enable = true;
   xdg.portal = {
