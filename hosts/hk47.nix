@@ -82,8 +82,11 @@ args @ {
   networking.interfaces.wlp7s0.useDHCP = true;
   networking.interfaces.wlp21s0f4u1.useDHCP = true;
   networking.useDHCP = false;
+
+  # TODO: move 22000 to syncthing module
   networking.firewall = {
-    allowedTCPPorts = [3003];
+    allowedTCPPorts = [3003 22000];
+    allowedUDPPorts = [22000];
   };
 
   networking.networkmanager.ensureProfiles.profiles = {
