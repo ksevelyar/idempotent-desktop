@@ -45,6 +45,7 @@ args @ {
     ../services/auto-mount.nix
     ../services/journald.nix
     ../services/databases/postgresql.nix
+    ../services/databases/redis.nix
 
     ../services/net/firewall-desktop.nix
     ../services/net/sshd.nix
