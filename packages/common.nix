@@ -40,7 +40,7 @@
     translate-shell
     procs
     zellij
-    opencode
+    inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.opencode
 
     # net
     iw

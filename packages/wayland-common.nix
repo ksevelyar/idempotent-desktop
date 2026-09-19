@@ -30,7 +30,6 @@
 
     anki
     telegram-desktop
-    deltachat-desktop
     element-desktop
     rustdesk-flutter
     mumble
