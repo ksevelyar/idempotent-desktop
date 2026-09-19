@@ -153,11 +153,11 @@
         "pi-src": "pi-src"
       },
       "locked": {
-        "lastModified": 1789007273,
-        "narHash": "sha256-cUXhCXEygTT/faNO0ih2ebgzxRfupzmDevqUp9Jld9c=",
+        "lastModified": 1789826281,
+        "narHash": "sha256-VouGz+1DirsL+8YxK7QwWgkOlqDX5NipEfMIAYZqjIE=",
         "owner": "ksevelyar",
         "repo": "pi",
-        "rev": "109168e2ebfc853a82eb4af2844cc1093f884ee2",
+        "rev": "5e623524df99492d7730db03a04c6c0bfb0fbc5e",
         "type": "github"
       },
       "original": {
