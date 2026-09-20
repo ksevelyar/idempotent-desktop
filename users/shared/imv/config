@@ -4,7 +4,6 @@ fullscreen = true
 loop_input = true
 overlay_font = Terminus:20
 overlay_text_color = #c3beba
-scaling_mode = shrink
 suppress_default_binds = true
 
 [aliases]
