@@ -25,6 +25,7 @@ function mark_delete()
     final_path = utils.join_path(work_dir, file_path)
   end
   if not contains_item(del_list, final_path) then table.insert(del_list, final_path) end
+  mp.commandv("playlist-next")
 end
 
 function delete()
@@ -65,5 +66,5 @@ function list_marks()
   end
 end
 
-mp.add_key_binding("ctrl+x", "delete_file", mark_delete)
+mp.add_key_binding("DEL", "delete_file", mark_delete)
 mp.register_event("shutdown", delete)
