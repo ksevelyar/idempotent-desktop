@@ -1,8 +1,11 @@
 use serde_json::json;
-use std::{error::Error, fmt, time::Duration};
+use std::{error::Error, time::Duration};
 
 const LATITUDE: &str = env!("LATITUDE");
 const LONGITUDE: &str = env!("LONGITUDE");
+const PROXY_URL: &str = "http://127.0.0.1:2081";
+const TIMEOUT_CONNECT: Duration = Duration::from_secs(5);
+const TIMEOUT_REQUEST: Duration = Duration::from_secs(15);
 
 #[derive(Debug, Clone)]
 struct DailyForecast {
@@ -20,16 +23,6 @@ struct Weather {
     rain_probability_next_hour_percent: i64,
     daily_forecasts: Vec<DailyForecast>,
 }
-
-#[derive(Debug)]
-struct JsonShapeError(&'static str);
-
-impl fmt::Display for JsonShapeError {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "unexpected Open-Meteo JSON shape: {}", self.0)
-    }
-}
-impl Error for JsonShapeError {}
 
 fn build_url(latitude: f64, longitude: f64) -> String {
     format!(
@@ -69,27 +62,27 @@ fn extract_daily_forecasts(daily: &serde_json::Value) -> Result<Vec<DailyForecas
     let time = daily
         .get("time")
         .and_then(serde_json::Value::as_array)
-        .ok_or(JsonShapeError("missing/invalid 'daily.time'"))?;
+        .ok_or("missing/invalid 'daily.time'")?;
     
     let temp_max = daily
         .get("temperature_2m_max")
         .and_then(serde_json::Value::as_array)
-        .ok_or(JsonShapeError("missing/invalid 'daily.temperature_2m_max'"))?;
+        .ok_or("missing/invalid 'daily.temperature_2m_max'")?;
     
     let temp_min = daily
         .get("temperature_2m_min")
         .and_then(serde_json::Value::as_array)
-        .ok_or(JsonShapeError("missing/invalid 'daily.temperature_2m_min'"))?;
+        .ok_or("missing/invalid 'daily.temperature_2m_min'")?;
     
     let precip_prob = daily
         .get("precipitation_probability_max")
         .and_then(serde_json::Value::as_array)
-        .ok_or(JsonShapeError("missing/invalid 'daily.precipitation_probability_max'"))?;
+        .ok_or("missing/invalid 'daily.precipitation_probability_max'")?;
     
     let wind_max = daily
         .get("wind_speed_10m_max")
         .and_then(serde_json::Value::as_array)
-        .ok_or(JsonShapeError("missing/invalid 'daily.wind_speed_10m_max'"))?;
+        .ok_or("missing/invalid 'daily.wind_speed_10m_max'")?;
 
     let mut forecasts = Vec::with_capacity(7);
     let limit = std::cmp::min(7, time.len());
@@ -115,28 +108,26 @@ fn extract_daily_forecasts(daily: &serde_json::Value) -> Result<Vec<DailyForecas
 }
 
 fn extract_weather(json: &serde_json::Value) -> Result<Weather, Box<dyn Error>> {
-    let current = json.get("current").ok_or(JsonShapeError("missing 'current'"))?;
-    let hourly = json.get("hourly").ok_or(JsonShapeError("missing 'hourly'"))?;
-    let daily = json.get("daily").ok_or(JsonShapeError("missing 'daily'"))?;
+    let current = json.get("current").ok_or("missing 'current'")?;
+    let hourly = json.get("hourly").ok_or("missing 'hourly'")?;
+    let daily = json.get("daily").ok_or("missing 'daily'")?;
 
     let temperature_celsius = current
         .get("temperature_2m")
         .and_then(serde_json::Value::as_f64)
-        .ok_or(JsonShapeError("missing/invalid 'current.temperature_2m'"))?;
+        .ok_or("missing/invalid 'current.temperature_2m'")?;
 
     let wind_meters_per_second = current
         .get("wind_speed_10m")
         .and_then(serde_json::Value::as_f64)
-        .ok_or(JsonShapeError("missing/invalid 'current.wind_speed_10m'"))?;
+        .ok_or("missing/invalid 'current.wind_speed_10m'")?;
 
     let rain_probability_next_hour_percent = hourly
         .get("precipitation_probability")
         .and_then(serde_json::Value::as_array)
         .and_then(|a| a.first())
         .and_then(serde_json::Value::as_i64)
-        .ok_or(JsonShapeError(
-            "missing/invalid 'hourly.precipitation_probability[0]'",
-        ))?
+        .ok_or("missing/invalid 'hourly.precipitation_probability[0]'")?
         .clamp(0, 100);
 
     let daily_forecasts = extract_daily_forecasts(daily)?;
@@ -152,12 +143,21 @@ fn extract_weather(json: &serde_json::Value) -> Result<Weather, Box<dyn Error>> 
 fn fetch_weather(latitude: f64, longitude: f64) -> Result<Weather, Box<dyn Error>> {
     let url = build_url(latitude, longitude);
 
-    let body = ureq::get(&url)
-        .set("User-Agent", "waybar-weather-rust/1.0")
-        .timeout(Duration::from_secs(5))
+    let agent = ureq::Agent::config_builder()
+        .proxy(Some(ureq::Proxy::new(PROXY_URL)?))
+        .timeout_connect(Some(TIMEOUT_CONNECT))
+        .timeout_global(Some(TIMEOUT_REQUEST))
+        .build()
+        .new_agent();
+
+    let mut response = agent
+        .get(&url)
+        .header("User-Agent", "waybar-weather-rust/1.0")
         .call()
-        .map_err(|e| format!("http error: {e}"))?
-        .into_string()
+        .map_err(|e| format!("http error: {e}"))?;
+    let body = response
+        .body_mut()
+        .read_to_string()
         .map_err(|e| format!("read body error: {e}"))?;
 
     let json: serde_json::Value = serde_json::from_str(&body)?;
