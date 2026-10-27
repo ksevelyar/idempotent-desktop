@@ -122,11 +122,11 @@
         "pi-src": "pi-src"
       },
       "locked": {
-        "lastModified": 1791453189,
-        "narHash": "sha256-ptZrC+Y6TqadxaG3fY3weJMpy6OBe7m1OXmIt/q5lZE=",
+        "lastModified": 1793111236,
+        "narHash": "sha256-bHOKRHj8/OoZrvjmSAFVcW2JARZASwhi1BTTQskE3ks=",
         "owner": "ksevelyar",
         "repo": "pi",
-        "rev": "c9d164ed358e3675a3273fc47a22b6d69d91004f",
+        "rev": "bb13f941c893285cce456458c052f2ab3e458e7e",
         "type": "github"
       },
       "original": {
@@ -138,16 +138,16 @@
     "pi-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1790880741,
-        "narHash": "sha256-CGznIVHXG6gr2F8vzHcR/v4P9xJgZHeMTt/CJ/kB78o=",
+        "lastModified": 1792621753,
+        "narHash": "sha256-N9NOpiiZTbOMDMV+CxvJAgtLjJJ1/8NJBGS0cFHkhsc=",
         "owner": "earendil-works",
         "repo": "pi",
-        "rev": "a13d35a742c6ef8462812a28fbe1d8c8b7431c32",
+        "rev": "4a080252f06caf63a525d7873c5d94d3c23887e0",
         "type": "github"
       },
       "original": {
         "owner": "earendil-works",
-        "ref": "v1.0.0",
+        "ref": "v1.4.0",
         "repo": "pi",
         "type": "github"
       }
