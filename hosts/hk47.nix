@@ -33,7 +33,6 @@ args @ {
     ../packages/common.nix
     ../packages/3d-print.nix
     ../packages/games.nix
-    ../packages/games-retro.nix
     ../packages/neovim.nix
     ../packages/pass.nix
     ../packages/spotify.nix
@@ -56,7 +55,6 @@ args @ {
 
     ../services/vm/docker.nix
   ];
-
   environment.systemPackages = with pkgs; [
     ffmpeg
     aria2
@@ -195,4 +193,96 @@ args @ {
   systemd.tmpfiles.rules = [
     "d /data 0755 ksevelyar root - -"
   ];
+
+  home-manager.users.ksevelyar.games = {
+    atomic-heart = {
+      type = "wine";
+      gameDirectory = "/data/games/atomic-heart";
+      runtime = "proton-ge-11-1";
+      executable = "AtomicHeart.exe";
+      installation = {
+        type = "inno-setup";
+        source = "/data/games/Atomic Heart/Setup.exe";
+      };
+    };
+
+    clive-barkers-hellraiser-revival = {
+      type = "wine";
+      runtime = "proton-ge-11-1";
+      executable = "Hellraiser.exe";
+      installation = {
+        type = "portable";
+      };
+      gameDirectory = "/home/ksevelyar/games/Clive.Barkers.Hellraiser.Revival";
+    };
+
+    hyperviolent = {
+      type = "wine";
+      gameDirectory = "/data/games/hyperviolent";
+      runtime = "proton-ge-11-1";
+      executable = "HYPERVIOLENT.exe";
+      installation = {
+        type = "inno-setup";
+        source = "/data/games/setup_hyperviolent_1.0.0.2a_(64bit)_(85303).exe";
+      };
+    };
+
+    indiana-jones-and-the-great-circle = {
+      type = "wine";
+      runtime = "proton-ge-11-1";
+      executable = "TheGreatCircle.exe";
+      installation = {
+        type = "portable";
+      };
+      gameDirectory = "/data/games/Indiana.Jones.and.the.Great.Circle.Premium.Edition";
+    };
+
+    ghosts-n-goblins = {
+      type = "retroarch";
+      platform = "nes";
+      rom = "/data/games/rom/nes/Ghosts n Goblins.nes";
+    };
+    gradius = {
+      type = "retroarch";
+      platform = "nes";
+      rom = "/data/games/rom/nes/Gradius.nes";
+    };
+    legend-of-zelda = {
+      type = "retroarch";
+      platform = "nes";
+      rom = "/data/games/rom/nes/Legend of Zelda, The.nes";
+    };
+    super-mario-bros = {
+      type = "retroarch";
+      platform = "nes";
+      rom = "/data/games/rom/nes/Super Mario Bros.nes";
+    };
+
+    legend-of-zelda-a-link-to-the-past = {
+      type = "retroarch";
+      platform = "snes";
+      rom = "/data/games/rom/snes/Legend of Zelda, The - A Link to the Past.smc";
+    };
+    mega-man-x = {
+      type = "retroarch";
+      platform = "snes";
+      rom = "/data/games/rom/snes/Mega Man X.smc";
+    };
+    super-metroid = {
+      type = "retroarch";
+      platform = "snes";
+      rom = "/data/games/rom/snes/Super Metroid.smc";
+    };
+
+    mortal-kombat = {
+      type = "retroarch";
+      platform = "genesis";
+      rom = "/data/games/rom/genesis/Mortal Kombat.bin";
+    };
+    streets-of-rage = {
+      type = "retroarch";
+      platform = "genesis";
+      rom = "/data/games/rom/genesis/Streets of Rage.bin";
+    };
+  };
 }
