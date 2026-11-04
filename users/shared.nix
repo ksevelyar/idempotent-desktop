@@ -7,6 +7,7 @@ args @ {
   config,
   ...
 }: let
+  unstablePackages = args.inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
   joker-vim = pkgs.vimUtils.buildVimPlugin {
     name = "joker-vim";
     src = pkgs.fetchFromGitHub {
@@ -26,10 +27,6 @@ args @ {
     };
   };
 in {
-  imports = [
-    (args.inputs.pi.nixosModules.forUser user)
-  ];
-
   users.users.${user} = {
     isNormalUser = true;
     description = name;
@@ -77,6 +74,13 @@ in {
     useGlobalPkgs = true;
     users.${user} = {
       home.stateVersion = "26.05";
+      home.packages = [unstablePackages.pi-coding-agent];
+
+      home.file.".pi/agent/AGENTS.md".source = lib.mkDefault ../users/shared/pi/AGENTS.md;
+      home.file.".pi/agent/extensions".source = lib.mkDefault ../users/shared/pi/extensions;
+      home.file.".pi/agent/settings.json".source = lib.mkDefault ../users/shared/pi/settings.json;
+      home.file.".pi/agent/models.json".source = lib.mkDefault ../users/shared/pi/models.json;
+      home.file.".pi/agent/keybindings.json".source = lib.mkDefault ../users/shared/pi/keybindings.json;
 
       programs.fish = {
         enable = true;

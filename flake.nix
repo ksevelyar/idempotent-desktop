@@ -16,10 +16,6 @@
 
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
-
-    pi.url = "github:ksevelyar/pi";
-    # pi.url = "git+file:///home/ksevelyar/code/pi";
-    pi.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -30,7 +26,6 @@
     agenix,
     disko,
     nixpkgs-unstable,
-    pi,
   } @ inputs: let
     pkgs = (import nixpkgs) {
       system = "x86_64-linux";

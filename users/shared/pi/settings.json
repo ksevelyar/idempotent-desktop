@@ -1,0 +1,15 @@
+{
+  "enabledModels": [
+    "openai/gpt-6-luna",
+    "openai/gpt-5.6-terra",
+    "openrouter/z-ai/glm-5.3-flash",
+    "openrouter/deepseek/deepseek-v4.1-flash"
+  ],
+  "modelThinkingLevels": {
+    "openai/gpt-6-luna": "max",
+    "openrouter/z-ai/glm-5.3-flash": "low",
+    "openai/gpt-5.6-terra": "medium",
+    "llama.cpp/Qwen3.8-27B-UD-Q3_K_XL": "low",
+    "llama.cpp/Qwen3.6-27B-Q3_K_M-mtp": "low"
+  }
+}

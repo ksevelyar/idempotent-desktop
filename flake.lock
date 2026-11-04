@@ -114,44 +114,6 @@
         "type": "github"
       }
     },
-    "pi": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "pi-src": "pi-src"
-      },
-      "locked": {
-        "lastModified": 1793111236,
-        "narHash": "sha256-bHOKRHj8/OoZrvjmSAFVcW2JARZASwhi1BTTQskE3ks=",
-        "owner": "ksevelyar",
-        "repo": "pi",
-        "rev": "bb13f941c893285cce456458c052f2ab3e458e7e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ksevelyar",
-        "repo": "pi",
-        "type": "github"
-      }
-    },
-    "pi-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1792621753,
-        "narHash": "sha256-N9NOpiiZTbOMDMV+CxvJAgtLjJJ1/8NJBGS0cFHkhsc=",
-        "owner": "earendil-works",
-        "repo": "pi",
-        "rev": "4a080252f06caf63a525d7873c5d94d3c23887e0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "earendil-works",
-        "ref": "v1.4.0",
-        "repo": "pi",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -159,8 +121,7 @@
         "flake-programs-sqlite": "flake-programs-sqlite",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-unstable": "nixpkgs-unstable",
-        "pi": "pi"
+        "nixpkgs-unstable": "nixpkgs-unstable"
       }
     }
   },
