@@ -6,4 +6,5 @@
 
 ## Hotkeys
 * `Tab` Toggle plan mode
-* `Ctrl+Tab` Tab or autocomplete
+* `Ctrl + P` switch model
+* `Shift + Tab` switch thinking level
