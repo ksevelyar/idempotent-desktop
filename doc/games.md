@@ -3,7 +3,7 @@
 ## Definitions
 Declare games in the host where their files are available. Game definitions support portable and installable Wine games, plus RetroArch games for NES, SNES, and Genesis.
 
-A desktop entry for each game is available in the launcher with `Win + X`.
+A desktop entry for each game is available in the launcher with `Win`.
 
 Games that require installation install automatically on first run.
 

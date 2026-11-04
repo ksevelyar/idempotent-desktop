@@ -5,22 +5,22 @@
 
 ## Overview
 * Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each containing multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users)
-* Build custom packages once and share them between all nodes with Cachix
 * All hosts are connected with [WireGuard](https://github.com/ksevelyar/idempotent-server/blob/main/services/net/wireguard.nix) and RustDesk
 * [Persistent USB](/usb/persistent.nix) for quick setup and maintenance of workstations
 
 ## Linux as an IDE
 * [Neovim with LSP and TS](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/nvim/init.lua) that automatically loads Nix flakes
 * Tiling with [Hyprland](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/ksevelyar/hk47/hypr/hyprland.conf)
-* [fish](/doc/fish.md), direnv, alacritty, ripgrep, fd, fzf, [zoxide][zoxide], [delta][delta]
+* [Fish](doc/fish.md), direnv, alacritty, ripgrep, fd, fzf, [zoxide][zoxide], [delta][delta]
+* [Pi](doc/pi.md), a terminal coding agent with plan mode
 * Pixel color picker
 * Screenshot and screen recording
 
 ## Security
-* Declarative secrets with [agenix](/doc/agenix.md)
-* [Encrypted root with LUKS2](/doc/encrypted-root.md)
-* [EdDSA for SSH and GPG keys](/doc/keys.md)
-* gopass / [browserpass](https://github.com/browserpass/browserpass-extension#available-keyboard-shortcuts) integration
+* Declarative secrets with [agenix](doc/agenix.md)
+* [Encrypted root with LUKS2](doc/encrypted-root.md)
+* [EdDSA for SSH and GPG keys](doc/keys.md)
+* gopass / browserpass integration
 * [uBlock](https://github.com/gorhill/uBlock)
 
 ## Chill
