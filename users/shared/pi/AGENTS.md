@@ -1,7 +1,8 @@
 * Ask questions if anything is unclear, never guess.
 
 ## Env
-* flake deps have priority over nixpkgs
+* if you need missing dependency use nix to run it without installing:
+nix run --inputs-from . nixpkgs#python3 -- -c 'print("hello")'
 
 ## Style
 * Write self descriptive code, never abbreviate and never add comments: every local binding, function, and namespace gets a full descriptive name like minimum_kick_speed, not min_kick.

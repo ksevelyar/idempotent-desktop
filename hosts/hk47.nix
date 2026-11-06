@@ -195,17 +195,6 @@ args @ {
   ];
 
   home-manager.users.ksevelyar.games = {
-    atomic-heart = {
-      type = "wine";
-      gameDirectory = "/data/games/atomic-heart";
-      runtime = "proton-ge-11-1";
-      executable = "AtomicHeart.exe";
-      installation = {
-        type = "inno-setup";
-        source = "/data/games/Atomic Heart/Setup.exe";
-      };
-    };
-
     clive-barkers-hellraiser-revival = {
       type = "wine";
       runtime = "proton-ge-11-1";
