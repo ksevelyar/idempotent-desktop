@@ -46,6 +46,9 @@
     # vim
     v = "nvim";
 
+    pi = "env HTTPS_PROXY=http://127.0.0.1:2081 pi";
+    opencode = "env HTTPS_PROXY=http://127.0.0.1:2081 opencode";
+
     # sec
     p = "gopass";
     pc = "gopass show -c";

@@ -112,5 +112,7 @@ args @ {
     alacritty
     gparted
     brightnessctl
+
+    discord-canary
   ];
 }
