@@ -6,6 +6,7 @@
 ## Overview
 * Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each containing multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users)
 * All hosts are connected with [WireGuard](https://github.com/ksevelyar/idempotent-server/blob/main/services/net/wireguard.nix) and RustDesk
+* Build custom packages once and share them between all nodes with Cachix
 * [Persistent USB](/usb/persistent.nix) for quick setup and maintenance of workstations
 
 ## Linux as an IDE
