@@ -16,7 +16,6 @@ in {
   "secrets/shared/wifi.age".publicKeys = users ++ systems;
 
   # ksevelyar
-  "secrets/ksevelyar/xray-xhttp.age".publicKeys = [ksevelyar hk47 laundry];
   "secrets/ksevelyar/xray.age".publicKeys = [ksevelyar hk47 laundry];
   "secrets/ksevelyar/wg-hk47.age".publicKeys = [ksevelyar hk47];
   "secrets/ksevelyar/awg-hk47.age".publicKeys = [ksevelyar hk47];
