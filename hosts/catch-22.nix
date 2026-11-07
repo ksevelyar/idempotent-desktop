@@ -42,6 +42,8 @@ args @ {
     # ../services/net/dns.nix
   ];
 
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
+
   services.xray = {
     enable = true;
     settingsFile = config.age.secrets.kh-xray-json.path;
