@@ -1,8 +1,4 @@
-{
-  user,
-  pkgs,
-  ...
-}: {
+{user, ...}: {
   home-manager = {
     useGlobalPkgs = true;
     users.${user} = {

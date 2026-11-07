@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   powerManagement = {
     enable = true;
     powertop.enable = true;

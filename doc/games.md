@@ -3,7 +3,7 @@
 ## Definitions
 Declare games in the host where their files are available. Game definitions support portable and installable Wine games, plus RetroArch games for NES, SNES, and Genesis.
 
-A desktop entry for each game is available in the launcher with `Win`.
+A desktop entry for each game is available in the launcher with `mod`.
 
 Games that require installation install automatically on first run.
 
@@ -56,3 +56,14 @@ Users may declare the same game directory. They share game files, while each use
 ```
 
 RetroArch saves use the user's XDG directories.
+
+## RetroArch
+### Hotkeys
+* `F12` menu
+* `F6` quick save
+* `F9` quick load
+* `=` next save slot
+* `-` prev save slot
+
+### ROMs
+https://wiki.no-intro.org/index.php?title=Naming_Convention

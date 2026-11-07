@@ -1,10 +1,12 @@
 args @ {
+  inputs,
   lib,
   pkgs,
   pkgs-unstable,
   ...
 }: {
   imports = [
+    inputs.disko.nixosModules.disko
     ../users/mr.nix
     ../users/root.nix
 
@@ -22,9 +24,44 @@ args @ {
     ../services/net/wireguard.nix
     ../services/net/sshd-debug.nix
     ../services/net/avahi.nix
-
-    ./usb-disco.nix
   ];
+
+  disko.devices = {
+    disk = {
+      main = {
+        # disko-install will override this with: --disk main /dev/sdx
+        device = "/dev/sdx";
+        type = "disk";
+        content = {
+          type = "gpt";
+          partitions = {
+            ESP = {
+              type = "EF00";
+              size = "500M";
+              content = {
+                type = "filesystem";
+                format = "vfat";
+                mountpoint = "/boot";
+                mountOptions = ["noatime" "umask=0077"];
+                extraArgs = ["-n" "boot-usb"];
+              };
+            };
+
+            root = {
+              size = "100%";
+              content = {
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/";
+                mountOptions = ["noatime"];
+                extraArgs = ["-L" "nixos-usb"];
+              };
+            };
+          };
+        };
+      };
+    };
+  };
 
   home-manager.users.mr = {
     home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/laundry/hypr/hypridle.conf;

@@ -59,7 +59,7 @@ args @ {
     wifi2.connection.autoconnect-priority = 1;
   };
 
-  networking.firewall.trustedInterfaces = [ "skynet" ];
+  networking.firewall.trustedInterfaces = ["skynet"];
   networking.wireguard.interfaces.skynet = {
     ips = ["10.10.10.3/24"];
     privateKeyFile = config.age.secrets.wg-laundry.path;

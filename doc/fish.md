@@ -4,8 +4,6 @@
 
 ![](/assets/screens/fish.png)
 
-Use `fish_indent` to format scripts
-
 ## Change directory by partial match with [zoxide](https://github.com/ajeetdsouza/zoxide#getting-started)
 
 `j nix` will switch to `/etc/nixos`\

@@ -1,10 +1,14 @@
 {
+  inputs,
   pkgs,
   pkgs-unstable,
   lib,
   ...
 }: {
   imports = [
+    "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+    ../users/root.nix
+
     ../sys/aliases.nix
     ../sys/tty.nix
     ../sys/sysctl.nix
@@ -15,14 +19,8 @@
     ../services/net/sshd-debug.nix
     ../services/net/avahi.nix
   ];
-  home-manager.users.root = {
-    home.file.".pi/agent/AGENTS.md".source = ../users/shared/pi/AGENTS.md;
-    home.file.".pi/agent/extensions".source = ../users/shared/pi/extensions;
-    home.file.".pi/agent/settings.json".source = ../users/shared/pi/settings.json;
-    home.file.".pi/agent/models.json".source = ../users/shared/pi/models.json;
-    home.file.".pi/agent/keybindings.json".source = ../users/shared/pi/keybindings.json;
-  };
 
+  programs.command-not-found.enable = true;
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 
