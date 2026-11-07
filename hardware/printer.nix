@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   # Navigate to http://localhost:631/ to configure
   services.printing = {
     enable = true;

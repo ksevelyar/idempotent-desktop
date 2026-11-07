@@ -78,60 +78,60 @@
     in
       assert lib.match "[a-z0-9]+(-[a-z0-9]+)*" gameName != null;
       assert lib.hasPrefix "/" gameDirectory;
-      pkgs.writeShellApplication {
-        name = gameName;
-        runtimeInputs = [
-          pkgs.coreutils
-          unstablePackages.umu-launcher
-        ];
-        text = ''
-          gameDirectory="${gameDirectory}"
-          gameExecutable="${gameExecutable}"
-          gamePrefixDirectory="${gamePrefixDirectory}"
-          gameLogDirectory="${gameLogDirectory}"
+        pkgs.writeShellApplication {
+          name = gameName;
+          runtimeInputs = [
+            pkgs.coreutils
+            unstablePackages.umu-launcher
+          ];
+          text = ''
+            gameDirectory="${gameDirectory}"
+            gameExecutable="${gameExecutable}"
+            gamePrefixDirectory="${gamePrefixDirectory}"
+            gameLogDirectory="${gameLogDirectory}"
 
-          export GAMEID="umu-${gameName}"
-          export PROTONPATH="${gameRuntime.compatibilityToolPath}"
-          export UMU_RUNTIME_UPDATE=0
-          export WINEPREFIX="$gamePrefixDirectory"
+            export GAMEID="umu-${gameName}"
+            export PROTONPATH="${gameRuntime.compatibilityToolPath}"
+            export UMU_RUNTIME_UPDATE=0
+            export WINEPREFIX="$gamePrefixDirectory"
 
-          runAndWriteLog() {
-            local operationName="$1"
-            shift
-            "$@" 2>&1 | tee "$gameLogDirectory/$operationName.log"
-          }
+            runAndWriteLog() {
+              local operationName="$1"
+              shift
+              "$@" 2>&1 | tee "$gameLogDirectory/$operationName.log"
+            }
 
-          mkdir -p "$gamePrefixDirectory" "$gameLogDirectory"
+            mkdir -p "$gamePrefixDirectory" "$gameLogDirectory"
 
-          if [ ! -f "$gameExecutable" ]; then
-            ${installationCommand}
-          fi
+            if [ ! -f "$gameExecutable" ]; then
+              ${installationCommand}
+            fi
 
-          if [ ! -f "$gameExecutable" ]; then
-            echo "Game executable not found after installation: $gameExecutable" >&2
-            exit 1
-          fi
+            if [ ! -f "$gameExecutable" ]; then
+              echo "Game executable not found after installation: $gameExecutable" >&2
+              exit 1
+            fi
 
-          cd "$gameDirectory"
-          runAndWriteLog launch ${lib.getExe unstablePackages.umu-launcher} "./${gameDefinition.executable}"
-        '';
-      };
+            cd "$gameDirectory"
+            runAndWriteLog launch ${lib.getExe unstablePackages.umu-launcher} "./${gameDefinition.executable}"
+          '';
+        };
     createRetroarchApplication = gameName: gameDefinition: let
       platformDefinition = retroarchPlatforms.${gameDefinition.platform} or (throw "Unsupported RetroArch platform: ${gameDefinition.platform}");
       coreLibraryPath = "${platformDefinition.corePackage}/lib/retroarch/cores/${platformDefinition.coreLibraryName}";
     in
       assert lib.match "[a-z0-9]+(-[a-z0-9]+)*" gameName != null;
       assert lib.hasPrefix "/" gameDefinition.rom;
-      pkgs.writeShellApplication {
-        name = gameName;
-        runtimeInputs = [
-          pkgs.retroarch
-          platformDefinition.corePackage
-        ];
-        text = ''
-          exec ${lib.getExe pkgs.retroarch} -f -L "${coreLibraryPath}" --appendconfig "${retroarchGlobalConfiguration}" "${gameDefinition.rom}"
-        '';
-      };
+        pkgs.writeShellApplication {
+          name = gameName;
+          runtimeInputs = [
+            pkgs.retroarch
+            platformDefinition.corePackage
+          ];
+          text = ''
+            exec ${lib.getExe pkgs.retroarch} -f -L "${coreLibraryPath}" --appendconfig "${retroarchGlobalConfiguration}" "${gameDefinition.rom}"
+          '';
+        };
     createGameApplication = gameName: gameDefinition:
       if gameDefinition.type == "wine"
       then createWineApplication gameName gameDefinition
@@ -197,43 +197,44 @@
 
     config = {
       assertions = lib.flatten (lib.mapAttrsToList (gameName: gameDefinition: [
-        {
-          assertion = gameDefinition.type != "wine" || gameDefinition.gameDirectory != null;
-          message = "Wine game ${gameName} requires gameDirectory.";
-        }
-        {
-          assertion = gameDefinition.type != "wine" || gameDefinition.runtime != null;
-          message = "Wine game ${gameName} requires runtime.";
-        }
-        {
-          assertion = gameDefinition.type != "wine" || gameDefinition.executable != null;
-          message = "Wine game ${gameName} requires executable.";
-        }
-        {
-          assertion = gameDefinition.type != "wine" || gameDefinition.installation != null;
-          message = "Wine game ${gameName} requires installation.";
-        }
-        {
-          assertion = gameDefinition.type != "wine" || gameDefinition.installation == null || gameDefinition.installation.type != "inno-setup" || gameDefinition.installation.source != null;
-          message = "Inno Setup game ${gameName} requires installation.source.";
-        }
-        {
-          assertion = gameDefinition.type != "wine" || gameDefinition.gameDirectory == null || lib.hasPrefix "/" gameDefinition.gameDirectory;
-          message = "Wine game ${gameName} requires an absolute gameDirectory.";
-        }
-        {
-          assertion = gameDefinition.type != "retroarch" || gameDefinition.platform != null;
-          message = "RetroArch game ${gameName} requires platform.";
-        }
-        {
-          assertion = gameDefinition.type != "retroarch" || gameDefinition.rom != null;
-          message = "RetroArch game ${gameName} requires rom.";
-        }
-        {
-          assertion = gameDefinition.type != "retroarch" || gameDefinition.rom == null || lib.hasPrefix "/" gameDefinition.rom;
-          message = "RetroArch game ${gameName} requires an absolute rom.";
-        }
-      ]) config.games);
+          {
+            assertion = gameDefinition.type != "wine" || gameDefinition.gameDirectory != null;
+            message = "Wine game ${gameName} requires gameDirectory.";
+          }
+          {
+            assertion = gameDefinition.type != "wine" || gameDefinition.runtime != null;
+            message = "Wine game ${gameName} requires runtime.";
+          }
+          {
+            assertion = gameDefinition.type != "wine" || gameDefinition.executable != null;
+            message = "Wine game ${gameName} requires executable.";
+          }
+          {
+            assertion = gameDefinition.type != "wine" || gameDefinition.installation != null;
+            message = "Wine game ${gameName} requires installation.";
+          }
+          {
+            assertion = gameDefinition.type != "wine" || gameDefinition.installation == null || gameDefinition.installation.type != "inno-setup" || gameDefinition.installation.source != null;
+            message = "Inno Setup game ${gameName} requires installation.source.";
+          }
+          {
+            assertion = gameDefinition.type != "wine" || gameDefinition.gameDirectory == null || lib.hasPrefix "/" gameDefinition.gameDirectory;
+            message = "Wine game ${gameName} requires an absolute gameDirectory.";
+          }
+          {
+            assertion = gameDefinition.type != "retroarch" || gameDefinition.platform != null;
+            message = "RetroArch game ${gameName} requires platform.";
+          }
+          {
+            assertion = gameDefinition.type != "retroarch" || gameDefinition.rom != null;
+            message = "RetroArch game ${gameName} requires rom.";
+          }
+          {
+            assertion = gameDefinition.type != "retroarch" || gameDefinition.rom == null || lib.hasPrefix "/" gameDefinition.rom;
+            message = "RetroArch game ${gameName} requires an absolute rom.";
+          }
+        ])
+        config.games);
       home.packages = builtins.attrValues gameApplications;
       xdg.desktopEntries = lib.mapAttrs createDesktopEntry gameApplications;
     };

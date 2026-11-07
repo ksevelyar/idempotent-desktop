@@ -2,6 +2,7 @@
 configuration.nix
 .idea
 result
+.direnv
 
 # nix run .#nixosConfigurations.hk47.config.system.build.vm
 *.qcow2

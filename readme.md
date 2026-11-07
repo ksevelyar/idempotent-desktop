@@ -7,7 +7,7 @@
 * Multiple [hosts](https://github.com/ksevelyar/idempotent-desktop/tree/main/hosts), each containing multiple [users](https://github.com/ksevelyar/idempotent-desktop/tree/main/users)
 * All hosts are connected with [WireGuard](https://github.com/ksevelyar/idempotent-server/blob/main/services/net/wireguard.nix) and RustDesk
 * Build custom packages once and share them between all nodes with Cachix
-* [Persistent USB](/usb/usb-hyprland.nix) for quick setup and maintenance of workstations
+* [Persistent USB](doc/persistent-usb.md) for quick setup and maintenance of workstations
 
 ## Linux as an IDE
 * [Neovim with LSP and TS](https://github.com/ksevelyar/idempotent-desktop/blob/main/users/shared/nvim/init.lua) that automatically loads Nix flakes
@@ -18,11 +18,9 @@
 * Screenshot and screen recording
 
 ## Security
-* Declarative secrets with [agenix](doc/agenix.md)
 * [Encrypted root with LUKS2](doc/encrypted-root.md)
-* [EdDSA for SSH and GPG keys](doc/keys.md)
-* gopass / browserpass integration
-* [uBlock](https://github.com/gorhill/uBlock)
+* [Secrets with agenix and gopass](doc/secrets.md)
+* browserpass and [uBlock](https://github.com/gorhill/uBlock)
 
 ## Chill
 * [Wine, Steam, RetroArch](doc/games.md)

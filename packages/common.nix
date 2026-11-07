@@ -19,7 +19,8 @@
 
   environment.defaultPackages = with pkgs; [
     # sys
-    inputs.disko.packages.${pkgs.system}.disko
+    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.disko.packages.${pkgs.stdenv.hostPlatform.system}.disko
     strace
     nix-tree
     direnv
@@ -63,8 +64,6 @@
     usbutils # lsusb
 
     # sec
-    # FIXME: evaluation warning: 'system' has been renamed to/replaced by 'stdenv.hostPlatform.system'
-    inputs.agenix.packages.${pkgs.system}.default
     cryptsetup
     pwgen
 

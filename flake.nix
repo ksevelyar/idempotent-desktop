@@ -61,71 +61,28 @@
         };
       };
     };
-
-    usb-image = {
-      name = "usb-image";
-      value = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-          nixpkgs.nixosModules.notDetected
-          home-manager.nixosModules.home-manager
-          agenix.nixosModules.default
-          (import ./users/root.nix)
-          (import ./usb/usb-image.nix)
-        ];
-        specialArgs = {
-          inherit inputs pkgs-unstable;
-        };
-      };
-    };
-
-    usb-tui = {
-      name = "usb-tui";
-      value = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          nixpkgs.nixosModules.notDetected
-          home-manager.nixosModules.home-manager
-          agenix.nixosModules.default
-          disko.nixosModules.disko
-          (import ./users/root.nix)
-          (import ./usb/usb-tui.nix)
-        ];
-        specialArgs = {
-          inherit inputs pkgs-unstable;
-        };
-      };
-    };
-
-    usb-hyprland = {
-      name = "usb-hyprland";
-      value = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          nixpkgs.nixosModules.notDetected
-          disko.nixosModules.disko
-          home-manager.nixosModules.home-manager
-          agenix.nixosModules.default
-          (import ./usb/usb-hyprland.nix)
-        ];
-        specialArgs = {
-          inherit inputs pkgs-unstable;
-        };
-      };
-    };
   in {
-    nixosConfigurations = builtins.listToAttrs (
-      pkgs.lib.flatten (
-        map
-        (
-          host: [
-            (build-target host)
-          ]
-        )
-        hosts
-        ++ [usb-image usb-tui usb-hyprland]
-      )
-    );
+    formatter.x86_64-linux = pkgs.alejandra;
+
+    devShells.x86_64-linux.default = pkgs.mkShell {
+      packages = [
+        (pkgs.writeShellApplication {
+          name = "size";
+          runtimeInputs = with pkgs; [coreutils gawk];
+          text = ''
+            system_path="$(readlink -f /run/current-system)"
+            nix path-info -rSh "$system_path" | tail -n 1 | awk '{print $2, $3}'
+          '';
+        })
+        (pkgs.writeShellApplication {
+          name = "format";
+          text = ''
+            nix fmt -- --exclude ./.git .
+          '';
+        })
+      ];
+    };
+
+    nixosConfigurations = builtins.listToAttrs (map build-target hosts);
   };
 }
