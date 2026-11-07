@@ -1,3 +1,4 @@
+# FIXME: belongs to user
 {
   environment.shellAliases = {
     # sys

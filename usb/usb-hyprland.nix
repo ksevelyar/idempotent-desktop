@@ -1,6 +1,7 @@
 args @ {
   lib,
   pkgs,
+  pkgs-unstable,
   ...
 }: {
   imports = [
@@ -22,7 +23,7 @@ args @ {
     ../services/net/sshd-debug.nix
     ../services/net/avahi.nix
 
-    ./persistent-disko.nix
+    ./usb-disco.nix
   ];
 
   home-manager.users.mr = {
@@ -80,6 +81,8 @@ args @ {
   networking.wireless.enable = lib.mkForce false;
 
   environment.systemPackages = with pkgs; [
+    pkgs-unstable.pi-coding-agent
+    xray
     neovim
     zoxide
     bat

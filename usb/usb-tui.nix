@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-unstable,
   lib,
   ...
 }: {
@@ -13,36 +14,64 @@
 
     ../services/net/sshd-debug.nix
     ../services/net/avahi.nix
+
+    ./usb-disco.nix
   ];
-  programs.fish.enable = true;
+
+  services.fstrim.enable = true;
+
+  services.journald.extraConfig = ''
+    RuntimeMaxUse=100M
+    RateLimitIntervalSec=30s
+    RateLimitBurst=2000
+  '';
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.supportedFilesystems = lib.mkForce {
+    btrfs = false;
+    cifs = false;
+    f2fs = false;
+    xfs = false;
+    zfs = false;
+  };
+  boot.loader.systemd-boot.configurationLimit = 1;
+  boot.tmp.useTmpfs = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = lib.mkForce false; # don't touch disk when booted from USB
+
+  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
+
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = "set fish_greeting";
+  };
   users.defaultUserShell = pkgs.fish;
 
-  services.getty.autologinUser = lib.mkForce "root";
+  services.getty.autologinUser = "root";
   users.users = {
     root = {
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOrgLo+NfYI06fdY1BamC5o2tNeRlw1ZuPAkyy41w0Ir ksevelyar@gmail.com"
       ];
-      initialHashedPassword = lib.mkForce null;
       initialPassword = lib.mkForce "id";
     };
   };
 
   environment.defaultPackages = [];
   environment.systemPackages = with pkgs; [
-    bash
+    pkgs-unstable.pi-coding-agent
+    xray
     neovim-unwrapped
     zoxide
     bat
     fd
     fzf
-    gitMinimal
     ripgrep
     tealdeer
     bottom
     ncdu
     rsync
-    macchina
+    fastfetch
 
     parted
     gptfdisk
@@ -60,17 +89,6 @@
     zip
     unzip
   ];
-
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.supportedFilesystems = lib.mkForce {
-    btrfs = false;
-    cifs = false;
-    f2fs = false;
-    xfs = false;
-    zfs = false;
-  };
-
-  isoImage.volumeID = lib.mkForce "nixos-usb";
 
   networking.hostName = lib.mkForce "id";
   networking.networkmanager.enable = true; # nmtui for wi-fi

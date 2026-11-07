@@ -30,6 +30,9 @@
     pkgs = (import nixpkgs) {
       system = "x86_64-linux";
     };
+    pkgs-unstable = import nixpkgs-unstable {
+      system = "x86_64-linux";
+    };
 
     hosts = map (pkgs.lib.removeSuffix ".nix") (
       pkgs.lib.attrNames (
@@ -53,7 +56,9 @@
 
           (import (./hosts + "/${host}.nix"))
         ];
-        specialArgs.inputs = inputs;
+        specialArgs = {
+          inherit inputs pkgs-unstable;
+        };
       };
     };
 
@@ -64,10 +69,14 @@
         modules = [
           "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
           nixpkgs.nixosModules.notDetected
+          home-manager.nixosModules.home-manager
           agenix.nixosModules.default
-          (import ./usb/image.nix)
+          (import ./users/root.nix)
+          (import ./usb/usb-image.nix)
         ];
-        specialArgs.inputs = inputs;
+        specialArgs = {
+          inherit inputs pkgs-unstable;
+        };
       };
     };
 
@@ -77,11 +86,15 @@
         system = "x86_64-linux";
         modules = [
           nixpkgs.nixosModules.notDetected
+          home-manager.nixosModules.home-manager
           agenix.nixosModules.default
           disko.nixosModules.disko
-          (import ./usb/persistent-tui.nix)
+          (import ./users/root.nix)
+          (import ./usb/usb-tui.nix)
         ];
-        specialArgs.inputs = inputs;
+        specialArgs = {
+          inherit inputs pkgs-unstable;
+        };
       };
     };
 
@@ -94,9 +107,11 @@
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
-          (import ./usb/persistent.nix)
+          (import ./usb/usb-hyprland.nix)
         ];
-        specialArgs.inputs = inputs;
+        specialArgs = {
+          inherit inputs pkgs-unstable;
+        };
       };
     };
   in {

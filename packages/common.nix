@@ -1,8 +1,7 @@
 {
-  config,
   inputs,
   pkgs,
-  lib,
+  pkgs-unstable,
   ...
 }: {
   programs.command-not-found.enable = true;
@@ -40,7 +39,8 @@
     translate-shell
     procs
     zellij
-    inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.opencode
+    pkgs-unstable.opencode
+    pkgs-unstable.pi-coding-agent
 
     # net
     iw

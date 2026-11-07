@@ -7,7 +7,6 @@ args @ {
   config,
   ...
 }: let
-  unstablePackages = args.inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
   joker-vim = pkgs.vimUtils.buildVimPlugin {
     name = "joker-vim";
     src = pkgs.fetchFromGitHub {
@@ -74,7 +73,6 @@ in {
     useGlobalPkgs = true;
     users.${user} = {
       home.stateVersion = "26.05";
-      home.packages = [unstablePackages.pi-coding-agent];
 
       home.file.".pi/agent/AGENTS.md".source = lib.mkDefault ../users/shared/pi/AGENTS.md;
       home.file.".pi/agent/extensions".source = lib.mkDefault ../users/shared/pi/extensions;
