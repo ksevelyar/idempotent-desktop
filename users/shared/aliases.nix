@@ -1,8 +1,6 @@
-# FIXME: belongs to user
-{
-  environment.shellAliases = {
-    # sys
-    j = "z"; # zoxide
+{lib, ...}: {
+  home.shellAliases = lib.mkDefault {
+    j = "z";
     h = "tldr";
     s = "sudo";
     clip = "xclip -selection clipboard";
@@ -13,49 +11,40 @@
     cat = "bat --style plain --pager never";
     y = "yt-dlp --proxy localhost:2080";
 
-    # learn
-    tr = "trans"; # https://github.com/soimort/translate-shell
+    tr = "trans";
 
-    # fs
     r = "rsync -ra --no-links --info=progress2";
     l = "ls -lahXF --group-directories-first";
     tree = "exa --tree";
-    u = "aunpack"; # one tool to unpack them all
+    u = "aunpack";
     fd = "fd --hidden --exclude .git";
 
-    # systemd
-    log = "sudo journalctl --output cat -u"; # log sshd -f
+    log = "sudo journalctl --output cat -u";
     log-previous-boot = "sudo journalctl --boot=-1";
     ss = "sudo systemctl stop";
     sr = "sudo systemctl restart";
     ssu = "systemctl stop --user";
     sru = "systemctl restart --user";
 
-    # vnc
     grab-display = "set DISPLAY ':0.0'";
     vnc-server = "x11vnc -repeat -forever -noxrecord -noxdamage -rfbport 5900";
     vnc = "vncviewer −FullscreenSystemKeys -MenuKey F12";
 
-    # nix
     e = "nvim /etc/nixos/configuration.nix";
-    b = "sudo nixos-rebuild switch --show-trace";
     search = "nix search nixpkgs";
     wipe-user-packages = "nix-env -e '*'";
     inspect-store = "nix path-info -rSh /run/current-system | sort -k2h ";
-    cachix-push = "sudo nix-store -qR --include-outputs /run/current-system | cachix push idempotent-desktop ";
+    cachix-push = "cachix push idempotent-desktop /run/current-system";
 
-    # vim
     v = "nvim";
 
     pi = "env HTTPS_PROXY=http://127.0.0.1:2081 pi";
     opencode = "env HTTPS_PROXY=http://127.0.0.1:2081 opencode";
 
-    # sec
     p = "gopass";
     pc = "gopass show -c";
     tor = "nix-shell -p tor-browser-bundle-bin --run tor-browser";
 
-    # git
     g = "git";
     gamend = "git add . && git commit --amend";
     gco = "git checkout";
@@ -67,6 +56,6 @@
     gfr = "git pull --rebase";
     gl = "git lg";
     gp = "git push";
-    gso = "git log -p --all --source -S "; # search string in all branches, gso <string>
+    gso = "git log -p --all --source -S ";
   };
 }

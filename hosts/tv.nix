@@ -20,7 +20,6 @@ args @ {
     ../hardware/ssd.nix
     ../hardware/power-management.nix
 
-    ../sys/aliases.nix
     ../sys/fonts.nix
     ../sys/nix.nix
     ../sys/sysctl.nix
@@ -29,7 +28,6 @@ args @ {
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
     ../packages/wayland-common.nix
-    ../packages/neovim.nix
     ../packages/pass.nix
 
     ../services/auto-mount.nix

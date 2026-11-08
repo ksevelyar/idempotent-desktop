@@ -8,18 +8,14 @@ args @ {
   email = "fomina-ioanna@rambler.ru";
   name = "Ioanna Fomina";
 in {
-  imports =
-    [
-      (import ./shared.nix (args
-        // {
-          user = user;
-          email = email;
-          name = name;
-        }))
-    ]
-    ++ [
-      (import ../packages/firefox.nix (args // {user = user;}))
-    ];
+  imports = [
+    (import ./shared.nix (args
+      // {
+        user = user;
+        email = email;
+        name = name;
+      }))
+  ];
 
   networking.extraHosts = ''
     127.0.0.1 dev.lcl

@@ -1,4 +1,4 @@
-args @ {
+{
   lib,
   pkgs,
   user,
@@ -6,26 +6,7 @@ args @ {
   name,
   config,
   ...
-}: let
-  joker-vim = pkgs.vimUtils.buildVimPlugin {
-    name = "joker-vim";
-    src = pkgs.fetchFromGitHub {
-      owner = "ksevelyar";
-      repo = "joker.vim";
-      rev = "main";
-      sha256 = "sha256-T7r8iDHr8hcVRNnozEqdq9Sl6VFXbQ8IWpRMWGEZBE4=";
-    };
-  };
-  direnv-nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "direnv-nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "NotAShelf";
-      repo = "direnv.nvim";
-      rev = "main";
-      sha256 = "sha256-b5PpmkYWaDGLNcu+36tRR5ycATHYBjs9WrV8/jfmooQ=";
-    };
-  };
-in {
+}: {
   users.users.${user} = {
     isNormalUser = true;
     description = name;
@@ -72,13 +53,15 @@ in {
     backupFileExtension = "hm-backup";
     useGlobalPkgs = true;
     users.${user} = {
-      home.stateVersion = "26.05";
+      imports = [
+        ./shared/aliases.nix
+        ./shared/default-apps.nix
+        ./shared/firefox.nix
+        ./shared/neovim.nix
+        ./shared/pi.nix
+      ];
 
-      home.file.".pi/agent/AGENTS.md".source = lib.mkDefault ../users/shared/pi/AGENTS.md;
-      home.file.".pi/agent/extensions".source = lib.mkDefault ../users/shared/pi/extensions;
-      home.file.".pi/agent/settings.json".source = lib.mkDefault ../users/shared/pi/settings.json;
-      home.file.".pi/agent/models.json".source = lib.mkDefault ../users/shared/pi/models.json;
-      home.file.".pi/agent/keybindings.json".source = lib.mkDefault ../users/shared/pi/keybindings.json;
+      home.stateVersion = "26.05";
 
       programs.fish = {
         enable = true;
@@ -88,94 +71,6 @@ in {
       home.file.".config/fish/functions/fish_print_git_action.fish".source = ../users/shared/fish/functions/fish_print_git_action.fish;
 
       programs.browserpass.enable = true;
-
-      xdg.mimeApps = {
-        enable = true;
-
-        defaultApplications = lib.mkDefault {
-          "inode/directory" = "nemo.desktop";
-
-          "x-scheme-handler/http" = "firefox.desktop";
-          "x-scheme-handler/https" = "firefox.desktop";
-          "text/html" = "firefox.desktop";
-
-          "video/*" = "mpv.desktop";
-          "video/x-matroska" = "mpv.desktop";
-          "video/mpeg" = "mpv.desktop";
-
-          "image/*" = "imv-dir.desktop";
-          "image/png" = "imv-dir.desktop";
-          "image/webp" = "imv-dir.desktop";
-          "image/gif" = "imv-dir.desktop";
-          "image/jpeg" = "imv-dir.desktop";
-
-          "text/plain" = "nvim.desktop";
-          "text/markdown" = "nvim.desktop";
-          "text/x-markdown" = "nvim.desktop";
-        };
-      };
-
-      xdg.desktopEntries = {
-        "nvim" = {
-          name = "Neovim";
-          exec = "alacritty -e nvim %F";
-          terminal = false;
-          mimeType = [
-            "text/plain"
-            "text/markdown"
-            "text/x-markdown"
-            "text/html"
-          ];
-          icon = "nvim";
-          categories = ["Utility" "TextEditor"];
-        };
-      };
-
-      programs.neovim = {
-        enable = true;
-        defaultEditor = true;
-        initLua = builtins.readFile ../users/shared/nvim/init.lua;
-
-        plugins = with pkgs.vimPlugins;
-          lib.mkDefault [
-            # auto load nix flakes
-            direnv-nvim
-
-            # UI
-            indent-blankline-nvim
-            lualine-nvim
-            nvim-web-devicons
-
-            # Navigation
-            telescope-nvim
-            plenary-nvim
-            nvim-tree-lua
-            leap-nvim
-
-            # Git
-            vim-fugitive
-            gitsigns-nvim
-
-            # LSP & Completion
-            nvim-lspconfig
-            nvim-cmp
-            cmp-nvim-lsp
-            cmp-buffer
-            cmp-path
-            cmp-cmdline
-            cmp-vsnip
-            vim-vsnip
-
-            # Syntax & Highlighting
-            nvim-treesitter.withAllGrammars
-            nvim-colorizer-lua
-            vim-openscad
-
-            # Themes
-            joker-vim
-            oxocarbon-nvim
-          ];
-      };
 
       services.mako = {
         enable = config.programs.hyprland.enable;

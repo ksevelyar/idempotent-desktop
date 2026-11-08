@@ -26,7 +26,6 @@ in {
     ../hardware/ssd.nix
     ../hardware/power-management.nix
 
-    ../sys/aliases.nix
     ../sys/nix.nix
     ../sys/sysctl.nix
     ../sys/tty.nix
@@ -37,7 +36,6 @@ in {
     ../packages/wayland-common.nix
     ../packages/3d-print.nix
     ../packages/games.nix
-    ../packages/neovim.nix
     ../packages/pass.nix
 
     ../services/wayland/hyprland.nix

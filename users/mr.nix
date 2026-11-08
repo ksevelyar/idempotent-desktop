@@ -8,18 +8,14 @@ args @ {
   email = "";
   name = "Mr Poppy Butthole";
 in {
-  imports =
-    [
-      (import ./shared.nix (args
-        // {
-          user = user;
-          email = email;
-          name = name;
-        }))
-    ]
-    ++ [
-      (import ../packages/firefox.nix (args // {user = user;}))
-    ];
+  imports = [
+    (import ./shared.nix (args
+      // {
+        user = user;
+        email = email;
+        name = name;
+      }))
+  ];
 
   users.users = {
     ${user} = {

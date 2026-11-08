@@ -9,7 +9,6 @@
     "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
     ../users/root.nix
 
-    ../sys/aliases.nix
     ../sys/tty.nix
     ../sys/sysctl.nix
     ../sys/nix.nix
@@ -40,7 +39,6 @@
     bash
     pkgs-unstable.pi-coding-agent
     xray
-    neovim-unwrapped
     zoxide
     bat
     fd

@@ -20,6 +20,17 @@ end
 fzf --fish | source
 zoxide init fish | source
 
+function b
+    sudo nixos-rebuild switch --show-trace
+    or return
+
+    if test -z "$CACHIX_AUTH_TOKEN"
+        return 0
+    end
+
+    cachix push idempotent-desktop /run/current-system
+end
+
 function pgen # pgen learn/edx.org
     gopass generate -s -c $argv[1] 42 # if you can type your password it's no good
 end

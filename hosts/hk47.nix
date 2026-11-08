@@ -22,7 +22,6 @@ args @ {
     ../hardware/pipewire.nix
     ../hardware/ssd.nix
 
-    ../sys/aliases.nix
     ../sys/fonts.nix
     ../sys/nix.nix
     ../sys/sysctl.nix
@@ -33,7 +32,6 @@ args @ {
     ../packages/common.nix
     ../packages/3d-print.nix
     ../packages/games.nix
-    ../packages/neovim.nix
     ../packages/pass.nix
     ../packages/spotify.nix
     ../packages/electronics.nix

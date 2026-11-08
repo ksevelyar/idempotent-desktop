@@ -10,13 +10,11 @@ args @ {
     ../users/mr.nix
     ../users/root.nix
 
-    ../sys/aliases.nix
     ../sys/tty.nix
     ../sys/sysctl.nix
     ../sys/nix.nix
 
     ../packages/wayland-common.nix
-    ../packages/neovim.nix
     ../packages/absolutely-proprietary.nix
     ../packages/pass.nix
 
@@ -120,7 +118,6 @@ args @ {
   environment.systemPackages = with pkgs; [
     pkgs-unstable.pi-coding-agent
     xray
-    neovim
     zoxide
     bat
     fd

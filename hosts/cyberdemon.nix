@@ -18,7 +18,6 @@
     ../hardware/intel-cpu.nix
     ../hardware/intel-gpu.nix
 
-    ../sys/aliases.nix
     ../sys/nix.nix
     ../sys/sysctl.nix
     ../sys/tty.nix
@@ -27,7 +26,6 @@
     ../packages/absolutely-proprietary.nix
     ../packages/common.nix
     ../packages/games.nix
-    ../packages/neovim.nix
     ../packages/wayland-common.nix
 
     ../services/journald.nix

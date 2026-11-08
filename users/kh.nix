@@ -15,7 +15,6 @@ in {
         email = email;
         name = name;
       }))
-    (import ../packages/firefox.nix (args // {user = user;}))
   ];
 
   home-manager = {

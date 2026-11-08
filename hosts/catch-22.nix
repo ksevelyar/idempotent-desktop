@@ -16,7 +16,6 @@ args @ {
     ../hardware/pipewire.nix
     ../hardware/ssd.nix
 
-    ../sys/aliases.nix
     ../sys/nix.nix
     ../sys/sysctl.nix
     ../sys/tty.nix
@@ -28,7 +27,6 @@ args @ {
     ../packages/3d-print.nix
     ../packages/electronics.nix
     ../packages/games.nix
-    ../packages/neovim.nix
     ../packages/pass.nix
     ../packages/spotify.nix
 

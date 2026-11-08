@@ -18,7 +18,6 @@ args @ {
     ../hardware/ssd.nix
     ../hardware/multiboot.nix
 
-    ../sys/aliases.nix
     ../sys/fonts.nix
     ../sys/nix.nix
     ../sys/sysctl.nix
@@ -30,7 +29,6 @@ args @ {
     ../packages/3d-print.nix
     ../packages/electronics.nix
     ../packages/games.nix
-    ../packages/neovim.nix
     ../packages/pass.nix
     ../packages/office.nix
     ../packages/obs-studio.nix

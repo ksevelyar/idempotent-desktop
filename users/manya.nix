@@ -16,7 +16,6 @@ in {
         email = email;
         name = name;
       }))
-    (import ../packages/firefox.nix (args // {user = user;}))
   ];
 
   boot.loader.grub.splashImage = lib.mkForce ../assets/wallpapers/planet.png;
