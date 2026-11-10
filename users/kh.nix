@@ -27,6 +27,11 @@ in {
     127.0.0.1 dev.lcl market.lcl
   '';
 
+  age.identityPaths = [
+    "/home/${user}/.ssh/id_ed25519"
+    "/home/${user}/.ssh/id_rsa"
+    "/etc/ssh/ssh_host_ed25519_key"
+  ];
   age.secrets.kh-xray-json = {
     file = ../secrets/kh/xray-xhttp.age;
   };

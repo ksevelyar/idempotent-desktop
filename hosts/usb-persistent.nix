@@ -151,5 +151,6 @@ args @ {
     brightnessctl
 
     discord-canary
+    obsidian
   ];
 }

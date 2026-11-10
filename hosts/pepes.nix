@@ -56,7 +56,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     foliate
-    obsidian
+    # obsidian
     mattermost
     asciinema
     gnumake
