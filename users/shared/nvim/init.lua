@@ -136,9 +136,48 @@ vim.lsp.enable('postgres_lsp')
 
 vim.lsp.config('ts_ls', {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
+  filetypes = {
+    'javascript',
+    'javascriptreact',
+    'typescript',
+    'typescriptreact'
+  }
 })
 vim.lsp.enable('ts_ls')
+
+local vue_typescript_plugin = {
+  name = '@vue/typescript-plugin',
+  location = vim.env.VUE_LANGUAGE_SERVER_PATH,
+  languages = { 'vue' },
+  configNamespace = 'typescript'
+}
+
+local vtsls_config = {
+  cmd = { 'vtsls', '--stdio' },
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { 'vue' },
+  settings = {
+    vtsls = {
+      tsserver = {
+        globalPlugins = {
+          vue_typescript_plugin
+        }
+      }
+    }
+  }
+}
+
+local vue_ls_config = {
+  cmd = { 'vue-language-server', '--stdio' },
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+vim.lsp.config('vtsls', vtsls_config)
+vim.lsp.config('vue_ls', vue_ls_config)
+vim.lsp.enable({ 'vtsls', 'vue_ls' })
 
 vim.lsp.config('nil_ls', {
   on_attach = on_attach,
