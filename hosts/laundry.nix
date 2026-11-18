@@ -8,6 +8,7 @@ args @ {
   imports = [
     ../users/ksevelyar.nix
     ../users/kavarkon.nix
+    ../users/kh.nix
     ../users/root.nix
 
     ../hardware/efi.nix
@@ -91,6 +92,16 @@ args @ {
     home.file.".config/alacritty/alacritty.toml".source = ../users/ksevelyar/laundry/alacritty/alacritty.toml;
   };
 
+  home-manager.users.kh = {
+    home.file.".config/hypr/hypridle.conf".source = ../users/ksevelyar/laundry/hypr/hypridle.conf;
+    home.file.".config/hypr/hyprland.conf".source = ../users/ksevelyar/laundry/hypr/hyprland.conf;
+    home.file.".config/waybar/config-top".source = ../users/ksevelyar/laundry/waybar/waybar-top.json;
+    home.file.".config/waybar/config-bottom".source = ../users/ksevelyar/laundry/waybar/waybar-bottom.json;
+    home.file.".config/waybar/style.css".source = ../users/ksevelyar/laundry/waybar/waybar.css;
+
+    home.file.".config/alacritty/alacritty.toml".source = ../users/ksevelyar/laundry/alacritty/alacritty.toml;
+  };
+
   home-manager.users.ksevelyar = {
     services.syncthing = {
       enable = true;
@@ -124,26 +135,6 @@ args @ {
         };
       };
     };
-  };
-
-  services.zapret = {
-    enable = true;
-    configureFirewall = true;
-
-    whitelist = [
-      "youtube.com"
-      "googlevideo.com"
-      "ytimg.com"
-      "youtu.be"
-    ];
-
-    params = [
-      "--dpi-desync=fake"
-      "--dpi-desync-fooling=badseq"
-      "--dpi-desync-fake-tls=0x00000000"
-      "--dpi-desync-fake-tls=!"
-      "--dpi-desync-fake-tls-mod=rnd,rndsni,dupsid"
-    ];
   };
 
   services.xray = {

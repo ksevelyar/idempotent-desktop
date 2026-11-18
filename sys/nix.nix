@@ -12,6 +12,7 @@
 
     settings = {
       experimental-features = ["nix-command" "flakes"];
+      trusted-users = ["root" "@wheel"];
 
       # NOTE: fail curl after 5 seconds, rebuild from source if fetching cache fails
       connect-timeout = 20;

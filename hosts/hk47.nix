@@ -57,6 +57,7 @@ args @ {
     ffmpeg
     aria2
     android-tools
+    blender
   ];
 
   home-manager.users.ksevelyar = {
