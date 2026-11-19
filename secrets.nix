@@ -13,7 +13,7 @@ let
 in {
   # shared
   "secrets/shared/idempotent-desktop.age".publicKeys = users ++ systems;
-  "secrets/shared/wifi.age".publicKeys = users ++ systems;
+  "secrets/shared/network-manager.age".publicKeys = users ++ systems;
 
   # ksevelyar
   "secrets/ksevelyar/xray.age".publicKeys = [ksevelyar hk47 laundry];
