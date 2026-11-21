@@ -8,7 +8,7 @@
   "modelThinkingLevels": {
     "openai/gpt-6-luna": "max",
     "openrouter/z-ai/glm-5.3-flash": "low",
-    "openai/gpt-6.1-terra": "medium",
+    "openai/gpt-6.1-terra": "high",
     "llama.cpp/Qwen3.8-27B-UD-Q3_K_XL": "low",
     "llama.cpp/Qwen3.6-27B-Q3_K_M-mtp": "low"
   }
