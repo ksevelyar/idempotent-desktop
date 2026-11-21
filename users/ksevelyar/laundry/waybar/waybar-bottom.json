@@ -21,14 +21,14 @@
   ],
   "battery": {
     "states": {
-      "good": 95,
       "warning": 30,
       "critical": 15
     },
-    "format": "<span color='#6a6a7a'>{icon}</span> {time}",
-    "tooltip-format": "{capacity}%",
+    "format": "<span color='#6a6a7a'>󰁹</span> {capacity}%",
+    "format-charging": "<span color='#6a6a7a'>󰚥</span> {capacity}%",
+    "format-plugged": "<span color='#6a6a7a'>󰚥</span> {capacity}%",
+    "tooltip-format": "{time}",
     "format-time": "{H}:{M}",
-    "format-icons": ["", "", "", "", ""],
   },
   "hyprland/workspaces": {
     "disable-scroll": true,
