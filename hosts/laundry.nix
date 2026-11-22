@@ -49,6 +49,11 @@ args @ {
     ../services/vm/docker.nix
   ];
 
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+  };
+
   networking.hostName = "laundry";
   networking.useDHCP = false;
   networking.interfaces.wlp0s20f3.useDHCP = true;

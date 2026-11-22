@@ -48,6 +48,10 @@ in {
     ../services/net/avahi.nix
     # ../services/net/dns.nix
   ];
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+  };
 
   services.xray = {
     enable = true;
