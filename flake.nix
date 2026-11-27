@@ -16,6 +16,9 @@
 
     disko.url = "github:nix-community/disko/latest";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    shodan.url = "github:ksevelyar/shodan";
+    shodan.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -25,6 +28,7 @@
     flake-programs-sqlite,
     agenix,
     disko,
+    shodan,
     nixpkgs-unstable,
   } @ inputs: let
     pkgs = (import nixpkgs) {

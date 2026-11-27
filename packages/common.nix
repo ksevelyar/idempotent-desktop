@@ -21,6 +21,7 @@
     # sys
     inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.disko.packages.${pkgs.stdenv.hostPlatform.system}.disko
+    inputs.shodan.packages.${pkgs.stdenv.hostPlatform.system}.default
     strace
     nix-tree
     direnv
