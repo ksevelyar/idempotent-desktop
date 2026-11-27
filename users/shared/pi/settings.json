@@ -1,15 +1,16 @@
 {
   "enabledModels": [
-    "openai/gpt-6-luna",
     "openai/gpt-6.1-terra",
+    "openai/gpt-6-luna",
     "openrouter/z-ai/glm-5.3-flash",
-    "openrouter/deepseek/deepseek-v4.1-flash"
+    "llama.cpp/Qwen3.8-27B-UD-IQ4_XS",
+    "llama.cpp/Inkling-2-Mini-UD-IQ3_XXS"
   ],
   "modelThinkingLevels": {
+    "openai/gpt-6.1-terra": "high",
     "openai/gpt-6-luna": "max",
     "openrouter/z-ai/glm-5.3-flash": "low",
-    "openai/gpt-6.1-terra": "high",
-    "llama.cpp/Qwen3.8-27B-UD-Q3_K_XL": "low",
-    "llama.cpp/Qwen3.6-27B-Q3_K_M-mtp": "low"
+    "llama.cpp/Qwen3.8-27B-UD-IQ4_XS": "low",
+    "llama.cpp/Inkling-2-Mini-UD-IQ3_XXS": "low"
   }
 }

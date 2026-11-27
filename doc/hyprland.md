@@ -51,6 +51,8 @@
 
 `<Print>` Screenshot the region
 
+`Ctrl <Print>` Screenshot a selected window
+
 `mod <Print>` Screenshot the whole screen
 
 `mod k` Copy color under cursor to the clipboard
