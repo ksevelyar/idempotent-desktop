@@ -65,7 +65,7 @@
 
       programs.fish = {
         enable = true;
-        interactiveShellInit = builtins.readFile ../users/shared/fish/config.fish;
+        interactiveShellInit = (builtins.readFile ../users/shared/fish/config.fish) + "\n" + (builtins.readFile ../users/shared/fish/mpv.fish);
       };
       home.file.".config/fish/functions/fish_prompt.fish".source = ../users/shared/fish/functions/fish_prompt.fish;
       home.file.".config/fish/functions/fish_print_git_action.fish".source = ../users/shared/fish/functions/fish_print_git_action.fish;
