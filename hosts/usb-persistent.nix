@@ -11,6 +11,7 @@ args @ {
     ../users/root.nix
 
     ../sys/tty.nix
+    ../hardware/zram.nix
     ../sys/sysctl.nix
     ../sys/nix.nix
 

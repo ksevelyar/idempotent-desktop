@@ -9,6 +9,7 @@
     ../users/root.nix
 
     ../hardware/efi.nix
+    ../hardware/zram.nix
     ../hardware/multiboot.nix
     ../hardware/power-management.nix
     ../hardware/bluetooth.nix

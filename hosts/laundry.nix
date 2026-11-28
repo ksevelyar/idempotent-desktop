@@ -12,6 +12,7 @@ args @ {
     ../users/root.nix
 
     ../hardware/efi.nix
+    ../hardware/zram.nix
     ../hardware/multiboot.nix
     ../hardware/bluetooth.nix
     ../hardware/mouse.nix
@@ -49,10 +50,6 @@ args @ {
     ../services/vm/docker.nix
   ];
 
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-  };
 
   networking.hostName = "laundry";
   networking.useDHCP = false;

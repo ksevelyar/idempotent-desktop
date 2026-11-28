@@ -17,6 +17,7 @@ in {
     ../users/root.nix
 
     ../hardware/efi.nix
+    ../hardware/zram.nix
     ../hardware/multiboot.nix
     ../hardware/bluetooth.nix
     ../hardware/mouse.nix
@@ -48,10 +49,6 @@ in {
     ../services/net/avahi.nix
     # ../services/net/dns.nix
   ];
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-  };
 
   services.xray = {
     enable = true;

@@ -10,6 +10,7 @@ args @ {
     ../users/root.nix
 
     ../hardware/efi.nix
+    ../hardware/zram.nix
     ../hardware/multiboot.nix
     ../hardware/bluetooth.nix
     ../hardware/mouse.nix
@@ -44,10 +45,6 @@ args @ {
   ];
 
   nix.settings.max-jobs = 2;
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-  };
 
   networking.hostName = "baton";
   networking.useDHCP = false;

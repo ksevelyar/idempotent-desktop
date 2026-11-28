@@ -10,6 +10,7 @@ args @ {
     ../users/root.nix
 
     ../hardware/efi.nix
+    ../hardware/zram.nix
     ../hardware/bluetooth.nix
     ../hardware/mouse.nix
     ../hardware/amd-cpu.nix

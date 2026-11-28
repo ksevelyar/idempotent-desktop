@@ -9,6 +9,7 @@ args @ {
     ../users/root.nix
 
     ../hardware/efi.nix
+    ../hardware/zram.nix
     ../hardware/multiboot.nix
     ../hardware/bluetooth.nix
     ../hardware/intel-cpu.nix
